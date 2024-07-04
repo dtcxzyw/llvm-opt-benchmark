@@ -2390,23 +2390,23 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevInfo0(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetCharDevInfo0, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevInfo0_device, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevInfo0_device_, i32 noundef 2, ptr noundef nonnull @.str.1101, i32 noundef %32) #4
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevInfo0_device_, i32 noundef 2, ptr noundef nonnull @.str.1101, i32 noundef %32) #4
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -2473,25 +2473,25 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevCtr0(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetCharDevCtr0, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevCtr0_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevCtr0_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevCtr0_array_, i32 noundef 2, ptr noundef nonnull @.str.1103, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevCtr0_array_, i32 noundef 2, ptr noundef nonnull @.str.1103, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -2554,29 +2554,29 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevInfo1(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.050 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetCharDevInfo1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.050 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.049 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.049 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevInfo1_device, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevInfo1_device_, i32 noundef 2, ptr noundef nonnull @.str.1101, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevInfo1_device_, i32 noundef 2, ptr noundef nonnull @.str.1101, i32 noundef %32) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevInfo1_status, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevInfo1_user, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevInfo1_user_, i32 noundef 2, ptr noundef nonnull @.str.1104, i32 noundef %36) #4
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevInfo1_user_, i32 noundef 2, ptr noundef nonnull @.str.1104, i32 noundef %36) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevInfo1_time, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
-  %40 = sub i32 %39, %.0
-  tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %40 = sub i32 %39, %.050
+  tail call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #4
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
@@ -2639,25 +2639,25 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevCtr1(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetCharDevCtr1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevCtr1_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevCtr1_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1105, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1105, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -2722,36 +2722,36 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevInfoCtr(ptr noundef %0, i32 n
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.038 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %31 = load i32, ptr @ett_srvsvc_srvsvc_NetCharDevInfoCtr, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #4
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.038 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.037 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.037 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevInfoCtr_level, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevInfoCtr_ctr, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.037, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %40, label %37
 
 37:                                               ; preds = %33
   %38 = load i32, ptr @ett_srvsvc_srvsvc_NetCharDevCtr, align 4
-  %39 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.037, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull @.str.1106) #4
+  %39 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull @.str.1106) #4
   br label %40
 
 40:                                               ; preds = %37, %33
-  %.033.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
-  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
+  %.0.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
   %42 = load ptr, ptr %11, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
@@ -2785,7 +2785,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevInfoCtr(ptr noundef %0, i32 n
   br label %58
 
 58:                                               ; preds = %55, %53, %50, %48
-  %.0.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
+  %.033.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
   %59 = load i32, ptr %10, align 4
   switch i32 %59, label %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit [
     i32 0, label %60
@@ -2794,23 +2794,23 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevInfoCtr(ptr noundef %0, i32 n
 
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevCtr_ctr0, align 4
-  %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1107, i32 noundef %61) #4
+  %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.033.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1107, i32 noundef %61) #4
   br label %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevCtr_ctr1, align 4
-  %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1108, i32 noundef %64) #4
+  %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.033.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1108, i32 noundef %64) #4
   br label %srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit
 
 srvsvc_dissect_element_NetCharDevInfoCtr_ctr.exit: ; preds = %58, %60, %63
-  %.1.i.i = phi i32 [ %.0.i.i, %58 ], [ %65, %63 ], [ %62, %60 ]
+  %.1.i.i = phi i32 [ %.033.i.i, %58 ], [ %65, %63 ], [ %62, %60 ]
   %66 = load ptr, ptr %9, align 8
   %67 = sub i32 %.1.i.i, %35
   call void @proto_item_set_len(ptr noundef %66, i32 noundef %67) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %68 = sub i32 %.1.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %68) #4
+  %68 = sub i32 %.1.i.i, %.038
+  call void @proto_item_set_len(ptr noundef %.037, i32 noundef %68) #4
   %69 = load ptr, ptr %11, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 96
   %71 = load i32, ptr %70, align 8
@@ -2872,23 +2872,23 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQInfo0(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetCharDevQInfo0, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQInfo0_device, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQInfo0_device_, i32 noundef 2, ptr noundef nonnull @.str.1101, i32 noundef %32) #4
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQInfo0_device_, i32 noundef 2, ptr noundef nonnull @.str.1101, i32 noundef %32) #4
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -2951,25 +2951,25 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQCtr0(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetCharDevQCtr0, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQCtr0_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQCtr0_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQCtr0_array_, i32 noundef 2, ptr noundef nonnull @.str.1109, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQCtr0_array_, i32 noundef 2, ptr noundef nonnull @.str.1109, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -3032,31 +3032,31 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQInfo1(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.056 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetCharDevQInfo1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.056 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.055 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.055 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQInfo1_device, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQInfo1_device_, i32 noundef 2, ptr noundef nonnull @.str.1101, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQInfo1_device_, i32 noundef 2, ptr noundef nonnull @.str.1101, i32 noundef %32) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQInfo1_priority, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQInfo1_devices, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQInfo1_devices_, i32 noundef 2, ptr noundef nonnull @.str.1110, i32 noundef %36) #4
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQInfo1_devices_, i32 noundef 2, ptr noundef nonnull @.str.1110, i32 noundef %36) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQInfo1_users, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQInfo1_num_ahead, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
-  %42 = sub i32 %41, %.0
-  tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #4
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
+  %42 = sub i32 %41, %.056
+  tail call void @proto_item_set_len(ptr noundef %.055, i32 noundef %42) #4
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -3119,25 +3119,25 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQCtr1(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetCharDevQCtr1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQCtr1_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQCtr1_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1111, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1111, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -3202,36 +3202,36 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQInfoCtr(ptr noundef %0, i32 
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.038 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %31 = load i32, ptr @ett_srvsvc_srvsvc_NetCharDevQInfoCtr, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #4
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.038 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.037 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.037 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQInfoCtr_level, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQInfoCtr_ctr, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.037, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %40, label %37
 
 37:                                               ; preds = %33
   %38 = load i32, ptr @ett_srvsvc_srvsvc_NetCharDevQCtr, align 4
-  %39 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.037, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull @.str.1112) #4
+  %39 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull @.str.1112) #4
   br label %40
 
 40:                                               ; preds = %37, %33
-  %.033.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
-  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
+  %.0.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
   %42 = load ptr, ptr %11, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
@@ -3265,7 +3265,7 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQInfoCtr(ptr noundef %0, i32 
   br label %58
 
 58:                                               ; preds = %55, %53, %50, %48
-  %.0.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
+  %.033.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
   %59 = load i32, ptr %10, align 4
   switch i32 %59, label %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit [
     i32 0, label %60
@@ -3274,23 +3274,23 @@ define hidden i32 @srvsvc_dissect_struct_NetCharDevQInfoCtr(ptr noundef %0, i32 
 
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQCtr_ctr0, align 4
-  %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1113, i32 noundef %61) #4
+  %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.033.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1113, i32 noundef %61) #4
   br label %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQCtr_ctr1, align 4
-  %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1114, i32 noundef %64) #4
+  %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.033.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1114, i32 noundef %64) #4
   br label %srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit
 
 srvsvc_dissect_element_NetCharDevQInfoCtr_ctr.exit: ; preds = %58, %60, %63
-  %.1.i.i = phi i32 [ %.0.i.i, %58 ], [ %65, %63 ], [ %62, %60 ]
+  %.1.i.i = phi i32 [ %.033.i.i, %58 ], [ %65, %63 ], [ %62, %60 ]
   %66 = load ptr, ptr %9, align 8
   %67 = sub i32 %.1.i.i, %35
   call void @proto_item_set_len(ptr noundef %66, i32 noundef %67) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %68 = sub i32 %.1.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %68) #4
+  %68 = sub i32 %.1.i.i, %.038
+  call void @proto_item_set_len(ptr noundef %.037, i32 noundef %68) #4
   %69 = load ptr, ptr %11, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 96
   %71 = load i32, ptr %70, align 8
@@ -3326,23 +3326,23 @@ define hidden i32 @srvsvc_dissect_struct_NetConnInfo0(ptr noundef %0, i32 nounde
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetConnInfo0, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetConnInfo0_conn_id, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -3405,25 +3405,25 @@ define hidden i32 @srvsvc_dissect_struct_NetConnCtr0(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetConnCtr0, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetConnCtr0_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetConnCtr0_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetConnCtr0_array_, i32 noundef 2, ptr noundef nonnull @.str.1115, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetConnCtr0_array_, i32 noundef 2, ptr noundef nonnull @.str.1115, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -3486,35 +3486,35 @@ define hidden i32 @srvsvc_dissect_struct_NetConnInfo1(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.068 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not74 = icmp eq ptr %3, null
   br i1 %.not74, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.068, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetConnInfo1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.068 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.067 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.067 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetConnInfo1_conn_id, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.068, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetConnInfo1_conn_type, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetConnInfo1_num_open, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetConnInfo1_num_users, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetConnInfo1_conn_time, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
   %42 = load i32, ptr @hf_srvsvc_srvsvc_NetConnInfo1_user, align 4
-  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetConnInfo1_user_, i32 noundef 2, ptr noundef nonnull @.str.1104, i32 noundef %42) #4
+  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetConnInfo1_user_, i32 noundef 2, ptr noundef nonnull @.str.1104, i32 noundef %42) #4
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetConnInfo1_share, align 4
-  %45 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetConnInfo1_share_, i32 noundef 2, ptr noundef nonnull @.str.1116, i32 noundef %44) #4
-  %46 = sub i32 %45, %.0
-  tail call void @proto_item_set_len(ptr noundef %.068, i32 noundef %46) #4
+  %45 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetConnInfo1_share_, i32 noundef 2, ptr noundef nonnull @.str.1116, i32 noundef %44) #4
+  %46 = sub i32 %45, %.068
+  tail call void @proto_item_set_len(ptr noundef %.067, i32 noundef %46) #4
   %47 = load ptr, ptr %9, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 96
   %49 = load i32, ptr %48, align 8
@@ -3577,25 +3577,25 @@ define hidden i32 @srvsvc_dissect_struct_NetConnCtr1(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetConnCtr1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetConnCtr1_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetConnCtr1_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetConnCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1117, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetConnCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1117, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -3660,36 +3660,36 @@ define hidden i32 @srvsvc_dissect_struct_NetConnInfoCtr(ptr noundef %0, i32 noun
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.038 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %31 = load i32, ptr @ett_srvsvc_srvsvc_NetConnInfoCtr, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #4
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.038 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.037 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.037 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetConnInfoCtr_level, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetConnInfoCtr_ctr, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.037, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %40, label %37
 
 37:                                               ; preds = %33
   %38 = load i32, ptr @ett_srvsvc_srvsvc_NetConnCtr, align 4
-  %39 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.037, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull @.str.1118) #4
+  %39 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull @.str.1118) #4
   br label %40
 
 40:                                               ; preds = %37, %33
-  %.033.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
-  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
+  %.0.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
   %42 = load ptr, ptr %11, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
@@ -3723,7 +3723,7 @@ define hidden i32 @srvsvc_dissect_struct_NetConnInfoCtr(ptr noundef %0, i32 noun
   br label %58
 
 58:                                               ; preds = %55, %53, %50, %48
-  %.0.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
+  %.033.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
   %59 = load i32, ptr %10, align 4
   switch i32 %59, label %srvsvc_dissect_element_NetConnInfoCtr_ctr.exit [
     i32 0, label %60
@@ -3732,23 +3732,23 @@ define hidden i32 @srvsvc_dissect_struct_NetConnInfoCtr(ptr noundef %0, i32 noun
 
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_srvsvc_srvsvc_NetConnCtr_ctr0, align 4
-  %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetConnCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1119, i32 noundef %61) #4
+  %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.033.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetConnCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1119, i32 noundef %61) #4
   br label %srvsvc_dissect_element_NetConnInfoCtr_ctr.exit
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_srvsvc_srvsvc_NetConnCtr_ctr1, align 4
-  %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetConnCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1120, i32 noundef %64) #4
+  %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.033.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetConnCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1120, i32 noundef %64) #4
   br label %srvsvc_dissect_element_NetConnInfoCtr_ctr.exit
 
 srvsvc_dissect_element_NetConnInfoCtr_ctr.exit:   ; preds = %58, %60, %63
-  %.1.i.i = phi i32 [ %.0.i.i, %58 ], [ %65, %63 ], [ %62, %60 ]
+  %.1.i.i = phi i32 [ %.033.i.i, %58 ], [ %65, %63 ], [ %62, %60 ]
   %66 = load ptr, ptr %9, align 8
   %67 = sub i32 %.1.i.i, %35
   call void @proto_item_set_len(ptr noundef %66, i32 noundef %67) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %68 = sub i32 %.1.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %68) #4
+  %68 = sub i32 %.1.i.i, %.038
+  call void @proto_item_set_len(ptr noundef %.037, i32 noundef %68) #4
   %69 = load ptr, ptr %11, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 96
   %71 = load i32, ptr %70, align 8
@@ -3784,23 +3784,23 @@ define hidden i32 @srvsvc_dissect_struct_NetFileInfo2(ptr noundef %0, i32 nounde
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetFileInfo2, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetFileInfo2_fid, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -3863,25 +3863,25 @@ define hidden i32 @srvsvc_dissect_struct_NetFileCtr2(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetFileCtr2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetFileCtr2_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetFileCtr2_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileCtr2_array_, i32 noundef 2, ptr noundef nonnull @.str.1121, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileCtr2_array_, i32 noundef 2, ptr noundef nonnull @.str.1121, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -3944,31 +3944,31 @@ define hidden i32 @srvsvc_dissect_struct_NetFileInfo3(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.056 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetFileInfo3, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.056 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.055 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.055 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetFileInfo3_fid, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetFileInfo3_permissions, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetFileInfo3_num_locks, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetFileInfo3_path, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileInfo3_path_, i32 noundef 2, ptr noundef nonnull @.str.1122, i32 noundef %38) #4
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileInfo3_path_, i32 noundef 2, ptr noundef nonnull @.str.1122, i32 noundef %38) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetFileInfo3_user, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileInfo3_user_, i32 noundef 2, ptr noundef nonnull @.str.1104, i32 noundef %40) #4
-  %42 = sub i32 %41, %.0
-  tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #4
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileInfo3_user_, i32 noundef 2, ptr noundef nonnull @.str.1104, i32 noundef %40) #4
+  %42 = sub i32 %41, %.056
+  tail call void @proto_item_set_len(ptr noundef %.055, i32 noundef %42) #4
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -4031,25 +4031,25 @@ define hidden i32 @srvsvc_dissect_struct_NetFileCtr3(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetFileCtr3, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetFileCtr3_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetFileCtr3_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileCtr3_array_, i32 noundef 2, ptr noundef nonnull @.str.1123, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileCtr3_array_, i32 noundef 2, ptr noundef nonnull @.str.1123, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4114,36 +4114,36 @@ define hidden i32 @srvsvc_dissect_struct_NetFileInfoCtr(ptr noundef %0, i32 noun
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.038 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %31 = load i32, ptr @ett_srvsvc_srvsvc_NetFileInfoCtr, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #4
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.038 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.037 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.037 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetFileInfoCtr_level, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetFileInfoCtr_ctr, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.037, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %40, label %37
 
 37:                                               ; preds = %33
   %38 = load i32, ptr @ett_srvsvc_srvsvc_NetFileCtr, align 4
-  %39 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.037, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull @.str.1124) #4
+  %39 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull @.str.1124) #4
   br label %40
 
 40:                                               ; preds = %37, %33
-  %.033.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
-  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
+  %.0.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
   %42 = load ptr, ptr %11, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
@@ -4177,7 +4177,7 @@ define hidden i32 @srvsvc_dissect_struct_NetFileInfoCtr(ptr noundef %0, i32 noun
   br label %58
 
 58:                                               ; preds = %55, %53, %50, %48
-  %.0.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
+  %.033.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
   %59 = load i32, ptr %10, align 4
   switch i32 %59, label %srvsvc_dissect_element_NetFileInfoCtr_ctr.exit [
     i32 2, label %60
@@ -4186,23 +4186,23 @@ define hidden i32 @srvsvc_dissect_struct_NetFileInfoCtr(ptr noundef %0, i32 noun
 
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_srvsvc_srvsvc_NetFileCtr_ctr2, align 4
-  %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileCtr_ctr2_, i32 noundef 2, ptr noundef nonnull @.str.1125, i32 noundef %61) #4
+  %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.033.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileCtr_ctr2_, i32 noundef 2, ptr noundef nonnull @.str.1125, i32 noundef %61) #4
   br label %srvsvc_dissect_element_NetFileInfoCtr_ctr.exit
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_srvsvc_srvsvc_NetFileCtr_ctr3, align 4
-  %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileCtr_ctr3_, i32 noundef 2, ptr noundef nonnull @.str.1126, i32 noundef %64) #4
+  %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.033.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileCtr_ctr3_, i32 noundef 2, ptr noundef nonnull @.str.1126, i32 noundef %64) #4
   br label %srvsvc_dissect_element_NetFileInfoCtr_ctr.exit
 
 srvsvc_dissect_element_NetFileInfoCtr_ctr.exit:   ; preds = %58, %60, %63
-  %.1.i.i = phi i32 [ %.0.i.i, %58 ], [ %65, %63 ], [ %62, %60 ]
+  %.1.i.i = phi i32 [ %.033.i.i, %58 ], [ %65, %63 ], [ %62, %60 ]
   %66 = load ptr, ptr %9, align 8
   %67 = sub i32 %.1.i.i, %35
   call void @proto_item_set_len(ptr noundef %66, i32 noundef %67) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %68 = sub i32 %.1.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %68) #4
+  %68 = sub i32 %.1.i.i, %.038
+  call void @proto_item_set_len(ptr noundef %.037, i32 noundef %68) #4
   %69 = load ptr, ptr %11, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 96
   %71 = load i32, ptr %70, align 8
@@ -4264,23 +4264,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfo0(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSessInfo0, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo0_client, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo0_client_, i32 noundef 2, ptr noundef nonnull @.str.1127, i32 noundef %32) #4
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo0_client_, i32 noundef 2, ptr noundef nonnull @.str.1127, i32 noundef %32) #4
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -4343,25 +4343,25 @@ define hidden i32 @srvsvc_dissect_struct_NetSessCtr0(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSessCtr0, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr0_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr0_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr0_array_, i32 noundef 2, ptr noundef nonnull @.str.1128, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr0_array_, i32 noundef 2, ptr noundef nonnull @.str.1128, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4424,33 +4424,33 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfo1(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.062 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not68 = icmp eq ptr %3, null
   br i1 %.not68, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.062, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSessInfo1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.062 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.061 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.061 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo1_client, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo1_client_, i32 noundef 2, ptr noundef nonnull @.str.1127, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.062, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo1_client_, i32 noundef 2, ptr noundef nonnull @.str.1127, i32 noundef %32) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo1_user, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo1_user_, i32 noundef 2, ptr noundef nonnull @.str.1104, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo1_user_, i32 noundef 2, ptr noundef nonnull @.str.1104, i32 noundef %34) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo1_num_open, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo1_time, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo1_idle_time, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
   %42 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo1_user_flags, align 4
-  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
-  %44 = sub i32 %43, %.0
-  tail call void @proto_item_set_len(ptr noundef %.062, i32 noundef %44) #4
+  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
+  %44 = sub i32 %43, %.062
+  tail call void @proto_item_set_len(ptr noundef %.061, i32 noundef %44) #4
   %45 = load ptr, ptr %9, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8
@@ -4513,25 +4513,25 @@ define hidden i32 @srvsvc_dissect_struct_NetSessCtr1(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSessCtr1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr1_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr1_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1129, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1129, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4594,35 +4594,35 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfo2(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.068 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not74 = icmp eq ptr %3, null
   br i1 %.not74, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.068, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSessInfo2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.068 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.067 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.067 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo2_client, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo2_client_, i32 noundef 2, ptr noundef nonnull @.str.1127, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.068, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo2_client_, i32 noundef 2, ptr noundef nonnull @.str.1127, i32 noundef %32) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo2_user, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo2_user_, i32 noundef 2, ptr noundef nonnull @.str.1104, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo2_user_, i32 noundef 2, ptr noundef nonnull @.str.1104, i32 noundef %34) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo2_num_open, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo2_time, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo2_idle_time, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
   %42 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo2_user_flags, align 4
-  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
+  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo2_client_type, align 4
-  %45 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo2_client_type_, i32 noundef 2, ptr noundef nonnull @.str.1130, i32 noundef %44) #4
-  %46 = sub i32 %45, %.0
-  tail call void @proto_item_set_len(ptr noundef %.068, i32 noundef %46) #4
+  %45 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo2_client_type_, i32 noundef 2, ptr noundef nonnull @.str.1130, i32 noundef %44) #4
+  %46 = sub i32 %45, %.068
+  tail call void @proto_item_set_len(ptr noundef %.067, i32 noundef %46) #4
   %47 = load ptr, ptr %9, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 96
   %49 = load i32, ptr %48, align 8
@@ -4685,25 +4685,25 @@ define hidden i32 @srvsvc_dissect_struct_NetSessCtr2(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSessCtr2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr2_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr2_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr2_array_, i32 noundef 2, ptr noundef nonnull @.str.1131, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr2_array_, i32 noundef 2, ptr noundef nonnull @.str.1131, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4766,29 +4766,29 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfo10(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.050 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSessInfo10, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.050 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.049 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.049 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo10_client, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo10_client_, i32 noundef 2, ptr noundef nonnull @.str.1127, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo10_client_, i32 noundef 2, ptr noundef nonnull @.str.1127, i32 noundef %32) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo10_user, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo10_user_, i32 noundef 2, ptr noundef nonnull @.str.1104, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo10_user_, i32 noundef 2, ptr noundef nonnull @.str.1104, i32 noundef %34) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo10_time, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo10_idle_time, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
-  %40 = sub i32 %39, %.0
-  tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %40 = sub i32 %39, %.050
+  tail call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #4
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
@@ -4851,25 +4851,25 @@ define hidden i32 @srvsvc_dissect_struct_NetSessCtr10(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSessCtr10, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr10_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr10_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr10_array_, i32 noundef 2, ptr noundef nonnull @.str.1132, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr10_array_, i32 noundef 2, ptr noundef nonnull @.str.1132, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4932,37 +4932,37 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfo502(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.074 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not80 = icmp eq ptr %3, null
   br i1 %.not80, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.074, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSessInfo502, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.074 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.073 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.073 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo502_client, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo502_client_, i32 noundef 2, ptr noundef nonnull @.str.1127, i32 noundef %32) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.074, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo502_client_, i32 noundef 2, ptr noundef nonnull @.str.1127, i32 noundef %32) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo502_user, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo502_user_, i32 noundef 2, ptr noundef nonnull @.str.1104, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo502_user_, i32 noundef 2, ptr noundef nonnull @.str.1104, i32 noundef %34) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo502_num_open, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo502_time, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo502_idle_time, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
   %42 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo502_user_flags, align 4
-  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
+  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo502_client_type, align 4
-  %45 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo502_client_type_, i32 noundef 2, ptr noundef nonnull @.str.1130, i32 noundef %44) #4
+  %45 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo502_client_type_, i32 noundef 2, ptr noundef nonnull @.str.1130, i32 noundef %44) #4
   %46 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfo502_transport, align 4
-  %47 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo502_transport_, i32 noundef 2, ptr noundef nonnull @.str.1133, i32 noundef %46) #4
-  %48 = sub i32 %47, %.0
-  tail call void @proto_item_set_len(ptr noundef %.074, i32 noundef %48) #4
+  %47 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessInfo502_transport_, i32 noundef 2, ptr noundef nonnull @.str.1133, i32 noundef %46) #4
+  %48 = sub i32 %47, %.074
+  tail call void @proto_item_set_len(ptr noundef %.073, i32 noundef %48) #4
   %49 = load ptr, ptr %9, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 96
   %51 = load i32, ptr %50, align 8
@@ -5025,25 +5025,25 @@ define hidden i32 @srvsvc_dissect_struct_NetSessCtr502(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSessCtr502, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr502_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr502_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr502_array_, i32 noundef 2, ptr noundef nonnull @.str.1134, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr502_array_, i32 noundef 2, ptr noundef nonnull @.str.1134, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5135,23 +5135,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfoCtr(ptr noundef %0, i32 noun
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.045 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
   %.not51 = icmp eq ptr %3, null
   br i1 %.not51, label %34, label %30
 
 30:                                               ; preds = %29
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.045, i32 noundef -1, i32 noundef 0) #4
   %32 = load i32, ptr @ett_srvsvc_srvsvc_NetSessInfoCtr, align 4
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #4
   br label %34
 
 34:                                               ; preds = %30, %29
-  %.045 = phi ptr [ %31, %30 ], [ null, %29 ]
-  %.044 = phi ptr [ %33, %30 ], [ null, %29 ]
+  %.044 = phi ptr [ %31, %30 ], [ null, %29 ]
+  %.0 = phi ptr [ %33, %30 ], [ null, %29 ]
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetSessInfoCtr_level, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %36 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.044, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %11) #4
+  %36 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.045, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %11) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %37 = load ptr, ptr %12, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
@@ -5191,17 +5191,17 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfoCtr(ptr noundef %0, i32 noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.044, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %58, label %55
 
 55:                                               ; preds = %53
   %56 = load i32, ptr @ett_srvsvc_srvsvc_NetSessCtr, align 4
-  %57 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.044, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef %56, ptr noundef nonnull %9, ptr noundef nonnull @.str.1135) #4
+  %57 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef %56, ptr noundef nonnull %9, ptr noundef nonnull @.str.1135) #4
   br label %58
 
 58:                                               ; preds = %55, %53
-  %.051.i.i = phi ptr [ %57, %55 ], [ null, %53 ]
-  %59 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %10) #4
+  %.0.i.i = phi ptr [ %57, %55 ], [ null, %53 ]
+  %59 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %10) #4
   %60 = load ptr, ptr %12, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 96
   %62 = load i32, ptr %61, align 8
@@ -5235,7 +5235,7 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfoCtr(ptr noundef %0, i32 noun
   br label %76
 
 76:                                               ; preds = %73, %71, %68, %66
-  %.0.i.i = phi i32 [ %59, %66 ], [ %70, %68 ], [ %59, %71 ], [ %75, %73 ]
+  %.051.i.i = phi i32 [ %59, %66 ], [ %70, %68 ], [ %59, %71 ], [ %75, %73 ]
   %77 = load i32, ptr %10, align 4
   switch i32 %77, label %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit [
     i32 0, label %78
@@ -5247,38 +5247,38 @@ define hidden i32 @srvsvc_dissect_struct_NetSessInfoCtr(ptr noundef %0, i32 noun
 
 78:                                               ; preds = %76
   %79 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr_ctr0, align 4
-  %80 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1136, i32 noundef %79) #4
+  %80 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.051.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1136, i32 noundef %79) #4
   br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit
 
 81:                                               ; preds = %76
   %82 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr_ctr1, align 4
-  %83 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1137, i32 noundef %82) #4
+  %83 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.051.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1137, i32 noundef %82) #4
   br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit
 
 84:                                               ; preds = %76
   %85 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr_ctr2, align 4
-  %86 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr2_, i32 noundef 2, ptr noundef nonnull @.str.1138, i32 noundef %85) #4
+  %86 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.051.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr2_, i32 noundef 2, ptr noundef nonnull @.str.1138, i32 noundef %85) #4
   br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit
 
 87:                                               ; preds = %76
   %88 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr_ctr10, align 4
-  %89 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr10_, i32 noundef 2, ptr noundef nonnull @.str.1139, i32 noundef %88) #4
+  %89 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.051.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr10_, i32 noundef 2, ptr noundef nonnull @.str.1139, i32 noundef %88) #4
   br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit
 
 90:                                               ; preds = %76
   %91 = load i32, ptr @hf_srvsvc_srvsvc_NetSessCtr_ctr502, align 4
-  %92 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.051.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr502_, i32 noundef 2, ptr noundef nonnull @.str.1140, i32 noundef %91) #4
+  %92 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.051.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSessCtr_ctr502_, i32 noundef 2, ptr noundef nonnull @.str.1140, i32 noundef %91) #4
   br label %srvsvc_dissect_element_NetSessInfoCtr_ctr.exit
 
 srvsvc_dissect_element_NetSessInfoCtr_ctr.exit:   ; preds = %76, %78, %81, %84, %87, %90
-  %.1.i.i = phi i32 [ %.0.i.i, %76 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ]
+  %.1.i.i = phi i32 [ %.051.i.i, %76 ], [ %92, %90 ], [ %89, %87 ], [ %86, %84 ], [ %83, %81 ], [ %80, %78 ]
   %93 = load ptr, ptr %9, align 8
   %94 = sub i32 %.1.i.i, %.1
   call void @proto_item_set_len(ptr noundef %93, i32 noundef %94) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %95 = sub i32 %.1.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.045, i32 noundef %95) #4
+  %95 = sub i32 %.1.i.i, %.045
+  call void @proto_item_set_len(ptr noundef %.044, i32 noundef %95) #4
   %96 = load ptr, ptr %12, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 96
   %98 = load i32, ptr %97, align 8
@@ -5364,23 +5364,23 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo0(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetShareInfo0, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo0_name, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo0_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %32) #4
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo0_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %32) #4
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -5443,25 +5443,25 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr0(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetShareCtr0, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr0_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr0_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr0_array_, i32 noundef 2, ptr noundef nonnull @.str.1142, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr0_array_, i32 noundef 2, ptr noundef nonnull @.str.1142, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5525,30 +5525,30 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo1(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.044 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #4
   %30 = load i32, ptr @ett_srvsvc_srvsvc_NetShareInfo1, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.044 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.043 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.043 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo1_name, align 4
-  %34 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo1_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %33) #4
+  %34 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo1_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %33) #4
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo1_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #4
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %37 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo1_comment, align 4
-  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo1_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %37) #4
-  %39 = sub i32 %38, %.0
-  call void @proto_item_set_len(ptr noundef %.044, i32 noundef %39) #4
+  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo1_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %37) #4
+  %39 = sub i32 %38, %.044
+  call void @proto_item_set_len(ptr noundef %.043, i32 noundef %39) #4
   %40 = load ptr, ptr %10, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 96
   %42 = load i32, ptr %41, align 8
@@ -5611,25 +5611,25 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr1(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetShareCtr1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr1_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr1_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1144, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1144, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5693,40 +5693,40 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo2(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.074 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not80 = icmp eq ptr %3, null
   br i1 %.not80, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.074, i32 noundef -1, i32 noundef 0) #4
   %30 = load i32, ptr @ett_srvsvc_srvsvc_NetShareInfo2, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.074 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.073 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.073 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo2_name, align 4
-  %34 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo2_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %33) #4
+  %34 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.074, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo2_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %33) #4
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo2_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #4
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %37 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo2_comment, align 4
-  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo2_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %37) #4
+  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo2_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %37) #4
   %39 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo2_permissions, align 4
-  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #4
+  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #4
   %41 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo2_max_users, align 4
-  %42 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 noundef 0) #4
+  %42 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 noundef 0) #4
   %43 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo2_current_users, align 4
-  %44 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 noundef 0) #4
+  %44 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 noundef 0) #4
   %45 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo2_path, align 4
-  %46 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo2_path_, i32 noundef 2, ptr noundef nonnull @.str.1122, i32 noundef %45) #4
+  %46 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo2_path_, i32 noundef 2, ptr noundef nonnull @.str.1122, i32 noundef %45) #4
   %47 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo2_password, align 4
-  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo2_password_, i32 noundef 2, ptr noundef nonnull @.str.1145, i32 noundef %47) #4
-  %49 = sub i32 %48, %.0
-  call void @proto_item_set_len(ptr noundef %.074, i32 noundef %49) #4
+  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo2_password_, i32 noundef 2, ptr noundef nonnull @.str.1145, i32 noundef %47) #4
+  %49 = sub i32 %48, %.074
+  call void @proto_item_set_len(ptr noundef %.073, i32 noundef %49) #4
   %50 = load ptr, ptr %10, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 96
   %52 = load i32, ptr %51, align 8
@@ -5789,25 +5789,25 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr2(ptr noundef %0, i32 nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetShareCtr2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr2_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr2_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr2_array_, i32 noundef 2, ptr noundef nonnull @.str.1146, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr2_array_, i32 noundef 2, ptr noundef nonnull @.str.1146, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5871,32 +5871,32 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo501(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.050 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #4
   %30 = load i32, ptr @ett_srvsvc_srvsvc_NetShareInfo501, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.050 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.049 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.049 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo501_name, align 4
-  %34 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo501_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %33) #4
+  %34 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo501_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %33) #4
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo501_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #4
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %37 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo501_comment, align 4
-  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo501_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %37) #4
+  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo501_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %37) #4
   %39 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo501_csc_policy, align 4
-  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #4
-  %41 = sub i32 %40, %.0
-  call void @proto_item_set_len(ptr noundef %.050, i32 noundef %41) #4
+  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #4
+  %41 = sub i32 %40, %.050
+  call void @proto_item_set_len(ptr noundef %.049, i32 noundef %41) #4
   %42 = load ptr, ptr %10, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
@@ -5959,25 +5959,25 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr501(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetShareCtr501, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr501_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr501_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr501_array_, i32 noundef 2, ptr noundef nonnull @.str.1147, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr501_array_, i32 noundef 2, ptr noundef nonnull @.str.1147, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6042,38 +6042,38 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo502(ptr noundef %0, i32 nou
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.080 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not86 = icmp eq ptr %3, null
   br i1 %.not86, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.080, i32 noundef -1, i32 noundef 0) #4
   %31 = load i32, ptr @ett_srvsvc_srvsvc_NetShareInfo502, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #4
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.080 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.079 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.079 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo502_name, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo502_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.080, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo502_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %34) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo502_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
+  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo502_comment, align 4
-  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo502_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %38) #4
+  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo502_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %38) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo502_permissions, align 4
-  %41 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
+  %41 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
   %42 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo502_max_users, align 4
-  %43 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
+  %43 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo502_current_users, align 4
-  %45 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
+  %45 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
   %46 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo502_path, align 4
-  %47 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo502_path_, i32 noundef 2, ptr noundef nonnull @.str.1122, i32 noundef %46) #4
+  %47 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo502_path_, i32 noundef 2, ptr noundef nonnull @.str.1122, i32 noundef %46) #4
   %48 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo502_password, align 4
-  %49 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo502_password_, i32 noundef 2, ptr noundef nonnull @.str.1145, i32 noundef %48) #4
+  %49 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo502_password_, i32 noundef 2, ptr noundef nonnull @.str.1145, i32 noundef %48) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %50 = getelementptr inbounds i8, ptr %4, i64 28
   %51 = load i32, ptr %50, align 4
@@ -6082,9 +6082,9 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo502(ptr noundef %0, i32 nou
 
 52:                                               ; preds = %33
   %53 = load i32, ptr @hf_srvsvc_sec_desc_buf_len, align 4
-  %54 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, ptr noundef nonnull %9) #4
+  %54 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, ptr noundef nonnull %9) #4
   %55 = load i32, ptr %9, align 4
-  %56 = call i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %54, ptr noundef %2, ptr noundef %.079, ptr noundef %5, i32 noundef 1, i32 noundef %55, ptr noundef null) #4
+  %56 = call i32 @dissect_nt_sec_desc(ptr noundef %0, i32 noundef %54, ptr noundef %2, ptr noundef %.0, ptr noundef %5, i32 noundef 1, i32 noundef %55, ptr noundef null) #4
   %57 = load i32, ptr %9, align 4
   %58 = add i32 %57, %54
   br label %srvsvc_dissect_element_NetShareInfo502_sd_buf.exit
@@ -6092,8 +6092,8 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo502(ptr noundef %0, i32 nou
 srvsvc_dissect_element_NetShareInfo502_sd_buf.exit: ; preds = %33, %52
   %.0.i.i = phi i32 [ %58, %52 ], [ %49, %33 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %59 = sub i32 %.0.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.080, i32 noundef %59) #4
+  %59 = sub i32 %.0.i.i, %.080
+  call void @proto_item_set_len(ptr noundef %.079, i32 noundef %59) #4
   %60 = load ptr, ptr %11, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 96
   %62 = load i32, ptr %61, align 8
@@ -6155,25 +6155,25 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr502(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetShareCtr502, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr502_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr502_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr502_array_, i32 noundef 2, ptr noundef nonnull @.str.1148, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr502_array_, i32 noundef 2, ptr noundef nonnull @.str.1148, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6236,23 +6236,23 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo1004(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetShareInfo1004, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo1004_comment, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo1004_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %32) #4
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo1004_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %32) #4
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -6315,25 +6315,25 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr1004(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetShareCtr1004, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr1004_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr1004_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr1004_array_, i32 noundef 2, ptr noundef nonnull @.str.1149, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr1004_array_, i32 noundef 2, ptr noundef nonnull @.str.1149, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6417,23 +6417,23 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo1005(ptr noundef %0, i32 no
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetShareInfo1005, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo1005_dfs_flags, align 4
-  %20 = tail call i32 @srvsvc_dissect_bitmap_NetShareInfo1005Flags(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @srvsvc_dissect_bitmap_NetShareInfo1005Flags(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -6496,25 +6496,25 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr1005(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetShareCtr1005, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr1005_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr1005_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr1005_array_, i32 noundef 2, ptr noundef nonnull @.str.1150, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr1005_array_, i32 noundef 2, ptr noundef nonnull @.str.1150, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6551,23 +6551,23 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo1006(ptr noundef %0, i32 no
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetShareInfo1006, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo1006_max_users, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -6630,25 +6630,25 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr1006(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetShareCtr1006, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr1006_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr1006_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr1006_array_, i32 noundef 2, ptr noundef nonnull @.str.1151, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr1006_array_, i32 noundef 2, ptr noundef nonnull @.str.1151, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6711,25 +6711,25 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfo1007(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetShareInfo1007, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo1007_flags, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo1007_alternate_directory_name, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo1007_alternate_directory_name_, i32 noundef 2, ptr noundef nonnull @.str.1152, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo1007_alternate_directory_name_, i32 noundef 2, ptr noundef nonnull @.str.1152, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6792,25 +6792,25 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr1007(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetShareCtr1007, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr1007_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr1007_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr1007_array_, i32 noundef 2, ptr noundef nonnull @.str.1153, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr1007_array_, i32 noundef 2, ptr noundef nonnull @.str.1153, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6873,25 +6873,25 @@ define hidden i32 @srvsvc_dissect_struct_NetShareCtr1501(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetShareCtr1501, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr1501_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr1501_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr1501_array_, i32 noundef 2, ptr noundef nonnull @.str.1154, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr1501_array_, i32 noundef 2, ptr noundef nonnull @.str.1154, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -6956,21 +6956,21 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfoCtr(ptr noundef %0, i32 nou
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.038 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %31 = load i32, ptr @ett_srvsvc_srvsvc_NetShareInfoCtr, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #4
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.038 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.037 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.037 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfoCtr_level, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load ptr, ptr %11, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8
@@ -7009,17 +7009,17 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfoCtr(ptr noundef %0, i32 nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.037, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %57, label %54
 
 54:                                               ; preds = %52
   %55 = load i32, ptr @ett_srvsvc_srvsvc_NetShareCtr, align 4
-  %56 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.037, ptr noundef %0, i32 noundef %.0.i, i32 noundef -1, i32 noundef %55, ptr noundef nonnull %9, ptr noundef nonnull @.str.1155) #4
+  %56 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %.0.i, i32 noundef -1, i32 noundef %55, ptr noundef nonnull %9, ptr noundef nonnull @.str.1155) #4
   br label %57
 
 57:                                               ; preds = %54, %52
-  %.081.i.i = phi ptr [ %56, %54 ], [ null, %52 ]
-  %58 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, ptr noundef nonnull %10) #4
+  %.0.i.i = phi ptr [ %56, %54 ], [ null, %52 ]
+  %58 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, ptr noundef nonnull %10) #4
   %59 = load ptr, ptr %11, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 96
   %61 = load i32, ptr %60, align 8
@@ -7052,7 +7052,7 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfoCtr(ptr noundef %0, i32 nou
   br label %74
 
 74:                                               ; preds = %71, %69, %66, %64
-  %.0.i.i = phi i32 [ %58, %64 ], [ %68, %66 ], [ %58, %69 ], [ %73, %71 ]
+  %.081.i.i = phi i32 [ %58, %64 ], [ %68, %66 ], [ %58, %69 ], [ %73, %71 ]
   %75 = load i32, ptr %10, align 4
   switch i32 %75, label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit [
     i32 0, label %76
@@ -7069,63 +7069,63 @@ define hidden i32 @srvsvc_dissect_struct_NetShareInfoCtr(ptr noundef %0, i32 nou
 
 76:                                               ; preds = %74
   %77 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr0, align 4
-  %78 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1156, i32 noundef %77) #4
+  %78 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1156, i32 noundef %77) #4
   br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
 
 79:                                               ; preds = %74
   %80 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr1, align 4
-  %81 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1157, i32 noundef %80) #4
+  %81 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1157, i32 noundef %80) #4
   br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
 
 82:                                               ; preds = %74
   %83 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr2, align 4
-  %84 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr2_, i32 noundef 2, ptr noundef nonnull @.str.1158, i32 noundef %83) #4
+  %84 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr2_, i32 noundef 2, ptr noundef nonnull @.str.1158, i32 noundef %83) #4
   br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
 
 85:                                               ; preds = %74
   %86 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr501, align 4
-  %87 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr501_, i32 noundef 2, ptr noundef nonnull @.str.1159, i32 noundef %86) #4
+  %87 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr501_, i32 noundef 2, ptr noundef nonnull @.str.1159, i32 noundef %86) #4
   br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
 
 88:                                               ; preds = %74
   %89 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr502, align 4
-  %90 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr502_, i32 noundef 2, ptr noundef nonnull @.str.1160, i32 noundef %89) #4
+  %90 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr502_, i32 noundef 2, ptr noundef nonnull @.str.1160, i32 noundef %89) #4
   br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
 
 91:                                               ; preds = %74
   %92 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr1004, align 4
-  %93 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1004_, i32 noundef 2, ptr noundef nonnull @.str.1161, i32 noundef %92) #4
+  %93 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1004_, i32 noundef 2, ptr noundef nonnull @.str.1161, i32 noundef %92) #4
   br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
 
 94:                                               ; preds = %74
   %95 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr1005, align 4
-  %96 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1005_, i32 noundef 2, ptr noundef nonnull @.str.1162, i32 noundef %95) #4
+  %96 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1005_, i32 noundef 2, ptr noundef nonnull @.str.1162, i32 noundef %95) #4
   br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
 
 97:                                               ; preds = %74
   %98 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr1006, align 4
-  %99 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1006_, i32 noundef 2, ptr noundef nonnull @.str.1163, i32 noundef %98) #4
+  %99 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1006_, i32 noundef 2, ptr noundef nonnull @.str.1163, i32 noundef %98) #4
   br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
 
 100:                                              ; preds = %74
   %101 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr1007, align 4
-  %102 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1007_, i32 noundef 2, ptr noundef nonnull @.str.1164, i32 noundef %101) #4
+  %102 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1007_, i32 noundef 2, ptr noundef nonnull @.str.1164, i32 noundef %101) #4
   br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
 
 103:                                              ; preds = %74
   %104 = load i32, ptr @hf_srvsvc_srvsvc_NetShareCtr_ctr1501, align 4
-  %105 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.081.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1501_, i32 noundef 2, ptr noundef nonnull @.str.1165, i32 noundef %104) #4
+  %105 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareCtr_ctr1501_, i32 noundef 2, ptr noundef nonnull @.str.1165, i32 noundef %104) #4
   br label %srvsvc_dissect_element_NetShareInfoCtr_ctr.exit
 
 srvsvc_dissect_element_NetShareInfoCtr_ctr.exit:  ; preds = %74, %76, %79, %82, %85, %88, %91, %94, %97, %100, %103
-  %.1.i.i = phi i32 [ %.0.i.i, %74 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ]
+  %.1.i.i = phi i32 [ %.081.i.i, %74 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ]
   %106 = load ptr, ptr %9, align 8
   %107 = sub i32 %.1.i.i, %.0.i
   call void @proto_item_set_len(ptr noundef %106, i32 noundef %107) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %108 = sub i32 %.1.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %108) #4
+  %108 = sub i32 %.1.i.i, %.038
+  call void @proto_item_set_len(ptr noundef %.037, i32 noundef %108) #4
   %109 = load ptr, ptr %11, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 96
   %111 = load i32, ptr %110, align 8
@@ -7212,28 +7212,28 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo100(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.038 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %30 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo100, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.038 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.037 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.037 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo100_platform_id, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #4
+  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo100_server_name, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo100_server_name_, i32 noundef 2, ptr noundef nonnull @.str.1166, i32 noundef %35) #4
-  %37 = sub i32 %36, %.0
-  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %37) #4
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo100_server_name_, i32 noundef 2, ptr noundef nonnull @.str.1166, i32 noundef %35) #4
+  %37 = sub i32 %36, %.038
+  call void @proto_item_set_len(ptr noundef %.037, i32 noundef %37) #4
   %38 = load ptr, ptr %10, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 96
   %40 = load i32, ptr %39, align 8
@@ -7297,45 +7297,45 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo101(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.062 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not68 = icmp eq ptr %3, null
   br i1 %.not68, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.062, i32 noundef -1, i32 noundef 0) #4
   %30 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo101, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.062 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.061 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.061 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo101_platform_id, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #4
+  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.062, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo101_server_name, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo101_server_name_, i32 noundef 2, ptr noundef nonnull @.str.1166, i32 noundef %35) #4
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo101_server_name_, i32 noundef 2, ptr noundef nonnull @.str.1166, i32 noundef %35) #4
   %37 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo101_version_major, align 4
-  %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #4
+  %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #4
   %39 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo101_version_minor, align 4
-  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #4
+  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #4
   %41 = getelementptr i8, ptr %4, i64 28
   %.val = load i32, ptr %41, align 4
   %.not.i.i = icmp eq i32 %.val, 0
   br i1 %.not.i.i, label %42, label %srvsvc_dissect_element_NetSrvInfo101_server_type.exit
 
 42:                                               ; preds = %32
-  %43 = call i32 @dissect_smb_server_type_flags(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.061, ptr noundef %5, i32 noundef 0) #4
+  %43 = call i32 @dissect_smb_server_type_flags(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef %5, i32 noundef 0) #4
   br label %srvsvc_dissect_element_NetSrvInfo101_server_type.exit
 
 srvsvc_dissect_element_NetSrvInfo101_server_type.exit: ; preds = %32, %42
   %.0.i.i = phi i32 [ %43, %42 ], [ %40, %32 ]
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo101_comment, align 4
-  %45 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo101_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %44) #4
-  %46 = sub i32 %45, %.0
-  call void @proto_item_set_len(ptr noundef %.062, i32 noundef %46) #4
+  %45 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo101_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %44) #4
+  %46 = sub i32 %45, %.062
+  call void @proto_item_set_len(ptr noundef %.061, i32 noundef %46) #4
   %47 = load ptr, ptr %10, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 96
   %49 = load i32, ptr %48, align 8
@@ -7398,59 +7398,59 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo102(ptr noundef %0, i32 nound
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.0104 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not110 = icmp eq ptr %3, null
   br i1 %.not110, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0104, i32 noundef -1, i32 noundef 0) #4
   %30 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo102, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #4
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.0104 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.0103 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.0103 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo102_platform_id, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0103, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #4
+  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0104, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo102_server_name, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0103, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo102_server_name_, i32 noundef 2, ptr noundef nonnull @.str.1166, i32 noundef %35) #4
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo102_server_name_, i32 noundef 2, ptr noundef nonnull @.str.1166, i32 noundef %35) #4
   %37 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo102_version_major, align 4
-  %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0103, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #4
+  %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #4
   %39 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo102_version_minor, align 4
-  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0103, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #4
+  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #4
   %41 = getelementptr i8, ptr %4, i64 28
   %.val = load i32, ptr %41, align 4
   %.not.i.i = icmp eq i32 %.val, 0
   br i1 %.not.i.i, label %42, label %srvsvc_dissect_element_NetSrvInfo102_server_type.exit
 
 42:                                               ; preds = %32
-  %43 = call i32 @dissect_smb_server_type_flags(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0103, ptr noundef %5, i32 noundef 0) #4
+  %43 = call i32 @dissect_smb_server_type_flags(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef %5, i32 noundef 0) #4
   br label %srvsvc_dissect_element_NetSrvInfo102_server_type.exit
 
 srvsvc_dissect_element_NetSrvInfo102_server_type.exit: ; preds = %32, %42
   %.0.i.i = phi i32 [ %43, %42 ], [ %40, %32 ]
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo102_comment, align 4
-  %45 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0103, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo102_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %44) #4
+  %45 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo102_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %44) #4
   %46 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo102_users, align 4
-  %47 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0103, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
+  %47 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
   %48 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo102_disc, align 4
-  %49 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0103, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #4
+  %49 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #4
   %50 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo102_hidden, align 4
-  %51 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0103, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #4
+  %51 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #4
   %52 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo102_announce, align 4
-  %53 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0103, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #4
+  %53 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #4
   %54 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo102_anndelta, align 4
-  %55 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0103, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, i32 noundef 0) #4
+  %55 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, i32 noundef 0) #4
   %56 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo102_licenses, align 4
-  %57 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0103, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 noundef 0) #4
+  %57 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 noundef 0) #4
   %58 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo102_userpath, align 4
-  %59 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0103, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo102_userpath_, i32 noundef 2, ptr noundef nonnull @.str.1167, i32 noundef %58) #4
-  %60 = sub i32 %59, %.0
-  call void @proto_item_set_len(ptr noundef %.0104, i32 noundef %60) #4
+  %59 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo102_userpath_, i32 noundef 2, ptr noundef nonnull @.str.1167, i32 noundef %58) #4
+  %60 = sub i32 %59, %.0104
+  call void @proto_item_set_len(ptr noundef %.0103, i32 noundef %60) #4
   %61 = load ptr, ptr %10, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 96
   %63 = load i32, ptr %62, align 8
@@ -7512,83 +7512,83 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo402(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0212 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not218 = icmp eq ptr %3, null
   br i1 %.not218, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0212, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo402, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.0212 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0211 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.0211 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_ulist_mtime, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0212, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_glist_mtime, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_alist_mtime, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_alerts, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo402_alerts_, i32 noundef 2, ptr noundef nonnull @.str.1168, i32 noundef %38) #4
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo402_alerts_, i32 noundef 2, ptr noundef nonnull @.str.1168, i32 noundef %38) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_security, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
   %42 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_numadmin, align 4
-  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
+  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_lanmask, align 4
-  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
+  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
   %46 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_guestaccount, align 4
-  %47 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo402_guestaccount_, i32 noundef 2, ptr noundef nonnull @.str.1169, i32 noundef %46) #4
+  %47 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo402_guestaccount_, i32 noundef 2, ptr noundef nonnull @.str.1169, i32 noundef %46) #4
   %48 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_chdevs, align 4
-  %49 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #4
+  %49 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #4
   %50 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_chdevqs, align 4
-  %51 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #4
+  %51 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #4
   %52 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_chdevjobs, align 4
-  %53 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #4
+  %53 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #4
   %54 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_connections, align 4
-  %55 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, i32 noundef 0) #4
+  %55 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, i32 noundef 0) #4
   %56 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_shares, align 4
-  %57 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 noundef 0) #4
+  %57 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 noundef 0) #4
   %58 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_openfiles, align 4
-  %59 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, i32 noundef 0) #4
+  %59 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, i32 noundef 0) #4
   %60 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_sessopen, align 4
-  %61 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, i32 noundef 0) #4
+  %61 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, i32 noundef 0) #4
   %62 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_sesssvc, align 4
-  %63 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 noundef 0) #4
+  %63 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 noundef 0) #4
   %64 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_sessreqs, align 4
-  %65 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 noundef 0) #4
+  %65 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 noundef 0) #4
   %66 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_opensearch, align 4
-  %67 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, i32 noundef 0) #4
+  %67 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, i32 noundef 0) #4
   %68 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_activelocks, align 4
-  %69 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %68, i32 noundef 0) #4
+  %69 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %68, i32 noundef 0) #4
   %70 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_numreqbufs, align 4
-  %71 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 noundef 0) #4
+  %71 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 noundef 0) #4
   %72 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_sizereqbufs, align 4
-  %73 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, i32 noundef 0) #4
+  %73 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, i32 noundef 0) #4
   %74 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_numbigbufs, align 4
-  %75 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %74, i32 noundef 0) #4
+  %75 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %74, i32 noundef 0) #4
   %76 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_numfiletasks, align 4
-  %77 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 noundef 0) #4
+  %77 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 noundef 0) #4
   %78 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_alertsched, align 4
-  %79 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, i32 noundef 0) #4
+  %79 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, i32 noundef 0) #4
   %80 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_erroralert, align 4
-  %81 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %80, i32 noundef 0) #4
+  %81 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %80, i32 noundef 0) #4
   %82 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_logonalert, align 4
-  %83 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 noundef 0) #4
+  %83 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 noundef 0) #4
   %84 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_accessalert, align 4
-  %85 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %83, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %84, i32 noundef 0) #4
+  %85 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %83, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %84, i32 noundef 0) #4
   %86 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_diskalert, align 4
-  %87 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, i32 noundef 0) #4
+  %87 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, i32 noundef 0) #4
   %88 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_netioalert, align 4
-  %89 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 noundef 0) #4
+  %89 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 noundef 0) #4
   %90 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_maxaudits, align 4
-  %91 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %89, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %90, i32 noundef 0) #4
+  %91 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %89, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %90, i32 noundef 0) #4
   %92 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo402_srvheuristics, align 4
-  %93 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %.0211, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo402_srvheuristics_, i32 noundef 2, ptr noundef nonnull @.str.1170, i32 noundef %92) #4
-  %94 = sub i32 %93, %.0
-  tail call void @proto_item_set_len(ptr noundef %.0212, i32 noundef %94) #4
+  %93 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo402_srvheuristics_, i32 noundef 2, ptr noundef nonnull @.str.1170, i32 noundef %92) #4
+  %94 = sub i32 %93, %.0212
+  tail call void @proto_item_set_len(ptr noundef %.0211, i32 noundef %94) #4
   %95 = load ptr, ptr %9, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 96
   %97 = load i32, ptr %96, align 8
@@ -7651,89 +7651,89 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo403(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0230 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not236 = icmp eq ptr %3, null
   br i1 %.not236, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0230, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo403, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.0230 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0229 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.0229 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_ulist_mtime, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0230, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_glist_mtime, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_alist_mtime, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_alerts, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo403_alerts_, i32 noundef 2, ptr noundef nonnull @.str.1168, i32 noundef %38) #4
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo403_alerts_, i32 noundef 2, ptr noundef nonnull @.str.1168, i32 noundef %38) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_security, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
   %42 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_numadmin, align 4
-  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
+  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_lanmask, align 4
-  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
+  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
   %46 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_guestaccount, align 4
-  %47 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo403_guestaccount_, i32 noundef 2, ptr noundef nonnull @.str.1169, i32 noundef %46) #4
+  %47 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo403_guestaccount_, i32 noundef 2, ptr noundef nonnull @.str.1169, i32 noundef %46) #4
   %48 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_chdevs, align 4
-  %49 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #4
+  %49 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #4
   %50 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_chdevqs, align 4
-  %51 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #4
+  %51 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #4
   %52 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_chdevjobs, align 4
-  %53 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #4
+  %53 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #4
   %54 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_connections, align 4
-  %55 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, i32 noundef 0) #4
+  %55 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, i32 noundef 0) #4
   %56 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_shares, align 4
-  %57 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 noundef 0) #4
+  %57 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 noundef 0) #4
   %58 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_openfiles, align 4
-  %59 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, i32 noundef 0) #4
+  %59 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, i32 noundef 0) #4
   %60 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_sessopen, align 4
-  %61 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, i32 noundef 0) #4
+  %61 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, i32 noundef 0) #4
   %62 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_sesssvc, align 4
-  %63 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 noundef 0) #4
+  %63 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 noundef 0) #4
   %64 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_sessreqs, align 4
-  %65 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 noundef 0) #4
+  %65 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 noundef 0) #4
   %66 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_opensearch, align 4
-  %67 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, i32 noundef 0) #4
+  %67 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, i32 noundef 0) #4
   %68 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_activelocks, align 4
-  %69 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %68, i32 noundef 0) #4
+  %69 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %68, i32 noundef 0) #4
   %70 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_numreqbufs, align 4
-  %71 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 noundef 0) #4
+  %71 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 noundef 0) #4
   %72 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_sizereqbufs, align 4
-  %73 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, i32 noundef 0) #4
+  %73 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, i32 noundef 0) #4
   %74 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_numbigbufs, align 4
-  %75 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %74, i32 noundef 0) #4
+  %75 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %74, i32 noundef 0) #4
   %76 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_numfiletasks, align 4
-  %77 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 noundef 0) #4
+  %77 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 noundef 0) #4
   %78 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_alertsched, align 4
-  %79 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, i32 noundef 0) #4
+  %79 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, i32 noundef 0) #4
   %80 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_erroralert, align 4
-  %81 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %80, i32 noundef 0) #4
+  %81 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %80, i32 noundef 0) #4
   %82 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_logonalert, align 4
-  %83 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 noundef 0) #4
+  %83 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 noundef 0) #4
   %84 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_accessalert, align 4
-  %85 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %83, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %84, i32 noundef 0) #4
+  %85 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %83, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %84, i32 noundef 0) #4
   %86 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_diskalert, align 4
-  %87 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, i32 noundef 0) #4
+  %87 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, i32 noundef 0) #4
   %88 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_netioalert, align 4
-  %89 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 noundef 0) #4
+  %89 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 noundef 0) #4
   %90 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_maxaudits, align 4
-  %91 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %89, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %90, i32 noundef 0) #4
+  %91 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %89, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %90, i32 noundef 0) #4
   %92 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_srvheuristics, align 4
-  %93 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo403_srvheuristics_, i32 noundef 2, ptr noundef nonnull @.str.1170, i32 noundef %92) #4
+  %93 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo403_srvheuristics_, i32 noundef 2, ptr noundef nonnull @.str.1170, i32 noundef %92) #4
   %94 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_auditedevents, align 4
-  %95 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, i32 noundef 0) #4
+  %95 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, i32 noundef 0) #4
   %96 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_auditprofile, align 4
-  %97 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %95, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %96, i32 noundef 0) #4
+  %97 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %95, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %96, i32 noundef 0) #4
   %98 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo403_autopath, align 4
-  %99 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %97, ptr noundef %2, ptr noundef %.0229, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo403_autopath_, i32 noundef 2, ptr noundef nonnull @.str.1171, i32 noundef %98) #4
-  %100 = sub i32 %99, %.0
-  tail call void @proto_item_set_len(ptr noundef %.0230, i32 noundef %100) #4
+  %99 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %97, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo403_autopath_, i32 noundef 2, ptr noundef nonnull @.str.1171, i32 noundef %98) #4
+  %100 = sub i32 %99, %.0230
+  tail call void @proto_item_set_len(ptr noundef %.0229, i32 noundef %100) #4
   %101 = load ptr, ptr %9, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 96
   %103 = load i32, ptr %102, align 8
@@ -7770,57 +7770,57 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo502(ptr noundef %0, i32 nound
   %or.cond = or i1 %.not128, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.0126 = select i1 %or.cond, i32 %1, i32 %13
   %.not129 = icmp eq ptr %3, null
   br i1 %.not129, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0126, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo502, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.0126 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0125 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.0125 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_sessopen, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0126, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_sesssvc, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_opensearch, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
   %25 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_sizereqbufs, align 4
-  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #4
+  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #4
   %27 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_initworkitems, align 4
-  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
+  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
   %29 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_maxworkitems, align 4
-  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #4
+  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #4
   %31 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_rawworkitems, align 4
-  %32 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #4
+  %32 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #4
   %33 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_irpstacksize, align 4
-  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
+  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_maxrawbuflen, align 4
-  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #4
+  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #4
   %37 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_sessusers, align 4
-  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #4
+  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #4
   %39 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_sessconns, align 4
-  %40 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #4
+  %40 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #4
   %41 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_maxpagedmemoryusage, align 4
-  %42 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 noundef 0) #4
+  %42 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 noundef 0) #4
   %43 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_maxnonpagedmemoryusage, align 4
-  %44 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 noundef 0) #4
+  %44 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 noundef 0) #4
   %45 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_enablesoftcompat, align 4
-  %46 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 noundef 0) #4
+  %46 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 noundef 0) #4
   %47 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_enableforcedlogoff, align 4
-  %48 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, i32 noundef 0) #4
+  %48 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, i32 noundef 0) #4
   %49 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_timesource, align 4
-  %50 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 noundef 0) #4
+  %50 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 noundef 0) #4
   %51 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_acceptdownlevelapis, align 4
-  %52 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %51, i32 noundef 0) #4
+  %52 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %51, i32 noundef 0) #4
   %53 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo502_lmannounce, align 4
-  %54 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %52, ptr noundef %2, ptr noundef %.0125, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, i32 noundef 0) #4
-  %55 = sub i32 %54, %.0
-  tail call void @proto_item_set_len(ptr noundef %.0126, i32 noundef %55) #4
+  %54 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %52, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, i32 noundef 0) #4
+  %55 = sub i32 %54, %.0126
+  tail call void @proto_item_set_len(ptr noundef %.0125, i32 noundef %55) #4
   %56 = getelementptr inbounds i8, ptr %4, i64 72
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 96
@@ -7883,105 +7883,105 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo503(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0278 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not284 = icmp eq ptr %3, null
   br i1 %.not284, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0278, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo503, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.0278 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0277 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.0277 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_sessopen, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0278, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_sesssvc, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_opensearch, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_sizereqbufs, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_initworkitems, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
   %42 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_maxworkitems, align 4
-  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
+  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_rawworkitems, align 4
-  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
+  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
   %46 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_irpstacksize, align 4
-  %47 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
+  %47 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
   %48 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_maxrawbuflen, align 4
-  %49 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #4
+  %49 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #4
   %50 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_sessusers, align 4
-  %51 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #4
+  %51 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #4
   %52 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_sessconns, align 4
-  %53 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #4
+  %53 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #4
   %54 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_maxpagedmemoryusage, align 4
-  %55 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, i32 noundef 0) #4
+  %55 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, i32 noundef 0) #4
   %56 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_maxnonpagedmemoryusage, align 4
-  %57 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 noundef 0) #4
+  %57 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 noundef 0) #4
   %58 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_enablesoftcompat, align 4
-  %59 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, i32 noundef 0) #4
+  %59 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, i32 noundef 0) #4
   %60 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_enableforcedlogoff, align 4
-  %61 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, i32 noundef 0) #4
+  %61 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, i32 noundef 0) #4
   %62 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_timesource, align 4
-  %63 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 noundef 0) #4
+  %63 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 noundef 0) #4
   %64 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_acceptdownlevelapis, align 4
-  %65 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 noundef 0) #4
+  %65 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 noundef 0) #4
   %66 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_lmannounce, align 4
-  %67 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, i32 noundef 0) #4
+  %67 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, i32 noundef 0) #4
   %68 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_domain, align 4
-  %69 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo503_domain_, i32 noundef 2, ptr noundef nonnull @.str.1172, i32 noundef %68) #4
+  %69 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo503_domain_, i32 noundef 2, ptr noundef nonnull @.str.1172, i32 noundef %68) #4
   %70 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_maxcopyreadlen, align 4
-  %71 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 noundef 0) #4
+  %71 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 noundef 0) #4
   %72 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_maxcopywritelen, align 4
-  %73 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, i32 noundef 0) #4
+  %73 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, i32 noundef 0) #4
   %74 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_minkeepsearch, align 4
-  %75 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %74, i32 noundef 0) #4
+  %75 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %74, i32 noundef 0) #4
   %76 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_maxkeepsearch, align 4
-  %77 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 noundef 0) #4
+  %77 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 noundef 0) #4
   %78 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_minkeepcomplsearch, align 4
-  %79 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, i32 noundef 0) #4
+  %79 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, i32 noundef 0) #4
   %80 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_maxkeepcomplsearch, align 4
-  %81 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %80, i32 noundef 0) #4
+  %81 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %80, i32 noundef 0) #4
   %82 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_threadcountadd, align 4
-  %83 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 noundef 0) #4
+  %83 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 noundef 0) #4
   %84 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_numlockthreads, align 4
-  %85 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %83, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %84, i32 noundef 0) #4
+  %85 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %83, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %84, i32 noundef 0) #4
   %86 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_scavtimeout, align 4
-  %87 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, i32 noundef 0) #4
+  %87 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, i32 noundef 0) #4
   %88 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_minrcvqueue, align 4
-  %89 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 noundef 0) #4
+  %89 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 noundef 0) #4
   %90 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_minfreeworkitems, align 4
-  %91 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %89, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %90, i32 noundef 0) #4
+  %91 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %89, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %90, i32 noundef 0) #4
   %92 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_xactmemsize, align 4
-  %93 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, i32 noundef 0) #4
+  %93 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, i32 noundef 0) #4
   %94 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_threadpriority, align 4
-  %95 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, i32 noundef 0) #4
+  %95 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, i32 noundef 0) #4
   %96 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_maxmpxct, align 4
-  %97 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %95, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %96, i32 noundef 0) #4
+  %97 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %95, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %96, i32 noundef 0) #4
   %98 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_oplockbreakwait, align 4
-  %99 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %97, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %98, i32 noundef 0) #4
+  %99 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %97, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %98, i32 noundef 0) #4
   %100 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_oplockbreakresponsewait, align 4
-  %101 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %99, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %100, i32 noundef 0) #4
+  %101 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %99, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %100, i32 noundef 0) #4
   %102 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_enableoplocks, align 4
-  %103 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %101, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %102, i32 noundef 0) #4
+  %103 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %102, i32 noundef 0) #4
   %104 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_enableoplockforceclose, align 4
-  %105 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %103, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %104, i32 noundef 0) #4
+  %105 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %103, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %104, i32 noundef 0) #4
   %106 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_enablefcbopens, align 4
-  %107 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %105, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %106, i32 noundef 0) #4
+  %107 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %105, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %106, i32 noundef 0) #4
   %108 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_enableraw, align 4
-  %109 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %107, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %108, i32 noundef 0) #4
+  %109 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %107, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %108, i32 noundef 0) #4
   %110 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_enablesharednetdrives, align 4
-  %111 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %109, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, i32 noundef 0) #4
+  %111 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %109, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, i32 noundef 0) #4
   %112 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_minfreeconnections, align 4
-  %113 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %112, i32 noundef 0) #4
+  %113 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %112, i32 noundef 0) #4
   %114 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo503_maxfreeconnections, align 4
-  %115 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %113, ptr noundef %2, ptr noundef %.0277, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %114, i32 noundef 0) #4
-  %116 = sub i32 %115, %.0
-  tail call void @proto_item_set_len(ptr noundef %.0278, i32 noundef %116) #4
+  %115 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %113, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %114, i32 noundef 0) #4
+  %116 = sub i32 %115, %.0278
+  tail call void @proto_item_set_len(ptr noundef %.0277, i32 noundef %116) #4
   %117 = load ptr, ptr %9, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 96
   %119 = load i32, ptr %118, align 8
@@ -8044,131 +8044,131 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo599(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0356 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not362 = icmp eq ptr %3, null
   br i1 %.not362, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0356, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo599, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.0356 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0355 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.0355 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_sessopen, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0356, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_sesssvc, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_opensearch, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_sizereqbufs, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_initworkitems, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #4
   %42 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_maxworkitems, align 4
-  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
+  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #4
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_rawworkitems, align 4
-  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
+  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
   %46 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_irpstacksize, align 4
-  %47 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
+  %47 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
   %48 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_maxrawbuflen, align 4
-  %49 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #4
+  %49 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #4
   %50 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_sessusers, align 4
-  %51 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #4
+  %51 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #4
   %52 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_sessconns, align 4
-  %53 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #4
+  %53 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #4
   %54 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_maxpagedmemoryusage, align 4
-  %55 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, i32 noundef 0) #4
+  %55 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, i32 noundef 0) #4
   %56 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_maxnonpagedmemoryusage, align 4
-  %57 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 noundef 0) #4
+  %57 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, i32 noundef 0) #4
   %58 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_enablesoftcompat, align 4
-  %59 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, i32 noundef 0) #4
+  %59 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, i32 noundef 0) #4
   %60 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_enableforcedlogoff, align 4
-  %61 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, i32 noundef 0) #4
+  %61 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, i32 noundef 0) #4
   %62 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_timesource, align 4
-  %63 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 noundef 0) #4
+  %63 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %61, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %62, i32 noundef 0) #4
   %64 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_acceptdownlevelapis, align 4
-  %65 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 noundef 0) #4
+  %65 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 noundef 0) #4
   %66 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_lmannounce, align 4
-  %67 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, i32 noundef 0) #4
+  %67 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %66, i32 noundef 0) #4
   %68 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_domain, align 4
-  %69 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo599_domain_, i32 noundef 2, ptr noundef nonnull @.str.1172, i32 noundef %68) #4
+  %69 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo599_domain_, i32 noundef 2, ptr noundef nonnull @.str.1172, i32 noundef %68) #4
   %70 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_maxcopyreadlen, align 4
-  %71 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 noundef 0) #4
+  %71 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 noundef 0) #4
   %72 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_maxcopywritelen, align 4
-  %73 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, i32 noundef 0) #4
+  %73 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %72, i32 noundef 0) #4
   %74 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_minkeepsearch, align 4
-  %75 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %74, i32 noundef 0) #4
+  %75 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %74, i32 noundef 0) #4
   %76 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_minkeepcomplsearch, align 4
-  %77 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 noundef 0) #4
+  %77 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 noundef 0) #4
   %78 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_maxkeepcomplsearch, align 4
-  %79 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, i32 noundef 0) #4
+  %79 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, i32 noundef 0) #4
   %80 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_threadcountadd, align 4
-  %81 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %80, i32 noundef 0) #4
+  %81 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %79, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %80, i32 noundef 0) #4
   %82 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_numlockthreads, align 4
-  %83 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 noundef 0) #4
+  %83 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %81, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 noundef 0) #4
   %84 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_scavtimeout, align 4
-  %85 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %83, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %84, i32 noundef 0) #4
+  %85 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %83, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %84, i32 noundef 0) #4
   %86 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_minrcvqueue, align 4
-  %87 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, i32 noundef 0) #4
+  %87 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %85, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %86, i32 noundef 0) #4
   %88 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_minfreeworkitems, align 4
-  %89 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 noundef 0) #4
+  %89 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %87, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %88, i32 noundef 0) #4
   %90 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_xactmemsize, align 4
-  %91 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %89, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %90, i32 noundef 0) #4
+  %91 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %89, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %90, i32 noundef 0) #4
   %92 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_threadpriority, align 4
-  %93 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, i32 noundef 0) #4
+  %93 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %91, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, i32 noundef 0) #4
   %94 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_maxmpxct, align 4
-  %95 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, i32 noundef 0) #4
+  %95 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %94, i32 noundef 0) #4
   %96 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_oplockbreakwait, align 4
-  %97 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %95, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %96, i32 noundef 0) #4
+  %97 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %95, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %96, i32 noundef 0) #4
   %98 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_oplockbreakresponsewait, align 4
-  %99 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %97, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %98, i32 noundef 0) #4
+  %99 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %97, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %98, i32 noundef 0) #4
   %100 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_enableoplocks, align 4
-  %101 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %99, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %100, i32 noundef 0) #4
+  %101 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %99, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %100, i32 noundef 0) #4
   %102 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_enableoplockforceclose, align 4
-  %103 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %101, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %102, i32 noundef 0) #4
+  %103 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %101, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %102, i32 noundef 0) #4
   %104 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_enablefcbopens, align 4
-  %105 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %103, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %104, i32 noundef 0) #4
+  %105 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %103, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %104, i32 noundef 0) #4
   %106 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_enableraw, align 4
-  %107 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %105, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %106, i32 noundef 0) #4
+  %107 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %105, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %106, i32 noundef 0) #4
   %108 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_enablesharednetdrives, align 4
-  %109 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %107, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %108, i32 noundef 0) #4
+  %109 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %107, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %108, i32 noundef 0) #4
   %110 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_minfreeconnections, align 4
-  %111 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %109, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, i32 noundef 0) #4
+  %111 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %109, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, i32 noundef 0) #4
   %112 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_maxfreeconnections, align 4
-  %113 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %112, i32 noundef 0) #4
+  %113 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %112, i32 noundef 0) #4
   %114 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_initsesstable, align 4
-  %115 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %113, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %114, i32 noundef 0) #4
+  %115 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %113, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %114, i32 noundef 0) #4
   %116 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_initconntable, align 4
-  %117 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %115, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %116, i32 noundef 0) #4
+  %117 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %115, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %116, i32 noundef 0) #4
   %118 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_initfiletable, align 4
-  %119 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %117, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %118, i32 noundef 0) #4
+  %119 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %117, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %118, i32 noundef 0) #4
   %120 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_initsearchtable, align 4
-  %121 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %119, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %120, i32 noundef 0) #4
+  %121 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %119, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %120, i32 noundef 0) #4
   %122 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_alertsched, align 4
-  %123 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %121, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %122, i32 noundef 0) #4
+  %123 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %121, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %122, i32 noundef 0) #4
   %124 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_errortreshold, align 4
-  %125 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %123, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %124, i32 noundef 0) #4
+  %125 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %123, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %124, i32 noundef 0) #4
   %126 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_networkerrortreshold, align 4
-  %127 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %125, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %126, i32 noundef 0) #4
+  %127 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %125, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %126, i32 noundef 0) #4
   %128 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_diskspacetreshold, align 4
-  %129 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %127, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %128, i32 noundef 0) #4
+  %129 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %127, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %128, i32 noundef 0) #4
   %130 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_reserved, align 4
-  %131 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %129, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %130, i32 noundef 0) #4
+  %131 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %129, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %130, i32 noundef 0) #4
   %132 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_maxlinkdelay, align 4
-  %133 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %131, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %132, i32 noundef 0) #4
+  %133 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %131, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %132, i32 noundef 0) #4
   %134 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_minlinkthroughput, align 4
-  %135 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %133, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %134, i32 noundef 0) #4
+  %135 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %133, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %134, i32 noundef 0) #4
   %136 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_linkinfovalidtime, align 4
-  %137 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %135, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %136, i32 noundef 0) #4
+  %137 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %135, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %136, i32 noundef 0) #4
   %138 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_scavqosinfoupdatetime, align 4
-  %139 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %137, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %138, i32 noundef 0) #4
+  %139 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %137, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %138, i32 noundef 0) #4
   %140 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo599_maxworkitemidletime, align 4
-  %141 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %139, ptr noundef %2, ptr noundef %.0355, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %140, i32 noundef 0) #4
-  %142 = sub i32 %141, %.0
-  tail call void @proto_item_set_len(ptr noundef %.0356, i32 noundef %142) #4
+  %141 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %139, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %140, i32 noundef 0) #4
+  %142 = sub i32 %141, %.0356
+  tail call void @proto_item_set_len(ptr noundef %.0355, i32 noundef %142) #4
   %143 = load ptr, ptr %9, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 96
   %145 = load i32, ptr %144, align 8
@@ -8231,23 +8231,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1005(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1005, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1005_comment, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo1005_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %32) #4
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo1005_comment_, i32 noundef 2, ptr noundef nonnull @.str.1143, i32 noundef %32) #4
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -8284,23 +8284,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1010(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1010, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1010_disc, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -8337,23 +8337,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1016(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1016, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1016_hidden, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -8390,23 +8390,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1017(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1017, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1017_announce, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -8443,23 +8443,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1018(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1018, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1018_anndelta, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -8496,23 +8496,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1107(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1107, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1107_users, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -8549,23 +8549,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1501(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1501, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1501_sessopens, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -8602,23 +8602,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1502(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1502, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1502_sessvcs, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -8655,23 +8655,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1503(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1503, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1503_opensearch, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -8708,23 +8708,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1506(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1506, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1506_maxworkitems, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -8761,23 +8761,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1509(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1509, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1509_maxrawbuflen, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -8814,23 +8814,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1510(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1510, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1510_sessusers, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -8867,23 +8867,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1511(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1511, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1511_sesscons, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -8920,23 +8920,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1512(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1512, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1512_maxnonpagedmemoryusage, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -8973,23 +8973,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1513(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1513, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1513_maxpagedmemoryusage, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9026,23 +9026,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1514(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1514, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1514_enablesoftcompat, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9079,23 +9079,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1515(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1515, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1515_enableforcedlogoff, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9132,23 +9132,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1516(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1516, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1516_timesource, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9185,23 +9185,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1518(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1518, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1518_lmannounce, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9238,23 +9238,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1520(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1520, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1520_maxcopyreadlen, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9291,23 +9291,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1521(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1521, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1521_maxcopywritelen, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9344,23 +9344,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1522(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1522, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1522_minkeepsearch, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9397,23 +9397,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1523(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1523, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1523_maxkeepsearch, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9450,23 +9450,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1524(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1524, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1524_minkeepcomplsearch, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9503,23 +9503,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1525(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1525, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1525_maxkeepcomplsearch, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9556,23 +9556,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1528(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1528, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1528_scavtimeout, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9609,23 +9609,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1529(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1529, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1529_minrcvqueue, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9662,23 +9662,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1530(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1530, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1530_minfreeworkitems, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9715,23 +9715,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1533(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1533, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1533_maxmpxct, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9768,23 +9768,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1534(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1534, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1534_oplockbreakwait, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9821,23 +9821,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1535(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1535, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1535_oplockbreakresponsewait, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9874,23 +9874,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1536(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1536, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1536_enableoplocks, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9927,23 +9927,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1537(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1537, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1537_enableoplockforceclose, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -9980,23 +9980,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1538(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1538, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1538_enablefcbopens, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10033,23 +10033,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1539(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1539, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1539_enableraw, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10086,23 +10086,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1540(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1540, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1540_enablesharednetdrives, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10139,23 +10139,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1541(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1541, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1541_minfreeconnections, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10192,23 +10192,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1542(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1542, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1542_maxfreeconnections, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10245,23 +10245,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1543(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1543, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1543_initsesstable, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10298,23 +10298,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1544(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1544, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1544_initconntable, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10351,23 +10351,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1545(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1545, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1545_initfiletable, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10404,23 +10404,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1546(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1546, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1546_initsearchtable, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10457,23 +10457,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1547(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1547, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1547_alertsched, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10510,23 +10510,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1548(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1548, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1548_errortreshold, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10563,23 +10563,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1549(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1549, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1549_networkerrortreshold, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10616,23 +10616,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1550(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1550, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1550_diskspacetreshold, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10669,23 +10669,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1552(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1552, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1552_maxlinkdelay, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10722,23 +10722,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1553(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1553, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1553_minlinkthroughput, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10775,23 +10775,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1554(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1554, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1554_linkinfovalidtime, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10828,23 +10828,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1555(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1555, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1555_scavqosinfoupdatetime, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10881,23 +10881,23 @@ define hidden i32 @srvsvc_dissect_struct_NetSrvInfo1556(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetSrvInfo1556, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo1556_maxworkitemidletime, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #4
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -10935,27 +10935,27 @@ define hidden i32 @srvsvc_dissect_struct_NetDiskInfo0(ptr noundef %0, i32 nounde
   %or.cond = or i1 %.not26, %.not
   %13 = and i32 %1, -2
   %14 = add i32 %13, 2
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.024 = select i1 %or.cond, i32 %1, i32 %14
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #4
   %17 = load i32, ptr @ett_srvsvc_srvsvc_NetDiskInfo0, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #4
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.024 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.023 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.023 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %20 = load i32, ptr @hf_srvsvc_srvsvc_NetDiskInfo0_disk, align 4
-  %21 = call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef nonnull %9) #4
+  %21 = call i32 @dissect_ndr_vstring(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef nonnull %9) #4
   %22 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.023, ptr noundef nonnull @.str.1102, ptr noundef %22) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0, ptr noundef nonnull @.str.1102, ptr noundef %22) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %23 = sub i32 %21, %.0
-  call void @proto_item_set_len(ptr noundef %.024, i32 noundef %23) #4
+  %23 = sub i32 %21, %.024
+  call void @proto_item_set_len(ptr noundef %.023, i32 noundef %23) #4
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -11018,25 +11018,25 @@ define hidden i32 @srvsvc_dissect_struct_NetDiskInfo(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetDiskInfo, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetDiskInfo_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetDiskInfo_disks, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetDiskInfo_disks_, i32 noundef 2, ptr noundef nonnull @.str.1173, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetDiskInfo_disks_, i32 noundef 2, ptr noundef nonnull @.str.1173, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -11073,55 +11073,55 @@ define hidden i32 @srvsvc_dissect_struct_Statistics(ptr noundef %0, i32 noundef 
   %or.cond = or i1 %.not122, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.0120 = select i1 %or.cond, i32 %1, i32 %13
   %.not123 = icmp eq ptr %3, null
   br i1 %.not123, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0120, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_Statistics, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.0120 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0119 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.0119 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_start, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0120, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_fopens, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_devopens, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
   %25 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_jobsqueued, align 4
-  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #4
+  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #4
   %27 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_sopens, align 4
-  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
+  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
   %29 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_stimeouts, align 4
-  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #4
+  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #4
   %31 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_serrorout, align 4
-  %32 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #4
+  %32 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #4
   %33 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_pwerrors, align 4
-  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
+  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
   %35 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_permerrors, align 4
-  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #4
+  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #4
   %37 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_syserrors, align 4
-  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #4
+  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #4
   %39 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_bytessent_low, align 4
-  %40 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #4
+  %40 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #4
   %41 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_bytessent_high, align 4
-  %42 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 noundef 0) #4
+  %42 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 noundef 0) #4
   %43 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_bytesrcvd_low, align 4
-  %44 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 noundef 0) #4
+  %44 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 noundef 0) #4
   %45 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_bytesrcvd_high, align 4
-  %46 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 noundef 0) #4
+  %46 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 noundef 0) #4
   %47 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_avresponse, align 4
-  %48 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, i32 noundef 0) #4
+  %48 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, i32 noundef 0) #4
   %49 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_reqbufneed, align 4
-  %50 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 noundef 0) #4
+  %50 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 noundef 0) #4
   %51 = load i32, ptr @hf_srvsvc_srvsvc_Statistics_bigbufneed, align 4
-  %52 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %51, i32 noundef 0) #4
-  %53 = sub i32 %52, %.0
-  tail call void @proto_item_set_len(ptr noundef %.0120, i32 noundef %53) #4
+  %52 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %51, i32 noundef 0) #4
+  %53 = sub i32 %52, %.0120
+  tail call void @proto_item_set_len(ptr noundef %.0119, i32 noundef %53) #4
   %54 = getelementptr inbounds i8, ptr %4, i64 72
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 96
@@ -11184,31 +11184,31 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfo0(ptr noundef %0, i32 n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.056 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetTransportInfo0, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.056 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.055 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.055 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo0_vcs, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo0_name, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo0_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo0_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %34) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo0_addr, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo0_addr_, i32 noundef 2, ptr noundef nonnull @.str.1174, i32 noundef %36) #4
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo0_addr_, i32 noundef 2, ptr noundef nonnull @.str.1174, i32 noundef %36) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo0_addr_len, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo0_net_addr, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo0_net_addr_, i32 noundef 2, ptr noundef nonnull @.str.1175, i32 noundef %40) #4
-  %42 = sub i32 %41, %.0
-  tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #4
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo0_net_addr_, i32 noundef 2, ptr noundef nonnull @.str.1175, i32 noundef %40) #4
+  %42 = sub i32 %41, %.056
+  tail call void @proto_item_set_len(ptr noundef %.055, i32 noundef %42) #4
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -11271,25 +11271,25 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportCtr0(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetTransportCtr0, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr0_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr0_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr0_array_, i32 noundef 2, ptr noundef nonnull @.str.1176, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr0_array_, i32 noundef 2, ptr noundef nonnull @.str.1176, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -11352,33 +11352,33 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfo1(ptr noundef %0, i32 n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.062 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not68 = icmp eq ptr %3, null
   br i1 %.not68, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.062, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetTransportInfo1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.062 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.061 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.061 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo1_vcs, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.062, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo1_name, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo1_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo1_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %34) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo1_addr, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo1_addr_, i32 noundef 2, ptr noundef nonnull @.str.1174, i32 noundef %36) #4
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo1_addr_, i32 noundef 2, ptr noundef nonnull @.str.1174, i32 noundef %36) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo1_addr_len, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo1_net_addr, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo1_net_addr_, i32 noundef 2, ptr noundef nonnull @.str.1175, i32 noundef %40) #4
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo1_net_addr_, i32 noundef 2, ptr noundef nonnull @.str.1175, i32 noundef %40) #4
   %42 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo1_domain, align 4
-  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo1_domain_, i32 noundef 2, ptr noundef nonnull @.str.1172, i32 noundef %42) #4
-  %44 = sub i32 %43, %.0
-  tail call void @proto_item_set_len(ptr noundef %.062, i32 noundef %44) #4
+  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo1_domain_, i32 noundef 2, ptr noundef nonnull @.str.1172, i32 noundef %42) #4
+  %44 = sub i32 %43, %.062
+  tail call void @proto_item_set_len(ptr noundef %.061, i32 noundef %44) #4
   %45 = load ptr, ptr %9, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8
@@ -11441,25 +11441,25 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportCtr1(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetTransportCtr1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr1_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr1_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1177, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1177, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -11522,35 +11522,35 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfo2(ptr noundef %0, i32 n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.068 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not74 = icmp eq ptr %3, null
   br i1 %.not74, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.068, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetTransportInfo2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.068 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.067 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.067 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo2_vcs, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.068, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo2_name, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo2_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo2_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %34) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo2_addr, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo2_addr_, i32 noundef 2, ptr noundef nonnull @.str.1174, i32 noundef %36) #4
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo2_addr_, i32 noundef 2, ptr noundef nonnull @.str.1174, i32 noundef %36) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo2_addr_len, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo2_net_addr, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo2_net_addr_, i32 noundef 2, ptr noundef nonnull @.str.1175, i32 noundef %40) #4
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo2_net_addr_, i32 noundef 2, ptr noundef nonnull @.str.1175, i32 noundef %40) #4
   %42 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo2_domain, align 4
-  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo2_domain_, i32 noundef 2, ptr noundef nonnull @.str.1172, i32 noundef %42) #4
+  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo2_domain_, i32 noundef 2, ptr noundef nonnull @.str.1172, i32 noundef %42) #4
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo2_unknown, align 4
-  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
-  %46 = sub i32 %45, %.0
-  tail call void @proto_item_set_len(ptr noundef %.068, i32 noundef %46) #4
+  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
+  %46 = sub i32 %45, %.068
+  tail call void @proto_item_set_len(ptr noundef %.067, i32 noundef %46) #4
   %47 = load ptr, ptr %9, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 96
   %49 = load i32, ptr %48, align 8
@@ -11613,25 +11613,25 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportCtr2(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetTransportCtr2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr2_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr2_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr2_array_, i32 noundef 2, ptr noundef nonnull @.str.1178, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr2_array_, i32 noundef 2, ptr noundef nonnull @.str.1178, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -11694,49 +11694,49 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfo3(ptr noundef %0, i32 n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.080 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not86 = icmp eq ptr %3, null
   br i1 %.not86, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.080, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetTransportInfo3, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.080 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.079 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.079 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo3_vcs, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.080, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo3_name, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo3_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %34) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo3_name_, i32 noundef 2, ptr noundef nonnull @.str.1141, i32 noundef %34) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo3_addr, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo3_addr_, i32 noundef 2, ptr noundef nonnull @.str.1174, i32 noundef %36) #4
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo3_addr_, i32 noundef 2, ptr noundef nonnull @.str.1174, i32 noundef %36) #4
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo3_addr_len, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #4
   %40 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo3_net_addr, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo3_net_addr_, i32 noundef 2, ptr noundef nonnull @.str.1175, i32 noundef %40) #4
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo3_net_addr_, i32 noundef 2, ptr noundef nonnull @.str.1175, i32 noundef %40) #4
   %42 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo3_domain, align 4
-  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo3_domain_, i32 noundef 2, ptr noundef nonnull @.str.1172, i32 noundef %42) #4
+  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportInfo3_domain_, i32 noundef 2, ptr noundef nonnull @.str.1172, i32 noundef %42) #4
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo3_unknown1, align 4
-  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
+  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #4
   %46 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo3_unknown2, align 4
-  %47 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.079, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
+  %47 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #4
   br label %48
 
 48:                                               ; preds = %48, %31
   %.010.i = phi i32 [ 0, %31 ], [ %51, %48 ]
   %.089.i = phi i32 [ %47, %31 ], [ %50, %48 ]
   %49 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo3_unknown3, align 4
-  %50 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.079, ptr noundef %4, ptr noundef %5, i32 noundef %49, i32 noundef 0) #4
+  %50 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %49, i32 noundef 0) #4
   %51 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %51, 256
   br i1 %exitcond.not.i, label %srvsvc_dissect_element_NetTransportInfo3_unknown3.exit, label %48, !llvm.loop !4
 
 srvsvc_dissect_element_NetTransportInfo3_unknown3.exit: ; preds = %48
-  %52 = sub i32 %50, %.0
-  tail call void @proto_item_set_len(ptr noundef %.080, i32 noundef %52) #4
+  %52 = sub i32 %50, %.080
+  tail call void @proto_item_set_len(ptr noundef %.079, i32 noundef %52) #4
   %53 = load ptr, ptr %9, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 96
   %55 = load i32, ptr %54, align 8
@@ -11799,25 +11799,25 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportCtr3(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %29 = load i32, ptr @ett_srvsvc_srvsvc_NetTransportCtr3, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr3_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #4
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr3_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr3_array_, i32 noundef 2, ptr noundef nonnull @.str.1179, i32 noundef %34) #4
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr3_array_, i32 noundef 2, ptr noundef nonnull @.str.1179, i32 noundef %34) #4
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -11882,36 +11882,36 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfoCtr(ptr noundef %0, i32
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.038 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #4
   %31 = load i32, ptr @ett_srvsvc_srvsvc_NetTransportInfoCtr, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #4
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.038 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.037 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.037 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfoCtr_level, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #4
   %36 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfoCtr_ctr, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.037, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %40, label %37
 
 37:                                               ; preds = %33
   %38 = load i32, ptr @ett_srvsvc_srvsvc_NetTransportCtr, align 4
-  %39 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.037, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull @.str.1180) #4
+  %39 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %35, i32 noundef -1, i32 noundef %38, ptr noundef nonnull %9, ptr noundef nonnull @.str.1180) #4
   br label %40
 
 40:                                               ; preds = %37, %33
-  %.045.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
-  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
+  %.0.i.i = phi ptr [ %39, %37 ], [ null, %33 ]
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #4
   %42 = load ptr, ptr %11, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
   %44 = load i32, ptr %43, align 8
@@ -11945,7 +11945,7 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfoCtr(ptr noundef %0, i32
   br label %58
 
 58:                                               ; preds = %55, %53, %50, %48
-  %.0.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
+  %.045.i.i = phi i32 [ %41, %48 ], [ %52, %50 ], [ %41, %53 ], [ %57, %55 ]
   %59 = load i32, ptr %10, align 4
   switch i32 %59, label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit [
     i32 0, label %60
@@ -11956,33 +11956,33 @@ define hidden i32 @srvsvc_dissect_struct_NetTransportInfoCtr(ptr noundef %0, i32
 
 60:                                               ; preds = %58
   %61 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr_ctr0, align 4
-  %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1181, i32 noundef %61) #4
+  %62 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.045.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr_ctr0_, i32 noundef 2, ptr noundef nonnull @.str.1181, i32 noundef %61) #4
   br label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr_ctr1, align 4
-  %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1182, i32 noundef %64) #4
+  %65 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.045.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1182, i32 noundef %64) #4
   br label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit
 
 66:                                               ; preds = %58
   %67 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr_ctr2, align 4
-  %68 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr_ctr2_, i32 noundef 2, ptr noundef nonnull @.str.1183, i32 noundef %67) #4
+  %68 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.045.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr_ctr2_, i32 noundef 2, ptr noundef nonnull @.str.1183, i32 noundef %67) #4
   br label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit
 
 69:                                               ; preds = %58
   %70 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportCtr_ctr3, align 4
-  %71 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.045.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr_ctr3_, i32 noundef 2, ptr noundef nonnull @.str.1184, i32 noundef %70) #4
+  %71 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.045.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetTransportCtr_ctr3_, i32 noundef 2, ptr noundef nonnull @.str.1184, i32 noundef %70) #4
   br label %srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit
 
 srvsvc_dissect_element_NetTransportInfoCtr_ctr.exit: ; preds = %58, %60, %63, %66, %69
-  %.1.i.i = phi i32 [ %.0.i.i, %58 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ]
+  %.1.i.i = phi i32 [ %.045.i.i, %58 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ], [ %62, %60 ]
   %72 = load ptr, ptr %9, align 8
   %73 = sub i32 %.1.i.i, %35
   call void @proto_item_set_len(ptr noundef %72, i32 noundef %73) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %74 = sub i32 %.1.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %74) #4
+  %74 = sub i32 %.1.i.i, %.038
+  call void @proto_item_set_len(ptr noundef %.037, i32 noundef %74) #4
   %75 = load ptr, ptr %11, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 96
   %77 = load i32, ptr %76, align 8
@@ -12018,45 +12018,45 @@ define hidden i32 @srvsvc_dissect_struct_NetRemoteTODInfo(ptr noundef %0, i32 no
   %or.cond = or i1 %.not92, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.090 = select i1 %or.cond, i32 %1, i32 %13
   %.not93 = icmp eq ptr %3, null
   br i1 %.not93, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.090, i32 noundef -1, i32 noundef 0) #4
   %16 = load i32, ptr @ett_srvsvc_srvsvc_NetRemoteTODInfo, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.090 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.089 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.089 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_srvsvc_srvsvc_NetRemoteTODInfo_elapsed, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.090, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #4
   %21 = load i32, ptr @hf_srvsvc_srvsvc_NetRemoteTODInfo_msecs, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = load i32, ptr @hf_srvsvc_srvsvc_NetRemoteTODInfo_hours, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #4
   %25 = load i32, ptr @hf_srvsvc_srvsvc_NetRemoteTODInfo_mins, align 4
-  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #4
+  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #4
   %27 = load i32, ptr @hf_srvsvc_srvsvc_NetRemoteTODInfo_secs, align 4
-  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
+  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #4
   %29 = load i32, ptr @hf_srvsvc_srvsvc_NetRemoteTODInfo_hunds, align 4
-  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #4
+  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #4
   %31 = load i32, ptr @hf_srvsvc_srvsvc_NetRemoteTODInfo_timezone, align 4
-  %32 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #4
+  %32 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #4
   %33 = load i32, ptr @hf_srvsvc_srvsvc_NetRemoteTODInfo_tinterval, align 4
-  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
+  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #4
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetRemoteTODInfo_day, align 4
-  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #4
+  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #4
   %37 = load i32, ptr @hf_srvsvc_srvsvc_NetRemoteTODInfo_month, align 4
-  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #4
+  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #4
   %39 = load i32, ptr @hf_srvsvc_srvsvc_NetRemoteTODInfo_year, align 4
-  %40 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #4
+  %40 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #4
   %41 = load i32, ptr @hf_srvsvc_srvsvc_NetRemoteTODInfo_weekday, align 4
-  %42 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 noundef 0) #4
-  %43 = sub i32 %42, %.0
-  tail call void @proto_item_set_len(ptr noundef %.090, i32 noundef %43) #4
+  %42 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 noundef 0) #4
+  %43 = sub i32 %42, %.090
+  tail call void @proto_item_set_len(ptr noundef %.089, i32 noundef %43) #4
   %44 = getelementptr inbounds i8, ptr %4, i64 72
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 96
@@ -15777,8 +15777,8 @@ define internal i32 @srvsvc_dissect_element_NetCharDevGetInfo_info_(ptr noundef 
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.033.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.033.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #4
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #4
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -15813,7 +15813,7 @@ define internal i32 @srvsvc_dissect_element_NetCharDevGetInfo_info_(ptr noundef 
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.033.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   switch i32 %33, label %srvsvc_dissect_NetCharDevInfo.exit [
     i32 0, label %34
@@ -15822,16 +15822,16 @@ define internal i32 @srvsvc_dissect_element_NetCharDevGetInfo_info_(ptr noundef 
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevInfo_info0, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.033.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevInfo_info0_, i32 noundef 2, ptr noundef nonnull @.str.1273, i32 noundef %35) #4
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.033.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevInfo_info0_, i32 noundef 2, ptr noundef nonnull @.str.1273, i32 noundef %35) #4
   br label %srvsvc_dissect_NetCharDevInfo.exit
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevInfo_info1, align 4
-  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.033.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevInfo_info1_, i32 noundef 2, ptr noundef nonnull @.str.1274, i32 noundef %38) #4
+  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.033.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevInfo_info1_, i32 noundef 2, ptr noundef nonnull @.str.1274, i32 noundef %38) #4
   br label %srvsvc_dissect_NetCharDevInfo.exit
 
 srvsvc_dissect_NetCharDevInfo.exit:               ; preds = %32, %34, %37
-  %.1.i = phi i32 [ %.0.i, %32 ], [ %39, %37 ], [ %36, %34 ]
+  %.1.i = phi i32 [ %.033.i, %32 ], [ %39, %37 ], [ %36, %34 ]
   %40 = load ptr, ptr %7, align 8
   %41 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %40, i32 noundef %41) #4
@@ -15936,8 +15936,8 @@ define internal fastcc i32 @srvsvc_dissect_NetCharDevQInfo(ptr noundef %0, i32 n
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.033 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.033, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #4
+  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #4
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -15972,7 +15972,7 @@ define internal fastcc i32 @srvsvc_dissect_NetCharDevQInfo(ptr noundef %0, i32 n
   br label %32
 
 32:                                               ; preds = %27, %29, %22, %24
-  %.0 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.033 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %9, align 4
   switch i32 %33, label %40 [
     i32 0, label %34
@@ -15981,16 +15981,16 @@ define internal fastcc i32 @srvsvc_dissect_NetCharDevQInfo(ptr noundef %0, i32 n
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQInfo_info0, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.033, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQInfo_info0_, i32 noundef 2, ptr noundef nonnull @.str.1278, i32 noundef %35) #4
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.033, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQInfo_info0_, i32 noundef 2, ptr noundef nonnull @.str.1278, i32 noundef %35) #4
   br label %40
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetCharDevQInfo_info1, align 4
-  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.033, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQInfo_info1_, i32 noundef 2, ptr noundef nonnull @.str.1279, i32 noundef %38) #4
+  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.033, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetCharDevQInfo_info1_, i32 noundef 2, ptr noundef nonnull @.str.1279, i32 noundef %38) #4
   br label %40
 
 40:                                               ; preds = %32, %37, %34
-  %.1 = phi i32 [ %.0, %32 ], [ %39, %37 ], [ %36, %34 ]
+  %.1 = phi i32 [ %.033, %32 ], [ %39, %37 ], [ %36, %34 ]
   %41 = load ptr, ptr %8, align 8
   %42 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %41, i32 noundef %42) #4
@@ -16167,8 +16167,8 @@ define internal i32 @srvsvc_dissect_element_NetFileGetInfo_info_(ptr noundef %0,
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.033.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.033.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #4
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #4
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -16203,7 +16203,7 @@ define internal i32 @srvsvc_dissect_element_NetFileGetInfo_info_(ptr noundef %0,
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.033.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   switch i32 %33, label %srvsvc_dissect_NetFileInfo.exit [
     i32 2, label %34
@@ -16212,16 +16212,16 @@ define internal i32 @srvsvc_dissect_element_NetFileGetInfo_info_(ptr noundef %0,
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetFileInfo_info2, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.033.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileInfo_info2_, i32 noundef 2, ptr noundef nonnull @.str.1285, i32 noundef %35) #4
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.033.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileInfo_info2_, i32 noundef 2, ptr noundef nonnull @.str.1285, i32 noundef %35) #4
   br label %srvsvc_dissect_NetFileInfo.exit
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetFileInfo_info3, align 4
-  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.033.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileInfo_info3_, i32 noundef 2, ptr noundef nonnull @.str.1286, i32 noundef %38) #4
+  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.033.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetFileInfo_info3_, i32 noundef 2, ptr noundef nonnull @.str.1286, i32 noundef %38) #4
   br label %srvsvc_dissect_NetFileInfo.exit
 
 srvsvc_dissect_NetFileInfo.exit:                  ; preds = %32, %34, %37
-  %.1.i = phi i32 [ %.0.i, %32 ], [ %39, %37 ], [ %36, %34 ]
+  %.1.i = phi i32 [ %.033.i, %32 ], [ %39, %37 ], [ %36, %34 ]
   %40 = load ptr, ptr %7, align 8
   %41 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %40, i32 noundef %41) #4
@@ -16366,8 +16366,8 @@ define internal fastcc i32 @srvsvc_dissect_NetShareInfo(ptr noundef %0, i32 noun
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.081 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.081, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #4
+  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #4
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -16402,7 +16402,7 @@ define internal fastcc i32 @srvsvc_dissect_NetShareInfo(ptr noundef %0, i32 noun
   br label %32
 
 32:                                               ; preds = %27, %29, %22, %24
-  %.0 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.081 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %9, align 4
   switch i32 %33, label %64 [
     i32 0, label %34
@@ -16419,56 +16419,56 @@ define internal fastcc i32 @srvsvc_dissect_NetShareInfo(ptr noundef %0, i32 noun
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo_info0, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.081, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info0_, i32 noundef 2, ptr noundef nonnull @.str.1290, i32 noundef %35) #4
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info0_, i32 noundef 2, ptr noundef nonnull @.str.1290, i32 noundef %35) #4
   br label %64
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo_info1, align 4
-  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.081, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info1_, i32 noundef 2, ptr noundef nonnull @.str.1291, i32 noundef %38) #4
+  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info1_, i32 noundef 2, ptr noundef nonnull @.str.1291, i32 noundef %38) #4
   br label %64
 
 40:                                               ; preds = %32
   %41 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo_info2, align 4
-  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.081, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info2_, i32 noundef 2, ptr noundef nonnull @.str.1292, i32 noundef %41) #4
+  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info2_, i32 noundef 2, ptr noundef nonnull @.str.1292, i32 noundef %41) #4
   br label %64
 
 43:                                               ; preds = %32
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo_info501, align 4
-  %45 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.081, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info501_, i32 noundef 2, ptr noundef nonnull @.str.1293, i32 noundef %44) #4
+  %45 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info501_, i32 noundef 2, ptr noundef nonnull @.str.1293, i32 noundef %44) #4
   br label %64
 
 46:                                               ; preds = %32
   %47 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo_info502, align 4
-  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.081, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info502_, i32 noundef 2, ptr noundef nonnull @.str.1294, i32 noundef %47) #4
+  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info502_, i32 noundef 2, ptr noundef nonnull @.str.1294, i32 noundef %47) #4
   br label %64
 
 49:                                               ; preds = %32
   %50 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo_info1004, align 4
-  %51 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.081, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info1004_, i32 noundef 2, ptr noundef nonnull @.str.1295, i32 noundef %50) #4
+  %51 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info1004_, i32 noundef 2, ptr noundef nonnull @.str.1295, i32 noundef %50) #4
   br label %64
 
 52:                                               ; preds = %32
   %53 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo_info1005, align 4
-  %54 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.081, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info1005_, i32 noundef 2, ptr noundef nonnull @.str.1296, i32 noundef %53) #4
+  %54 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info1005_, i32 noundef 2, ptr noundef nonnull @.str.1296, i32 noundef %53) #4
   br label %64
 
 55:                                               ; preds = %32
   %56 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo_info1006, align 4
-  %57 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.081, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info1006_, i32 noundef 2, ptr noundef nonnull @.str.1297, i32 noundef %56) #4
+  %57 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info1006_, i32 noundef 2, ptr noundef nonnull @.str.1297, i32 noundef %56) #4
   br label %64
 
 58:                                               ; preds = %32
   %59 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo_info1007, align 4
-  %60 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.081, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info1007_, i32 noundef 2, ptr noundef nonnull @.str.1298, i32 noundef %59) #4
+  %60 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info1007_, i32 noundef 2, ptr noundef nonnull @.str.1298, i32 noundef %59) #4
   br label %64
 
 61:                                               ; preds = %32
   %62 = load i32, ptr @hf_srvsvc_srvsvc_NetShareInfo_info1501, align 4
-  %63 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.081, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info1501_, i32 noundef 2, ptr noundef nonnull @.str.1299, i32 noundef %62) #4
+  %63 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.081, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetShareInfo_info1501_, i32 noundef 2, ptr noundef nonnull @.str.1299, i32 noundef %62) #4
   br label %64
 
 64:                                               ; preds = %32, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34
-  %.1 = phi i32 [ %.0, %32 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.1 = phi i32 [ %.081, %32 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
   %65 = load ptr, ptr %8, align 8
   %66 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %65, i32 noundef %66) #4
@@ -16713,8 +16713,8 @@ define internal fastcc i32 @srvsvc_dissect_NetSrvInfo(ptr noundef %0, i32 nounde
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.0375 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0375, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #4
+  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #4
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -16749,7 +16749,7 @@ define internal fastcc i32 @srvsvc_dissect_NetSrvInfo(ptr noundef %0, i32 nounde
   br label %32
 
 32:                                               ; preds = %27, %29, %22, %24
-  %.0 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.0375 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %9, align 4
   switch i32 %33, label %211 [
     i32 100, label %34
@@ -16815,301 +16815,301 @@ define internal fastcc i32 @srvsvc_dissect_NetSrvInfo(ptr noundef %0, i32 nounde
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info100, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info100_, i32 noundef 2, ptr noundef nonnull @.str.1304, i32 noundef %35) #4
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info100_, i32 noundef 2, ptr noundef nonnull @.str.1304, i32 noundef %35) #4
   br label %211
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info101, align 4
-  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info101_, i32 noundef 2, ptr noundef nonnull @.str.1305, i32 noundef %38) #4
+  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info101_, i32 noundef 2, ptr noundef nonnull @.str.1305, i32 noundef %38) #4
   br label %211
 
 40:                                               ; preds = %32
   %41 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info102, align 4
-  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info102_, i32 noundef 2, ptr noundef nonnull @.str.1306, i32 noundef %41) #4
+  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info102_, i32 noundef 2, ptr noundef nonnull @.str.1306, i32 noundef %41) #4
   br label %211
 
 43:                                               ; preds = %32
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info402, align 4
-  %45 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info402_, i32 noundef 2, ptr noundef nonnull @.str.1307, i32 noundef %44) #4
+  %45 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info402_, i32 noundef 2, ptr noundef nonnull @.str.1307, i32 noundef %44) #4
   br label %211
 
 46:                                               ; preds = %32
   %47 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info403, align 4
-  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info403_, i32 noundef 2, ptr noundef nonnull @.str.1308, i32 noundef %47) #4
+  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info403_, i32 noundef 2, ptr noundef nonnull @.str.1308, i32 noundef %47) #4
   br label %211
 
 49:                                               ; preds = %32
   %50 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info502, align 4
-  %51 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info502_, i32 noundef 2, ptr noundef nonnull @.str.1309, i32 noundef %50) #4
+  %51 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info502_, i32 noundef 2, ptr noundef nonnull @.str.1309, i32 noundef %50) #4
   br label %211
 
 52:                                               ; preds = %32
   %53 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info503, align 4
-  %54 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info503_, i32 noundef 2, ptr noundef nonnull @.str.1310, i32 noundef %53) #4
+  %54 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info503_, i32 noundef 2, ptr noundef nonnull @.str.1310, i32 noundef %53) #4
   br label %211
 
 55:                                               ; preds = %32
   %56 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info599, align 4
-  %57 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info599_, i32 noundef 2, ptr noundef nonnull @.str.1311, i32 noundef %56) #4
+  %57 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info599_, i32 noundef 2, ptr noundef nonnull @.str.1311, i32 noundef %56) #4
   br label %211
 
 58:                                               ; preds = %32
   %59 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1005, align 4
-  %60 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1005_, i32 noundef 2, ptr noundef nonnull @.str.1312, i32 noundef %59) #4
+  %60 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1005_, i32 noundef 2, ptr noundef nonnull @.str.1312, i32 noundef %59) #4
   br label %211
 
 61:                                               ; preds = %32
   %62 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1010, align 4
-  %63 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1010_, i32 noundef 2, ptr noundef nonnull @.str.1313, i32 noundef %62) #4
+  %63 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1010_, i32 noundef 2, ptr noundef nonnull @.str.1313, i32 noundef %62) #4
   br label %211
 
 64:                                               ; preds = %32
   %65 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1016, align 4
-  %66 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1016_, i32 noundef 2, ptr noundef nonnull @.str.1314, i32 noundef %65) #4
+  %66 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1016_, i32 noundef 2, ptr noundef nonnull @.str.1314, i32 noundef %65) #4
   br label %211
 
 67:                                               ; preds = %32
   %68 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1017, align 4
-  %69 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1017_, i32 noundef 2, ptr noundef nonnull @.str.1315, i32 noundef %68) #4
+  %69 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1017_, i32 noundef 2, ptr noundef nonnull @.str.1315, i32 noundef %68) #4
   br label %211
 
 70:                                               ; preds = %32
   %71 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1018, align 4
-  %72 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1018_, i32 noundef 2, ptr noundef nonnull @.str.1316, i32 noundef %71) #4
+  %72 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1018_, i32 noundef 2, ptr noundef nonnull @.str.1316, i32 noundef %71) #4
   br label %211
 
 73:                                               ; preds = %32
   %74 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1107, align 4
-  %75 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1107_, i32 noundef 2, ptr noundef nonnull @.str.1317, i32 noundef %74) #4
+  %75 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1107_, i32 noundef 2, ptr noundef nonnull @.str.1317, i32 noundef %74) #4
   br label %211
 
 76:                                               ; preds = %32
   %77 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1501, align 4
-  %78 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1501_, i32 noundef 2, ptr noundef nonnull @.str.1318, i32 noundef %77) #4
+  %78 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1501_, i32 noundef 2, ptr noundef nonnull @.str.1318, i32 noundef %77) #4
   br label %211
 
 79:                                               ; preds = %32
   %80 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1502, align 4
-  %81 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1502_, i32 noundef 2, ptr noundef nonnull @.str.1319, i32 noundef %80) #4
+  %81 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1502_, i32 noundef 2, ptr noundef nonnull @.str.1319, i32 noundef %80) #4
   br label %211
 
 82:                                               ; preds = %32
   %83 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1503, align 4
-  %84 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1503_, i32 noundef 2, ptr noundef nonnull @.str.1320, i32 noundef %83) #4
+  %84 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1503_, i32 noundef 2, ptr noundef nonnull @.str.1320, i32 noundef %83) #4
   br label %211
 
 85:                                               ; preds = %32
   %86 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1506, align 4
-  %87 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1506_, i32 noundef 2, ptr noundef nonnull @.str.1321, i32 noundef %86) #4
+  %87 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1506_, i32 noundef 2, ptr noundef nonnull @.str.1321, i32 noundef %86) #4
   br label %211
 
 88:                                               ; preds = %32
   %89 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1509, align 4
-  %90 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1509_, i32 noundef 2, ptr noundef nonnull @.str.1322, i32 noundef %89) #4
+  %90 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1509_, i32 noundef 2, ptr noundef nonnull @.str.1322, i32 noundef %89) #4
   br label %211
 
 91:                                               ; preds = %32
   %92 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1510, align 4
-  %93 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1510_, i32 noundef 2, ptr noundef nonnull @.str.1323, i32 noundef %92) #4
+  %93 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1510_, i32 noundef 2, ptr noundef nonnull @.str.1323, i32 noundef %92) #4
   br label %211
 
 94:                                               ; preds = %32
   %95 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1511, align 4
-  %96 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1511_, i32 noundef 2, ptr noundef nonnull @.str.1324, i32 noundef %95) #4
+  %96 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1511_, i32 noundef 2, ptr noundef nonnull @.str.1324, i32 noundef %95) #4
   br label %211
 
 97:                                               ; preds = %32
   %98 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1512, align 4
-  %99 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1512_, i32 noundef 2, ptr noundef nonnull @.str.1325, i32 noundef %98) #4
+  %99 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1512_, i32 noundef 2, ptr noundef nonnull @.str.1325, i32 noundef %98) #4
   br label %211
 
 100:                                              ; preds = %32
   %101 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1513, align 4
-  %102 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1513_, i32 noundef 2, ptr noundef nonnull @.str.1326, i32 noundef %101) #4
+  %102 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1513_, i32 noundef 2, ptr noundef nonnull @.str.1326, i32 noundef %101) #4
   br label %211
 
 103:                                              ; preds = %32
   %104 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1514, align 4
-  %105 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1514_, i32 noundef 2, ptr noundef nonnull @.str.1327, i32 noundef %104) #4
+  %105 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1514_, i32 noundef 2, ptr noundef nonnull @.str.1327, i32 noundef %104) #4
   br label %211
 
 106:                                              ; preds = %32
   %107 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1515, align 4
-  %108 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1515_, i32 noundef 2, ptr noundef nonnull @.str.1328, i32 noundef %107) #4
+  %108 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1515_, i32 noundef 2, ptr noundef nonnull @.str.1328, i32 noundef %107) #4
   br label %211
 
 109:                                              ; preds = %32
   %110 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1516, align 4
-  %111 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1516_, i32 noundef 2, ptr noundef nonnull @.str.1329, i32 noundef %110) #4
+  %111 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1516_, i32 noundef 2, ptr noundef nonnull @.str.1329, i32 noundef %110) #4
   br label %211
 
 112:                                              ; preds = %32
   %113 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1518, align 4
-  %114 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1518_, i32 noundef 2, ptr noundef nonnull @.str.1330, i32 noundef %113) #4
+  %114 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1518_, i32 noundef 2, ptr noundef nonnull @.str.1330, i32 noundef %113) #4
   br label %211
 
 115:                                              ; preds = %32
   %116 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1520, align 4
-  %117 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1520_, i32 noundef 2, ptr noundef nonnull @.str.1331, i32 noundef %116) #4
+  %117 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1520_, i32 noundef 2, ptr noundef nonnull @.str.1331, i32 noundef %116) #4
   br label %211
 
 118:                                              ; preds = %32
   %119 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1521, align 4
-  %120 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1521_, i32 noundef 2, ptr noundef nonnull @.str.1332, i32 noundef %119) #4
+  %120 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1521_, i32 noundef 2, ptr noundef nonnull @.str.1332, i32 noundef %119) #4
   br label %211
 
 121:                                              ; preds = %32
   %122 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1522, align 4
-  %123 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1522_, i32 noundef 2, ptr noundef nonnull @.str.1333, i32 noundef %122) #4
+  %123 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1522_, i32 noundef 2, ptr noundef nonnull @.str.1333, i32 noundef %122) #4
   br label %211
 
 124:                                              ; preds = %32
   %125 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1523, align 4
-  %126 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1523_, i32 noundef 2, ptr noundef nonnull @.str.1334, i32 noundef %125) #4
+  %126 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1523_, i32 noundef 2, ptr noundef nonnull @.str.1334, i32 noundef %125) #4
   br label %211
 
 127:                                              ; preds = %32
   %128 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1524, align 4
-  %129 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1524_, i32 noundef 2, ptr noundef nonnull @.str.1335, i32 noundef %128) #4
+  %129 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1524_, i32 noundef 2, ptr noundef nonnull @.str.1335, i32 noundef %128) #4
   br label %211
 
 130:                                              ; preds = %32
   %131 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1525, align 4
-  %132 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1525_, i32 noundef 2, ptr noundef nonnull @.str.1336, i32 noundef %131) #4
+  %132 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1525_, i32 noundef 2, ptr noundef nonnull @.str.1336, i32 noundef %131) #4
   br label %211
 
 133:                                              ; preds = %32
   %134 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1528, align 4
-  %135 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1528_, i32 noundef 2, ptr noundef nonnull @.str.1337, i32 noundef %134) #4
+  %135 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1528_, i32 noundef 2, ptr noundef nonnull @.str.1337, i32 noundef %134) #4
   br label %211
 
 136:                                              ; preds = %32
   %137 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1529, align 4
-  %138 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1529_, i32 noundef 2, ptr noundef nonnull @.str.1338, i32 noundef %137) #4
+  %138 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1529_, i32 noundef 2, ptr noundef nonnull @.str.1338, i32 noundef %137) #4
   br label %211
 
 139:                                              ; preds = %32
   %140 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1530, align 4
-  %141 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1530_, i32 noundef 2, ptr noundef nonnull @.str.1339, i32 noundef %140) #4
+  %141 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1530_, i32 noundef 2, ptr noundef nonnull @.str.1339, i32 noundef %140) #4
   br label %211
 
 142:                                              ; preds = %32
   %143 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1533, align 4
-  %144 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1533_, i32 noundef 2, ptr noundef nonnull @.str.1340, i32 noundef %143) #4
+  %144 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1533_, i32 noundef 2, ptr noundef nonnull @.str.1340, i32 noundef %143) #4
   br label %211
 
 145:                                              ; preds = %32
   %146 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1534, align 4
-  %147 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1534_, i32 noundef 2, ptr noundef nonnull @.str.1341, i32 noundef %146) #4
+  %147 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1534_, i32 noundef 2, ptr noundef nonnull @.str.1341, i32 noundef %146) #4
   br label %211
 
 148:                                              ; preds = %32
   %149 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1535, align 4
-  %150 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1535_, i32 noundef 2, ptr noundef nonnull @.str.1342, i32 noundef %149) #4
+  %150 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1535_, i32 noundef 2, ptr noundef nonnull @.str.1342, i32 noundef %149) #4
   br label %211
 
 151:                                              ; preds = %32
   %152 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1536, align 4
-  %153 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1536_, i32 noundef 2, ptr noundef nonnull @.str.1343, i32 noundef %152) #4
+  %153 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1536_, i32 noundef 2, ptr noundef nonnull @.str.1343, i32 noundef %152) #4
   br label %211
 
 154:                                              ; preds = %32
   %155 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1537, align 4
-  %156 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1537_, i32 noundef 2, ptr noundef nonnull @.str.1344, i32 noundef %155) #4
+  %156 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1537_, i32 noundef 2, ptr noundef nonnull @.str.1344, i32 noundef %155) #4
   br label %211
 
 157:                                              ; preds = %32
   %158 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1538, align 4
-  %159 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1538_, i32 noundef 2, ptr noundef nonnull @.str.1345, i32 noundef %158) #4
+  %159 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1538_, i32 noundef 2, ptr noundef nonnull @.str.1345, i32 noundef %158) #4
   br label %211
 
 160:                                              ; preds = %32
   %161 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1539, align 4
-  %162 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1539_, i32 noundef 2, ptr noundef nonnull @.str.1346, i32 noundef %161) #4
+  %162 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1539_, i32 noundef 2, ptr noundef nonnull @.str.1346, i32 noundef %161) #4
   br label %211
 
 163:                                              ; preds = %32
   %164 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1540, align 4
-  %165 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1540_, i32 noundef 2, ptr noundef nonnull @.str.1347, i32 noundef %164) #4
+  %165 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1540_, i32 noundef 2, ptr noundef nonnull @.str.1347, i32 noundef %164) #4
   br label %211
 
 166:                                              ; preds = %32
   %167 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1541, align 4
-  %168 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1541_, i32 noundef 2, ptr noundef nonnull @.str.1348, i32 noundef %167) #4
+  %168 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1541_, i32 noundef 2, ptr noundef nonnull @.str.1348, i32 noundef %167) #4
   br label %211
 
 169:                                              ; preds = %32
   %170 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1542, align 4
-  %171 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1542_, i32 noundef 2, ptr noundef nonnull @.str.1349, i32 noundef %170) #4
+  %171 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1542_, i32 noundef 2, ptr noundef nonnull @.str.1349, i32 noundef %170) #4
   br label %211
 
 172:                                              ; preds = %32
   %173 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1543, align 4
-  %174 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1543_, i32 noundef 2, ptr noundef nonnull @.str.1350, i32 noundef %173) #4
+  %174 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1543_, i32 noundef 2, ptr noundef nonnull @.str.1350, i32 noundef %173) #4
   br label %211
 
 175:                                              ; preds = %32
   %176 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1544, align 4
-  %177 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1544_, i32 noundef 2, ptr noundef nonnull @.str.1351, i32 noundef %176) #4
+  %177 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1544_, i32 noundef 2, ptr noundef nonnull @.str.1351, i32 noundef %176) #4
   br label %211
 
 178:                                              ; preds = %32
   %179 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1545, align 4
-  %180 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1545_, i32 noundef 2, ptr noundef nonnull @.str.1352, i32 noundef %179) #4
+  %180 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1545_, i32 noundef 2, ptr noundef nonnull @.str.1352, i32 noundef %179) #4
   br label %211
 
 181:                                              ; preds = %32
   %182 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1546, align 4
-  %183 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1546_, i32 noundef 2, ptr noundef nonnull @.str.1353, i32 noundef %182) #4
+  %183 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1546_, i32 noundef 2, ptr noundef nonnull @.str.1353, i32 noundef %182) #4
   br label %211
 
 184:                                              ; preds = %32
   %185 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1547, align 4
-  %186 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1547_, i32 noundef 2, ptr noundef nonnull @.str.1354, i32 noundef %185) #4
+  %186 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1547_, i32 noundef 2, ptr noundef nonnull @.str.1354, i32 noundef %185) #4
   br label %211
 
 187:                                              ; preds = %32
   %188 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1548, align 4
-  %189 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1548_, i32 noundef 2, ptr noundef nonnull @.str.1355, i32 noundef %188) #4
+  %189 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1548_, i32 noundef 2, ptr noundef nonnull @.str.1355, i32 noundef %188) #4
   br label %211
 
 190:                                              ; preds = %32
   %191 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1549, align 4
-  %192 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1549_, i32 noundef 2, ptr noundef nonnull @.str.1356, i32 noundef %191) #4
+  %192 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1549_, i32 noundef 2, ptr noundef nonnull @.str.1356, i32 noundef %191) #4
   br label %211
 
 193:                                              ; preds = %32
   %194 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1550, align 4
-  %195 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1550_, i32 noundef 2, ptr noundef nonnull @.str.1357, i32 noundef %194) #4
+  %195 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1550_, i32 noundef 2, ptr noundef nonnull @.str.1357, i32 noundef %194) #4
   br label %211
 
 196:                                              ; preds = %32
   %197 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1552, align 4
-  %198 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1552_, i32 noundef 2, ptr noundef nonnull @.str.1358, i32 noundef %197) #4
+  %198 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1552_, i32 noundef 2, ptr noundef nonnull @.str.1358, i32 noundef %197) #4
   br label %211
 
 199:                                              ; preds = %32
   %200 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1553, align 4
-  %201 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1553_, i32 noundef 2, ptr noundef nonnull @.str.1359, i32 noundef %200) #4
+  %201 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1553_, i32 noundef 2, ptr noundef nonnull @.str.1359, i32 noundef %200) #4
   br label %211
 
 202:                                              ; preds = %32
   %203 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1554, align 4
-  %204 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1554_, i32 noundef 2, ptr noundef nonnull @.str.1360, i32 noundef %203) #4
+  %204 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1554_, i32 noundef 2, ptr noundef nonnull @.str.1360, i32 noundef %203) #4
   br label %211
 
 205:                                              ; preds = %32
   %206 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1555, align 4
-  %207 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1555_, i32 noundef 2, ptr noundef nonnull @.str.1361, i32 noundef %206) #4
+  %207 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1555_, i32 noundef 2, ptr noundef nonnull @.str.1361, i32 noundef %206) #4
   br label %211
 
 208:                                              ; preds = %32
   %209 = load i32, ptr @hf_srvsvc_srvsvc_NetSrvInfo_info1556, align 4
-  %210 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0375, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1556_, i32 noundef 2, ptr noundef nonnull @.str.1362, i32 noundef %209) #4
+  %210 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0375, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @srvsvc_dissect_element_NetSrvInfo_info1556_, i32 noundef 2, ptr noundef nonnull @.str.1362, i32 noundef %209) #4
   br label %211
 
 211:                                              ; preds = %32, %208, %205, %202, %199, %196, %193, %190, %187, %184, %181, %178, %175, %172, %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %112, %109, %106, %103, %100, %97, %94, %91, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34
-  %.1 = phi i32 [ %.0, %32 ], [ %210, %208 ], [ %207, %205 ], [ %204, %202 ], [ %201, %199 ], [ %198, %196 ], [ %195, %193 ], [ %192, %190 ], [ %189, %187 ], [ %186, %184 ], [ %183, %181 ], [ %180, %178 ], [ %177, %175 ], [ %174, %172 ], [ %171, %169 ], [ %168, %166 ], [ %165, %163 ], [ %162, %160 ], [ %159, %157 ], [ %156, %154 ], [ %153, %151 ], [ %150, %148 ], [ %147, %145 ], [ %144, %142 ], [ %141, %139 ], [ %138, %136 ], [ %135, %133 ], [ %132, %130 ], [ %129, %127 ], [ %126, %124 ], [ %123, %121 ], [ %120, %118 ], [ %117, %115 ], [ %114, %112 ], [ %111, %109 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.1 = phi i32 [ %.0375, %32 ], [ %210, %208 ], [ %207, %205 ], [ %204, %202 ], [ %201, %199 ], [ %198, %196 ], [ %195, %193 ], [ %192, %190 ], [ %189, %187 ], [ %186, %184 ], [ %183, %181 ], [ %180, %178 ], [ %177, %175 ], [ %174, %172 ], [ %171, %169 ], [ %168, %166 ], [ %165, %163 ], [ %162, %160 ], [ %159, %157 ], [ %156, %154 ], [ %153, %151 ], [ %150, %148 ], [ %147, %145 ], [ %144, %142 ], [ %141, %139 ], [ %138, %136 ], [ %135, %133 ], [ %132, %130 ], [ %129, %127 ], [ %126, %124 ], [ %123, %121 ], [ %120, %118 ], [ %117, %115 ], [ %114, %112 ], [ %111, %109 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %79 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
   %212 = load ptr, ptr %8, align 8
   %213 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %212, i32 noundef %213) #4
@@ -17642,8 +17642,8 @@ define internal fastcc i32 @srvsvc_dissect_NetTransportInfo(ptr noundef %0, i32 
   br label %13
 
 13:                                               ; preds = %10, %7
-  %.045 = phi ptr [ %12, %10 ], [ null, %7 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.045, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #4
+  %.0 = phi ptr [ %12, %10 ], [ null, %7 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %9) #4
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -17678,7 +17678,7 @@ define internal fastcc i32 @srvsvc_dissect_NetTransportInfo(ptr noundef %0, i32 
   br label %32
 
 32:                                               ; preds = %27, %29, %22, %24
-  %.0 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.045 = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %9, align 4
   switch i32 %33, label %46 [
     i32 0, label %34
@@ -17689,26 +17689,26 @@ define internal fastcc i32 @srvsvc_dissect_NetTransportInfo(ptr noundef %0, i32 
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo_info0, align 4
-  %36 = call i32 @srvsvc_dissect_struct_NetTransportInfo0(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.045, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @srvsvc_dissect_struct_NetTransportInfo0(ptr noundef %0, i32 noundef %.045, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %46
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo_info1, align 4
-  %39 = call i32 @srvsvc_dissect_struct_NetTransportInfo1(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.045, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
+  %39 = call i32 @srvsvc_dissect_struct_NetTransportInfo1(ptr noundef %0, i32 noundef %.045, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
   br label %46
 
 40:                                               ; preds = %32
   %41 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo_info2, align 4
-  %42 = call i32 @srvsvc_dissect_struct_NetTransportInfo2(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.045, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 poison)
+  %42 = call i32 @srvsvc_dissect_struct_NetTransportInfo2(ptr noundef %0, i32 noundef %.045, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 poison)
   br label %46
 
 43:                                               ; preds = %32
   %44 = load i32, ptr @hf_srvsvc_srvsvc_NetTransportInfo_info3, align 4
-  %45 = call i32 @srvsvc_dissect_struct_NetTransportInfo3(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.045, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 poison)
+  %45 = call i32 @srvsvc_dissect_struct_NetTransportInfo3(ptr noundef %0, i32 noundef %.045, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 poison)
   br label %46
 
 46:                                               ; preds = %43, %40, %37, %34, %32
-  %.1 = phi i32 [ %.0, %32 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.1 = phi i32 [ %.045, %32 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
   %47 = load ptr, ptr %8, align 8
   %48 = sub i32 %.1, %1
   call void @proto_item_set_len(ptr noundef %47, i32 noundef %48) #4

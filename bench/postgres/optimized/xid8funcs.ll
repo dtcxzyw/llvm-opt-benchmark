@@ -457,11 +457,11 @@ define dso_local i64 @pg_snapshot_recv(ptr nocapture noundef readonly %0) local_
   br label %22
 
 22:                                               ; preds = %.lr.ph, %35
-  %.sroa.029.056 = phi i64 [ 0, %.lr.ph ], [ %.sroa.029.1, %35 ]
-  %.055 = phi i32 [ %5, %.lr.ph ], [ %.1, %35 ]
-  %.04254 = phi i32 [ 0, %.lr.ph ], [ %36, %35 ]
+  %.056 = phi i32 [ 0, %.lr.ph ], [ %36, %35 ]
+  %.04255 = phi i32 [ %5, %.lr.ph ], [ %.143, %35 ]
+  %.sroa.029.054 = phi i64 [ 0, %.lr.ph ], [ %.sroa.029.1, %35 ]
   %23 = tail call i64 @pq_getmsgint64(ptr noundef %4) #10
-  %24 = icmp ult i64 %23, %.sroa.029.056
+  %24 = icmp ult i64 %23, %.sroa.029.054
   %25 = icmp ult i64 %23, %8
   %or.cond49 = select i1 %24, i1 true, i1 %25
   %26 = icmp ult i64 %9, %23
@@ -469,33 +469,33 @@ define dso_local i64 @pg_snapshot_recv(ptr nocapture noundef readonly %0) local_
   br i1 %or.cond50, label %.loopexit, label %27
 
 27:                                               ; preds = %22
-  %28 = icmp eq i64 %23, %.sroa.029.056
+  %28 = icmp eq i64 %23, %.sroa.029.054
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %27
-  %30 = add i32 %.04254, -1
-  %31 = add nsw i32 %.055, -1
+  %30 = add i32 %.056, -1
+  %31 = add nsw i32 %.04255, -1
   br label %35
 
 32:                                               ; preds = %27
-  %33 = sext i32 %.04254 to i64
+  %33 = sext i32 %.056 to i64
   %34 = getelementptr [0 x %struct.FullTransactionId], ptr %21, i64 0, i64 %33
   store i64 %23, ptr %34, align 8
   br label %35
 
 35:                                               ; preds = %32, %29
-  %.143 = phi i32 [ %30, %29 ], [ %.04254, %32 ]
-  %.1 = phi i32 [ %31, %29 ], [ %.055, %32 ]
-  %.sroa.029.1 = phi i64 [ %.sroa.029.056, %29 ], [ %23, %32 ]
-  %36 = add i32 %.143, 1
-  %37 = icmp slt i32 %36, %.1
+  %.sroa.029.1 = phi i64 [ %.sroa.029.054, %29 ], [ %23, %32 ]
+  %.143 = phi i32 [ %31, %29 ], [ %.04255, %32 ]
+  %.1 = phi i32 [ %30, %29 ], [ %.056, %32 ]
+  %36 = add i32 %.1, 1
+  %37 = icmp slt i32 %36, %.143
   br i1 %37, label %22, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %35, %15
-  %.0.lcssa = phi i32 [ 0, %15 ], [ %.1, %35 ]
+  %.042.lcssa = phi i32 [ 0, %15 ], [ %.143, %35 ]
   %38 = getelementptr inbounds i8, ptr %18, i64 4
-  store i32 %.0.lcssa, ptr %38, align 4
-  %39 = shl i32 %.0.lcssa, 5
+  store i32 %.042.lcssa, ptr %38, align 4
+  %39 = shl i32 %.042.lcssa, 5
   %40 = add i32 %39, 96
   store i32 %40, ptr %18, align 4
   %41 = ptrtoint ptr %18 to i64

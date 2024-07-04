@@ -145,8 +145,8 @@ if.then3:                                         ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %if.then3, %if.end85
-  %idx.035 = phi i32 [ 0, %if.then3 ], [ %idx.2, %if.end85 ]
-  %initialWhitespace.034 = phi i8 [ 1, %if.then3 ], [ %initialWhitespace.4, %if.end85 ]
+  %initialWhitespace.035 = phi i8 [ 1, %if.then3 ], [ %initialWhitespace.4, %if.end85 ]
+  %idx.034 = phi i32 [ 0, %if.then3 ], [ %idx.2, %if.end85 ]
   %call7 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %stream)
   %conv = trunc i32 %call7 to i8
   store i8 %conv, ptr %ch, align 1
@@ -158,7 +158,7 @@ while.body:                                       ; preds = %if.then3, %if.end85
   br i1 %call12, label %if.then13, label %if.end21
 
 if.then13:                                        ; preds = %while.body
-  %tobool14.not = icmp eq i8 %initialWhitespace.034, 0
+  %tobool14.not = icmp eq i8 %initialWhitespace.035, 0
   br i1 %tobool14.not, label %if.then15, label %if.end21
 
 if.then15:                                        ; preds = %if.then13
@@ -203,7 +203,7 @@ if.then36:                                        ; preds = %if.end34
 
 do.body:                                          ; preds = %if.then36, %if.end79
   %uBuffIdx.033 = phi i32 [ %uBuffIdx.1, %if.end79 ], [ 0, %if.then36 ]
-  %initialWhitespace.132 = phi i8 [ %initialWhitespace.3, %if.end79 ], [ %initialWhitespace.034, %if.then36 ]
+  %initialWhitespace.132 = phi i8 [ %initialWhitespace.3, %if.end79 ], [ %initialWhitespace.035, %if.then36 ]
   %inc = add nsw i32 %uBuffIdx.033, 1
   %idxprom = sext i32 %uBuffIdx.033 to i64
   %arrayidx = getelementptr inbounds [16 x i16], ptr %uBuffer, i64 0, i64 %idxprom
@@ -243,14 +243,14 @@ if.then61:                                        ; preds = %do.end
 
 if.then63:                                        ; preds = %if.then61
   %7 = load i8, ptr %ch, align 1
-  %idxprom65 = sext i32 %idx.035 to i64
+  %idxprom65 = sext i32 %idx.034 to i64
   %arrayidx66 = getelementptr inbounds [16 x i8], ptr %buffer, i64 0, i64 %idxprom65
   store i8 %7, ptr %arrayidx66, align 1
-  %cmp6836 = icmp sgt i32 %idx.035, -1
+  %cmp6836 = icmp sgt i32 %idx.034, -1
   br i1 %cmp6836, label %while.body69.preheader, label %STOP_READING
 
 while.body69.preheader:                           ; preds = %if.then63
-  %inc64 = add nuw i32 %idx.035, 1
+  %inc64 = add nuw i32 %idx.034, 1
   %8 = zext i32 %inc64 to i64
   br label %while.body69
 
@@ -305,15 +305,15 @@ if.end79:                                         ; preds = %if.then61, %if.end7
 
 if.else81:                                        ; preds = %if.end34
   %16 = load i8, ptr %ch, align 1
-  %inc82 = add nsw i32 %idx.035, 1
-  %idxprom83 = sext i32 %idx.035 to i64
+  %inc82 = add nsw i32 %idx.034, 1
+  %idxprom83 = sext i32 %idx.034 to i64
   %arrayidx84 = getelementptr inbounds [16 x i8], ptr %buffer, i64 0, i64 %idxprom83
   store i8 %16, ptr %arrayidx84, align 1
   br label %if.end85
 
 if.end85:                                         ; preds = %if.end79, %if.then36, %if.else81
-  %initialWhitespace.4 = phi i8 [ %initialWhitespace.034, %if.else81 ], [ %initialWhitespace.034, %if.then36 ], [ %initialWhitespace.3, %if.end79 ]
   %idx.2 = phi i32 [ %inc82, %if.else81 ], [ 0, %if.then36 ], [ 0, %if.end79 ]
+  %initialWhitespace.4 = phi i8 [ %initialWhitespace.035, %if.else81 ], [ %initialWhitespace.035, %if.then36 ], [ %initialWhitespace.3, %if.end79 ]
   br i1 %call12, label %STOP_READING, label %while.body, !llvm.loop !8
 
 STOP_READING:                                     ; preds = %if.end85, %while.body69, %if.then63, %if.then29

@@ -332,11 +332,11 @@ define i64 @Extra_Truth6MinimumRoundMany(i64 noundef %0, ptr nocapture noundef r
 7:                                                ; preds = %5, %108
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %108 ]
   %.122 = phi i64 [ %.0, %5 ], [ %.2, %108 ]
-  %.01720 = phi i32 [ %6, %5 ], [ %.118, %108 ]
+  %.01621 = phi i32 [ %6, %5 ], [ %.117, %108 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
   %9 = load i32, ptr %8, align 4
-  %10 = icmp eq i32 %.01720, %9
+  %10 = icmp eq i32 %.01621, %9
   br i1 %10, label %11, label %108
 
 11:                                               ; preds = %7
@@ -474,7 +474,7 @@ Extra_Truth6MinimumRoundOne.exit:                 ; preds = %74, %88, %91, %104
   br label %108
 
 108:                                              ; preds = %7, %Extra_Truth6MinimumRoundOne.exit
-  %.118 = phi i32 [ %.01720, %Extra_Truth6MinimumRoundOne.exit ], [ %9, %7 ]
+  %.117 = phi i32 [ %.01621, %Extra_Truth6MinimumRoundOne.exit ], [ %9, %7 ]
   %.2 = phi i64 [ %.052.i, %Extra_Truth6MinimumRoundOne.exit ], [ %.122, %7 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %109, label %7, !llvm.loop !6
@@ -499,11 +499,11 @@ define i64 @Extra_Truth6MinimumRoundMany_noEBFC(i64 noundef %0, ptr nocapture no
 7:                                                ; preds = %5, %Extra_Truth6MinimumRoundOne_noEBFC.exit
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %Extra_Truth6MinimumRoundOne_noEBFC.exit ]
   %.122 = phi i64 [ %.0, %5 ], [ %.2, %Extra_Truth6MinimumRoundOne_noEBFC.exit ]
-  %.01720 = phi i32 [ %6, %5 ], [ %.118, %Extra_Truth6MinimumRoundOne_noEBFC.exit ]
+  %.01621 = phi i32 [ %6, %5 ], [ %.117, %Extra_Truth6MinimumRoundOne_noEBFC.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
   %9 = load i32, ptr %8, align 4
-  %10 = icmp eq i32 %.01720, %9
+  %10 = icmp eq i32 %.01621, %9
   br i1 %10, label %11, label %Extra_Truth6MinimumRoundOne_noEBFC.exit
 
 11:                                               ; preds = %7
@@ -547,7 +547,7 @@ adjustInfoAfterSwap.exit.i:                       ; preds = %11
   br label %Extra_Truth6MinimumRoundOne_noEBFC.exit
 
 Extra_Truth6MinimumRoundOne_noEBFC.exit:          ; preds = %adjustInfoAfterSwap.exit.i, %11, %7
-  %.118 = phi i32 [ %9, %7 ], [ %.01720, %11 ], [ %.01720, %adjustInfoAfterSwap.exit.i ]
+  %.117 = phi i32 [ %9, %7 ], [ %.01621, %11 ], [ %.01621, %adjustInfoAfterSwap.exit.i ]
   %.2 = phi i64 [ %.122, %7 ], [ %.122, %11 ], [ %27, %adjustInfoAfterSwap.exit.i ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %41, label %7, !llvm.loop !8
@@ -583,11 +583,11 @@ define i64 @Extra_Truth6MinimumRoundMany1(i64 noundef %0, ptr nocapture noundef 
   %12 = phi i32 [ %9, %.preheader ], [ %45, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.preheader ], [ %indvars.iv.next.i, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i ]
   %.122.i = phi i64 [ %.0.i, %.preheader ], [ %.2.i, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i ]
-  %.01720.i = phi i32 [ %10, %.preheader ], [ %.118.i, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i ]
+  %.01621.i = phi i32 [ %10, %.preheader ], [ %.117.i, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %13 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next.i
   %14 = load i32, ptr %13, align 4
-  %15 = icmp eq i32 %.01720.i, %14
+  %15 = icmp eq i32 %.01621.i, %14
   br i1 %15, label %16, label %Extra_Truth6MinimumRoundOne_noEBFC.exit.i
 
 16:                                               ; preds = %11
@@ -631,7 +631,7 @@ adjustInfoAfterSwap.exit.i.i:                     ; preds = %16
 
 Extra_Truth6MinimumRoundOne_noEBFC.exit.i:        ; preds = %adjustInfoAfterSwap.exit.i.i, %16, %11
   %45 = phi i32 [ %12, %11 ], [ %12, %16 ], [ %.0.i.i.i, %adjustInfoAfterSwap.exit.i.i ]
-  %.118.i = phi i32 [ %14, %11 ], [ %.01720.i, %16 ], [ %.01720.i, %adjustInfoAfterSwap.exit.i.i ]
+  %.117.i = phi i32 [ %14, %11 ], [ %.01621.i, %16 ], [ %.01621.i, %adjustInfoAfterSwap.exit.i.i ]
   %.2.i = phi i64 [ %.122.i, %11 ], [ %.122.i, %16 ], [ %32, %adjustInfoAfterSwap.exit.i.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.not.i, label %46, label %11, !llvm.loop !8
@@ -659,11 +659,11 @@ Extra_Truth6MinimumRoundOne_noEBFC.exit.i:        ; preds = %adjustInfoAfterSwap
   %55 = phi i32 [ %52, %51 ], [ %88, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i52 ]
   %indvars.iv.i48 = phi i64 [ 0, %51 ], [ %indvars.iv.next.i51, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i52 ]
   %.122.i49 = phi i64 [ %.0.i47, %51 ], [ %.2.i54, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i52 ]
-  %.01720.i50 = phi i32 [ %53, %51 ], [ %.118.i53, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i52 ]
+  %.01621.i50 = phi i32 [ %53, %51 ], [ %.117.i53, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i52 ]
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i48, 1
   %56 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next.i51
   %57 = load i32, ptr %56, align 4
-  %58 = icmp eq i32 %.01720.i50, %57
+  %58 = icmp eq i32 %.01621.i50, %57
   br i1 %58, label %59, label %Extra_Truth6MinimumRoundOne_noEBFC.exit.i52
 
 59:                                               ; preds = %54
@@ -707,7 +707,7 @@ adjustInfoAfterSwap.exit.i.i57:                   ; preds = %59
 
 Extra_Truth6MinimumRoundOne_noEBFC.exit.i52:      ; preds = %adjustInfoAfterSwap.exit.i.i57, %59, %54
   %88 = phi i32 [ %55, %54 ], [ %55, %59 ], [ %.0.i.i.i59, %adjustInfoAfterSwap.exit.i.i57 ]
-  %.118.i53 = phi i32 [ %57, %54 ], [ %.01720.i50, %59 ], [ %.01720.i50, %adjustInfoAfterSwap.exit.i.i57 ]
+  %.117.i53 = phi i32 [ %57, %54 ], [ %.01621.i50, %59 ], [ %.01621.i50, %adjustInfoAfterSwap.exit.i.i57 ]
   %.2.i54 = phi i64 [ %.122.i49, %54 ], [ %.122.i49, %59 ], [ %75, %adjustInfoAfterSwap.exit.i.i57 ]
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i51, 5
   br i1 %exitcond.not.i55, label %89, label %54, !llvm.loop !8
@@ -730,11 +730,11 @@ Extra_Truth6MinimumRoundMany_noEBFC.exit60:       ; preds = %89
   %.0.i.i.i7376 = phi i32 [ %.0.i.i.i7375.lcssa78, %92 ], [ %126, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i66 ]
   %indvars.iv.i62 = phi i64 [ 0, %92 ], [ %indvars.iv.next.i65, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i66 ]
   %.122.i63 = phi i64 [ %.0.i61, %92 ], [ %.2.i68, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i66 ]
-  %.01720.i64 = phi i32 [ %91, %92 ], [ %.118.i67, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i66 ]
+  %.01621.i64 = phi i32 [ %91, %92 ], [ %.117.i67, %Extra_Truth6MinimumRoundOne_noEBFC.exit.i66 ]
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i62, 1
   %94 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next.i65
   %95 = load i32, ptr %94, align 4
-  %96 = icmp eq i32 %.01720.i64, %95
+  %96 = icmp eq i32 %.01621.i64, %95
   br i1 %96, label %97, label %Extra_Truth6MinimumRoundOne_noEBFC.exit.i66
 
 97:                                               ; preds = %93
@@ -777,7 +777,7 @@ adjustInfoAfterSwap.exit.i.i71:                   ; preds = %97
 
 Extra_Truth6MinimumRoundOne_noEBFC.exit.i66:      ; preds = %adjustInfoAfterSwap.exit.i.i71, %97, %93
   %126 = phi i32 [ %.0.i.i.i7376, %93 ], [ %.0.i.i.i7376, %97 ], [ %.0.i.i.i73, %adjustInfoAfterSwap.exit.i.i71 ]
-  %.118.i67 = phi i32 [ %95, %93 ], [ %.01720.i64, %97 ], [ %.01720.i64, %adjustInfoAfterSwap.exit.i.i71 ]
+  %.117.i67 = phi i32 [ %95, %93 ], [ %.01621.i64, %97 ], [ %.01621.i64, %adjustInfoAfterSwap.exit.i.i71 ]
   %.2.i68 = phi i64 [ %.122.i63, %93 ], [ %.122.i63, %97 ], [ %113, %adjustInfoAfterSwap.exit.i.i71 ]
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i65, 5
   br i1 %exitcond.not.i69, label %127, label %93, !llvm.loop !8

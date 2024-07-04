@@ -242,7 +242,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %33
   br label %.lr.ph58.us
 
 .lr.ph58.us:                                      ; preds = %.lr.ph58.us.preheader, %..loopexit_crit_edge.us
-  %.03962.us = phi i32 [ %.3.us, %..loopexit_crit_edge.us ], [ 0, %.lr.ph58.us.preheader ]
+  %.062.us = phi i32 [ %.3.us, %..loopexit_crit_edge.us ], [ 0, %.lr.ph58.us.preheader ]
   %42 = phi i32 [ %64, %..loopexit_crit_edge.us ], [ %31, %.lr.ph58.us.preheader ]
   %43 = icmp sgt i32 %42, 0
   %44 = zext i1 %43 to i32
@@ -251,8 +251,8 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %33
 45:                                               ; preds = %.lr.ph58.us, %63
   %indvars.iv69 = phi i64 [ 0, %.lr.ph58.us ], [ %indvars.iv.next70, %63 ]
   %46 = phi i32 [ %42, %.lr.ph58.us ], [ %64, %63 ]
-  %.156.us = phi i32 [ %.03962.us, %.lr.ph58.us ], [ %.3.us, %63 ]
-  %.14155.us = phi i32 [ %44, %.lr.ph58.us ], [ %.242.us, %63 ]
+  %.156.us = phi i32 [ %.062.us, %.lr.ph58.us ], [ %.3.us, %63 ]
+  %.14055.us = phi i32 [ %44, %.lr.ph58.us ], [ %.241.us, %63 ]
   %47 = getelementptr inbounds [100 x %struct.Cmd_AutoData_t_], ptr %4, i64 0, i64 %indvars.iv69
   %48 = getelementptr inbounds i8, ptr %47, i64 24
   %49 = load i32, ptr %48, align 8
@@ -287,14 +287,14 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %33
 
 63:                                               ; preds = %58, %56, %45
   %64 = phi i32 [ 0, %56 ], [ %59, %58 ], [ %46, %45 ]
-  %.242.us = phi i32 [ %.14155.us, %56 ], [ %.14155.us, %58 ], [ 1, %45 ]
+  %.241.us = phi i32 [ %.14055.us, %56 ], [ %.14055.us, %58 ], [ 1, %45 ]
   %.3.us = phi i32 [ %.2.us, %56 ], [ %.2.us, %58 ], [ %.156.us, %45 ]
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
   br i1 %exitcond73.not, label %..loopexit_crit_edge.us, label %45, !llvm.loop !8
 
 ..loopexit_crit_edge.us:                          ; preds = %63
-  %.not.us = icmp eq i32 %.242.us, 0
+  %.not.us = icmp eq i32 %.241.us, 0
   br i1 %.not.us, label %.split.us, label %.lr.ph58.us, !llvm.loop !9
 
 Vec_PtrDup.exit.split:                            ; preds = %Vec_PtrDup.exit
@@ -331,8 +331,8 @@ Vec_PtrFree.exit:                                 ; preds = %.split.us, %66
   br i1 %exitcond78.not, label %Cmd_RunAutoTunerEvalSimple.exit, label %.lr.ph65, !llvm.loop !10
 
 Cmd_RunAutoTunerEvalSimple.exit:                  ; preds = %.lr.ph65, %11, %Vec_PtrFree.exit, %7
-  %.0 = phi i32 [ 0, %7 ], [ %.us-phi63, %Vec_PtrFree.exit ], [ %15, %11 ], [ %.us-phi63, %.lr.ph65 ]
-  ret i32 %.0
+  %.042 = phi i32 [ 0, %7 ], [ %.us-phi63, %Vec_PtrFree.exit ], [ %15, %11 ], [ %.us-phi63, %.lr.ph65 ]
+  ret i32 %.042
 }
 
 ; Function Attrs: nounwind
@@ -1187,15 +1187,15 @@ define noundef ptr @Cmf_CreateOptions(ptr noundef %0) local_unnamed_addr #2 {
 
 11:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %.02331 = phi i32 [ 1, %.lr.ph ], [ %.1, %34 ]
+  %.032 = phi i32 [ 1, %.lr.ph ], [ %.1, %34 ]
   %12 = or disjoint i64 %indvars.iv, 1
   %.val29 = load ptr, ptr %10, align 8
   %13 = getelementptr inbounds i32, ptr %.val29, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds i32, ptr %.val29, i64 %12
   %16 = load float, ptr %15, align 4
-  %17 = add nsw i32 %.02331, 1
-  %18 = sext i32 %.02331 to i64
+  %17 = add nsw i32 %.032, 1
+  %18 = sext i32 %.032 to i64
   %19 = getelementptr inbounds [100 x [20 x i8]], ptr %2, i64 0, i64 %18
   %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %14) #21
   %21 = fpext float %16 to double
@@ -1206,7 +1206,7 @@ define noundef ptr @Cmf_CreateOptions(ptr noundef %0) local_unnamed_addr #2 {
   %24 = fptosi float %16 to i32
   %25 = sitofp i32 %24 to float
   %26 = fcmp oeq float %16, %25
-  %27 = add nsw i32 %.02331, 2
+  %27 = add nsw i32 %.032, 2
   %28 = sext i32 %17 to i64
   %29 = getelementptr inbounds [100 x [20 x i8]], ptr %2, i64 0, i64 %28
   br i1 %26, label %30, label %32
@@ -1229,8 +1229,8 @@ define noundef ptr @Cmf_CreateOptions(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %37, label %11, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %34, %1
-  %.023.lcssa = phi i32 [ 1, %1 ], [ %.1, %34 ]
-  call void @Cmf_CreateOptions_rec(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2, i32 noundef %.023.lcssa, ptr noundef nonnull %3)
+  %.0.lcssa = phi i32 [ 1, %1 ], [ %.1, %34 ]
+  call void @Cmf_CreateOptions_rec(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2, i32 noundef %.0.lcssa, ptr noundef nonnull %3)
   %.val = load i32, ptr %4, align 4
   %38 = sdiv i32 %.val, 2
   %39 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %38)
@@ -1803,8 +1803,8 @@ Abc_Clock.exit:                                   ; preds = %3, %10
 
 25:                                               ; preds = %.lr.ph, %Abc_Clock.exit61
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_Clock.exit61 ]
-  %.04181 = phi ptr [ null, %.lr.ph ], [ %spec.select53, %Abc_Clock.exit61 ]
-  %.04380 = phi i32 [ 2147483647, %.lr.ph ], [ %spec.select, %Abc_Clock.exit61 ]
+  %.082 = phi i32 [ 2147483647, %.lr.ph ], [ %spec.select53, %Abc_Clock.exit61 ]
+  %.04181 = phi ptr [ null, %.lr.ph ], [ %spec.select, %Abc_Clock.exit61 ]
   %26 = or disjoint i64 %indvars.iv, 1
   %.val57 = load ptr, ptr %22, align 8
   %27 = getelementptr inbounds ptr, ptr %.val57, i64 %indvars.iv
@@ -1851,9 +1851,9 @@ Abc_Clock.exit61:                                 ; preds = %Abc_Clock.exit59, %
   %48 = sitofp i64 %47 to double
   %49 = fdiv double %48, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.44, double noundef %49)
-  %50 = icmp sgt i32 %.04380, %37
-  %spec.select = call i32 @llvm.smin.i32(i32 %.04380, i32 %37)
-  %spec.select53 = select i1 %50, ptr %30, ptr %.04181
+  %50 = icmp sgt i32 %.082, %37
+  %spec.select = select i1 %50, ptr %30, ptr %.04181
+  %spec.select53 = call i32 @llvm.smin.i32(i32 %.082, i32 %37)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.val54 = load i32, ptr %20, align 4
   %51 = trunc i64 %indvars.iv.next to i32
@@ -1862,10 +1862,10 @@ Abc_Clock.exit61:                                 ; preds = %Abc_Clock.exit59, %
   br i1 %53, label %25, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %Abc_Clock.exit61, %.preheader78
-  %.043.lcssa = phi i32 [ 2147483647, %.preheader78 ], [ %spec.select, %Abc_Clock.exit61 ]
-  %.041.lcssa = phi ptr [ null, %.preheader78 ], [ %spec.select53, %Abc_Clock.exit61 ]
+  %.041.lcssa = phi ptr [ null, %.preheader78 ], [ %spec.select, %Abc_Clock.exit61 ]
+  %.0.lcssa = phi i32 [ 2147483647, %.preheader78 ], [ %spec.select53, %Abc_Clock.exit61 ]
   %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, ptr noundef %.041.lcssa)
-  %55 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i32 noundef %.043.lcssa)
+  %55 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i32 noundef %.0.lcssa)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %56 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #21
   %57 = icmp slt i32 %56, 0

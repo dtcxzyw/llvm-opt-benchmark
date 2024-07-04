@@ -489,13 +489,13 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %tmpBufferEnd.0141 = phi ptr [ %9, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %tmpBufferEnd.0140 = phi ptr [ %9, %for.body.lr.ph ], [ %add.ptr, %for.body ]
   %c.sroa.0.0139 = phi ptr [ %call7, %for.body.lr.ph ], [ %call.i.i, %for.body ]
   %12 = load ptr, ptr %_channelData, align 8
   %arrayidx = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %12, i64 %indvars.iv
-  store ptr %tmpBufferEnd.0141, ptr %arrayidx, align 8
+  store ptr %tmpBufferEnd.0140, ptr %arrayidx, align 8
   %end = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  store ptr %tmpBufferEnd.0141, ptr %end, align 8
+  store ptr %tmpBufferEnd.0140, ptr %end, align 8
   %xSampling = getelementptr inbounds i8, ptr %c.sroa.0.0139, i64 292
   %13 = load i32, ptr %xSampling, align 4
   %call16 = tail call noundef i32 @_ZN7Imf_3_210numSamplesEiii(i32 noundef %13, i32 noundef %1, i32 noundef %4)
@@ -512,7 +512,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %16 = load i32, ptr %size, align 4
   %mul21 = mul nsw i32 %mul, %16
   %idx.ext = sext i32 %mul21 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %tmpBufferEnd.0141, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %tmpBufferEnd.0140, i64 %idx.ext
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %c.sroa.0.0139) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load ptr, ptr %_channels, align 8
@@ -1491,13 +1491,13 @@ for.body26.lr.ph:                                 ; preds = %for.cond24.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %tmpBufferEnd.0182 = phi ptr [ %9, %for.body.lr.ph ], [ %add.ptr, %for.body ]
+  %tmpBufferEnd.0181 = phi ptr [ %9, %for.body.lr.ph ], [ %add.ptr, %for.body ]
   %c.sroa.0.0180 = phi ptr [ %call7, %for.body.lr.ph ], [ %call.i.i, %for.body ]
   %13 = load ptr, ptr %_channelData, align 8
   %arrayidx = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %13, i64 %indvars.iv
-  store ptr %tmpBufferEnd.0182, ptr %arrayidx, align 8
+  store ptr %tmpBufferEnd.0181, ptr %arrayidx, align 8
   %end = getelementptr inbounds i8, ptr %arrayidx, i64 8
-  store ptr %tmpBufferEnd.0182, ptr %end, align 8
+  store ptr %tmpBufferEnd.0181, ptr %end, align 8
   %xSampling = getelementptr inbounds i8, ptr %c.sroa.0.0180, i64 292
   %14 = load i32, ptr %xSampling, align 4
   %call16 = tail call noundef i32 @_ZN7Imf_3_210numSamplesEiii(i32 noundef %14, i32 noundef %1, i32 noundef %4)
@@ -1514,7 +1514,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %17 = load i32, ptr %size, align 4
   %mul21 = mul nsw i32 %mul, %17
   %idx.ext = sext i32 %mul21 to i64
-  %add.ptr = getelementptr inbounds i16, ptr %tmpBufferEnd.0182, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %tmpBufferEnd.0181, i64 %idx.ext
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %c.sroa.0.0180) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load ptr, ptr %_channels, align 8
@@ -1525,7 +1525,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body26:                                       ; preds = %for.body26.lr.ph, %for.inc139
   %indvars.iv234 = phi i64 [ 0, %for.body26.lr.ph ], [ %indvars.iv.next235, %for.inc139 ]
   %inPtr.addr.0202 = phi ptr [ %inPtr, %for.body26.lr.ph ], [ %inPtr.addr.4, %for.inc139 ]
-  %inSize.addr.0201 = phi i32 [ %inSize, %for.body26.lr.ph ], [ %inSize.addr.4, %for.inc139 ]
+  %inSize.addr.0200 = phi i32 [ %inSize, %for.body26.lr.ph ], [ %inSize.addr.4, %for.inc139 ]
   %19 = load ptr, ptr %_channelData28, align 8
   %arrayidx30 = getelementptr inbounds %"struct.Imf_3_2::B44Compressor::ChannelData", ptr %19, i64 %indvars.iv234
   %type = getelementptr inbounds i8, ptr %arrayidx30, i64 28
@@ -1556,7 +1556,7 @@ if.then32:                                        ; preds = %for.body26
   %mul35 = shl i32 %24, 1
   %mul37 = mul i32 %mul35, %25
   %mul38 = mul i32 %mul37, %26
-  %cmp40 = icmp slt i32 %inSize.addr.0201, %mul38
+  %cmp40 = icmp slt i32 %inSize.addr.0200, %mul38
   br i1 %cmp40, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.then32
@@ -1584,42 +1584,42 @@ if.end42:                                         ; preds = %if.then32
   %conv44 = sext i32 %mul38 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %28, ptr align 1 %inPtr.addr.0202, i64 %conv44, i1 false)
   %add.ptr46 = getelementptr inbounds i8, ptr %inPtr.addr.0202, i64 %conv44
-  %sub = sub nsw i32 %inSize.addr.0201, %mul38
+  %sub = sub nsw i32 %inSize.addr.0200, %mul38
   br label %for.inc139
 
 for.body52:                                       ; preds = %for.body52.lr.ph, %for.inc136
   %29 = phi i32 [ %86, %for.inc136 ], [ %21, %for.body52.lr.ph ]
   %30 = phi i32 [ %87, %for.inc136 ], [ %22, %for.body52.lr.ph ]
   %inPtr.addr.1195 = phi ptr [ %inPtr.addr.2.lcssa, %for.inc136 ], [ %inPtr.addr.0202, %for.body52.lr.ph ]
-  %inSize.addr.1194 = phi i32 [ %inSize.addr.2.lcssa, %for.inc136 ], [ %inSize.addr.0201, %for.body52.lr.ph ]
-  %y48.0193 = phi i32 [ %add137, %for.inc136 ], [ 0, %for.body52.lr.ph ]
+  %y48.0194 = phi i32 [ %add137, %for.inc136 ], [ 0, %for.body52.lr.ph ]
+  %inSize.addr.1193 = phi i32 [ %inSize.addr.2.lcssa, %for.inc136 ], [ %inSize.addr.0200, %for.body52.lr.ph ]
   %cmp70183 = icmp sgt i32 %30, 0
   br i1 %cmp70183, label %for.body71.lr.ph, label %for.inc136
 
 for.body71.lr.ph:                                 ; preds = %for.body52
   %31 = load ptr, ptr %arrayidx30, align 8
-  %mul55 = mul nuw nsw i32 %30, %y48.0193
+  %mul55 = mul nuw nsw i32 %30, %y48.0194
   %idx.ext56 = zext nneg i32 %mul55 to i64
   %add.ptr57 = getelementptr inbounds i16, ptr %31, i64 %idx.ext56
   %idx.ext59 = zext nneg i32 %30 to i64
   %add.ptr60 = getelementptr inbounds i16, ptr %add.ptr57, i64 %idx.ext59
   %add.ptr63 = getelementptr inbounds i16, ptr %add.ptr60, i64 %idx.ext59
   %add.ptr66 = getelementptr inbounds i16, ptr %add.ptr63, i64 %idx.ext59
-  %add99 = or disjoint i32 %y48.0193, 3
-  %add114 = or disjoint i32 %y48.0193, 1
-  %add121 = or disjoint i32 %y48.0193, 2
+  %add99 = or disjoint i32 %y48.0194, 3
+  %add114 = or disjoint i32 %y48.0194, 1
+  %add121 = or disjoint i32 %y48.0194, 2
   br label %for.body71
 
 for.body71:                                       ; preds = %for.body71.lr.ph, %if.end128
   %32 = phi i32 [ %30, %for.body71.lr.ph ], [ %85, %if.end128 ]
   %inPtr.addr.2190 = phi ptr [ %inPtr.addr.1195, %for.body71.lr.ph ], [ %add.ptr85, %if.end128 ]
-  %inSize.addr.2189 = phi i32 [ %inSize.addr.1194, %for.body71.lr.ph ], [ %sub86, %if.end128 ]
-  %x67.0188 = phi i32 [ 0, %for.body71.lr.ph ], [ %add134, %if.end128 ]
-  %row3.0187 = phi ptr [ %add.ptr66, %for.body71.lr.ph ], [ %add.ptr132, %if.end128 ]
-  %row2.0186 = phi ptr [ %add.ptr63, %for.body71.lr.ph ], [ %add.ptr131, %if.end128 ]
-  %row1.0185 = phi ptr [ %add.ptr60, %for.body71.lr.ph ], [ %add.ptr130, %if.end128 ]
-  %row0.0184 = phi ptr [ %add.ptr57, %for.body71.lr.ph ], [ %add.ptr129, %if.end128 ]
-  %cmp72 = icmp slt i32 %inSize.addr.2189, 3
+  %x67.0189 = phi i32 [ 0, %for.body71.lr.ph ], [ %add134, %if.end128 ]
+  %row3.0188 = phi ptr [ %add.ptr66, %for.body71.lr.ph ], [ %add.ptr132, %if.end128 ]
+  %row2.0187 = phi ptr [ %add.ptr63, %for.body71.lr.ph ], [ %add.ptr131, %if.end128 ]
+  %row1.0186 = phi ptr [ %add.ptr60, %for.body71.lr.ph ], [ %add.ptr130, %if.end128 ]
+  %row0.0185 = phi ptr [ %add.ptr57, %for.body71.lr.ph ], [ %add.ptr129, %if.end128 ]
+  %inSize.addr.2184 = phi i32 [ %inSize.addr.1193, %for.body71.lr.ph ], [ %sub86, %if.end128 ]
+  %cmp72 = icmp slt i32 %inSize.addr.2184, 3
   br i1 %cmp72, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %for.body71
@@ -1666,7 +1666,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   br i1 %exitcond.not.i, label %if.end87, label %for.body.i, !llvm.loop !26
 
 if.else:                                          ; preds = %if.end74
-  %cmp81 = icmp ult i32 %inSize.addr.2189, 14
+  %cmp81 = icmp ult i32 %inSize.addr.2184, 14
   br i1 %cmp81, label %if.then82, label %if.end83
 
 if.then82:                                        ; preds = %if.else
@@ -1880,7 +1880,7 @@ if.end87:                                         ; preds = %for.body.i116, %for
   %.sink258 = phi i64 [ 3, %for.body.i ], [ 14, %for.body.i116 ]
   %.sink = phi i32 [ -3, %for.body.i ], [ -14, %for.body.i116 ]
   %add.ptr85 = getelementptr inbounds i8, ptr %inPtr.addr.2190, i64 %.sink258
-  %sub86 = add nsw i32 %inSize.addr.2189, %.sink
+  %sub86 = add nsw i32 %inSize.addr.2184, %.sink
   %79 = load i8, ptr %pLinear, align 8
   %tobool = trunc i8 %79 to i1
   br i1 %tobool, label %for.body.i122, label %if.end90
@@ -1898,21 +1898,21 @@ for.body.i122:                                    ; preds = %if.end87, %for.body
   br i1 %exitcond.not.i125, label %if.end90, label %for.body.i122, !llvm.loop !28
 
 if.end90:                                         ; preds = %for.body.i122, %if.end87
-  %add = or disjoint i32 %x67.0188, 3
+  %add = or disjoint i32 %x67.0189, 3
   %cmp93 = icmp slt i32 %add, %32
-  %sub95 = sub nsw i32 %32, %x67.0188
+  %sub95 = sub nsw i32 %32, %x67.0189
   %mul97 = shl i32 %sub95, 1
   %cond = select i1 %cmp93, i32 8, i32 %mul97
   %82 = load i32, ptr %ny50, align 4
   %cmp101 = icmp slt i32 %add99, %82
   %conv104 = sext i32 %cond to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row0.0184, ptr nonnull align 16 %s, i64 %conv104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row0.0185, ptr nonnull align 16 %s, i64 %conv104, i1 false)
   br i1 %cmp101, label %if.then102, label %if.else111
 
 if.then102:                                       ; preds = %if.end90
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row1.0185, ptr nonnull align 8 %arrayidx24.i, i64 %conv104, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row2.0186, ptr nonnull align 16 %arrayidx41.i, i64 %conv104, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row3.0187, ptr nonnull align 8 %arrayidx53.i, i64 %conv104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row1.0186, ptr nonnull align 8 %arrayidx24.i, i64 %conv104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row2.0187, ptr nonnull align 16 %arrayidx41.i, i64 %conv104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row3.0188, ptr nonnull align 8 %arrayidx53.i, i64 %conv104, i1 false)
   br label %if.end128
 
 if.else111:                                       ; preds = %if.end90
@@ -1921,7 +1921,7 @@ if.else111:                                       ; preds = %if.end90
   br i1 %cmp116, label %if.then117, label %if.end120
 
 if.then117:                                       ; preds = %if.else111
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row1.0185, ptr nonnull align 8 %arrayidx24.i, i64 %conv104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row1.0186, ptr nonnull align 8 %arrayidx24.i, i64 %conv104, i1 false)
   %.pre = load i32, ptr %ny50, align 4
   br label %if.end120
 
@@ -1931,15 +1931,15 @@ if.end120:                                        ; preds = %if.then117, %if.els
   br i1 %cmp123, label %if.then124, label %if.end128
 
 if.then124:                                       ; preds = %if.end120
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row2.0186, ptr nonnull align 16 %arrayidx41.i, i64 %conv104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %row2.0187, ptr nonnull align 16 %arrayidx41.i, i64 %conv104, i1 false)
   br label %if.end128
 
 if.end128:                                        ; preds = %if.end120, %if.then124, %if.then102
-  %add.ptr129 = getelementptr inbounds i8, ptr %row0.0184, i64 8
-  %add.ptr130 = getelementptr inbounds i8, ptr %row1.0185, i64 8
-  %add.ptr131 = getelementptr inbounds i8, ptr %row2.0186, i64 8
-  %add.ptr132 = getelementptr inbounds i8, ptr %row3.0187, i64 8
-  %add134 = add nuw nsw i32 %x67.0188, 4
+  %add.ptr129 = getelementptr inbounds i8, ptr %row0.0185, i64 8
+  %add.ptr130 = getelementptr inbounds i8, ptr %row1.0186, i64 8
+  %add.ptr131 = getelementptr inbounds i8, ptr %row2.0187, i64 8
+  %add.ptr132 = getelementptr inbounds i8, ptr %row3.0188, i64 8
+  %add134 = add nuw nsw i32 %x67.0189, 4
   %85 = load i32, ptr %nx54, align 8
   %cmp70 = icmp slt i32 %add134, %85
   br i1 %cmp70, label %for.body71, label %for.inc136.loopexit, !llvm.loop !29
@@ -1951,14 +1951,14 @@ for.inc136.loopexit:                              ; preds = %if.end128
 for.inc136:                                       ; preds = %for.inc136.loopexit, %for.body52
   %86 = phi i32 [ %29, %for.body52 ], [ %.pre247, %for.inc136.loopexit ]
   %87 = phi i32 [ %30, %for.body52 ], [ %85, %for.inc136.loopexit ]
-  %inSize.addr.2.lcssa = phi i32 [ %inSize.addr.1194, %for.body52 ], [ %sub86, %for.inc136.loopexit ]
+  %inSize.addr.2.lcssa = phi i32 [ %inSize.addr.1193, %for.body52 ], [ %sub86, %for.inc136.loopexit ]
   %inPtr.addr.2.lcssa = phi ptr [ %inPtr.addr.1195, %for.body52 ], [ %add.ptr85, %for.inc136.loopexit ]
-  %add137 = add nuw nsw i32 %y48.0193, 4
+  %add137 = add nuw nsw i32 %y48.0194, 4
   %cmp51 = icmp slt i32 %add137, %86
   br i1 %cmp51, label %for.body52, label %for.inc139, !llvm.loop !30
 
 for.inc139:                                       ; preds = %for.inc136, %for.body52.lr.ph, %for.cond49.preheader, %if.end42
-  %inSize.addr.4 = phi i32 [ %sub, %if.end42 ], [ %inSize.addr.0201, %for.cond49.preheader ], [ %inSize.addr.0201, %for.body52.lr.ph ], [ %inSize.addr.2.lcssa, %for.inc136 ]
+  %inSize.addr.4 = phi i32 [ %sub, %if.end42 ], [ %inSize.addr.0200, %for.cond49.preheader ], [ %inSize.addr.0200, %for.body52.lr.ph ], [ %inSize.addr.2.lcssa, %for.inc136 ]
   %inPtr.addr.4 = phi ptr [ %add.ptr46, %if.end42 ], [ %inPtr.addr.0202, %for.cond49.preheader ], [ %inPtr.addr.0202, %for.body52.lr.ph ], [ %inPtr.addr.2.lcssa, %for.inc136 ]
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %88 = load i32, ptr %_numChans, align 8

@@ -21331,8 +21331,8 @@ _ZNK4pbrt15SampledSpectrumdvERKS0_.exit:          ; preds = %do.end.i.i
   br label %if.end59
 
 if.end59:                                         ; preds = %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit, %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit35
-  %ks.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.0.i17, %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit35 ], [ %retval.sroa.0.0.copyload.i129, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ]
   %ks.sroa.4.0 = phi <2 x float> [ %retval.sroa.6.0.i16, %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit35 ], [ %retval.sroa.2.0.copyload.i131, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ]
+  %ks.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.0.i17, %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit35 ], [ %retval.sroa.0.0.copyload.i129, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ]
   %etas.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.0.i, %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit35 ], [ %etas.sroa.0.0.copyload, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ]
   %etas.sroa.4.0 = phi <2 x float> [ %retval.sroa.6.0.i, %_ZN4pbrt21BasicTextureEvaluatorclENS_15SpectrumTextureENS_18TextureEvalContextENS_18SampledWavelengthsE.exit35 ], [ %etas.sroa.4.0.copyload, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ]
   %cmp.i.i.i = fcmp olt float %uRough.0, %vRough.0
@@ -26653,8 +26653,8 @@ _ZNK4pbrt15SampledSpectrumdvERKS0_.exit:          ; preds = %do.end.i.i
   br label %if.end59
 
 if.end59:                                         ; preds = %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit, %if.then9
-  %ks.sroa.0.0 = phi <2 x float> [ %7, %if.then9 ], [ %retval.sroa.0.0.copyload.i69, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ]
   %ks.sroa.4.0 = phi <2 x float> [ %8, %if.then9 ], [ %retval.sroa.2.0.copyload.i71, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ]
+  %ks.sroa.0.0 = phi <2 x float> [ %7, %if.then9 ], [ %retval.sroa.0.0.copyload.i69, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ]
   %etas.sroa.0.0 = phi <2 x float> [ %4, %if.then9 ], [ %etas.sroa.0.0.copyload, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ]
   %etas.sroa.4.0 = phi <2 x float> [ %5, %if.then9 ], [ %etas.sroa.4.0.copyload, %_ZNK4pbrt15SampledSpectrumdvERKS0_.exit ]
   %cmp.i.i.i = fcmp olt float %uRough.0, %vRough.0
@@ -34883,8 +34883,8 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i.i
   br label %if.end21.i.i.i
 
 if.end21.i.i.i:                                   ; preds = %if.else.i.i.i, %if.then12.i.i.i
-  %r.0.i.i.i = phi float [ %8, %if.then12.i.i.i ], [ %9, %if.else.i.i.i ]
   %theta.0.i.i.i = phi float [ %mul.i.i.i10, %if.then12.i.i.i ], [ %sub.i.i.i, %if.else.i.i.i ]
+  %r.0.i.i.i = phi float [ %8, %if.then12.i.i.i ], [ %9, %if.else.i.i.i ]
   %call.i.i.i.i = tail call noundef float @cosf(float noundef %theta.0.i.i.i) #17, !noalias !530
   %call.i19.i.i.i = tail call noundef float @sinf(float noundef %theta.0.i.i.i) #17, !noalias !530
   %mul.i.i22.i.i.i = fmul float %r.0.i.i.i, %call.i.i.i.i
@@ -40539,8 +40539,8 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.else.i.i, %if.then12.i.i
-  %r.0.i.i = phi float [ %6, %if.then12.i.i ], [ %7, %if.else.i.i ]
   %theta.0.i.i = phi float [ %mul.i.i, %if.then12.i.i ], [ %sub.i.i, %if.else.i.i ]
+  %r.0.i.i = phi float [ %6, %if.then12.i.i ], [ %7, %if.else.i.i ]
   %call.i.i.i = tail call noundef float @cosf(float noundef %theta.0.i.i) #17
   %call.i19.i.i = tail call noundef float @sinf(float noundef %theta.0.i.i) #17
   %mul.i.i22.i.i = fmul float %r.0.i.i, %call.i.i.i
@@ -40657,12 +40657,12 @@ if.else.i.i44:                                    ; preds = %if.end.i.i42
   br label %if.end21.i.i48
 
 if.end21.i.i48:                                   ; preds = %if.else.i.i44, %if.then12.i.i69
-  %r.0.i.i49 = phi float [ %6, %if.then12.i.i69 ], [ %7, %if.else.i.i44 ]
-  %theta.0.i.i50 = phi float [ %mul.i.i71, %if.then12.i.i69 ], [ %sub.i.i47, %if.else.i.i44 ]
-  %call.i.i.i51 = tail call noundef float @cosf(float noundef %theta.0.i.i50) #17
-  %call.i19.i.i52 = tail call noundef float @sinf(float noundef %theta.0.i.i50) #17
-  %mul.i.i22.i.i53 = fmul float %r.0.i.i49, %call.i.i.i51
-  %mul2.i.i.i.i54 = fmul float %r.0.i.i49, %call.i19.i.i52
+  %theta.0.i.i49 = phi float [ %mul.i.i71, %if.then12.i.i69 ], [ %sub.i.i47, %if.else.i.i44 ]
+  %r.0.i.i50 = phi float [ %6, %if.then12.i.i69 ], [ %7, %if.else.i.i44 ]
+  %call.i.i.i51 = tail call noundef float @cosf(float noundef %theta.0.i.i49) #17
+  %call.i19.i.i52 = tail call noundef float @sinf(float noundef %theta.0.i.i49) #17
+  %mul.i.i22.i.i53 = fmul float %r.0.i.i50, %call.i.i.i51
+  %mul2.i.i.i.i54 = fmul float %r.0.i.i50, %call.i19.i.i52
   %retval.sroa.0.0.vec.insert.i.i24.i.i55 = insertelement <2 x float> poison, float %mul.i.i22.i.i53, i64 0
   %retval.sroa.0.4.vec.insert.i.i25.i.i56 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i24.i.i55, float %mul2.i.i.i.i54, i64 1
   br label %_ZN4pbrt22SampleCosineHemisphereENS_6Point2IfEE.exit72

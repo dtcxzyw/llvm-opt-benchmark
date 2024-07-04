@@ -2580,10 +2580,10 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %139
-  %.0158180 = phi i32 [ %141, %139 ], [ %11, %4 ]
-  %.0161179 = phi i16 [ %.1, %139 ], [ 0, %4 ]
-  %.0162178 = phi i32 [ %.1163, %139 ], [ 0, %4 ]
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0158180) #5
+  %.0160180 = phi i32 [ %.1, %139 ], [ 0, %4 ]
+  %.0164179 = phi i16 [ %.1165, %139 ], [ 0, %4 ]
+  %.0166178 = phi i32 [ %141, %139 ], [ %11, %4 ]
+  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0166178) #5
   %15 = zext i8 %14 to i64
   %16 = getelementptr [256 x %struct.tlv_def], ptr @rsl_att_tlvdef, i64 0, i64 %15
   %17 = load i32, ptr %16, align 4
@@ -2605,17 +2605,17 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   br label %38
 
 23:                                               ; preds = %.lr.ph
-  %24 = add i32 %.0158180, 1
+  %24 = add i32 %.0166178, 1
   %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %24) #5
   %26 = zext i8 %25 to i32
   br label %38
 
 27:                                               ; preds = %.lr.ph
-  %28 = add i32 %.0158180, 1
+  %28 = add i32 %.0166178, 1
   %29 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %28) #5
   %30 = zext i8 %29 to i32
   %31 = shl nuw nsw i32 %30, 8
-  %32 = add i32 %.0158180, 2
+  %32 = add i32 %.0166178, 2
   %33 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %32) #5
   %34 = zext i8 %33 to i32
   %35 = or disjoint i32 %31, %34
@@ -2626,8 +2626,8 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   br label %166
 
 38:                                               ; preds = %.lr.ph, %27, %23, %22, %18
-  %.0160 = phi i32 [ %35, %27 ], [ %26, %23 ], [ 1, %22 ], [ %21, %18 ], [ 0, %.lr.ph ]
-  %.0159 = phi i32 [ 3, %27 ], [ 2, %23 ], [ 1, %22 ], [ 1, %18 ], [ 1, %.lr.ph ]
+  %.0159 = phi i32 [ %35, %27 ], [ %26, %23 ], [ 1, %22 ], [ %21, %18 ], [ 0, %.lr.ph ]
+  %.0158 = phi i32 [ 3, %27 ], [ 2, %23 ], [ 1, %22 ], [ 1, %18 ], [ 1, %.lr.ph ]
   switch i8 %14, label %54 [
     i8 1, label %39
     i8 8, label %41
@@ -2639,43 +2639,43 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   ]
 
 39:                                               ; preds = %38
-  %40 = call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %.0158180, i32 noundef 0)
+  %40 = call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %.0166178, i32 noundef 0)
   br label %.thread
 
 41:                                               ; preds = %38
-  %42 = call fastcc i32 @dissect_rsl_ie_frame_no(ptr noundef %0, ptr noundef %2, i32 noundef %.0158180, i32 noundef 0)
+  %42 = call fastcc i32 @dissect_rsl_ie_frame_no(ptr noundef %0, ptr noundef %2, i32 noundef %.0166178, i32 noundef 0)
   br label %.thread
 
 43:                                               ; preds = %38
-  %44 = call fastcc i32 @dissect_rsl_ie_ms_pow(ptr noundef %0, ptr noundef %2, i32 noundef %.0158180, i32 noundef 0)
+  %44 = call fastcc i32 @dissect_rsl_ie_ms_pow(ptr noundef %0, ptr noundef %2, i32 noundef %.0166178, i32 noundef 0)
   br label %.thread
 
 45:                                               ; preds = %38
-  %46 = call fastcc i32 @dissect_rsl_ie_bs_power(ptr noundef %0, ptr noundef %2, i32 noundef %.0158180, i32 noundef 0)
+  %46 = call fastcc i32 @dissect_rsl_ie_bs_power(ptr noundef %0, ptr noundef %2, i32 noundef %.0166178, i32 noundef 0)
   br label %.thread
 
 47:                                               ; preds = %38
-  %48 = call fastcc i32 @dissect_rsl_ie_ms_pow_params(ptr noundef %0, ptr noundef %2, i32 noundef %.0158180)
+  %48 = call fastcc i32 @dissect_rsl_ie_ms_pow_params(ptr noundef %0, ptr noundef %2, i32 noundef %.0166178)
   br label %.thread
 
 49:                                               ; preds = %38
-  %50 = call fastcc i32 @dissect_rsl_ie_bs_power_params(ptr noundef %0, ptr noundef %2, i32 noundef %.0158180)
+  %50 = call fastcc i32 @dissect_rsl_ie_bs_power_params(ptr noundef %0, ptr noundef %2, i32 noundef %.0166178)
   br label %.thread
 
 51:                                               ; preds = %38
-  %52 = call fastcc i32 @dissect_rsl_ie_cause(ptr noundef %0, ptr noundef %2, i32 noundef %.0158180, i32 noundef 0)
+  %52 = call fastcc i32 @dissect_rsl_ie_cause(ptr noundef %0, ptr noundef %2, i32 noundef %.0166178, i32 noundef 0)
   br label %.thread
 
 .thread:                                          ; preds = %51, %49, %47, %45, %43, %41, %39
-  %53 = add i32 %.0159, %.0158180
+  %53 = add i32 %.0158, %.0166178
   br label %139
 
 54:                                               ; preds = %38
   %55 = load i32, ptr @hf_rsl_ie_id, align 4
-  %56 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %55, ptr noundef %0, i32 noundef %.0158180, i32 noundef 1, i32 noundef 0) #5
+  %56 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %55, ptr noundef %0, i32 noundef %.0166178, i32 noundef 1, i32 noundef 0) #5
   %57 = load i32, ptr @ett_ie_local_port, align 4
   %58 = call ptr @proto_item_add_subtree(ptr noundef %56, i32 noundef %57) #5
-  %59 = add i32 %.0159, %.0158180
+  %59 = add i32 %.0158, %.0166178
   switch i8 %14, label %139 [
     i8 -16, label %60
     i8 -15, label %63
@@ -2692,30 +2692,30 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
 
 60:                                               ; preds = %54
   %61 = load i32, ptr @hf_rsl_remote_ip, align 4
-  %62 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %61, ptr noundef %0, i32 noundef %59, i32 noundef %.0160, i32 noundef 0) #5
+  %62 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %61, ptr noundef %0, i32 noundef %59, i32 noundef %.0159, i32 noundef 0) #5
   br label %139
 
 63:                                               ; preds = %54
   %64 = load i32, ptr @hf_rsl_remote_port, align 4
-  %65 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %64, ptr noundef %0, i32 noundef %59, i32 noundef %.0160, i32 noundef 0) #5
+  %65 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %64, ptr noundef %0, i32 noundef %59, i32 noundef %.0159, i32 noundef 0) #5
   br label %139
 
 66:                                               ; preds = %54
   %67 = load i32, ptr @hf_rsl_local_ip, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %67, ptr noundef %0, i32 noundef %59, i32 noundef %.0160, i32 noundef 0) #5
+  %68 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %67, ptr noundef %0, i32 noundef %59, i32 noundef %.0159, i32 noundef 0) #5
   %69 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %59) #5
   store i32 %69, ptr %5, align 4
   br label %139
 
 70:                                               ; preds = %54
   %71 = load i32, ptr @hf_rsl_local_port, align 4
-  %72 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %71, ptr noundef %0, i32 noundef %59, i32 noundef %.0160, i32 noundef 0) #5
+  %72 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %71, ptr noundef %0, i32 noundef %59, i32 noundef %.0159, i32 noundef 0) #5
   %73 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %59) #5
   br label %139
 
 74:                                               ; preds = %54
   %75 = load i32, ptr @hf_rsl_speech_mode_s, align 4
-  %76 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %58, i32 noundef %75, ptr noundef %0, i32 noundef %59, i32 noundef %.0160, i32 noundef 0, ptr noundef nonnull %6) #5
+  %76 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %58, i32 noundef %75, ptr noundef %0, i32 noundef %59, i32 noundef %.0159, i32 noundef 0, ptr noundef nonnull %6) #5
   %77 = call nonnull ptr @find_or_create_conversation(ptr noundef %1) #5
   %78 = load i32, ptr @proto_rsl, align 4
   %79 = call ptr @conversation_get_proto_data(ptr noundef nonnull %77, i32 noundef %78) #5
@@ -2730,17 +2730,17 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   br label %84
 
 84:                                               ; preds = %80, %74
-  %.0164 = phi ptr [ %79, %74 ], [ %82, %80 ]
+  %.0161 = phi ptr [ %79, %74 ], [ %82, %80 ]
   %85 = load i32, ptr %6, align 4
   %86 = trunc i32 %85 to i8
-  store i8 %86, ptr %.0164, align 1
+  store i8 %86, ptr %.0161, align 1
   %87 = load i32, ptr @hf_rsl_speech_mode_m, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %87, ptr noundef %0, i32 noundef %59, i32 noundef %.0160, i32 noundef 0) #5
+  %88 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %87, ptr noundef %0, i32 noundef %59, i32 noundef %.0159, i32 noundef 0) #5
   br label %139
 
 89:                                               ; preds = %54, %54
   %90 = load i32, ptr @hf_rsl_rtp_payload, align 4
-  %91 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %58, i32 noundef %90, ptr noundef %0, i32 noundef %59, i32 noundef %.0160, i32 noundef 0, ptr noundef nonnull %7) #5
+  %91 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %58, i32 noundef %90, ptr noundef %0, i32 noundef %59, i32 noundef %.0159, i32 noundef 0, ptr noundef nonnull %7) #5
   %92 = call nonnull ptr @find_or_create_conversation(ptr noundef %1) #5
   %93 = load i32, ptr @proto_rsl, align 4
   %94 = call ptr @conversation_get_proto_data(ptr noundef nonnull %92, i32 noundef %93) #5
@@ -2758,23 +2758,23 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   br label %101
 
 101:                                              ; preds = %95, %89
-  %.1165 = phi ptr [ %94, %89 ], [ %97, %95 ]
+  %.1162 = phi ptr [ %94, %89 ], [ %97, %95 ]
   %102 = load i32, ptr %7, align 4
   %103 = trunc i32 %102 to i8
-  %104 = getelementptr inbounds i8, ptr %.1165, i64 1
+  %104 = getelementptr inbounds i8, ptr %.1162, i64 1
   store i8 %103, ptr %104, align 1
   br label %139
 
 105:                                              ; preds = %54
   %106 = load i32, ptr @hf_rsl_rtp_csd_fmt_d, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %106, ptr noundef %0, i32 noundef %59, i32 noundef %.0160, i32 noundef 0) #5
+  %107 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %106, ptr noundef %0, i32 noundef %59, i32 noundef %.0159, i32 noundef 0) #5
   %108 = load i32, ptr @hf_rsl_rtp_csd_fmt_ir, align 4
-  %109 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %108, ptr noundef %0, i32 noundef %59, i32 noundef %.0160, i32 noundef 0) #5
+  %109 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %108, ptr noundef %0, i32 noundef %59, i32 noundef %.0159, i32 noundef 0) #5
   br label %139
 
 110:                                              ; preds = %54
   %111 = load i32, ptr @hf_rsl_conn_id, align 4
-  %112 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %111, ptr noundef %0, i32 noundef %59, i32 noundef %.0160, i32 noundef 0) #5
+  %112 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %111, ptr noundef %0, i32 noundef %59, i32 noundef %.0159, i32 noundef 0) #5
   br label %139
 
 113:                                              ; preds = %54
@@ -2807,29 +2807,29 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
 
 136:                                              ; preds = %134
   %137 = load i32, ptr @hf_rsl_osmo_osmux_cid, align 4
-  %138 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %137, ptr noundef %0, i32 noundef %59, i32 noundef %.0160, i32 noundef 0) #5
+  %138 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %137, ptr noundef %0, i32 noundef %59, i32 noundef %.0159, i32 noundef 0) #5
   br label %139
 
 139:                                              ; preds = %.thread, %134, %136, %113, %110, %105, %101, %84, %70, %66, %63, %60, %54
   %140 = phi i32 [ %59, %54 ], [ %59, %136 ], [ %59, %134 ], [ %59, %113 ], [ %59, %110 ], [ %59, %105 ], [ %59, %101 ], [ %59, %84 ], [ %59, %70 ], [ %59, %66 ], [ %59, %63 ], [ %59, %60 ], [ %53, %.thread ]
-  %.1163 = phi i32 [ %.0162178, %54 ], [ 1, %136 ], [ %.0162178, %134 ], [ %.0162178, %113 ], [ %.0162178, %110 ], [ %.0162178, %105 ], [ %.0162178, %101 ], [ %.0162178, %84 ], [ %.0162178, %70 ], [ %.0162178, %66 ], [ %.0162178, %63 ], [ %.0162178, %60 ], [ %.0162178, %.thread ]
-  %.1 = phi i16 [ %.0161179, %54 ], [ %.0161179, %136 ], [ %.0161179, %134 ], [ %.0161179, %113 ], [ %.0161179, %110 ], [ %.0161179, %105 ], [ %.0161179, %101 ], [ %.0161179, %84 ], [ %73, %70 ], [ %.0161179, %66 ], [ %.0161179, %63 ], [ %.0161179, %60 ], [ %.0161179, %.thread ]
-  %141 = add i32 %140, %.0160
+  %.1165 = phi i16 [ %.0164179, %54 ], [ %.0164179, %136 ], [ %.0164179, %134 ], [ %.0164179, %113 ], [ %.0164179, %110 ], [ %.0164179, %105 ], [ %.0164179, %101 ], [ %.0164179, %84 ], [ %73, %70 ], [ %.0164179, %66 ], [ %.0164179, %63 ], [ %.0164179, %60 ], [ %.0164179, %.thread ]
+  %.1 = phi i32 [ %.0160180, %54 ], [ 1, %136 ], [ %.0160180, %134 ], [ %.0160180, %113 ], [ %.0160180, %110 ], [ %.0160180, %105 ], [ %.0160180, %101 ], [ %.0160180, %84 ], [ %.0160180, %70 ], [ %.0160180, %66 ], [ %.0160180, %63 ], [ %.0160180, %60 ], [ %.0160180, %.thread ]
+  %141 = add i32 %140, %.0159
   %142 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %141) #5
   %143 = icmp sgt i32 %142, 0
   br i1 %143, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %139
-  %144 = icmp ne i32 %.1163, 0
-  %145 = zext i16 %.1 to i32
+  %144 = icmp ne i32 %.1, 0
+  %145 = zext i16 %.1165 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %.0162.lcssa = phi i1 [ false, %4 ], [ %144, %._crit_edge.loopexit ]
-  %.0161.lcssa = phi i32 [ 0, %4 ], [ %145, %._crit_edge.loopexit ]
-  %.0158.lcssa = phi i32 [ %11, %4 ], [ %141, %._crit_edge.loopexit ]
+  %.0166.lcssa = phi i32 [ %11, %4 ], [ %141, %._crit_edge.loopexit ]
+  %.0164.lcssa = phi i32 [ 0, %4 ], [ %145, %._crit_edge.loopexit ]
+  %.0160.lcssa = phi i1 [ false, %4 ], [ %144, %._crit_edge.loopexit ]
   %cond = icmp ne i8 %10, 113
-  %or.cond = select i1 %cond, i1 true, i1 %.0162.lcssa
+  %or.cond = select i1 %cond, i1 true, i1 %.0160.lcssa
   br i1 %or.cond, label %166, label %146
 
 146:                                              ; preds = %._crit_edge
@@ -2860,21 +2860,21 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
   br label %159
 
 159:                                              ; preds = %152, %154, %146
-  %.0166 = phi ptr [ %155, %154 ], [ null, %146 ], [ null, %152 ]
+  %.0163 = phi ptr [ %155, %154 ], [ null, %146 ], [ null, %152 ]
   %160 = load i32, ptr @proto_rsl, align 4
   call void @conversation_delete_proto_data(ptr noundef nonnull %149, i32 noundef %160) #5
   %161 = call ptr @wmem_file_scope() #5
   call void @wmem_free(ptr noundef %161, ptr noundef %151) #5
   %162 = getelementptr inbounds i8, ptr %1, i64 20
   %163 = load i32, ptr %162, align 4
-  call void @rtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %8, i32 noundef %.0161.lcssa, i32 noundef 0, ptr noundef nonnull @.str.719, i32 noundef %163, i32 noundef 0, ptr noundef %.0166) #5
-  %164 = add nuw nsw i32 %.0161.lcssa, 1
+  call void @rtp_add_address(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %8, i32 noundef %.0164.lcssa, i32 noundef 0, ptr noundef nonnull @.str.719, i32 noundef %163, i32 noundef 0, ptr noundef %.0163) #5
+  %164 = add nuw nsw i32 %.0164.lcssa, 1
   %165 = load i32, ptr %162, align 4
   call void @rtcp_add_address(ptr noundef %1, ptr noundef nonnull %8, i32 noundef %164, i32 noundef 0, ptr noundef nonnull @.str.719, i32 noundef %165) #5
   br label %166
 
 166:                                              ; preds = %._crit_edge, %159, %36
-  %.0157 = phi i32 [ %37, %36 ], [ %.0158.lcssa, %159 ], [ %.0158.lcssa, %._crit_edge ]
+  %.0157 = phi i32 [ %37, %36 ], [ %.0166.lcssa, %159 ], [ %.0166.lcssa, %._crit_edge ]
   ret i32 %.0157
 }
 
@@ -3570,7 +3570,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_resource_inf(ptr noundef %0, 
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.0383 = phi i32 [ %27, %.lr.ph ], [ %11, %3 ]
+  %.03 = phi i32 [ %27, %.lr.ph ], [ %11, %3 ]
   %.0392 = phi i32 [ %26, %.lr.ph ], [ %16, %3 ]
   %17 = load i32, ptr @hf_rsl_ch_no_Cbits, align 4
   %18 = call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %17, ptr noundef %0, i32 noundef %.0392, i32 noundef 1, i32 noundef 0) #5
@@ -3582,7 +3582,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_resource_inf(ptr noundef %0, 
   %24 = load i32, ptr @hf_rsl_interf_band_reserved, align 4
   %25 = call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %24, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0) #5
   %26 = add i32 %.0392, 2
-  %27 = add i32 %.0383, -2
+  %27 = add i32 %.03, -2
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 

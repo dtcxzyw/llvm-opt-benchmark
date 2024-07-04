@@ -10479,7 +10479,7 @@ define noundef i32 @_ZN18FollowStreamDialog10showBufferER10QByteArraymij8nstime_
   br label %86
 
 86:                                               ; preds = %80, %82, %85, %78
-  %.0159 = phi i1 [ false, %78 ], [ true, %85 ], [ false, %82 ], [ false, %80 ]
+  %.0168 = phi i1 [ false, %78 ], [ true, %85 ], [ false, %82 ], [ false, %80 ]
   %87 = call zeroext i1 @nstime_is_zero(ptr noundef nonnull %5)
   br i1 %87, label %91, label %88
 
@@ -10491,7 +10491,7 @@ define noundef i32 @_ZN18FollowStreamDialog10showBufferER10QByteArraymij8nstime_
   br label %91
 
 91:                                               ; preds = %88, %86
-  %.0164 = phi double [ 0.000000e+00, %86 ], [ %90, %88 ]
+  %.0190 = phi double [ 0.000000e+00, %86 ], [ %90, %88 ]
   %92 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 96), align 8
   switch i32 %92, label %1039 [
     i32 3, label %100
@@ -10539,14 +10539,14 @@ _ZN10QByteArray4dataEv.exit:                      ; preds = %_ZNK17QArrayDataPoi
   %107 = load ptr, ptr %106, align 8
   %108 = trunc i64 %2 to i32
   call void @EBCDIC_to_ASCII(ptr noundef %107, i32 noundef %108)
-  br i1 %.0159, label %109, label %.critedge237
+  br i1 %.0168, label %109, label %.critedge237
 
 109:                                              ; preds = %_ZN10QByteArray4dataEv.exit
   %110 = getelementptr inbounds i8, ptr %0, i64 136
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
-  call void @_ZN16FollowStreamText12addDeltaTimeEd(ptr noundef nonnull align 8 dereferenceable(72) %113, double noundef %.0164)
+  call void @_ZN16FollowStreamText12addDeltaTimeEd(ptr noundef nonnull align 8 dereferenceable(72) %113, double noundef %.0190)
   br label %114
 
 .critedge237:                                     ; preds = %_ZN10QByteArray4dataEv.exit
@@ -10738,14 +10738,14 @@ _ZN7QStringD2Ev.exit275:                          ; preds = %174, %_ZN17QArrayDa
   br label %_ZN7QStringD2Ev.exit366
 
 185:                                              ; preds = %91
-  br i1 %.0159, label %186, label %.critedge240
+  br i1 %.0168, label %186, label %.critedge240
 
 186:                                              ; preds = %185
   %187 = getelementptr inbounds i8, ptr %0, i64 136
   %188 = load ptr, ptr %187, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 8
   %190 = load ptr, ptr %189, align 8
-  call void @_ZN16FollowStreamText12addDeltaTimeEd(ptr noundef nonnull align 8 dereferenceable(72) %190, double noundef %.0164)
+  call void @_ZN16FollowStreamText12addDeltaTimeEd(ptr noundef nonnull align 8 dereferenceable(72) %190, double noundef %.0190)
   br label %191
 
 .critedge240:                                     ; preds = %185
@@ -10939,14 +10939,14 @@ _ZN7QStringD2Ev.exit324:                          ; preds = %253, %_ZN17QArrayDa
   br label %_ZN7QStringD2Ev.exit366
 
 264:                                              ; preds = %91
-  br i1 %.0159, label %265, label %.critedge246
+  br i1 %.0168, label %265, label %.critedge246
 
 265:                                              ; preds = %264
   %266 = getelementptr inbounds i8, ptr %0, i64 136
   %267 = load ptr, ptr %266, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 8
   %269 = load ptr, ptr %268, align 8
-  call void @_ZN16FollowStreamText12addDeltaTimeEd(ptr noundef nonnull align 8 dereferenceable(72) %269, double noundef %.0164)
+  call void @_ZN16FollowStreamText12addDeltaTimeEd(ptr noundef nonnull align 8 dereferenceable(72) %269, double noundef %.0190)
   br label %270
 
 .critedge246:                                     ; preds = %264
@@ -11186,18 +11186,18 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i376:   ; preds = %.body360
   br label %351
 
 351:                                              ; preds = %350, %347
-  %.0165 = phi ptr [ %94, %350 ], [ %48, %347 ]
-  %.0165839 = ptrtoint ptr %.0165 to i64
+  %.0163 = phi ptr [ %94, %350 ], [ %48, %347 ]
+  %.0163839 = ptrtoint ptr %.0163 to i64
   %352 = load i32, ptr %6, align 4
-  %353 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0165, i64 noundef 20, ptr noundef nonnull @.str.33, i32 noundef %352) #24
+  %353 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %.0163, i64 noundef 20, ptr noundef nonnull @.str.33, i32 noundef %352) #24
   %354 = sext i32 %353 to i64
-  %355 = getelementptr i8, ptr %.0165, i64 %354
+  %355 = getelementptr i8, ptr %.0163, i64 %354
   %356 = getelementptr i8, ptr %355, i64 51
   br label %357
 
 357:                                              ; preds = %351, %383
   %indvars.iv835 = phi i64 [ 0, %351 ], [ %indvars.iv.next836, %383 ]
-  %.1166823 = phi ptr [ %355, %351 ], [ %.2167, %383 ]
+  %.1164823 = phi ptr [ %355, %351 ], [ %.2165, %383 ]
   %358 = trunc nuw nsw i64 %indvars.iv835 to i32
   %359 = add i32 %.0828, %358
   %360 = zext i32 %359 to i64
@@ -11212,8 +11212,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i376:   ; preds = %.body360
   %367 = zext nneg i8 %366 to i64
   %368 = getelementptr [16 x i8], ptr @_ZZN18FollowStreamDialog10showBufferER10QByteArraymij8nstime_tPjE8hexchars, i64 0, i64 %367
   %369 = load i8, ptr %368, align 1
-  %370 = getelementptr i8, ptr %.1166823, i64 1
-  store i8 %369, ptr %.1166823, align 1
+  %370 = getelementptr i8, ptr %.1164823, i64 1
+  store i8 %369, ptr %.1164823, align 1
   %371 = load ptr, ptr %95, align 8
   %372 = getelementptr i8, ptr %371, i64 %360
   %373 = load i8, ptr %372, align 1
@@ -11221,43 +11221,43 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i376:   ; preds = %.body360
   %375 = zext nneg i8 %374 to i64
   %376 = getelementptr [16 x i8], ptr @_ZZN18FollowStreamDialog10showBufferER10QByteArraymij8nstime_tPjE8hexchars, i64 0, i64 %375
   %377 = load i8, ptr %376, align 1
-  %378 = getelementptr i8, ptr %.1166823, i64 2
+  %378 = getelementptr i8, ptr %.1164823, i64 2
   store i8 %377, ptr %370, align 1
-  %379 = getelementptr i8, ptr %.1166823, i64 3
+  %379 = getelementptr i8, ptr %.1164823, i64 3
   store i8 32, ptr %378, align 1
   %380 = icmp eq i64 %indvars.iv835, 7
   br i1 %380, label %381, label %383
 
 381:                                              ; preds = %362
-  %382 = getelementptr i8, ptr %.1166823, i64 4
+  %382 = getelementptr i8, ptr %.1164823, i64 4
   store i8 32, ptr %379, align 1
   br label %383
 
 383:                                              ; preds = %362, %381
-  %.2167 = phi ptr [ %382, %381 ], [ %379, %362 ]
+  %.2165 = phi ptr [ %382, %381 ], [ %379, %362 ]
   %indvars.iv.next836 = add nuw nsw i64 %indvars.iv835, 1
   %exitcond838.not = icmp eq i64 %indvars.iv.next836, 16
   br i1 %exitcond838.not, label %.critedge, label %357, !llvm.loop !146
 
 .critedge:                                        ; preds = %383, %357
-  %.1166.lcssa = phi ptr [ %.2167, %383 ], [ %.1166823, %357 ]
-  %384 = icmp ult ptr %.1166.lcssa, %356
+  %.1164.lcssa = phi ptr [ %.2165, %383 ], [ %.1164823, %357 ]
+  %384 = icmp ult ptr %.1164.lcssa, %356
   br i1 %384, label %.lr.ph825.preheader, label %.preheader.preheader
 
 .lr.ph825.preheader:                              ; preds = %.critedge
-  %.1166.lcssa840 = ptrtoint ptr %.1166.lcssa to i64
-  %385 = add i64 %.0165839, 51
+  %.1164.lcssa840 = ptrtoint ptr %.1164.lcssa to i64
+  %385 = add i64 %.0163839, 51
   %386 = add i64 %385, %354
-  %387 = sub i64 %386, %.1166.lcssa840
-  call void @llvm.memset.p0.i64(ptr align 1 %.1166.lcssa, i8 32, i64 %387, i1 false)
-  %388 = add i64 %.0165839, %354
-  %389 = sub i64 %388, %.1166.lcssa840
-  %scevgep = getelementptr i8, ptr %.1166.lcssa, i64 51
+  %387 = sub i64 %386, %.1164.lcssa840
+  call void @llvm.memset.p0.i64(ptr align 1 %.1164.lcssa, i8 32, i64 %387, i1 false)
+  %388 = add i64 %.0163839, %354
+  %389 = sub i64 %388, %.1164.lcssa840
+  %scevgep = getelementptr i8, ptr %.1164.lcssa, i64 51
   %scevgep841 = getelementptr i8, ptr %scevgep, i64 %389
   br label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.lr.ph825.preheader, %.critedge
-  %.4827.ph = phi ptr [ %.1166.lcssa, %.critedge ], [ %scevgep841, %.lr.ph825.preheader ]
+  %.4827.ph = phi ptr [ %.1164.lcssa, %.critedge ], [ %scevgep841, %.lr.ph825.preheader ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %406
@@ -11296,10 +11296,10 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i376:   ; preds = %.body360
   br i1 %exitcond845.not, label %.critedge2, label %.preheader, !llvm.loop !147
 
 .critedge2:                                       ; preds = %406, %.preheader
-  %.1169.lcssa = phi i32 [ 16, %406 ], [ %390, %.preheader ]
+  %.1167.lcssa = phi i32 [ 16, %406 ], [ %390, %.preheader ]
   %.4.lcssa = phi ptr [ %.5, %406 ], [ %.4827, %.preheader ]
   %407 = load i32, ptr %6, align 4
-  %408 = add i32 %407, %.1169.lcssa
+  %408 = add i32 %407, %.1167.lcssa
   store i32 %408, ptr %6, align 4
   %409 = getelementptr i8, ptr %.4.lcssa, i64 1
   store i8 10, ptr %.4.lcssa, align 1
@@ -11353,7 +11353,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i6.i381: ; preds = %421
 
 _ZN7QStringD2Ev.exit393:                          ; preds = %416, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i385, %419
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
-  %427 = add i32 %.1169.lcssa, %.0828
+  %427 = add i32 %.1167.lcssa, %.0828
   %428 = zext i32 %427 to i64
   %429 = icmp ult i64 %428, %2
   br i1 %429, label %347, label %_ZN7QStringD2Ev.exit366, !llvm.loop !148
@@ -11448,7 +11448,7 @@ _ZN7QStringD2Ev.exit412:                          ; preds = %452, %_ZN17QArrayDa
 
 467:                                              ; preds = %.preheader816, %503
   %indvars.iv = phi i64 [ 0, %.preheader816 ], [ %indvars.iv.next, %503 ]
-  %.0160820 = phi i32 [ 0, %.preheader816 ], [ %504, %503 ]
+  %.0159820 = phi i32 [ 0, %.preheader816 ], [ %504, %503 ]
   %468 = trunc nuw nsw i64 %indvars.iv to i32
   %469 = add i32 %.1821, %468
   %470 = zext i32 %469 to i64
@@ -11456,11 +11456,11 @@ _ZN7QStringD2Ev.exit412:                          ; preds = %452, %_ZN17QArrayDa
   br i1 %471, label %472, label %.critedge4
 
 472:                                              ; preds = %467
-  %473 = add i32 %.0160820, 1
-  %474 = sext i32 %.0160820 to i64
+  %473 = add i32 %.0159820, 1
+  %474 = sext i32 %.0159820 to i64
   %475 = getelementptr [256 x i8], ptr %49, i64 0, i64 %474
   store i8 48, ptr %475, align 1
-  %476 = add i32 %.0160820, 2
+  %476 = add i32 %.0159820, 2
   %477 = sext i32 %473 to i64
   %478 = getelementptr [256 x i8], ptr %49, i64 0, i64 %477
   store i8 120, ptr %478, align 1
@@ -11470,7 +11470,7 @@ _ZN7QStringD2Ev.exit412:                          ; preds = %452, %_ZN17QArrayDa
   %482 = zext nneg i8 %481 to i64
   %483 = getelementptr [16 x i8], ptr @_ZZN18FollowStreamDialog10showBufferER10QByteArraymij8nstime_tPjE8hexchars, i64 0, i64 %482
   %484 = load i8, ptr %483, align 1
-  %485 = add i32 %.0160820, 3
+  %485 = add i32 %.0159820, 3
   %486 = sext i32 %476 to i64
   %487 = getelementptr [256 x i8], ptr %49, i64 0, i64 %486
   store i8 %484, ptr %487, align 1
@@ -11479,7 +11479,7 @@ _ZN7QStringD2Ev.exit412:                          ; preds = %452, %_ZN17QArrayDa
   %490 = zext nneg i8 %489 to i64
   %491 = getelementptr [16 x i8], ptr @_ZZN18FollowStreamDialog10showBufferER10QByteArraymij8nstime_tPjE8hexchars, i64 0, i64 %490
   %492 = load i8, ptr %491, align 1
-  %493 = add i32 %.0160820, 4
+  %493 = add i32 %.0159820, 4
   %494 = sext i32 %485 to i64
   %495 = getelementptr [256 x i8], ptr %49, i64 0, i64 %494
   store i8 %492, ptr %495, align 1
@@ -11489,16 +11489,16 @@ _ZN7QStringD2Ev.exit412:                          ; preds = %452, %_ZN17QArrayDa
   br i1 %498, label %499, label %503
 
 499:                                              ; preds = %472
-  %500 = add i32 %.0160820, 5
+  %500 = add i32 %.0159820, 5
   %501 = sext i32 %493 to i64
   %502 = getelementptr [256 x i8], ptr %49, i64 0, i64 %501
   store i8 44, ptr %502, align 1
   br label %503
 
 503:                                              ; preds = %499, %472
-  %.1161 = phi i32 [ %500, %499 ], [ %493, %472 ]
-  %504 = add i32 %.1161, 1
-  %505 = sext i32 %.1161 to i64
+  %.1160 = phi i32 [ %500, %499 ], [ %493, %472 ]
+  %504 = add i32 %.1160, 1
+  %505 = sext i32 %.1160 to i64
   %506 = getelementptr [256 x i8], ptr %49, i64 0, i64 %505
   store i8 32, ptr %506, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -11506,31 +11506,31 @@ _ZN7QStringD2Ev.exit412:                          ; preds = %452, %_ZN17QArrayDa
   br i1 %exitcond.not, label %.critedge4, label %467, !llvm.loop !149
 
 .critedge4:                                       ; preds = %467, %503
-  %.0163.lcssa = phi i32 [ 8, %503 ], [ %468, %467 ]
-  %.0160.lcssa = phi i32 [ %504, %503 ], [ %.0160820, %467 ]
-  %507 = add i32 %.0163.lcssa, %.1821
+  %.0162.lcssa = phi i32 [ 8, %503 ], [ %468, %467 ]
+  %.0159.lcssa = phi i32 [ %504, %503 ], [ %.0159820, %467 ]
+  %507 = add i32 %.0162.lcssa, %.1821
   %508 = zext i32 %507 to i64
   %509 = icmp eq i64 %508, %2
   br i1 %509, label %510, label %517
 
 510:                                              ; preds = %.critedge4
-  %511 = add i32 %.0160.lcssa, 1
-  %512 = sext i32 %.0160.lcssa to i64
+  %511 = add i32 %.0159.lcssa, 1
+  %512 = sext i32 %.0159.lcssa to i64
   %513 = getelementptr [256 x i8], ptr %49, i64 0, i64 %512
   store i8 125, ptr %513, align 1
-  %514 = add i32 %.0160.lcssa, 2
+  %514 = add i32 %.0159.lcssa, 2
   %515 = sext i32 %511 to i64
   %516 = getelementptr [256 x i8], ptr %49, i64 0, i64 %515
   store i8 59, ptr %516, align 1
   br label %517
 
 517:                                              ; preds = %510, %.critedge4
-  %.2162 = phi i32 [ %514, %510 ], [ %.0160.lcssa, %.critedge4 ]
+  %.2161 = phi i32 [ %514, %510 ], [ %.0159.lcssa, %.critedge4 ]
   %518 = load i32, ptr %6, align 4
-  %519 = add i32 %518, %.0163.lcssa
+  %519 = add i32 %518, %.0162.lcssa
   store i32 %519, ptr %6, align 4
-  %520 = add i32 %.2162, 1
-  %521 = sext i32 %.2162 to i64
+  %520 = add i32 %.2161, 1
+  %521 = sext i32 %.2161 to i64
   %522 = getelementptr [256 x i8], ptr %49, i64 0, i64 %521
   store i8 10, ptr %522, align 1
   %523 = sext i32 %520 to i64

@@ -400,7 +400,7 @@ define range(i32 -1, 1) i32 @H5FA_set(ptr nocapture noundef readonly %0, i64 nou
   br label %63
 
 63:                                               ; preds = %38, %60
-  %.063 = phi i64 [ %62, %60 ], [ %40, %38 ]
+  %.0 = phi i64 [ %62, %60 ], [ %40, %38 ]
   %64 = getelementptr inbounds i8, ptr %19, i64 248
   %65 = load ptr, ptr %64, align 8
   %66 = lshr i64 %41, 3
@@ -414,7 +414,7 @@ define range(i32 -1, 1) i32 @H5FA_set(ptr nocapture noundef readonly %0, i64 nou
   br i1 %.not77, label %73, label %85
 
 73:                                               ; preds = %63
-  %74 = call i32 @H5FA__dblk_page_create(ptr noundef nonnull %5, i64 noundef %57, i64 noundef %.063) #5
+  %74 = call i32 @H5FA__dblk_page_create(ptr noundef nonnull %5, i64 noundef %57, i64 noundef %.0) #5
   %75 = icmp slt i32 %74, 0
   br i1 %75, label %76, label %80
 
@@ -434,7 +434,7 @@ define range(i32 -1, 1) i32 @H5FA_set(ptr nocapture noundef readonly %0, i64 nou
 
 85:                                               ; preds = %80, %63
   %.064 = phi i32 [ 0, %63 ], [ 2, %80 ]
-  %86 = call ptr @H5FA__dblk_page_protect(ptr noundef nonnull %5, i64 noundef %57, i64 noundef %.063, i32 noundef 0) #5
+  %86 = call ptr @H5FA__dblk_page_protect(ptr noundef nonnull %5, i64 noundef %57, i64 noundef %.0, i32 noundef 0) #5
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %92
 
@@ -457,11 +457,11 @@ define range(i32 -1, 1) i32 @H5FA_set(ptr nocapture noundef readonly %0, i64 nou
   br label %101
 
 101:                                              ; preds = %29, %92, %88, %76, %21, %13
-  %.067 = phi i32 [ 0, %21 ], [ 0, %88 ], [ 2, %92 ], [ 0, %76 ], [ 0, %29 ], [ 0, %13 ]
-  %.065 = phi i32 [ -1, %21 ], [ -1, %88 ], [ 0, %92 ], [ -1, %76 ], [ 0, %29 ], [ -1, %13 ]
-  %.1 = phi i32 [ 0, %21 ], [ %.064, %88 ], [ %.064, %92 ], [ 0, %76 ], [ 2, %29 ], [ 0, %13 ]
-  %.062 = phi ptr [ null, %21 ], [ null, %88 ], [ %86, %92 ], [ null, %76 ], [ null, %29 ], [ null, %13 ]
-  %.0 = phi ptr [ null, %21 ], [ %19, %88 ], [ %19, %92 ], [ %19, %76 ], [ %19, %29 ], [ null, %13 ]
+  %.067 = phi ptr [ null, %21 ], [ %19, %88 ], [ %19, %92 ], [ %19, %76 ], [ %19, %29 ], [ null, %13 ]
+  %.066 = phi ptr [ null, %21 ], [ null, %88 ], [ %86, %92 ], [ null, %76 ], [ null, %29 ], [ null, %13 ]
+  %.165 = phi i32 [ 0, %21 ], [ %.064, %88 ], [ %.064, %92 ], [ 0, %76 ], [ 2, %29 ], [ 0, %13 ]
+  %.063 = phi i32 [ 0, %21 ], [ 0, %88 ], [ 2, %92 ], [ 0, %76 ], [ 0, %29 ], [ 0, %13 ]
+  %.062 = phi i32 [ -1, %21 ], [ -1, %88 ], [ 0, %92 ], [ -1, %76 ], [ 0, %29 ], [ -1, %13 ]
   %102 = load i8, ptr %4, align 1
   %103 = trunc i8 %102 to i1
   br i1 %103, label %104, label %111
@@ -478,12 +478,12 @@ define range(i32 -1, 1) i32 @H5FA_set(ptr nocapture noundef readonly %0, i64 nou
   br label %111
 
 111:                                              ; preds = %104, %107, %101
-  %.166 = phi i32 [ -1, %107 ], [ %.065, %104 ], [ %.065, %101 ]
-  %.not75 = icmp eq ptr %.0, null
+  %.1 = phi i32 [ -1, %107 ], [ %.062, %104 ], [ %.062, %101 ]
+  %.not75 = icmp eq ptr %.067, null
   br i1 %.not75, label %119, label %112
 
 112:                                              ; preds = %111
-  %113 = call i32 @H5FA__dblock_unprotect(ptr noundef nonnull %.0, i32 noundef %.1) #5
+  %113 = call i32 @H5FA__dblock_unprotect(ptr noundef nonnull %.067, i32 noundef %.165) #5
   %114 = icmp slt i32 %113, 0
   br i1 %114, label %115, label %119
 
@@ -494,12 +494,12 @@ define range(i32 -1, 1) i32 @H5FA_set(ptr nocapture noundef readonly %0, i64 nou
   br label %119
 
 119:                                              ; preds = %115, %112, %111
-  %.2 = phi i32 [ -1, %115 ], [ %.166, %112 ], [ %.166, %111 ]
-  %.not76 = icmp eq ptr %.062, null
+  %.2 = phi i32 [ -1, %115 ], [ %.1, %112 ], [ %.1, %111 ]
+  %.not76 = icmp eq ptr %.066, null
   br i1 %.not76, label %127, label %120
 
 120:                                              ; preds = %119
-  %121 = call i32 @H5FA__dblk_page_unprotect(ptr noundef nonnull %.062, i32 noundef %.067) #5
+  %121 = call i32 @H5FA__dblk_page_unprotect(ptr noundef nonnull %.066, i32 noundef %.063) #5
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %123, label %127
 
@@ -646,8 +646,8 @@ define range(i32 -1, 1) i32 @H5FA_get(ptr nocapture noundef readonly %0, i64 nou
   br label %87
 
 87:                                               ; preds = %66, %84
-  %.052 = phi i64 [ %86, %84 ], [ %43, %66 ]
-  %88 = tail call ptr @H5FA__dblk_page_protect(ptr noundef nonnull %4, i64 noundef %81, i64 noundef %.052, i32 noundef 128) #5
+  %.0 = phi i64 [ %86, %84 ], [ %43, %66 ]
+  %88 = tail call ptr @H5FA__dblk_page_protect(ptr noundef nonnull %4, i64 noundef %81, i64 noundef %.0, i32 noundef 128) #5
   %89 = icmp eq ptr %88, null
   br i1 %89, label %90, label %94
 
@@ -670,8 +670,8 @@ define range(i32 -1, 1) i32 @H5FA_get(ptr nocapture noundef readonly %0, i64 nou
   br label %103
 
 103:                                              ; preds = %90, %94, %62, %32, %55
-  %.053.ph = phi i32 [ 0, %55 ], [ 0, %32 ], [ -1, %62 ], [ 0, %94 ], [ -1, %90 ]
-  %.051.ph = phi ptr [ null, %55 ], [ null, %32 ], [ null, %62 ], [ %88, %94 ], [ null, %90 ]
+  %.052.ph = phi ptr [ null, %55 ], [ null, %32 ], [ null, %62 ], [ %88, %94 ], [ null, %90 ]
+  %.051.ph = phi i32 [ 0, %55 ], [ 0, %32 ], [ -1, %62 ], [ 0, %94 ], [ -1, %90 ]
   %104 = tail call i32 @H5FA__dblock_unprotect(ptr noundef nonnull %22, i32 noundef 0) #5
   %105 = icmp slt i32 %104, 0
   br i1 %105, label %106, label %110
@@ -683,12 +683,12 @@ define range(i32 -1, 1) i32 @H5FA_get(ptr nocapture noundef readonly %0, i64 nou
   br label %110
 
 110:                                              ; preds = %106, %103
-  %.1 = phi i32 [ -1, %106 ], [ %.053.ph, %103 ]
-  %.not61 = icmp eq ptr %.051.ph, null
+  %.1 = phi i32 [ -1, %106 ], [ %.051.ph, %103 ]
+  %.not61 = icmp eq ptr %.052.ph, null
   br i1 %.not61, label %.thread71, label %111
 
 111:                                              ; preds = %110
-  %112 = tail call i32 @H5FA__dblk_page_unprotect(ptr noundef nonnull %.051.ph, i32 noundef 0) #5
+  %112 = tail call i32 @H5FA__dblk_page_unprotect(ptr noundef nonnull %.052.ph, i32 noundef 0) #5
   %113 = icmp slt i32 %112, 0
   br i1 %113, label %114, label %.thread71
 

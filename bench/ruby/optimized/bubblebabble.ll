@@ -99,9 +99,9 @@ RSTRING_PTR.exit55.i:                             ; preds = %25, %16
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %RSTRING_PTR.exit55.i
-  %.047.lcssa.i = phi i8 [ 1, %RSTRING_PTR.exit55.i ], [ %26, %._crit_edge.i.loopexit ]
   %.046.lcssa.i = phi i64 [ 1, %RSTRING_PTR.exit55.i ], [ %78, %._crit_edge.i.loopexit ]
-  %27 = urem i8 %.047.lcssa.i, 6
+  %.0.lcssa.i = phi i8 [ 1, %RSTRING_PTR.exit55.i ], [ %26, %._crit_edge.i.loopexit ]
+  %27 = urem i8 %.0.lcssa.i, 6
   %.zext.i = zext nneg i8 %27 to i64
   %28 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %.zext.i
   %29 = load i8, ptr %28, align 1
@@ -109,7 +109,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %25, %16
   store i8 %29, ptr %30, align 1
   %31 = getelementptr i8, ptr %30, i64 1
   store i8 120, ptr %31, align 1
-  %32 = udiv i8 %.047.lcssa.i, 6
+  %32 = udiv i8 %.0.lcssa.i, 6
   %.zext67.i = zext nneg i8 %32 to i64
   %33 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %.zext67.i
   %34 = load i8, ptr %33, align 1
@@ -119,16 +119,16 @@ RSTRING_PTR.exit55.i:                             ; preds = %25, %16
   br label %bubblebabble_str_new.exit
 
 .lr.ph.i:                                         ; preds = %RSTRING_PTR.exit55.i, %63
-  %.061.i = phi i64 [ %64, %63 ], [ 0, %RSTRING_PTR.exit55.i ]
+  %.061.i = phi i64 [ %86, %63 ], [ 1, %RSTRING_PTR.exit55.i ]
   %.04660.i = phi i64 [ %78, %63 ], [ 1, %RSTRING_PTR.exit55.i ]
-  %.04759.i = phi i64 [ %86, %63 ], [ 1, %RSTRING_PTR.exit55.i ]
-  %37 = or disjoint i64 %.061.i, 1
-  %38 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %.061.i
+  %.04759.i = phi i64 [ %64, %63 ], [ 0, %RSTRING_PTR.exit55.i ]
+  %37 = or disjoint i64 %.04759.i, 1
+  %38 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %.04759.i
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = lshr i32 %40, 6
   %42 = zext nneg i32 %41 to i64
-  %43 = add nuw nsw i64 %.04759.i, %42
+  %43 = add nuw nsw i64 %.061.i, %42
   %44 = urem i64 %43, 6
   %45 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %44
   %46 = load i8, ptr %45, align 1
@@ -143,7 +143,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %25, %16
   store i8 %52, ptr %53, align 1
   %54 = and i32 %40, 3
   %55 = zext nneg i32 %54 to i64
-  %56 = udiv i64 %.04759.i, 6
+  %56 = udiv i64 %.061.i, 6
   %57 = add nuw nsw i64 %56, %55
   %58 = urem i64 %57, 6
   %59 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %58
@@ -155,7 +155,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %25, %16
   br i1 %.not51.i, label %63, label %bubblebabble_str_new.exit
 
 63:                                               ; preds = %.lr.ph.i
-  %64 = add nuw i64 %.061.i, 2
+  %64 = add nuw i64 %.04759.i, 2
   %65 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %37
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
@@ -174,7 +174,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %25, %16
   %78 = add i64 %.04660.i, 6
   %79 = getelementptr i8, ptr %47, i64 5
   store i8 %77, ptr %79, align 1
-  %80 = mul nuw nsw i64 %.04759.i, 5
+  %80 = mul nuw nsw i64 %.061.i, 5
   %81 = mul nuw nsw i32 %40, 7
   %82 = zext nneg i32 %81 to i64
   %83 = add nuw nsw i64 %80, %82
@@ -253,9 +253,9 @@ RSTRING_PTR.exit55.i:                             ; preds = %28, %19
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %RSTRING_PTR.exit55.i
-  %.047.lcssa.i = phi i8 [ 1, %RSTRING_PTR.exit55.i ], [ %29, %._crit_edge.i.loopexit ]
   %.046.lcssa.i = phi i64 [ 1, %RSTRING_PTR.exit55.i ], [ %81, %._crit_edge.i.loopexit ]
-  %30 = urem i8 %.047.lcssa.i, 6
+  %.0.lcssa.i = phi i8 [ 1, %RSTRING_PTR.exit55.i ], [ %29, %._crit_edge.i.loopexit ]
+  %30 = urem i8 %.0.lcssa.i, 6
   %.zext.i = zext nneg i8 %30 to i64
   %31 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %.zext.i
   %32 = load i8, ptr %31, align 1
@@ -263,7 +263,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %28, %19
   store i8 %32, ptr %33, align 1
   %34 = getelementptr i8, ptr %33, i64 1
   store i8 120, ptr %34, align 1
-  %35 = udiv i8 %.047.lcssa.i, 6
+  %35 = udiv i8 %.0.lcssa.i, 6
   %.zext67.i = zext nneg i8 %35 to i64
   %36 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %.zext67.i
   %37 = load i8, ptr %36, align 1
@@ -273,16 +273,16 @@ RSTRING_PTR.exit55.i:                             ; preds = %28, %19
   br label %bubblebabble_str_new.exit
 
 .lr.ph.i:                                         ; preds = %RSTRING_PTR.exit55.i, %66
-  %.061.i = phi i64 [ %67, %66 ], [ 0, %RSTRING_PTR.exit55.i ]
+  %.061.i = phi i64 [ %89, %66 ], [ 1, %RSTRING_PTR.exit55.i ]
   %.04660.i = phi i64 [ %81, %66 ], [ 1, %RSTRING_PTR.exit55.i ]
-  %.04759.i = phi i64 [ %89, %66 ], [ 1, %RSTRING_PTR.exit55.i ]
-  %40 = or disjoint i64 %.061.i, 1
-  %41 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %.061.i
+  %.04759.i = phi i64 [ %67, %66 ], [ 0, %RSTRING_PTR.exit55.i ]
+  %40 = or disjoint i64 %.04759.i, 1
+  %41 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %.04759.i
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = lshr i32 %43, 6
   %45 = zext nneg i32 %44 to i64
-  %46 = add nuw nsw i64 %.04759.i, %45
+  %46 = add nuw nsw i64 %.061.i, %45
   %47 = urem i64 %46, 6
   %48 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %47
   %49 = load i8, ptr %48, align 1
@@ -297,7 +297,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %28, %19
   store i8 %55, ptr %56, align 1
   %57 = and i32 %43, 3
   %58 = zext nneg i32 %57 to i64
-  %59 = udiv i64 %.04759.i, 6
+  %59 = udiv i64 %.061.i, 6
   %60 = add nuw nsw i64 %59, %58
   %61 = urem i64 %60, 6
   %62 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %61
@@ -309,7 +309,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %28, %19
   br i1 %.not51.i, label %66, label %bubblebabble_str_new.exit
 
 66:                                               ; preds = %.lr.ph.i
-  %67 = add nuw i64 %.061.i, 2
+  %67 = add nuw i64 %.04759.i, 2
   %68 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %40
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
@@ -328,7 +328,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %28, %19
   %81 = add i64 %.04660.i, 6
   %82 = getelementptr i8, ptr %50, i64 5
   store i8 %80, ptr %82, align 1
-  %83 = mul nuw nsw i64 %.04759.i, 5
+  %83 = mul nuw nsw i64 %.061.i, 5
   %84 = mul nuw nsw i32 %43, 7
   %85 = zext nneg i32 %84 to i64
   %86 = add nuw nsw i64 %83, %85
@@ -407,9 +407,9 @@ RSTRING_PTR.exit55.i:                             ; preds = %26, %17
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %RSTRING_PTR.exit55.i
-  %.047.lcssa.i = phi i8 [ 1, %RSTRING_PTR.exit55.i ], [ %27, %._crit_edge.i.loopexit ]
   %.046.lcssa.i = phi i64 [ 1, %RSTRING_PTR.exit55.i ], [ %79, %._crit_edge.i.loopexit ]
-  %28 = urem i8 %.047.lcssa.i, 6
+  %.0.lcssa.i = phi i8 [ 1, %RSTRING_PTR.exit55.i ], [ %27, %._crit_edge.i.loopexit ]
+  %28 = urem i8 %.0.lcssa.i, 6
   %.zext.i = zext nneg i8 %28 to i64
   %29 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %.zext.i
   %30 = load i8, ptr %29, align 1
@@ -417,7 +417,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %26, %17
   store i8 %30, ptr %31, align 1
   %32 = getelementptr i8, ptr %31, i64 1
   store i8 120, ptr %32, align 1
-  %33 = udiv i8 %.047.lcssa.i, 6
+  %33 = udiv i8 %.0.lcssa.i, 6
   %.zext67.i = zext nneg i8 %33 to i64
   %34 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %.zext67.i
   %35 = load i8, ptr %34, align 1
@@ -427,16 +427,16 @@ RSTRING_PTR.exit55.i:                             ; preds = %26, %17
   br label %bubblebabble_str_new.exit
 
 .lr.ph.i:                                         ; preds = %RSTRING_PTR.exit55.i, %64
-  %.061.i = phi i64 [ %65, %64 ], [ 0, %RSTRING_PTR.exit55.i ]
+  %.061.i = phi i64 [ %87, %64 ], [ 1, %RSTRING_PTR.exit55.i ]
   %.04660.i = phi i64 [ %79, %64 ], [ 1, %RSTRING_PTR.exit55.i ]
-  %.04759.i = phi i64 [ %87, %64 ], [ 1, %RSTRING_PTR.exit55.i ]
-  %38 = or disjoint i64 %.061.i, 1
-  %39 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %.061.i
+  %.04759.i = phi i64 [ %65, %64 ], [ 0, %RSTRING_PTR.exit55.i ]
+  %38 = or disjoint i64 %.04759.i, 1
+  %39 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %.04759.i
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = lshr i32 %41, 6
   %43 = zext nneg i32 %42 to i64
-  %44 = add nuw nsw i64 %.04759.i, %43
+  %44 = add nuw nsw i64 %.061.i, %43
   %45 = urem i64 %44, 6
   %46 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %45
   %47 = load i8, ptr %46, align 1
@@ -451,7 +451,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %26, %17
   store i8 %53, ptr %54, align 1
   %55 = and i32 %41, 3
   %56 = zext nneg i32 %55 to i64
-  %57 = udiv i64 %.04759.i, 6
+  %57 = udiv i64 %.061.i, 6
   %58 = add nuw nsw i64 %57, %56
   %59 = urem i64 %58, 6
   %60 = getelementptr inbounds [6 x i8], ptr @bubblebabble_str_new.vowels, i64 0, i64 %59
@@ -463,7 +463,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %26, %17
   br i1 %.not51.i, label %64, label %bubblebabble_str_new.exit
 
 64:                                               ; preds = %.lr.ph.i
-  %65 = add nuw i64 %.061.i, 2
+  %65 = add nuw i64 %.04759.i, 2
   %66 = getelementptr inbounds i8, ptr %.sroa.2.0.i.i, i64 %38
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
@@ -482,7 +482,7 @@ RSTRING_PTR.exit55.i:                             ; preds = %26, %17
   %79 = add i64 %.04660.i, 6
   %80 = getelementptr i8, ptr %48, i64 5
   store i8 %78, ptr %80, align 1
-  %81 = mul nuw nsw i64 %.04759.i, 5
+  %81 = mul nuw nsw i64 %.061.i, 5
   %82 = mul nuw nsw i32 %41, 7
   %83 = zext nneg i32 %82 to i64
   %84 = add nuw nsw i64 %81, %83

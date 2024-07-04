@@ -60,16 +60,16 @@ if.end15:                                         ; preds = %while.end
   br i1 %cmp1753.not, label %for.end42, label %for.cond19.preheader
 
 for.cond19.preheader:                             ; preds = %if.end15, %for.end
-  %src.addr.056 = phi ptr [ %scevgep, %for.end ], [ %src, %if.end15 ]
-  %pos.055 = phi ptr [ %add.ptr, %for.end ], [ %call12, %if.end15 ]
-  %i.054 = phi i64 [ %inc41, %for.end ], [ 0, %if.end15 ]
-  %scevgep = getelementptr i8, ptr %src.addr.056, i64 4
+  %pos.056 = phi ptr [ %add.ptr, %for.end ], [ %call12, %if.end15 ]
+  %i.055 = phi i64 [ %inc41, %for.end ], [ 0, %if.end15 ]
+  %src.addr.054 = phi ptr [ %scevgep, %for.end ], [ %src, %if.end15 ]
+  %scevgep = getelementptr i8, ptr %src.addr.054, i64 4
   br label %for.body22
 
 for.body22:                                       ; preds = %for.cond19.preheader, %if.end28
   %j.052 = phi i32 [ 0, %for.cond19.preheader ], [ %inc30, %if.end28 ]
   %x.051 = phi i32 [ 0, %for.cond19.preheader ], [ %or, %if.end28 ]
-  %src.addr.150 = phi ptr [ %src.addr.056, %for.cond19.preheader ], [ %incdec.ptr, %if.end28 ]
+  %src.addr.150 = phi ptr [ %src.addr.054, %for.cond19.preheader ], [ %incdec.ptr, %if.end28 ]
   %4 = load i8, ptr %src.addr.150, align 1
   %idxprom = zext i8 %4 to i64
   %arrayidx23 = getelementptr inbounds [256 x i8], ptr %lookup, i64 0, i64 %idxprom
@@ -88,23 +88,23 @@ if.end28:                                         ; preds = %for.body22
 
 for.end:                                          ; preds = %if.end28
   %conv31 = trunc i32 %or to i8
-  %arrayidx32 = getelementptr inbounds i8, ptr %pos.055, i64 2
+  %arrayidx32 = getelementptr inbounds i8, ptr %pos.056, i64 2
   store i8 %conv31, ptr %arrayidx32, align 1
   %shr = lshr i32 %shl, 8
   %conv34 = trunc i32 %shr to i8
-  %arrayidx35 = getelementptr inbounds i8, ptr %pos.055, i64 1
+  %arrayidx35 = getelementptr inbounds i8, ptr %pos.056, i64 1
   store i8 %conv34, ptr %arrayidx35, align 1
   %shr36 = lshr i32 %shl, 16
   %conv38 = trunc i32 %shr36 to i8
-  store i8 %conv38, ptr %pos.055, align 1
-  %add.ptr = getelementptr inbounds i8, ptr %pos.055, i64 3
-  %inc41 = add nuw i64 %i.054, 1
+  store i8 %conv38, ptr %pos.056, align 1
+  %add.ptr = getelementptr inbounds i8, ptr %pos.056, i64 3
+  %inc41 = add nuw i64 %i.055, 1
   %exitcond65.not = icmp eq i64 %inc41, %sub10
   br i1 %exitcond65.not, label %for.end42, label %for.cond19.preheader, !llvm.loop !7
 
 for.end42:                                        ; preds = %for.end, %if.end15
-  %pos.0.lcssa = phi ptr [ %call12, %if.end15 ], [ %add.ptr, %for.end ]
   %src.addr.0.lcssa = phi ptr [ %src, %if.end15 ], [ %scevgep, %for.end ]
+  %pos.0.lcssa = phi ptr [ %call12, %if.end15 ], [ %add.ptr, %for.end ]
   br i1 %tobool8.not, label %for.body51, label %if.end92
 
 for.body51:                                       ; preds = %for.end42, %for.inc75
@@ -225,15 +225,15 @@ while.cond.preheader:                             ; preds = %if.end
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %in.053 = phi ptr [ %add.ptr, %while.body ], [ %inputbuff, %while.cond.preheader ]
-  %insize.addr.152 = phi i64 [ %sub, %while.body ], [ %insize.addr.0, %while.cond.preheader ]
-  %output.051 = phi ptr [ %incdec.ptr33, %while.body ], [ %call2, %while.cond.preheader ]
+  %output.052 = phi ptr [ %incdec.ptr33, %while.body ], [ %call2, %while.cond.preheader ]
+  %insize.addr.151 = phi i64 [ %sub, %while.body ], [ %insize.addr.0, %while.cond.preheader ]
   %1 = load i8, ptr %in.053, align 1
   %2 = lshr i8 %1, 2
   %idxprom = zext nneg i8 %2 to i64
   %arrayidx7 = getelementptr inbounds i8, ptr %table64, i64 %idxprom
   %3 = load i8, ptr %arrayidx7, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %output.051, i64 1
-  store i8 %3, ptr %output.051, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %output.052, i64 1
+  store i8 %3, ptr %output.052, align 1
   %4 = load i8, ptr %in.053, align 1
   %5 = shl i8 %4, 4
   %6 = and i8 %5, 48
@@ -244,7 +244,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %idxprom13 = zext nneg i8 %or48 to i64
   %arrayidx14 = getelementptr inbounds i8, ptr %table64, i64 %idxprom13
   %9 = load i8, ptr %arrayidx14, align 1
-  %incdec.ptr15 = getelementptr inbounds i8, ptr %output.051, i64 2
+  %incdec.ptr15 = getelementptr inbounds i8, ptr %output.052, i64 2
   store i8 %9, ptr %incdec.ptr, align 1
   %10 = load i8, ptr %arrayidx10, align 1
   %11 = shl i8 %10, 2
@@ -256,23 +256,23 @@ while.body:                                       ; preds = %while.cond.preheade
   %idxprom25 = zext nneg i8 %or2449 to i64
   %arrayidx26 = getelementptr inbounds i8, ptr %table64, i64 %idxprom25
   %15 = load i8, ptr %arrayidx26, align 1
-  %incdec.ptr27 = getelementptr inbounds i8, ptr %output.051, i64 3
+  %incdec.ptr27 = getelementptr inbounds i8, ptr %output.052, i64 3
   store i8 %15, ptr %incdec.ptr15, align 1
   %16 = load i8, ptr %arrayidx20, align 1
   %17 = and i8 %16, 63
   %idxprom31 = zext nneg i8 %17 to i64
   %arrayidx32 = getelementptr inbounds i8, ptr %table64, i64 %idxprom31
   %18 = load i8, ptr %arrayidx32, align 1
-  %incdec.ptr33 = getelementptr inbounds i8, ptr %output.051, i64 4
+  %incdec.ptr33 = getelementptr inbounds i8, ptr %output.052, i64 4
   store i8 %18, ptr %incdec.ptr27, align 1
-  %sub = add i64 %insize.addr.152, -3
+  %sub = add i64 %insize.addr.151, -3
   %add.ptr = getelementptr inbounds i8, ptr %in.053, i64 3
   %cmp = icmp ugt i64 %sub, 2
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
-  %output.0.lcssa = phi ptr [ %call2, %while.cond.preheader ], [ %incdec.ptr33, %while.body ]
   %insize.addr.1.lcssa = phi i64 [ %insize.addr.0, %while.cond.preheader ], [ %sub, %while.body ]
+  %output.0.lcssa = phi ptr [ %call2, %while.cond.preheader ], [ %incdec.ptr33, %while.body ]
   %in.0.lcssa = phi ptr [ %inputbuff, %while.cond.preheader ], [ %add.ptr, %while.body ]
   %tobool34.not = icmp eq i64 %insize.addr.1.lcssa, 0
   br i1 %tobool34.not, label %if.end81, label %if.then35

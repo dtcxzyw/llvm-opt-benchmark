@@ -28,7 +28,7 @@ define noalias ptr @ws_find_media_type_parameter(ptr noundef %0, ptr noundef %1,
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.preheader
   %13 = phi i8 [ %10, %.lr.ph.i.preheader ], [ %.be, %.lr.ph.i.backedge ]
-  %.080110.i = phi ptr [ %1, %.lr.ph.i.preheader ], [ %.080110.i.be, %.lr.ph.i.backedge ]
+  %.079110.i = phi ptr [ %1, %.lr.ph.i.preheader ], [ %.079110.i.be, %.lr.ph.i.backedge ]
   %14 = zext i8 %13 to i64
   %15 = getelementptr i16, ptr %12, i64 %14
   %16 = load i16, ptr %15, align 2
@@ -37,19 +37,19 @@ define noalias ptr @ws_find_media_type_parameter(ptr noundef %0, ptr noundef %1,
   br i1 %.not91.i, label %.critedge.i, label %18
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr i8, ptr %.080110.i, i64 1
+  %19 = getelementptr i8, ptr %.079110.i, i64 1
   %20 = load i8, ptr %19, align 1
   %cond.i = icmp eq i8 %20, 0
   br i1 %cond.i, label %ws_get_next_media_type_parameter.exit.thread, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %18, %63
   %.be = phi i8 [ %20, %18 ], [ %64, %63 ]
-  %.080110.i.be = phi ptr [ %19, %18 ], [ %.1117, %63 ]
+  %.079110.i.be = phi ptr [ %19, %18 ], [ %.1117, %63 ]
   br label %.lr.ph.i, !llvm.loop !4
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %22
   %21 = phi i8 [ %.pre.i, %22 ], [ %13, %.lr.ph.i ]
-  %.1.i = phi ptr [ %23, %22 ], [ %.080110.i, %.lr.ph.i ]
+  %.1.i = phi ptr [ %23, %22 ], [ %.079110.i, %.lr.ph.i ]
   switch i8 %21, label %22 [
     i8 61, label %.critedge4.i
     i8 59, label %.critedge4.i
@@ -63,7 +63,7 @@ define noalias ptr @ws_find_media_type_parameter(ptr noundef %0, ptr noundef %1,
 
 .critedge4.i:                                     ; preds = %.critedge.i, %.critedge.i, %.critedge.i
   %24 = ptrtoint ptr %.1.i to i64
-  %25 = ptrtoint ptr %.080110.i to i64
+  %25 = ptrtoint ptr %.079110.i to i64
   %26 = sub i64 %24, %25
   switch i8 %21, label %29 [
     i8 0, label %ws_get_next_media_type_parameter.exit
@@ -162,7 +162,7 @@ ws_get_next_media_type_parameter.exit:            ; preds = %.loopexit.i, %.crit
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %ws_get_next_media_type_parameter.exit
-  %61 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull %.080110.i, ptr noundef %2, i64 noundef %7) #4
+  %61 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull %.079110.i, ptr noundef %2, i64 noundef %7) #4
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %65, label %63
 

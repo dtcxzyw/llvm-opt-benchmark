@@ -6111,9 +6111,9 @@ _ZN4absl15random_internal15ExplicitSeedSeqD2Ev.exit76: ; preds = %_ZN7testing15A
   br label %for.body.i211
 
 for.body.i211:                                    ; preds = %for.inc.i216, %_ZN4absl15random_internal15ExplicitSeedSeqD2Ev.exit76
+  %seed_sequence91.sroa.0.0 = phi ptr [ null, %_ZN4absl15random_internal15ExplicitSeedSeqD2Ev.exit76 ], [ %seed_sequence91.sroa.0.1, %for.inc.i216 ]
   %seed_sequence91.sroa.7.0 = phi ptr [ null, %_ZN4absl15random_internal15ExplicitSeedSeqD2Ev.exit76 ], [ %seed_sequence91.sroa.7.1, %for.inc.i216 ]
   %seed_sequence91.sroa.11.0 = phi ptr [ null, %_ZN4absl15random_internal15ExplicitSeedSeqD2Ev.exit76 ], [ %seed_sequence91.sroa.11.1, %for.inc.i216 ]
-  %seed_sequence91.sroa.0.0 = phi ptr [ null, %_ZN4absl15random_internal15ExplicitSeedSeqD2Ev.exit76 ], [ %seed_sequence91.sroa.0.1, %for.inc.i216 ]
   %it.08.i212.idx = phi i64 [ 0, %_ZN4absl15random_internal15ExplicitSeedSeqD2Ev.exit76 ], [ %it.08.i212.add, %for.inc.i216 ]
   %it.08.i212.ptr = getelementptr inbounds i8, ptr %ref.tmp93, i64 %it.08.i212.idx
   %33 = load i32, ptr %it.08.i212.ptr, align 4
@@ -6178,9 +6178,9 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   br label %for.inc.i216
 
 for.inc.i216:                                     ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i250, %if.then.i.i.i214
+  %seed_sequence91.sroa.0.1 = phi ptr [ %cond.i10.i.i.i.i242, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i250 ], [ %seed_sequence91.sroa.0.0, %if.then.i.i.i214 ]
   %add.ptr.i.i.i.i.i.i.i246.pn = phi ptr [ %add.ptr.i.i.i.i.i.i.i246, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i250 ], [ %seed_sequence91.sroa.7.0, %if.then.i.i.i214 ]
   %seed_sequence91.sroa.11.1 = phi ptr [ %add.ptr19.i.i.i.i251, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i250 ], [ %seed_sequence91.sroa.11.0, %if.then.i.i.i214 ]
-  %seed_sequence91.sroa.0.1 = phi ptr [ %cond.i10.i.i.i.i242, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i250 ], [ %seed_sequence91.sroa.0.0, %if.then.i.i.i214 ]
   %seed_sequence91.sroa.7.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i246.pn, i64 4
   %it.08.i212.add = add nuw nsw i64 %it.08.i212.idx, 4
   %cmp.not.i218 = icmp eq i64 %it.08.i212.add, 12

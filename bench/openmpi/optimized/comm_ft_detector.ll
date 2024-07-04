@@ -1259,11 +1259,11 @@ define internal fastcc void @fd_heartbeat_request(ptr noundef %0) unnamed_addr #
 
 22:                                               ; preds = %ompi_comm_peer_lookup.exit, %14
   %.pn = phi i32 [ %19, %14 ], [ %52, %ompi_comm_peer_lookup.exit ]
-  %.056 = srem i32 %.pn, %.val64.val
+  %.057 = srem i32 %.pn, %.val64.val
   %.val62 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %.val62, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = sext i32 %.056 to i64
+  %25 = sext i32 %.057 to i64
   %26 = getelementptr inbounds ptr, ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
@@ -1306,13 +1306,13 @@ ompi_comm_peer_lookup.exit:                       ; preds = %22, %30, %44, %46
   %50 = getelementptr i8, ptr %.0.i.i.i.i, i64 64
   %.val65 = load i8, ptr %50, align 8
   %51 = trunc i8 %.val65 to i1
-  %52 = add i32 %21, %.056
+  %52 = add i32 %21, %.057
   br i1 %51, label %53, label %22
 
 53:                                               ; preds = %ompi_comm_peer_lookup.exit
   %54 = getelementptr inbounds i8, ptr %2, i64 220
   %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %.056, %55
+  %56 = icmp eq i32 %.057, %55
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %53
@@ -1410,14 +1410,14 @@ mca_bml_base_btl_array_get_index.exit:            ; preds = %mca_bml_base_get_en
   br label %106
 
 106:                                              ; preds = %100, %95
-  %.057 = phi i64 [ %105, %100 ], [ 0, %95 ]
+  %.056 = phi i64 [ %105, %100 ], [ 0, %95 ]
   %107 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %.0.i, ptr %107, align 8
   br label %108
 
 108:                                              ; preds = %106, %61
-  %.1 = phi i64 [ %.057, %106 ], [ 0, %61 ]
-  store i32 %.056, ptr %17, align 8
+  %.1 = phi i64 [ %.056, %106 ], [ 0, %61 ]
+  store i32 %.057, ptr %17, align 8
   %109 = add i64 %.1, 24
   %110 = tail call noalias ptr @calloc(i64 noundef %109, i64 noundef 1) #12
   %111 = getelementptr i8, ptr %2, i64 216

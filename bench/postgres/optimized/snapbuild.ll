@@ -815,7 +815,7 @@ thread-pre-split:                                 ; preds = %10
   br label %30
 
 30:                                               ; preds = %27, %19
-  %.079 = phi i8 [ 0, %19 ], [ %29, %27 ]
+  %.078 = phi i8 [ 0, %19 ], [ %29, %27 ]
   %31 = icmp sgt i32 %3, 0
   br i1 %31, label %.lr.ph, label %._crit_edge
 
@@ -825,7 +825,7 @@ thread-pre-split:                                 ; preds = %10
   %.not.i = icmp eq i32 %33, 0
   %34 = getelementptr inbounds i8, ptr %0, i64 112
   %35 = getelementptr inbounds i8, ptr %0, i64 120
-  %36 = trunc i8 %.079 to i1
+  %36 = trunc i8 %.078 to i1
   %37 = getelementptr inbounds i8, ptr %0, i64 80
   %38 = getelementptr inbounds i8, ptr %0, i64 88
   %.phi.trans.insert.i94 = getelementptr inbounds i8, ptr %0, i64 104
@@ -834,9 +834,9 @@ thread-pre-split:                                 ; preds = %10
 
 39:                                               ; preds = %.lr.ph, %98
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %98 ]
-  %.076133 = phi i32 [ %2, %.lr.ph ], [ %.1, %98 ]
-  %.077132 = phi i1 [ false, %.lr.ph ], [ %.178, %98 ]
-  %.081131 = phi i1 [ false, %.lr.ph ], [ %.182, %98 ]
+  %.0134 = phi i32 [ %2, %.lr.ph ], [ %.1, %98 ]
+  %.076133 = phi i1 [ false, %.lr.ph ], [ %.177, %98 ]
+  %.080132 = phi i1 [ false, %.lr.ph ], [ %.181, %98 ]
   %40 = getelementptr i32, ptr %4, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -964,26 +964,26 @@ SnapBuildAddCommittedTxn.exit97:                  ; preds = %._crit_edge.i93, %8
 
 .sink.split:                                      ; preds = %SnapBuildAddCommittedTxn.exit, %SnapBuildAddCommittedTxn.exit97
   %.sink = phi ptr [ %95, %SnapBuildAddCommittedTxn.exit97 ], [ %73, %SnapBuildAddCommittedTxn.exit ]
-  %.182.ph = phi i1 [ %.081131, %SnapBuildAddCommittedTxn.exit97 ], [ true, %SnapBuildAddCommittedTxn.exit ]
-  %.178.ph = phi i1 [ %.077132, %SnapBuildAddCommittedTxn.exit97 ], [ true, %SnapBuildAddCommittedTxn.exit ]
+  %.181.ph = phi i1 [ %.080132, %SnapBuildAddCommittedTxn.exit97 ], [ true, %SnapBuildAddCommittedTxn.exit ]
+  %.177.ph = phi i1 [ %.076133, %SnapBuildAddCommittedTxn.exit97 ], [ true, %SnapBuildAddCommittedTxn.exit ]
   store i32 %41, ptr %.sink, align 4
-  %96 = sub i32 %41, %.076133
+  %96 = sub i32 %41, %.0134
   %97 = icmp sgt i32 %96, 0
-  %spec.select92 = select i1 %97, i32 %41, i32 %.076133
+  %spec.select92 = select i1 %97, i32 %41, i32 %.0134
   br label %98
 
 98:                                               ; preds = %.sink.split, %74
-  %.182 = phi i1 [ %.081131, %74 ], [ %.182.ph, %.sink.split ]
-  %.178 = phi i1 [ %.077132, %74 ], [ %.178.ph, %.sink.split ]
-  %.1 = phi i32 [ %.076133, %74 ], [ %spec.select92, %.sink.split ]
+  %.181 = phi i1 [ %.080132, %74 ], [ %.181.ph, %.sink.split ]
+  %.177 = phi i1 [ %.076133, %74 ], [ %.177.ph, %.sink.split ]
+  %.1 = phi i32 [ %.0134, %74 ], [ %spec.select92, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %98, %30
-  %.081.lcssa = phi i1 [ false, %30 ], [ %.182, %98 ]
-  %.077.lcssa = phi i1 [ false, %30 ], [ %.178, %98 ]
-  %.076.lcssa = phi i32 [ %2, %30 ], [ %.1, %98 ]
+  %.080.lcssa = phi i1 [ false, %30 ], [ %.181, %98 ]
+  %.076.lcssa = phi i1 [ false, %30 ], [ %.177, %98 ]
+  %.0.lcssa = phi i32 [ %2, %30 ], [ %.1, %98 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %2, ptr %7, align 4
   %99 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1073,7 +1073,7 @@ SnapBuildAddCommittedTxn.exit106:                 ; preds = %._crit_edge.i102, %
   br label %.critedge
 
 138:                                              ; preds = %SnapBuildXidHasCatalogChanges.exit101.thread, %SnapBuildXidHasCatalogChanges.exit101
-  br i1 %.077.lcssa, label %139, label %167
+  br i1 %.076.lcssa, label %139, label %167
 
 139:                                              ; preds = %138
   %140 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #14
@@ -1130,7 +1130,7 @@ SnapBuildAddCommittedTxn.exit111:                 ; preds = %._crit_edge.i107, %
   br label %.critedge
 
 167:                                              ; preds = %138
-  %168 = trunc i8 %.079 to i1
+  %168 = trunc i8 %.078 to i1
   br i1 %168, label %169, label %197
 
 169:                                              ; preds = %167
@@ -1190,11 +1190,11 @@ SnapBuildAddCommittedTxn.exit111:                 ; preds = %._crit_edge.i107, %
 197:                                              ; preds = %167
   %198 = getelementptr inbounds i8, ptr %0, i64 96
   store i8 0, ptr %198, align 8
-  br i1 %.081.lcssa, label %206, label %SnapBuildDistributeNewCatalogSnapshot.exit
+  br i1 %.080.lcssa, label %206, label %SnapBuildDistributeNewCatalogSnapshot.exit
 
 .critedge:                                        ; preds = %.thread, %SnapBuildAddCommittedTxn.exit111, %SnapBuildAddCommittedTxn.exit106
   %.sink138 = phi ptr [ %196, %.thread ], [ %166, %SnapBuildAddCommittedTxn.exit111 ], [ %137, %SnapBuildAddCommittedTxn.exit106 ]
-  %.2128 = phi i1 [ %.081.lcssa, %.thread ], [ %.081.lcssa, %SnapBuildAddCommittedTxn.exit111 ], [ true, %SnapBuildAddCommittedTxn.exit106 ]
+  %.2128 = phi i1 [ %.080.lcssa, %.thread ], [ %.080.lcssa, %SnapBuildAddCommittedTxn.exit111 ], [ true, %SnapBuildAddCommittedTxn.exit106 ]
   store i32 %2, ptr %.sink138, align 4
   %199 = getelementptr inbounds i8, ptr %0, i64 20
   %200 = load i32, ptr %199, align 4
@@ -1202,11 +1202,11 @@ SnapBuildAddCommittedTxn.exit111:                 ; preds = %._crit_edge.i107, %
   br i1 %.not88, label %203, label %201
 
 201:                                              ; preds = %.critedge
-  %202 = call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %.076.lcssa, i32 noundef %200) #14
+  %202 = call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %.0.lcssa, i32 noundef %200) #14
   br i1 %202, label %203, label %205
 
 203:                                              ; preds = %201, %.critedge
-  %204 = add i32 %.076.lcssa, 1
+  %204 = add i32 %.0.lcssa, 1
   %spec.store.select = call i32 @llvm.umax.i32(i32 %204, i32 3)
   store i32 %spec.store.select, ptr %199, align 4
   br i1 %.2128, label %206, label %SnapBuildDistributeNewCatalogSnapshot.exit

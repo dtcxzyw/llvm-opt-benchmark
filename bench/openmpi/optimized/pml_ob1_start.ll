@@ -526,8 +526,8 @@ opal_convertor_need_buffers.exit.thread69.i.i.i:  ; preds = %opal_convertor_need
   br label %mca_pml_ob1_send_request_start_btl.exit.i.i
 
 mca_pml_ob1_send_request_start_btl.exit.i.i:      ; preds = %260, %258, %255, %mca_pml_ob1_free_rdma_resources.exit.i.i, %212, %205, %203, %197, %195, %193
-  %.055.i.i.i = phi i32 [ %259, %258 ], [ %204, %203 ], [ %206, %205 ], [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %213, %212 ], [ %261, %260 ], [ %237, %mca_pml_ob1_free_rdma_resources.exit.i.i ], [ %256, %255 ]
-  switch i32 %.055.i.i.i, label %mca_pml_ob1_send_request_start.exit [
+  %.056.i.i.i = phi i32 [ %259, %258 ], [ %204, %203 ], [ %206, %205 ], [ %198, %197 ], [ %196, %195 ], [ %194, %193 ], [ %213, %212 ], [ %261, %260 ], [ %237, %mca_pml_ob1_free_rdma_resources.exit.i.i ], [ %256, %255 ]
+  switch i32 %.056.i.i.i, label %mca_pml_ob1_send_request_start.exit [
     i32 0, label %mca_pml_ob1_send_request_start.exit.thread45
     i32 -12, label %262
     i32 -2, label %276
@@ -644,7 +644,7 @@ mca_pml_ob1_send_request_start.exit:              ; preds = %mca_pml_ob1_send_re
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %18, %12, %309, %2, %mca_pml_ob1_send_request_start.exit, %mca_pml_ob1_send_request_start.exit.thread48, %mca_pml_ob1_send_request_start.exit.thread
-  %.0 = phi i32 [ %.055.i.i.i, %mca_pml_ob1_send_request_start.exit ], [ %..i, %mca_pml_ob1_send_request_start.exit.thread ], [ %289, %mca_pml_ob1_send_request_start.exit.thread48 ], [ 0, %2 ], [ %33, %18 ], [ -101, %12 ], [ 0, %309 ]
+  %.0 = phi i32 [ %.056.i.i.i, %mca_pml_ob1_send_request_start.exit ], [ %..i, %mca_pml_ob1_send_request_start.exit.thread ], [ %289, %mca_pml_ob1_send_request_start.exit.thread48 ], [ 0, %2 ], [ %33, %18 ], [ -101, %12 ], [ 0, %309 ]
   ret i32 %.0
 }
 

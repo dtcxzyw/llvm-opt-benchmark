@@ -1548,8 +1548,8 @@ if.then77:                                        ; preds = %if.else72
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then50, %land.lhs.true53, %if.else72, %if.then77, %land.lhs.true62, %if.then57
-  %session_id.0 = phi ptr [ %tmp_session_id, %land.lhs.true62 ], [ %tmp_session_id, %if.then57 ], [ %session_id42, %if.then77 ], [ %session_id42, %if.else72 ], [ %session_id42, %land.lhs.true53 ], [ %session_id42, %if.then50 ]
   %sess_id_len.0 = phi i64 [ 32, %land.lhs.true62 ], [ 32, %if.then57 ], [ %17, %if.then77 ], [ %17, %if.else72 ], [ 0, %land.lhs.true53 ], [ 0, %if.then50 ]
+  %session_id.0 = phi ptr [ %tmp_session_id, %land.lhs.true62 ], [ %tmp_session_id, %if.then57 ], [ %session_id42, %if.then77 ], [ %session_id42, %if.else72 ], [ %session_id42, %land.lhs.true53 ], [ %session_id42, %if.then50 ]
   %call86 = tail call i32 @WPACKET_start_sub_packet_len__(ptr noundef %pkt, i64 noundef 1) #8
   %tobool87.not = icmp eq i32 %call86, 0
   br i1 %tobool87.not, label %if.then97, label %lor.lhs.false88
@@ -6345,10 +6345,10 @@ for.body.lr.ph:                                   ; preds = %if.end7
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.058 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %maxverok.058 = phi i64 [ 0, %for.body.lr.ph ], [ %maxverok.2, %for.inc ]
   %totlen.057 = phi i64 [ 0, %for.body.lr.ph ], [ %totlen.1, %for.inc ]
-  %maxverok.056 = phi i64 [ 0, %for.body.lr.ph ], [ %maxverok.2, %for.inc ]
-  %call24 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %sk, i32 noundef %i.058) #8
+  %i.056 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %call24 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %sk, i32 noundef %i.056) #8
   %call25 = call i32 @ssl_cipher_disabled(ptr noundef %s, ptr noundef %call24, i32 noundef 65537, i32 noundef 0) #8
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %if.end28, label %for.inc
@@ -6368,7 +6368,7 @@ if.then32:                                        ; preds = %if.end28
   br label %return
 
 if.end33:                                         ; preds = %if.end28
-  %tobool34.not = icmp eq i64 %maxverok.056, 0
+  %tobool34.not = icmp eq i64 %maxverok.058, 0
   br i1 %tobool34.not, label %if.then35, label %if.end86
 
 if.then35:                                        ; preds = %if.end33
@@ -6421,9 +6421,9 @@ if.end86:                                         ; preds = %land.lhs.true, %lan
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end86
-  %maxverok.2 = phi i64 [ %maxverok.056, %for.body ], [ %maxverok.1, %if.end86 ]
   %totlen.1 = phi i64 [ %totlen.057, %for.body ], [ %add, %if.end86 ]
-  %inc = add nuw nsw i32 %i.058, 1
+  %maxverok.2 = phi i64 [ %maxverok.058, %for.body ], [ %maxverok.1, %if.end86 ]
+  %inc = add nuw nsw i32 %i.056, 1
   %call17 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %sk) #8
   %cmp18 = icmp slt i32 %inc, %call17
   %cmp20 = icmp ult i64 %totlen.1, %maxlen.1
@@ -7408,9 +7408,9 @@ if.end43:                                         ; preds = %lor.lhs.false
   br label %return
 
 err:                                              ; preds = %if.then42, %if.then37, %if.then33, %if.then29, %if.then24, %if.then20, %if.then15, %if.then11, %if.then7, %if.then3
+  %pkey_ctx.0 = phi ptr [ null, %if.then3 ], [ null, %if.then7 ], [ null, %if.then11 ], [ null, %if.then15 ], [ null, %if.then20 ], [ %call18, %if.then24 ], [ %call18, %if.then29 ], [ %call18, %if.then33 ], [ %call18, %if.then37 ], [ %call18, %if.then42 ]
   %pms.0 = phi ptr [ null, %if.then3 ], [ null, %if.then7 ], [ %call5, %if.then11 ], [ %call5, %if.then15 ], [ %call5, %if.then20 ], [ %call5, %if.then24 ], [ %call5, %if.then29 ], [ %call5, %if.then33 ], [ %call5, %if.then37 ], [ %call5, %if.then42 ]
   %pmslen.0 = phi i64 [ 0, %if.then3 ], [ 32, %if.then7 ], [ 32, %if.then11 ], [ 32, %if.then15 ], [ 32, %if.then20 ], [ 32, %if.then24 ], [ 32, %if.then29 ], [ 32, %if.then33 ], [ 32, %if.then37 ], [ 32, %if.then42 ]
-  %pkey_ctx.0 = phi ptr [ null, %if.then3 ], [ null, %if.then7 ], [ null, %if.then11 ], [ null, %if.then15 ], [ null, %if.then20 ], [ %call18, %if.then24 ], [ %call18, %if.then29 ], [ %call18, %if.then33 ], [ %call18, %if.then37 ], [ %call18, %if.then42 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %pkey_ctx.0) #8
   call void @CRYPTO_clear_free(ptr noundef %pms.0, i64 noundef %pmslen.0, ptr noundef nonnull @.str, i32 noundef 3494) #8
   br label %return

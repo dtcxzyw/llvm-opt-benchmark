@@ -824,15 +824,15 @@ define internal i32 @dissect_wccp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not144, label %.loopexit, label %.lr.ph143
 
 .lr.ph143:                                        ; preds = %27, %.lr.ph143
-  %.0125142 = phi i32 [ %43, %.lr.ph143 ], [ 0, %27 ]
-  %.0126141 = phi i32 [ %42, %.lr.ph143 ], [ 20, %27 ]
+  %.0142 = phi i32 [ %43, %.lr.ph143 ], [ 0, %27 ]
+  %.0127141 = phi i32 [ %42, %.lr.ph143 ], [ 20, %27 ]
   %37 = load i32, ptr @ett_cache_info, align 4
-  %38 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %18, ptr noundef %0, i32 noundef %.0126141, i32 noundef 44, i32 noundef %37, ptr noundef null, ptr noundef nonnull @.str.402, i32 noundef %.0125142) #7
+  %38 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %18, ptr noundef %0, i32 noundef %.0127141, i32 noundef 44, i32 noundef %37, ptr noundef null, ptr noundef nonnull @.str.402, i32 noundef %.0142) #7
   %39 = load i32, ptr @hf_cache_ip, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %.0126141, i32 noundef 4, i32 noundef 0) #7
-  %41 = add i32 %.0126141, 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %.0127141, i32 noundef 4, i32 noundef 0) #7
+  %41 = add i32 %.0127141, 4
   %42 = tail call fastcc noundef i32 @dissect_hash_data(ptr noundef %0, i32 noundef %41, ptr noundef %38)
-  %43 = add nuw i32 %.0125142, 1
+  %43 = add nuw i32 %.0142, 1
   %exitcond149.not = icmp eq i32 %43, %34
   br i1 %exitcond149.not, label %.loopexit, label %.lr.ph143, !llvm.loop !4
 
@@ -851,41 +851,41 @@ define internal i32 @dissect_wccp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 51:                                               ; preds = %.lr.ph, %51
   %.1138 = phi i32 [ 0, %.lr.ph ], [ %58, %51 ]
-  %.1127137 = phi i32 [ 12, %.lr.ph ], [ %57, %51 ]
-  %52 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %.1127137) #7
+  %.1128137 = phi i32 [ 12, %.lr.ph ], [ %57, %51 ]
+  %52 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %.1128137) #7
   %53 = load i32, ptr @hf_cache_ip, align 4
   %54 = load ptr, ptr %50, align 8
-  %55 = tail call ptr @tvb_address_to_str(ptr noundef %54, ptr noundef %0, i32 noundef 2, i32 noundef %.1127137) #7
-  %56 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %18, i32 noundef %53, ptr noundef %0, i32 noundef %.1127137, i32 noundef 4, i32 noundef %52, ptr noundef nonnull @.str.395, i32 noundef %.1138, ptr noundef %55) #7
-  %57 = add i32 %.1127137, 4
+  %55 = tail call ptr @tvb_address_to_str(ptr noundef %54, ptr noundef %0, i32 noundef 2, i32 noundef %.1128137) #7
+  %56 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %18, i32 noundef %53, ptr noundef %0, i32 noundef %.1128137, i32 noundef 4, i32 noundef %52, ptr noundef nonnull @.str.395, i32 noundef %.1138, ptr noundef %55) #7
+  %57 = add i32 %.1128137, 4
   %58 = add nuw i32 %.1138, 1
   %exitcond.not = icmp eq i32 %58, %47
   br i1 %exitcond.not, label %.preheader.preheader, label %51, !llvm.loop !6
 
 .preheader.preheader:                             ; preds = %51, %44
-  %.2128139.ph = phi i32 [ 12, %44 ], [ %57, %51 ]
+  %.2129139.ph = phi i32 [ 12, %44 ], [ %57, %51 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %68
   %.2140 = phi i32 [ %70, %68 ], [ 0, %.preheader.preheader ]
-  %.2128139 = phi i32 [ %69, %68 ], [ %.2128139.ph, %.preheader.preheader ]
-  %59 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2128139) #7
+  %.2129139 = phi i32 [ %69, %68 ], [ %.2129139.ph, %.preheader.preheader ]
+  %59 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2129139) #7
   %60 = icmp eq i8 %59, -1
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %.preheader
   %62 = load i32, ptr @hf_bucket, align 4
-  %63 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %18, i32 noundef %62, ptr noundef %0, i32 noundef %.2128139, i32 noundef 1, i32 noundef 255, ptr noundef nonnull @.str.396, i32 noundef %.2140) #7
+  %63 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %18, i32 noundef %62, ptr noundef %0, i32 noundef %.2129139, i32 noundef 1, i32 noundef 255, ptr noundef nonnull @.str.396, i32 noundef %.2140) #7
   br label %68
 
 64:                                               ; preds = %.preheader
   %65 = zext i8 %59 to i32
   %66 = load i32, ptr @hf_bucket, align 4
-  %67 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %18, i32 noundef %66, ptr noundef %0, i32 noundef %.2128139, i32 noundef 1, i32 noundef %65, ptr noundef nonnull @.str.397, i32 noundef %.2140, i32 noundef %65) #7
+  %67 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %18, i32 noundef %66, ptr noundef %0, i32 noundef %.2129139, i32 noundef 1, i32 noundef %65, ptr noundef nonnull @.str.397, i32 noundef %.2140, i32 noundef %65) #7
   br label %68
 
 68:                                               ; preds = %64, %61
-  %69 = add i32 %.2128139, 1
+  %69 = add i32 %.2129139, 1
   %70 = add nuw nsw i32 %.2140, 1
   %exitcond148.not = icmp eq i32 %70, 256
   br i1 %exitcond148.not, label %.loopexit, label %.preheader, !llvm.loop !7
@@ -955,21 +955,21 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br i1 %105, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %find_wccp_address_table.exit.i, %148
-  %.0267.i = phi i32 [ %149, %148 ], [ 8, %find_wccp_address_table.exit.i ]
-  %.0181266.i = phi i32 [ %.1.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0182265.i = phi i32 [ %.1183.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0184264.i = phi i32 [ %.1185.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0186263.i = phi i32 [ %.1187.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0188262.i = phi i32 [ %.1189.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0190261.i = phi i32 [ %.1191.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0192260.i = phi i32 [ %.1193.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0194259.i = phi i32 [ %.1195.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0196258.i = phi i32 [ %.1197.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0198257.i = phi i32 [ %.1199.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0200256.i = phi i32 [ %.1201.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0202255.i = phi i32 [ %.1203.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %.0204254.i = phi i32 [ %.1205.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
-  %106 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0267.i) #7
+  %.0267.i = phi i32 [ %.1.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
+  %.0181266.i = phi i32 [ %.1182.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
+  %.0183265.i = phi i32 [ %.1184.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
+  %.0185264.i = phi i32 [ %.1186.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
+  %.0187263.i = phi i32 [ %.1188.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
+  %.0189262.i = phi i32 [ %.1190.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
+  %.0191261.i = phi i32 [ %.1192.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
+  %.0193260.i = phi i32 [ %.1194.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
+  %.0195259.i = phi i32 [ %.1196.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
+  %.0197258.i = phi i32 [ %.1198.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
+  %.0199257.i = phi i32 [ %.1200.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
+  %.0201256.i = phi i32 [ %.1202.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
+  %.0203255.i = phi i32 [ %.1204.i, %148 ], [ 0, %find_wccp_address_table.exit.i ]
+  %.0207254.i = phi i32 [ %149, %148 ], [ 8, %find_wccp_address_table.exit.i ]
+  %106 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0207254.i) #7
   %107 = zext i16 %106 to i32
   switch i16 %106, label %121 [
     i16 0, label %122
@@ -1031,37 +1031,37 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %122
 
 122:                                              ; preds = %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %.lr.ph.i
-  %.0207.in.i = phi ptr [ @ett_unknown_info, %121 ], [ @ett_command_extension, %120 ], [ @ett_assignment_map, %119 ], [ @ett_address_table, %118 ], [ @ett_alt_assignment_map, %117 ], [ @ett_alt_assignment_info, %116 ], [ @ett_capabilities_info, %115 ], [ @ett_query_info, %114 ], [ @ett_router_assignment_info, %113 ], [ @ett_wc_view_info, %112 ], [ @ett_router_view_info, %111 ], [ @ett_wc_identity_info, %110 ], [ @ett_router_identity_info, %109 ], [ @ett_service_info, %108 ], [ @ett_security_info, %.lr.ph.i ]
+  %.0206.in.i = phi ptr [ @ett_unknown_info, %121 ], [ @ett_command_extension, %120 ], [ @ett_assignment_map, %119 ], [ @ett_address_table, %118 ], [ @ett_alt_assignment_map, %117 ], [ @ett_alt_assignment_info, %116 ], [ @ett_capabilities_info, %115 ], [ @ett_query_info, %114 ], [ @ett_router_assignment_info, %113 ], [ @ett_wc_view_info, %112 ], [ @ett_router_view_info, %111 ], [ @ett_wc_identity_info, %110 ], [ @ett_router_identity_info, %109 ], [ @ett_service_info, %108 ], [ @ett_security_info, %.lr.ph.i ]
   %.not251.i = phi i1 [ true, %121 ], [ false, %120 ], [ false, %119 ], [ false, %118 ], [ false, %117 ], [ false, %116 ], [ false, %115 ], [ false, %114 ], [ false, %113 ], [ false, %112 ], [ false, %111 ], [ false, %110 ], [ false, %109 ], [ false, %108 ], [ false, %.lr.ph.i ]
-  %.0206.i = phi ptr [ null, %121 ], [ @dissect_wccp2_command_extension, %120 ], [ @dissect_wccp2_assignment_map, %119 ], [ @dissect_wccp2r1_address_table_info, %118 ], [ @dissect_wccp2r1_alt_assignment_map_info, %117 ], [ @dissect_wccp2_alternate_assignment_info, %116 ], [ @dissect_wccp2_capability_info, %115 ], [ @dissect_wccp2_router_query_info, %114 ], [ @dissect_wccp2_assignment_info, %113 ], [ @dissect_wccp2_web_cache_view_info, %112 ], [ @dissect_wccp2_router_view_info, %111 ], [ @dissect_wccp2_wc_identity_info, %110 ], [ @dissect_wccp2_router_identity_info, %109 ], [ @dissect_wccp2_service_info, %108 ], [ @dissect_wccp2_security_info, %.lr.ph.i ]
-  %.1205.i = phi i32 [ %.0204254.i, %121 ], [ %.0204254.i, %120 ], [ %.0204254.i, %119 ], [ %.0204254.i, %118 ], [ %.0204254.i, %117 ], [ %.0204254.i, %116 ], [ %.0204254.i, %115 ], [ %.0204254.i, %114 ], [ %.0204254.i, %113 ], [ %.0204254.i, %112 ], [ %.0204254.i, %111 ], [ %.0204254.i, %110 ], [ %.0204254.i, %109 ], [ %.0204254.i, %108 ], [ 1, %.lr.ph.i ]
-  %.1203.i = phi i32 [ %.0202255.i, %121 ], [ %.0202255.i, %120 ], [ %.0202255.i, %119 ], [ %.0202255.i, %118 ], [ %.0202255.i, %117 ], [ %.0202255.i, %116 ], [ %.0202255.i, %115 ], [ %.0202255.i, %114 ], [ %.0202255.i, %113 ], [ %.0202255.i, %112 ], [ %.0202255.i, %111 ], [ %.0202255.i, %110 ], [ %.0202255.i, %109 ], [ 1, %108 ], [ %.0202255.i, %.lr.ph.i ]
-  %.1201.i = phi i32 [ %.0200256.i, %121 ], [ %.0200256.i, %120 ], [ %.0200256.i, %119 ], [ %.0200256.i, %118 ], [ %.0200256.i, %117 ], [ %.0200256.i, %116 ], [ %.0200256.i, %115 ], [ %.0200256.i, %114 ], [ %.0200256.i, %113 ], [ %.0200256.i, %112 ], [ %.0200256.i, %111 ], [ %.0200256.i, %110 ], [ 1, %109 ], [ %.0200256.i, %108 ], [ %.0200256.i, %.lr.ph.i ]
-  %.1199.i = phi i32 [ %.0198257.i, %121 ], [ %.0198257.i, %120 ], [ %.0198257.i, %119 ], [ %.0198257.i, %118 ], [ %.0198257.i, %117 ], [ %.0198257.i, %116 ], [ %.0198257.i, %115 ], [ %.0198257.i, %114 ], [ %.0198257.i, %113 ], [ %.0198257.i, %112 ], [ %.0198257.i, %111 ], [ 1, %110 ], [ %.0198257.i, %109 ], [ %.0198257.i, %108 ], [ %.0198257.i, %.lr.ph.i ]
-  %.1197.i = phi i32 [ %.0196258.i, %121 ], [ %.0196258.i, %120 ], [ %.0196258.i, %119 ], [ %.0196258.i, %118 ], [ %.0196258.i, %117 ], [ %.0196258.i, %116 ], [ %.0196258.i, %115 ], [ %.0196258.i, %114 ], [ %.0196258.i, %113 ], [ %.0196258.i, %112 ], [ 1, %111 ], [ %.0196258.i, %110 ], [ %.0196258.i, %109 ], [ %.0196258.i, %108 ], [ %.0196258.i, %.lr.ph.i ]
-  %.1195.i = phi i32 [ %.0194259.i, %121 ], [ %.0194259.i, %120 ], [ %.0194259.i, %119 ], [ %.0194259.i, %118 ], [ %.0194259.i, %117 ], [ %.0194259.i, %116 ], [ %.0194259.i, %115 ], [ %.0194259.i, %114 ], [ %.0194259.i, %113 ], [ 1, %112 ], [ %.0194259.i, %111 ], [ %.0194259.i, %110 ], [ %.0194259.i, %109 ], [ %.0194259.i, %108 ], [ %.0194259.i, %.lr.ph.i ]
-  %.1193.i = phi i32 [ %.0192260.i, %121 ], [ %.0192260.i, %120 ], [ %.0192260.i, %119 ], [ %.0192260.i, %118 ], [ %.0192260.i, %117 ], [ %.0192260.i, %116 ], [ %.0192260.i, %115 ], [ %.0192260.i, %114 ], [ 1, %113 ], [ %.0192260.i, %112 ], [ %.0192260.i, %111 ], [ %.0192260.i, %110 ], [ %.0192260.i, %109 ], [ %.0192260.i, %108 ], [ %.0192260.i, %.lr.ph.i ]
-  %.1191.i = phi i32 [ %.0190261.i, %121 ], [ %.0190261.i, %120 ], [ %.0190261.i, %119 ], [ %.0190261.i, %118 ], [ %.0190261.i, %117 ], [ %.0190261.i, %116 ], [ %.0190261.i, %115 ], [ 1, %114 ], [ %.0190261.i, %113 ], [ %.0190261.i, %112 ], [ %.0190261.i, %111 ], [ %.0190261.i, %110 ], [ %.0190261.i, %109 ], [ %.0190261.i, %108 ], [ %.0190261.i, %.lr.ph.i ]
-  %.1189.i = phi i32 [ %.0188262.i, %121 ], [ %.0188262.i, %120 ], [ %.0188262.i, %119 ], [ %.0188262.i, %118 ], [ %.0188262.i, %117 ], [ %.0188262.i, %116 ], [ 1, %115 ], [ %.0188262.i, %114 ], [ %.0188262.i, %113 ], [ %.0188262.i, %112 ], [ %.0188262.i, %111 ], [ %.0188262.i, %110 ], [ %.0188262.i, %109 ], [ %.0188262.i, %108 ], [ %.0188262.i, %.lr.ph.i ]
-  %.1187.i = phi i32 [ %.0186263.i, %121 ], [ %.0186263.i, %120 ], [ %.0186263.i, %119 ], [ %.0186263.i, %118 ], [ %.0186263.i, %117 ], [ 1, %116 ], [ %.0186263.i, %115 ], [ %.0186263.i, %114 ], [ %.0186263.i, %113 ], [ %.0186263.i, %112 ], [ %.0186263.i, %111 ], [ %.0186263.i, %110 ], [ %.0186263.i, %109 ], [ %.0186263.i, %108 ], [ %.0186263.i, %.lr.ph.i ]
-  %.1185.i = phi i32 [ %.0184264.i, %121 ], [ %.0184264.i, %120 ], [ 1, %119 ], [ %.0184264.i, %118 ], [ %.0184264.i, %117 ], [ %.0184264.i, %116 ], [ %.0184264.i, %115 ], [ %.0184264.i, %114 ], [ %.0184264.i, %113 ], [ %.0184264.i, %112 ], [ %.0184264.i, %111 ], [ %.0184264.i, %110 ], [ %.0184264.i, %109 ], [ %.0184264.i, %108 ], [ %.0184264.i, %.lr.ph.i ]
-  %.1183.i = phi i32 [ %.0182265.i, %121 ], [ 1, %120 ], [ %.0182265.i, %119 ], [ %.0182265.i, %118 ], [ %.0182265.i, %117 ], [ %.0182265.i, %116 ], [ %.0182265.i, %115 ], [ %.0182265.i, %114 ], [ %.0182265.i, %113 ], [ %.0182265.i, %112 ], [ %.0182265.i, %111 ], [ %.0182265.i, %110 ], [ %.0182265.i, %109 ], [ %.0182265.i, %108 ], [ %.0182265.i, %.lr.ph.i ]
-  %.1.i = phi i32 [ %.0181266.i, %121 ], [ %.0181266.i, %120 ], [ %.0181266.i, %119 ], [ %.0181266.i, %118 ], [ 1, %117 ], [ %.0181266.i, %116 ], [ %.0181266.i, %115 ], [ %.0181266.i, %114 ], [ %.0181266.i, %113 ], [ %.0181266.i, %112 ], [ %.0181266.i, %111 ], [ %.0181266.i, %110 ], [ %.0181266.i, %109 ], [ %.0181266.i, %108 ], [ %.0181266.i, %.lr.ph.i ]
-  %.0207.i = load i32, ptr %.0207.in.i, align 4
+  %.0205.i = phi ptr [ null, %121 ], [ @dissect_wccp2_command_extension, %120 ], [ @dissect_wccp2_assignment_map, %119 ], [ @dissect_wccp2r1_address_table_info, %118 ], [ @dissect_wccp2r1_alt_assignment_map_info, %117 ], [ @dissect_wccp2_alternate_assignment_info, %116 ], [ @dissect_wccp2_capability_info, %115 ], [ @dissect_wccp2_router_query_info, %114 ], [ @dissect_wccp2_assignment_info, %113 ], [ @dissect_wccp2_web_cache_view_info, %112 ], [ @dissect_wccp2_router_view_info, %111 ], [ @dissect_wccp2_wc_identity_info, %110 ], [ @dissect_wccp2_router_identity_info, %109 ], [ @dissect_wccp2_service_info, %108 ], [ @dissect_wccp2_security_info, %.lr.ph.i ]
+  %.1204.i = phi i32 [ %.0203255.i, %121 ], [ %.0203255.i, %120 ], [ %.0203255.i, %119 ], [ %.0203255.i, %118 ], [ %.0203255.i, %117 ], [ %.0203255.i, %116 ], [ %.0203255.i, %115 ], [ %.0203255.i, %114 ], [ %.0203255.i, %113 ], [ %.0203255.i, %112 ], [ %.0203255.i, %111 ], [ %.0203255.i, %110 ], [ %.0203255.i, %109 ], [ %.0203255.i, %108 ], [ 1, %.lr.ph.i ]
+  %.1202.i = phi i32 [ %.0201256.i, %121 ], [ %.0201256.i, %120 ], [ %.0201256.i, %119 ], [ %.0201256.i, %118 ], [ %.0201256.i, %117 ], [ %.0201256.i, %116 ], [ %.0201256.i, %115 ], [ %.0201256.i, %114 ], [ %.0201256.i, %113 ], [ %.0201256.i, %112 ], [ %.0201256.i, %111 ], [ %.0201256.i, %110 ], [ %.0201256.i, %109 ], [ 1, %108 ], [ %.0201256.i, %.lr.ph.i ]
+  %.1200.i = phi i32 [ %.0199257.i, %121 ], [ %.0199257.i, %120 ], [ %.0199257.i, %119 ], [ %.0199257.i, %118 ], [ %.0199257.i, %117 ], [ %.0199257.i, %116 ], [ %.0199257.i, %115 ], [ %.0199257.i, %114 ], [ %.0199257.i, %113 ], [ %.0199257.i, %112 ], [ %.0199257.i, %111 ], [ %.0199257.i, %110 ], [ 1, %109 ], [ %.0199257.i, %108 ], [ %.0199257.i, %.lr.ph.i ]
+  %.1198.i = phi i32 [ %.0197258.i, %121 ], [ %.0197258.i, %120 ], [ %.0197258.i, %119 ], [ %.0197258.i, %118 ], [ %.0197258.i, %117 ], [ %.0197258.i, %116 ], [ %.0197258.i, %115 ], [ %.0197258.i, %114 ], [ %.0197258.i, %113 ], [ %.0197258.i, %112 ], [ %.0197258.i, %111 ], [ 1, %110 ], [ %.0197258.i, %109 ], [ %.0197258.i, %108 ], [ %.0197258.i, %.lr.ph.i ]
+  %.1196.i = phi i32 [ %.0195259.i, %121 ], [ %.0195259.i, %120 ], [ %.0195259.i, %119 ], [ %.0195259.i, %118 ], [ %.0195259.i, %117 ], [ %.0195259.i, %116 ], [ %.0195259.i, %115 ], [ %.0195259.i, %114 ], [ %.0195259.i, %113 ], [ %.0195259.i, %112 ], [ 1, %111 ], [ %.0195259.i, %110 ], [ %.0195259.i, %109 ], [ %.0195259.i, %108 ], [ %.0195259.i, %.lr.ph.i ]
+  %.1194.i = phi i32 [ %.0193260.i, %121 ], [ %.0193260.i, %120 ], [ %.0193260.i, %119 ], [ %.0193260.i, %118 ], [ %.0193260.i, %117 ], [ %.0193260.i, %116 ], [ %.0193260.i, %115 ], [ %.0193260.i, %114 ], [ %.0193260.i, %113 ], [ 1, %112 ], [ %.0193260.i, %111 ], [ %.0193260.i, %110 ], [ %.0193260.i, %109 ], [ %.0193260.i, %108 ], [ %.0193260.i, %.lr.ph.i ]
+  %.1192.i = phi i32 [ %.0191261.i, %121 ], [ %.0191261.i, %120 ], [ %.0191261.i, %119 ], [ %.0191261.i, %118 ], [ %.0191261.i, %117 ], [ %.0191261.i, %116 ], [ %.0191261.i, %115 ], [ %.0191261.i, %114 ], [ 1, %113 ], [ %.0191261.i, %112 ], [ %.0191261.i, %111 ], [ %.0191261.i, %110 ], [ %.0191261.i, %109 ], [ %.0191261.i, %108 ], [ %.0191261.i, %.lr.ph.i ]
+  %.1190.i = phi i32 [ %.0189262.i, %121 ], [ %.0189262.i, %120 ], [ %.0189262.i, %119 ], [ %.0189262.i, %118 ], [ %.0189262.i, %117 ], [ %.0189262.i, %116 ], [ %.0189262.i, %115 ], [ 1, %114 ], [ %.0189262.i, %113 ], [ %.0189262.i, %112 ], [ %.0189262.i, %111 ], [ %.0189262.i, %110 ], [ %.0189262.i, %109 ], [ %.0189262.i, %108 ], [ %.0189262.i, %.lr.ph.i ]
+  %.1188.i = phi i32 [ %.0187263.i, %121 ], [ %.0187263.i, %120 ], [ %.0187263.i, %119 ], [ %.0187263.i, %118 ], [ %.0187263.i, %117 ], [ %.0187263.i, %116 ], [ 1, %115 ], [ %.0187263.i, %114 ], [ %.0187263.i, %113 ], [ %.0187263.i, %112 ], [ %.0187263.i, %111 ], [ %.0187263.i, %110 ], [ %.0187263.i, %109 ], [ %.0187263.i, %108 ], [ %.0187263.i, %.lr.ph.i ]
+  %.1186.i = phi i32 [ %.0185264.i, %121 ], [ %.0185264.i, %120 ], [ %.0185264.i, %119 ], [ %.0185264.i, %118 ], [ %.0185264.i, %117 ], [ 1, %116 ], [ %.0185264.i, %115 ], [ %.0185264.i, %114 ], [ %.0185264.i, %113 ], [ %.0185264.i, %112 ], [ %.0185264.i, %111 ], [ %.0185264.i, %110 ], [ %.0185264.i, %109 ], [ %.0185264.i, %108 ], [ %.0185264.i, %.lr.ph.i ]
+  %.1184.i = phi i32 [ %.0183265.i, %121 ], [ %.0183265.i, %120 ], [ 1, %119 ], [ %.0183265.i, %118 ], [ %.0183265.i, %117 ], [ %.0183265.i, %116 ], [ %.0183265.i, %115 ], [ %.0183265.i, %114 ], [ %.0183265.i, %113 ], [ %.0183265.i, %112 ], [ %.0183265.i, %111 ], [ %.0183265.i, %110 ], [ %.0183265.i, %109 ], [ %.0183265.i, %108 ], [ %.0183265.i, %.lr.ph.i ]
+  %.1182.i = phi i32 [ %.0181266.i, %121 ], [ 1, %120 ], [ %.0181266.i, %119 ], [ %.0181266.i, %118 ], [ %.0181266.i, %117 ], [ %.0181266.i, %116 ], [ %.0181266.i, %115 ], [ %.0181266.i, %114 ], [ %.0181266.i, %113 ], [ %.0181266.i, %112 ], [ %.0181266.i, %111 ], [ %.0181266.i, %110 ], [ %.0181266.i, %109 ], [ %.0181266.i, %108 ], [ %.0181266.i, %.lr.ph.i ]
+  %.1.i = phi i32 [ %.0267.i, %121 ], [ %.0267.i, %120 ], [ %.0267.i, %119 ], [ %.0267.i, %118 ], [ 1, %117 ], [ %.0267.i, %116 ], [ %.0267.i, %115 ], [ %.0267.i, %114 ], [ %.0267.i, %113 ], [ %.0267.i, %112 ], [ %.0267.i, %111 ], [ %.0267.i, %110 ], [ %.0267.i, %109 ], [ %.0267.i, %108 ], [ %.0267.i, %.lr.ph.i ]
+  %.0206.i = load i32, ptr %.0206.in.i, align 4
   %123 = call ptr @val_to_str(i32 noundef %107, ptr noundef nonnull @info_type_vals, ptr noundef nonnull @.str.403) #7
-  %124 = call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %0, i32 noundef %.0267.i, i32 noundef -1, i32 noundef %.0207.i, ptr noundef nonnull %5, ptr noundef %123) #7
+  %124 = call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %0, i32 noundef %.0207254.i, i32 noundef -1, i32 noundef %.0206.i, ptr noundef nonnull %5, ptr noundef %123) #7
   %125 = load i32, ptr @hf_item_type, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %0, i32 noundef %.0267.i, i32 noundef 2, i32 noundef 0) #7
-  %127 = add i32 %.0267.i, 2
+  %126 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %0, i32 noundef %.0207254.i, i32 noundef 2, i32 noundef 0) #7
+  %127 = add i32 %.0207254.i, 2
   %128 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %127) #7
   %129 = load i32, ptr @hf_item_length, align 4
   %130 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %129, ptr noundef %0, i32 noundef %127, i32 noundef 2, i32 noundef 0) #7
-  %131 = add i32 %.0267.i, 4
+  %131 = add i32 %.0207254.i, 4
   br i1 %.not251.i, label %144, label %132
 
 132:                                              ; preds = %122
   %133 = zext i16 %128 to i32
-  %134 = call i32 %.0206.i(ptr noundef %0, i32 noundef %131, i32 noundef %133, ptr noundef %1, ptr noundef %124, ptr noundef nonnull %6) #7
+  %134 = call i32 %.0205.i(ptr noundef %0, i32 noundef %131, i32 noundef %133, ptr noundef %1, ptr noundef %124, ptr noundef nonnull %6) #7
   %135 = icmp sgt i32 %134, 0
   br i1 %135, label %.thread.i, label %138
 
@@ -1096,19 +1096,19 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br i1 %152, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %148, %find_wccp_address_table.exit.i
-  %.0204.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1205.i, %148 ]
-  %.0202.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1203.i, %148 ]
-  %.0200.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1201.i, %148 ]
-  %.0198.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1199.i, %148 ]
-  %.0196.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1197.i, %148 ]
-  %.0194.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1195.i, %148 ]
-  %.0192.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1193.i, %148 ]
-  %.0190.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1191.i, %148 ]
-  %.0188.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1189.i, %148 ]
-  %.0186.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1187.i, %148 ]
-  %.0184.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1185.i, %148 ]
-  %.0182.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1183.i, %148 ]
-  %.0181.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1.i, %148 ]
+  %.0203.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1204.i, %148 ]
+  %.0201.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1202.i, %148 ]
+  %.0199.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1200.i, %148 ]
+  %.0197.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1198.i, %148 ]
+  %.0195.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1196.i, %148 ]
+  %.0193.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1194.i, %148 ]
+  %.0191.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1192.i, %148 ]
+  %.0189.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1190.i, %148 ]
+  %.0187.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1188.i, %148 ]
+  %.0185.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1186.i, %148 ]
+  %.0183.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1184.i, %148 ]
+  %.0181.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1182.i, %148 ]
+  %.0.lcssa.i = phi i32 [ 0, %find_wccp_address_table.exit.i ], [ %.1.i, %148 ]
   switch i32 %7, label %dissect_wccp2_info.exit [
     i32 10, label %153
     i32 11, label %184
@@ -1117,7 +1117,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   ]
 
 153:                                              ; preds = %._crit_edge.i
-  %.not240.i = icmp eq i32 %.0204.lcssa.i, 0
+  %.not240.i = icmp eq i32 %.0203.lcssa.i, 0
   br i1 %.not240.i, label %154, label %156
 
 154:                                              ; preds = %153
@@ -1125,7 +1125,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %156
 
 156:                                              ; preds = %154, %153
-  %.not241.i = icmp eq i32 %.0202.lcssa.i, 0
+  %.not241.i = icmp eq i32 %.0201.lcssa.i, 0
   br i1 %.not241.i, label %157, label %159
 
 157:                                              ; preds = %156
@@ -1133,7 +1133,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %159
 
 159:                                              ; preds = %157, %156
-  %.not242.i = icmp eq i32 %.0200.lcssa.i, 0
+  %.not242.i = icmp eq i32 %.0199.lcssa.i, 0
   br i1 %.not242.i, label %162, label %160
 
 160:                                              ; preds = %159
@@ -1141,7 +1141,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %162
 
 162:                                              ; preds = %160, %159
-  %.not243.i = icmp eq i32 %.0198.lcssa.i, 0
+  %.not243.i = icmp eq i32 %.0197.lcssa.i, 0
   br i1 %.not243.i, label %163, label %165
 
 163:                                              ; preds = %162
@@ -1149,7 +1149,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %165
 
 165:                                              ; preds = %163, %162
-  %.not244.i = icmp eq i32 %.0196.lcssa.i, 0
+  %.not244.i = icmp eq i32 %.0195.lcssa.i, 0
   br i1 %.not244.i, label %168, label %166
 
 166:                                              ; preds = %165
@@ -1157,7 +1157,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %168
 
 168:                                              ; preds = %166, %165
-  %.not245.i = icmp eq i32 %.0194.lcssa.i, 0
+  %.not245.i = icmp eq i32 %.0193.lcssa.i, 0
   br i1 %.not245.i, label %169, label %171
 
 169:                                              ; preds = %168
@@ -1165,7 +1165,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %171
 
 171:                                              ; preds = %169, %168
-  %.not246.i = icmp eq i32 %.0192.lcssa.i, 0
+  %.not246.i = icmp eq i32 %.0191.lcssa.i, 0
   br i1 %.not246.i, label %174, label %172
 
 172:                                              ; preds = %171
@@ -1173,7 +1173,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %174
 
 174:                                              ; preds = %172, %171
-  %.not247.i = icmp eq i32 %.0190.lcssa.i, 0
+  %.not247.i = icmp eq i32 %.0189.lcssa.i, 0
   br i1 %.not247.i, label %177, label %175
 
 175:                                              ; preds = %174
@@ -1181,7 +1181,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %177
 
 177:                                              ; preds = %175, %174
-  %.not248.i = icmp eq i32 %.0186.lcssa.i, 0
+  %.not248.i = icmp eq i32 %.0185.lcssa.i, 0
   br i1 %.not248.i, label %180, label %178
 
 178:                                              ; preds = %177
@@ -1189,7 +1189,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %180
 
 180:                                              ; preds = %178, %177
-  %.not249.i = icmp eq i32 %.0184.lcssa.i, 0
+  %.not249.i = icmp eq i32 %.0183.lcssa.i, 0
   br i1 %.not249.i, label %183, label %181
 
 181:                                              ; preds = %180
@@ -1197,11 +1197,11 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %183
 
 183:                                              ; preds = %181, %180
-  %.not250.i = icmp eq i32 %.0181.lcssa.i, 0
+  %.not250.i = icmp eq i32 %.0.lcssa.i, 0
   br i1 %.not250.i, label %dissect_wccp2_info.exit, label %.sink.split.i
 
 184:                                              ; preds = %._crit_edge.i
-  %.not231.i = icmp eq i32 %.0204.lcssa.i, 0
+  %.not231.i = icmp eq i32 %.0203.lcssa.i, 0
   br i1 %.not231.i, label %185, label %187
 
 185:                                              ; preds = %184
@@ -1209,7 +1209,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %187
 
 187:                                              ; preds = %185, %184
-  %.not232.i = icmp eq i32 %.0202.lcssa.i, 0
+  %.not232.i = icmp eq i32 %.0201.lcssa.i, 0
   br i1 %.not232.i, label %188, label %190
 
 188:                                              ; preds = %187
@@ -1217,7 +1217,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %190
 
 190:                                              ; preds = %188, %187
-  %.not233.i = icmp eq i32 %.0200.lcssa.i, 0
+  %.not233.i = icmp eq i32 %.0199.lcssa.i, 0
   br i1 %.not233.i, label %191, label %193
 
 191:                                              ; preds = %190
@@ -1225,7 +1225,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %193
 
 193:                                              ; preds = %191, %190
-  %.not234.i = icmp eq i32 %.0198.lcssa.i, 0
+  %.not234.i = icmp eq i32 %.0197.lcssa.i, 0
   br i1 %.not234.i, label %196, label %194
 
 194:                                              ; preds = %193
@@ -1233,7 +1233,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %196
 
 196:                                              ; preds = %194, %193
-  %.not235.i = icmp eq i32 %.0196.lcssa.i, 0
+  %.not235.i = icmp eq i32 %.0195.lcssa.i, 0
   br i1 %.not235.i, label %197, label %199
 
 197:                                              ; preds = %196
@@ -1241,7 +1241,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %199
 
 199:                                              ; preds = %197, %196
-  %.not236.i = icmp eq i32 %.0194.lcssa.i, 0
+  %.not236.i = icmp eq i32 %.0193.lcssa.i, 0
   br i1 %.not236.i, label %202, label %200
 
 200:                                              ; preds = %199
@@ -1249,7 +1249,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %202
 
 202:                                              ; preds = %200, %199
-  %.not237.i = icmp eq i32 %.0192.lcssa.i, 0
+  %.not237.i = icmp eq i32 %.0191.lcssa.i, 0
   br i1 %.not237.i, label %205, label %203
 
 203:                                              ; preds = %202
@@ -1257,7 +1257,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %205
 
 205:                                              ; preds = %203, %202
-  %.not238.i = icmp eq i32 %.0190.lcssa.i, 0
+  %.not238.i = icmp eq i32 %.0189.lcssa.i, 0
   br i1 %.not238.i, label %208, label %206
 
 206:                                              ; preds = %205
@@ -1265,11 +1265,11 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %208
 
 208:                                              ; preds = %206, %205
-  %.not239.i = icmp eq i32 %.0181.lcssa.i, 0
+  %.not239.i = icmp eq i32 %.0.lcssa.i, 0
   br i1 %.not239.i, label %dissect_wccp2_info.exit, label %.sink.split.i
 
 209:                                              ; preds = %._crit_edge.i
-  %.not218.i = icmp eq i32 %.0204.lcssa.i, 0
+  %.not218.i = icmp eq i32 %.0203.lcssa.i, 0
   br i1 %.not218.i, label %210, label %212
 
 210:                                              ; preds = %209
@@ -1277,7 +1277,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %212
 
 212:                                              ; preds = %210, %209
-  %.not219.i = icmp eq i32 %.0202.lcssa.i, 0
+  %.not219.i = icmp eq i32 %.0201.lcssa.i, 0
   br i1 %.not219.i, label %213, label %215
 
 213:                                              ; preds = %212
@@ -1285,7 +1285,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %215
 
 215:                                              ; preds = %213, %212
-  %.not220.i = icmp eq i32 %.0200.lcssa.i, 0
+  %.not220.i = icmp eq i32 %.0199.lcssa.i, 0
   br i1 %.not220.i, label %218, label %216
 
 216:                                              ; preds = %215
@@ -1293,7 +1293,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %218
 
 218:                                              ; preds = %216, %215
-  %.not221.i = icmp eq i32 %.0198.lcssa.i, 0
+  %.not221.i = icmp eq i32 %.0197.lcssa.i, 0
   br i1 %.not221.i, label %221, label %219
 
 219:                                              ; preds = %218
@@ -1301,7 +1301,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %221
 
 221:                                              ; preds = %219, %218
-  %.not222.i = icmp eq i32 %.0196.lcssa.i, 0
+  %.not222.i = icmp eq i32 %.0195.lcssa.i, 0
   br i1 %.not222.i, label %224, label %222
 
 222:                                              ; preds = %221
@@ -1309,7 +1309,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %224
 
 224:                                              ; preds = %222, %221
-  %.not223.i = icmp eq i32 %.0194.lcssa.i, 0
+  %.not223.i = icmp eq i32 %.0193.lcssa.i, 0
   br i1 %.not223.i, label %227, label %225
 
 225:                                              ; preds = %224
@@ -1317,7 +1317,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %227
 
 227:                                              ; preds = %225, %224
-  %.not224.i = icmp eq i32 %.0192.lcssa.i, 0
+  %.not224.i = icmp eq i32 %.0191.lcssa.i, 0
   br i1 %.not224.i, label %230, label %228
 
 228:                                              ; preds = %227
@@ -1325,7 +1325,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %230
 
 230:                                              ; preds = %228, %227
-  %.not225.i = icmp eq i32 %.0190.lcssa.i, 0
+  %.not225.i = icmp eq i32 %.0189.lcssa.i, 0
   br i1 %.not225.i, label %231, label %233
 
 231:                                              ; preds = %230
@@ -1333,7 +1333,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %233
 
 233:                                              ; preds = %231, %230
-  %.not226.i = icmp eq i32 %.0188.lcssa.i, 0
+  %.not226.i = icmp eq i32 %.0187.lcssa.i, 0
   br i1 %.not226.i, label %236, label %234
 
 234:                                              ; preds = %233
@@ -1341,7 +1341,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %236
 
 236:                                              ; preds = %234, %233
-  %.not227.i = icmp eq i32 %.0186.lcssa.i, 0
+  %.not227.i = icmp eq i32 %.0185.lcssa.i, 0
   br i1 %.not227.i, label %239, label %237
 
 237:                                              ; preds = %236
@@ -1349,7 +1349,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %239
 
 239:                                              ; preds = %237, %236
-  %.not228.i = icmp eq i32 %.0184.lcssa.i, 0
+  %.not228.i = icmp eq i32 %.0183.lcssa.i, 0
   br i1 %.not228.i, label %242, label %240
 
 240:                                              ; preds = %239
@@ -1357,7 +1357,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %242
 
 242:                                              ; preds = %240, %239
-  %.not229.i = icmp eq i32 %.0182.lcssa.i, 0
+  %.not229.i = icmp eq i32 %.0181.lcssa.i, 0
   br i1 %.not229.i, label %245, label %243
 
 243:                                              ; preds = %242
@@ -1365,11 +1365,11 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %245
 
 245:                                              ; preds = %243, %242
-  %.not230.i = icmp eq i32 %.0181.lcssa.i, 0
+  %.not230.i = icmp eq i32 %.0.lcssa.i, 0
   br i1 %.not230.i, label %dissect_wccp2_info.exit, label %.sink.split.i
 
 246:                                              ; preds = %._crit_edge.i
-  %.not.i = icmp eq i32 %.0204.lcssa.i, 0
+  %.not.i = icmp eq i32 %.0203.lcssa.i, 0
   br i1 %.not.i, label %247, label %249
 
 247:                                              ; preds = %246
@@ -1377,7 +1377,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %249
 
 249:                                              ; preds = %247, %246
-  %.not210.i = icmp eq i32 %.0202.lcssa.i, 0
+  %.not210.i = icmp eq i32 %.0201.lcssa.i, 0
   br i1 %.not210.i, label %250, label %252
 
 250:                                              ; preds = %249
@@ -1385,7 +1385,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %252
 
 252:                                              ; preds = %250, %249
-  %.not211.i = icmp eq i32 %.0200.lcssa.i, 0
+  %.not211.i = icmp eq i32 %.0199.lcssa.i, 0
   br i1 %.not211.i, label %255, label %253
 
 253:                                              ; preds = %252
@@ -1393,7 +1393,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %255
 
 255:                                              ; preds = %253, %252
-  %.not212.i = icmp eq i32 %.0198.lcssa.i, 0
+  %.not212.i = icmp eq i32 %.0197.lcssa.i, 0
   br i1 %.not212.i, label %258, label %256
 
 256:                                              ; preds = %255
@@ -1401,7 +1401,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %258
 
 258:                                              ; preds = %256, %255
-  %.not213.i = icmp eq i32 %.0196.lcssa.i, 0
+  %.not213.i = icmp eq i32 %.0195.lcssa.i, 0
   br i1 %.not213.i, label %261, label %259
 
 259:                                              ; preds = %258
@@ -1409,7 +1409,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %261
 
 261:                                              ; preds = %259, %258
-  %.not214.i = icmp eq i32 %.0194.lcssa.i, 0
+  %.not214.i = icmp eq i32 %.0193.lcssa.i, 0
   br i1 %.not214.i, label %264, label %262
 
 262:                                              ; preds = %261
@@ -1417,7 +1417,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %264
 
 264:                                              ; preds = %262, %261
-  %.not215.i = icmp eq i32 %.0190.lcssa.i, 0
+  %.not215.i = icmp eq i32 %.0189.lcssa.i, 0
   br i1 %.not215.i, label %267, label %265
 
 265:                                              ; preds = %264
@@ -1425,7 +1425,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %267
 
 267:                                              ; preds = %265, %264
-  %.not216.i = icmp eq i32 %.0188.lcssa.i, 0
+  %.not216.i = icmp eq i32 %.0187.lcssa.i, 0
   br i1 %.not216.i, label %270, label %268
 
 268:                                              ; preds = %267
@@ -1433,12 +1433,12 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %270
 
 270:                                              ; preds = %268, %267
-  %271 = icmp ne i32 %.0184.lcssa.i, 0
-  %272 = icmp ne i32 %.0181.lcssa.i, 0
+  %271 = icmp ne i32 %.0183.lcssa.i, 0
+  %272 = icmp ne i32 %.0.lcssa.i, 0
   %or.cond.i = select i1 %271, i1 true, i1 %272
-  %273 = icmp ne i32 %.0186.lcssa.i, 0
+  %273 = icmp ne i32 %.0185.lcssa.i, 0
   %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %273
-  %274 = icmp ne i32 %.0192.lcssa.i, 0
+  %274 = icmp ne i32 %.0191.lcssa.i, 0
   %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %274
   br i1 %or.cond5.i, label %277, label %275
 
@@ -1447,7 +1447,7 @@ find_wccp_address_table.exit.i:                   ; preds = %.lr.ph.i.i, %88, %1
   br label %277
 
 277:                                              ; preds = %275, %270
-  %.not217.i = icmp eq i32 %.0182.lcssa.i, 0
+  %.not217.i = icmp eq i32 %.0181.lcssa.i, 0
   br i1 %.not217.i, label %dissect_wccp2_info.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %277, %245, %208, %183
@@ -1465,8 +1465,8 @@ dissect_wccp2_info.exit:                          ; preds = %._crit_edge.i, %183
   br label %280
 
 280:                                              ; preds = %4, %.loopexit
-  %.0 = phi i32 [ %279, %.loopexit ], [ 0, %4 ]
-  ret i32 %.0
+  %.0125 = phi i32 [ %279, %.loopexit ], [ 0, %4 ]
+  ret i32 %.0125
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1676,52 +1676,52 @@ define internal noundef i32 @dissect_wccp2_service_info(ptr noundef %0, i32 noun
   br i1 %.not78, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %50, %55
-  %.06881.us = phi i32 [ %63, %55 ], [ %48, %50 ]
-  %.06980.us = phi i32 [ %56, %55 ], [ 0, %50 ]
-  %54 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.06881.us) #7
+  %.082.us = phi i32 [ %56, %55 ], [ 0, %50 ]
+  %.06980.us = phi i32 [ %63, %55 ], [ %48, %50 ]
+  %54 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.06980.us) #7
   %.not77.us = icmp eq i16 %54, 0
   br i1 %.not77.us, label %62, label %57
 
 55:                                               ; preds = %62
-  %56 = add nuw nsw i32 %.06980.us, 1
+  %56 = add nuw nsw i32 %.082.us, 1
   %exitcond88.not = icmp eq i32 %56, 8
   br i1 %exitcond88.not, label %.loopexit, label %.split.us, !llvm.loop !11
 
 57:                                               ; preds = %.split.us
   %58 = load i32, ptr @hf_service_info_destination_port, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %58, ptr noundef %0, i32 noundef %.06881.us, i32 noundef 2, i32 noundef 0) #7
+  %59 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %58, ptr noundef %0, i32 noundef %.06980.us, i32 noundef 2, i32 noundef 0) #7
   %60 = load ptr, ptr %7, align 8
   %61 = zext i16 %54 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %60, ptr noundef nonnull @.str.407, i32 noundef %61) #7
   br label %62
 
 62:                                               ; preds = %57, %.split.us
-  %63 = add i32 %.06881.us, 2
+  %63 = add i32 %.06980.us, 2
   %.not79.us = icmp sgt i32 %63, %8
   br i1 %.not79.us, label %.split84.us, label %55
 
 64:                                               ; preds = %72
-  %65 = add nuw nsw i32 %.06980, 1
+  %65 = add nuw nsw i32 %.082, 1
   %exitcond.not = icmp eq i32 %65, 8
   br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !11
 
 .split:                                           ; preds = %50, %64
-  %.06881 = phi i32 [ %73, %64 ], [ %48, %50 ]
-  %.06980 = phi i32 [ %65, %64 ], [ 0, %50 ]
-  %66 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.06881) #7
+  %.082 = phi i32 [ %65, %64 ], [ 0, %50 ]
+  %.06980 = phi i32 [ %73, %64 ], [ %48, %50 ]
+  %66 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.06980) #7
   %.not77 = icmp eq i16 %66, 0
   br i1 %.not77, label %72, label %67
 
 67:                                               ; preds = %.split
   %68 = load i32, ptr @hf_service_info_source_port, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %68, ptr noundef %0, i32 noundef %.06881, i32 noundef 2, i32 noundef 0) #7
+  %69 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %68, ptr noundef %0, i32 noundef %.06980, i32 noundef 2, i32 noundef 0) #7
   %70 = load ptr, ptr %7, align 8
   %71 = zext i16 %66 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.407, i32 noundef %71) #7
   br label %72
 
 72:                                               ; preds = %67, %.split
-  %73 = add i32 %.06881, 2
+  %73 = add i32 %.06980, 2
   %.not79 = icmp sgt i32 %73, %8
   br i1 %.not79, label %.split84.us, label %64
 
@@ -1739,8 +1739,8 @@ define internal noundef i32 @dissect_wccp2_service_info(ptr noundef %0, i32 noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %64, %55, %76, %74, %9
-  %.0 = phi i32 [ %10, %9 ], [ 0, %74 ], [ 0, %76 ], [ 0, %55 ], [ 0, %64 ]
-  ret i32 %.0
+  %.068 = phi i32 [ %10, %9 ], [ 0, %74 ], [ 0, %76 ], [ 0, %55 ], [ 0, %64 ]
+  ret i32 %.068
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1883,23 +1883,23 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
   br i1 %.not121, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %21
-  %.081105 = add nsw i32 %2, -16
-  %25 = lshr i32 %.081105, 2
+  %.083105 = add nsw i32 %2, -16
+  %25 = lshr i32 %.083105, 2
   %26 = add i32 %22, -1
   %umin = tail call i32 @llvm.umin.i32(i32 %25, i32 %26)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %.080110 = phi i32 [ %.080, %30 ], [ %.080106, %.lr.ph.preheader ]
-  %.081109 = phi i32 [ %.081, %30 ], [ %.081105, %.lr.ph.preheader ]
-  %.083107 = phi i32 [ %35, %30 ], [ 0, %.lr.ph.preheader ]
-  %exitcond = icmp eq i32 %.083107, %25
+  %.083109 = phi i32 [ %.083, %30 ], [ %.083105, %.lr.ph.preheader ]
+  %.081108 = phi i32 [ %35, %30 ], [ 0, %.lr.ph.preheader ]
+  %exitcond = icmp eq i32 %.081108, %25
   br i1 %exitcond, label %27, label %30
 
 27:                                               ; preds = %.lr.ph
   %.neg95 = sub i32 %umin, %22
   %.neg96 = shl i32 %.neg95, 2
-  %28 = add i32 %.081109, -4
+  %28 = add i32 %.083109, -4
   %29 = add i32 %28, %.neg96
   br label %.loopexit
 
@@ -1908,28 +1908,28 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
   %32 = load i32, ptr @hf_router_view_ipv4, align 4
   %33 = load i32, ptr @hf_router_view_ipv6, align 4
   %34 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef %0, i32 noundef %.080110, ptr noundef %5)
-  %35 = add nuw nsw i32 %.083107, 1
-  %.081 = add nsw i32 %.081109, -4
+  %35 = add nuw nsw i32 %.081108, 1
+  %.083 = add nsw i32 %.083109, -4
   %.080 = add i32 %.080110, 4
   %exitcond129.not = icmp eq i32 %35, %22
   br i1 %exitcond129.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %30
-  %36 = icmp ult i32 %.081109, 8
+  %36 = icmp ult i32 %.083109, 8
   br i1 %36, label %37, label %._crit_edge.thread
 
 37:                                               ; preds = %._crit_edge
-  %38 = or disjoint i32 %.081109, -8
+  %38 = or disjoint i32 %.083109, -8
   br label %.loopexit
 
 ._crit_edge.thread:                               ; preds = %21, %._crit_edge
   %.080.lcssa136 = phi i32 [ %.080, %._crit_edge ], [ %.080106, %21 ]
   %.080.in.lcssa135 = phi i32 [ %.080110, %._crit_edge ], [ %20, %21 ]
-  %.081.in.lcssa134 = phi i32 [ %.081109, %._crit_edge ], [ %.0.i, %21 ]
+  %.083.in.lcssa134 = phi i32 [ %.083109, %._crit_edge ], [ %.0.i, %21 ]
   %39 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.080.lcssa136) #7
   %40 = load i32, ptr @hf_wc_view_wc_num, align 4
   %41 = tail call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %40, ptr noundef %0, i32 noundef %.080.lcssa136, i32 noundef 4, i32 noundef %39) #7
-  %42 = add nsw i32 %.081.in.lcssa134, -8
+  %42 = add nsw i32 %.083.in.lcssa134, -8
   %.not122 = icmp eq i32 %39, 0
   br i1 %.not122, label %.loopexit, label %.lr.ph117.preheader
 
@@ -1939,15 +1939,15 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %56
   %.1115 = phi i32 [ %58, %56 ], [ %43, %.lr.ph117.preheader ]
-  %.182114 = phi i32 [ %54, %56 ], [ %42, %.lr.ph117.preheader ]
-  %.184113 = phi i32 [ %59, %56 ], [ 0, %.lr.ph117.preheader ]
-  %44 = icmp ult i32 %.182114, 4
+  %.182114 = phi i32 [ %59, %56 ], [ 0, %.lr.ph117.preheader ]
+  %.184113 = phi i32 [ %54, %56 ], [ %42, %.lr.ph117.preheader ]
+  %44 = icmp ult i32 %.184113, 4
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %.lr.ph117
-  %.neg = sub i32 %.184113, %39
+  %.neg = sub i32 %.182114, %39
   %.neg94 = shl i32 %.neg, 2
-  %46 = or disjoint i32 %.neg94, %.182114
+  %46 = or disjoint i32 %.neg94, %.184113
   br label %.loopexit
 
 47:                                               ; preds = %.lr.ph117
@@ -1957,14 +1957,14 @@ dissect_wccp2_assignment_key_element.exit:        ; preds = %6
   %51 = tail call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %4, i32 noundef %48, i32 noundef %49, i32 noundef %50, ptr noundef %0, i32 noundef %.1115, ptr noundef %5)
   %52 = load i32, ptr @ett_wc_identity_element, align 4
   %53 = tail call ptr @proto_item_add_subtree(ptr noundef %51, i32 noundef %52) #7
-  %54 = tail call fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef %0, i32 noundef %.1115, i32 noundef %.182114, ptr noundef %3, ptr noundef %53, ptr noundef %5)
+  %54 = tail call fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef %0, i32 noundef %.1115, i32 noundef %.184113, ptr noundef %3, ptr noundef %53, ptr noundef %5)
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %.loopexit, label %56
 
 56:                                               ; preds = %47
-  %57 = add i32 %.1115, %.182114
+  %57 = add i32 %.1115, %.184113
   %58 = sub i32 %57, %54
-  %59 = add nuw i32 %.184113, 1
+  %59 = add nuw i32 %.182114, 1
   %exitcond130.not = icmp eq i32 %59, %39
   br i1 %exitcond130.not, label %.loopexit, label %.lr.ph117, !llvm.loop !14
 
@@ -2125,7 +2125,7 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
   %22 = load i32, ptr @hf_assignment_info_router_num, align 4
   %23 = tail call ptr @proto_tree_add_uint(ptr noundef %4, i32 noundef %22, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef %21) #7
   %.06585 = add i32 %1, 12
-  %.06686 = add nsw i32 %2, -12
+  %.06786 = add nsw i32 %2, -12
   %.not100 = icmp eq i32 %21, 0
   br i1 %.not100, label %._crit_edge.thread, label %.lr.ph
 
@@ -2134,17 +2134,17 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
   br label %40
 
 .lr.ph:                                           ; preds = %19, %29
-  %.06690 = phi i32 [ %.066, %29 ], [ %.06686, %19 ]
+  %.06790 = phi i32 [ %.067, %29 ], [ %.06786, %19 ]
   %.06589 = phi i32 [ %.065, %29 ], [ %.06585, %19 ]
-  %.066.in88 = phi i32 [ %.06690, %29 ], [ %2, %19 ]
-  %.06787 = phi i32 [ %36, %29 ], [ 0, %19 ]
-  %24 = icmp slt i32 %.066.in88, 24
+  %.06688 = phi i32 [ %36, %29 ], [ 0, %19 ]
+  %.067.in87 = phi i32 [ %.06790, %29 ], [ %2, %19 ]
+  %24 = icmp slt i32 %.067.in87, 24
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %.lr.ph
-  %26 = sub i32 %21, %.06787
+  %26 = sub i32 %21, %.06688
   %.neg = mul i32 %26, -12
-  %27 = add i32 %.06690, -260
+  %27 = add i32 %.06790, -260
   %28 = add i32 %27, %.neg
   br label %81
 
@@ -2156,31 +2156,31 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
   %34 = load i32, ptr @ett_router_assignment_element, align 4
   %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #7
   tail call fastcc void @dissect_wccp2_router_assignment_element(ptr noundef %0, i32 noundef %.06589, ptr noundef %3, ptr noundef %35, ptr noundef %5)
-  %36 = add nuw nsw i32 %.06787, 1
+  %36 = add nuw nsw i32 %.06688, 1
   %.065 = add i32 %.06589, 12
-  %.066 = add nsw i32 %.06690, -12
+  %.067 = add nsw i32 %.06790, -12
   %exitcond.not = icmp eq i32 %36, %21
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %37 = icmp ult i32 %.066, 4
+  %37 = icmp ult i32 %.067, 4
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %._crit_edge
-  %39 = or disjoint i32 %.06690, -16
+  %39 = or disjoint i32 %.06790, -16
   br label %dissect_wccp2_hash_buckets_assignment_element.exit.thread
 
 40:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.066.lcssa117 = phi i32 [ %.06686, %._crit_edge.thread ], [ %.066, %._crit_edge ]
+  %.067.lcssa117 = phi i32 [ %.06786, %._crit_edge.thread ], [ %.067, %._crit_edge ]
   %.065.lcssa116 = phi i32 [ %.06585, %._crit_edge.thread ], [ %.065, %._crit_edge ]
   %.065.in.lcssa115 = phi i32 [ %1, %._crit_edge.thread ], [ %.06589, %._crit_edge ]
-  %.066.in.lcssa114 = phi i32 [ %2, %._crit_edge.thread ], [ %.06690, %._crit_edge ]
+  %.067.in.lcssa114 = phi i32 [ %2, %._crit_edge.thread ], [ %.06790, %._crit_edge ]
   %41 = load i32, ptr @hf_hash_buckets_assignment_wc_num, align 4
   %42 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %4, i32 noundef %41, ptr noundef %0, i32 noundef %.065.lcssa116, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7) #7
   %43 = load i32, ptr @ett_hash_buckets_assignment_wc_element, align 4
   %44 = call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %43) #7
-  %.0417.i = add nsw i32 %.066.in.lcssa114, -16
+  %.0417.i = add nsw i32 %.067.in.lcssa114, -16
   %.0408.i = add i32 %.065.in.lcssa115, 16
   %45 = load i32, ptr %7, align 4
   %.not.i = icmp eq i32 %45, 0
@@ -2188,7 +2188,7 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
 
 .lr.ph.preheader.i:                               ; preds = %40
   %46 = lshr i32 %.0417.i, 2
-  %47 = and i32 %.066.in.lcssa114, 3
+  %47 = and i32 %.067.in.lcssa114, 3
   %exitcond.i94 = icmp ult i32 %.0417.i, 4
   br i1 %exitcond.i94, label %.lr.ph.i._crit_edge, label %.lr.ph98
 
@@ -2277,7 +2277,7 @@ dissect_wccp2_hash_buckets_assignment_element.exit: ; preds = %assignment_bucket
   br i1 %77, label %81, label %78
 
 78:                                               ; preds = %dissect_wccp2_hash_buckets_assignment_element.exit
-  %79 = sub i32 %.066.lcssa117, %.0.i76
+  %79 = sub i32 %.067.lcssa117, %.0.i76
   %80 = add i32 %79, %.065.lcssa116
   %.not75 = icmp slt i32 %.065.lcssa116, %80
   %. = select i1 %.not75, i32 %.0.i76, i32 %79
@@ -2574,32 +2574,32 @@ dissect_wccp2_assignment_key_element.exit.thread: ; preds = %28
   br i1 %.not122, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %39, %49
-  %.0100120 = phi i32 [ %54, %49 ], [ %44, %39 ]
-  %.0101119 = phi i32 [ %53, %49 ], [ %43, %39 ]
-  %.0102118 = phi i32 [ %55, %49 ], [ 0, %39 ]
-  %45 = icmp slt i32 %.0101119, 12
+  %.0100120 = phi i32 [ %55, %49 ], [ 0, %39 ]
+  %.0101119 = phi i32 [ %54, %49 ], [ %44, %39 ]
+  %.0102118 = phi i32 [ %53, %49 ], [ %43, %39 ]
+  %45 = icmp slt i32 %.0102118, 12
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %.lr.ph
-  %47 = sub i32 %40, %.0102118
+  %47 = sub i32 %40, %.0100120
   %.neg = mul i32 %47, -12
-  %48 = add i32 %.neg, %.0101119
+  %48 = add i32 %.neg, %.0102118
   br label %62
 
 49:                                               ; preds = %.lr.ph
   %50 = load i32, ptr @ett_router_alt_assignment_element, align 4
-  %51 = tail call fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noundef %.0100120, ptr noundef %5)
-  %52 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %4, ptr noundef %0, i32 noundef %.0100120, i32 noundef 12, i32 noundef %50, ptr noundef null, ptr noundef nonnull @.str.451, i32 noundef %.0102118, ptr noundef %51) #7
-  tail call fastcc void @dissect_wccp2_router_assignment_element(ptr noundef %0, i32 noundef %.0100120, ptr noundef %3, ptr noundef %52, ptr noundef %5)
-  %53 = add nsw i32 %.0101119, -12
-  %54 = add i32 %.0100120, 12
-  %55 = add nuw nsw i32 %.0102118, 1
+  %51 = tail call fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noundef %.0101119, ptr noundef %5)
+  %52 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %4, ptr noundef %0, i32 noundef %.0101119, i32 noundef 12, i32 noundef %50, ptr noundef null, ptr noundef nonnull @.str.451, i32 noundef %.0100120, ptr noundef %51) #7
+  tail call fastcc void @dissect_wccp2_router_assignment_element(ptr noundef %0, i32 noundef %.0101119, ptr noundef %3, ptr noundef %52, ptr noundef %5)
+  %53 = add nsw i32 %.0102118, -12
+  %54 = add i32 %.0101119, 12
+  %55 = add nuw nsw i32 %.0100120, 1
   %exitcond.not = icmp eq i32 %55, %40
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %49, %39
-  %.0101.lcssa = phi i32 [ %43, %39 ], [ %53, %49 ]
-  %.0100.lcssa = phi i32 [ %44, %39 ], [ %54, %49 ]
+  %.0102.lcssa = phi i32 [ %43, %39 ], [ %53, %49 ]
+  %.0101.lcssa = phi i32 [ %44, %39 ], [ %54, %49 ]
   switch i16 %11, label %62 [
     i16 0, label %56
     i16 1, label %58
@@ -2607,19 +2607,19 @@ dissect_wccp2_assignment_key_element.exit.thread: ; preds = %28
   ]
 
 56:                                               ; preds = %._crit_edge
-  %57 = tail call fastcc i32 @dissect_wccp2_hash_assignment_info(ptr noundef %0, i32 noundef %.0100.lcssa, i32 noundef %.0101.lcssa, ptr noundef %4, ptr noundef %5)
+  %57 = tail call fastcc i32 @dissect_wccp2_hash_assignment_info(ptr noundef %0, i32 noundef %.0101.lcssa, i32 noundef %.0102.lcssa, ptr noundef %4, ptr noundef %5)
   br label %62
 
 58:                                               ; preds = %._crit_edge
-  %59 = tail call fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i32 noundef %.0100.lcssa, i32 noundef %.0101.lcssa, ptr noundef %4, ptr noundef %5)
+  %59 = tail call fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i32 noundef %.0101.lcssa, i32 noundef %.0102.lcssa, ptr noundef %4, ptr noundef %5)
   br label %62
 
 60:                                               ; preds = %._crit_edge
-  %61 = tail call fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noundef %0, i32 noundef %.0100.lcssa, i32 noundef %.0101.lcssa, ptr noundef %4, ptr noundef %5)
+  %61 = tail call fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noundef %0, i32 noundef %.0101.lcssa, i32 noundef %.0102.lcssa, ptr noundef %4, ptr noundef %5)
   br label %62
 
 62:                                               ; preds = %dissect_wccp2_assignment_key_element.exit.thread, %._crit_edge, %30, %60, %58, %56, %46, %8
-  %.0 = phi i32 [ %9, %8 ], [ %48, %46 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ 8, %30 ], [ %.0101.lcssa, %._crit_edge ], [ %.0.i114, %dissect_wccp2_assignment_key_element.exit.thread ]
+  %.0 = phi i32 [ %9, %8 ], [ %48, %46 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ 8, %30 ], [ %.0102.lcssa, %._crit_edge ], [ %.0.i114, %dissect_wccp2_assignment_key_element.exit.thread ]
   ret i32 %.0
 }
 
@@ -2783,7 +2783,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   br label %64
 
 64:                                               ; preds = %61, %44, %43, %58, %57, %10
-  %.0101 = phi i16 [ %15, %61 ], [ 16, %58 ], [ 16, %57 ], [ 4, %44 ], [ 4, %43 ], [ %15, %10 ]
+  %.099 = phi i16 [ %15, %61 ], [ 16, %58 ], [ 16, %57 ], [ 4, %44 ], [ 4, %43 ], [ %15, %10 ]
   %65 = and i32 %19, 65535
   %.not119 = icmp eq i32 %65, 0
   br i1 %.not119, label %._crit_edge, label %.lr.ph
@@ -2795,14 +2795,14 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   %69 = getelementptr inbounds i8, ptr %5, i64 16
   %70 = getelementptr inbounds i8, ptr %5, i64 4
   %.not115 = icmp eq ptr %23, null
-  %71 = zext i16 %.0101 to i32
+  %71 = zext i16 %.099 to i32
   %72 = mul nuw i32 %65, %71
   %wide.trip.count = zext nneg i32 %65 to i64
   br label %73
 
 73:                                               ; preds = %.lr.ph, %118
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.pre-phi, %118 ]
-  %.099118 = phi i32 [ %25, %.lr.ph ], [ %119, %118 ]
+  %.0101117 = phi i32 [ %25, %.lr.ph ], [ %119, %118 ]
   switch i16 %11, label %102 [
     i16 1, label %74
     i16 2, label %89
@@ -2810,7 +2810,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
 
 74:                                               ; preds = %73
   %75 = load ptr, ptr %66, align 8
-  %76 = tail call ptr @tvb_address_to_str(ptr noundef %75, ptr noundef %0, i32 noundef 2, i32 noundef %.099118) #7
+  %76 = tail call ptr @tvb_address_to_str(ptr noundef %75, ptr noundef %0, i32 noundef 2, i32 noundef %.0101117) #7
   %77 = load i32, ptr %5, align 8
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %107
@@ -2827,7 +2827,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   br i1 %84, label %85, label %107
 
 85:                                               ; preds = %81
-  %86 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %.099118) #7
+  %86 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %.0101117) #7
   %87 = load ptr, ptr %69, align 8
   %88 = getelementptr i32, ptr %87, i64 %indvars.iv
   store i32 %86, ptr %88, align 4
@@ -2835,7 +2835,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
 
 89:                                               ; preds = %73
   %90 = load ptr, ptr %66, align 8
-  %91 = tail call ptr @tvb_address_to_str(ptr noundef %90, ptr noundef %0, i32 noundef 3, i32 noundef %.099118) #7
+  %91 = tail call ptr @tvb_address_to_str(ptr noundef %90, ptr noundef %0, i32 noundef 3, i32 noundef %.0101117) #7
   %92 = load i32, ptr %5, align 8
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %107
@@ -2853,7 +2853,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
 
 100:                                              ; preds = %96
   %101 = getelementptr %struct.e_in6_addr, ptr %95, i64 %indvars.iv
-  tail call void @tvb_get_ipv6(ptr noundef %0, i32 noundef %.099118, ptr noundef %101) #7
+  tail call void @tvb_get_ipv6(ptr noundef %0, i32 noundef %.0101117, ptr noundef %101) #7
   br label %107
 
 102:                                              ; preds = %73
@@ -2864,7 +2864,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   br label %107
 
 107:                                              ; preds = %89, %94, %96, %100, %74, %79, %81, %85, %102
-  %.098 = phi ptr [ %106, %102 ], [ %91, %100 ], [ %91, %96 ], [ %91, %94 ], [ %91, %89 ], [ %76, %85 ], [ %76, %81 ], [ %76, %79 ], [ %76, %74 ]
+  %.0 = phi ptr [ %106, %102 ], [ %91, %100 ], [ %91, %96 ], [ %91, %94 ], [ %91, %89 ], [ %76, %85 ], [ %76, %81 ], [ %76, %79 ], [ %76, %74 ]
   br i1 %.not115, label %._crit_edge121, label %108
 
 ._crit_edge121:                                   ; preds = %107
@@ -2875,7 +2875,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   %109 = load i32, ptr @hf_address_table_element, align 4
   %110 = add nuw nsw i64 %indvars.iv, 1
   %111 = trunc nuw nsw i64 %110 to i32
-  %112 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef nonnull %23, i32 noundef %109, ptr noundef %0, i32 noundef %.099118, i32 noundef %71, ptr noundef %.098, ptr noundef nonnull @.str.457, i32 noundef %111, ptr noundef %.098) #7
+  %112 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef nonnull %23, i32 noundef %109, ptr noundef %0, i32 noundef %.0101117, i32 noundef %71, ptr noundef %.0, ptr noundef nonnull @.str.457, i32 noundef %111, ptr noundef %.0) #7
   %113 = load i16, ptr %68, align 8
   %114 = zext i16 %113 to i64
   %115 = icmp ugt i64 %indvars.iv, %114
@@ -2887,7 +2887,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
 
 118:                                              ; preds = %._crit_edge121, %108, %116
   %indvars.iv.next.pre-phi = phi i64 [ %.pre, %._crit_edge121 ], [ %110, %108 ], [ %110, %116 ]
-  %119 = add i32 %.099118, %71
+  %119 = add i32 %.0101117, %71
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %73, !llvm.loop !22
 
@@ -2896,13 +2896,13 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %64
-  %.0100.lcssa = phi i32 [ %24, %64 ], [ %120, %._crit_edge.loopexit ]
+  %.0102.lcssa = phi i32 [ %24, %64 ], [ %120, %._crit_edge.loopexit ]
   store i32 1, ptr %5, align 8
   br label %121
 
 121:                                              ; preds = %._crit_edge, %8
-  %.0 = phi i32 [ %9, %8 ], [ %.0100.lcssa, %._crit_edge ]
-  ret i32 %.0
+  %.0100 = phi i32 [ %9, %8 ], [ %.0102.lcssa, %._crit_edge ]
+  ret i32 %.0100
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3461,25 +3461,25 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
 19:                                               ; preds = %92
-  %20 = add nuw i32 %.03934, 1
+  %20 = add nuw i32 %.036, 1
   %exitcond.not = icmp eq i32 %20, %14
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %11, %19
-  %.03736 = phi i32 [ %94, %19 ], [ %18, %11 ]
-  %.03835 = phi i32 [ %.0.i4, %19 ], [ %17, %11 ]
-  %.03934 = phi i32 [ %20, %19 ], [ 0, %11 ]
+  %.036 = phi i32 [ %20, %19 ], [ 0, %11 ]
+  %.03835 = phi i32 [ %94, %19 ], [ %18, %11 ]
+  %.03934 = phi i32 [ %.054.i4, %19 ], [ %17, %11 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %21 = load i32, ptr @ett_mv_set_element, align 4
-  %22 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %13, ptr noundef %0, i32 noundef %.03736, i32 noundef 0, i32 noundef %21, ptr noundef nonnull %6, ptr noundef nonnull @.str.420, i32 noundef %.03934) #7
-  %23 = call fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %.03736, i32 noundef %.03835, ptr noundef %22)
+  %22 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %13, ptr noundef %0, i32 noundef %.03835, i32 noundef 0, i32 noundef %21, ptr noundef nonnull %6, ptr noundef nonnull @.str.420, i32 noundef %.036) #7
+  %23 = call fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %.03835, i32 noundef %.03934, ptr noundef %22)
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %dissect_wccp2_mask_value_set_element.exit.thread, label %25
 
 25:                                               ; preds = %.lr.ph
-  %26 = sub nsw i32 %.03835, %23
-  %27 = add i32 %26, %.03736
-  %.not.i = icmp sgt i32 %27, %.03736
+  %26 = sub nsw i32 %.03934, %23
+  %27 = add i32 %26, %.03835
+  %.not.i = icmp sgt i32 %27, %.03835
   br i1 %.not.i, label %28, label %dissect_wccp2_mask_value_set_element.exit
 
 28:                                               ; preds = %25
@@ -3507,8 +3507,8 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %85, %.lr.ph.preheader.i
-  %.05410.i = phi i32 [ %86, %85 ], [ %39, %.lr.ph.preheader.i ]
-  %.0559.i = phi i32 [ %88, %85 ], [ 0, %.lr.ph.preheader.i ]
+  %.010.i = phi i32 [ %88, %85 ], [ 0, %.lr.ph.preheader.i ]
+  %.0559.i = phi i32 [ %86, %85 ], [ %39, %.lr.ph.preheader.i ]
   %.0568.i = phi i32 [ %87, %85 ], [ %38, %.lr.ph.preheader.i ]
   %42 = icmp slt i32 %.0568.i, 4
   br i1 %42, label %43, label %45
@@ -3519,15 +3519,15 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
 
 45:                                               ; preds = %.lr.ph.i
   %46 = load i32, ptr @ett_value_element, align 4
-  %47 = add i32 %.05410.i, 8
-  %48 = add i32 %.05410.i, 10
-  %49 = add i32 %.05410.i, 12
+  %47 = add i32 %.0559.i, 8
+  %48 = add i32 %.0559.i, 10
+  %49 = add i32 %.0559.i, 12
   %50 = call fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noundef %49, ptr noundef readonly %4)
-  %51 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %37, ptr noundef %0, i32 noundef %.05410.i, i32 noundef 16, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.421, i32 noundef %.0559.i, ptr noundef %50) #7
+  %51 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %37, ptr noundef %0, i32 noundef %.0559.i, i32 noundef 16, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.421, i32 noundef %.010.i, ptr noundef %50) #7
   %52 = load i32, ptr @hf_value_element_src_ip_index, align 4
   %53 = load i32, ptr @hf_value_element_src_ipv4, align 4
   %54 = load i32, ptr @hf_value_element_src_ipv6, align 4
-  %55 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %37, i32 noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef %.05410.i, ptr noundef readonly %4)
+  %55 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %37, i32 noundef %52, i32 noundef %53, i32 noundef %54, ptr noundef %0, i32 noundef %.0559.i, ptr noundef readonly %4)
   %56 = icmp ult i32 %.0568.i, 8
   br i1 %56, label %57, label %59
 
@@ -3536,7 +3536,7 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
   br label %dissect_wccp2_mask_value_set_element.exit.thread
 
 59:                                               ; preds = %45
-  %60 = add i32 %.05410.i, 4
+  %60 = add i32 %.0559.i, 4
   %61 = load i32, ptr @hf_value_element_dest_ip_index, align 4
   %62 = load i32, ptr @hf_value_element_dest_ipv4, align 4
   %63 = load i32, ptr @hf_value_element_dest_ipv6, align 4
@@ -3573,7 +3573,7 @@ define internal fastcc i32 @dissect_wccp2_mask_value_set_list(ptr noundef %0, i3
   %82 = load i32, ptr @hf_value_element_web_cache_ipv4, align 4
   %83 = load i32, ptr @hf_value_element_web_cache_ipv6, align 4
   %84 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %37, i32 noundef %81, i32 noundef %82, i32 noundef %83, ptr noundef %0, i32 noundef %49, ptr noundef readonly %4)
-  %.not63.i = icmp slt i32 %.05410.i, 2147483632
+  %.not63.i = icmp slt i32 %.0559.i, 2147483632
   br i1 %.not63.i, label %85, label %dissect_wccp2_mask_value_set_element.exit.thread2
 
 dissect_wccp2_mask_value_set_element.exit.thread2: ; preds = %80
@@ -3581,9 +3581,9 @@ dissect_wccp2_mask_value_set_element.exit.thread2: ; preds = %80
   br label %92
 
 85:                                               ; preds = %80
-  %86 = add nsw i32 %.05410.i, 16
+  %86 = add nsw i32 %.0559.i, 16
   %87 = add nsw i32 %.0568.i, -16
-  %88 = add nuw nsw i32 %.0559.i, 1
+  %88 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %88, %33
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !25
 
@@ -3599,34 +3599,34 @@ dissect_wccp2_mask_value_set_element.exit.thread2: ; preds = %80
   br label %dissect_wccp2_mask_value_set_element.exit
 
 dissect_wccp2_mask_value_set_element.exit.thread: ; preds = %.lr.ph, %30, %78, %72, %66, %57, %43
-  %.0.i.ph = phi i32 [ %44, %43 ], [ %58, %57 ], [ %67, %66 ], [ %73, %72 ], [ %79, %78 ], [ %31, %30 ], [ %23, %.lr.ph ]
+  %.054.i.ph = phi i32 [ %44, %43 ], [ %58, %57 ], [ %67, %66 ], [ %73, %72 ], [ %79, %78 ], [ %31, %30 ], [ %23, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
 dissect_wccp2_mask_value_set_element.exit:        ; preds = %25, %._crit_edge.i
-  %.0.i = phi i32 [ %.056.lcssa.i, %._crit_edge.i ], [ %26, %25 ]
+  %.054.i = phi i32 [ %.056.lcssa.i, %._crit_edge.i ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %91 = icmp slt i32 %.0.i, 0
+  %91 = icmp slt i32 %.054.i, 0
   br i1 %91, label %.loopexit, label %92
 
 92:                                               ; preds = %dissect_wccp2_mask_value_set_element.exit.thread2, %dissect_wccp2_mask_value_set_element.exit
-  %.0.i4 = phi i32 [ 16, %dissect_wccp2_mask_value_set_element.exit.thread2 ], [ %.0.i, %dissect_wccp2_mask_value_set_element.exit ]
-  %93 = sub nsw i32 %.03835, %.0.i4
-  %94 = add i32 %93, %.03736
-  %.not = icmp slt i32 %.03736, %94
+  %.054.i4 = phi i32 [ 16, %dissect_wccp2_mask_value_set_element.exit.thread2 ], [ %.054.i, %dissect_wccp2_mask_value_set_element.exit ]
+  %93 = sub nsw i32 %.03934, %.054.i4
+  %94 = add i32 %93, %.03835
+  %.not = icmp slt i32 %.03835, %94
   br i1 %.not, label %19, label %.loopexit
 
 ._crit_edge:                                      ; preds = %19, %11
-  %.038.lcssa = phi i32 [ %17, %11 ], [ %.0.i4, %19 ]
-  %.037.lcssa = phi i32 [ %18, %11 ], [ %94, %19 ]
+  %.039.lcssa = phi i32 [ %17, %11 ], [ %.054.i4, %19 ]
+  %.038.lcssa = phi i32 [ %18, %11 ], [ %94, %19 ]
   %95 = load ptr, ptr %7, align 8
-  %96 = sub i32 %.037.lcssa, %1
+  %96 = sub i32 %.038.lcssa, %1
   call void @proto_item_set_len(ptr noundef %95, i32 noundef %96) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %92, %dissect_wccp2_mask_value_set_element.exit, %dissect_wccp2_mask_value_set_element.exit.thread, %._crit_edge, %9
-  %.0 = phi i32 [ %10, %9 ], [ %.038.lcssa, %._crit_edge ], [ %.0.i.ph, %dissect_wccp2_mask_value_set_element.exit.thread ], [ %93, %92 ], [ %.0.i, %dissect_wccp2_mask_value_set_element.exit ]
-  ret i32 %.0
+  %.037 = phi i32 [ %10, %9 ], [ %.039.lcssa, %._crit_edge ], [ %.054.i.ph, %dissect_wccp2_mask_value_set_element.exit.thread ], [ %93, %92 ], [ %.054.i, %dissect_wccp2_mask_value_set_element.exit ]
+  ret i32 %.037
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3848,25 +3848,25 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   br label %.lr.ph
 
 18:                                               ; preds = %77
-  %19 = add nuw i32 %.03719, 1
+  %19 = add nuw i32 %.020, 1
   %exitcond.not = icmp eq i32 %19, %13
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %.03620 = phi i32 [ %79, %18 ], [ %17, %.lr.ph.preheader ]
-  %.03719 = phi i32 [ %19, %18 ], [ 0, %.lr.ph.preheader ]
-  %.03818 = phi i32 [ %.0.i, %18 ], [ %16, %.lr.ph.preheader ]
+  %.020 = phi i32 [ %19, %18 ], [ 0, %.lr.ph.preheader ]
+  %.03719 = phi i32 [ %79, %18 ], [ %17, %.lr.ph.preheader ]
+  %.03818 = phi i32 [ %.061.i, %18 ], [ %16, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %20 = load i32, ptr @ett_alternate_mask_value_set_element, align 4
-  %21 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %12, ptr noundef %0, i32 noundef %.03620, i32 noundef 0, i32 noundef %20, ptr noundef nonnull %6, ptr noundef nonnull @.str.429, i32 noundef %.03719) #7
-  %22 = call fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %.03620, i32 noundef %.03818, ptr noundef %21)
+  %21 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %12, ptr noundef %0, i32 noundef %.03719, i32 noundef 0, i32 noundef %20, ptr noundef nonnull %6, ptr noundef nonnull @.str.429, i32 noundef %.020) #7
+  %22 = call fastcc i32 @dissect_wccp2_mask_element(ptr noundef %0, i32 noundef %.03719, i32 noundef %.03818, ptr noundef %21)
   %23 = sub i32 %.03818, %22
   %24 = icmp slt i32 %22, 0
   br i1 %24, label %dissect_wccp2_alternate_mask_value_set_element.exit.thread, label %25
 
 25:                                               ; preds = %.lr.ph
-  %26 = add i32 %23, %.03620
-  %.not.i = icmp sgt i32 %26, %.03620
+  %26 = add i32 %23, %.03719
+  %.not.i = icmp sgt i32 %26, %.03719
   br i1 %.not.i, label %27, label %dissect_wccp2_alternate_mask_value_set_element.exit
 
 27:                                               ; preds = %25
@@ -3893,9 +3893,9 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %72, %.lr.ph.preheader.i
-  %.06018.i = phi i32 [ %71, %72 ], [ %39, %.lr.ph.preheader.i ]
-  %.06117.i = phi i32 [ %74, %72 ], [ 0, %.lr.ph.preheader.i ]
-  %.06216.i = phi i32 [ %73, %72 ], [ %37, %.lr.ph.preheader.i ]
+  %.018.i = phi i32 [ %74, %72 ], [ 0, %.lr.ph.preheader.i ]
+  %.06017.i = phi i32 [ %73, %72 ], [ %37, %.lr.ph.preheader.i ]
+  %.06216.i = phi i32 [ %71, %72 ], [ %39, %.lr.ph.preheader.i ]
   %.06315.i = phi i32 [ %.037.i6.i, %72 ], [ %38, %.lr.ph.preheader.i ]
   %40 = icmp slt i32 %.06315.i, 4
   br i1 %40, label %41, label %43
@@ -3908,7 +3908,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   %44 = load i32, ptr @hf_web_cache_value_element_wc_address_index, align 4
   %45 = load i32, ptr @hf_web_cache_value_element_wc_address_ipv4, align 4
   %46 = load i32, ptr @hf_web_cache_value_element_wc_address_ipv6, align 4
-  %47 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %36, i32 noundef %44, i32 noundef %45, i32 noundef %46, ptr noundef %0, i32 noundef %.06018.i, ptr noundef readonly %4)
+  %47 = call fastcc ptr @wccp_add_ipaddress_item(ptr noundef %36, i32 noundef %44, i32 noundef %45, i32 noundef %46, ptr noundef %0, i32 noundef %.06216.i, ptr noundef readonly %4)
   %48 = load i32, ptr @ett_web_cache_value_element_list, align 4
   %49 = call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48) #7
   %50 = icmp ult i32 %.06315.i, 8
@@ -3919,7 +3919,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   br label %dissect_wccp2_alternate_mask_value_set_element.exit.thread
 
 53:                                               ; preds = %43
-  %54 = add i32 %.06018.i, 4
+  %54 = add i32 %.06216.i, 4
   %55 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %54) #7
   %56 = load i32, ptr @hf_web_cache_value_element_num_values, align 4
   %57 = call ptr @proto_tree_add_uint(ptr noundef %49, i32 noundef %56, ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef %55) #7
@@ -3928,7 +3928,7 @@ define internal fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noun
   br i1 %.not.i.i, label %dissect_wccp2_web_cache_value_element.exit.thread4.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %53
-  %59 = add i32 %.06018.i, 8
+  %59 = add i32 %.06216.i, 8
   %60 = lshr i32 %58, 2
   br label %.lr.ph.i.i
 
@@ -3959,43 +3959,43 @@ dissect_wccp2_web_cache_value_element.exit.i:     ; preds = %.lr.ph.i.i
 dissect_wccp2_web_cache_value_element.exit.thread4.i: ; preds = %61, %dissect_wccp2_web_cache_value_element.exit.i, %53
   %.037.i6.i = phi i32 [ %68, %dissect_wccp2_web_cache_value_element.exit.i ], [ %58, %53 ], [ %66, %61 ]
   %70 = sub i32 %.06315.i, %.037.i6.i
-  %71 = add i32 %70, %.06018.i
-  %.not69.i = icmp slt i32 %.06018.i, %71
+  %71 = add i32 %70, %.06216.i
+  %.not69.i = icmp slt i32 %.06216.i, %71
   br i1 %.not69.i, label %72, label %dissect_wccp2_alternate_mask_value_set_element.exit
 
 72:                                               ; preds = %dissect_wccp2_web_cache_value_element.exit.thread4.i
-  %73 = add i32 %70, %.06216.i
-  %74 = add nuw i32 %.06117.i, 1
+  %73 = add i32 %70, %.06017.i
+  %74 = add nuw i32 %.018.i, 1
   %exitcond27.not.i = icmp eq i32 %74, %32
   br i1 %exitcond27.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %72, %31
   %.063.lcssa.i = phi i32 [ %38, %31 ], [ %.037.i6.i, %72 ]
-  %.062.lcssa.i = phi i32 [ %37, %31 ], [ %73, %72 ]
+  %.060.lcssa.i = phi i32 [ %37, %31 ], [ %73, %72 ]
   %75 = load ptr, ptr %6, align 8
-  call void @proto_item_set_len(ptr noundef %75, i32 noundef %.062.lcssa.i) #7
+  call void @proto_item_set_len(ptr noundef %75, i32 noundef %.060.lcssa.i) #7
   br label %dissect_wccp2_alternate_mask_value_set_element.exit
 
 dissect_wccp2_alternate_mask_value_set_element.exit.thread: ; preds = %.lr.ph, %dissect_wccp2_web_cache_value_element.exit.i, %29, %51, %41
-  %.0.i.ph = phi i32 [ %42, %41 ], [ %52, %51 ], [ %30, %29 ], [ %68, %dissect_wccp2_web_cache_value_element.exit.i ], [ %22, %.lr.ph ]
+  %.061.i.ph = phi i32 [ %42, %41 ], [ %52, %51 ], [ %30, %29 ], [ %68, %dissect_wccp2_web_cache_value_element.exit.i ], [ %22, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %.loopexit
 
 dissect_wccp2_alternate_mask_value_set_element.exit: ; preds = %dissect_wccp2_web_cache_value_element.exit.thread4.i, %25, %._crit_edge.i
-  %.0.i = phi i32 [ %.063.lcssa.i, %._crit_edge.i ], [ %23, %25 ], [ %70, %dissect_wccp2_web_cache_value_element.exit.thread4.i ]
+  %.061.i = phi i32 [ %.063.lcssa.i, %._crit_edge.i ], [ %23, %25 ], [ %70, %dissect_wccp2_web_cache_value_element.exit.thread4.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %76 = icmp slt i32 %.0.i, 0
+  %76 = icmp slt i32 %.061.i, 0
   br i1 %76, label %.loopexit, label %77
 
 77:                                               ; preds = %dissect_wccp2_alternate_mask_value_set_element.exit
-  %78 = sub i32 %.03818, %.0.i
-  %79 = add i32 %78, %.03620
-  %.not = icmp slt i32 %.03620, %79
+  %78 = sub i32 %.03818, %.061.i
+  %79 = add i32 %78, %.03719
+  %.not = icmp slt i32 %.03719, %79
   br i1 %.not, label %18, label %.loopexit
 
 .loopexit:                                        ; preds = %dissect_wccp2_alternate_mask_value_set_element.exit, %77, %18, %10, %dissect_wccp2_alternate_mask_value_set_element.exit.thread, %8
-  %.0 = phi i32 [ %9, %8 ], [ %.0.i.ph, %dissect_wccp2_alternate_mask_value_set_element.exit.thread ], [ %16, %10 ], [ %.0.i, %dissect_wccp2_alternate_mask_value_set_element.exit ], [ %78, %77 ], [ %.0.i, %18 ]
-  ret i32 %.0
+  %.036 = phi i32 [ %9, %8 ], [ %.061.i.ph, %dissect_wccp2_alternate_mask_value_set_element.exit.thread ], [ %16, %10 ], [ %.061.i, %dissect_wccp2_alternate_mask_value_set_element.exit ], [ %78, %77 ], [ %.061.i, %18 ]
+  ret i32 %.036
 }
 
 ; Function Attrs: nounwind uwtable

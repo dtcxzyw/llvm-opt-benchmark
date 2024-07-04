@@ -346,13 +346,13 @@ _ZL11argc_paramsP8ARG_list.exit:                  ; preds = %31, %._crit_edge.lo
 
 97:                                               ; preds = %93
   %98 = tail call i32 @proj_errno_reset(ptr noundef %0)
-  %.038.i = load ptr, ptr %33, align 8
-  %.not39.i = icmp eq ptr %.038.i, null
+  %.03038.i = load ptr, ptr %33, align 8
+  %.not39.i = icmp eq ptr %.03038.i, null
   br i1 %.not39.i, label %.loopexit.i286, label %.lr.ph.i285
 
 .lr.ph.i285:                                      ; preds = %97, %100
-  %.040.i = phi ptr [ %99, %100 ], [ %.038.i, %97 ]
-  %99 = load ptr, ptr %.040.i, align 8
+  %.03040.i = phi ptr [ %99, %100 ], [ %.03038.i, %97 ]
+  %99 = load ptr, ptr %.03040.i, align 8
   %.not32.i = icmp eq ptr %99, null
   br i1 %.not32.i, label %.loopexit.i286, label %100
 
@@ -363,13 +363,13 @@ _ZL11argc_paramsP8ARG_list.exit:                  ; preds = %31, %._crit_edge.lo
   br i1 %103, label %104, label %.lr.ph.i285, !llvm.loop !8
 
 104:                                              ; preds = %100
-  store ptr null, ptr %.040.i, align 8
+  store ptr null, ptr %.03040.i, align 8
   br label %.loopexit.i286
 
 .loopexit.i286:                                   ; preds = %.lr.ph.i285, %104, %97
-  %.037.i = phi ptr [ %.040.i, %104 ], [ null, %97 ], [ null, %.lr.ph.i285 ]
+  %.03037.i = phi ptr [ %.03040.i, %104 ], [ null, %97 ], [ null, %.lr.ph.i285 ]
   %.not35.i = phi i1 [ false, %104 ], [ true, %97 ], [ true, %.lr.ph.i285 ]
-  %.030.i = phi ptr [ %99, %104 ], [ null, %97 ], [ null, %.lr.ph.i285 ]
+  %.0.i = phi ptr [ %99, %104 ], [ null, %97 ], [ null, %.lr.ph.i285 ]
   %105 = tail call noundef i32 @_Z12pj_ellipsoidP8PJconsts(ptr noundef %0)
   %.not33.i = icmp eq i32 %105, 0
   br i1 %.not33.i, label %111, label %106
@@ -410,7 +410,7 @@ _ZL11argc_paramsP8ARG_list.exit:                  ; preds = %31, %._crit_edge.lo
   br i1 %.not35.i, label %_ZL13set_ellipsoidP8PJconsts.exit, label %127
 
 127:                                              ; preds = %126
-  store ptr %.030.i, ptr %.037.i, align 8
+  store ptr %.0.i, ptr %.03037.i, align 8
   br label %_ZL13set_ellipsoidP8PJconsts.exit
 
 _ZL13set_ellipsoidP8PJconsts.exit:                ; preds = %126, %127

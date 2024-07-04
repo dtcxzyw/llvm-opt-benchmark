@@ -3332,12 +3332,12 @@ _ZN5Ipopt8SmartPtrIKNS_16RegisteredOptionEED2Ev.exit: ; preds = %26
   br label %49
 
 47:                                               ; preds = %40, %41
-  %.033 = phi i1 [ false, %41 ], [ true, %40 ]
+  %.031 = phi i1 [ false, %41 ], [ true, %40 ]
   %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
-  br i1 %.033, label %49, label %.thread96
+  br i1 %.031, label %49, label %.thread96
 
 49:                                               ; preds = %.thread, %47
   %.pn5682 = phi { ptr, i32 } [ %46, %.thread ], [ %48, %47 ]
@@ -3442,12 +3442,12 @@ _ZN5Ipopt8SmartPtrIKNS_16RegisteredOptionEED2Ev.exit: ; preds = %26
   br label %96
 
 94:                                               ; preds = %91, %92
-  %.031 = phi i1 [ false, %92 ], [ true, %91 ]
+  %.029 = phi i1 [ false, %92 ], [ true, %91 ]
   %95 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #16
-  br i1 %.031, label %96, label %.thread101
+  br i1 %.029, label %96, label %.thread101
 
 96:                                               ; preds = %.thread83, %94
   %.pn5386 = phi { ptr, i32 } [ %93, %.thread83 ], [ %95, %94 ]
@@ -3482,8 +3482,8 @@ _ZN5Ipopt8SmartPtrIKNS_16RegisteredOptionEED2Ev.exit: ; preds = %26
   br i1 %.not115, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %104, %113
-  %.028114 = phi i64 [ %114, %113 ], [ 0, %104 ]
-  %108 = getelementptr inbounds i8, ptr %103, i64 %.028114
+  %.027114 = phi i64 [ %114, %113 ], [ 0, %104 ]
+  %108 = getelementptr inbounds i8, ptr %103, i64 %.027114
   %109 = load i8, ptr %108, align 1
   switch i8 %109, label %113 [
     i8 100, label %110
@@ -3500,7 +3500,7 @@ _ZN5Ipopt8SmartPtrIKNS_16RegisteredOptionEED2Ev.exit: ; preds = %26
   br label %163
 
 113:                                              ; preds = %.lr.ph, %110
-  %114 = add nuw i64 %.028114, 1
+  %114 = add nuw i64 %.027114, 1
   %115 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
   %116 = icmp ult i64 %114, %115
   br i1 %116, label %.lr.ph, label %._crit_edge, !llvm.loop !23
@@ -3791,12 +3791,12 @@ _ZN5Ipopt8SmartPtrIKNS_16RegisteredOptionEED2Ev.exit: ; preds = %26
   br label %49
 
 47:                                               ; preds = %40, %41
-  %.018 = phi i1 [ false, %41 ], [ true, %40 ]
+  %.017 = phi i1 [ false, %41 ], [ true, %40 ]
   %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
-  br i1 %.018, label %49, label %.thread82
+  br i1 %.017, label %49, label %.thread82
 
 49:                                               ; preds = %.thread, %47
   %.pn4268 = phi { ptr, i32 } [ %46, %.thread ], [ %48, %47 ]
@@ -3901,12 +3901,12 @@ _ZN5Ipopt8SmartPtrIKNS_16RegisteredOptionEED2Ev.exit: ; preds = %26
   br label %96
 
 94:                                               ; preds = %91, %92
-  %.016 = phi i1 [ false, %92 ], [ true, %91 ]
+  %.015 = phi i1 [ false, %92 ], [ true, %91 ]
   %95 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #16
-  br i1 %.016, label %96, label %.thread87
+  br i1 %.015, label %96, label %.thread87
 
 96:                                               ; preds = %.thread69, %94
   %.pn3972 = phi { ptr, i32 } [ %93, %.thread69 ], [ %95, %94 ]
@@ -4394,12 +4394,12 @@ define noundef zeroext i1 @_ZN5Ipopt11OptionsList14ReadFromStreamERKNS_10Journal
   br label %93
 
 91:                                               ; preds = %84, %85
-  %.071 = phi i1 [ false, %85 ], [ true, %84 ]
+  %.074 = phi i1 [ false, %85 ], [ true, %84 ]
   %92 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #16
-  br i1 %.071, label %93, label %94
+  br i1 %.074, label %93, label %94
 
 93:                                               ; preds = %.thread, %91
   %.pn104117 = phi { ptr, i32 } [ %90, %.thread ], [ %92, %91 ]
@@ -4479,12 +4479,12 @@ define noundef zeroext i1 @_ZN5Ipopt11OptionsList14ReadFromStreamERKNS_10Journal
   br label %125
 
 123:                                              ; preds = %116, %117
-  %.074 = phi i1 [ false, %117 ], [ true, %116 ]
+  %.072 = phi i1 [ false, %117 ], [ true, %116 ]
   %124 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #16
-  br i1 %.074, label %125, label %126
+  br i1 %.072, label %125, label %126
 
 125:                                              ; preds = %.thread118, %123
   %.pn101121 = phi { ptr, i32 } [ %122, %.thread118 ], [ %124, %123 ]
@@ -4523,8 +4523,8 @@ define noundef zeroext i1 @_ZN5Ipopt11OptionsList14ReadFromStreamERKNS_10Journal
   br i1 %.not147, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %140, %147
-  %.073146 = phi i64 [ %148, %147 ], [ 0, %140 ]
-  %144 = getelementptr inbounds i8, ptr %139, i64 %.073146
+  %.070146 = phi i64 [ %148, %147 ], [ 0, %140 ]
+  %144 = getelementptr inbounds i8, ptr %139, i64 %.070146
   %145 = load i8, ptr %144, align 1
   switch i8 %145, label %147 [
     i8 100, label %146
@@ -4536,7 +4536,7 @@ define noundef zeroext i1 @_ZN5Ipopt11OptionsList14ReadFromStreamERKNS_10Journal
   br label %147
 
 147:                                              ; preds = %.lr.ph, %146
-  %148 = add nuw i64 %.073146, 1
+  %148 = add nuw i64 %.070146, 1
   %149 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %150 = icmp ult i64 %148, %149
   br i1 %150, label %.lr.ph, label %._crit_edge, !llvm.loop !26
@@ -4624,12 +4624,12 @@ define noundef zeroext i1 @_ZN5Ipopt11OptionsList14ReadFromStreamERKNS_10Journal
   br label %179
 
 177:                                              ; preds = %166, %167
-  %.069 = phi i1 [ false, %167 ], [ true, %166 ]
+  %.068 = phi i1 [ false, %167 ], [ true, %166 ]
   %178 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #16
-  br i1 %.069, label %179, label %180
+  br i1 %.068, label %179, label %180
 
 179:                                              ; preds = %.thread122, %177
   %.pn96126 = phi { ptr, i32 } [ %176, %.thread122 ], [ %178, %177 ]
@@ -4698,12 +4698,12 @@ define noundef zeroext i1 @_ZN5Ipopt11OptionsList14ReadFromStreamERKNS_10Journal
   br label %203
 
 201:                                              ; preds = %194, %195
-  %.066 = phi i1 [ false, %195 ], [ true, %194 ]
+  %.047 = phi i1 [ false, %195 ], [ true, %194 ]
   %202 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #16
-  br i1 %.066, label %203, label %204
+  br i1 %.047, label %203, label %204
 
 203:                                              ; preds = %.thread127, %201
   %.pn98130 = phi { ptr, i32 } [ %200, %.thread127 ], [ %202, %201 ]

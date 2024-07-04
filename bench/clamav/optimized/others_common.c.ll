@@ -1181,7 +1181,7 @@ sub_0.lr.ph.lr.ph:                                ; preds = %25
 sub_0.lr.ph:                                      ; preds = %sub_0.lr.ph.lr.ph, %cli_max_realloc.exit
   %32 = phi ptr [ %27, %sub_0.lr.ph.lr.ph ], [ %122, %cli_max_realloc.exit ]
   %.0100.i.ph70 = phi ptr [ null, %sub_0.lr.ph.lr.ph ], [ %108, %cli_max_realloc.exit ]
-  %.0105.i.ph69 = phi i64 [ 0, %sub_0.lr.ph.lr.ph ], [ %104, %cli_max_realloc.exit ]
+  %.0107.i.ph69 = phi i64 [ 0, %sub_0.lr.ph.lr.ph ], [ %104, %cli_max_realloc.exit ]
   br label %sub_0
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %.backedge
@@ -1374,9 +1374,9 @@ cli_max_malloc.exit.tail:                         ; preds = %sub_029, %sub_130
   br label %.loopexit33
 
 .loopexit33:                                      ; preds = %96, %103
-  %.0104.i = phi ptr [ %99, %103 ], [ null, %96 ]
-  %104 = add nuw nsw i64 %.0105.i.ph69, 1
-  %exitcond = icmp eq i64 %.0105.i.ph69, 26843545
+  %.0102.i = phi ptr [ %99, %103 ], [ null, %96 ]
+  %104 = add nuw nsw i64 %.0107.i.ph69, 1
+  %exitcond = icmp eq i64 %.0107.i.ph69, 26843545
   br i1 %exitcond, label %105, label %106
 
 105:                                              ; preds = %.loopexit33
@@ -1398,18 +1398,18 @@ cli_max_malloc.exit.tail:                         ; preds = %sub_029, %sub_130
   %.1.i = select i1 %.not130.i, ptr null, ptr %9
   %111 = call i32 %3(ptr noundef %.1.i, ptr noundef null, ptr noundef nonnull %69, i32 noundef 2, ptr noundef %4) #22
   call void @free(ptr noundef nonnull %69) #22
-  %.not137.i = icmp eq ptr %.0104.i, null
+  %.not137.i = icmp eq ptr %.0102.i, null
   br i1 %.not137.i, label %.thread, label %112
 
 112:                                              ; preds = %110
-  call void @free(ptr noundef nonnull %.0104.i) #22
+  call void @free(ptr noundef nonnull %.0102.i) #22
   br label %.thread
 
 cli_max_realloc.exit:                             ; preds = %106
-  %113 = getelementptr inbounds %struct.dirent_data, ptr %108, i64 %.0105.i.ph69
+  %113 = getelementptr inbounds %struct.dirent_data, ptr %108, i64 %.0107.i.ph69
   store ptr %69, ptr %113, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 16
-  store ptr %.0104.i, ptr %114, align 8
+  store ptr %.0102.i, ptr %114, align 8
   %115 = icmp eq i32 %92, 2
   %116 = zext i1 %115 to i32
   %117 = getelementptr inbounds i8, ptr %113, i64 32
@@ -1440,19 +1440,19 @@ cli_max_realloc.exit:                             ; preds = %106
   br i1 %.not138.i, label %cli_ftw_dir.exit, label %126
 
 126:                                              ; preds = %.loopexit32
-  call void @cli_qsort(ptr noundef nonnull %.0100.i.ph70, i64 noundef %.0105.i.ph69, i64 noundef 40, ptr noundef nonnull @ftw_compare) #22
-  %.not82 = icmp eq i64 %.0105.i.ph69, 0
+  call void @cli_qsort(ptr noundef nonnull %.0100.i.ph70, i64 noundef %.0107.i.ph69, i64 noundef 40, ptr noundef nonnull @ftw_compare) #22
+  %.not82 = icmp eq i64 %.0107.i.ph69, 0
   br i1 %.not82, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread129, %126
-  %.0105.i.ph57127135 = phi i64 [ %104, %.thread129 ], [ %.0105.i.ph69, %126 ]
+  %.0107.i.ph57127135 = phi i64 [ %104, %.thread129 ], [ %.0107.i.ph69, %126 ]
   %.0100.i.ph53128133 = phi ptr [ %108, %.thread129 ], [ %.0100.i.ph70, %126 ]
   %127 = add nsw i32 %2, -1
   br label %128
 
 128:                                              ; preds = %.lr.ph, %141
-  %.0102.i73 = phi i64 [ 0, %.lr.ph ], [ %142, %141 ]
-  %129 = getelementptr inbounds %struct.dirent_data, ptr %.0100.i.ph53128133, i64 %.0102.i73
+  %.0103.i73 = phi i64 [ 0, %.lr.ph ], [ %142, %141 ]
+  %129 = getelementptr inbounds %struct.dirent_data, ptr %.0100.i.ph53128133, i64 %.0103.i73
   %130 = call fastcc i32 @handle_entry(ptr noundef nonnull %129, i32 noundef %1, i32 noundef %127, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %131 = getelementptr inbounds i8, ptr %129, i64 32
   %132 = load i32, ptr %131, align 8
@@ -1483,29 +1483,29 @@ cli_max_realloc.exit:                             ; preds = %106
   br label %.loopexit
 
 141:                                              ; preds = %139
-  %142 = add nuw nsw i64 %.0102.i73, 1
-  %exitcond117.not = icmp eq i64 %142, %.0105.i.ph57127135
+  %142 = add nuw nsw i64 %.0103.i73, 1
+  %exitcond117.not = icmp eq i64 %142, %.0107.i.ph57127135
   br i1 %exitcond117.not, label %.loopexit, label %128
 
 .loopexit:                                        ; preds = %141, %126, %140
-  %.0105.i.ph57127136 = phi i64 [ %.0105.i.ph57127135, %140 ], [ 0, %126 ], [ %.0105.i.ph57127135, %141 ]
+  %.0107.i.ph57127136 = phi i64 [ %.0107.i.ph57127135, %140 ], [ 0, %126 ], [ %.0107.i.ph57127135, %141 ]
   %.0100.i.ph53128134 = phi ptr [ %.0100.i.ph53128133, %140 ], [ %.0100.i.ph70, %126 ], [ %.0100.i.ph53128133, %141 ]
-  %.0102.i35 = phi i64 [ %.0102.i73, %140 ], [ 0, %126 ], [ %.0105.i.ph57127135, %141 ]
-  %.1108.i = phi i32 [ %130, %140 ], [ 0, %126 ], [ 0, %141 ]
-  %.1103.i75 = add i64 %.0102.i35, 1
-  %143 = icmp ult i64 %.1103.i75, %.0105.i.ph57127136
+  %.0103.i35 = phi i64 [ %.0103.i73, %140 ], [ 0, %126 ], [ %.0107.i.ph57127135, %141 ]
+  %.1106.i = phi i32 [ %130, %140 ], [ 0, %126 ], [ 0, %141 ]
+  %.1104.i75 = add i64 %.0103.i35, 1
+  %143 = icmp ult i64 %.1104.i75, %.0107.i.ph57127136
   br i1 %143, label %.lr.ph77, label %._crit_edge
 
 .lr.ph77:                                         ; preds = %.loopexit, %.lr.ph77
-  %.1103.i76 = phi i64 [ %.1103.i, %.lr.ph77 ], [ %.1103.i75, %.loopexit ]
-  %144 = getelementptr inbounds %struct.dirent_data, ptr %.0100.i.ph53128134, i64 %.1103.i76
+  %.1104.i76 = phi i64 [ %.1104.i, %.lr.ph77 ], [ %.1104.i75, %.loopexit ]
+  %144 = getelementptr inbounds %struct.dirent_data, ptr %.0100.i.ph53128134, i64 %.1104.i76
   %145 = load ptr, ptr %144, align 8
   call void @free(ptr noundef %145) #22
   %146 = getelementptr inbounds i8, ptr %144, i64 16
   %147 = load ptr, ptr %146, align 8
   call void @free(ptr noundef %147) #22
-  %.1103.i = add nuw nsw i64 %.1103.i76, 1
-  %exitcond118.not = icmp eq i64 %.1103.i, %.0105.i.ph57127136
+  %.1104.i = add nuw nsw i64 %.1104.i76, 1
+  %exitcond118.not = icmp eq i64 %.1104.i, %.0107.i.ph57127136
   br i1 %exitcond118.not, label %._crit_edge, label %.lr.ph77
 
 ._crit_edge:                                      ; preds = %.lr.ph77, %.loopexit
@@ -1517,7 +1517,7 @@ cli_max_realloc.exit:                             ; preds = %106
   br label %cli_ftw_dir.exit
 
 cli_ftw_dir.exit:                                 ; preds = %.loopexit32.thread, %.thread, %21, %.loopexit32, %._crit_edge, %148
-  %.0.i = phi i32 [ %22, %21 ], [ %.1108.i, %._crit_edge ], [ 0, %.loopexit32 ], [ %149, %148 ], [ 0, %.thread ], [ 0, %.loopexit32.thread ]
+  %.0.i = phi i32 [ %22, %21 ], [ %.1106.i, %._crit_edge ], [ 0, %.loopexit32 ], [ %149, %148 ], [ 0, %.thread ], [ 0, %.loopexit32.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9)
@@ -1775,7 +1775,7 @@ define noalias noundef ptr @cli_genfname(ptr noundef %0) local_unnamed_addr #0 {
 
 .thread45:                                        ; preds = %1, %6, %8, %10
   %.053 = phi i64 [ %12, %10 ], [ 60, %8 ], [ 60, %6 ], [ 60, %1 ]
-  %.0274350 = phi ptr [ %9, %10 ], [ %9, %8 ], [ null, %6 ], [ null, %1 ]
+  %.0264350 = phi ptr [ %9, %10 ], [ %9, %8 ], [ null, %6 ], [ null, %1 ]
   %16 = call noalias ptr @calloc(i64 noundef %.053, i64 noundef 1) #26
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %cli_max_calloc.exit
@@ -1786,13 +1786,13 @@ define noalias noundef ptr @cli_genfname(ptr noundef %0) local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %15, %17
-  %.0274348.ph = phi ptr [ %.0274350, %17 ], [ %9, %15 ]
+  %.0264348.ph = phi ptr [ %.0264350, %17 ], [ %9, %15 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34)
-  %.not37 = icmp eq ptr %.0274348.ph, null
+  %.not37 = icmp eq ptr %.0264348.ph, null
   br i1 %.not37, label %59, label %19
 
 19:                                               ; preds = %18
-  call void @free(ptr noundef nonnull %.0274348.ph) #22
+  call void @free(ptr noundef nonnull %.0264348.ph) #22
   br label %59
 
 cli_max_calloc.exit:                              ; preds = %.thread45
@@ -1849,7 +1849,7 @@ cli_md5buff.exit.thread:                          ; preds = %39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %42 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @cli_gentemp_mutex) #22
   call void @free(ptr noundef %16) #22
-  %.not40 = icmp eq ptr %.0274350, null
+  %.not40 = icmp eq ptr %.0264350, null
   br i1 %.not40, label %51, label %50
 
 cli_max_calloc.exit.i:                            ; preds = %39, %cli_max_calloc.exit.i
@@ -1872,7 +1872,7 @@ cli_md5buff.exit:                                 ; preds = %cli_max_calloc.exit
   br i1 %.not38, label %54, label %52
 
 50:                                               ; preds = %cli_md5buff.exit.thread
-  call void @free(ptr noundef nonnull %.0274350) #22
+  call void @free(ptr noundef nonnull %.0264350) #22
   br label %51
 
 51:                                               ; preds = %50, %cli_md5buff.exit.thread
@@ -1888,11 +1888,11 @@ cli_md5buff.exit:                                 ; preds = %cli_max_calloc.exit
   br label %56
 
 56:                                               ; preds = %54, %52
-  %.not39 = icmp eq ptr %.0274350, null
+  %.not39 = icmp eq ptr %.0264350, null
   br i1 %.not39, label %58, label %57
 
 57:                                               ; preds = %56
-  call void @free(ptr noundef nonnull %.0274350) #22
+  call void @free(ptr noundef nonnull %.0264350) #22
   br label %58
 
 58:                                               ; preds = %57, %56
@@ -1900,8 +1900,8 @@ cli_md5buff.exit:                                 ; preds = %cli_max_calloc.exit
   br label %59
 
 59:                                               ; preds = %18, %19, %58, %51
-  %.026 = phi ptr [ null, %51 ], [ %16, %58 ], [ null, %19 ], [ null, %18 ]
-  ret ptr %.026
+  %.027 = phi ptr [ null, %51 ], [ %16, %58 ], [ null, %19 ], [ null, %18 ]
+  ret ptr %.027
 }
 
 ; Function Attrs: nofree nounwind

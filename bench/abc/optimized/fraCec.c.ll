@@ -226,7 +226,7 @@ Abc_Clock.exit143:                                ; preds = %Abc_Clock.exit139
   br label %.thread
 
 .thread:                                          ; preds = %94, %.fold.split, %92, %95
-  %.0110159 = phi i32 [ 0, %95 ], [ 0, %.fold.split ], [ -1, %92 ], [ 1, %94 ]
+  %.0109159 = phi i32 [ 0, %95 ], [ 0, %.fold.split ], [ -1, %92 ], [ 1, %94 ]
   br i1 %.not128, label %103, label %101
 
 101:                                              ; preds = %.thread
@@ -437,7 +437,7 @@ Abc_Clock.exit155:                                ; preds = %Abc_Clock.exit151
   br label %.thread161
 
 .thread161:                                       ; preds = %173, %.fold.split132, %Abc_Clock.exit155, %174
-  %.0109163 = phi i32 [ 0, %174 ], [ 0, %.fold.split132 ], [ -1, %Abc_Clock.exit155 ], [ 1, %173 ]
+  %.0163 = phi i32 [ 0, %174 ], [ 0, %.fold.split132 ], [ -1, %Abc_Clock.exit155 ], [ 1, %173 ]
   br i1 %.not120, label %182, label %180
 
 180:                                              ; preds = %.thread161
@@ -461,8 +461,8 @@ Vec_IntFree.exit157:                              ; preds = %182, %185
   br label %186
 
 186:                                              ; preds = %Vec_IntFree.exit157, %Vec_IntFree.exit153, %162, %159, %142, %Vec_IntFree.exit145, %Vec_IntFree.exit, %65, %62, %58
-  %.0 = phi i32 [ 1, %58 ], [ 1, %Vec_IntFree.exit ], [ %.0110159, %Vec_IntFree.exit145 ], [ 1, %62 ], [ 1, %65 ], [ 1, %142 ], [ 1, %Vec_IntFree.exit153 ], [ %.0109163, %Vec_IntFree.exit157 ], [ 1, %159 ], [ 1, %162 ]
-  ret i32 %.0
+  %.0110 = phi i32 [ 1, %58 ], [ 1, %Vec_IntFree.exit ], [ %.0109159, %Vec_IntFree.exit145 ], [ 1, %62 ], [ 1, %65 ], [ 1, %142 ], [ 1, %Vec_IntFree.exit153 ], [ %.0163, %Vec_IntFree.exit157 ], [ 1, %159 ], [ 1, %162 ]
+  ret i32 %.0110
 }
 
 declare ptr @Cnf_Derive(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1307,8 +1307,8 @@ define noundef i32 @Fra_FraigCecTop(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %30
 
 30:                                               ; preds = %27, %25
-  %.027 = phi i32 [ %26, %25 ], [ %29, %27 ]
-  switch i32 %.027, label %53 [
+  %.0 = phi i32 [ %26, %25 ], [ %29, %27 ]
+  switch i32 %.0, label %53 [
     i32 1, label %31
     i32 0, label %42
   ]
@@ -1387,7 +1387,7 @@ Abc_Clock.exit47:                                 ; preds = %53, %57
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %67)
   %68 = load ptr, ptr @stdout, align 8
   %69 = call i32 @fflush(ptr noundef %68)
-  ret i32 %.027
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind

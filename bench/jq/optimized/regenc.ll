@@ -1060,12 +1060,12 @@ define i32 @onigenc_mbn_mbc_to_code(ptr nocapture noundef readonly %0, ptr nound
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.01724 = phi ptr [ %.017, %.lr.ph ], [ %.01719, %.preheader ]
   %.023 = phi i32 [ %13, %.lr.ph ], [ %7, %.preheader ]
-  %.01622 = phi i32 [ %14, %.lr.ph ], [ 1, %.preheader ]
+  %.01522 = phi i32 [ %14, %.lr.ph ], [ 1, %.preheader ]
   %10 = load i8, ptr %.01724, align 1
   %11 = zext i8 %10 to i32
   %12 = shl i32 %.023, 8
   %13 = or disjoint i32 %12, %11
-  %14 = add nuw nsw i32 %.01622, 1
+  %14 = add nuw nsw i32 %.01522, 1
   %.017 = getelementptr inbounds i8, ptr %.01724, i64 1
   %15 = icmp slt i32 %14, %5
   %.not = icmp ult ptr %.017, %2
@@ -1073,8 +1073,8 @@ define i32 @onigenc_mbn_mbc_to_code(ptr nocapture noundef readonly %0, ptr nound
   br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %3
-  %.015 = phi i32 [ %7, %3 ], [ %7, %.preheader ], [ %13, %.lr.ph ]
-  ret i32 %.015
+  %.016 = phi i32 [ %7, %3 ], [ %7, %.preheader ], [ %13, %.lr.ph ]
+  ret i32 %.016
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1102,11 +1102,11 @@ define i32 @onigenc_mbn_mbc_case_fold(ptr nocapture noundef readonly %0, i32 nou
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %.021 = phi i32 [ %22, %.lr.ph ], [ 0, %15 ]
   %.01520 = phi ptr [ %19, %.lr.ph ], [ %6, %15 ]
-  %.01719 = phi ptr [ %21, %.lr.ph ], [ %4, %15 ]
+  %.01619 = phi ptr [ %21, %.lr.ph ], [ %4, %15 ]
   %19 = getelementptr inbounds i8, ptr %.01520, i64 1
   %20 = load i8, ptr %.01520, align 1
-  %21 = getelementptr inbounds i8, ptr %.01719, i64 1
-  store i8 %20, ptr %.01719, align 1
+  %21 = getelementptr inbounds i8, ptr %.01619, i64 1
+  store i8 %20, ptr %.01619, align 1
   %22 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %22, %17
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
@@ -1119,9 +1119,9 @@ define i32 @onigenc_mbn_mbc_case_fold(ptr nocapture noundef readonly %0, i32 nou
 
 26:                                               ; preds = %._crit_edge, %9
   %storemerge = phi ptr [ %25, %._crit_edge ], [ %14, %9 ]
-  %.016 = phi i32 [ %17, %._crit_edge ], [ 1, %9 ]
+  %.017 = phi i32 [ %17, %._crit_edge ], [ 1, %9 ]
   store ptr %storemerge, ptr %2, align 8
-  ret i32 %.016
+  ret i32 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1233,8 +1233,8 @@ onigenc_strlen.exit:                              ; preds = %.lr.ph.i, %3
 
 12:                                               ; preds = %onigenc_strlen.exit, %onigenc_with_ascii_strncmp.exit.thread35
   %13 = phi ptr [ @.str, %onigenc_strlen.exit ], [ %38, %onigenc_with_ascii_strncmp.exit.thread35 ]
-  %.01326 = phi ptr [ @onigenc_minimum_property_name_to_ctype.PBS, %onigenc_strlen.exit ], [ %37, %onigenc_with_ascii_strncmp.exit.thread35 ]
-  %14 = getelementptr inbounds i8, ptr %.01326, i64 12
+  %.026 = phi ptr [ @onigenc_minimum_property_name_to_ctype.PBS, %onigenc_strlen.exit ], [ %37, %onigenc_with_ascii_strncmp.exit.thread35 ]
+  %14 = getelementptr inbounds i8, ptr %.026, i64 12
   %15 = load i16, ptr %14, align 4
   %16 = sext i16 %15 to i32
   %17 = icmp eq i32 %.07.lcssa.i, %16
@@ -1246,48 +1246,48 @@ onigenc_strlen.exit:                              ; preds = %.lr.ph.i, %3
 
 .lr.ph.i16:                                       ; preds = %18, %26
   %.in.i = phi i32 [ %20, %26 ], [ %.07.lcssa.i, %18 ]
-  %.01523.i = phi ptr [ %31, %26 ], [ %1, %18 ]
-  %.01722.i = phi ptr [ %27, %26 ], [ %13, %18 ]
+  %.01623.i = phi ptr [ %27, %26 ], [ %13, %18 ]
+  %.01722.i = phi ptr [ %31, %26 ], [ %1, %18 ]
   %20 = add nsw i32 %.in.i, -1
-  %.not.i = icmp ult ptr %.01523.i, %2
+  %.not.i = icmp ult ptr %.01722.i, %2
   br i1 %.not.i, label %21, label %onigenc_with_ascii_strncmp.exit
 
 21:                                               ; preds = %.lr.ph.i16
   %22 = load ptr, ptr %11, align 8
-  %23 = tail call i32 %22(ptr noundef %.01523.i, ptr noundef nonnull %2) #16
-  %24 = load i8, ptr %.01722.i, align 1
+  %23 = tail call i32 %22(ptr noundef %.01722.i, ptr noundef nonnull %2) #16
+  %24 = load i8, ptr %.01623.i, align 1
   %25 = zext i8 %24 to i32
   %.not20.i = icmp eq i32 %23, %25
   br i1 %.not20.i, label %26, label %onigenc_with_ascii_strncmp.exit.thread35
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %.01722.i, i64 1
+  %27 = getelementptr inbounds i8, ptr %.01623.i, i64 1
   %28 = load ptr, ptr %0, align 8
-  %29 = tail call i32 %28(ptr noundef %.01523.i) #16
+  %29 = tail call i32 %28(ptr noundef %.01722.i) #16
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %.01523.i, i64 %30
+  %31 = getelementptr inbounds i8, ptr %.01722.i, i64 %30
   %32 = icmp ugt i32 %.in.i, 1
   br i1 %32, label %.lr.ph.i16, label %onigenc_with_ascii_strncmp.exit.thread, !llvm.loop !22
 
 onigenc_with_ascii_strncmp.exit:                  ; preds = %.lr.ph.i16
-  %33 = load i8, ptr %.01722.i, align 1
+  %33 = load i8, ptr %.01623.i, align 1
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %onigenc_with_ascii_strncmp.exit.thread, label %onigenc_with_ascii_strncmp.exit.thread35
 
 onigenc_with_ascii_strncmp.exit.thread:           ; preds = %18, %onigenc_with_ascii_strncmp.exit, %26
-  %35 = getelementptr inbounds i8, ptr %.01326, i64 8
+  %35 = getelementptr inbounds i8, ptr %.026, i64 8
   %36 = load i32, ptr %35, align 8
   br label %.loopexit
 
 onigenc_with_ascii_strncmp.exit.thread35:         ; preds = %21, %12, %onigenc_with_ascii_strncmp.exit
-  %37 = getelementptr inbounds i8, ptr %.01326, i64 16
+  %37 = getelementptr inbounds i8, ptr %.026, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %.loopexit, label %12, !llvm.loop !23
 
 .loopexit:                                        ; preds = %onigenc_with_ascii_strncmp.exit.thread35, %onigenc_with_ascii_strncmp.exit.thread
-  %.0 = phi i32 [ %36, %onigenc_with_ascii_strncmp.exit.thread ], [ -223, %onigenc_with_ascii_strncmp.exit.thread35 ]
-  ret i32 %.0
+  %.013 = phi i32 [ %36, %onigenc_with_ascii_strncmp.exit.thread ], [ -223, %onigenc_with_ascii_strncmp.exit.thread35 ]
+  ret i32 %.013
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1301,32 +1301,32 @@ define range(i32 -2147483647, -2147483648) i32 @onigenc_with_ascii_strncmp(ptr n
 
 8:                                                ; preds = %.lr.ph, %19
   %.in = phi i32 [ %4, %.lr.ph ], [ %9, %19 ]
-  %.01523 = phi ptr [ %1, %.lr.ph ], [ %24, %19 ]
-  %.01722 = phi ptr [ %3, %.lr.ph ], [ %20, %19 ]
+  %.01623 = phi ptr [ %3, %.lr.ph ], [ %20, %19 ]
+  %.01722 = phi ptr [ %1, %.lr.ph ], [ %24, %19 ]
   %9 = add nsw i32 %.in, -1
-  %.not = icmp ult ptr %.01523, %2
+  %.not = icmp ult ptr %.01722, %2
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = load i8, ptr %.01722, align 1
+  %11 = load i8, ptr %.01623, align 1
   %12 = zext i8 %11 to i32
   br label %.loopexit
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %7, align 8
-  %15 = tail call i32 %14(ptr noundef %.01523, ptr noundef nonnull %2) #16
-  %16 = load i8, ptr %.01722, align 1
+  %15 = tail call i32 %14(ptr noundef %.01722, ptr noundef nonnull %2) #16
+  %16 = load i8, ptr %.01623, align 1
   %17 = zext i8 %16 to i32
   %18 = sub nsw i32 %17, %15
   %.not20 = icmp eq i32 %18, 0
   br i1 %.not20, label %19, label %.loopexit
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %.01722, i64 1
+  %20 = getelementptr inbounds i8, ptr %.01623, i64 1
   %21 = load ptr, ptr %0, align 8
-  %22 = tail call i32 %21(ptr noundef %.01523) #16
+  %22 = tail call i32 %21(ptr noundef %.01722) #16
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.01523, i64 %23
+  %24 = getelementptr inbounds i8, ptr %.01722, i64 %23
   %25 = icmp ugt i32 %.in, 1
   br i1 %25, label %8, label %.loopexit, !llvm.loop !22
 

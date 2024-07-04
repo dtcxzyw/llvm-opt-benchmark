@@ -110,15 +110,15 @@ Vec_IntDup.exit:                                  ; preds = %Abc_Clock.exit, %24
   br label %39
 
 39:                                               ; preds = %37, %32
-  %.054 = phi i32 [ %36, %32 ], [ %38, %37 ]
+  %.060 = phi i32 [ %36, %32 ], [ %38, %37 ]
   %40 = getelementptr inbounds i8, ptr %0, i64 24
   %41 = getelementptr i8, ptr %0, i64 32
   %42 = getelementptr i8, ptr %0, i64 72
   %43 = getelementptr i8, ptr %0, i64 16
   %44 = getelementptr i8, ptr %0, i64 64
   %45 = getelementptr inbounds i8, ptr %11, i64 8
-  %.not.i97 = icmp eq i32 %.054, 0
-  %46 = add nsw i32 %.054, 1
+  %.not.i97 = icmp eq i32 %.060, 0
+  %46 = add nsw i32 %.060, 1
   %47 = select i1 %.not.i97, i32 10000000, i32 %46
   %48 = getelementptr inbounds i8, ptr %9, i64 8
   %49 = load i32, ptr %40, align 8
@@ -132,8 +132,8 @@ Vec_IntDup.exit:                                  ; preds = %Abc_Clock.exit, %24
 
 .split:                                           ; preds = %.split.preheader, %.critedge
   %53 = phi i32 [ %192, %.critedge ], [ %49, %.split.preheader ]
-  %.058 = phi i32 [ %.3, %.critedge ], [ 0, %.split.preheader ]
-  %.055 = phi i32 [ %.257, %.critedge ], [ 0, %.split.preheader ]
+  %.056 = phi i32 [ %.258, %.critedge ], [ 0, %.split.preheader ]
+  %.053 = phi i32 [ %.3, %.critedge ], [ 0, %.split.preheader ]
   %54 = icmp sgt i32 %53, 1
   br i1 %54, label %.lr.ph, label %.split121.us
 
@@ -141,8 +141,8 @@ Vec_IntDup.exit:                                  ; preds = %Abc_Clock.exit, %24
   %55 = phi i32 [ %192, %191 ], [ %53, %.split ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %191 ], [ 1, %.split ]
   %.0117 = phi i32 [ %.2, %191 ], [ 0, %.split ]
-  %.156115 = phi i32 [ %.257, %191 ], [ %.055, %.split ]
-  %.159114 = phi i32 [ %.3, %191 ], [ %.058, %.split ]
+  %.154116 = phi i32 [ %.3, %191 ], [ %.053, %.split ]
+  %.157115 = phi i32 [ %.258, %191 ], [ %.056, %.split ]
   %.val = load ptr, ptr %41, align 8
   %56 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
   %57 = load i64, ptr %56, align 4
@@ -270,7 +270,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %98, %105, %Gia_ObjI
 Abc_Clock.exit95:                                 ; preds = %Gia_ObjIsRo.exit.thread, %126
   %.0.i94.neg = phi i64 [ %.neg113, %126 ], [ 1, %Gia_ObjIsRo.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %129 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.156115)
+  %129 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.157115)
   %130 = trunc nuw nsw i64 %indvars.iv to i32
   %131 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %130)
   %.val86 = load ptr, ptr %41, align 8
@@ -294,7 +294,7 @@ Abc_Clock.exit95:                                 ; preds = %Gia_ObjIsRo.exit.th
   %142 = load i32, ptr %10, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %143 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %142)
-  %144 = icmp slt i32 %142, %.054
+  %144 = icmp slt i32 %142, %.060
   br i1 %144, label %145, label %155
 
 145:                                              ; preds = %Abc_Clock.exit95
@@ -316,7 +316,7 @@ Abc_Clock.exit95:                                 ; preds = %Gia_ObjIsRo.exit.th
   br label %163
 
 155:                                              ; preds = %Abc_Clock.exit95
-  %156 = add nsw i32 %.159114, 1
+  %156 = add nsw i32 %.154116, 1
   %157 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   %.val71 = load ptr, ptr %41, align 8
   %158 = ptrtoint ptr %.val71 to i64
@@ -329,7 +329,7 @@ Abc_Clock.exit95:                                 ; preds = %Gia_ObjIsRo.exit.th
   br label %163
 
 163:                                              ; preds = %155, %145
-  %.260 = phi i32 [ %.159114, %145 ], [ %156, %155 ]
+  %.255 = phi i32 [ %.154116, %145 ], [ %156, %155 ]
   %.1 = phi i32 [ %.0117, %145 ], [ 1, %155 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %164 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #10
@@ -352,7 +352,7 @@ Abc_Clock.exit100:                                ; preds = %163, %166
   %173 = sitofp i64 %172 to double
   %174 = fdiv double %173, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %174)
-  %175 = add nsw i32 %.156115, 1
+  %175 = add nsw i32 %.157115, 1
   %176 = load ptr, ptr %20, align 8
   %177 = icmp eq ptr %176, null
   br i1 %177, label %Vec_IntFreeP.exit, label %178
@@ -400,8 +400,8 @@ Vec_IntDup.exit104:                               ; preds = %Vec_IntFreeP.exit, 
 
 191:                                              ; preds = %105, %87, %65, %59, %.lr.ph, %Vec_IntDup.exit104
   %192 = phi i32 [ %55, %.lr.ph ], [ %55, %65 ], [ %55, %87 ], [ %55, %105 ], [ %.pre, %Vec_IntDup.exit104 ], [ %55, %59 ]
-  %.3 = phi i32 [ %.159114, %.lr.ph ], [ %.159114, %65 ], [ %.159114, %87 ], [ %.159114, %105 ], [ %.260, %Vec_IntDup.exit104 ], [ %.159114, %59 ]
-  %.257 = phi i32 [ %.156115, %.lr.ph ], [ %.156115, %65 ], [ %.156115, %87 ], [ %.156115, %105 ], [ %175, %Vec_IntDup.exit104 ], [ %.156115, %59 ]
+  %.258 = phi i32 [ %.157115, %.lr.ph ], [ %.157115, %65 ], [ %.157115, %87 ], [ %.157115, %105 ], [ %175, %Vec_IntDup.exit104 ], [ %.157115, %59 ]
+  %.3 = phi i32 [ %.154116, %.lr.ph ], [ %.154116, %65 ], [ %.154116, %87 ], [ %.154116, %105 ], [ %.255, %Vec_IntDup.exit104 ], [ %.154116, %59 ]
   %.2 = phi i32 [ %.0117, %.lr.ph ], [ %.0117, %65 ], [ %.0117, %87 ], [ %.0117, %105 ], [ %.1, %Vec_IntDup.exit104 ], [ %.0117, %59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %193 = sext i32 %192 to i64
@@ -413,8 +413,8 @@ Vec_IntDup.exit104:                               ; preds = %Vec_IntFreeP.exit, 
   br i1 %.not63, label %.split121.us, label %.split, !llvm.loop !6
 
 .split121.us:                                     ; preds = %.split, %.critedge, %39
-  %.us-phi = phi i32 [ 0, %39 ], [ %.058, %.split ], [ %.3, %.critedge ]
-  %.us-phi122 = phi i32 [ 0, %39 ], [ %.055, %.split ], [ %.257, %.critedge ]
+  %.us-phi = phi i32 [ 0, %39 ], [ %.056, %.split ], [ %.258, %.critedge ]
+  %.us-phi122 = phi i32 [ 0, %39 ], [ %.053, %.split ], [ %.3, %.critedge ]
   call void @Gia_ManCleanMark0(ptr noundef nonnull %0) #10
   %.not.i105 = icmp eq ptr %28, null
   br i1 %.not.i105, label %Vec_IntFree.exit, label %195
@@ -424,8 +424,8 @@ Vec_IntDup.exit104:                               ; preds = %Vec_IntFreeP.exit, 
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %.split121.us, %195
-  %196 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.us-phi122)
-  %197 = sitofp i32 %.us-phi to double
+  %196 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.us-phi)
+  %197 = sitofp i32 %.us-phi122 to double
   %198 = fmul double %197, 1.000000e+02
   %199 = load ptr, ptr %20, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 4
@@ -458,7 +458,7 @@ Vec_IntCountPositive.exit.loopexit:               ; preds = %205
 Vec_IntCountPositive.exit:                        ; preds = %Vec_IntCountPositive.exit.loopexit, %Vec_IntFree.exit
   %.0.lcssa.i = phi double [ 0.000000e+00, %Vec_IntFree.exit ], [ %211, %Vec_IntCountPositive.exit.loopexit ]
   %212 = fdiv double %198, %.0.lcssa.i
-  %213 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.us-phi, double noundef %212)
+  %213 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.us-phi122, double noundef %212)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %214 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #10
   %215 = icmp slt i32 %214, 0

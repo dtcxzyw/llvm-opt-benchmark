@@ -168,7 +168,7 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
 
 .lr.ph:                                           ; preds = %manifest_files_update_parameters.exit, %43
   %33 = phi i64 [ %45, %43 ], [ 0, %manifest_files_update_parameters.exit ]
-  %.057 = phi i32 [ %44, %43 ], [ 0, %manifest_files_update_parameters.exit ]
+  %.04957 = phi i32 [ %44, %43 ], [ 0, %manifest_files_update_parameters.exit ]
   %34 = getelementptr %struct.manifest_file, ptr %5, i64 %33
   %35 = load i32, ptr %34, align 8
   %.not = icmp eq i32 %35, 1
@@ -182,23 +182,23 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
   %40 = tail call i32 @hash_bytes(ptr noundef %.val, i32 noundef %39) #17
   %.val54 = load i32, ptr %27, align 4
   %41 = and i32 %.val54, %40
-  %42 = icmp eq i32 %41, %.057
+  %42 = icmp eq i32 %41, %.04957
   br i1 %42, label %.lr.ph65.preheader, label %43
 
 43:                                               ; preds = %36
-  %44 = add i32 %.057, 1
+  %44 = add i32 %.04957, 1
   %45 = zext i32 %44 to i64
   %46 = icmp ugt i64 %3, %45
   br i1 %46, label %.lr.ph, label %.lr.ph65.preheader, !llvm.loop !5
 
 .lr.ph65.preheader:                               ; preds = %43, %.lr.ph, %36
-  %.04962.ph = phi i32 [ %.057, %36 ], [ %.057, %.lr.ph ], [ 0, %43 ]
+  %.04763.ph = phi i32 [ 0, %43 ], [ %.04957, %.lr.ph ], [ %.04957, %36 ]
   br label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %63
-  %.163 = phi i32 [ %66, %63 ], [ 0, %.lr.ph65.preheader ]
-  %.04962 = phi i32 [ %spec.store.select, %63 ], [ %.04962.ph, %.lr.ph65.preheader ]
-  %47 = zext i32 %.04962 to i64
+  %.04763 = phi i32 [ %spec.store.select, %63 ], [ %.04763.ph, %.lr.ph65.preheader ]
+  %.162 = phi i32 [ %66, %63 ], [ 0, %.lr.ph65.preheader ]
+  %47 = zext i32 %.04763 to i64
   %48 = getelementptr %struct.manifest_file, ptr %5, i64 %47
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 1
@@ -215,12 +215,12 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
 
 56:                                               ; preds = %56, %51
   %.pn = phi i32 [ %55, %51 ], [ %61, %56 ]
-  %.047 = and i32 %.pn, %.val55
-  %57 = zext i32 %.047 to i64
+  %.0 = and i32 %.pn, %.val55
+  %57 = zext i32 %.0 to i64
   %58 = getelementptr %struct.manifest_file, ptr %15, i64 %57
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %59, 0
-  %61 = add i32 %.047, 1
+  %61 = add i32 %.0, 1
   br i1 %60, label %62, label %56
 
 62:                                               ; preds = %56
@@ -228,11 +228,11 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
   br label %63
 
 63:                                               ; preds = %62, %.lr.ph65
-  %64 = add i32 %.04962, 1
+  %64 = add i32 %.04763, 1
   %65 = zext i32 %64 to i64
   %.not52 = icmp ugt i64 %3, %65
   %spec.store.select = select i1 %.not52, i32 %64, i32 0
-  %66 = add i32 %.163, 1
+  %66 = add i32 %.162, 1
   %67 = zext i32 %66 to i64
   %68 = icmp ugt i64 %3, %67
   br i1 %68, label %.lr.ph65, label %._crit_edge66, !llvm.loop !7
@@ -297,7 +297,7 @@ define internal fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noca
 
 .lr.ph:                                           ; preds = %18, %79
   %25 = phi ptr [ %81, %79 ], [ %22, %18 ]
-  %.069108 = phi i32 [ %69, %79 ], [ %20, %18 ]
+  %.073108 = phi i32 [ %69, %79 ], [ %20, %18 ]
   %.074107 = phi i32 [ %70, %79 ], [ 0, %18 ]
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -311,20 +311,20 @@ define internal fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noca
   %33 = tail call i32 @hash_bytes(ptr noundef %27, i32 noundef %32) #17
   %.val76 = load i32, ptr %8, align 4
   %34 = and i32 %.val76, %33
-  %.not.i = icmp ugt i32 %34, %.069108
+  %.not.i = icmp ugt i32 %34, %.073108
   br i1 %.not.i, label %35, label %manifest_files_distance.exit
 
 35:                                               ; preds = %30
   %36 = load i64, ptr %0, align 8
   %37 = trunc i64 %36 to i32
-  %38 = add i32 %.069108, %37
+  %38 = add i32 %.073108, %37
   br label %manifest_files_distance.exit
 
 manifest_files_distance.exit:                     ; preds = %30, %35
-  %.pn.i = phi i32 [ %38, %35 ], [ %.069108, %30 ]
+  %.pn.i = phi i32 [ %38, %35 ], [ %.073108, %30 ]
   %.0.i = sub i32 %.pn.i, %34
   %39 = icmp ugt i32 %.074107, %.0.i
-  %40 = add i32 %.069108, 1
+  %40 = add i32 %.073108, 1
   br i1 %39, label %.preheader81, label %68
 
 .preheader81:                                     ; preds = %manifest_files_distance.exit
@@ -338,13 +338,13 @@ manifest_files_distance.exit:                     ; preds = %30, %35
 .preheader:                                       ; preds = %.preheader81, %57
   %.lcssa94 = phi i32 [ %59, %57 ], [ %41, %.preheader81 ]
   %.lcssa92 = phi ptr [ %61, %57 ], [ %43, %.preheader81 ]
-  %.not75132 = icmp eq i32 %.lcssa94, %.069108
+  %.not75132 = icmp eq i32 %.lcssa94, %.073108
   br i1 %.not75132, label %.sink.split, label %.lr.ph135
 
 .lr.ph114:                                        ; preds = %.preheader81, %57
   %46 = phi i32 [ %59, %57 ], [ %41, %.preheader81 ]
-  %.070113 = phi i32 [ %47, %57 ], [ 0, %.preheader81 ]
-  %47 = add i32 %.070113, 1
+  %.069113 = phi i32 [ %47, %57 ], [ 0, %.preheader81 ]
+  %47 = add i32 %.069113, 1
   %48 = icmp sgt i32 %47, 150
   br i1 %48, label %49, label %57
 
@@ -372,15 +372,15 @@ manifest_files_distance.exit:                     ; preds = %30, %35
   br i1 %63, label %.preheader, label %.lr.ph114
 
 .lr.ph135:                                        ; preds = %.preheader, %.lr.ph135
-  %.071134 = phi i32 [ %65, %.lr.ph135 ], [ %.lcssa94, %.preheader ]
-  %.073133 = phi ptr [ %67, %.lr.ph135 ], [ %.lcssa92, %.preheader ]
+  %.070134 = phi i32 [ %65, %.lr.ph135 ], [ %.lcssa94, %.preheader ]
+  %.072133 = phi ptr [ %67, %.lr.ph135 ], [ %.lcssa92, %.preheader ]
   %.val80 = load i32, ptr %8, align 4
-  %64 = add i32 %.071134, -1
+  %64 = add i32 %.070134, -1
   %65 = and i32 %.val80, %64
   %66 = zext i32 %65 to i64
   %67 = getelementptr %struct.manifest_file, ptr %19, i64 %66
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.073133, ptr noundef nonnull align 8 dereferenceable(40) %67, i64 40, i1 false)
-  %.not75 = icmp eq i32 %65, %.069108
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.072133, ptr noundef nonnull align 8 dereferenceable(40) %67, i64 40, i1 false)
+  %.not75 = icmp eq i32 %65, %.073108
   br i1 %.not75, label %.sink.split, label %.lr.ph135, !llvm.loop !8
 
 68:                                               ; preds = %manifest_files_distance.exit
@@ -446,7 +446,7 @@ define dso_local noundef ptr @manifest_files_lookup(ptr nocapture noundef readon
 
 .lr.ph.i:                                         ; preds = %2, %19
   %14 = phi ptr [ %23, %19 ], [ %11, %2 ]
-  %.01214.i = phi i32 [ %21, %19 ], [ %7, %2 ]
+  %.014.i = phi i32 [ %21, %19 ], [ %7, %2 ]
   %15 = getelementptr inbounds i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull readonly dereferenceable(1) %1) #19
@@ -454,7 +454,7 @@ define dso_local noundef ptr @manifest_files_lookup(ptr nocapture noundef readon
   br i1 %18, label %manifest_files_lookup_hash_internal.exit, label %19
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = add i32 %.01214.i, 1
+  %20 = add i32 %.014.i, 1
   %21 = and i32 %20, %.val.i
   %22 = zext i32 %21 to i64
   %23 = getelementptr %struct.manifest_file, ptr %9, i64 %22
@@ -463,8 +463,8 @@ define dso_local noundef ptr @manifest_files_lookup(ptr nocapture noundef readon
   br i1 %25, label %manifest_files_lookup_hash_internal.exit, label %.lr.ph.i
 
 manifest_files_lookup_hash_internal.exit:         ; preds = %.lr.ph.i, %19, %2
-  %.0.i = phi ptr [ null, %2 ], [ null, %19 ], [ %14, %.lr.ph.i ]
-  ret ptr %.0.i
+  %.012.i = phi ptr [ null, %2 ], [ null, %19 ], [ %14, %.lr.ph.i ]
+  ret ptr %.012.i
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
@@ -482,7 +482,7 @@ define dso_local noundef ptr @manifest_files_lookup_hash(ptr nocapture noundef r
 
 .lr.ph.i:                                         ; preds = %3, %17
   %12 = phi ptr [ %21, %17 ], [ %9, %3 ]
-  %.01214.i = phi i32 [ %19, %17 ], [ %5, %3 ]
+  %.014.i = phi i32 [ %19, %17 ], [ %5, %3 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull readonly dereferenceable(1) %1) #19
@@ -490,7 +490,7 @@ define dso_local noundef ptr @manifest_files_lookup_hash(ptr nocapture noundef r
   br i1 %16, label %manifest_files_lookup_hash_internal.exit, label %17
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = add i32 %.01214.i, 1
+  %18 = add i32 %.014.i, 1
   %19 = and i32 %18, %.val.i
   %20 = zext i32 %19 to i64
   %21 = getelementptr %struct.manifest_file, ptr %7, i64 %20
@@ -499,8 +499,8 @@ define dso_local noundef ptr @manifest_files_lookup_hash(ptr nocapture noundef r
   br i1 %23, label %manifest_files_lookup_hash_internal.exit, label %.lr.ph.i
 
 manifest_files_lookup_hash_internal.exit:         ; preds = %.lr.ph.i, %17, %3
-  %.0.i = phi ptr [ null, %3 ], [ null, %17 ], [ %12, %.lr.ph.i ]
-  ret ptr %.0.i
+  %.012.i = phi ptr [ null, %3 ], [ null, %17 ], [ %12, %.lr.ph.i ]
+  ret ptr %.012.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -512,8 +512,8 @@ define dso_local noundef zeroext i1 @manifest_files_delete(ptr nocapture noundef
   %.val37 = load i32, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %.03246 = and i32 %5, %.val37
-  %9 = zext i32 %.03246 to i64
+  %.03346 = and i32 %5, %.val37
+  %9 = zext i32 %.03346 to i64
   %10 = getelementptr %struct.manifest_file, ptr %8, i64 %9
   %11 = load i32, ptr %10, align 8
   %.not60 = icmp eq i32 %11, 0
@@ -522,7 +522,7 @@ define dso_local noundef zeroext i1 @manifest_files_delete(ptr nocapture noundef
 .lr.ph:                                           ; preds = %2, %44
   %12 = phi i32 [ %48, %44 ], [ %11, %2 ]
   %13 = phi ptr [ %47, %44 ], [ %10, %2 ]
-  %.03247 = phi i32 [ %.032, %44 ], [ %.03246, %2 ]
+  %.03347 = phi i32 [ %.033, %44 ], [ %.03346, %2 ]
   %14 = icmp eq i32 %12, 1
   br i1 %14, label %15, label %44
 
@@ -538,8 +538,8 @@ define dso_local noundef zeroext i1 @manifest_files_delete(ptr nocapture noundef
   %22 = load i32, ptr %21, align 8
   %23 = add i32 %22, -1
   store i32 %23, ptr %21, align 8
-  %24 = add i32 %.03247, 1
-  %25 = and i32 %24, %.val37
+  %24 = add i32 %.03347, 1
+  %25 = and i32 %.val37, %24
   %26 = zext i32 %25 to i64
   %27 = getelementptr %struct.manifest_file, ptr %8, i64 %26
   %28 = load i32, ptr %27, align 8
@@ -549,7 +549,7 @@ define dso_local noundef zeroext i1 @manifest_files_delete(ptr nocapture noundef
 .lr.ph51:                                         ; preds = %20, %37
   %29 = phi ptr [ %42, %37 ], [ %27, %20 ]
   %30 = phi i32 [ %39, %37 ], [ %25, %20 ]
-  %.03350 = phi ptr [ %29, %37 ], [ %13, %20 ]
+  %.03250 = phi ptr [ %29, %37 ], [ %13, %20 ]
   %31 = getelementptr i8, ptr %29, i64 8
   %.val = load ptr, ptr %31, align 8
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val) #19
@@ -561,10 +561,10 @@ define dso_local noundef zeroext i1 @manifest_files_delete(ptr nocapture noundef
   br i1 %36, label %._crit_edge, label %37
 
 37:                                               ; preds = %.lr.ph51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.03350, ptr noundef nonnull align 8 dereferenceable(40) %29, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.03250, ptr noundef nonnull align 8 dereferenceable(40) %29, i64 40, i1 false)
   %.val39 = load i32, ptr %6, align 4
   %38 = add i32 %30, 1
-  %39 = and i32 %38, %.val39
+  %39 = and i32 %.val39, %38
   %40 = load ptr, ptr %7, align 8
   %41 = zext i32 %39 to i64
   %42 = getelementptr %struct.manifest_file, ptr %40, i64 %41
@@ -573,14 +573,14 @@ define dso_local noundef zeroext i1 @manifest_files_delete(ptr nocapture noundef
   br i1 %.not, label %.lr.ph51, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %37, %.lr.ph51, %20
-  %.033.lcssa = phi ptr [ %13, %20 ], [ %.03350, %.lr.ph51 ], [ %29, %37 ]
-  store i32 0, ptr %.033.lcssa, align 8
+  %.032.lcssa = phi ptr [ %13, %20 ], [ %.03250, %.lr.ph51 ], [ %29, %37 ]
+  store i32 0, ptr %.032.lcssa, align 8
   br label %.loopexit
 
 44:                                               ; preds = %15, %.lr.ph
-  %45 = add i32 %.03247, 1
-  %.032 = and i32 %45, %.val37
-  %46 = zext i32 %.032 to i64
+  %45 = add i32 %.03347, 1
+  %.033 = and i32 %45, %.val37
+  %46 = zext i32 %.033 to i64
   %47 = getelementptr %struct.manifest_file, ptr %8, i64 %46
   %48 = load i32, ptr %47, align 8
   %.not61 = icmp eq i32 %48, 0
@@ -769,8 +769,8 @@ define dso_local void @manifest_files_stat(ptr nocapture noundef readonly %0) lo
   %9 = phi i64 [ %5, %.lr.ph ], [ %30, %29 ]
   %10 = phi i64 [ 0, %.lr.ph ], [ %32, %29 ]
   %.072 = phi i32 [ 0, %.lr.ph ], [ %.2, %29 ]
-  %.04871 = phi i32 [ 0, %.lr.ph ], [ %.149, %29 ]
-  %.05769 = phi i32 [ 0, %.lr.ph ], [ %31, %29 ]
+  %.05370 = phi i32 [ 0, %.lr.ph ], [ %31, %29 ]
+  %.05769 = phi i32 [ 0, %.lr.ph ], [ %.158, %29 ]
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr %struct.manifest_file, ptr %11, i64 %10
   %13 = load i32, ptr %12, align 8
@@ -785,20 +785,20 @@ define dso_local void @manifest_files_stat(ptr nocapture noundef readonly %0) lo
   %18 = tail call i32 @hash_bytes(ptr noundef %.val, i32 noundef %17) #17
   %.val68 = load i32, ptr %7, align 4
   %19 = and i32 %.val68, %18
-  %.not.i = icmp ugt i32 %19, %.05769
+  %.not.i = icmp ugt i32 %19, %.05370
   br i1 %.not.i, label %20, label %manifest_files_distance.exit
 
 20:                                               ; preds = %14
   %21 = load i64, ptr %0, align 8
   %22 = trunc i64 %21 to i32
-  %23 = add i32 %.05769, %22
+  %23 = add i32 %.05370, %22
   br label %manifest_files_distance.exit
 
 manifest_files_distance.exit:                     ; preds = %14, %20
-  %.pn.i = phi i32 [ %23, %20 ], [ %.05769, %14 ]
+  %.pn.i = phi i32 [ %23, %20 ], [ %.05370, %14 ]
   %.0.i = sub i32 %.pn.i, %19
   %spec.select = tail call i32 @llvm.umax.i32(i32 %.0.i, i32 %.072)
-  %24 = add i32 %.0.i, %.04871
+  %24 = add i32 %.0.i, %.05769
   %25 = zext i32 %19 to i64
   %26 = getelementptr i32, ptr %4, i64 %25
   %27 = load i32, ptr %26, align 4
@@ -809,27 +809,27 @@ manifest_files_distance.exit:                     ; preds = %14, %20
 
 29:                                               ; preds = %8, %manifest_files_distance.exit
   %30 = phi i64 [ %9, %8 ], [ %.pre, %manifest_files_distance.exit ]
-  %.149 = phi i32 [ %.04871, %8 ], [ %24, %manifest_files_distance.exit ]
+  %.158 = phi i32 [ %.05769, %8 ], [ %24, %manifest_files_distance.exit ]
   %.2 = phi i32 [ %.072, %8 ], [ %spec.select, %manifest_files_distance.exit ]
-  %31 = add i32 %.05769, 1
+  %31 = add i32 %.05370, 1
   %32 = zext i32 %31 to i64
   %33 = icmp ugt i64 %30, %32
   br i1 %33, label %8, label %.preheader, !llvm.loop !11
 
 .lr.ph78:                                         ; preds = %.preheader, %.lr.ph78
   %34 = phi i64 [ %41, %.lr.ph78 ], [ 0, %.preheader ]
-  %.05377 = phi i32 [ %.154, %.lr.ph78 ], [ 0, %.preheader ]
-  %.05576 = phi i32 [ %.156, %.lr.ph78 ], [ 0, %.preheader ]
-  %.15875 = phi i32 [ %40, %.lr.ph78 ], [ 0, %.preheader ]
+  %.04977 = phi i32 [ %.150, %.lr.ph78 ], [ 0, %.preheader ]
+  %.05176 = phi i32 [ %.152, %.lr.ph78 ], [ 0, %.preheader ]
+  %.15475 = phi i32 [ %40, %.lr.ph78 ], [ 0, %.preheader ]
   %35 = getelementptr i32, ptr %4, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
   %38 = add i32 %36, -1
-  %spec.select67 = tail call i32 @llvm.umax.i32(i32 %38, i32 %.05377)
+  %spec.select67 = tail call i32 @llvm.umax.i32(i32 %38, i32 %.04977)
   %39 = tail call i32 @llvm.usub.sat.i32(i32 %36, i32 1)
-  %.156 = add i32 %39, %.05576
-  %.154 = select i1 %37, i32 %.05377, i32 %spec.select67
-  %40 = add i32 %.15875, 1
+  %.152 = add i32 %39, %.05176
+  %.150 = select i1 %37, i32 %.04977, i32 %spec.select67
+  %40 = add i32 %.15475, 1
   %41 = zext i32 %40 to i64
   %42 = icmp ugt i64 %30, %41
   br i1 %42, label %.lr.ph78, label %._crit_edge, !llvm.loop !12
@@ -837,9 +837,9 @@ manifest_files_distance.exit:                     ; preds = %14, %20
 ._crit_edge:                                      ; preds = %.lr.ph78, %1, %.preheader
   %.lcssa90 = phi i64 [ 0, %.preheader ], [ 0, %1 ], [ %30, %.lr.ph78 ]
   %.0.lcssa89 = phi i32 [ %.2, %.preheader ], [ 0, %1 ], [ %.2, %.lr.ph78 ]
-  %.048.lcssa88 = phi i32 [ %.149, %.preheader ], [ 0, %1 ], [ %.149, %.lr.ph78 ]
-  %.055.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.156, %.lr.ph78 ]
-  %.053.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.154, %.lr.ph78 ]
+  %.057.lcssa88 = phi i32 [ %.158, %.preheader ], [ 0, %1 ], [ %.158, %.lr.ph78 ]
+  %.051.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.152, %.lr.ph78 ]
+  %.049.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.150, %.lr.ph78 ]
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   %44 = load i32, ptr %43, align 8
   %.not = icmp eq i32 %44, 0
@@ -849,17 +849,17 @@ manifest_files_distance.exit:                     ; preds = %14, %20
   %46 = uitofp i32 %44 to double
   %47 = uitofp nneg i64 %.lcssa90 to double
   %48 = fdiv double %46, %47
-  %49 = uitofp i32 %.048.lcssa88 to double
+  %49 = uitofp i32 %.057.lcssa88 to double
   %50 = fdiv double %49, %46
-  %51 = uitofp i32 %.055.lcssa to double
+  %51 = uitofp i32 %.051.lcssa to double
   %52 = fdiv double %51, %46
   br label %53
 
 53:                                               ; preds = %._crit_edge, %45
-  %.052 = phi double [ %52, %45 ], [ 0.000000e+00, %._crit_edge ]
-  %.051 = phi double [ %48, %45 ], [ 0.000000e+00, %._crit_edge ]
-  %.050 = phi double [ %50, %45 ], [ 0.000000e+00, %._crit_edge ]
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str, i64 noundef %.lcssa90, i32 noundef %44, double noundef %.051, i32 noundef %.048.lcssa88, i32 noundef %.0.lcssa89, double noundef %.050, i32 noundef %.055.lcssa, i32 noundef %.053.lcssa, double noundef %.052) #17
+  %.056 = phi double [ %50, %45 ], [ 0.000000e+00, %._crit_edge ]
+  %.055 = phi double [ %48, %45 ], [ 0.000000e+00, %._crit_edge ]
+  %.048 = phi double [ %52, %45 ], [ 0.000000e+00, %._crit_edge ]
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str, i64 noundef %.lcssa90, i32 noundef %44, double noundef %.055, i32 noundef %.057.lcssa88, i32 noundef %.0.lcssa89, double noundef %.056, i32 noundef %.051.lcssa, i32 noundef %.049.lcssa, double noundef %.048) #17
   ret void
 }
 

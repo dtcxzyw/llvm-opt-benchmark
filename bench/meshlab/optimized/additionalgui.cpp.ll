@@ -720,7 +720,7 @@ define void @_ZN10SearchMenu9updateGUIERK5QListIP7QActionE(ptr noundef nonnull a
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5QListIP7QActionE9push_backERKS1_.exit ], [ 1, %2 ]
   %26 = phi i32 [ %152, %_ZN5QListIP7QActionE9push_backERKS1_.exit ], [ %13, %2 ]
   %27 = phi ptr [ %148, %_ZN5QListIP7QActionE9push_backERKS1_.exit ], [ %9, %2 ]
-  %.092 = phi i8 [ %.2, %_ZN5QListIP7QActionE9push_backERKS1_.exit ], [ %23, %2 ]
+  %.02790 = phi i8 [ %.2, %_ZN5QListIP7QActionE9push_backERKS1_.exit ], [ %23, %2 ]
   %28 = load atomic i32, ptr %27 monotonic, align 4
   %29 = icmp ugt i32 %28, 1
   br i1 %29, label %30, label %52
@@ -788,7 +788,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   br i1 %.not30, label %_ZN5QListIP7QActionE9push_backERKS1_.exit, label %61
 
 61:                                               ; preds = %52
-  %62 = trunc nuw i8 %.092 to i1
+  %62 = trunc nuw i8 %.02790 to i1
   br i1 %62, label %63, label %89
 
 63:                                               ; preds = %61
@@ -856,7 +856,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
 
 89:                                               ; preds = %86, %63, %61
   %90 = phi ptr [ %.pre, %86 ], [ %60, %63 ], [ %60, %61 ]
-  %.1 = phi i8 [ %88, %86 ], [ %.092, %63 ], [ %.092, %61 ]
+  %.1 = phi i8 [ %88, %86 ], [ %.02790, %63 ], [ %.02790, %61 ]
   %91 = invoke noundef zeroext i1 @_ZNK7QAction11isSeparatorEv(ptr noundef nonnull align 8 dereferenceable(16) %90)
           to label %92 unwind label %.loopexit.split-lp.loopexit
 
@@ -992,7 +992,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
           to label %_ZN5QListIP7QActionE9push_backERKS1_.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN5QListIP7QActionE9push_backERKS1_.exit:        ; preds = %.thread, %52, %.loopexit77
-  %.2 = phi i8 [ %.1, %.loopexit77 ], [ %.092, %52 ], [ %.1, %.thread ]
+  %.2 = phi i8 [ %.1, %.loopexit77 ], [ %.02790, %52 ], [ %.1, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %148 = load ptr, ptr %5, align 8
   %149 = getelementptr inbounds i8, ptr %148, i64 12
@@ -1010,8 +1010,8 @@ _ZN5QListIP7QActionE9push_backERKS1_.exit:        ; preds = %.thread, %52, %.loo
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.pre104 = phi ptr [ @_ZN9QListData11shared_nullE, %2 ], [ %.pre104.pre, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i8 [ %23, %2 ], [ %.2, %._crit_edge.loopexit ]
-  %156 = trunc nuw i8 %.0.lcssa to i1
+  %.027.lcssa = phi i8 [ %23, %2 ], [ %.2, %._crit_edge.loopexit ]
+  %156 = trunc nuw i8 %.027.lcssa to i1
   br i1 %156, label %307, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
@@ -1873,14 +1873,14 @@ define noundef i32 @_ZNK10SearchMenu17nextEnabledActionEiiRK5QListIP7QActionERS2
   br i1 %22, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %42
-  %.024.us = phi i32 [ %31, %42 ], [ %2, %.preheader ]
+  %.0.us = phi i32 [ %31, %42 ], [ %2, %.preheader ]
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds i8, ptr %23, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = sub nsw i32 %25, %27
-  %29 = add nsw i32 %.024.us, -1
+  %29 = add nsw i32 %.0.us, -1
   %30 = add nsw i32 %29, %28
   %31 = srem i32 %30, %28
   %32 = getelementptr inbounds i8, ptr %23, i64 16
@@ -1905,8 +1905,8 @@ define noundef i32 @_ZNK10SearchMenu17nextEnabledActionEiiRK5QListIP7QActionERS2
   br i1 %.not28.us, label %.loopexit, label %.preheader.split.us, !llvm.loop !21
 
 .preheader.split:                                 ; preds = %.preheader, %61
-  %.024 = phi i32 [ %50, %61 ], [ %2, %.preheader ]
-  %43 = add nsw i32 %.024, 1
+  %.0 = phi i32 [ %50, %61 ], [ %2, %.preheader ]
+  %43 = add nsw i32 %.0, 1
   %44 = load ptr, ptr %3, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 12
   %46 = load i32, ptr %45, align 4
@@ -1942,8 +1942,8 @@ define noundef i32 @_ZNK10SearchMenu17nextEnabledActionEiiRK5QListIP7QActionERS2
   br i1 %.not28, label %.loopexit, label %.preheader.split, !llvm.loop !21
 
 .loopexit:                                        ; preds = %61, %42, %14, %5, %7, %.split.us
-  %.0 = phi i32 [ %.us-phi, %.split.us ], [ -1, %7 ], [ -1, %5 ], [ -1, %14 ], [ -1, %42 ], [ -1, %61 ]
-  ret i32 %.0
+  %.024 = phi i32 [ %.us-phi, %.split.us ], [ -1, %7 ], [ -1, %5 ], [ -1, %14 ], [ -1, %42 ], [ -1, %61 ]
+  ret i32 %.024
 }
 
 declare void @_ZN5QMenu15setActiveActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #0

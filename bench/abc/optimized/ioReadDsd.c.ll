@@ -309,8 +309,8 @@ common.ret110:                                    ; preds = %61, %58, %.loopexit
   br label %common.ret110
 
 .critedge:                                        ; preds = %.preheader, %.critedge
-  %.06388 = phi ptr [ %54, %.critedge ], [ %1, %.preheader ]
-  %54 = getelementptr inbounds i8, ptr %.06388, i64 1
+  %.06288 = phi ptr [ %54, %.critedge ], [ %1, %.preheader ]
+  %54 = getelementptr inbounds i8, ptr %.06288, i64 1
   %.pr = load i8, ptr %54, align 1
   %55 = add i8 %.pr, -48
   %or.cond75 = icmp ult i8 %55, 10
@@ -321,7 +321,7 @@ common.ret110:                                    ; preds = %61, %58, %.loopexit
 
 .critedge2:                                       ; preds = %.critedge, %.preheader
   %.lcssa = phi i8 [ %6, %.preheader ], [ %.pr, %.critedge ]
-  %.063.lcssa = phi ptr [ %1, %.preheader ], [ %54, %.critedge ]
+  %.062.lcssa = phi ptr [ %1, %.preheader ], [ %54, %.critedge ]
   %.not = icmp eq i8 %.lcssa, 40
   br i1 %.not, label %58, label %57
 
@@ -330,10 +330,10 @@ common.ret110:                                    ; preds = %61, %58, %.loopexit
   br label %common.ret110
 
 58:                                               ; preds = %.critedge2
-  store i8 0, ptr %.063.lcssa, align 1
+  store i8 0, ptr %.062.lcssa, align 1
   %59 = tail call ptr @Abc_SopFromTruthHex(ptr noundef nonnull %1) #9
-  store i8 40, ptr %.063.lcssa, align 1
-  %60 = tail call ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef nonnull %.063.lcssa, ptr noundef %59)
+  store i8 40, ptr %.062.lcssa, align 1
+  %60 = tail call ptr @Io_ReadDsd_rec(ptr noundef %0, ptr noundef nonnull %.062.lcssa, ptr noundef %59)
   %.not72 = icmp eq ptr %59, null
   br i1 %.not72, label %common.ret110, label %61
 

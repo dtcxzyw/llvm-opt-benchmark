@@ -60,9 +60,9 @@ define internal range(i32 -13, 1) i32 @allocate(ptr noundef %0, ptr noundef %1) 
   br label %20
 
 20:                                               ; preds = %15, %20
-  %.085114 = phi i32 [ %13, %15 ], [ %22, %20 ]
+  %.083114 = phi i32 [ %13, %15 ], [ %22, %20 ]
   %21 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %3, ptr noundef %19) #13
-  %22 = add nsw i32 %.085114, 1
+  %22 = add nsw i32 %.083114, 1
   %exitcond.not = icmp eq i32 %22, %9
   br i1 %exitcond.not, label %.loopexit113, label %20, !llvm.loop !4
 
@@ -164,12 +164,12 @@ pmix_pointer_array_get_item.exit:                 ; preds = %40
   br label %._crit_edge122
 
 .lr.ph:                                           ; preds = %65, %.lr.ph
-  %.083118 = phi i32 [ %73, %.lr.ph ], [ 0, %65 ]
-  %.084117 = phi i32 [ %72, %.lr.ph ], [ %68, %65 ]
-  %72 = sdiv i32 %.084117, 10
-  %73 = add nuw nsw i32 %.083118, 1
-  %.084117.off = add i32 %.084117, 9
-  %.not111 = icmp ult i32 %.084117.off, 19
+  %.081118 = phi i32 [ %73, %.lr.ph ], [ 0, %65 ]
+  %.082117 = phi i32 [ %72, %.lr.ph ], [ %68, %65 ]
+  %72 = sdiv i32 %.082117, 10
+  %73 = add nuw nsw i32 %.081118, 1
+  %.082117.off = add i32 %.082117, 9
+  %.not111 = icmp ult i32 %.082117.off, 19
   br i1 %.not111, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph
@@ -181,7 +181,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %40
   br i1 %77, label %.lr.ph121, label %._crit_edge122
 
 .lr.ph121:                                        ; preds = %._crit_edge, %147
-  %.082119 = phi i32 [ %156, %147 ], [ 0, %._crit_edge ]
+  %.084119 = phi i32 [ %156, %147 ], [ 0, %._crit_edge ]
   %78 = load i64, ptr getelementptr inbounds (i8, ptr @prte_node_t_class, i64 56), align 8
   %79 = call noalias noundef ptr @malloc(i64 noundef %78) #14
   %80 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -223,7 +223,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %40
 
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %84
   %95 = getelementptr inbounds i8, ptr %79, i64 152
-  %96 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %95, ptr noundef nonnull @.str.1, ptr noundef nonnull %6, i32 noundef %73, i32 noundef %.082119) #13
+  %96 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %95, ptr noundef nonnull @.str.1, ptr noundef nonnull %6, i32 noundef %73, i32 noundef %.084119) #13
   %97 = getelementptr inbounds i8, ptr %79, i64 218
   store i8 3, ptr %97, align 2
   %98 = getelementptr inbounds i8, ptr %79, i64 228
@@ -326,7 +326,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   %154 = load volatile i64, ptr %64, align 8
   %155 = add i64 %154, 1
   store volatile i64 %155, ptr %64, align 8
-  %156 = add nuw nsw i32 %.082119, 1
+  %156 = add nuw nsw i32 %.084119, 1
   %exitcond129.not = icmp eq i32 %156, %68
   br i1 %exitcond129.not, label %._crit_edge122, label %.lr.ph121, !llvm.loop !9
 
@@ -372,8 +372,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %83, %8
   br label %pmix_pointer_array_get_item.exit.thread
 
 pmix_pointer_array_get_item.exit.thread:          ; preds = %40, %168, %170, %pmix_pointer_array_get_item.exit
-  %.081 = phi i32 [ -13, %pmix_pointer_array_get_item.exit ], [ 0, %170 ], [ 0, %168 ], [ -13, %40 ]
-  ret i32 %.081
+  %.085 = phi i32 [ -13, %pmix_pointer_array_get_item.exit ], [ 0, %170 ], [ 0, %168 ], [ -13, %40 ]
+  ret i32 %.085
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

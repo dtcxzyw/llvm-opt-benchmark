@@ -729,7 +729,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   br label %172
 
 172:                                              ; preds = %.lr.ph, %193
-  %.0488639 = phi i64 [ 0, %.lr.ph ], [ %194, %193 ]
+  %.0485639 = phi i64 [ 0, %.lr.ph ], [ %194, %193 ]
   %173 = load ptr, ptr %171, align 8
   %.not572 = icmp eq ptr %173, null
   br i1 %.not572, label %180, label %174
@@ -741,7 +741,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   br i1 %.not573, label %180, label %177
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds i64, ptr %176, i64 %.0488639
+  %178 = getelementptr inbounds i64, ptr %176, i64 %.0485639
   %179 = load i64, ptr %178, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %179, i64 1)
   br label %180
@@ -751,7 +751,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   %181 = load ptr, ptr %55, align 8
   %182 = getelementptr inbounds ptr, ptr %181, i64 %68
   %183 = load ptr, ptr %182, align 8
-  %184 = tail call i32 @bit_test(ptr noundef %183, i64 noundef %.0488639) #8
+  %184 = tail call i32 @bit_test(ptr noundef %183, i64 noundef %.0485639) #8
   %.not575 = icmp eq i32 %184, 0
   br i1 %.not575, label %193, label %185
 
@@ -760,20 +760,20 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
 
 186:                                              ; preds = %185
   %187 = load ptr, ptr %147, align 8
-  %188 = tail call i32 @bit_test(ptr noundef %187, i64 noundef %.0488639) #8
+  %188 = tail call i32 @bit_test(ptr noundef %187, i64 noundef %.0485639) #8
   %.not576 = icmp eq i32 %188, 0
   br i1 %.not576, label %189, label %193
 
 189:                                              ; preds = %186, %185
   %190 = load ptr, ptr %147, align 8
-  tail call void @bit_set(ptr noundef %190, i64 noundef %.0488639) #8
+  tail call void @bit_set(ptr noundef %190, i64 noundef %.0485639) #8
   %191 = load i64, ptr %106, align 8
   %192 = add i64 %191, %.0481
   store i64 %192, ptr %106, align 8
   br label %193
 
 193:                                              ; preds = %180, %186, %189
-  %194 = add nuw nsw i64 %.0488639, 1
+  %194 = add nuw nsw i64 %.0485639, 1
   %exitcond.not = icmp eq i64 %194, %169
   br i1 %exitcond.not, label %.loopexit635, label %172, !llvm.loop !11
 
@@ -1075,8 +1075,8 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   br label %361
 
 361:                                              ; preds = %.lr.ph645, %.thread624
-  %.0485644 = phi i1 [ true, %.lr.ph645 ], [ %.2487, %.thread624 ]
-  %.1489642 = phi i64 [ 0, %.lr.ph645 ], [ %429, %.thread624 ]
+  %.0484644 = phi i1 [ true, %.lr.ph645 ], [ %.2, %.thread624 ]
+  %.1486642 = phi i64 [ 0, %.lr.ph645 ], [ %429, %.thread624 ]
   %362 = phi i64 [ %.promoted, %.lr.ph645 ], [ %428, %.thread624 ]
   %363 = load ptr, ptr %23, align 8
   %.not613 = icmp eq ptr %363, null
@@ -1084,7 +1084,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
 
 364:                                              ; preds = %361
   %365 = load ptr, ptr %357, align 8
-  %366 = getelementptr inbounds ptr, ptr %365, i64 %.1489642
+  %366 = getelementptr inbounds ptr, ptr %365, i64 %.1486642
   %367 = load ptr, ptr %366, align 8
   %.not614 = icmp eq ptr %367, null
   br i1 %.not614, label %.thread624, label %368
@@ -1092,7 +1092,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
 368:                                              ; preds = %364
   %369 = load i32, ptr %15, align 8
   %370 = load ptr, ptr %358, align 8
-  %371 = getelementptr inbounds i32, ptr %370, i64 %.1489642
+  %371 = getelementptr inbounds i32, ptr %370, i64 %.1486642
   %372 = load i32, ptr %371, align 4
   %.not615 = icmp eq i32 %369, %372
   br i1 %.not615, label %373, label %.thread624
@@ -1102,7 +1102,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
 
 374:                                              ; preds = %373
   %375 = load ptr, ptr %353, align 8
-  %376 = getelementptr inbounds i64, ptr %375, i64 %.1489642
+  %376 = getelementptr inbounds i64, ptr %375, i64 %.1486642
   %377 = load i64, ptr %376, align 8
   %378 = icmp eq i64 %377, 0
   br i1 %378, label %.thread624, label %379
@@ -1114,7 +1114,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   %383 = tail call i64 @bit_size(ptr noundef %382) #8
   %384 = trunc i64 %383 to i32
   %385 = load ptr, ptr %350, align 8
-  %386 = getelementptr inbounds ptr, ptr %385, i64 %.1489642
+  %386 = getelementptr inbounds ptr, ptr %385, i64 %.1486642
   %387 = load ptr, ptr %386, align 8
   %388 = tail call i64 @bit_size(ptr noundef %387) #8
   %389 = trunc i64 %388 to i32
@@ -1122,7 +1122,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   br i1 %.not616, label %393, label %390
 
 390:                                              ; preds = %379
-  br i1 %.0485644, label %391, label %.thread624
+  br i1 %.0484644, label %391, label %.thread624
 
 391:                                              ; preds = %390
   %392 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef %17, ptr noundef nonnull %.str.35..str.36, ptr noundef %7, i32 noundef %384, i32 noundef %389) #8
@@ -1130,11 +1130,11 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
 
 393:                                              ; preds = %379
   %394 = load ptr, ptr %350, align 8
-  %395 = getelementptr inbounds ptr, ptr %394, i64 %.1489642
+  %395 = getelementptr inbounds ptr, ptr %394, i64 %.1486642
   %396 = load ptr, ptr %395, align 8
   %397 = tail call fastcc i64 @_cnt_topo_gres(ptr noundef nonnull %15, i32 noundef %5, ptr noundef %396)
   %398 = load ptr, ptr %353, align 8
-  %399 = getelementptr inbounds i64, ptr %398, i64 %.1489642
+  %399 = getelementptr inbounds i64, ptr %398, i64 %.1486642
   %400 = load i64, ptr %399, align 8
   %401 = add i64 %400, %397
   store i64 %401, ptr %399, align 8
@@ -1148,7 +1148,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   br i1 %406, label %.thread624, label %407
 
 407:                                              ; preds = %404
-  %408 = getelementptr inbounds ptr, ptr %405, i64 %.1489642
+  %408 = getelementptr inbounds ptr, ptr %405, i64 %.1486642
   %409 = load ptr, ptr %408, align 8
   %410 = icmp eq ptr %409, null
   br i1 %410, label %.thread624, label %.preheader632
@@ -1167,7 +1167,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
 
 415:                                              ; preds = %412
   %416 = load ptr, ptr %358, align 8
-  %417 = getelementptr inbounds i32, ptr %416, i64 %.1489642
+  %417 = getelementptr inbounds i32, ptr %416, i64 %.1486642
   %418 = load i32, ptr %417, align 4
   %419 = load ptr, ptr %360, align 8
   %420 = getelementptr inbounds i32, ptr %419, i64 %indvars.iv
@@ -1190,8 +1190,8 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
 
 .thread624:                                       ; preds = %427, %390, %391, %422, %393, %404, %407, %374, %364, %368
   %428 = phi i64 [ %362, %368 ], [ %362, %374 ], [ %397, %393 ], [ %397, %404 ], [ %397, %407 ], [ %397, %422 ], [ %362, %364 ], [ %362, %390 ], [ %362, %391 ], [ %397, %427 ]
-  %.2487 = phi i1 [ %.0485644, %368 ], [ %.0485644, %374 ], [ %.0485644, %393 ], [ %.0485644, %404 ], [ %.0485644, %407 ], [ %.0485644, %422 ], [ %.0485644, %364 ], [ false, %390 ], [ false, %391 ], [ %.0485644, %427 ]
-  %429 = add nuw nsw i64 %.1489642, 1
+  %.2 = phi i1 [ %.0484644, %368 ], [ %.0484644, %374 ], [ %.0484644, %393 ], [ %.0484644, %404 ], [ %.0484644, %407 ], [ %.0484644, %422 ], [ %.0484644, %364 ], [ false, %390 ], [ false, %391 ], [ %.0484644, %427 ]
+  %429 = add nuw nsw i64 %.1486642, 1
   %430 = load i16, ptr %355, align 8
   %431 = zext i16 %430 to i64
   %432 = icmp ult i64 %429, %431
@@ -1234,11 +1234,11 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   br label %451
 
 451:                                              ; preds = %.lr.ph664, %.loopexit631
-  %.2490659 = phi i64 [ 0, %.lr.ph664 ], [ %534, %.loopexit631 ]
+  %.2487659 = phi i64 [ 0, %.lr.ph664 ], [ %534, %.loopexit631 ]
   %452 = load ptr, ptr %55, align 8
   %453 = getelementptr inbounds ptr, ptr %452, i64 %68
   %454 = load ptr, ptr %453, align 8
-  %455 = tail call i32 @bit_test(ptr noundef %454, i64 noundef %.2490659) #8
+  %455 = tail call i32 @bit_test(ptr noundef %454, i64 noundef %.2487659) #8
   %.not590 = icmp eq i32 %455, 0
   br i1 %.not590, label %.loopexit631, label %456
 
@@ -1254,7 +1254,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   br i1 %.not592, label %464, label %461
 
 461:                                              ; preds = %458
-  %462 = getelementptr inbounds i64, ptr %460, i64 %.2490659
+  %462 = getelementptr inbounds i64, ptr %460, i64 %.2487659
   %463 = load i64, ptr %462, align 8
   %spec.select620 = tail call i64 @llvm.umax.i64(i64 %463, i64 1)
   br label %464
@@ -1289,13 +1289,13 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   br i1 %.not598.us, label %483, label %475
 
 475:                                              ; preds = %472
-  %476 = tail call i32 @bit_test(ptr noundef nonnull %474, i64 noundef %.2490659) #8
+  %476 = tail call i32 @bit_test(ptr noundef nonnull %474, i64 noundef %.2487659) #8
   %.not599.us = icmp eq i32 %476, 0
   br i1 %.not599.us, label %483, label %477
 
 477:                                              ; preds = %475
   %478 = load ptr, ptr %435, align 8
-  %479 = getelementptr inbounds i64, ptr %478, i64 %.2490659
+  %479 = getelementptr inbounds i64, ptr %478, i64 %.2487659
   %480 = load i64, ptr %479, align 8
   %481 = add i64 %480, %.0477
   store i64 %481, ptr %479, align 8
@@ -1333,13 +1333,13 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   br i1 %.not598, label %503, label %495
 
 495:                                              ; preds = %492
-  %496 = tail call i32 @bit_test(ptr noundef nonnull %494, i64 noundef %.2490659) #8
+  %496 = tail call i32 @bit_test(ptr noundef nonnull %494, i64 noundef %.2487659) #8
   %.not599 = icmp eq i32 %496, 0
   br i1 %.not599, label %503, label %497
 
 497:                                              ; preds = %495
   %498 = load ptr, ptr %435, align 8
-  %499 = getelementptr inbounds i64, ptr %498, i64 %.2490659
+  %499 = getelementptr inbounds i64, ptr %498, i64 %.2487659
   %500 = load i64, ptr %499, align 8
   %501 = add i64 %500, %.0477
   store i64 %501, ptr %499, align 8
@@ -1366,7 +1366,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   br i1 %512, label %.loopexit631, label %513
 
 513:                                              ; preds = %510
-  %514 = getelementptr inbounds ptr, ptr %511, i64 %.2490659
+  %514 = getelementptr inbounds ptr, ptr %511, i64 %.2487659
   %515 = load ptr, ptr %514, align 8
   %516 = icmp eq ptr %515, null
   br i1 %516, label %.loopexit631, label %.preheader
@@ -1385,7 +1385,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
 
 521:                                              ; preds = %518
   %522 = load ptr, ptr %449, align 8
-  %523 = getelementptr inbounds i32, ptr %522, i64 %.2490659
+  %523 = getelementptr inbounds i32, ptr %522, i64 %.2487659
   %524 = load i32, ptr %523, align 4
   %525 = load ptr, ptr %450, align 8
   %526 = getelementptr inbounds i32, ptr %525, i64 %indvars.iv713
@@ -1407,7 +1407,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   br i1 %exitcond717.not, label %.loopexit631, label %518, !llvm.loop !17
 
 .loopexit631:                                     ; preds = %533, %528, %._crit_edge, %510, %513, %451
-  %534 = add nuw nsw i64 %.2490659, 1
+  %534 = add nuw nsw i64 %.2487659, 1
   %exitcond718.not = icmp eq i64 %534, %.pre-phi
   br i1 %exitcond718.not, label %._crit_edge665, label %451, !llvm.loop !18
 
@@ -2245,7 +2245,7 @@ define dso_local range(i32 2123, 2122) i32 @gres_ctld_job_dealloc(ptr noundef %0
   br label %86
 
 86:                                               ; preds = %83, %77
-  %.0311.i = phi i32 [ %85, %83 ], [ %79, %77 ]
+  %.0305.i = phi i32 [ %85, %83 ], [ %79, %77 ]
   %87 = getelementptr inbounds i8, ptr %31, i64 48
   %88 = load i64, ptr %87, align 8
   %89 = load ptr, ptr %72, align 8
@@ -2265,11 +2265,11 @@ define dso_local range(i32 2123, 2122) i32 @gres_ctld_job_dealloc(ptr noundef %0
 96:                                               ; preds = %94, %92
   %storemerge.i = phi i64 [ 0, %94 ], [ %93, %92 ]
   store i64 %storemerge.i, ptr %87, align 8
-  %97 = icmp sgt i32 %.0311.i, 0
+  %97 = icmp sgt i32 %.0305.i, 0
   br i1 %97, label %.lr.ph.preheader.i, label %.critedge.i
 
 .lr.ph.preheader.i:                               ; preds = %96
-  %wide.trip.count.i = zext nneg i32 %.0311.i to i64
+  %wide.trip.count.i = zext nneg i32 %.0305.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %104, %.lr.ph.preheader.i
@@ -2324,7 +2324,7 @@ define dso_local range(i32 2123, 2122) i32 @gres_ctld_job_dealloc(ptr noundef %0
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %104, %118, %116, %110, %108, %96
-  %.0305402.i = phi i64 [ 0, %110 ], [ %112, %118 ], [ %112, %116 ], [ 0, %108 ], [ 0, %96 ], [ 0, %104 ]
+  %.0304402.i = phi i64 [ 0, %110 ], [ %112, %118 ], [ %112, %116 ], [ 0, %108 ], [ 0, %96 ], [ 0, %104 ]
   %120 = getelementptr inbounds i8, ptr %33, i64 128
   %121 = load ptr, ptr %120, align 8
   %.not372.i = icmp eq ptr %121, null
@@ -2681,7 +2681,7 @@ define dso_local range(i32 2123, 2122) i32 @gres_ctld_job_dealloc(ptr noundef %0
 308:                                              ; preds = %321, %.lr.ph428.i
   %309 = phi i16 [ %306, %.lr.ph428.i ], [ %322, %321 ]
   %indvars.iv476.i = phi i64 [ 0, %.lr.ph428.i ], [ %indvars.iv.next477.i, %321 ]
-  %.1306427.i = phi i64 [ %.0305402.i, %.lr.ph428.i ], [ %.2307.i, %321 ]
+  %.1427.i = phi i64 [ %.0304402.i, %.lr.ph428.i ], [ %.2.i, %321 ]
   %310 = load i32, ptr %33, align 8
   %311 = load ptr, ptr %307, align 8
   %312 = getelementptr inbounds i32, ptr %311, i64 %indvars.iv476.i
@@ -2693,10 +2693,10 @@ define dso_local range(i32 2123, 2122) i32 @gres_ctld_job_dealloc(ptr noundef %0
   %315 = load ptr, ptr %304, align 8
   %316 = getelementptr inbounds i64, ptr %315, i64 %indvars.iv476.i
   %317 = load i64, ptr %316, align 8
-  %.1306..i = tail call i64 @llvm.umin.i64(i64 %.1306427.i, i64 %317)
-  %318 = sub i64 %317, %.1306..i
+  %.1..i = tail call i64 @llvm.umin.i64(i64 %.1427.i, i64 %317)
+  %318 = sub i64 %317, %.1..i
   store i64 %318, ptr %316, align 8
-  %319 = sub i64 %.1306427.i, %.1306..i
+  %319 = sub i64 %.1427.i, %.1..i
   %320 = icmp eq i64 %319, 0
   br i1 %320, label %.loopexit.i, label %._crit_edge491.i
 
@@ -2706,7 +2706,7 @@ define dso_local range(i32 2123, 2122) i32 @gres_ctld_job_dealloc(ptr noundef %0
 
 321:                                              ; preds = %._crit_edge491.i, %308
   %322 = phi i16 [ %309, %308 ], [ %.pre.i, %._crit_edge491.i ]
-  %.2307.i = phi i64 [ %.1306427.i, %308 ], [ %319, %._crit_edge491.i ]
+  %.2.i = phi i64 [ %.1427.i, %308 ], [ %319, %._crit_edge491.i ]
   %indvars.iv.next477.i = add nuw nsw i64 %indvars.iv476.i, 1
   %323 = zext i16 %322 to i64
   %324 = icmp ult i64 %indvars.iv.next477.i, %323
@@ -3006,17 +3006,17 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
 
 50:                                               ; preds = %.lr.ph, %87
   %indvars.iv = phi i64 [ %36, %.lr.ph ], [ %indvars.iv.next, %87 ]
-  %.0171241 = phi i32 [ -1, %.lr.ph ], [ %.1172, %87 ]
-  %.0173240 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %87 ]
+  %.0169241 = phi i32 [ -1, %.lr.ph ], [ %.1170, %87 ]
+  %.0171240 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %87 ]
   %51 = call i32 @bit_test(ptr noundef %3, i64 noundef %indvars.iv) #8
   %.not222.not = icmp ne i32 %51, 0
-  %52 = add nsw i32 %.0173240, 1
-  %spec.select = select i1 %.not222.not, i32 %52, i32 %.0173240
+  %52 = add nsw i32 %.0171240, 1
+  %spec.select = select i1 %.not222.not, i32 %52, i32 %.0171240
   %53 = call i32 @bit_test(ptr noundef %1, i64 noundef %indvars.iv) #8
   %.not223.not = icmp ne i32 %53, 0
   %brmerge = select i1 %.not223.not, i1 true, i1 %.not222.not
   %54 = zext i1 %brmerge to i32
-  %.1172 = add nsw i32 %.0171241, %54
+  %.1170 = add nsw i32 %.0169241, %54
   br i1 %.not222.not, label %55, label %87
 
 55:                                               ; preds = %50
@@ -3028,7 +3028,7 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
   %58 = sext i32 %52 to i64
   %59 = getelementptr inbounds ptr, ptr %56, i64 %58
   %60 = load ptr, ptr %59, align 8
-  %61 = sext i32 %.1172 to i64
+  %61 = sext i32 %.1170 to i64
   %62 = getelementptr inbounds ptr, ptr %42, i64 %61
   store ptr %60, ptr %62, align 8
   br label %63
@@ -3042,7 +3042,7 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
   %66 = sext i32 %52 to i64
   %67 = getelementptr inbounds i64, ptr %64, i64 %66
   %68 = load i64, ptr %67, align 8
-  %69 = sext i32 %.1172 to i64
+  %69 = sext i32 %.1170 to i64
   %70 = getelementptr inbounds i64, ptr %43, i64 %69
   store i64 %68, ptr %70, align 8
   br label %71
@@ -3056,7 +3056,7 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
   %74 = sext i32 %52 to i64
   %75 = getelementptr inbounds ptr, ptr %72, i64 %74
   %76 = load ptr, ptr %75, align 8
-  %77 = sext i32 %.1172 to i64
+  %77 = sext i32 %.1170 to i64
   %78 = getelementptr inbounds ptr, ptr %44, i64 %77
   store ptr %76, ptr %78, align 8
   br label %79
@@ -3070,7 +3070,7 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
   %82 = sext i32 %52 to i64
   %83 = getelementptr inbounds i64, ptr %80, i64 %82
   %84 = load i64, ptr %83, align 8
-  %85 = sext i32 %.1172 to i64
+  %85 = sext i32 %.1170 to i64
   %86 = getelementptr inbounds i64, ptr %45, i64 %85
   store i64 %84, ptr %86, align 8
   br label %87
@@ -3113,7 +3113,7 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
   br label %95
 
 95:                                               ; preds = %._crit_edge245, %.thread231
-  %.0169 = phi ptr [ %94, %.thread231 ], [ %2, %._crit_edge245 ]
+  %.0182 = phi ptr [ %94, %.thread231 ], [ %2, %._crit_edge245 ]
   %96 = call ptr @list_iterator_create(ptr noundef nonnull %0) #8
   %97 = call ptr @list_next(ptr noundef %96) #8
   %.not203252 = icmp eq ptr %97, null
@@ -3137,7 +3137,7 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
   %104 = getelementptr inbounds i8, ptr %103, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds i8, ptr %103, i64 4
-  %107 = call ptr @list_find_first(ptr noundef %.0169, ptr noundef nonnull @gres_find_id, ptr noundef nonnull %106) #8
+  %107 = call ptr @list_find_first(ptr noundef %.0182, ptr noundef nonnull @gres_find_id, ptr noundef nonnull %106) #8
   %.not205 = icmp eq ptr %107, null
   br i1 %.not205, label %111, label %108
 
@@ -3187,31 +3187,31 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
   %139 = getelementptr inbounds i8, ptr %112, i64 160
   store ptr %138, ptr %139, align 8
   %140 = call ptr @gres_create_state(ptr noundef nonnull %103, i32 noundef 0, i32 noundef 2, ptr noundef %112) #8
-  call void @list_append(ptr noundef %.0169, ptr noundef %140) #8
+  call void @list_append(ptr noundef %.0182, ptr noundef %140) #8
   br label %141
 
 141:                                              ; preds = %111, %108
-  %.0183 = phi ptr [ %110, %108 ], [ %112, %111 ]
+  %.0181 = phi ptr [ %110, %108 ], [ %112, %111 ]
   br i1 %.not206246, label %.loopexit, label %.lr.ph251
 
 .lr.ph251:                                        ; preds = %141
   %142 = getelementptr inbounds i8, ptr %105, i64 128
-  %143 = getelementptr inbounds i8, ptr %.0183, i64 128
+  %143 = getelementptr inbounds i8, ptr %.0181, i64 128
   %144 = getelementptr inbounds i8, ptr %105, i64 136
-  %145 = getelementptr inbounds i8, ptr %.0183, i64 136
+  %145 = getelementptr inbounds i8, ptr %.0181, i64 136
   %146 = getelementptr inbounds i8, ptr %105, i64 160
   br label %147
 
 147:                                              ; preds = %.lr.ph251, %197
   %indvars.iv257 = phi i64 [ %99, %.lr.ph251 ], [ %indvars.iv.next258, %197 ]
   %.2249 = phi i32 [ -1, %.lr.ph251 ], [ %.3, %197 ]
-  %.2179248 = phi i32 [ -1, %.lr.ph251 ], [ %.3180, %197 ]
+  %.2177248 = phi i32 [ -1, %.lr.ph251 ], [ %.3178, %197 ]
   %148 = call i32 @bit_test(ptr noundef %3, i64 noundef %indvars.iv257) #8
   %.not207.not = icmp ne i32 %148, 0
   %149 = call i32 @bit_test(ptr noundef %1, i64 noundef %indvars.iv257) #8
   %.not208.not = icmp ne i32 %149, 0
-  %150 = add nsw i32 %.2179248, 1
-  %.3180 = select i1 %.not208.not, i32 %150, i32 %.2179248
+  %150 = add nsw i32 %.2177248, 1
+  %.3178 = select i1 %.not208.not, i32 %150, i32 %.2177248
   %brmerge229 = select i1 %.not208.not, i1 true, i1 %.not207.not
   %151 = zext i1 %brmerge229 to i32
   %.3 = add nsw i32 %.2249, %151
@@ -3331,12 +3331,12 @@ define dso_local void @gres_ctld_job_merge(ptr noundef %0, ptr noundef %1, ptr n
 
 ._crit_edge255:                                   ; preds = %.loopexit, %95
   call void @list_iterator_destroy(ptr noundef %96) #8
-  %.not204 = icmp eq ptr %.0169, null
+  %.not204 = icmp eq ptr %.0182, null
   %or.cond = select i1 %.not200, i1 true, i1 %.not204
   br i1 %or.cond, label %.thread232, label %198
 
 198:                                              ; preds = %._crit_edge255
-  call void @list_destroy(ptr noundef nonnull %.0169) #8
+  call void @list_destroy(ptr noundef nonnull %.0182) #8
   br label %.thread232
 
 .thread232:                                       ; preds = %.thread, %._crit_edge245, %198, %._crit_edge255, %29
@@ -3719,8 +3719,8 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph:                                           ; preds = %12, %.outer.backedge
   %15 = phi ptr [ %113, %.outer.backedge ], [ %14, %12 ]
-  %.0.ph95 = phi i1 [ %.2, %.outer.backedge ], [ false, %12 ]
-  %.057.ph94 = phi i1 [ %.158, %.outer.backedge ], [ false, %12 ]
+  %.056.ph95 = phi i1 [ %.2, %.outer.backedge ], [ false, %12 ]
+  %.059.ph94 = phi i1 [ %.160, %.outer.backedge ], [ false, %12 ]
   br label %16
 
 16:                                               ; preds = %.lr.ph, %40
@@ -3753,7 +3753,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
   br label %32
 
 32:                                               ; preds = %29, %22
-  %.1 = phi i1 [ false, %29 ], [ %.0.ph95, %22 ]
+  %.1 = phi i1 [ false, %29 ], [ %.056.ph95, %22 ]
   %33 = getelementptr inbounds i8, ptr %24, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not71 = icmp eq ptr %34, null
@@ -3774,9 +3774,9 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %.outer._crit_edge, label %16, !llvm.loop !46
 
 43:                                               ; preds = %32, %35
-  %.059 = phi i64 [ %39, %35 ], [ %26, %32 ]
-  %.158 = phi i1 [ %.057.ph94, %35 ], [ %.not71, %32 ]
-  %.2 = phi i1 [ %.0.ph95, %35 ], [ %..1, %32 ]
+  %.160 = phi i1 [ %.059.ph94, %35 ], [ %.not71, %32 ]
+  %.058 = phi i64 [ %39, %35 ], [ %26, %32 ]
+  %.2 = phi i1 [ %.056.ph95, %35 ], [ %..1, %32 ]
   %44 = getelementptr inbounds i8, ptr %17, i64 24
   %45 = getelementptr inbounds i8, ptr %17, i64 16
   %46 = call i32 @assoc_mgr_find_tres_pos(ptr noundef nonnull @_set_type_tres_cnt.tres_rec, i1 noundef zeroext true) #8
@@ -3784,7 +3784,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
   br i1 %.not72.not, label %62, label %47
 
 47:                                               ; preds = %43
-  %48 = icmp eq i64 %.059, -3
+  %48 = icmp eq i64 %.058, -3
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %47
@@ -3800,17 +3800,17 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
   %54 = sext i32 %46 to i64
   %55 = getelementptr inbounds i64, ptr %1, i64 %54
   %56 = load i64, ptr %55, align 8
-  %57 = add i64 %56, %.059
+  %57 = add i64 %56, %.058
   store i64 %57, ptr %55, align 8
   br label %62
 
 58:                                               ; preds = %52
-  br i1 %.158, label %59, label %62
+  br i1 %.160, label %59, label %62
 
 59:                                               ; preds = %58
   %60 = sext i32 %46 to i64
   %61 = getelementptr inbounds i64, ptr %1, i64 %60
-  store i64 %.059, ptr %61, align 8
+  store i64 %.058, ptr %61, align 8
   br label %62
 
 62:                                               ; preds = %49, %58, %59, %53, %43
@@ -3839,7 +3839,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
 73:                                               ; preds = %69
   %74 = sext i32 %72 to i64
   %75 = getelementptr inbounds i64, ptr %1, i64 %74
-  store i64 %.059, ptr %75, align 8
+  store i64 %.058, ptr %75, align 8
   br label %76
 
 76:                                               ; preds = %73, %69
@@ -3859,7 +3859,7 @@ define internal fastcc void @_set_type_tres_cnt(ptr noundef %0, ptr noundef %1, 
 81:                                               ; preds = %78
   %82 = sext i32 %80 to i64
   %83 = getelementptr inbounds i64, ptr %1, i64 %82
-  store i64 %.059, ptr %83, align 8
+  store i64 %.058, ptr %83, align 8
   br label %.outer.backedge
 
 84:                                               ; preds = %62
@@ -4384,7 +4384,7 @@ _step_get_alloc_gres_ptr.exit:                    ; preds = %49, %66
   br label %139
 
 139:                                              ; preds = %135, %130
-  %.0101.i = phi i64 [ %138, %135 ], [ %134, %130 ]
+  %.0.i34 = phi i64 [ %138, %135 ], [ %134, %130 ]
   %140 = load i64, ptr %12, align 8
   %.not117.i = icmp eq i64 %140, -1
   br i1 %.not117.i, label %145, label %141
@@ -4396,15 +4396,15 @@ _step_get_alloc_gres_ptr.exit:                    ; preds = %49, %66
   br i1 %brmerge.not.i, label %143, label %144
 
 143:                                              ; preds = %141
-  %.0101..i = call i64 @llvm.umin.i64(i64 %.0101.i, i64 %142)
+  %.0..i = call i64 @llvm.umin.i64(i64 %.0.i34, i64 %142)
   br label %145
 
 144:                                              ; preds = %141
-  %.0101.129.i = call i64 @llvm.umin.i64(i64 %.0101.i, i64 %140)
+  %.0.129.i = call i64 @llvm.umin.i64(i64 %.0.i34, i64 %140)
   br label %145
 
 145:                                              ; preds = %144, %143, %139
-  %.1.i = phi i64 [ %.0101..i, %143 ], [ %.0101.129.i, %144 ], [ %.0101.i, %139 ]
+  %.1.i = phi i64 [ %.0..i, %143 ], [ %.0.129.i, %144 ], [ %.0.i34, %139 ]
   %146 = getelementptr inbounds i8, ptr %83, i64 128
   %147 = load ptr, ptr %146, align 8
   %.not119.i = icmp eq ptr %147, null
@@ -5104,15 +5104,15 @@ define dso_local i32 @gres_ctld_step_dealloc(ptr noundef %0, ptr noundef %1, i32
   br label %96
 
 96:                                               ; preds = %91, %83
-  %.095.i.us = phi i32 [ %95, %91 ], [ %85, %83 ]
-  %.not131.i.us = icmp eq i32 %.095.i.us, 0
+  %.0.i.us = phi i32 [ %95, %91 ], [ %85, %83 ]
+  %.not131.i.us = icmp eq i32 %.0.i.us, 0
   br i1 %.not131.i.us, label %._crit_edge.i.us, label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %96
   %97 = getelementptr inbounds i8, ptr %37, i64 152
   %98 = getelementptr inbounds i8, ptr %37, i64 168
   %99 = getelementptr inbounds i8, ptr %25, i64 120
-  %wide.trip.count.i.us = zext i32 %.095.i.us to i64
+  %wide.trip.count.i.us = zext i32 %.0.i.us to i64
   br label %100
 
 100:                                              ; preds = %127, %.lr.ph.i.us
@@ -5575,10 +5575,10 @@ define dso_local ptr @gres_ctld_gres_on_node_as_tres(ptr noundef %0, i32 noundef
   br i1 %.not27, label %.backedge, label %39
 
 39:                                               ; preds = %34, %30
-  %.019 = phi i64 [ 0, %30 ], [ %38, %34 ]
+  %.0 = phi i64 [ 0, %30 ], [ %38, %34 ]
   %40 = getelementptr inbounds i8, ptr %15, i64 8
   %41 = load ptr, ptr %40, align 8
-  call fastcc void @_gres_2_tres_str_internal(ptr noundef nonnull %4, ptr noundef nonnull %24, ptr noundef %41, i64 noundef %.019)
+  call fastcc void @_gres_2_tres_str_internal(ptr noundef nonnull %4, ptr noundef nonnull %24, ptr noundef %41, i64 noundef %.0)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %18, %8
@@ -5594,8 +5594,8 @@ define dso_local ptr @gres_ctld_gres_on_node_as_tres(ptr noundef %0, i32 noundef
   br label %45
 
 45:                                               ; preds = %3, %43
-  %.0 = phi ptr [ %44, %43 ], [ null, %3 ]
-  ret ptr %.0
+  %.019 = phi ptr [ %44, %43 ], [ null, %3 ]
+  ret ptr %.019
 }
 
 declare void @assoc_mgr_lock(ptr noundef) local_unnamed_addr #1
@@ -5782,12 +5782,12 @@ define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) loc
   %85 = load i64, ptr %84, align 8
   %.not95.i = icmp eq i64 %85, 0
   %spec.select..i = call i64 @llvm.umax.i64(i64 %spec.select.i, i64 %85)
-  %.184.i = select i1 %.not95.i, i64 %spec.select.i, i64 %spec.select..i
+  %.1.i = select i1 %.not95.i, i64 %spec.select.i, i64 %spec.select..i
   %86 = getelementptr inbounds i8, ptr %43, i64 48
   %87 = load i64, ptr %86, align 8
   %.not96.i = icmp eq i64 %87, 0
-  %.184..i = call i64 @llvm.umax.i64(i64 %.184.i, i64 %87)
-  %.2.i = select i1 %.not96.i, i64 %.184.i, i64 %.184..i
+  %.1..i = call i64 @llvm.umax.i64(i64 %.1.i, i64 %87)
+  %.2.i = select i1 %.not96.i, i64 %.1.i, i64 %.1..i
   %88 = getelementptr inbounds i8, ptr %43, i64 24
   %89 = load i64, ptr %88, align 8
   %.not97.i = icmp eq i64 %89, 0
@@ -5811,8 +5811,8 @@ define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) loc
 
 99:                                               ; preds = %96, %95
   %.pn.i = phi i64 [ %98, %96 ], [ %92, %95 ]
-  %.082.i = sub i64 %89, %.pn.i
-  %100 = call i64 @llvm.umax.i64(i64 %.2.i, i64 %.082.i)
+  %.080.i = sub i64 %89, %.pn.i
+  %100 = call i64 @llvm.umax.i64(i64 %.2.i, i64 %.080.i)
   br label %101
 
 101:                                              ; preds = %99, %90, %81
@@ -5848,8 +5848,8 @@ define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) loc
   br label %116
 
 116:                                              ; preds = %111, %107
-  %.081.i = phi i64 [ %109, %107 ], [ %115, %111 ]
-  %117 = icmp ne i64 %.081.i, 0
+  %.083.i = phi i64 [ %109, %107 ], [ %115, %111 ]
+  %117 = icmp ne i64 %.083.i, 0
   %or.cond6.i = select i1 %72, i1 %117, i1 false
   br i1 %or.cond6.i, label %118, label %.thread.i
 
@@ -5857,7 +5857,7 @@ define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) loc
   br i1 %72, label %118, label %.thread110.i
 
 118:                                              ; preds = %.thread127.i, %116
-  %.081130.i = phi i64 [ -2, %.thread127.i ], [ %.081.i, %116 ]
+  %.083130.i = phi i64 [ -2, %.thread127.i ], [ %.083.i, %116 ]
   %119 = getelementptr inbounds i8, ptr %43, i64 56
   %120 = load i64, ptr %119, align 8
   switch i64 %120, label %121 [
@@ -5908,20 +5908,20 @@ define dso_local i64 @gres_ctld_step_test(ptr nocapture noundef readonly %0) loc
   br label %.loopexit
 
 .thread.i:                                        ; preds = %116
-  %.not103.i = icmp eq i64 %.081.i, 0
+  %.not103.i = icmp eq i64 %.083.i, 0
   br i1 %.not103.i, label %.loopexit, label %.thread110.i
 
 .thread110.i:                                     ; preds = %.thread.i, %134, %118, %118, %.thread127.i, %101
-  %.1115.i = phi i64 [ %.081.i, %.thread.i ], [ %.081130.i, %134 ], [ %.081130.i, %118 ], [ %.081130.i, %118 ], [ -2, %101 ], [ -2, %.thread127.i ]
-  %.080108114.i = phi i64 [ %55, %.thread.i ], [ %55, %134 ], [ %55, %118 ], [ %55, %118 ], [ 0, %101 ], [ %55, %.thread127.i ]
-  %.1115.i.fr = freeze i64 %.1115.i
+  %.184115.i = phi i64 [ %.083.i, %.thread.i ], [ %.083130.i, %134 ], [ %.083130.i, %118 ], [ %.083130.i, %118 ], [ -2, %101 ], [ -2, %.thread127.i ]
+  %.081108114.i = phi i64 [ %55, %.thread.i ], [ %55, %134 ], [ %55, %118 ], [ %55, %118 ], [ 0, %101 ], [ %55, %.thread127.i ]
+  %.184115.i.fr = freeze i64 %.184115.i
   %. = select i1 %70, i64 80, i64 72
   %144 = getelementptr inbounds i8, ptr %43, i64 %.
   %145 = load i64, ptr %144, align 8
-  %146 = add i64 %145, %.080108114.i
+  %146 = add i64 %145, %.081108114.i
   store i64 %146, ptr %144, align 8
-  %.not40.not = icmp eq i64 %.1115.i.fr, -2
-  %147 = call i64 @llvm.umin.i64(i64 %.1115.i.fr, i64 %.03566)
+  %.not40.not = icmp eq i64 %.184115.i.fr, -2
+  %147 = call i64 @llvm.umin.i64(i64 %.184115.i.fr, i64 %.03566)
   %148 = select i1 %.not40.not, i64 %.03566, i64 %147
   %149 = call ptr @list_next(ptr noundef %29) #8
   %.not = icmp eq ptr %149, null
@@ -6129,14 +6129,14 @@ define dso_local ptr @gres_ctld_gres_2_tres_str(ptr noundef %0, i1 noundef zeroe
   %18 = getelementptr inbounds i8, ptr %10, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 %.sink24
-  %.018 = load i64, ptr %20, align 8
-  %.019.in = getelementptr inbounds i8, ptr %19, i64 8
-  %.019 = load ptr, ptr %.019.in, align 8
-  %21 = icmp eq i64 %.018, -3
-  %spec.store.select = select i1 %21, i64 0, i64 %.018
+  %.018.in = getelementptr inbounds i8, ptr %19, i64 8
+  %.018 = load ptr, ptr %.018.in, align 8
+  %.019 = load i64, ptr %20, align 8
+  %21 = icmp eq i64 %.019, -3
+  %spec.store.select = select i1 %21, i64 0, i64 %.019
   %22 = getelementptr inbounds i8, ptr %10, i64 16
   %23 = load ptr, ptr %22, align 8
-  call fastcc void @_gres_2_tres_str_internal(ptr noundef nonnull %3, ptr noundef %23, ptr noundef %.019, i64 noundef %spec.store.select)
+  call fastcc void @_gres_2_tres_str_internal(ptr noundef nonnull %3, ptr noundef %23, ptr noundef %.018, i64 noundef %spec.store.select)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %7
@@ -6189,7 +6189,7 @@ define dso_local void @gres_ctld_step_test_per_step(ptr noundef %0, ptr nocaptur
   br label %25
 
 25:                                               ; preds = %17, %22
-  %.056 = phi i32 [ %24, %22 ], [ -2, %17 ]
+  %.061 = phi i32 [ %24, %22 ], [ -2, %17 ]
   %26 = getelementptr inbounds i8, ptr %1, i64 392
   %27 = load i32, ptr %26, align 8
   store i32 %27, ptr %5, align 4
@@ -6211,11 +6211,11 @@ define dso_local void @gres_ctld_step_test_per_step(ptr noundef %0, ptr nocaptur
   %35 = getelementptr inbounds i8, ptr %7, i64 12
   %36 = getelementptr inbounds i8, ptr %6, i64 16
   %37 = getelementptr inbounds i8, ptr %1, i64 600
-  %.not7181 = icmp slt i32 %.056, %20
+  %.not7181 = icmp slt i32 %.061, %20
   %38 = getelementptr inbounds i8, ptr %7, i64 4
   %sext = shl i64 %19, 32
   %39 = ashr exact i64 %sext, 32
-  %40 = add i32 %.056, 1
+  %40 = add i32 %.061, 1
   br label %41
 
 41:                                               ; preds = %.lr.ph92, %.backedge
@@ -6277,15 +6277,15 @@ define dso_local void @gres_ctld_step_test_per_step(ptr noundef %0, ptr nocaptur
   br i1 %70, label %.lr.ph, label %.preheader77, !llvm.loop !57
 
 .preheader:                                       ; preds = %.preheader77, %..loopexit_crit_edge
-  %.05789 = phi i32 [ %.2, %..loopexit_crit_edge ], [ %50, %.preheader77 ]
-  %.05888 = phi i32 [ %.361, %..loopexit_crit_edge ], [ %48, %.preheader77 ]
+  %.05689 = phi i32 [ %.2, %..loopexit_crit_edge ], [ %50, %.preheader77 ]
+  %.05788 = phi i32 [ %.360, %..loopexit_crit_edge ], [ %48, %.preheader77 ]
   br label %71
 
 71:                                               ; preds = %.preheader, %107
   %indvars.iv97 = phi i64 [ %39, %.preheader ], [ %indvars.iv.next98, %107 ]
   %.085 = phi i32 [ -1, %.preheader ], [ %.1, %107 ]
   %.05383 = phi i32 [ -1, %.preheader ], [ %.2, %107 ]
-  %.15982 = phi i32 [ %.05888, %.preheader ], [ %.361, %107 ]
+  %.15882 = phi i32 [ %.05788, %.preheader ], [ %.360, %107 ]
   %72 = call i32 @bit_test(ptr noundef %13, i64 noundef %indvars.iv97) #8
   %.not72 = icmp eq i32 %72, 0
   br i1 %.not72, label %107, label %73
@@ -6327,7 +6327,7 @@ define dso_local void @gres_ctld_step_test_per_step(ptr noundef %0, ptr nocaptur
 
 92:                                               ; preds = %85, %79
   %93 = phi i32 [ %.pre100, %85 ], [ %83, %79 ]
-  %.not75 = icmp slt i32 %93, %.05789
+  %.not75 = icmp slt i32 %93, %.05689
   br i1 %.not75, label %100, label %94
 
 94:                                               ; preds = %92
@@ -6336,7 +6336,7 @@ define dso_local void @gres_ctld_step_test_per_step(ptr noundef %0, ptr nocaptur
   %96 = load ptr, ptr %8, align 8
   %97 = getelementptr inbounds i32, ptr %96, i64 %81
   %98 = load i32, ptr %97, align 4
-  %99 = sub nsw i32 %.15982, %98
+  %99 = sub nsw i32 %.15882, %98
   br label %101
 
 100:                                              ; preds = %92
@@ -6344,9 +6344,9 @@ define dso_local void @gres_ctld_step_test_per_step(ptr noundef %0, ptr nocaptur
   br label %101
 
 101:                                              ; preds = %100, %94
-  %.260 = phi i32 [ %99, %94 ], [ %.15982, %100 ]
+  %.259 = phi i32 [ %99, %94 ], [ %.15882, %100 ]
   %.154 = phi i32 [ %.05383, %94 ], [ %spec.select, %100 ]
-  %102 = icmp slt i32 %.260, 1
+  %102 = icmp slt i32 %.259, 1
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %101
@@ -6361,7 +6361,7 @@ define dso_local void @gres_ctld_step_test_per_step(ptr noundef %0, ptr nocaptur
   br label %._crit_edge
 
 107:                                              ; preds = %101, %103, %73, %76, %71
-  %.361 = phi i32 [ %.15982, %76 ], [ %.260, %103 ], [ %.260, %101 ], [ %.15982, %73 ], [ %.15982, %71 ]
+  %.360 = phi i32 [ %.15882, %76 ], [ %.259, %103 ], [ %.259, %101 ], [ %.15882, %73 ], [ %.15882, %71 ]
   %.2 = phi i32 [ %.05383, %76 ], [ %.154, %103 ], [ %.154, %101 ], [ %.05383, %73 ], [ %.05383, %71 ]
   %.1 = phi i32 [ %74, %76 ], [ %74, %103 ], [ %74, %101 ], [ %74, %73 ], [ %.085, %71 ]
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1

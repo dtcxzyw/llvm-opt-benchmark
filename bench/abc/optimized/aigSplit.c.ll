@@ -933,8 +933,8 @@ Vec_PtrFree.exit71:                               ; preds = %.critedge2, %.crite
   br label %116
 
 116:                                              ; preds = %Vec_PtrFree.exit71, %Vec_PtrFree.exit, %20, %17, %14
-  %.0 = phi ptr [ null, %14 ], [ null, %17 ], [ null, %20 ], [ null, %Vec_PtrFree.exit ], [ %90, %Vec_PtrFree.exit71 ]
-  ret ptr %.0
+  %.045 = phi ptr [ null, %14 ], [ null, %17 ], [ null, %20 ], [ null, %Vec_PtrFree.exit ], [ %90, %Vec_PtrFree.exit71 ]
+  ret ptr %.045
 }
 
 declare ptr @Aig_Support(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -1408,11 +1408,11 @@ define internal void @xtea_parse_uat() #0 {
 .lr.ph:                                           ; preds = %4, %29
   %10 = phi i8 [ %30, %29 ], [ %9, %4 ]
   %.021 = phi ptr [ %31, %29 ], [ %8, %4 ]
-  %.01620 = phi i32 [ %.117, %29 ], [ 0, %4 ]
+  %.01520 = phi i32 [ %.116, %29 ], [ 0, %4 ]
   %11 = getelementptr i8, ptr %.021, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp ne i8 %12, 0
-  %14 = icmp ult i32 %.01620, 16
+  %14 = icmp ult i32 %.01520, 16
   %or.cond = select i1 %13, i1 %14, i1 false
   br i1 %or.cond, label %15, label %.critedge
 
@@ -1430,8 +1430,8 @@ define internal void @xtea_parse_uat() #0 {
   %23 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %12) #15
   %24 = add i32 %22, %23
   %25 = trunc i32 %24 to i8
-  %26 = add nuw nsw i32 %.01620, 1
-  %27 = zext nneg i32 %.01620 to i64
+  %26 = add nuw nsw i32 %.01520, 1
+  %27 = zext nneg i32 %.01520 to i64
   %28 = getelementptr i8, ptr %5, i64 %27
   store i8 %25, ptr %28, align 1
   %.phi.trans.insert = getelementptr i8, ptr %.021, i64 2
@@ -1440,7 +1440,7 @@ define internal void @xtea_parse_uat() #0 {
 
 29:                                               ; preds = %15, %20
   %30 = phi i8 [ %12, %15 ], [ %.pre, %20 ]
-  %.117 = phi i32 [ %.01620, %15 ], [ %26, %20 ]
+  %.116 = phi i32 [ %.01520, %15 ], [ %26, %20 ]
   %.1 = phi ptr [ %.021, %15 ], [ %11, %20 ]
   %31 = getelementptr i8, ptr %.1, i64 1
   %.not = icmp eq i8 %30, 0
@@ -1624,8 +1624,8 @@ define internal i32 @dissect_tibia(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %43
 
 43:                                               ; preds = %26, %22
-  %.0.i = phi ptr [ %25, %22 ], [ %28, %26 ]
-  %44 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %.027.i = phi ptr [ %25, %22 ], [ %28, %26 ]
+  %44 = getelementptr inbounds i8, ptr %.027.i, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, -1
   br i1 %46, label %47, label %tibia_get_convo.exit
@@ -1641,7 +1641,7 @@ define internal i32 @dissect_tibia(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not31.i, label %tibia_get_convo.exit, label %54
 
 54:                                               ; preds = %47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i, ptr noundef nonnull align 1 dereferenceable(16) %53, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.027.i, ptr noundef nonnull align 1 dereferenceable(16) %53, i64 16, i1 false)
   store i32 0, ptr %44, align 8
   br label %tibia_get_convo.exit
 
@@ -1654,17 +1654,17 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
   %59 = call i32 @adler32_bytes(ptr noundef %57, i64 noundef %58) #13
   %60 = icmp eq i32 %56, %59
   %61 = zext i1 %60 to i32
-  %62 = getelementptr inbounds i8, ptr %.0.i, i64 56
+  %62 = getelementptr inbounds i8, ptr %.027.i, i64 56
   %63 = load i32, ptr %62, align 8
   %64 = and i32 %63, -2
   %65 = or disjoint i32 %64, %61
   store i32 %65, ptr %62, align 8
-  %spec.select.neg429 = select i1 %60, i32 -6, i32 -2
+  %spec.select.neg428 = select i1 %60, i32 -6, i32 -2
   %spec.select = select i1 %60, i32 6, i32 2
   %66 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %spec.select) #13
   %67 = zext i16 %66 to i32
   %68 = add nsw i32 %20, -2
-  %69 = add nsw i32 %68, %spec.select.neg429
+  %69 = add nsw i32 %68, %spec.select.neg428
   %70 = icmp eq i32 %69, %67
   br i1 %70, label %71, label %75
 
@@ -1718,11 +1718,11 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
 99:                                               ; preds = %93, %91
   %100 = and i32 %.sroa.0.12.i, 5
   %or.cond.i = icmp eq i32 %100, 0
-  %.0.i404 = select i1 %or.cond.i, i16 19, i16 23
+  %.0.i = select i1 %or.cond.i, i16 19, i16 23
   %101 = and i32 %.sroa.0.12.i, 128
   %.not9.i = icmp eq i32 %101, 0
-  %narrow.i = add nuw nsw i16 %.0.i404, 222
-  %.1.i = select i1 %.not9.i, i16 %.0.i404, i16 %narrow.i
+  %narrow.i = add nuw nsw i16 %.0.i, 222
+  %.1.i = select i1 %.not9.i, i16 %.0.i, i16 %narrow.i
   %102 = trunc i32 %.sroa.0.12.i to i16
   %103 = shl i16 %102, 6
   %104 = and i16 %103, 128
@@ -1731,7 +1731,7 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
   br i1 %105, label %106, label %135
 
 106:                                              ; preds = %93, %99
-  %107 = getelementptr inbounds i8, ptr %.0.i, i64 66
+  %107 = getelementptr inbounds i8, ptr %.027.i, i64 66
   %108 = load i8, ptr %107, align 2
   %109 = or i8 %108, 1
   store i8 %109, ptr %107, align 2
@@ -1753,8 +1753,8 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
 
 118:                                              ; preds = %112, %110
   %119 = and i32 %.sroa.0.12.i, 5
-  %or.cond.i405 = icmp eq i32 %119, 0
-  %.0.i406 = select i1 %or.cond.i405, i16 7, i16 11
+  %or.cond.i404 = icmp eq i32 %119, 0
+  %.0.i405 = select i1 %or.cond.i404, i16 7, i16 11
   %120 = trunc i32 %.sroa.0.12.i to i16
   %121 = lshr i16 %120, 12
   %122 = and i16 %121, 4
@@ -1762,9 +1762,9 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
   %124 = trunc nuw nsw i32 %123 to i16
   %125 = and i16 %124, 2
   %126 = lshr i16 %120, 15
-  %.1.i407 = or disjoint i16 %122, %126
-  %.2.i408 = add nuw nsw i16 %.1.i407, %.0.i406
-  %.3.i = add nuw nsw i16 %.2.i408, %125
+  %.1.i406 = or disjoint i16 %122, %126
+  %.2.i407 = add nuw nsw i16 %.1.i406, %.0.i405
+  %.3.i = add nuw nsw i16 %.2.i407, %125
   %127 = shl i16 %120, 6
   %128 = and i16 %127, 128
   %.4.i = or disjoint i16 %.3.i, %128
@@ -1789,8 +1789,8 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
   call void @col_set_str(ptr noundef %139, i32 noundef 34, ptr noundef nonnull @.str.217) #13
   %140 = ptrtoint ptr %3 to i64
   %141 = and i64 %140, 4294967295
-  %.not428 = icmp eq i64 %141, 1
-  br i1 %.not428, label %142, label %155
+  %.not427 = icmp eq i64 %141, 1
+  br i1 %.not427, label %142, label %155
 
 142:                                              ; preds = %135
   br i1 %136, label %143, label %145
@@ -1803,7 +1803,7 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
 145:                                              ; preds = %142
   %146 = getelementptr inbounds i8, ptr %1, i64 284
   %147 = load i32, ptr %146, align 4
-  %148 = getelementptr inbounds i8, ptr %.0.i, i64 70
+  %148 = getelementptr inbounds i8, ptr %.027.i, i64 70
   %149 = load i16, ptr %148, align 2
   %150 = zext i16 %149 to i32
   %151 = icmp eq i32 %147, %150
@@ -1848,8 +1848,8 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
 171:                                              ; preds = %170
   %172 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #13
   %173 = load i32, ptr @show_acc_info, align 4
-  %.not.i409 = icmp eq i32 %173, 0
-  br i1 %.not.i409, label %proto_item_set_generated.exit.i, label %174
+  %.not.i408 = icmp eq i32 %173, 0
+  br i1 %.not.i408, label %proto_item_set_generated.exit.i, label %174
 
 174:                                              ; preds = %171
   %175 = load i32, ptr %62, align 8
@@ -1858,7 +1858,7 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
   br i1 %.not115.i, label %186, label %177
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %178 = getelementptr inbounds i8, ptr %.027.i, i64 48
   %179 = load ptr, ptr %178, align 8
   %.not118.i = icmp eq ptr %179, null
   br i1 %.not118.i, label %proto_item_set_generated.exit.i, label %180
@@ -1876,7 +1876,7 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %proto_item_set_generated.exit.sink.split.i
 
 186:                                              ; preds = %174
-  %187 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %187 = getelementptr inbounds i8, ptr %.027.i, i64 24
   %188 = load ptr, ptr %187, align 8
   %.not116.i = icmp eq ptr %188, null
   br i1 %.not116.i, label %proto_item_set_generated.exit130.i, label %189
@@ -1901,7 +1901,7 @@ tibia_get_convo.exit:                             ; preds = %43, %47, %54
   br label %proto_item_set_generated.exit130.i
 
 proto_item_set_generated.exit130.i:               ; preds = %195, %192, %189, %186
-  %199 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %199 = getelementptr inbounds i8, ptr %.027.i, i64 32
   %200 = load ptr, ptr %199, align 8
   %.not117.i = icmp eq ptr %200, null
   br i1 %.not117.i, label %proto_item_set_generated.exit.i, label %201
@@ -1932,7 +1932,7 @@ proto_item_set_generated.exit.i:                  ; preds = %proto_item_set_gene
   br i1 %.not119.i, label %proto_item_set_generated.exit136.i, label %211
 
 211:                                              ; preds = %proto_item_set_generated.exit.i
-  %212 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %212 = getelementptr inbounds i8, ptr %.027.i, i64 40
   %213 = load ptr, ptr %212, align 8
   %.not120.i = icmp eq ptr %213, null
   br i1 %.not120.i, label %proto_item_set_generated.exit136.i, label %214
@@ -1980,7 +1980,7 @@ proto_item_set_generated.exit136.i:               ; preds = %220, %217, %214, %2
 
 234:                                              ; preds = %231
   %235 = load i32, ptr @hf_tibia_xtea_key, align 4
-  %236 = call ptr @proto_tree_add_bytes_with_length(ptr noundef %159, i32 noundef %235, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.0.i, i32 noundef 16) #13
+  %236 = call ptr @proto_tree_add_bytes_with_length(ptr noundef %159, i32 noundef %235, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.027.i, i32 noundef 16) #13
   %.not.i137.i = icmp eq ptr %236, null
   br i1 %.not.i137.i, label %proto_item_set_generated.exit139.i, label %237
 
@@ -2015,7 +2015,7 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
   %.0148.i = phi ptr [ %253, %.lr.ph.i ], [ %250, %246 ]
   %.0109147.i = phi i32 [ %254, %.lr.ph.i ], [ %.1, %246 ]
   %252 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %.0109147.i, i32 noundef 8) #13
-  call void @decrypt_xtea_le_ecb(ptr noundef %.0148.i, ptr noundef %252, ptr noundef %.0.i, i32 noundef 32) #13
+  call void @decrypt_xtea_le_ecb(ptr noundef %.0148.i, ptr noundef %252, ptr noundef %.027.i, i32 noundef 32) #13
   %253 = getelementptr i8, ptr %.0148.i, i64 8
   %254 = add i32 %.0109147.i, 8
   %255 = icmp slt i32 %254, %244
@@ -2032,20 +2032,20 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
   br label %dissect_game_packet.exit
 
 260:                                              ; preds = %._crit_edge.i, %proto_item_set_generated.exit136.i
-  %.1.i410 = phi i32 [ 0, %._crit_edge.i ], [ %.1, %proto_item_set_generated.exit136.i ]
-  %.0107.i = phi ptr [ %256, %._crit_edge.i ], [ %0, %proto_item_set_generated.exit136.i ]
+  %.1.i409 = phi i32 [ 0, %._crit_edge.i ], [ %.1, %proto_item_set_generated.exit136.i ]
+  %.0108.i = phi ptr [ %256, %._crit_edge.i ], [ %0, %proto_item_set_generated.exit136.i ]
   %261 = load i32, ptr %62, align 8
   %262 = and i32 %261, 8
   %.not125.i = icmp eq i32 %262, 0
   br i1 %.not125.i, label %273, label %263
 
 263:                                              ; preds = %260
-  %264 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0107.i, i32 noundef %.1.i410) #13
+  %264 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0108.i, i32 noundef %.1.i409) #13
   %265 = zext i16 %264 to i32
   %266 = load i32, ptr @hf_tibia_payload_len, align 4
-  %267 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %266, ptr noundef %.0107.i, i32 noundef %.1.i410, i32 noundef 2, i32 noundef -2147483648) #13
-  %268 = add nuw nsw i32 %.1.i410, 2
-  %269 = call i32 @tvb_captured_length_remaining(ptr noundef %.0107.i, i32 noundef %268) #13
+  %267 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %266, ptr noundef %.0108.i, i32 noundef %.1.i409, i32 noundef 2, i32 noundef -2147483648) #13
+  %268 = add nuw nsw i32 %.1.i409, 2
+  %269 = call i32 @tvb_captured_length_remaining(ptr noundef %.0108.i, i32 noundef %268) #13
   %270 = icmp slt i32 %269, %265
   br i1 %270, label %271, label %273
 
@@ -2054,18 +2054,18 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
   br label %dissect_game_packet.exit
 
 273:                                              ; preds = %263, %260
-  %.2.i411 = phi i32 [ %268, %263 ], [ %.1.i410, %260 ]
-  %.0108.i = phi i32 [ %265, %263 ], [ %172, %260 ]
+  %.2.i410 = phi i32 [ %268, %263 ], [ %.1.i409, %260 ]
+  %.0106.i = phi i32 [ %265, %263 ], [ %172, %260 ]
   %274 = getelementptr inbounds i8, ptr %1, i64 284
   %275 = load i32, ptr %274, align 4
-  %276 = getelementptr inbounds i8, ptr %.0.i, i64 70
+  %276 = getelementptr inbounds i8, ptr %.027.i, i64 70
   %277 = load i16, ptr %276, align 2
   %278 = zext i16 %277 to i32
   %279 = icmp eq i32 %275, %278
   br i1 %279, label %280, label %.thread.i
 
 280:                                              ; preds = %273
-  %281 = getelementptr inbounds i8, ptr %.0.i, i64 66
+  %281 = getelementptr inbounds i8, ptr %.027.i, i64 66
   %282 = load i8, ptr %281, align 2
   %283 = and i8 %282, 1
   %.not126.i = icmp eq i8 %283, 0
@@ -2074,22 +2074,22 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
 284:                                              ; preds = %280
   %285 = getelementptr inbounds i8, ptr %1, i64 408
   %286 = load ptr, ptr %285, align 8
-  %287 = call ptr @ptvcursor_new(ptr noundef %286, ptr noundef %159, ptr noundef %.0107.i, i32 noundef %.2.i411) #13
+  %287 = call ptr @ptvcursor_new(ptr noundef %286, ptr noundef %159, ptr noundef %.0108.i, i32 noundef %.2.i410) #13
   %288 = load ptr, ptr %138, align 8
-  %289 = select i1 %.not428, ptr @.str.387, ptr @.str.388
+  %289 = select i1 %.not427, ptr @.str.387, ptr @.str.388
   call void @col_append_str(ptr noundef %288, i32 noundef 25, ptr noundef nonnull %289) #13
-  %290 = add i32 %.0108.i, %.2.i411
+  %290 = add i32 %.0106.i, %.2.i410
   %291 = call i32 @ptvcursor_current_offset(ptr noundef %287) #13
   %292 = icmp slt i32 %291, %290
   br i1 %292, label %.preheader.i.i, label %dissect_loginserv_packet.exit.i
 
 .preheader.i.i:                                   ; preds = %284
-  %293 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %293 = getelementptr inbounds i8, ptr %.027.i, i64 60
   br label %294
 
 294:                                              ; preds = %426, %.preheader.i.i
   %295 = call i32 @ptvcursor_current_offset(ptr noundef %287) #13
-  %296 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0107.i, i32 noundef %295) #13
+  %296 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0108.i, i32 noundef %295) #13
   %297 = zext i8 %296 to i32
   %298 = load i32, ptr @hf_tibia_loginserv_command, align 4
   %299 = load i32, ptr @ett_command, align 4
@@ -2129,7 +2129,7 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
   %318 = and i32 %317, 524288
   %.not113.i.i = icmp eq i32 %318, 0
   %319 = call i32 @ptvcursor_current_offset(ptr noundef %287) #13
-  %320 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0107.i, i32 noundef %319) #13
+  %320 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0108.i, i32 noundef %319) #13
   %.not114.i.i = icmp eq i8 %320, 0
   br i1 %.not113.i.i, label %385, label %321
 
@@ -2145,7 +2145,7 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
   br label %328
 
 328:                                              ; preds = %ipv4tonl.exit.i.i, %324
-  %.0121.i.i = phi i8 [ %320, %324 ], [ %352, %ipv4tonl.exit.i.i ]
+  %.0109121.i.i = phi i8 [ %320, %324 ], [ %352, %ipv4tonl.exit.i.i ]
   %329 = load i32, ptr @hf_tibia_worldlist_entry_id, align 4
   %330 = call ptr @ptvcursor_add(ptr noundef %287, i32 noundef %329, i32 noundef 1, i32 noundef 0) #13
   %331 = load i32, ptr @ett_world, align 4
@@ -2155,14 +2155,14 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
   %335 = or i32 %334, -2147483648
   %336 = call ptr @ptvcursor_add(ptr noundef %287, i32 noundef %333, i32 noundef 2, i32 noundef %335) #13
   %337 = call i32 @ptvcursor_current_offset(ptr noundef %287) #13
-  %338 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0107.i, i32 noundef %337) #13
+  %338 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0108.i, i32 noundef %337) #13
   %339 = zext i16 %338 to i32
   %340 = load ptr, ptr %285, align 8
   %341 = call i32 @ptvcursor_current_offset(ptr noundef %287) #13
   %342 = add i32 %341, 2
   %343 = load i32, ptr %293, align 4
   %344 = or i32 %343, -2147483648
-  %345 = call ptr @tvb_get_string_enc(ptr noundef %340, ptr noundef %.0107.i, i32 noundef %342, i32 noundef %339, i32 noundef %344) #13
+  %345 = call ptr @tvb_get_string_enc(ptr noundef %340, ptr noundef %.0108.i, i32 noundef %342, i32 noundef %339, i32 noundef %344) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store ptr %345, ptr %5, align 8
@@ -2182,7 +2182,7 @@ proto_item_set_generated.exit139.i:               ; preds = %240, %237, %234, %2
   br i1 %exitcond.not.i.i.i, label %ipv4tonl.exit.i.i, label %346, !llvm.loop !4
 
 ipv4tonl.exit.i.i:                                ; preds = %346
-  %352 = add i8 %.0121.i.i, -1
+  %352 = add i8 %.0109121.i.i, -1
   %353 = load i32, ptr %6, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
@@ -2191,13 +2191,13 @@ ipv4tonl.exit.i.i:                                ; preds = %346
   %356 = or i32 %355, -2147483648
   %357 = call ptr @ptvcursor_add(ptr noundef %287, i32 noundef %354, i32 noundef 2, i32 noundef %356) #13
   %358 = call i32 @ptvcursor_current_offset(ptr noundef %287) #13
-  %359 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0107.i, i32 noundef %358) #13
+  %359 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0108.i, i32 noundef %358) #13
   %360 = load i32, ptr @hf_tibia_worldlist_entry_port, align 4
   %361 = call ptr @ptvcursor_add(ptr noundef %287, i32 noundef %360, i32 noundef 2, i32 noundef -2147483648) #13
   %362 = load i32, ptr @hf_tibia_worldlist_entry_preview, align 4
   %363 = call ptr @ptvcursor_add(ptr noundef %287, i32 noundef %362, i32 noundef 1, i32 noundef 0) #13
   call void @ptvcursor_pop_subtree(ptr noundef %287) #13
-  call fastcc void @register_gameserv_addr(ptr noundef readonly %.0.i, i32 noundef %353, i16 noundef zeroext %359)
+  call fastcc void @register_gameserv_addr(ptr noundef readonly %.027.i, i32 noundef %353, i16 noundef zeroext %359)
   %.not117.i.i = icmp eq i8 %352, 0
   br i1 %.not117.i.i, label %364, label %328, !llvm.loop !12
 
@@ -2207,7 +2207,7 @@ ipv4tonl.exit.i.i:                                ; preds = %346
 
 365:                                              ; preds = %364, %321
   %366 = call i32 @ptvcursor_current_offset(ptr noundef %287) #13
-  %367 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0107.i, i32 noundef %366) #13
+  %367 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0108.i, i32 noundef %366) #13
   %368 = load i32, ptr @hf_tibia_charlist_length, align 4
   %369 = call ptr @ptvcursor_add(ptr noundef %287, i32 noundef %368, i32 noundef 1, i32 noundef 0) #13
   %.not118.i.i = icmp eq i8 %367, 0
@@ -2220,8 +2220,8 @@ ipv4tonl.exit.i.i:                                ; preds = %346
   br label %374
 
 374:                                              ; preds = %374, %370
-  %.0109122.i.i = phi i8 [ %367, %370 ], [ %375, %374 ]
-  %375 = add i8 %.0109122.i.i, -1
+  %.0108122.i.i = phi i8 [ %367, %370 ], [ %375, %374 ]
+  %375 = add i8 %.0108122.i.i, -1
   %376 = load i32, ptr @hf_tibia_worldlist_entry_id, align 4
   %377 = call ptr @ptvcursor_add(ptr noundef %287, i32 noundef %376, i32 noundef 1, i32 noundef 0) #13
   %378 = load i32, ptr @ett_char, align 4
@@ -2250,8 +2250,8 @@ ipv4tonl.exit.i.i:                                ; preds = %346
   br label %392
 
 392:                                              ; preds = %392, %388
-  %.0108123.i.i = phi i8 [ %320, %388 ], [ %393, %392 ]
-  %393 = add i8 %.0108123.i.i, -1
+  %.0123.i.i = phi i8 [ %320, %388 ], [ %393, %392 ]
+  %393 = add i8 %.0123.i.i, -1
   %394 = load i32, ptr @hf_tibia_charlist_entry_name, align 4
   %395 = load i32, ptr %293, align 4
   %396 = or i32 %395, -2147483648
@@ -2263,15 +2263,15 @@ ipv4tonl.exit.i.i:                                ; preds = %346
   %402 = or i32 %401, -2147483648
   %403 = call ptr @ptvcursor_add(ptr noundef %287, i32 noundef %400, i32 noundef 2, i32 noundef %402) #13
   %404 = call i32 @ptvcursor_current_offset(ptr noundef %287) #13
-  %405 = call i32 @tvb_get_ipv4(ptr noundef %.0107.i, i32 noundef %404) #13
+  %405 = call i32 @tvb_get_ipv4(ptr noundef %.0108.i, i32 noundef %404) #13
   %406 = load i32, ptr @hf_tibia_charlist_entry_ip, align 4
   %407 = call ptr @ptvcursor_add(ptr noundef %287, i32 noundef %406, i32 noundef 4, i32 noundef 0) #13
   %408 = call i32 @ptvcursor_current_offset(ptr noundef %287) #13
-  %409 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0107.i, i32 noundef %408) #13
+  %409 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0108.i, i32 noundef %408) #13
   %410 = load i32, ptr @hf_tibia_charlist_entry_port, align 4
   %411 = call ptr @ptvcursor_add(ptr noundef %287, i32 noundef %410, i32 noundef 2, i32 noundef 0) #13
   call void @ptvcursor_pop_subtree(ptr noundef %287) #13
-  call fastcc void @register_gameserv_addr(ptr noundef nonnull readonly %.0.i, i32 noundef %405, i16 noundef zeroext %409)
+  call fastcc void @register_gameserv_addr(ptr noundef nonnull readonly %.027.i, i32 noundef %405, i16 noundef zeroext %409)
   %.not115.i.i = icmp eq i8 %393, 0
   br i1 %.not115.i.i, label %412, label %392, !llvm.loop !14
 
@@ -2287,7 +2287,7 @@ ipv4tonl.exit.i.i:                                ; preds = %346
 416:                                              ; preds = %294
   %417 = call i32 @ptvcursor_current_offset(ptr noundef %287) #13
   %418 = sub i32 %290, %417
-  %419 = call ptr @tvb_new_subset_length(ptr noundef %.0107.i, i32 noundef %417, i32 noundef %418) #13
+  %419 = call ptr @tvb_new_subset_length(ptr noundef %.0108.i, i32 noundef %417, i32 noundef %418) #13
   %420 = call ptr @ptvcursor_tree(ptr noundef %287) #13
   %421 = call i32 @call_data_dissector(ptr noundef %419, ptr noundef nonnull %1, ptr noundef %420) #13
   call void @ptvcursor_advance(ptr noundef %287, i32 noundef %418) #13
@@ -2323,30 +2323,30 @@ dissect_loginserv_packet.exit.i:                  ; preds = %422, %284
   br i1 %.not127145.i, label %432, label %656
 
 432:                                              ; preds = %.thread.i, %429
-  %433 = call ptr @tvb_new_subset_length(ptr noundef %.0107.i, i32 noundef %.2.i411, i32 noundef %.0108.i) #13
+  %433 = call ptr @tvb_new_subset_length(ptr noundef %.0108.i, i32 noundef %.2.i410, i32 noundef %.0106.i) #13
   %434 = call i32 @call_data_dissector(ptr noundef %433, ptr noundef nonnull %1, ptr noundef %159) #13
-  %435 = add i32 %.0108.i, %.2.i411
+  %435 = add i32 %.0106.i, %.2.i410
   br label %dissect_game_packet.exit
 
 436:                                              ; preds = %429
   %437 = getelementptr inbounds i8, ptr %1, i64 408
   %438 = load ptr, ptr %437, align 8
-  %439 = call ptr @ptvcursor_new(ptr noundef %438, ptr noundef %159, ptr noundef %.0107.i, i32 noundef %.2.i411) #13
+  %439 = call ptr @ptvcursor_new(ptr noundef %438, ptr noundef %159, ptr noundef %.0108.i, i32 noundef %.2.i410) #13
   %440 = load ptr, ptr %138, align 8
-  %441 = select i1 %.not428, ptr @.str.387, ptr @.str.388
+  %441 = select i1 %.not427, ptr @.str.387, ptr @.str.388
   call void @col_append_str(ptr noundef %440, i32 noundef 25, ptr noundef nonnull %441) #13
-  %442 = add i32 %.0108.i, %.2.i411
+  %442 = add i32 %.0106.i, %.2.i410
   %443 = call i32 @ptvcursor_current_offset(ptr noundef %439) #13
   %444 = icmp slt i32 %443, %442
   br i1 %444, label %.preheader.i142.i, label %dissect_gameserv_packet.exit.i
 
 .preheader.i142.i:                                ; preds = %436
-  %445 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %445 = getelementptr inbounds i8, ptr %.027.i, i64 60
   br label %446
 
 446:                                              ; preds = %653, %.preheader.i142.i
   %447 = call i32 @ptvcursor_current_offset(ptr noundef %439) #13
-  %448 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0107.i, i32 noundef %447) #13
+  %448 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0108.i, i32 noundef %447) #13
   %449 = zext i8 %448 to i32
   %450 = load i32, ptr @hf_tibia_gameserv_command, align 4
   %451 = load i32, ptr @ett_command, align 4
@@ -2670,7 +2670,7 @@ dissect_loginserv_packet.exit.i:                  ; preds = %422, %284
 643:                                              ; preds = %446
   %644 = call i32 @ptvcursor_current_offset(ptr noundef %439) #13
   %645 = sub i32 %442, %644
-  %646 = call ptr @tvb_new_subset_length(ptr noundef %.0107.i, i32 noundef %644, i32 noundef %645) #13
+  %646 = call ptr @tvb_new_subset_length(ptr noundef %.0108.i, i32 noundef %644, i32 noundef %645) #13
   %647 = call ptr @ptvcursor_tree(ptr noundef %439) #13
   %648 = call i32 @call_data_dissector(ptr noundef %646, ptr noundef nonnull %1, ptr noundef %647) #13
   call void @ptvcursor_advance(ptr noundef %439, i32 noundef %645) #13
@@ -2698,22 +2698,22 @@ dissect_gameserv_packet.exit.i:                   ; preds = %649, %436
 656:                                              ; preds = %.thread.i
   %657 = getelementptr inbounds i8, ptr %1, i64 408
   %658 = load ptr, ptr %657, align 8
-  %659 = call ptr @ptvcursor_new(ptr noundef %658, ptr noundef %159, ptr noundef %.0107.i, i32 noundef %.2.i411) #13
+  %659 = call ptr @ptvcursor_new(ptr noundef %658, ptr noundef %159, ptr noundef %.0108.i, i32 noundef %.2.i410) #13
   %660 = load ptr, ptr %138, align 8
-  %661 = select i1 %.not428, ptr @.str.387, ptr @.str.388
+  %661 = select i1 %.not427, ptr @.str.387, ptr @.str.388
   call void @col_append_str(ptr noundef %660, i32 noundef 25, ptr noundef nonnull %661) #13
-  %662 = add i32 %.0108.i, %.2.i411
+  %662 = add i32 %.0106.i, %.2.i410
   %663 = call i32 @ptvcursor_current_offset(ptr noundef %659) #13
   %664 = icmp slt i32 %663, %662
   br i1 %664, label %.preheader.i144.i, label %dissect_client_packet.exit.i
 
 .preheader.i144.i:                                ; preds = %656
-  %665 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %665 = getelementptr inbounds i8, ptr %.027.i, i64 60
   br label %666
 
 666:                                              ; preds = %698, %.preheader.i144.i
   %667 = call i32 @ptvcursor_current_offset(ptr noundef %659) #13
-  %668 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0107.i, i32 noundef %667) #13
+  %668 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0108.i, i32 noundef %667) #13
   %669 = zext i8 %668 to i32
   %670 = load i32, ptr @hf_tibia_client_command, align 4
   %671 = load i32, ptr @ett_command, align 4
@@ -2748,7 +2748,7 @@ dissect_gameserv_packet.exit.i:                   ; preds = %649, %436
 688:                                              ; preds = %666
   %689 = call i32 @ptvcursor_current_offset(ptr noundef %659) #13
   %690 = sub i32 %662, %689
-  %691 = call ptr @tvb_new_subset_length(ptr noundef %.0107.i, i32 noundef %689, i32 noundef %690) #13
+  %691 = call ptr @tvb_new_subset_length(ptr noundef %.0108.i, i32 noundef %689, i32 noundef %690) #13
   %692 = call ptr @ptvcursor_tree(ptr noundef %659) #13
   %693 = call i32 @call_data_dissector(ptr noundef %691, ptr noundef nonnull %1, ptr noundef %692) #13
   call void @ptvcursor_advance(ptr noundef %659, i32 noundef %690) #13
@@ -2781,50 +2781,50 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
   %706 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %705, ptr noundef %0, i32 noundef %704, i32 noundef 2, i32 noundef -2147483648) #13
   %707 = add nuw nsw i32 %.1, 3
   %708 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %707) #13
-  %709 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %709 = getelementptr inbounds i8, ptr %.027.i, i64 64
   store i16 %708, ptr %709, align 8
   %710 = icmp ugt i16 %708, 760
-  %spec.select.i412 = select i1 %710, i32 266, i32 256
+  %spec.select.i411 = select i1 %710, i32 266, i32 256
   %711 = icmp ugt i16 %708, 779
-  %712 = or disjoint i32 %spec.select.i412, 7168
-  %.sroa.0.1.i413 = select i1 %711, i32 %712, i32 %spec.select.i412
+  %712 = or disjoint i32 %spec.select.i411, 7168
+  %.sroa.0.1.i412 = select i1 %711, i32 %712, i32 %spec.select.i411
   %713 = icmp ugt i16 %708, 829
-  %714 = or disjoint i32 %.sroa.0.1.i413, 33
-  %.sroa.0.2.i414 = select i1 %713, i32 %714, i32 %.sroa.0.1.i413
+  %714 = or disjoint i32 %.sroa.0.1.i412, 33
+  %.sroa.0.2.i413 = select i1 %713, i32 %714, i32 %.sroa.0.1.i412
   %715 = icmp ugt i16 %708, 840
-  %716 = or disjoint i32 %.sroa.0.2.i414, 576
-  %.sroa.0.3.i415 = select i1 %715, i32 %716, i32 %.sroa.0.2.i414
+  %716 = or disjoint i32 %.sroa.0.2.i413, 576
+  %.sroa.0.3.i414 = select i1 %715, i32 %716, i32 %.sroa.0.2.i413
   %717 = icmp ugt i16 %708, 952
-  %718 = or i32 %.sroa.0.3.i415, 8192
-  %.sroa.0.4.i416 = select i1 %717, i32 %718, i32 %.sroa.0.3.i415
+  %718 = or i32 %.sroa.0.3.i414, 8192
+  %.sroa.0.4.i415 = select i1 %717, i32 %718, i32 %.sroa.0.3.i414
   %719 = icmp ugt i16 %708, 979
-  %720 = or i32 %.sroa.0.4.i416, 49152
-  %.sroa.0.5.i417 = select i1 %719, i32 %720, i32 %.sroa.0.4.i416
+  %720 = or i32 %.sroa.0.4.i415, 49152
+  %.sroa.0.5.i416 = select i1 %719, i32 %720, i32 %.sroa.0.4.i415
   %721 = icmp ugt i16 %708, 1009
-  %722 = or i32 %.sroa.0.5.i417, 524288
-  %.sroa.0.6.i418 = select i1 %721, i32 %722, i32 %.sroa.0.5.i417
+  %722 = or i32 %.sroa.0.5.i416, 524288
+  %.sroa.0.6.i417 = select i1 %721, i32 %722, i32 %.sroa.0.5.i416
   %723 = icmp ugt i16 %708, 1060
-  %724 = or i32 %.sroa.0.6.i418, 128
-  %.sroa.0.7.i419 = select i1 %723, i32 %724, i32 %.sroa.0.6.i418
+  %724 = or i32 %.sroa.0.6.i417, 128
+  %.sroa.0.7.i418 = select i1 %723, i32 %724, i32 %.sroa.0.6.i417
   %725 = icmp ugt i16 %708, 1070
-  %726 = or i32 %.sroa.0.7.i419, 262144
-  %.sroa.0.8.i420 = select i1 %725, i32 %726, i32 %.sroa.0.7.i419
+  %726 = or i32 %.sroa.0.7.i418, 262144
+  %.sroa.0.8.i419 = select i1 %725, i32 %726, i32 %.sroa.0.7.i418
   %727 = icmp ugt i16 %708, 1071
-  %728 = or i32 %.sroa.0.8.i420, 65536
-  %.sroa.0.9.i421 = select i1 %727, i32 %728, i32 %.sroa.0.8.i420
+  %728 = or i32 %.sroa.0.8.i419, 65536
+  %.sroa.0.9.i420 = select i1 %727, i32 %728, i32 %.sroa.0.8.i419
   %729 = icmp ugt i16 %708, 1073
-  %730 = or i32 %.sroa.0.9.i421, 131072
-  %.sroa.0.10.i422 = select i1 %729, i32 %730, i32 %.sroa.0.9.i421
+  %730 = or i32 %.sroa.0.9.i420, 131072
+  %.sroa.0.10.i421 = select i1 %729, i32 %730, i32 %.sroa.0.9.i420
   %731 = icmp ugt i16 %708, 1100
-  %732 = or i32 %.sroa.0.10.i422, 16
-  %.sroa.0.11.i423 = select i1 %731, i32 %732, i32 %.sroa.0.10.i422
+  %732 = or i32 %.sroa.0.10.i421, 16
+  %.sroa.0.11.i422 = select i1 %731, i32 %732, i32 %.sroa.0.10.i421
   %733 = icmp ugt i16 %708, 1110
-  %734 = and i32 %.sroa.0.11.i423, -6
+  %734 = and i32 %.sroa.0.11.i422, -6
   %735 = or disjoint i32 %734, 4
-  %.sroa.0.12.i424 = select i1 %733, i32 %735, i32 %.sroa.0.11.i423
-  %.sroa.0.0.insert.ext.i425 = zext nneg i32 %.sroa.0.12.i424 to i64
-  %.sroa.0.0.insert.insert.i426 = or disjoint i64 %.sroa.0.0.insert.ext.i425, 42949672960
-  store i64 %.sroa.0.0.insert.insert.i426, ptr %62, align 8
+  %.sroa.0.12.i423 = select i1 %733, i32 %735, i32 %.sroa.0.11.i422
+  %.sroa.0.0.insert.ext.i424 = zext nneg i32 %.sroa.0.12.i423 to i64
+  %.sroa.0.0.insert.insert.i425 = or disjoint i64 %.sroa.0.0.insert.ext.i424, 42949672960
+  store i64 %.sroa.0.0.insert.insert.i425, ptr %62, align 8
   %736 = load i32, ptr @hf_tibia_proto_version, align 4
   %737 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %736, ptr noundef %0, i32 noundef %707, i32 noundef 2, i32 noundef -2147483648) #13
   %738 = add nuw nsw i32 %.1, 5
@@ -2841,7 +2841,7 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
 
 745:                                              ; preds = %741, %701
   %.2 = phi i32 [ %744, %741 ], [ %738, %701 ]
-  %746 = getelementptr inbounds i8, ptr %.0.i, i64 66
+  %746 = getelementptr inbounds i8, ptr %.027.i, i64 66
   %747 = load i8, ptr %746, align 2
   %748 = and i8 %747, 1
   %.not373 = icmp eq i8 %748, 0
@@ -2897,14 +2897,14 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
   br i1 %.not376, label %818, label %780
 
 780:                                              ; preds = %777
-  %781 = getelementptr i8, ptr %.0.i, i64 72
+  %781 = getelementptr i8, ptr %.027.i, i64 72
   %.val403 = load ptr, ptr %781, align 8
-  %.not.i427 = icmp eq ptr %.val403, null
+  %.not.i426 = icmp eq ptr %.val403, null
   %782 = load i32, ptr @try_otserv_key, align 4
   %.not2.i = icmp eq i32 %782, 0
   %783 = load ptr, ptr @otserv_key, align 8
   %784 = select i1 %.not2.i, ptr null, ptr %783
-  %785 = select i1 %.not.i427, ptr %784, ptr %.val403
+  %785 = select i1 %.not.i426, ptr %784, ptr %.val403
   %.not377 = icmp eq ptr %785, null
   br i1 %.not377, label %786, label %790
 
@@ -2956,37 +2956,37 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
   br label %dissect_game_packet.exit
 
 812:                                              ; preds = %805
-  %813 = call ptr @tvb_memcpy(ptr noundef %808, ptr noundef nonnull %.0.i, i32 noundef 1, i64 noundef 16) #13
+  %813 = call ptr @tvb_memcpy(ptr noundef %808, ptr noundef nonnull %.027.i, i32 noundef 1, i64 noundef 16) #13
   %814 = load i32, ptr @hf_tibia_xtea_key, align 4
   %815 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %814, ptr noundef %808, i32 noundef 1, i32 noundef 16, i32 noundef 0) #13
   %816 = getelementptr inbounds i8, ptr %1, i64 20
   %817 = load i32, ptr %816, align 4
   store i32 %817, ptr %44, align 8
-  %.pre431.pre = load i32, ptr %62, align 8
+  %.pre430.pre = load i32, ptr %62, align 8
   br label %818
 
 818:                                              ; preds = %812, %777
-  %.pre431 = phi i32 [ %.pre431.pre, %812 ], [ %778, %777 ]
+  %.pre430 = phi i32 [ %.pre430.pre, %812 ], [ %778, %777 ]
   %.0366 = phi i32 [ %796, %812 ], [ 0, %777 ]
   %.5 = phi i32 [ 17, %812 ], [ %.4, %777 ]
   %.0362 = phi ptr [ %808, %812 ], [ %0, %777 ]
   %819 = load i8, ptr %746, align 2
   %820 = and i8 %819, 1
   %.not380 = icmp ne i8 %820, 0
-  %821 = and i32 %.pre431, 256
+  %821 = and i32 %.pre430, 256
   %.not381 = icmp eq i32 %821, 0
-  %or.cond434 = select i1 %.not380, i1 true, i1 %.not381
-  br i1 %or.cond434, label %826, label %822
+  %or.cond433 = select i1 %.not380, i1 true, i1 %.not381
+  br i1 %or.cond433, label %826, label %822
 
 822:                                              ; preds = %818
   %823 = load i32, ptr @hf_tibia_loginflags_gm, align 4
   %824 = call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %823, ptr noundef %.0362, i32 noundef %.5, i32 noundef 1, i32 noundef 0) #13
   %825 = add nuw nsw i32 %.5, 1
-  %.pre430 = load i32, ptr %62, align 8
+  %.pre429 = load i32, ptr %62, align 8
   br label %826
 
 826:                                              ; preds = %822, %818
-  %827 = phi i32 [ %.pre431, %818 ], [ %.pre430, %822 ]
+  %827 = phi i32 [ %.pre430, %818 ], [ %.pre429, %822 ]
   %.6 = phi i32 [ %.5, %818 ], [ %825, %822 ]
   %828 = and i32 %827, 131072
   %.not382 = icmp eq i32 %828, 0
@@ -2999,11 +2999,11 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
   br i1 %.not383, label %832, label %846
 
 832:                                              ; preds = %829
-  %833 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %833 = getelementptr inbounds i8, ptr %.027.i, i64 48
   %834 = load ptr, ptr %833, align 8
   %.not384 = icmp eq ptr %834, null
   %835 = load i32, ptr @hf_tibia_session_key, align 4
-  %836 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %836 = getelementptr inbounds i8, ptr %.027.i, i64 60
   %837 = load i32, ptr %836, align 4
   %838 = or i32 %837, -2147483648
   br i1 %.not384, label %841, label %839
@@ -3027,11 +3027,11 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
   br i1 %.not385, label %862, label %848
 
 848:                                              ; preds = %846
-  %849 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %849 = getelementptr inbounds i8, ptr %.027.i, i64 24
   %850 = load ptr, ptr %849, align 8
   %.not387 = icmp eq ptr %850, null
   %851 = load i32, ptr @hf_tibia_acc_name, align 4
-  %852 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %852 = getelementptr inbounds i8, ptr %.027.i, i64 60
   %853 = load i32, ptr %852, align 4
   %854 = or i32 %853, -2147483648
   br i1 %.not387, label %857, label %855
@@ -3056,7 +3056,7 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
   %866 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %864, ptr noundef nonnull @.str.376, i32 noundef %865) #13
   %867 = load i32, ptr @hf_tibia_acc_number, align 4
   %868 = call ptr @proto_tree_add_string(ptr noundef %159, i32 noundef %867, ptr noundef %.0362, i32 noundef %.6, i32 noundef 4, ptr noundef %866) #13
-  %869 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %869 = getelementptr inbounds i8, ptr %.027.i, i64 24
   %870 = load ptr, ptr %869, align 8
   %.not386 = icmp eq ptr %870, null
   br i1 %.not386, label %871, label %874
@@ -3076,11 +3076,11 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
   br i1 %.not388, label %877, label %892
 
 877:                                              ; preds = %874
-  %878 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %878 = getelementptr inbounds i8, ptr %.027.i, i64 40
   %879 = load ptr, ptr %878, align 8
   %.not389 = icmp eq ptr %879, null
   %880 = load i32, ptr @hf_tibia_char_name, align 4
-  %881 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %881 = getelementptr inbounds i8, ptr %.027.i, i64 60
   %882 = load i32, ptr %881, align 4
   %883 = or i32 %882, -2147483648
   br i1 %.not389, label %886, label %884
@@ -3113,11 +3113,11 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
   br i1 %.not391, label %913, label %898
 
 898:                                              ; preds = %895, %892
-  %899 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %899 = getelementptr inbounds i8, ptr %.027.i, i64 32
   %900 = load ptr, ptr %899, align 8
   %.not392 = icmp eq ptr %900, null
   %901 = load i32, ptr @hf_tibia_acc_pass, align 4
-  %902 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %902 = getelementptr inbounds i8, ptr %.027.i, i64 60
   %903 = load i32, ptr %902, align 4
   %904 = or i32 %903, -2147483648
   br i1 %.not392, label %907, label %905
@@ -3134,11 +3134,11 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
 910:                                              ; preds = %907, %905
   %911 = load i32, ptr %9, align 4
   %912 = add i32 %911, %.8
-  %.pre432 = load i8, ptr %746, align 2
+  %.pre431 = load i8, ptr %746, align 2
   br label %913
 
 913:                                              ; preds = %910, %895
-  %914 = phi i8 [ %.pre432, %910 ], [ %896, %895 ]
+  %914 = phi i8 [ %.pre431, %910 ], [ %896, %895 ]
   %.9 = phi i32 [ %912, %910 ], [ %.8, %895 ]
   %915 = and i8 %914, 1
   %.not393 = icmp eq i8 %915, 0
@@ -3163,7 +3163,7 @@ dissect_client_packet.exit.i:                     ; preds = %694, %656
   %929 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %927, i32 noundef %928, ptr noundef %.0362, i32 noundef %.9, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10) #13
   %930 = add i32 %.9, 1
   %931 = load i32, ptr @hf_tibia_client_locale_name, align 4
-  %932 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %932 = getelementptr inbounds i8, ptr %.027.i, i64 60
   %933 = load i32, ptr %932, align 4
   %934 = getelementptr inbounds i8, ptr %1, i64 408
   %935 = load ptr, ptr %934, align 8

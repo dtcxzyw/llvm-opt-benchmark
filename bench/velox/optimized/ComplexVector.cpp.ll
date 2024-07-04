@@ -7498,8 +7498,8 @@ _ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocate
   br label %invoke.cont98
 
 invoke.cont98:                                    ; preds = %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i, %invoke.cont
+  %outRanges.sroa.0.0 = phi ptr [ %call5.i.i.i.i65, %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i ], [ null, %invoke.cont ]
   %outRanges.sroa.17.0 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i ], [ null, %invoke.cont ]
-  %outRanges.sroa.9.0 = phi ptr [ %call5.i.i.i.i65, %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i ], [ null, %invoke.cont ]
   br i1 %cmp.not1.i, label %invoke.cont100, label %for.cond2.preheader.i.preheader
 
 for.cond2.preheader.i.preheader:                  ; preds = %invoke.cont98
@@ -7508,10 +7508,10 @@ for.cond2.preheader.i.preheader:                  ; preds = %invoke.cont98
   br label %for.cond2.preheader.i
 
 for.cond2.preheader.i:                            ; preds = %for.cond2.preheader.i.preheader, %for.inc6.i
+  %outRanges.sroa.0.1 = phi ptr [ %outRanges.sroa.0.5, %for.inc6.i ], [ %outRanges.sroa.0.0, %for.cond2.preheader.i.preheader ]
+  %outRanges.sroa.9.1 = phi ptr [ %outRanges.sroa.9.5, %for.inc6.i ], [ %outRanges.sroa.0.0, %for.cond2.preheader.i.preheader ]
   %outRanges.sroa.17.1 = phi ptr [ %outRanges.sroa.17.5, %for.inc6.i ], [ %outRanges.sroa.17.0, %for.cond2.preheader.i.preheader ]
   %childSize.0 = phi i32 [ %childSize.3, %for.inc6.i ], [ %26, %for.cond2.preheader.i.preheader ]
-  %outRanges.sroa.9.1 = phi ptr [ %outRanges.sroa.9.5, %for.inc6.i ], [ %outRanges.sroa.9.0, %for.cond2.preheader.i.preheader ]
-  %outRanges.sroa.0.1 = phi ptr [ %outRanges.sroa.0.5, %for.inc6.i ], [ %outRanges.sroa.9.0, %for.cond2.preheader.i.preheader ]
   %__begin2.04.i = phi ptr [ %incdec.ptr.i67, %for.inc6.i ], [ %28, %for.cond2.preheader.i.preheader ]
   %count.i66 = getelementptr inbounds i8, ptr %__begin2.04.i, i64 8
   %53 = load i32, ptr %count.i66, align 4
@@ -7523,10 +7523,10 @@ for.body4.lr.ph.i:                                ; preds = %for.cond2.preheader
   br label %for.body4.i
 
 for.body4.i:                                      ; preds = %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i", %for.body4.lr.ph.i
+  %outRanges.sroa.0.2 = phi ptr [ %outRanges.sroa.0.1, %for.body4.lr.ph.i ], [ %outRanges.sroa.0.4, %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i" ]
+  %outRanges.sroa.9.2 = phi ptr [ %outRanges.sroa.9.1, %for.body4.lr.ph.i ], [ %outRanges.sroa.9.4, %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i" ]
   %outRanges.sroa.17.2 = phi ptr [ %outRanges.sroa.17.1, %for.body4.lr.ph.i ], [ %outRanges.sroa.17.4, %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i" ]
   %childSize.1 = phi i32 [ %childSize.0, %for.body4.lr.ph.i ], [ %childSize.2, %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i" ]
-  %outRanges.sroa.9.2 = phi ptr [ %outRanges.sroa.9.1, %for.body4.lr.ph.i ], [ %outRanges.sroa.9.4, %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i" ]
-  %outRanges.sroa.0.2 = phi ptr [ %outRanges.sroa.0.1, %for.body4.lr.ph.i ], [ %outRanges.sroa.0.4, %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i" ]
   %i.02.i = phi i32 [ 0, %for.body4.lr.ph.i ], [ %inc.i, %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i" ]
   %54 = load i32, ptr %targetIndex.i, align 4
   %add.i = add nsw i32 %54, %i.02.i
@@ -7608,7 +7608,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else22.i.i
   br label %if.end27.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.else22.i.i
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %outRanges.sroa.17.2 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %outRanges.sroa.9.2 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %outRanges.sroa.0.2 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i.i, 9223372036854775800
@@ -7666,9 +7666,9 @@ _ZNSt6vectorIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE17_M_realloc_insertI
   br label %if.end27.i.i
 
 if.end27.i.i:                                     ; preds = %_ZNSt6vectorIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i, %if.then.i.i.i.i, %if.then18.i.i, %call9.i.i.noexc
-  %outRanges.sroa.17.3 = phi ptr [ %add.ptr19.i.i.i.i.i, %_ZNSt6vectorIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i ], [ %outRanges.sroa.17.2, %if.then.i.i.i.i ], [ %outRanges.sroa.17.2, %if.then18.i.i ], [ %outRanges.sroa.17.2, %call9.i.i.noexc ]
-  %outRanges.sroa.9.3 = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZNSt6vectorIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %outRanges.sroa.9.2, %if.then18.i.i ], [ %outRanges.sroa.9.2, %call9.i.i.noexc ]
   %outRanges.sroa.0.3 = phi ptr [ %cond.i10.i.i.i.i.i, %_ZNSt6vectorIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i ], [ %outRanges.sroa.0.2, %if.then.i.i.i.i ], [ %outRanges.sroa.0.2, %if.then18.i.i ], [ %outRanges.sroa.0.2, %call9.i.i.noexc ]
+  %outRanges.sroa.9.3 = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZNSt6vectorIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %if.then.i.i.i.i ], [ %outRanges.sroa.9.2, %if.then18.i.i ], [ %outRanges.sroa.9.2, %call9.i.i.noexc ]
+  %outRanges.sroa.17.3 = phi ptr [ %add.ptr19.i.i.i.i.i, %_ZNSt6vectorIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i ], [ %outRanges.sroa.17.2, %if.then.i.i.i.i ], [ %outRanges.sroa.17.2, %if.then18.i.i ], [ %outRanges.sroa.17.2, %call9.i.i.noexc ]
   %idxprom.i.i = sext i32 %add.i to i64
   %arrayidx.i.i = getelementptr inbounds i32, ptr %21, i64 %idxprom.i.i
   store i32 %childSize.1, ptr %arrayidx.i.i, align 4
@@ -7678,20 +7678,20 @@ if.end27.i.i:                                     ; preds = %_ZNSt6vectorIN8face
   br label %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i"
 
 "_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i": ; preds = %if.then.i.i72, %if.end27.i.i
+  %outRanges.sroa.0.4 = phi ptr [ %outRanges.sroa.0.3, %if.end27.i.i ], [ %outRanges.sroa.0.2, %if.then.i.i72 ]
+  %outRanges.sroa.9.4 = phi ptr [ %outRanges.sroa.9.3, %if.end27.i.i ], [ %outRanges.sroa.9.2, %if.then.i.i72 ]
   %outRanges.sroa.17.4 = phi ptr [ %outRanges.sroa.17.3, %if.end27.i.i ], [ %outRanges.sroa.17.2, %if.then.i.i72 ]
   %childSize.2 = phi i32 [ %add30.i.i, %if.end27.i.i ], [ %childSize.1, %if.then.i.i72 ]
-  %outRanges.sroa.9.4 = phi ptr [ %outRanges.sroa.9.3, %if.end27.i.i ], [ %outRanges.sroa.9.2, %if.then.i.i72 ]
-  %outRanges.sroa.0.4 = phi ptr [ %outRanges.sroa.0.3, %if.end27.i.i ], [ %outRanges.sroa.0.2, %if.then.i.i72 ]
   %inc.i = add nuw nsw i32 %i.02.i, 1
   %67 = load i32, ptr %count.i66, align 4
   %cmp3.i70 = icmp slt i32 %inc.i, %67
   br i1 %cmp3.i70, label %for.body4.i, label %for.inc6.i, !llvm.loop !64
 
 for.inc6.i:                                       ; preds = %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i", %for.cond2.preheader.i
+  %outRanges.sroa.0.5 = phi ptr [ %outRanges.sroa.0.1, %for.cond2.preheader.i ], [ %outRanges.sroa.0.4, %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i" ]
+  %outRanges.sroa.9.5 = phi ptr [ %outRanges.sroa.9.1, %for.cond2.preheader.i ], [ %outRanges.sroa.9.4, %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i" ]
   %outRanges.sroa.17.5 = phi ptr [ %outRanges.sroa.17.1, %for.cond2.preheader.i ], [ %outRanges.sroa.17.4, %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i" ]
   %childSize.3 = phi i32 [ %childSize.0, %for.cond2.preheader.i ], [ %childSize.2, %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i" ]
-  %outRanges.sroa.9.5 = phi ptr [ %outRanges.sroa.9.1, %for.cond2.preheader.i ], [ %outRanges.sroa.9.4, %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i" ]
-  %outRanges.sroa.0.5 = phi ptr [ %outRanges.sroa.0.1, %for.cond2.preheader.i ], [ %outRanges.sroa.0.4, %"_ZZN8facebook5velox15ArrayVectorBase14copyRangesImplEPKNS0_10BaseVectorERKN5folly5RangeIPKNS2_9CopyRangeEEEPSt10shared_ptrIS2_ESF_ENK3$_1clIiiEEDaT_T0_.exit.i" ]
   %incdec.ptr.i67 = getelementptr inbounds i8, ptr %__begin2.04.i, i64 12
   %cmp.not.i68 = icmp eq ptr %incdec.ptr.i67, %27
   br i1 %cmp.not.i68, label %invoke.cont100.loopexit, label %for.cond2.preheader.i
@@ -7702,9 +7702,9 @@ invoke.cont100.loopexit:                          ; preds = %for.inc6.i
 
 invoke.cont100:                                   ; preds = %if.else97, %invoke.cont100.loopexit, %invoke.cont98
   %68 = phi ptr [ %25, %invoke.cont98 ], [ %.pre, %invoke.cont100.loopexit ], [ %25, %if.else97 ]
+  %outRanges.sroa.0.6 = phi ptr [ %outRanges.sroa.0.0, %invoke.cont98 ], [ %outRanges.sroa.0.5, %invoke.cont100.loopexit ], [ null, %if.else97 ]
+  %outRanges.sroa.9.6 = phi ptr [ %outRanges.sroa.0.0, %invoke.cont98 ], [ %outRanges.sroa.9.5, %invoke.cont100.loopexit ], [ null, %if.else97 ]
   %childSize.4 = phi i32 [ %26, %invoke.cont98 ], [ %childSize.3, %invoke.cont100.loopexit ], [ %26, %if.else97 ]
-  %outRanges.sroa.9.6 = phi ptr [ %outRanges.sroa.9.0, %invoke.cont98 ], [ %outRanges.sroa.9.5, %invoke.cont100.loopexit ], [ null, %if.else97 ]
-  %outRanges.sroa.0.6 = phi ptr [ %outRanges.sroa.9.0, %invoke.cont98 ], [ %outRanges.sroa.0.5, %invoke.cont100.loopexit ], [ null, %if.else97 ]
   %vtable102 = load ptr, ptr %68, align 8
   %vfn103 = getelementptr inbounds i8, ptr %vtable102, i64 192
   %69 = load ptr, ptr %vfn103, align 8
@@ -10643,9 +10643,9 @@ invoke.cont78:                                    ; preds = %invoke.cont76
   br label %cleanup
 
 cleanup:                                          ; preds = %land.lhs.true59, %invoke.cont78, %if.then67
-  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.extract.trunc93, %invoke.cont78 ], [ %retval.sroa.0.0.extract.trunc94, %if.then67 ], [ undef, %land.lhs.true59 ]
-  %retval.sroa.5.0 = phi i8 [ %retval.sroa.5.0.extract.trunc96, %invoke.cont78 ], [ %retval.sroa.5.0.extract.trunc98, %if.then67 ], [ 0, %land.lhs.true59 ]
   %retval.sroa.7.sroa.0.0 = phi i24 [ %retval.sroa.7.0.extract.trunc100, %invoke.cont78 ], [ %retval.sroa.7.0.extract.trunc102, %if.then67 ], [ undef, %land.lhs.true59 ]
+  %retval.sroa.5.0 = phi i8 [ %retval.sroa.5.0.extract.trunc96, %invoke.cont78 ], [ %retval.sroa.5.0.extract.trunc98, %if.then67 ], [ 0, %land.lhs.true59 ]
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.0.extract.trunc93, %invoke.cont78 ], [ %retval.sroa.0.0.extract.trunc94, %if.then67 ], [ undef, %land.lhs.true59 ]
   %35 = load ptr, ptr %rightIndices, align 8
   %tobool.not.i.i.i49 = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i49, label %_ZNSt6vectorIiSaIiEED2Ev.exit51, label %if.then.i.i.i50
@@ -10677,14 +10677,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit57:                  ; preds = %ehcleanup, %if.then
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.end.i, %if.then19.i, %if.then, %if.then.i, %if.then.i.i.i53, %_ZNSt6vectorIiSaIiEED2Ev.exit51, %land.lhs.true
-  %retval.sroa.0.1 = phi i32 [ 1, %land.lhs.true ], [ %retval.sroa.0.0, %_ZNSt6vectorIiSaIiEED2Ev.exit51 ], [ %retval.sroa.0.0, %if.then.i.i.i53 ], [ %cond.i, %if.end.i ], [ %cond23.i, %if.then19.i ], [ 0, %if.then ], [ 0, %if.then.i ]
-  %retval.sroa.5.1 = phi i8 [ 1, %land.lhs.true ], [ %retval.sroa.5.0, %_ZNSt6vectorIiSaIiEED2Ev.exit51 ], [ %retval.sroa.5.0, %if.then.i.i.i53 ], [ 1, %if.end.i ], [ 1, %if.then19.i ], [ 0, %if.then ], [ 1, %if.then.i ]
-  %retval.sroa.7.sroa.0.1 = phi i24 [ undef, %land.lhs.true ], [ %retval.sroa.7.sroa.0.0, %_ZNSt6vectorIiSaIiEED2Ev.exit51 ], [ %retval.sroa.7.sroa.0.0, %if.then.i.i.i53 ], [ 0, %if.end.i ], [ 0, %if.then19.i ], [ 0, %if.then ], [ 0, %if.then.i ]
+  %retval.sroa.7.sroa.0.1 = phi i24 [ undef, %land.lhs.true ], [ %retval.sroa.7.sroa.0.0, %_ZNSt6vectorIiSaIiEED2Ev.exit51 ], [ %retval.sroa.7.sroa.0.0, %if.then.i.i.i53 ], [ 0, %if.then.i ], [ 0, %if.then ], [ 0, %if.then19.i ], [ 0, %if.end.i ]
+  %retval.sroa.5.1 = phi i8 [ 1, %land.lhs.true ], [ %retval.sroa.5.0, %_ZNSt6vectorIiSaIiEED2Ev.exit51 ], [ %retval.sroa.5.0, %if.then.i.i.i53 ], [ 1, %if.then.i ], [ 0, %if.then ], [ 1, %if.then19.i ], [ 1, %if.end.i ]
+  %retval.sroa.0.1 = phi i32 [ 1, %land.lhs.true ], [ %retval.sroa.0.0, %_ZNSt6vectorIiSaIiEED2Ev.exit51 ], [ %retval.sroa.0.0, %if.then.i.i.i53 ], [ 0, %if.then.i ], [ 0, %if.then ], [ %cond23.i, %if.then19.i ], [ %cond.i, %if.end.i ]
   %retval.sroa.7.0.insert.ext = zext i24 %retval.sroa.7.sroa.0.1 to i64
   %retval.sroa.7.0.insert.shift = shl nuw i64 %retval.sroa.7.0.insert.ext, 40
   %retval.sroa.5.0.insert.ext = zext i8 %retval.sroa.5.1 to i64
   %retval.sroa.5.0.insert.shift = shl nuw nsw i64 %retval.sroa.5.0.insert.ext, 32
-  %retval.sroa.5.0.insert.insert = or disjoint i64 %retval.sroa.7.0.insert.shift, %retval.sroa.5.0.insert.shift
+  %retval.sroa.5.0.insert.insert = or disjoint i64 %retval.sroa.5.0.insert.shift, %retval.sroa.7.0.insert.shift
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.1 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.5.0.insert.insert, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
@@ -15601,8 +15601,8 @@ if.end:                                           ; preds = %while.body
   br label %while.body.i.i3
 
 while.body.i.i3:                                  ; preds = %if.end.i.i, %if.end
-  %__last.sroa.0.0.i.i = phi ptr [ %storemerge12, %if.end ], [ %__last.sroa.0.1.i.i, %if.end.i.i ]
   %__first.sroa.0.0.i.i = phi ptr [ %add.ptr.i1.i, %if.end ], [ %incdec.ptr.i.i.i, %if.end.i.i ]
+  %__last.sroa.0.0.i.i = phi ptr [ %storemerge12, %if.end ], [ %__last.sroa.0.1.i.i, %if.end.i.i ]
   br label %while.cond3.i.i
 
 while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %while.body.i.i3
@@ -19479,10 +19479,10 @@ if.then9:                                         ; preds = %if.end7
   br i1 %cmp13.i, label %while.body.i, label %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
 while.body.i:                                     ; preds = %if.then9, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i"
-  %__first.addr.015.i = phi ptr [ %__first.addr.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %__middle.tr93, %if.then9 ]
-  %__len.014.i = phi i64 [ %__len.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %sub.ptr.div.i.i.i, %if.then9 ]
-  %shr.i = lshr i64 %__len.014.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.addr.015.i, i64 %shr.i
+  %__len.015.i = phi i64 [ %__len.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %sub.ptr.div.i.i.i, %if.then9 ]
+  %__first.addr.014.i = phi ptr [ %__first.addr.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %__middle.tr93, %if.then9 ]
+  %shr.i = lshr i64 %__len.015.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.addr.014.i, i64 %shr.i
   %.val.i = load i32, ptr %add.ptr.i.i.i, align 4
   %__val.val.i = load i32, ptr %add.ptr.i.i, align 4
   %__comp.val.val.i = load ptr, ptr %__comp.coerce, align 8
@@ -19505,9 +19505,9 @@ if.end.i.i.i.i.i:                                 ; preds = %while.body.i
   %cmp.i.i8.not.i = icmp eq i64 %9, 0
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %10 = xor i64 %shr.i, -1
-  %sub3.i = add nsw i64 %__len.014.i, %10
+  %sub3.i = add nsw i64 %__len.015.i, %10
+  %__first.addr.1.i = select i1 %cmp.i.i8.not.i, ptr %__first.addr.014.i, ptr %incdec.ptr.i
   %__len.1.i = select i1 %cmp.i.i8.not.i, i64 %shr.i, i64 %sub3.i
-  %__first.addr.1.i = select i1 %cmp.i.i8.not.i, ptr %__first.addr.015.i, ptr %incdec.ptr.i
   %cmp.i = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i, label %while.body.i, label %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !138
 
@@ -19532,10 +19532,10 @@ if.else:                                          ; preds = %if.end7
   br i1 %cmp13.i44, label %while.body.i46, label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
 while.body.i46:                                   ; preds = %if.else, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i"
-  %__first.addr.015.i47 = phi ptr [ %__first.addr.1.i67, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i" ], [ %__first.tr91, %if.else ]
-  %__len.014.i48 = phi i64 [ %__len.1.i66, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i" ], [ %sub.ptr.div.i.i.i43, %if.else ]
-  %shr.i49 = lshr i64 %__len.014.i48, 1
-  %add.ptr.i.i.i52 = getelementptr inbounds i32, ptr %__first.addr.015.i47, i64 %shr.i49
+  %__len.015.i47 = phi i64 [ %__len.1.i67, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i" ], [ %sub.ptr.div.i.i.i43, %if.else ]
+  %__first.addr.014.i48 = phi ptr [ %__first.addr.1.i66, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i" ], [ %__first.tr91, %if.else ]
+  %shr.i49 = lshr i64 %__len.015.i47, 1
+  %add.ptr.i.i.i52 = getelementptr inbounds i32, ptr %__first.addr.014.i48, i64 %shr.i49
   %__val.val.i55 = load i32, ptr %add.ptr.i.i33, align 4
   %.val.i56 = load i32, ptr %add.ptr.i.i.i52, align 4
   %__comp.val.val.i57 = load ptr, ptr %__comp.coerce, align 8
@@ -19558,19 +19558,19 @@ if.end.i.i.i.i.i69:                               ; preds = %while.body.i46
   %cmp.i.i8.not.i63 = icmp eq i64 %14, 0
   %incdec.ptr.i64 = getelementptr inbounds i8, ptr %add.ptr.i.i.i52, i64 4
   %15 = xor i64 %shr.i49, -1
-  %sub3.i65 = add nsw i64 %__len.014.i48, %15
-  %__len.1.i66 = select i1 %cmp.i.i8.not.i63, i64 %sub3.i65, i64 %shr.i49
-  %__first.addr.1.i67 = select i1 %cmp.i.i8.not.i63, ptr %incdec.ptr.i64, ptr %__first.addr.015.i47
-  %cmp.i68 = icmp sgt i64 %__len.1.i66, 0
+  %sub3.i65 = add nsw i64 %__len.015.i47, %15
+  %__first.addr.1.i66 = select i1 %cmp.i.i8.not.i63, ptr %incdec.ptr.i64, ptr %__first.addr.014.i48
+  %__len.1.i67 = select i1 %cmp.i.i8.not.i63, i64 %sub3.i65, i64 %shr.i49
+  %cmp.i68 = icmp sgt i64 %__len.1.i67, 0
   br i1 %cmp.i68, label %while.body.i46, label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !139
 
 "_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i"
-  %.pre103 = ptrtoint ptr %__first.addr.1.i67 to i64
+  %.pre103 = ptrtoint ptr %__first.addr.1.i66 to i64
   br label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", %if.else
   %sub.ptr.lhs.cast.i.i70.pre-phi = phi i64 [ %.pre103, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %sub.ptr.rhs.cast.i.i.i41, %if.else ]
-  %__first.addr.0.lcssa.i45 = phi ptr [ %__first.addr.1.i67, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %__first.tr91, %if.else ]
+  %__first.addr.0.lcssa.i45 = phi ptr [ %__first.addr.1.i66, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %__first.tr91, %if.else ]
   %sub.ptr.sub.i.i72 = sub i64 %sub.ptr.lhs.cast.i.i70.pre-phi, %sub.ptr.rhs.cast.i.i.i41
   %sub.ptr.div.i.i73 = ashr exact i64 %sub.ptr.sub.i.i72, 2
   br label %if.end32
@@ -19960,10 +19960,10 @@ if.then14:                                        ; preds = %if.else12
   br i1 %cmp13.i, label %while.body.i68, label %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
 while.body.i68:                                   ; preds = %if.then14, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i"
-  %__first.addr.015.i = phi ptr [ %__first.addr.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %__middle.tr163, %if.then14 ]
-  %__len.014.i = phi i64 [ %__len.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %sub.ptr.div.i.i.i, %if.then14 ]
-  %shr.i = lshr i64 %__len.014.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.addr.015.i, i64 %shr.i
+  %__len.015.i = phi i64 [ %__len.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %sub.ptr.div.i.i.i, %if.then14 ]
+  %__first.addr.014.i = phi ptr [ %__first.addr.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIPiKiEEbT_RT0_.exit.i" ], [ %__middle.tr163, %if.then14 ]
+  %shr.i = lshr i64 %__len.015.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %__first.addr.014.i, i64 %shr.i
   %.val.i = load i32, ptr %add.ptr.i.i.i, align 4
   %__val.val.i = load i32, ptr %add.ptr.i.i, align 4
   %__comp.val.val.i69 = load ptr, ptr %coerce.val.ip, align 8
@@ -19986,9 +19986,9 @@ if.end.i.i.i.i.i77:                               ; preds = %while.body.i68
   %cmp.i.i8.not.i = icmp eq i64 %18, 0
   %incdec.ptr.i75 = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
   %19 = xor i64 %shr.i, -1
-  %sub3.i = add nsw i64 %__len.014.i, %19
+  %sub3.i = add nsw i64 %__len.015.i, %19
+  %__first.addr.1.i = select i1 %cmp.i.i8.not.i, ptr %__first.addr.014.i, ptr %incdec.ptr.i75
   %__len.1.i = select i1 %cmp.i.i8.not.i, i64 %shr.i, i64 %sub3.i
-  %__first.addr.1.i = select i1 %cmp.i.i8.not.i, ptr %__first.addr.015.i, ptr %incdec.ptr.i75
   %cmp.i76 = icmp sgt i64 %__len.1.i, 0
   br i1 %cmp.i76, label %while.body.i68, label %"_ZSt13__lower_boundIPiiN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !138
 
@@ -20013,10 +20013,10 @@ if.else26:                                        ; preds = %if.else12
   br i1 %cmp13.i95, label %while.body.i98, label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
 while.body.i98:                                   ; preds = %if.else26, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i"
-  %__first.addr.015.i99 = phi ptr [ %__first.addr.1.i119, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i" ], [ %__first.tr161, %if.else26 ]
-  %__len.014.i100 = phi i64 [ %__len.1.i118, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i" ], [ %sub.ptr.div.i.i.i94, %if.else26 ]
-  %shr.i101 = lshr i64 %__len.014.i100, 1
-  %add.ptr.i.i.i104 = getelementptr inbounds i32, ptr %__first.addr.015.i99, i64 %shr.i101
+  %__len.015.i99 = phi i64 [ %__len.1.i119, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i" ], [ %sub.ptr.div.i.i.i94, %if.else26 ]
+  %__first.addr.014.i100 = phi ptr [ %__first.addr.1.i118, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i" ], [ %__first.tr161, %if.else26 ]
+  %shr.i101 = lshr i64 %__len.015.i99, 1
+  %add.ptr.i.i.i104 = getelementptr inbounds i32, ptr %__first.addr.014.i100, i64 %shr.i101
   %__val.val.i107 = load i32, ptr %add.ptr.i.i84, align 4
   %.val.i108 = load i32, ptr %add.ptr.i.i.i104, align 4
   %__comp.val.val.i109 = load ptr, ptr %coerce.val.ip, align 8
@@ -20039,19 +20039,19 @@ if.end.i.i.i.i.i121:                              ; preds = %while.body.i98
   %cmp.i.i8.not.i115 = icmp eq i64 %23, 0
   %incdec.ptr.i116 = getelementptr inbounds i8, ptr %add.ptr.i.i.i104, i64 4
   %24 = xor i64 %shr.i101, -1
-  %sub3.i117 = add nsw i64 %__len.014.i100, %24
-  %__len.1.i118 = select i1 %cmp.i.i8.not.i115, i64 %sub3.i117, i64 %shr.i101
-  %__first.addr.1.i119 = select i1 %cmp.i.i8.not.i115, ptr %incdec.ptr.i116, ptr %__first.addr.015.i99
-  %cmp.i120 = icmp sgt i64 %__len.1.i118, 0
+  %sub3.i117 = add nsw i64 %__len.015.i99, %24
+  %__first.addr.1.i118 = select i1 %cmp.i.i8.not.i115, ptr %incdec.ptr.i116, ptr %__first.addr.014.i100
+  %__len.1.i119 = select i1 %cmp.i.i8.not.i115, i64 %sub3.i117, i64 %shr.i101
+  %cmp.i120 = icmp sgt i64 %__len.1.i119, 0
   br i1 %cmp.i120, label %while.body.i98, label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", !llvm.loop !139
 
 "_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_0EclIKiPiEEbRT_T0_.exit.i"
-  %.pre180 = ptrtoint ptr %__first.addr.1.i119 to i64
+  %.pre180 = ptrtoint ptr %__first.addr.1.i118 to i64
   br label %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit", %if.else26
   %sub.ptr.lhs.cast.i.i122.pre-phi = phi i64 [ %.pre180, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %sub.ptr.rhs.cast.i.i.i92, %if.else26 ]
-  %__first.addr.0.lcssa.i97 = phi ptr [ %__first.addr.1.i119, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %__first.tr161, %if.else26 ]
+  %__first.addr.0.lcssa.i97 = phi ptr [ %__first.addr.1.i118, %"_ZSt13__upper_boundIPiiN9__gnu_cxx5__ops14_Val_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEET_SD_SD_RKT0_T1_.exit.loopexit" ], [ %__first.tr161, %if.else26 ]
   %sub.ptr.sub.i.i124 = sub i64 %sub.ptr.lhs.cast.i.i122.pre-phi, %sub.ptr.rhs.cast.i.i.i92
   %sub.ptr.div.i.i125 = ashr exact i64 %sub.ptr.sub.i.i124, 2
   br label %if.end

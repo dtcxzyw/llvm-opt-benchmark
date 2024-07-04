@@ -501,9 +501,9 @@ if.end57:                                         ; preds = %for.end
   br label %err
 
 err:                                              ; preds = %if.end26, %lor.lhs.false, %lor.lhs.false30, %lor.lhs.false34, %lor.lhs.false37, %lor.lhs.false41, %for.body, %entry, %if.end57, %for.end, %if.end, %if.then17, %if.then12
+  %k_bytes.0 = phi ptr [ %call4, %if.end57 ], [ %call4, %for.end ], [ null, %if.end ], [ %call4, %if.then17 ], [ %call4, %if.then12 ], [ null, %entry ], [ %call4, %for.body ], [ %call4, %lor.lhs.false41 ], [ %call4, %lor.lhs.false37 ], [ %call4, %lor.lhs.false34 ], [ %call4, %lor.lhs.false30 ], [ %call4, %lor.lhs.false ], [ %call4, %if.end26 ]
   %ret.0 = phi i32 [ %spec.select, %if.end57 ], [ 0, %for.end ], [ 0, %if.end ], [ 0, %if.then17 ], [ 0, %if.then12 ], [ 0, %entry ], [ 0, %for.body ], [ 0, %lor.lhs.false41 ], [ 0, %lor.lhs.false37 ], [ 0, %lor.lhs.false34 ], [ 0, %lor.lhs.false30 ], [ 0, %lor.lhs.false ], [ 0, %if.end26 ]
   %md.0 = phi ptr [ %call14, %if.end57 ], [ %call14, %for.end ], [ null, %if.end ], [ null, %if.then17 ], [ null, %if.then12 ], [ null, %entry ], [ %call14, %for.body ], [ %call14, %lor.lhs.false41 ], [ %call14, %lor.lhs.false37 ], [ %call14, %lor.lhs.false34 ], [ %call14, %lor.lhs.false30 ], [ %call14, %lor.lhs.false ], [ %call14, %if.end26 ]
-  %k_bytes.0 = phi ptr [ %call4, %if.end57 ], [ %call4, %for.end ], [ null, %if.end ], [ %call4, %if.then17 ], [ %call4, %if.then12 ], [ null, %entry ], [ %call4, %for.body ], [ %call4, %lor.lhs.false41 ], [ %call4, %lor.lhs.false37 ], [ %call4, %lor.lhs.false34 ], [ %call4, %lor.lhs.false30 ], [ %call4, %lor.lhs.false ], [ %call4, %if.end26 ]
   call void @EVP_MD_CTX_free(ptr noundef %call) #4
   call void @EVP_MD_free(ptr noundef %md.0) #4
   call void @CRYPTO_clear_free(ptr noundef %k_bytes.0, i64 noundef %.pre, ptr noundef nonnull @.str, i32 noundef 321) #4

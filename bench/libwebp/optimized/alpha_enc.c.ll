@@ -198,12 +198,12 @@ GetFilterMap.exit.thread.i.i:                     ; preds = %.critedge.i
 
 .preheader.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.preheader, %.preheader.i.i.i.i
   %indvars.iv31.i.i.i.i = phi i64 [ %indvars.iv.next32.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %.preheader.i.i.i.i.preheader ]
-  %.01622.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %.preheader.i.i.i.i.preheader ]
+  %.01523.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %.preheader.i.i.i.i ], [ 0, %.preheader.i.i.i.i.preheader ]
   %74 = getelementptr inbounds [256 x i8], ptr %3, i64 0, i64 %indvars.iv31.i.i.i.i
   %75 = load i8, ptr %74, align 1
   %.not.i.i.i.i = icmp ne i8 %75, 0
   %76 = zext i1 %.not.i.i.i.i to i32
-  %spec.select.i.i.i.i = add nuw nsw i32 %.01622.i.i.i.i, %76
+  %spec.select.i.i.i.i = add nuw nsw i32 %.01523.i.i.i.i, %76
   %indvars.iv.next32.i.i.i.i = add nuw nsw i64 %indvars.iv31.i.i.i.i, 1
   %exitcond34.not.i.i.i.i = icmp eq i64 %indvars.iv.next32.i.i.i.i, 256
   br i1 %exitcond34.not.i.i.i.i, label %GetNumColors.exit.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !7
@@ -248,10 +248,10 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
   br label %93
 
 93:                                               ; preds = %103, %.preheader.i.i
-  %.04363.i.i = phi i32 [ %.0.i60.i.i, %.preheader.i.i ], [ %105, %103 ]
-  %.04462.i.i = phi i32 [ 1, %.preheader.i.i ], [ %.1.i.i, %103 ]
+  %.063.i.i = phi i32 [ %.0.i60.i.i, %.preheader.i.i ], [ %105, %103 ]
+  %.04362.i.i = phi i32 [ 1, %.preheader.i.i ], [ %.1.i.i, %103 ]
   %.04561.i.i = phi i32 [ 0, %.preheader.i.i ], [ %104, %103 ]
-  %94 = and i32 %.04363.i.i, 1
+  %94 = and i32 %.063.i.i, 1
   %.not52.i.i = icmp eq i32 %94, 0
   br i1 %.not52.i.i, label %103, label %95
 
@@ -276,11 +276,11 @@ GetFilterMap.exit.i.i:                            ; preds = %78, %GetNumColors.e
   br label %103
 
 103:                                              ; preds = %102, %101, %93
-  %.1.i.i = phi i32 [ 1, %101 ], [ %96, %102 ], [ %.04462.i.i, %93 ]
+  %.1.i.i = phi i32 [ 1, %101 ], [ %96, %102 ], [ %.04362.i.i, %93 ]
   %104 = add nuw nsw i32 %.04561.i.i, 1
-  %105 = lshr i32 %.04363.i.i, 1
+  %105 = lshr i32 %.063.i.i, 1
   %106 = icmp ne i32 %.1.i.i, 0
-  %107 = icmp ugt i32 %.04363.i.i, 1
+  %107 = icmp ugt i32 %.063.i.i, 1
   %108 = and i1 %107, %106
   br i1 %108, label %93, label %109, !llvm.loop !8
 
@@ -364,7 +364,7 @@ ApplyFiltersAndEncode.exit.i:                     ; preds = %116, %115
 149:                                              ; preds = %147, %ApplyFiltersAndEncode.exit.i
   %.017 = phi ptr [ null, %147 ], [ %.val54.i.i, %ApplyFiltersAndEncode.exit.i ]
   %.016 = phi i64 [ 0, %147 ], [ %.val.i.i, %ApplyFiltersAndEncode.exit.i ]
-  %.0.i62.i = phi i32 [ 0, %147 ], [ %.2.i.i, %ApplyFiltersAndEncode.exit.i ]
+  %.044.i62.i = phi i32 [ 0, %147 ], [ %.2.i.i, %ApplyFiltersAndEncode.exit.i ]
   %150 = load ptr, ptr %58, align 8
   %.not59.i = icmp eq ptr %150, null
   br i1 %.not59.i, label %157, label %151
@@ -382,7 +382,7 @@ ApplyFiltersAndEncode.exit.i:                     ; preds = %116, %115
 157:                                              ; preds = %151, %149, %54
   %.118 = phi ptr [ null, %54 ], [ %.017, %149 ], [ %.017, %151 ]
   %.1 = phi i64 [ 0, %54 ], [ %.016, %149 ], [ %.016, %151 ]
-  %.1.i = phi i32 [ 0, %54 ], [ %.0.i62.i, %149 ], [ %.0.i62.i, %151 ]
+  %.1.i = phi i32 [ 0, %54 ], [ %.044.i62.i, %149 ], [ %.044.i62.i, %151 ]
   call void @WebPSafeFree(ptr noundef nonnull %37) #5
   br label %EncodeAlpha.exit
 
@@ -557,7 +557,7 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef %0, 
   br label %20
 
 20:                                               ; preds = %9, %19
-  %.050 = phi ptr [ %7, %19 ], [ %0, %9 ]
+  %.048 = phi ptr [ %7, %19 ], [ %0, %9 ]
   %.not58 = icmp eq i32 %3, 0
   br i1 %.not58, label %74, label %21
 
@@ -596,7 +596,7 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef %0, 
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %11, i64 80
   %39 = load i32, ptr %38, align 8
-  call void %33(ptr noundef %.050, i32 noundef %1, i32 noundef %34, i32 noundef %35, ptr noundef %37, i32 noundef %39) #5
+  call void %33(ptr noundef %.048, i32 noundef %1, i32 noundef %34, i32 noundef %35, ptr noundef %37, i32 noundef %39) #5
   %40 = call i32 @WebPConfigInitInternal(ptr noundef nonnull %10, i32 noundef 0, float noundef 7.500000e+01, i32 noundef 528) #5
   %.not16.i = icmp eq i32 %40, 0
   br i1 %.not16.i, label %.thread67, label %41
@@ -674,12 +674,12 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef %0, 
   br label %100
 
 74:                                               ; preds = %57, %20, %72
-  %75 = phi ptr [ %.050, %72 ], [ %.050, %20 ], [ %53, %57 ]
-  %.049768995 = phi i32 [ 0, %72 ], [ 0, %20 ], [ 1, %57 ]
+  %75 = phi ptr [ %.048, %72 ], [ %.048, %20 ], [ %53, %57 ]
+  %.052768995 = phi i32 [ 0, %72 ], [ 0, %20 ], [ 1, %57 ]
   %76 = phi i1 [ true, %72 ], [ true, %20 ], [ false, %57 ]
   %77 = phi i64 [ %15, %72 ], [ %15, %20 ], [ %70, %57 ]
   %78 = shl i32 %4, 2
-  %79 = or disjoint i32 %.049768995, %78
+  %79 = or disjoint i32 %.052768995, %78
   %80 = trunc i32 %79 to i8
   %.not62 = icmp eq i32 %5, 0
   %81 = or i8 %80, 16
@@ -727,8 +727,8 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef %0, 
   br label %100
 
 100:                                              ; preds = %97, %.thread, %55
-  %.048 = phi i32 [ 0, %55 ], [ %98, %97 ], [ 0, %.thread ]
-  ret i32 %.048
+  %.051 = phi i32 [ 0, %55 ], [ %98, %97 ], [ 0, %.thread ]
+  ret i32 %.051
 }
 
 declare void @VP8BitWriterWipeOut(ptr noundef) local_unnamed_addr #1

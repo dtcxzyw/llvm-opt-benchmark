@@ -11197,14 +11197,14 @@ _ZN8V3PreLex12curFilelinepEv.exit529:             ; preds = %6793, %6800
   br i1 %6891, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %6887, %.lr.ph.i
-  %.03257.i = phi ptr [ %6894, %.lr.ph.i ], [ %6852, %6887 ]
-  %.03356.i = phi ptr [ %6892, %.lr.ph.i ], [ %6871, %6887 ]
-  %.03455.i = phi i32 [ %6895, %.lr.ph.i ], [ 0, %6887 ]
-  %6892 = getelementptr inbounds i8, ptr %.03356.i, i64 1
-  %6893 = load i8, ptr %.03356.i, align 1
-  %6894 = getelementptr inbounds i8, ptr %.03257.i, i64 1
-  store i8 %6893, ptr %.03257.i, align 1
-  %6895 = add nuw nsw i32 %.03455.i, 1
+  %.03457.i = phi i32 [ %6895, %.lr.ph.i ], [ 0, %6887 ]
+  %.03556.i = phi ptr [ %6892, %.lr.ph.i ], [ %6871, %6887 ]
+  %.03655.i = phi ptr [ %6894, %.lr.ph.i ], [ %6852, %6887 ]
+  %6892 = getelementptr inbounds i8, ptr %.03556.i, i64 1
+  %6893 = load i8, ptr %.03556.i, align 1
+  %6894 = getelementptr inbounds i8, ptr %.03655.i, i64 1
+  store i8 %6893, ptr %.03655.i, align 1
+  %6895 = add nuw nsw i32 %.03457.i, 1
   %exitcond.not.i = icmp eq i32 %6895, %6890
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !556
 
@@ -11229,8 +11229,8 @@ _ZN8V3PreLex12curFilelinepEv.exit529:             ; preds = %6793, %6800
   %6902 = xor i32 %6890, -1
   %.pn.in58.i = getelementptr inbounds i8, ptr %6896, i64 24
   %.pn59.i = load i32, ptr %.pn.in58.i, align 8
-  %.03560.i = add i32 %.pn59.i, %6902
-  %6903 = icmp slt i32 %.03560.i, 1
+  %.03260.i = add i32 %.pn59.i, %6902
+  %6903 = icmp slt i32 %.03260.i, 1
   br i1 %6903, label %.lr.ph62.i, label %._crit_edge63.i
 
 .lr.ph62.i:                                       ; preds = %6901, %6923
@@ -11279,14 +11279,14 @@ _ZN8V3PreLex12curFilelinepEv.exit529:             ; preds = %6793, %6800
   %6926 = load ptr, ptr %6836, align 8
   %.pn.in.i = getelementptr inbounds i8, ptr %6926, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
-  %.035.i = add i32 %.pn.i, %6902
-  %6927 = icmp slt i32 %.035.i, 1
+  %.032.i = add i32 %.pn.i, %6902
+  %6927 = icmp slt i32 %.032.i, 1
   br i1 %6927, label %.lr.ph62.i, label %._crit_edge63.i, !llvm.loop !557
 
 ._crit_edge63.i:                                  ; preds = %6923, %6901
   %6928 = phi ptr [ %6896, %6901 ], [ %6926, %6923 ]
-  %.035.lcssa.i = phi i32 [ %.03560.i, %6901 ], [ %.035.i, %6923 ]
-  %6929 = call i32 @llvm.umin.i32(i32 %.035.lcssa.i, i32 8192)
+  %.032.lcssa.i = phi i32 [ %.03260.i, %6901 ], [ %.032.i, %6923 ]
+  %6929 = call i32 @llvm.umin.i32(i32 %.032.lcssa.i, i32 8192)
   %6930 = load ptr, ptr @_ZN8V3PreLex13s_currentLexpE, align 8
   %6931 = getelementptr inbounds i8, ptr %6928, i64 8
   %6932 = load ptr, ptr %6931, align 8
@@ -11332,7 +11332,7 @@ _ZN8V3PreLex12curFilelinepEv.exit529:             ; preds = %6793, %6800
   %6956 = phi i64 [ %.pre69.i, %6949 ], [ %6945, %6951 ], [ %6939, %._crit_edge63.i ]
   %6957 = phi ptr [ %.pre68.i, %6949 ], [ %6946, %6951 ], [ %6938, %._crit_edge63.i ]
   %6958 = phi i32 [ %.pre67.i, %6949 ], [ 0, %6951 ], [ %6937, %._crit_edge63.i ]
-  %.036.i = phi i32 [ 1, %6949 ], [ 2, %6951 ], [ 0, %._crit_edge63.i ]
+  %.033.i = phi i32 [ 1, %6949 ], [ 2, %6951 ], [ 0, %._crit_edge63.i ]
   %6959 = add nsw i32 %6958, %6890
   %6960 = getelementptr inbounds ptr, ptr %6957, i64 %6956
   %6961 = load ptr, ptr %6960, align 8
@@ -11386,7 +11386,7 @@ _ZL18yy_get_next_bufferv.exit:                    ; preds = %6955, %6978
   %6992 = getelementptr inbounds i8, ptr %6991, i64 8
   %6993 = load ptr, ptr %6992, align 8
   store ptr %6993, ptr @V3PreLextext, align 8
-  switch i32 %.036.i, label %default.unreachable1549 [
+  switch i32 %.033.i, label %default.unreachable1549 [
     i32 1, label %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread_crit_edge
     i32 0, label %7000
     i32 2, label %_ZL18yy_get_next_bufferv.exit._ZL18yy_get_next_bufferv.exit.thread546_crit_edge
@@ -29340,10 +29340,10 @@ define dso_local noundef i32 @_ZN12V3PreProcImp13getFinalTokenERNSt7__cxx1112bas
   br label %34
 
 34:                                               ; preds = %34, %28
-  %.044 = phi ptr [ %33, %28 ], [ %37, %34 ]
-  %35 = load i8, ptr %.044, align 1
+  %.040 = phi ptr [ %33, %28 ], [ %37, %34 ]
+  %35 = load i8, ptr %.040, align 1
   %36 = icmp eq i8 %35, 10
-  %37 = getelementptr inbounds i8, ptr %.044, i64 1
+  %37 = getelementptr inbounds i8, ptr %.040, i64 1
   br i1 %36, label %34, label %38, !llvm.loop !837
 
 38:                                               ; preds = %34
@@ -29369,9 +29369,9 @@ define dso_local noundef i32 @_ZN12V3PreProcImp13getFinalTokenERNSt7__cxx1112bas
   br label %.body
 
 .noexc52:                                         ; preds = %.noexc
-  %44 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.044) #40
-  %45 = getelementptr inbounds i8, ptr %.044, i64 %44
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %.044, ptr noundef nonnull %45)
+  %44 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.040) #40
+  %45 = getelementptr inbounds i8, ptr %.040, i64 %44
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %.040, ptr noundef nonnull %45)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %42
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc52
@@ -29435,7 +29435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit57: ; 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds i8, ptr %0, i64 400
   %59 = load ptr, ptr %58, align 8
-  call void @_ZN8FileLine13lineDirectiveEPKcRi(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef nonnull %.044, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  call void @_ZN8FileLine13lineDirectiveEPKcRi(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef nonnull %.040, ptr noundef nonnull align 4 dereferenceable(4) %9)
   br label %.loopexit
 
 60:                                               ; preds = %.noexc, %40
@@ -34255,9 +34255,9 @@ _ZN9V3PreExprC2Ev.exit:                           ; preds = %_ZNSt5dequeI14V3Pre
 
 50:                                               ; preds = %.lr.ph, %66
   %51 = phi i8 [ %40, %.lr.ph ], [ %68, %66 ]
-  %.01521 = phi i1 [ true, %.lr.ph ], [ %.1, %66 ]
-  %.01620 = phi ptr [ %39, %.lr.ph ], [ %67, %66 ]
-  br i1 %.01521, label %52, label %64
+  %.01421 = phi ptr [ %39, %.lr.ph ], [ %67, %66 ]
+  %.01520 = phi i1 [ true, %.lr.ph ], [ %.1, %66 ]
+  br i1 %.01520, label %52, label %64
 
 52:                                               ; preds = %50
   switch i8 %51, label %66 [
@@ -34343,7 +34343,7 @@ _ZN9V3PreExprC2Ev.exit:                           ; preds = %_ZNSt5dequeI14V3Pre
 
 66:                                               ; preds = %.invoke, %64, %52
   %.1 = phi i1 [ false, %52 ], [ %65, %64 ], [ false, %.invoke ]
-  %67 = getelementptr inbounds i8, ptr %.01620, i64 1
+  %67 = getelementptr inbounds i8, ptr %.01421, i64 1
   %68 = load i8, ptr %67, align 1
   %.not = icmp eq i8 %68, 0
   br i1 %.not, label %._crit_edge, label %50, !llvm.loop !922

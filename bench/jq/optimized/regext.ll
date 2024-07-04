@@ -46,15 +46,15 @@ define i32 @onig_new_deluxe(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not33, label %30, label %28
 
 28:                                               ; preds = %25, %16
-  %.025 = phi i32 [ %24, %16 ], [ %27, %25 ]
+  %.0 = phi i32 [ %24, %16 ], [ %27, %25 ]
   %29 = load ptr, ptr %0, align 8
   tail call void @onig_free(ptr noundef %29) #4
   store ptr null, ptr %0, align 8
   br label %30
 
 30:                                               ; preds = %13, %25, %28, %8
-  %.0 = phi i32 [ -402, %8 ], [ %.025, %28 ], [ 0, %25 ], [ -5, %13 ]
-  ret i32 %.0
+  %.025 = phi i32 [ -402, %8 ], [ %.0, %28 ], [ 0, %25 ], [ -5, %13 ]
+  ret i32 %.025
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

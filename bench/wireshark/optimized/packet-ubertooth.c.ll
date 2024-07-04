@@ -3012,7 +3012,7 @@ define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1
 
 .preheader:                                       ; preds = %60, %.preheader
   %.1204 = phi i32 [ %113, %.preheader ], [ %99, %60 ]
-  %.0199203 = phi i32 [ %118, %.preheader ], [ 0, %60 ]
+  %.0200203 = phi i32 [ %118, %.preheader ], [ 0, %60 ]
   %104 = load i32, ptr @hf_spectrum_entry, align 4
   %105 = tail call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %104, ptr noundef %3, i32 noundef %.1204, i32 noundef 3, i32 noundef 0) #2
   %106 = load i32, ptr @ett_entry, align 4
@@ -3028,8 +3028,8 @@ define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1
   %116 = tail call signext i8 @tvb_get_gint8(ptr noundef %3, i32 noundef %110) #2
   %117 = sext i8 %116 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %105, ptr noundef nonnull @.str.909, i32 noundef %115, i32 noundef %117) #2
-  %118 = add nuw nsw i32 %.0199203, 3
-  %119 = icmp ult i32 %.0199203, 45
+  %118 = add nuw nsw i32 %.0200203, 3
+  %119 = icmp ult i32 %.0200203, 45
   br i1 %119, label %.preheader, label %120, !llvm.loop !6
 
 120:                                              ; preds = %.preheader
@@ -3059,8 +3059,8 @@ define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1
   %131 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %130) #2
   %. = select i1 %129, i8 63, i8 31
   %132 = and i8 %131, %.
-  %.0200.in = add nuw nsw i8 %132, 9
-  %.0200 = zext nneg i8 %.0200.in to i32
+  %.0199.in = add nuw nsw i8 %132, 9
+  %.0199 = zext nneg i8 %.0199.in to i32
   %133 = getelementptr inbounds i8, ptr %2, i64 408
   %134 = load ptr, ptr %133, align 8
   %135 = tail call noalias ptr @wmem_alloc(ptr noundef %134, i64 noundef 12) #2
@@ -3070,10 +3070,10 @@ define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1
   store i32 %83, ptr %137, align 4
   %138 = getelementptr inbounds i8, ptr %135, i64 8
   store i8 %76, ptr %138, align 4
-  %139 = tail call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %99, i32 noundef %.0200) #2
+  %139 = tail call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %99, i32 noundef %.0199) #2
   %140 = load ptr, ptr @bluetooth_ubertooth_handle, align 8
   %141 = tail call i32 @call_dissector_with_data(ptr noundef %140, ptr noundef %139, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %135) #2
-  %142 = add i32 %99, %.0200
+  %142 = add i32 %99, %.0199
   br label %147
 
 143:                                              ; preds = %124

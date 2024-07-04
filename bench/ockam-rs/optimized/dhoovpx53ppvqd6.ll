@@ -5606,32 +5606,32 @@ _ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E.exit.i80: ; preds = %1
   unreachable
 
 "_ZN85_$LT$ockam_multiaddr..ProtoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02ec211fc208bdffE.exit102.thread250": ; preds = %"_ZN90_$LT$ockam_multiaddr..ValidBytesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02c9dcffbac59d1aE.exit.i87", %"_ZN85_$LT$ockam_multiaddr..ProtoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02ec211fc208bdffE.exit102"
-  %.sroa.8236.1258 = phi i32 [ %.sroa.530.sroa.7.0.copyload, %"_ZN85_$LT$ockam_multiaddr..ProtoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02ec211fc208bdffE.exit102" ], [ %.sroa.3.0.copyload.i89, %"_ZN90_$LT$ockam_multiaddr..ValidBytesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02c9dcffbac59d1aE.exit.i87" ]
-  %.sroa.7234.1257 = phi i64 [ %.sroa.530.sroa.5.0.copyload, %"_ZN85_$LT$ockam_multiaddr..ProtoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02ec211fc208bdffE.exit102" ], [ %.sroa.6.0.copyload.i93, %"_ZN90_$LT$ockam_multiaddr..ValidBytesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02c9dcffbac59d1aE.exit.i87" ]
-  %.sroa.6233.1256 = phi ptr [ %.sroa.530.sroa.4.0.copyload, %"_ZN85_$LT$ockam_multiaddr..ProtoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02ec211fc208bdffE.exit102" ], [ %.sroa.45.0.copyload.i91, %"_ZN90_$LT$ockam_multiaddr..ValidBytesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02c9dcffbac59d1aE.exit.i87" ]
-  %.sroa.0231.1255 = phi i16 [ %.sroa.028.0.copyload, %"_ZN85_$LT$ockam_multiaddr..ProtoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02ec211fc208bdffE.exit102" ], [ 2, %"_ZN90_$LT$ockam_multiaddr..ValidBytesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02c9dcffbac59d1aE.exit.i87" ]
-  store i16 %.sroa.0231.1255, ptr %36, align 8
+  %.sroa.0231.1258 = phi i16 [ %.sroa.028.0.copyload, %"_ZN85_$LT$ockam_multiaddr..ProtoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02ec211fc208bdffE.exit102" ], [ 2, %"_ZN90_$LT$ockam_multiaddr..ValidBytesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02c9dcffbac59d1aE.exit.i87" ]
+  %.sroa.6233.1257 = phi ptr [ %.sroa.530.sroa.4.0.copyload, %"_ZN85_$LT$ockam_multiaddr..ProtoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02ec211fc208bdffE.exit102" ], [ %.sroa.45.0.copyload.i91, %"_ZN90_$LT$ockam_multiaddr..ValidBytesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02c9dcffbac59d1aE.exit.i87" ]
+  %.sroa.7234.1256 = phi i64 [ %.sroa.530.sroa.5.0.copyload, %"_ZN85_$LT$ockam_multiaddr..ProtoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02ec211fc208bdffE.exit102" ], [ %.sroa.6.0.copyload.i93, %"_ZN90_$LT$ockam_multiaddr..ValidBytesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02c9dcffbac59d1aE.exit.i87" ]
+  %.sroa.8236.1255 = phi i32 [ %.sroa.530.sroa.7.0.copyload, %"_ZN85_$LT$ockam_multiaddr..ProtoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02ec211fc208bdffE.exit102" ], [ %.sroa.3.0.copyload.i89, %"_ZN90_$LT$ockam_multiaddr..ValidBytesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02c9dcffbac59d1aE.exit.i87" ]
+  store i16 %.sroa.0231.1258, ptr %36, align 8
   %.sroa.5232.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5232.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5232, i64 6, i1 false)
   %.sroa.6233.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 8
-  store ptr %.sroa.6233.1256, ptr %.sroa.6233.0..sroa_idx, align 8
+  store ptr %.sroa.6233.1257, ptr %.sroa.6233.0..sroa_idx, align 8
   %.sroa.7234.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 16
-  store i64 %.sroa.7234.1257, ptr %.sroa.7234.0..sroa_idx, align 8
+  store i64 %.sroa.7234.1256, ptr %.sroa.7234.0..sroa_idx, align 8
   %.sroa.8235.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 24
   store i64 %.sroa.530.sroa.6.0.copyload, ptr %.sroa.8235.0..sroa_idx, align 8
   %.sroa.8236.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 32
-  store i32 %.sroa.8236.1258, ptr %.sroa.8236.0..sroa_idx, align 8
+  store i32 %.sroa.8236.1255, ptr %.sroa.8236.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 36
   store i32 %.sroa.530.sroa.8.0.copyload, ptr %.sroa.9.0..sroa_idx, align 4
-  %.not.i103 = icmp eq i32 %.sroa.8236.1258, 6
+  %.not.i103 = icmp eq i32 %.sroa.8236.1255, 6
   br i1 %.not.i103, label %135, label %147
 
 135:                                              ; preds = %"_ZN85_$LT$ockam_multiaddr..ProtoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02ec211fc208bdffE.exit102.thread250"
-  %136 = icmp eq i16 %.sroa.0231.1255, 2
+  %136 = icmp eq i16 %.sroa.0231.1258, 2
   br i1 %136, label %_ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E.exit.i108, label %137
 
 137:                                              ; preds = %135
-  %trunc.i.i.i106 = trunc nuw i16 %.sroa.0231.1255 to i1
+  %trunc.i.i.i106 = trunc nuw i16 %.sroa.0231.1258 to i1
   br i1 %trunc.i.i.i106, label %_ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E.exit.i108, label %138
 
 138:                                              ; preds = %137
@@ -5652,8 +5652,8 @@ _ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E.exit.i80: ; preds = %1
   br label %_ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E.exit.i108
 
 _ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E.exit.i108: ; preds = %137, %135, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38039a74c97484a0E.llvm.2331115699542867012.exit.i.i107"
-  %.sroa.3.0.i.i109 = phi i64 [ %140, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38039a74c97484a0E.llvm.2331115699542867012.exit.i.i107" ], [ %.sroa.7234.1257, %135 ], [ %.sroa.530.sroa.6.0.copyload, %137 ]
-  %.sroa.0.0.i.i110 = phi ptr [ %143, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38039a74c97484a0E.llvm.2331115699542867012.exit.i.i107" ], [ %.sroa.6233.1256, %135 ], [ %.sroa.6233.1256, %137 ]
+  %.sroa.3.0.i.i109 = phi i64 [ %140, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38039a74c97484a0E.llvm.2331115699542867012.exit.i.i107" ], [ %.sroa.7234.1256, %135 ], [ %.sroa.530.sroa.6.0.copyload, %137 ]
+  %.sroa.0.0.i.i110 = phi ptr [ %143, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h38039a74c97484a0E.llvm.2331115699542867012.exit.i.i107" ], [ %.sroa.6233.1257, %135 ], [ %.sroa.6233.1257, %137 ]
   %.not.i.i.i111 = icmp eq i64 %.sroa.3.0.i.i109, 2
   br i1 %.not.i.i.i111, label %148, label %144
 
@@ -5677,7 +5677,7 @@ _ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E.exit.i108: ; preds = %
 148:                                              ; preds = %_ZN15ockam_multiaddr10ProtoValue4data17h7f1e32d2a52baa81E.exit.i108
   %.sroa.0.0.copyload.i.i112 = load i16, ptr %.sroa.0.0.i.i110, align 1, !alias.scope !1400, !noalias !1406
   %149 = call i16 @llvm.bswap.i16(i16 %.sroa.0.0.copyload.i.i112)
-  switch i16 %.sroa.0231.1255, label %150 [
+  switch i16 %.sroa.0231.1258, label %150 [
     i16 2, label %159
     i16 0, label %159
   ]

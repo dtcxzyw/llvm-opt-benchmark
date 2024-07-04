@@ -4201,19 +4201,19 @@ _ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i30.i.i: ; preds = %_ZNK7A
   br label %.backedge.i.i
 
 .loopexit.i.i:                                    ; preds = %.backedge.i.i, %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i30.i.i
-  %.0.i.i = phi i1 [ false, %.backedge.i.i ], [ true, %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i30.i.i ]
+  %.011.i.i = phi i1 [ false, %.backedge.i.i ], [ true, %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i30.i.i ]
   %.not.i.i.i37.i.i = icmp eq ptr %.sroa.0.5.i, null
   br i1 %.not.i.i.i37.i.i, label %_ZNK7AstNode6existsIZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor17writesToVirtIfaceEPKS_EUlPK9AstVarRefE_EEbOT_.exit, label %.loopexit.i.thread.i
 
 .loopexit.i.thread.i:                             ; preds = %.loopexit.i.i, %.preheader.i.i, %.preheader.thread.i.i, %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i
-  %.0.i16.i = phi i1 [ %.0.i.i, %.loopexit.i.i ], [ false, %.preheader.thread.i.i ], [ false, %.preheader.i.i ], [ true, %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i ]
+  %.011.i16.i = phi i1 [ %.011.i.i, %.loopexit.i.i ], [ false, %.preheader.thread.i.i ], [ false, %.preheader.i.i ], [ true, %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i ]
   %.sroa.0.615.i = phi ptr [ %.sroa.0.5.i, %.loopexit.i.i ], [ %2, %.preheader.thread.i.i ], [ %2, %.preheader.i.i ], [ %2, %_ZN7AstNode9privateIsI12AstMemberSelPS_EEbPKS_.exit.i.i.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.615.i) #23
   br label %_ZNK7AstNode6existsIZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor17writesToVirtIfaceEPKS_EUlPK9AstVarRefE_EEbOT_.exit
 
 _ZNK7AstNode6existsIZN7V3Sched12_GLOBAL__N_116VirtIfaceVisitor17writesToVirtIfaceEPKS_EUlPK9AstVarRefE_EEbOT_.exit: ; preds = %.loopexit.i.i, %.loopexit.i.thread.i
-  %.0.i17.i = phi i1 [ %.0.i.i, %.loopexit.i.i ], [ %.0.i16.i, %.loopexit.i.thread.i ]
-  ret i1 %.0.i17.i
+  %.011.i17.i = phi i1 [ %.011.i.i, %.loopexit.i.i ], [ %.011.i16.i, %.loopexit.i.thread.i ]
+  ret i1 %.011.i17.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

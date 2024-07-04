@@ -1784,7 +1784,7 @@ proto_item_set_generated.exit:                    ; preds = %98, %95, %proto_ite
   br i1 %183, label %._crit_edge, label %.lr.ph222
 
 184:                                              ; preds = %.lr.ph222
-  %185 = add i32 %.0145181220, %192
+  %185 = add i32 %.0147180221, %192
   %186 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %185) #6
   %187 = icmp sgt i32 %186, 15
   br i1 %187, label %.lr.ph, label %._crit_edge.loopexit.loopexit, !llvm.loop !8
@@ -1797,30 +1797,30 @@ proto_item_set_generated.exit:                    ; preds = %98, %95, %proto_ite
 
 .lr.ph222:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %191 = phi i16 [ %189, %.lr.ph ], [ %182, %.lr.ph.preheader ]
-  %.0147180221 = phi i16 [ %191, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0145181220 = phi i32 [ %185, %.lr.ph ], [ 48, %.lr.ph.preheader ]
+  %.0147180221 = phi i32 [ %185, %.lr.ph ], [ 48, %.lr.ph.preheader ]
+  %.0146181220 = phi i16 [ %191, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %192 = zext i16 %191 to i32
-  %193 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0145181220) #6
+  %193 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0147180221) #6
   %194 = icmp slt i32 %193, %192
   br i1 %194, label %._crit_edge.loopexit.loopexit, label %184
 
 ._crit_edge.loopexit.loopexit:                    ; preds = %.lr.ph222, %.lr.ph, %184
-  %.0147.lcssa.ph.ph = phi i16 [ %191, %184 ], [ %191, %.lr.ph ], [ %.0147180221, %.lr.ph222 ]
-  %.0145.lcssa.ph.ph = phi i32 [ %185, %184 ], [ %185, %.lr.ph ], [ %.0145181220, %.lr.ph222 ]
-  %195 = zext i16 %.0147.lcssa.ph.ph to i32
+  %.0147.lcssa.ph.ph = phi i32 [ %185, %184 ], [ %185, %.lr.ph ], [ %.0147180221, %.lr.ph222 ]
+  %.0146.lcssa.ph.ph = phi i16 [ %191, %184 ], [ %191, %.lr.ph ], [ %.0146181220, %.lr.ph222 ]
+  %195 = zext i16 %.0146.lcssa.ph.ph to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %._crit_edge.loopexit.loopexit, %.loopexit
-  %.0147.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.lr.ph.preheader ], [ %195, %._crit_edge.loopexit.loopexit ]
-  %.0145.lcssa = phi i32 [ 48, %.loopexit ], [ 48, %.lr.ph.preheader ], [ %.0145.lcssa.ph.ph, %._crit_edge.loopexit.loopexit ]
-  %196 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0145.lcssa) #6
+  %.0147.lcssa = phi i32 [ 48, %.loopexit ], [ 48, %.lr.ph.preheader ], [ %.0147.lcssa.ph.ph, %._crit_edge.loopexit.loopexit ]
+  %.0146.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %.lr.ph.preheader ], [ %195, %._crit_edge.loopexit.loopexit ]
+  %196 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0147.lcssa) #6
   switch i32 %196, label %199 [
     i32 0, label %202
     i32 4, label %197
   ]
 
 197:                                              ; preds = %._crit_edge
-  %198 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0145.lcssa) #6
+  %198 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0147.lcssa) #6
   %.not166 = icmp eq i32 %198, 0
   br i1 %.not166, label %202, label %200
 
@@ -1829,28 +1829,28 @@ proto_item_set_generated.exit:                    ; preds = %98, %95, %proto_ite
   br i1 %.old1, label %200, label %202
 
 200:                                              ; preds = %197, %199
-  %201 = sub i32 %.0145.lcssa, %.0147.lcssa
+  %201 = sub i32 %.0147.lcssa, %.0146.lcssa
   br label %202
 
 202:                                              ; preds = %._crit_edge, %197, %200, %199
-  %.1146 = phi i32 [ %.0145.lcssa, %._crit_edge ], [ %201, %200 ], [ %.0145.lcssa, %197 ], [ %.0145.lcssa, %199 ]
-  %203 = icmp sgt i32 %.1146, 48
+  %.1148 = phi i32 [ %.0147.lcssa, %._crit_edge ], [ %201, %200 ], [ %.0147.lcssa, %197 ], [ %.0147.lcssa, %199 ]
+  %203 = icmp sgt i32 %.1148, 48
   br i1 %203, label %.lr.ph191, label %._crit_edge192
 
 .lr.ph191:                                        ; preds = %202, %dissect_ntp_ext.exit
-  %.0148189 = phi i32 [ %.0.i, %dissect_ntp_ext.exit ], [ 48, %202 ]
-  %204 = add i32 %.0148189, 2
+  %.0145189 = phi i32 [ %.0.i, %dissect_ntp_ext.exit ], [ 48, %202 ]
+  %204 = add i32 %.0145189, 2
   %205 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %204) #6
   %206 = load i32, ptr @hf_ntp_ext, align 4
   %207 = zext i16 %205 to i32
-  %208 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %206, ptr noundef %0, i32 noundef %.0148189, i32 noundef %207, i32 noundef 0) #6
+  %208 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %206, ptr noundef %0, i32 noundef %.0145189, i32 noundef %207, i32 noundef 0) #6
   %209 = load i32, ptr @ett_ntp_ext, align 4
   %210 = call ptr @proto_item_add_subtree(ptr noundef %208, i32 noundef %209) #6
   %211 = load i32, ptr @hf_ntp_ext_type, align 4
-  %212 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %211, ptr noundef %0, i32 noundef %.0148189, i32 noundef 2, i32 noundef 0) #6
+  %212 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %211, ptr noundef %0, i32 noundef %.0145189, i32 noundef 2, i32 noundef 0) #6
   %213 = load i32, ptr @hf_ntp_ext_length, align 4
   %214 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %213, ptr noundef %0, i32 noundef %204, i32 noundef 2, i32 noundef 0) #6
-  %215 = add i32 %.0148189, 4
+  %215 = add i32 %.0145189, 4
   %216 = icmp ult i16 %205, 8
   br i1 %216, label %217, label %220
 
@@ -1873,27 +1873,27 @@ proto_item_set_generated.exit:                    ; preds = %98, %95, %proto_ite
   %226 = add nsw i32 %207, -4
   %227 = load i32, ptr @hf_ntp_ext_value, align 4
   %228 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %227, ptr noundef %0, i32 noundef %215, i32 noundef %226, i32 noundef 0) #6
-  %229 = add i32 %.0148189, %207
+  %229 = add i32 %.0145189, %207
   br label %dissect_ntp_ext.exit
 
 dissect_ntp_ext.exit:                             ; preds = %217, %222, %225
   %.0.i = phi i32 [ %219, %217 ], [ %224, %222 ], [ %229, %225 ]
-  %230 = icmp slt i32 %.0.i, %.1146
+  %230 = icmp slt i32 %.0.i, %.1148
   br i1 %230, label %.lr.ph191, label %._crit_edge192, !llvm.loop !9
 
 ._crit_edge192:                                   ; preds = %dissect_ntp_ext.exit, %202
-  %.0148.lcssa = phi i32 [ 48, %202 ], [ %.0.i, %dissect_ntp_ext.exit ]
-  %231 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0148.lcssa) #6
+  %.0145.lcssa = phi i32 [ 48, %202 ], [ %.0.i, %dissect_ntp_ext.exit ]
+  %231 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0145.lcssa) #6
   %232 = icmp sgt i32 %231, 3
   br i1 %232, label %233, label %236
 
 233:                                              ; preds = %._crit_edge192
   %234 = load i32, ptr @hf_ntp_keyid, align 4
-  %235 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %234, ptr noundef %0, i32 noundef %.0148.lcssa, i32 noundef 4, i32 noundef 0) #6
+  %235 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %234, ptr noundef %0, i32 noundef %.0145.lcssa, i32 noundef 4, i32 noundef 0) #6
   br label %236
 
 236:                                              ; preds = %233, %._crit_edge192
-  %237 = add i32 %.0148.lcssa, 4
+  %237 = add i32 %.0145.lcssa, 4
   %238 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %237) #6
   %.not167 = icmp eq i32 %238, 0
   br i1 %.not167, label %242, label %239
@@ -2166,22 +2166,22 @@ proto_item_set_generated.exit186:                 ; preds = %121, %118, %115, %1
   br i1 %.not177, label %.preheader, label %157
 
 .preheader:                                       ; preds = %142, %.preheader
-  %.0198 = phi i16 [ %156, %.preheader ], [ %132, %142 ]
-  %.0157197 = phi i32 [ %155, %.preheader ], [ 12, %142 ]
+  %.0158198 = phi i32 [ %155, %.preheader ], [ 12, %142 ]
+  %.0159197 = phi i16 [ %156, %.preheader ], [ %132, %142 ]
   %143 = load i32, ptr @hf_ntpctrl_item, align 4
-  %144 = and i32 %.0157197, 65535
+  %144 = and i32 %.0158198, 65535
   %145 = call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %143, ptr noundef %0, i32 noundef %144, i32 noundef 4, i32 noundef 0) #6
   %146 = load i32, ptr @ett_ntpctrl_item, align 4
   %147 = call ptr @proto_item_add_subtree(ptr noundef %145, i32 noundef %146) #6
   %148 = load i32, ptr @hf_ntpctrl_associd, align 4
   %149 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %148, ptr noundef %0, i32 noundef %144, i32 noundef 2, i32 noundef 0) #6
-  %150 = add nsw i32 %.0157197, 2
+  %150 = add nsw i32 %.0158198, 2
   %151 = and i32 %150, 65535
   %152 = load i32, ptr @hf_ntpctrl_status, align 4
   %153 = load i32, ptr @ett_ntpctrl_status, align 4
   %154 = call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %151, i32 noundef %152, i32 noundef %153, ptr noundef nonnull @peer_status_flags, i32 noundef 0) #6
   %155 = add nuw nsw i32 %151, 2
-  %156 = add i16 %.0198, -4
+  %156 = add i16 %.0159197, -4
   %.not178 = icmp eq i16 %156, 0
   br i1 %.not178, label %.loopexit, label %.preheader, !llvm.loop !10
 
@@ -2218,7 +2218,7 @@ proto_item_set_generated.exit186:                 ; preds = %121, %118, %115, %1
   br label %.thread.sink.split
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %157, %136, %167, %127
-  %.1 = phi i16 [ %132, %136 ], [ %132, %167 ], [ 0, %127 ], [ %132, %157 ], [ 0, %.preheader ], [ %132, %.lr.ph ]
+  %.1160 = phi i16 [ %132, %136 ], [ %132, %167 ], [ 0, %127 ], [ %132, %157 ], [ 0, %.preheader ], [ %132, %.lr.ph ]
   br i1 %.not, label %.thread, label %212
 
 .thread.sink.split:                               ; preds = %136, %136, %172, %171, %170
@@ -2228,7 +2228,7 @@ proto_item_set_generated.exit186:                 ; preds = %121, %118, %115, %1
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %.loopexit
-  %.in = phi i16 [ %.1, %.loopexit ], [ %132, %.thread.sink.split ]
+  %.in = phi i16 [ %.1160, %.loopexit ], [ %132, %.thread.sink.split ]
   %175 = add i16 %.in, 12
   %176 = zext i16 %175 to i32
   %177 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %176) #6
@@ -2253,10 +2253,10 @@ proto_item_set_generated.exit186:                 ; preds = %121, %118, %115, %1
 
 189:                                              ; preds = %183, %182
   %.pre-phi = phi i32 [ %.pre, %183 ], [ %176, %182 ]
-  %.0159 = phi i32 [ %188, %183 ], [ %177, %182 ]
+  %.0157 = phi i32 [ %188, %183 ], [ %177, %182 ]
   %190 = load i32, ptr @ett_ntp_authenticator, align 4
   %191 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef -1, i32 noundef %190, ptr noundef null, ptr noundef nonnull @.str.908) #6
-  switch i32 %.0159, label %212 [
+  switch i32 %.0157, label %212 [
     i32 20, label %192
     i32 24, label %198
   ]

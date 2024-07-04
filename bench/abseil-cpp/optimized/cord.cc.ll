@@ -4769,8 +4769,8 @@ if.then.i.i.i:                                    ; preds = %_ZN4absl13cord_inte
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i
   %21 = phi i8 [ %.pre.i.i.i, %if.then.i.i.i ], [ %18, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i ]
-  %offset.0.i.i.i = phi i64 [ %19, %if.then.i.i.i ], [ 0, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i ]
   %edge.addr.0.i.i.i = phi ptr [ %20, %if.then.i.i.i ], [ %cond.i.i.i, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i ]
+  %offset.0.i.i.i = phi i64 [ %19, %if.then.i.i.i ], [ 0, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i ]
   %cmp.i2.i.i = icmp ugt i8 %21, 5
   br i1 %cmp.i2.i.i, label %cond.true.i4.i.i, label %cond.false.i3.i.i
 
@@ -5411,8 +5411,8 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %while.end.i.i
   %19 = phi i8 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %16, %while.end.i.i ]
-  %offset.0.i.i.i.i = phi i64 [ %17, %if.then.i.i.i.i ], [ 0, %while.end.i.i ]
   %edge.addr.0.i.i.i.i = phi ptr [ %18, %if.then.i.i.i.i ], [ %14, %while.end.i.i ]
+  %offset.0.i.i.i.i = phi i64 [ %17, %if.then.i.i.i.i ], [ 0, %while.end.i.i ]
   %cmp.i.i33.i.i = icmp ugt i8 %19, 5
   br i1 %cmp.i.i33.i.i, label %cond.true.i.i.i4.i, label %cond.false.i.i.i3.i
 
@@ -5451,11 +5451,11 @@ if.then34.i.i:                                    ; preds = %if.end32.i.i
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit
 
 if.end37.i.i:                                     ; preds = %if.end32.i.i, %if.end25.i.i
-  %node.049.i.i = phi ptr [ %23, %if.end32.i.i ], [ %retval.0.i21.i.i, %if.end25.i.i ]
-  %offset.048.i.i = phi i64 [ %22, %if.end32.i.i ], [ 0, %if.end25.i.i ]
-  %base39.i.i = getelementptr inbounds i8, ptr %node.049.i.i, i64 16
+  %offset.049.i.i = phi i64 [ %22, %if.end32.i.i ], [ 0, %if.end25.i.i ]
+  %node.048.i.i = phi ptr [ %23, %if.end32.i.i ], [ %retval.0.i21.i.i, %if.end25.i.i ]
+  %base39.i.i = getelementptr inbounds i8, ptr %node.048.i.i, i64 16
   %24 = load ptr, ptr %base39.i.i, align 8
-  %add.ptr40.i.i = getelementptr inbounds i8, ptr %24, i64 %offset.048.i.i
+  %add.ptr40.i.i = getelementptr inbounds i8, ptr %24, i64 %offset.049.i.i
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit
 
 _ZN4absl4Cord13GetFirstChunkERKS0_.exit:          ; preds = %_ZNK4absl4Cord5emptyEv.exit.i, %_ZNK4absl4Cord5emptyEv.exit.thread.i, %if.then.i.i, %if.then8.i.i, %if.then13.i.i, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i, %if.then34.i.i, %if.end37.i.i
@@ -5668,8 +5668,8 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %while.end.i.i
   %19 = phi i8 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %16, %while.end.i.i ]
-  %offset.0.i.i.i.i = phi i64 [ %17, %if.then.i.i.i.i ], [ 0, %while.end.i.i ]
   %edge.addr.0.i.i.i.i = phi ptr [ %18, %if.then.i.i.i.i ], [ %14, %while.end.i.i ]
+  %offset.0.i.i.i.i = phi i64 [ %17, %if.then.i.i.i.i ], [ 0, %while.end.i.i ]
   %cmp.i.i33.i.i = icmp ugt i8 %19, 5
   br i1 %cmp.i.i33.i.i, label %cond.true.i.i.i4.i, label %cond.false.i.i.i3.i
 
@@ -5708,11 +5708,11 @@ if.then34.i.i:                                    ; preds = %if.end32.i.i
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit
 
 if.end37.i.i:                                     ; preds = %if.end32.i.i, %if.end25.i.i
-  %node.049.i.i = phi ptr [ %23, %if.end32.i.i ], [ %retval.0.i21.i.i, %if.end25.i.i ]
-  %offset.048.i.i = phi i64 [ %22, %if.end32.i.i ], [ 0, %if.end25.i.i ]
-  %base39.i.i = getelementptr inbounds i8, ptr %node.049.i.i, i64 16
+  %offset.049.i.i = phi i64 [ %22, %if.end32.i.i ], [ 0, %if.end25.i.i ]
+  %node.048.i.i = phi ptr [ %23, %if.end32.i.i ], [ %retval.0.i21.i.i, %if.end25.i.i ]
+  %base39.i.i = getelementptr inbounds i8, ptr %node.048.i.i, i64 16
   %24 = load ptr, ptr %base39.i.i, align 8
-  %add.ptr40.i.i = getelementptr inbounds i8, ptr %24, i64 %offset.048.i.i
+  %add.ptr40.i.i = getelementptr inbounds i8, ptr %24, i64 %offset.049.i.i
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit
 
 _ZN4absl4Cord13GetFirstChunkERKS0_.exit:          ; preds = %_ZNK4absl4Cord5emptyEv.exit.i, %_ZNK4absl4Cord5emptyEv.exit.thread.i, %if.then.i.i, %if.then8.i.i, %if.then13.i.i, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i, %if.then34.i.i, %if.end37.i.i
@@ -5824,23 +5824,23 @@ if.then.i.i.i.i55:                                ; preds = %while.end.i.i32
 
 if.end.i.i.i.i40:                                 ; preds = %if.then.i.i.i.i55, %while.end.i.i32
   %44 = phi i8 [ %.pre.i.i.i.i59, %if.then.i.i.i.i55 ], [ %41, %while.end.i.i32 ]
-  %offset.0.i.i.i.i41 = phi i64 [ %42, %if.then.i.i.i.i55 ], [ 0, %while.end.i.i32 ]
-  %edge.addr.0.i.i.i.i42 = phi ptr [ %43, %if.then.i.i.i.i55 ], [ %39, %while.end.i.i32 ]
+  %edge.addr.0.i.i.i.i41 = phi ptr [ %43, %if.then.i.i.i.i55 ], [ %39, %while.end.i.i32 ]
+  %offset.0.i.i.i.i42 = phi i64 [ %42, %if.then.i.i.i.i55 ], [ 0, %while.end.i.i32 ]
   %cmp.i.i33.i.i43 = icmp ugt i8 %44, 5
   br i1 %cmp.i.i33.i.i43, label %cond.true.i.i.i4.i53, label %cond.false.i.i.i3.i44
 
 cond.true.i.i.i4.i53:                             ; preds = %if.end.i.i.i.i40
-  %storage.i.i.i.i.i54 = getelementptr inbounds i8, ptr %edge.addr.0.i.i.i.i42, i64 13
+  %storage.i.i.i.i.i54 = getelementptr inbounds i8, ptr %edge.addr.0.i.i.i.i41, i64 13
   br label %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i46
 
 cond.false.i.i.i3.i44:                            ; preds = %if.end.i.i.i.i40
-  %base.i.i.i.i45 = getelementptr inbounds i8, ptr %edge.addr.0.i.i.i.i42, i64 16
+  %base.i.i.i.i45 = getelementptr inbounds i8, ptr %edge.addr.0.i.i.i.i41, i64 16
   %45 = load ptr, ptr %base.i.i.i.i45, align 8
   br label %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i46
 
 _ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i46: ; preds = %cond.false.i.i.i3.i44, %cond.true.i.i.i4.i53
   %storage.i.pn.i.i.i.i47 = phi ptr [ %storage.i.i.i.i.i54, %cond.true.i.i.i4.i53 ], [ %45, %cond.false.i.i.i3.i44 ]
-  %retval.sroa.3.0.i.i.i.i48 = getelementptr inbounds i8, ptr %storage.i.pn.i.i.i.i47, i64 %offset.0.i.i.i.i41
+  %retval.sroa.3.0.i.i.i.i48 = getelementptr inbounds i8, ptr %storage.i.pn.i.i.i.i47, i64 %offset.0.i.i.i.i42
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit90
 
 if.end25.i.i62:                                   ; preds = %if.end11.i.i17
@@ -5864,11 +5864,11 @@ if.then34.i.i75:                                  ; preds = %if.end32.i.i69
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit90
 
 if.end37.i.i64:                                   ; preds = %if.end32.i.i69, %if.end25.i.i62
-  %node.049.i.i65 = phi ptr [ %48, %if.end32.i.i69 ], [ %retval.0.i21.i.i15, %if.end25.i.i62 ]
-  %offset.048.i.i66 = phi i64 [ %47, %if.end32.i.i69 ], [ 0, %if.end25.i.i62 ]
-  %base39.i.i67 = getelementptr inbounds i8, ptr %node.049.i.i65, i64 16
+  %offset.049.i.i65 = phi i64 [ %47, %if.end32.i.i69 ], [ 0, %if.end25.i.i62 ]
+  %node.048.i.i66 = phi ptr [ %48, %if.end32.i.i69 ], [ %retval.0.i21.i.i15, %if.end25.i.i62 ]
+  %base39.i.i67 = getelementptr inbounds i8, ptr %node.048.i.i66, i64 16
   %49 = load ptr, ptr %base39.i.i67, align 8
-  %add.ptr40.i.i68 = getelementptr inbounds i8, ptr %49, i64 %offset.048.i.i66
+  %add.ptr40.i.i68 = getelementptr inbounds i8, ptr %49, i64 %offset.049.i.i65
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit90
 
 _ZN4absl4Cord13GetFirstChunkERKS0_.exit90:        ; preds = %_ZNK4absl4Cord5emptyEv.exit.i84, %_ZNK4absl4Cord5emptyEv.exit.thread.i8, %if.then.i.i86, %if.then8.i.i78, %if.then13.i.i60, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i46, %if.then34.i.i75, %if.end37.i.i64
@@ -6807,8 +6807,8 @@ if.then.i.i:                                      ; preds = %_ZN4absl13cord_inte
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i
   %40 = phi i8 [ %.pre.i.i, %if.then.i.i ], [ %37, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i ]
-  %offset.0.i.i = phi i64 [ %38, %if.then.i.i ], [ 0, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i ]
   %edge.addr.0.i.i = phi ptr [ %39, %if.then.i.i ], [ %cond.i.i36, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i ]
+  %offset.0.i.i = phi i64 [ %38, %if.then.i.i ], [ 0, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i ]
   %cmp.i2.i = icmp ugt i8 %40, 5
   br i1 %cmp.i2.i, label %cond.true.i4.i, label %cond.false.i3.i
 
@@ -8419,8 +8419,8 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl13cord_inte
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit.i.i.i
   %15 = phi i8 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %12, %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit.i.i.i ]
-  %offset.0.i.i.i.i = phi i64 [ %13, %if.then.i.i.i.i ], [ 0, %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit.i.i.i ]
   %edge.addr.0.i.i.i.i = phi ptr [ %14, %if.then.i.i.i.i ], [ %10, %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit.i.i.i ]
+  %offset.0.i.i.i.i = phi i64 [ %13, %if.then.i.i.i.i ], [ 0, %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit.i.i.i ]
   %cmp.i.i5.i.i = icmp ugt i8 %15, 5
   br i1 %cmp.i.i5.i.i, label %cond.true.i.i.i.i, label %cond.false.i.i.i.i
 
@@ -8771,8 +8771,8 @@ sw.bb12:                                          ; preds = %sw.bb5, %entry
   br i1 %cmp.i40, label %sw.bb19, label %return
 
 sw.bb19:                                          ; preds = %sw.bb12, %entry
-  %n2.2 = phi ptr [ %this, %entry ], [ %n2.1, %sw.bb12 ]
   %n1.1 = phi ptr [ %this, %entry ], [ %tree.1, %sw.bb12 ]
+  %n2.2 = phi ptr [ %this, %entry ], [ %n2.1, %sw.bb12 ]
   %tree.2 = phi ptr [ %this, %entry ], [ %8, %sw.bb12 ]
   %arrayidx.i1.i43 = getelementptr inbounds i8, ptr %tree.2, i64 15
   %10 = load i8, ptr %arrayidx.i1.i43, align 1
@@ -8977,8 +8977,8 @@ if.then.i.i.i:                                    ; preds = %_ZN4absl13cord_inte
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit.i.i
   %19 = phi i8 [ %.pre.i.i.i, %if.then.i.i.i ], [ %16, %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit.i.i ]
-  %offset.0.i.i.i = phi i64 [ %17, %if.then.i.i.i ], [ 0, %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit.i.i ]
   %edge.addr.0.i.i.i = phi ptr [ %18, %if.then.i.i.i ], [ %12, %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit.i.i ]
+  %offset.0.i.i.i = phi i64 [ %17, %if.then.i.i.i ], [ 0, %_ZN4absl13cord_internal21CordRepBtreeNavigator9InitFirstEPNS0_12CordRepBtreeE.exit.i.i ]
   %cmp.i.i5.i = icmp ugt i8 %19, 5
   br i1 %cmp.i.i5.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
@@ -9015,8 +9015,8 @@ if.then.i8.i:                                     ; preds = %if.else.i
 
 if.end.i.i:                                       ; preds = %if.then.i8.i, %if.else.i
   %25 = phi i8 [ %.pre.i.i, %if.then.i8.i ], [ %22, %if.else.i ]
-  %offset.0.i.i = phi i64 [ %23, %if.then.i8.i ], [ 0, %if.else.i ]
   %edge.addr.0.i.i = phi ptr [ %24, %if.then.i8.i ], [ %retval.0.i.i, %if.else.i ]
+  %offset.0.i.i = phi i64 [ %23, %if.then.i8.i ], [ 0, %if.else.i ]
   %cmp.i.i = icmp ugt i8 %25, 5
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
@@ -9193,8 +9193,8 @@ if.then.i.i:                                      ; preds = %_ZN4absl13cord_inte
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i
   %20 = phi i8 [ %.pre.i.i, %if.then.i.i ], [ %17, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i ]
-  %offset.0.i.i = phi i64 [ %18, %if.then.i.i ], [ 0, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i ]
   %edge.addr.0.i.i = phi ptr [ %19, %if.then.i.i ], [ %cond.i.i, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i ]
+  %offset.0.i.i = phi i64 [ %18, %if.then.i.i ], [ 0, %_ZN4absl13cord_internal21CordRepBtreeNavigator4NextEv.exit.i ]
   %cmp.i2.i = icmp ugt i8 %20, 5
   br i1 %cmp.i2.i, label %cond.true.i4.i, label %cond.false.i3.i
 
@@ -9367,8 +9367,8 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i3:                                        ; preds = %if.then.i, %if.end
   %22 = phi i8 [ %.pre.i, %if.then.i ], [ %19, %if.end ]
-  %offset.0.i = phi i64 [ %20, %if.then.i ], [ 0, %if.end ]
   %edge.addr.0.i = phi ptr [ %21, %if.then.i ], [ %17, %if.end ]
+  %offset.0.i = phi i64 [ %20, %if.then.i ], [ 0, %if.end ]
   %cmp.i = icmp ugt i8 %22, 5
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
@@ -13089,8 +13089,8 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %while.end.i.i
   %19 = phi i8 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %16, %while.end.i.i ]
-  %offset.0.i.i.i.i = phi i64 [ %17, %if.then.i.i.i.i ], [ 0, %while.end.i.i ]
   %edge.addr.0.i.i.i.i = phi ptr [ %18, %if.then.i.i.i.i ], [ %14, %while.end.i.i ]
+  %offset.0.i.i.i.i = phi i64 [ %17, %if.then.i.i.i.i ], [ 0, %while.end.i.i ]
   %cmp.i.i33.i.i = icmp ugt i8 %19, 5
   br i1 %cmp.i.i33.i.i, label %cond.true.i.i.i4.i, label %cond.false.i.i.i3.i
 
@@ -13129,11 +13129,11 @@ if.then34.i.i:                                    ; preds = %if.end32.i.i
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit
 
 if.end37.i.i:                                     ; preds = %if.end32.i.i, %if.end25.i.i
-  %node.049.i.i = phi ptr [ %23, %if.end32.i.i ], [ %retval.0.i21.i.i, %if.end25.i.i ]
-  %offset.048.i.i = phi i64 [ %22, %if.end32.i.i ], [ 0, %if.end25.i.i ]
-  %base39.i.i = getelementptr inbounds i8, ptr %node.049.i.i, i64 16
+  %offset.049.i.i = phi i64 [ %22, %if.end32.i.i ], [ 0, %if.end25.i.i ]
+  %node.048.i.i = phi ptr [ %23, %if.end32.i.i ], [ %retval.0.i21.i.i, %if.end25.i.i ]
+  %base39.i.i = getelementptr inbounds i8, ptr %node.048.i.i, i64 16
   %24 = load ptr, ptr %base39.i.i, align 8
-  %add.ptr40.i.i = getelementptr inbounds i8, ptr %24, i64 %offset.048.i.i
+  %add.ptr40.i.i = getelementptr inbounds i8, ptr %24, i64 %offset.049.i.i
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit
 
 _ZN4absl4Cord13GetFirstChunkERKS0_.exit:          ; preds = %_ZNK4absl4Cord5emptyEv.exit.i, %_ZNK4absl4Cord5emptyEv.exit.thread.i, %if.then.i.i, %if.then8.i.i, %if.then13.i.i, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i, %if.then34.i.i, %if.end37.i.i
@@ -13341,8 +13341,8 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %while.end.i.i
   %19 = phi i8 [ %.pre.i.i.i.i, %if.then.i.i.i.i ], [ %16, %while.end.i.i ]
-  %offset.0.i.i.i.i = phi i64 [ %17, %if.then.i.i.i.i ], [ 0, %while.end.i.i ]
   %edge.addr.0.i.i.i.i = phi ptr [ %18, %if.then.i.i.i.i ], [ %14, %while.end.i.i ]
+  %offset.0.i.i.i.i = phi i64 [ %17, %if.then.i.i.i.i ], [ 0, %while.end.i.i ]
   %cmp.i.i33.i.i = icmp ugt i8 %19, 5
   br i1 %cmp.i.i33.i.i, label %cond.true.i.i.i4.i, label %cond.false.i.i.i3.i
 
@@ -13381,11 +13381,11 @@ if.then34.i.i:                                    ; preds = %if.end32.i.i
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit
 
 if.end37.i.i:                                     ; preds = %if.end32.i.i, %if.end25.i.i
-  %node.049.i.i = phi ptr [ %23, %if.end32.i.i ], [ %retval.0.i21.i.i, %if.end25.i.i ]
-  %offset.048.i.i = phi i64 [ %22, %if.end32.i.i ], [ 0, %if.end25.i.i ]
-  %base39.i.i = getelementptr inbounds i8, ptr %node.049.i.i, i64 16
+  %offset.049.i.i = phi i64 [ %22, %if.end32.i.i ], [ 0, %if.end25.i.i ]
+  %node.048.i.i = phi ptr [ %23, %if.end32.i.i ], [ %retval.0.i21.i.i, %if.end25.i.i ]
+  %base39.i.i = getelementptr inbounds i8, ptr %node.048.i.i, i64 16
   %24 = load ptr, ptr %base39.i.i, align 8
-  %add.ptr40.i.i = getelementptr inbounds i8, ptr %24, i64 %offset.048.i.i
+  %add.ptr40.i.i = getelementptr inbounds i8, ptr %24, i64 %offset.049.i.i
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit
 
 _ZN4absl4Cord13GetFirstChunkERKS0_.exit:          ; preds = %_ZNK4absl4Cord5emptyEv.exit.i, %_ZNK4absl4Cord5emptyEv.exit.thread.i, %if.then.i.i, %if.then8.i.i, %if.then13.i.i, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i, %if.then34.i.i, %if.end37.i.i
@@ -13497,23 +13497,23 @@ if.then.i.i.i.i55:                                ; preds = %while.end.i.i32
 
 if.end.i.i.i.i40:                                 ; preds = %if.then.i.i.i.i55, %while.end.i.i32
   %44 = phi i8 [ %.pre.i.i.i.i59, %if.then.i.i.i.i55 ], [ %41, %while.end.i.i32 ]
-  %offset.0.i.i.i.i41 = phi i64 [ %42, %if.then.i.i.i.i55 ], [ 0, %while.end.i.i32 ]
-  %edge.addr.0.i.i.i.i42 = phi ptr [ %43, %if.then.i.i.i.i55 ], [ %39, %while.end.i.i32 ]
+  %edge.addr.0.i.i.i.i41 = phi ptr [ %43, %if.then.i.i.i.i55 ], [ %39, %while.end.i.i32 ]
+  %offset.0.i.i.i.i42 = phi i64 [ %42, %if.then.i.i.i.i55 ], [ 0, %while.end.i.i32 ]
   %cmp.i.i33.i.i43 = icmp ugt i8 %44, 5
   br i1 %cmp.i.i33.i.i43, label %cond.true.i.i.i4.i53, label %cond.false.i.i.i3.i44
 
 cond.true.i.i.i4.i53:                             ; preds = %if.end.i.i.i.i40
-  %storage.i.i.i.i.i54 = getelementptr inbounds i8, ptr %edge.addr.0.i.i.i.i42, i64 13
+  %storage.i.i.i.i.i54 = getelementptr inbounds i8, ptr %edge.addr.0.i.i.i.i41, i64 13
   br label %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i46
 
 cond.false.i.i.i3.i44:                            ; preds = %if.end.i.i.i.i40
-  %base.i.i.i.i45 = getelementptr inbounds i8, ptr %edge.addr.0.i.i.i.i42, i64 16
+  %base.i.i.i.i45 = getelementptr inbounds i8, ptr %edge.addr.0.i.i.i.i41, i64 16
   %45 = load ptr, ptr %base.i.i.i.i45, align 8
   br label %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i46
 
 _ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i46: ; preds = %cond.false.i.i.i3.i44, %cond.true.i.i.i4.i53
   %storage.i.pn.i.i.i.i47 = phi ptr [ %storage.i.i.i.i.i54, %cond.true.i.i.i4.i53 ], [ %45, %cond.false.i.i.i3.i44 ]
-  %retval.sroa.3.0.i.i.i.i48 = getelementptr inbounds i8, ptr %storage.i.pn.i.i.i.i47, i64 %offset.0.i.i.i.i41
+  %retval.sroa.3.0.i.i.i.i48 = getelementptr inbounds i8, ptr %storage.i.pn.i.i.i.i47, i64 %offset.0.i.i.i.i42
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit90
 
 if.end25.i.i62:                                   ; preds = %if.end11.i.i17
@@ -13537,11 +13537,11 @@ if.then34.i.i75:                                  ; preds = %if.end32.i.i69
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit90
 
 if.end37.i.i64:                                   ; preds = %if.end32.i.i69, %if.end25.i.i62
-  %node.049.i.i65 = phi ptr [ %48, %if.end32.i.i69 ], [ %retval.0.i21.i.i15, %if.end25.i.i62 ]
-  %offset.048.i.i66 = phi i64 [ %47, %if.end32.i.i69 ], [ 0, %if.end25.i.i62 ]
-  %base39.i.i67 = getelementptr inbounds i8, ptr %node.049.i.i65, i64 16
+  %offset.049.i.i65 = phi i64 [ %47, %if.end32.i.i69 ], [ 0, %if.end25.i.i62 ]
+  %node.048.i.i66 = phi ptr [ %48, %if.end32.i.i69 ], [ %retval.0.i21.i.i15, %if.end25.i.i62 ]
+  %base39.i.i67 = getelementptr inbounds i8, ptr %node.048.i.i66, i64 16
   %49 = load ptr, ptr %base39.i.i67, align 8
-  %add.ptr40.i.i68 = getelementptr inbounds i8, ptr %49, i64 %offset.048.i.i66
+  %add.ptr40.i.i68 = getelementptr inbounds i8, ptr %49, i64 %offset.049.i.i65
   br label %_ZN4absl4Cord13GetFirstChunkERKS0_.exit90
 
 _ZN4absl4Cord13GetFirstChunkERKS0_.exit90:        ; preds = %_ZNK4absl4Cord5emptyEv.exit.i84, %_ZNK4absl4Cord5emptyEv.exit.thread.i8, %if.then.i.i86, %if.then8.i.i78, %if.then13.i.i60, %_ZNK4absl13cord_internal12CordRepBtree4DataEm.exit.i.i46, %if.then34.i.i75, %if.end37.i.i64

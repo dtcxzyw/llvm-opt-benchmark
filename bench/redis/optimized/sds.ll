@@ -2243,10 +2243,10 @@ while.body.lr.ph:                                 ; preds = %sdslen.exit
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog116
   %7 = phi i8 [ %5, %while.body.lr.ph ], [ %117, %sw.epilog116 ]
-  %s.addr.0237 = phi ptr [ %call.i, %while.body.lr.ph ], [ %s.addr.5, %sw.epilog116 ]
+  %i.0237 = phi i64 [ %retval.0.i, %while.body.lr.ph ], [ %i.1, %sw.epilog116 ]
   %f.0236 = phi ptr [ %fmt, %while.body.lr.ph ], [ %incdec.ptr117, %sw.epilog116 ]
-  %i.0235 = phi i64 [ %retval.0.i, %while.body.lr.ph ], [ %i.1, %sw.epilog116 ]
-  %arrayidx.i59 = getelementptr inbounds i8, ptr %s.addr.0237, i64 -1
+  %s.addr.0235 = phi ptr [ %call.i, %while.body.lr.ph ], [ %s.addr.5, %sw.epilog116 ]
+  %arrayidx.i59 = getelementptr inbounds i8, ptr %s.addr.0235, i64 -1
   %8 = load i8, ptr %arrayidx.i59, align 1
   %9 = and i8 %8, 7
   switch i8 %9, label %if.then [
@@ -2257,8 +2257,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   ]
 
 sw.bb1.i:                                         ; preds = %while.body
-  %add.ptr.i62 = getelementptr inbounds i8, ptr %s.addr.0237, i64 -3
-  %alloc.i = getelementptr inbounds i8, ptr %s.addr.0237, i64 -2
+  %add.ptr.i62 = getelementptr inbounds i8, ptr %s.addr.0235, i64 -3
+  %alloc.i = getelementptr inbounds i8, ptr %s.addr.0235, i64 -2
   %10 = load i8, ptr %alloc.i, align 1
   %conv2.i63 = zext i8 %10 to i64
   %11 = load i8, ptr %add.ptr.i62, align 1
@@ -2267,8 +2267,8 @@ sw.bb1.i:                                         ; preds = %while.body
   br label %sdsavail.exit
 
 sw.bb5.i61:                                       ; preds = %while.body
-  %add.ptr7.i = getelementptr inbounds i8, ptr %s.addr.0237, i64 -5
-  %alloc8.i = getelementptr inbounds i8, ptr %s.addr.0237, i64 -3
+  %add.ptr7.i = getelementptr inbounds i8, ptr %s.addr.0235, i64 -5
+  %alloc8.i = getelementptr inbounds i8, ptr %s.addr.0235, i64 -3
   %12 = load i16, ptr %alloc8.i, align 1
   %conv9.i = zext i16 %12 to i64
   %13 = load i16, ptr %add.ptr7.i, align 1
@@ -2277,8 +2277,8 @@ sw.bb5.i61:                                       ; preds = %while.body
   br label %sdsavail.exit
 
 sw.bb14.i:                                        ; preds = %while.body
-  %add.ptr16.i = getelementptr inbounds i8, ptr %s.addr.0237, i64 -9
-  %alloc17.i = getelementptr inbounds i8, ptr %s.addr.0237, i64 -5
+  %add.ptr16.i = getelementptr inbounds i8, ptr %s.addr.0235, i64 -9
+  %alloc17.i = getelementptr inbounds i8, ptr %s.addr.0235, i64 -5
   %14 = load i32, ptr %alloc17.i, align 1
   %15 = load i32, ptr %add.ptr16.i, align 1
   %sub19.i = sub i32 %14, %15
@@ -2286,8 +2286,8 @@ sw.bb14.i:                                        ; preds = %while.body
   br label %sdsavail.exit
 
 sw.bb21.i:                                        ; preds = %while.body
-  %add.ptr23.i = getelementptr inbounds i8, ptr %s.addr.0237, i64 -17
-  %alloc24.i = getelementptr inbounds i8, ptr %s.addr.0237, i64 -9
+  %add.ptr23.i = getelementptr inbounds i8, ptr %s.addr.0235, i64 -17
+  %alloc24.i = getelementptr inbounds i8, ptr %s.addr.0235, i64 -9
   %16 = load i64, ptr %alloc24.i, align 1
   %17 = load i64, ptr %add.ptr23.i, align 1
   %sub26.i = sub i64 %16, %17
@@ -2299,13 +2299,13 @@ sdsavail.exit:                                    ; preds = %sw.bb1.i, %sw.bb5.i
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body, %sdsavail.exit
-  %call.i64 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %s.addr.0237, i64 noundef 1, i32 noundef 1)
+  %call.i64 = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %s.addr.0235, i64 noundef 1, i32 noundef 1)
   %.pre = load i8, ptr %f.0236, align 1
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %sdsavail.exit
   %18 = phi i8 [ %.pre, %if.then ], [ %7, %sdsavail.exit ]
-  %s.addr.1 = phi ptr [ %call.i64, %if.then ], [ %s.addr.0237, %sdsavail.exit ]
+  %s.addr.1 = phi ptr [ %call.i64, %if.then ], [ %s.addr.0235, %sdsavail.exit ]
   %cond1 = icmp eq i8 %18, 37
   br i1 %cond1, label %sw.bb, label %sw.default113
 
@@ -2452,7 +2452,7 @@ if.then21:                                        ; preds = %sdsavail.exit107
 
 if.end23:                                         ; preds = %if.then21, %sdsavail.exit107
   %s.addr.2 = phi ptr [ %call.i108, %if.then21 ], [ %s.addr.1, %sdsavail.exit107 ]
-  %add.ptr24 = getelementptr inbounds i8, ptr %s.addr.2, i64 %i.0235
+  %add.ptr24 = getelementptr inbounds i8, ptr %s.addr.2, i64 %i.0237
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr24, ptr align 1 %23, i64 %cond, i1 false)
   %arrayidx.i109 = getelementptr inbounds i8, ptr %s.addr.2, i64 -1
   %39 = load i8, ptr %arrayidx.i109, align 1
@@ -2505,7 +2505,7 @@ sw.bb23.i:                                        ; preds = %if.end23
   br label %sdsinclen.exit
 
 sdsinclen.exit:                                   ; preds = %if.end23, %sw.bb.i111, %sw.bb6.i, %sw.bb11.i, %sw.bb17.i, %sw.bb23.i
-  %add = add i64 %cond, %i.0235
+  %add = add i64 %cond, %i.0237
   br label %sw.epilog116
 
 if.then29:                                        ; preds = %sw.bb
@@ -2619,7 +2619,7 @@ if.then62:                                        ; preds = %sdsavail.exit135
 
 if.end64:                                         ; preds = %if.then62, %sdsavail.exit135
   %s.addr.3 = phi ptr [ %call.i136, %if.then62 ], [ %s.addr.1, %sdsavail.exit135 ]
-  %add.ptr65 = getelementptr inbounds i8, ptr %s.addr.3, i64 %i.0235
+  %add.ptr65 = getelementptr inbounds i8, ptr %s.addr.3, i64 %i.0237
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr65, ptr nonnull align 16 %buf, i64 %conv58, i1 false)
   %arrayidx.i137 = getelementptr inbounds i8, ptr %s.addr.3, i64 -1
   %67 = load i8, ptr %arrayidx.i137, align 1
@@ -2671,7 +2671,7 @@ sw.bb23.i138:                                     ; preds = %if.end64
   br label %sdsinclen.exit154
 
 sdsinclen.exit154:                                ; preds = %if.end64, %sw.bb.i150, %sw.bb6.i147, %sw.bb11.i144, %sw.bb17.i141, %sw.bb23.i138
-  %add67 = add i64 %i.0235, %conv58
+  %add67 = add i64 %i.0237, %conv58
   br label %sw.epilog116
 
 if.then72:                                        ; preds = %sw.bb
@@ -2785,7 +2785,7 @@ if.then107:                                       ; preds = %sdsavail.exit178
 
 if.end109:                                        ; preds = %if.then107, %sdsavail.exit178
   %s.addr.4 = phi ptr [ %call.i179, %if.then107 ], [ %s.addr.1, %sdsavail.exit178 ]
-  %add.ptr110 = getelementptr inbounds i8, ptr %s.addr.4, i64 %i.0235
+  %add.ptr110 = getelementptr inbounds i8, ptr %s.addr.4, i64 %i.0237
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr110, ptr nonnull align 16 %buf100, i64 %conv103, i1 false)
   %arrayidx.i180 = getelementptr inbounds i8, ptr %s.addr.4, i64 -1
   %94 = load i8, ptr %arrayidx.i180, align 1
@@ -2837,12 +2837,12 @@ sw.bb23.i181:                                     ; preds = %if.end109
   br label %sdsinclen.exit197
 
 sdsinclen.exit197:                                ; preds = %if.end109, %sw.bb.i193, %sw.bb6.i190, %sw.bb11.i187, %sw.bb17.i184, %sw.bb23.i181
-  %add112 = add i64 %i.0235, %conv103
+  %add112 = add i64 %i.0237, %conv103
   br label %sw.epilog116
 
 sw.default:                                       ; preds = %sw.bb
-  %inc = add nsw i64 %i.0235, 1
-  %arrayidx = getelementptr inbounds i8, ptr %s.addr.1, i64 %i.0235
+  %inc = add nsw i64 %i.0237, 1
+  %arrayidx = getelementptr inbounds i8, ptr %s.addr.1, i64 %i.0237
   store i8 %19, ptr %arrayidx, align 1
   %arrayidx.i198 = getelementptr inbounds i8, ptr %s.addr.1, i64 -1
   %103 = load i8, ptr %arrayidx.i198, align 1
@@ -2890,8 +2890,8 @@ sw.bb23.i199:                                     ; preds = %sw.default
   br label %sw.epilog116
 
 sw.default113:                                    ; preds = %if.end
-  %inc114 = add nsw i64 %i.0235, 1
-  %arrayidx115 = getelementptr inbounds i8, ptr %s.addr.1, i64 %i.0235
+  %inc114 = add nsw i64 %i.0237, 1
+  %arrayidx115 = getelementptr inbounds i8, ptr %s.addr.1, i64 %i.0237
   store i8 %18, ptr %arrayidx115, align 1
   %arrayidx.i215 = getelementptr inbounds i8, ptr %s.addr.1, i64 -1
   %110 = load i8, ptr %arrayidx.i215, align 1
@@ -2939,17 +2939,17 @@ sw.bb23.i216:                                     ; preds = %sw.default113
   br label %sw.epilog116
 
 sw.epilog116:                                     ; preds = %sw.bb23.i216, %sw.bb17.i219, %sw.bb11.i222, %sw.bb6.i225, %sw.bb.i228, %sw.default113, %sw.bb23.i199, %sw.bb17.i202, %sw.bb11.i205, %sw.bb6.i208, %sw.bb.i211, %sw.default, %sw.bb, %sdsinclen.exit, %sdsinclen.exit154, %sdsinclen.exit197
-  %i.1 = phi i64 [ %i.0235, %sw.bb ], [ %add112, %sdsinclen.exit197 ], [ %add67, %sdsinclen.exit154 ], [ %add, %sdsinclen.exit ], [ %inc, %sw.default ], [ %inc, %sw.bb.i211 ], [ %inc, %sw.bb6.i208 ], [ %inc, %sw.bb11.i205 ], [ %inc, %sw.bb17.i202 ], [ %inc, %sw.bb23.i199 ], [ %inc114, %sw.default113 ], [ %inc114, %sw.bb.i228 ], [ %inc114, %sw.bb6.i225 ], [ %inc114, %sw.bb11.i222 ], [ %inc114, %sw.bb17.i219 ], [ %inc114, %sw.bb23.i216 ]
-  %f.1 = phi ptr [ %f.0236, %sw.bb ], [ %add.ptr, %sdsinclen.exit197 ], [ %add.ptr, %sdsinclen.exit154 ], [ %add.ptr, %sdsinclen.exit ], [ %add.ptr, %sw.default ], [ %add.ptr, %sw.bb.i211 ], [ %add.ptr, %sw.bb6.i208 ], [ %add.ptr, %sw.bb11.i205 ], [ %add.ptr, %sw.bb17.i202 ], [ %add.ptr, %sw.bb23.i199 ], [ %f.0236, %sw.default113 ], [ %f.0236, %sw.bb.i228 ], [ %f.0236, %sw.bb6.i225 ], [ %f.0236, %sw.bb11.i222 ], [ %f.0236, %sw.bb17.i219 ], [ %f.0236, %sw.bb23.i216 ]
   %s.addr.5 = phi ptr [ %s.addr.1, %sw.bb ], [ %s.addr.4, %sdsinclen.exit197 ], [ %s.addr.3, %sdsinclen.exit154 ], [ %s.addr.2, %sdsinclen.exit ], [ %s.addr.1, %sw.default ], [ %s.addr.1, %sw.bb.i211 ], [ %s.addr.1, %sw.bb6.i208 ], [ %s.addr.1, %sw.bb11.i205 ], [ %s.addr.1, %sw.bb17.i202 ], [ %s.addr.1, %sw.bb23.i199 ], [ %s.addr.1, %sw.default113 ], [ %s.addr.1, %sw.bb.i228 ], [ %s.addr.1, %sw.bb6.i225 ], [ %s.addr.1, %sw.bb11.i222 ], [ %s.addr.1, %sw.bb17.i219 ], [ %s.addr.1, %sw.bb23.i216 ]
+  %f.1 = phi ptr [ %f.0236, %sw.bb ], [ %add.ptr, %sdsinclen.exit197 ], [ %add.ptr, %sdsinclen.exit154 ], [ %add.ptr, %sdsinclen.exit ], [ %add.ptr, %sw.default ], [ %add.ptr, %sw.bb.i211 ], [ %add.ptr, %sw.bb6.i208 ], [ %add.ptr, %sw.bb11.i205 ], [ %add.ptr, %sw.bb17.i202 ], [ %add.ptr, %sw.bb23.i199 ], [ %f.0236, %sw.default113 ], [ %f.0236, %sw.bb.i228 ], [ %f.0236, %sw.bb6.i225 ], [ %f.0236, %sw.bb11.i222 ], [ %f.0236, %sw.bb17.i219 ], [ %f.0236, %sw.bb23.i216 ]
+  %i.1 = phi i64 [ %i.0237, %sw.bb ], [ %add112, %sdsinclen.exit197 ], [ %add67, %sdsinclen.exit154 ], [ %add, %sdsinclen.exit ], [ %inc, %sw.default ], [ %inc, %sw.bb.i211 ], [ %inc, %sw.bb6.i208 ], [ %inc, %sw.bb11.i205 ], [ %inc, %sw.bb17.i202 ], [ %inc, %sw.bb23.i199 ], [ %inc114, %sw.default113 ], [ %inc114, %sw.bb.i228 ], [ %inc114, %sw.bb6.i225 ], [ %inc114, %sw.bb11.i222 ], [ %inc114, %sw.bb17.i219 ], [ %inc114, %sw.bb23.i216 ]
   %incdec.ptr117 = getelementptr inbounds i8, ptr %f.1, i64 1
   %117 = load i8, ptr %incdec.ptr117, align 1
   %tobool.not = icmp eq i8 %117, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %sw.epilog116, %sdslen.exit
-  %i.0.lcssa = phi i64 [ %retval.0.i, %sdslen.exit ], [ %i.1, %sw.epilog116 ]
   %s.addr.0.lcssa = phi ptr [ %call.i, %sdslen.exit ], [ %s.addr.5, %sw.epilog116 ]
+  %i.0.lcssa = phi i64 [ %retval.0.i, %sdslen.exit ], [ %i.1, %sw.epilog116 ]
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %arrayidx119 = getelementptr inbounds i8, ptr %s.addr.0.lcssa, i64 %i.0.lcssa
   store i8 0, ptr %arrayidx119, align 1
@@ -3161,10 +3161,10 @@ sw.bb13.i:                                        ; preds = %entry
 sdslen.exit:                                      ; preds = %entry, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %4, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %entry ]
   %cmp.not = icmp ugt i64 %retval.0.i, %start
-  %spec.select = select i1 %cmp.not, i64 %len, i64 0
-  %spec.select16 = select i1 %cmp.not, i64 %start, i64 0
-  %sub = sub i64 %retval.0.i, %spec.select16
-  %len.addr.1 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %sub)
+  %spec.select = select i1 %cmp.not, i64 %start, i64 0
+  %spec.select16 = select i1 %cmp.not, i64 %len, i64 0
+  %sub = sub i64 %retval.0.i, %spec.select
+  %len.addr.1 = tail call i64 @llvm.umin.i64(i64 %spec.select16, i64 %sub)
   %tobool.not = icmp eq i64 %len.addr.1, 0
   br i1 %tobool.not, label %if.end4.split, label %if.then5
 
@@ -3204,7 +3204,7 @@ sw.bb13.i18:                                      ; preds = %if.end4.split
   br label %if.end6
 
 if.then5:                                         ; preds = %sdslen.exit
-  %add.ptr = getelementptr inbounds i8, ptr %s, i64 %spec.select16
+  %add.ptr = getelementptr inbounds i8, ptr %s, i64 %spec.select
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %s, ptr align 1 %add.ptr, i64 %len.addr.1, i1 false)
   %arrayidx15 = getelementptr inbounds i8, ptr %s, i64 %len.addr.1
   store i8 0, ptr %arrayidx15, align 1
@@ -6240,15 +6240,15 @@ sdsempty.exit:                                    ; preds = %entry, %if.end26.i.
   br i1 %tobool.not150, label %return, label %while.body
 
 while.body:                                       ; preds = %sdsempty.exit, %while.cond.backedge
-  %res.0152 = phi ptr [ %res.0.be, %while.cond.backedge ], [ %retval.0.i.i, %sdsempty.exit ]
-  %p.0151 = phi ptr [ %p.0.be, %while.cond.backedge ], [ %template, %sdsempty.exit ]
-  %call1 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.0151, i32 noundef 123) #27
+  %p.0152 = phi ptr [ %p.0.be, %while.cond.backedge ], [ %template, %sdsempty.exit ]
+  %res.0151 = phi ptr [ %res.0.be, %while.cond.backedge ], [ %retval.0.i.i, %sdsempty.exit ]
+  %call1 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.0152, i32 noundef 123) #27
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.body
-  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %p.0151) #27
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %res.0152, i64 -1
+  %call.i = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %p.0152) #27
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %res.0151, i64 -1
   %3 = load i8, ptr %arrayidx.i.i.i, align 1
   %conv.i.i.i = zext i8 %3 to i32
   %and.i.i.i = and i32 %conv.i.i.i, 7
@@ -6266,37 +6266,37 @@ sw.bb.i.i.i:                                      ; preds = %if.then
   br label %sdslen.exit.i.i
 
 sw.bb3.i.i.i:                                     ; preds = %if.then
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %res.0152, i64 -3
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %res.0151, i64 -3
   %4 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv4.i.i.i = zext i8 %4 to i64
   br label %sdslen.exit.i.i
 
 sw.bb5.i.i.i:                                     ; preds = %if.then
-  %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %res.0152, i64 -5
+  %add.ptr6.i.i.i = getelementptr inbounds i8, ptr %res.0151, i64 -5
   %5 = load i16, ptr %add.ptr6.i.i.i, align 1
   %conv8.i.i.i = zext i16 %5 to i64
   br label %sdslen.exit.i.i
 
 sw.bb9.i.i.i:                                     ; preds = %if.then
-  %add.ptr10.i.i.i = getelementptr inbounds i8, ptr %res.0152, i64 -9
+  %add.ptr10.i.i.i = getelementptr inbounds i8, ptr %res.0151, i64 -9
   %6 = load i32, ptr %add.ptr10.i.i.i, align 1
   %conv12.i.i.i = zext i32 %6 to i64
   br label %sdslen.exit.i.i
 
 sw.bb13.i.i.i:                                    ; preds = %if.then
-  %add.ptr14.i.i.i = getelementptr inbounds i8, ptr %res.0152, i64 -17
+  %add.ptr14.i.i.i = getelementptr inbounds i8, ptr %res.0151, i64 -17
   %7 = load i64, ptr %add.ptr14.i.i.i, align 1
   br label %sdslen.exit.i.i
 
 sdslen.exit.i.i:                                  ; preds = %sw.bb13.i.i.i, %sw.bb9.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %sw.bb.i.i.i, %if.then
   %retval.0.i.i.i = phi i64 [ %7, %sw.bb13.i.i.i ], [ %conv12.i.i.i, %sw.bb9.i.i.i ], [ %conv8.i.i.i, %sw.bb5.i.i.i ], [ %conv4.i.i.i, %sw.bb3.i.i.i ], [ %conv2.i.i.i, %sw.bb.i.i.i ], [ 0, %if.then ]
-  %call.i.i.i = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %res.0152, i64 noundef %call.i, i32 noundef 1)
+  %call.i.i.i = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %res.0151, i64 noundef %call.i, i32 noundef 1)
   %cmp.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sdslen.exit.i.i
   %add.ptr.i.i25 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %retval.0.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i25, ptr nonnull readonly align 1 %p.0151, i64 %call.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i25, ptr nonnull readonly align 1 %p.0152, i64 %call.i, i1 false)
   %add.i.i = add i64 %retval.0.i.i.i, %call.i
   %arrayidx.i12.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 -1
   %8 = load i8, ptr %arrayidx.i12.i.i, align 1
@@ -6344,14 +6344,14 @@ sdssetlen.exit.i.i:                               ; preds = %sw.bb13.i13.i.i, %s
   br label %return
 
 if.else:                                          ; preds = %while.body
-  %cmp = icmp ugt ptr %call1, %p.0151
+  %cmp = icmp ugt ptr %call1, %p.0152
   br i1 %cmp, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.else
   %sub.ptr.lhs.cast = ptrtoint ptr %call1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %p.0151 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %p.0152 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %arrayidx.i.i26 = getelementptr inbounds i8, ptr %res.0152, i64 -1
+  %arrayidx.i.i26 = getelementptr inbounds i8, ptr %res.0151, i64 -1
   %10 = load i8, ptr %arrayidx.i.i26, align 1
   %conv.i.i = zext i8 %10 to i32
   %and.i.i = and i32 %conv.i.i, 7
@@ -6369,37 +6369,37 @@ sw.bb.i.i:                                        ; preds = %if.then4
   br label %sdslen.exit.i
 
 sw.bb3.i.i:                                       ; preds = %if.then4
-  %add.ptr.i.i28 = getelementptr inbounds i8, ptr %res.0152, i64 -3
+  %add.ptr.i.i28 = getelementptr inbounds i8, ptr %res.0151, i64 -3
   %11 = load i8, ptr %add.ptr.i.i28, align 1
   %conv4.i.i = zext i8 %11 to i64
   br label %sdslen.exit.i
 
 sw.bb5.i.i:                                       ; preds = %if.then4
-  %add.ptr6.i.i = getelementptr inbounds i8, ptr %res.0152, i64 -5
+  %add.ptr6.i.i = getelementptr inbounds i8, ptr %res.0151, i64 -5
   %12 = load i16, ptr %add.ptr6.i.i, align 1
   %conv8.i.i = zext i16 %12 to i64
   br label %sdslen.exit.i
 
 sw.bb9.i.i:                                       ; preds = %if.then4
-  %add.ptr10.i.i = getelementptr inbounds i8, ptr %res.0152, i64 -9
+  %add.ptr10.i.i = getelementptr inbounds i8, ptr %res.0151, i64 -9
   %13 = load i32, ptr %add.ptr10.i.i, align 1
   %conv12.i.i = zext i32 %13 to i64
   br label %sdslen.exit.i
 
 sw.bb13.i.i:                                      ; preds = %if.then4
-  %add.ptr14.i.i = getelementptr inbounds i8, ptr %res.0152, i64 -17
+  %add.ptr14.i.i = getelementptr inbounds i8, ptr %res.0151, i64 -17
   %14 = load i64, ptr %add.ptr14.i.i, align 1
   br label %sdslen.exit.i
 
 sdslen.exit.i:                                    ; preds = %sw.bb13.i.i, %sw.bb9.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb.i.i, %if.then4
   %retval.0.i.i27 = phi i64 [ %14, %sw.bb13.i.i ], [ %conv12.i.i, %sw.bb9.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ], [ 0, %if.then4 ]
-  %call.i.i = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %res.0152, i64 noundef %sub.ptr.sub, i32 noundef 1)
+  %call.i.i = call ptr @_sdsMakeRoomFor(ptr noundef nonnull %res.0151, i64 noundef %sub.ptr.sub, i32 noundef 1)
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %if.end6, label %if.end.i
 
 if.end.i:                                         ; preds = %sdslen.exit.i
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i.i, i64 %retval.0.i.i27
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %p.0151, i64 %sub.ptr.sub, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %p.0152, i64 %sub.ptr.sub, i1 false)
   %add.i = add i64 %retval.0.i.i27, %sub.ptr.sub
   %arrayidx.i12.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
   %15 = load i8, ptr %arrayidx.i12.i, align 1
@@ -6447,7 +6447,7 @@ sdssetlen.exit.i:                                 ; preds = %sw.bb13.i13.i, %sw.
   br label %if.end6
 
 if.end6:                                          ; preds = %sdssetlen.exit.i, %sdslen.exit.i, %if.else
-  %res.1 = phi ptr [ %res.0152, %if.else ], [ null, %sdslen.exit.i ], [ %call.i.i, %sdssetlen.exit.i ]
+  %res.1 = phi ptr [ %res.0151, %if.else ], [ null, %sdslen.exit.i ], [ %call.i.i, %sdssetlen.exit.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %call1, i64 1
   %17 = load i8, ptr %incdec.ptr, align 1
   switch i8 %17, label %if.end14 [
@@ -6553,8 +6553,8 @@ sdssetlen.exit.i.i45:                             ; preds = %sw.bb13.i13.i.i43, 
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %sdssetlen.exit.i.i45, %sdslen.exit.i.i35, %sdsfree.exit133
-  %p.0.be = phi ptr [ %add.ptr28, %sdsfree.exit133 ], [ %add.ptr, %sdslen.exit.i.i35 ], [ %add.ptr, %sdssetlen.exit.i.i45 ]
   %res.0.be = phi ptr [ %call.i.i.i87, %sdsfree.exit133 ], [ null, %sdslen.exit.i.i35 ], [ %call.i.i.i37, %sdssetlen.exit.i.i45 ]
+  %p.0.be = phi ptr [ %add.ptr28, %sdsfree.exit133 ], [ %add.ptr, %sdslen.exit.i.i35 ], [ %add.ptr, %sdssetlen.exit.i.i45 ]
   %25 = load i8, ptr %p.0.be, align 1
   %tobool.not = icmp eq i8 %25, 0
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !23

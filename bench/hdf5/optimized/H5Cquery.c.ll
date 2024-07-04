@@ -212,8 +212,8 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr nocapture noundef readonly
   %23 = and i64 %22, 65535
   %24 = getelementptr inbounds i8, ptr %15, i64 280
   %25 = getelementptr inbounds [65536 x ptr], ptr %24, i64 0, i64 %23
-  %.05885 = load ptr, ptr %25, align 8
-  %cond86 = icmp eq ptr %.05885, null
+  %.05985 = load ptr, ptr %25, align 8
+  %cond86 = icmp eq ptr %.05985, null
   br i1 %cond86, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
@@ -221,28 +221,28 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr nocapture noundef readonly
   br i1 %.not72, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.05887.us = phi ptr [ %.058.us, %.lr.ph.split.us ], [ %.05885, %.lr.ph ]
-  %26 = getelementptr inbounds i8, ptr %.05887.us, i64 104
-  %.058.us = load ptr, ptr %26, align 8
-  %cond.us = icmp eq ptr %.058.us, null
+  %.05987.us = phi ptr [ %.059.us, %.lr.ph.split.us ], [ %.05985, %.lr.ph ]
+  %26 = getelementptr inbounds i8, ptr %.05987.us, i64 104
+  %.059.us = load ptr, ptr %26, align 8
+  %cond.us = icmp eq ptr %.059.us, null
   br i1 %cond.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %42
-  %.05887 = phi ptr [ %.058, %42 ], [ %.05885, %.lr.ph ]
-  %27 = getelementptr inbounds i8, ptr %.05887, i64 8
+  %.05987 = phi ptr [ %.059, %42 ], [ %.05985, %.lr.ph ]
+  %27 = getelementptr inbounds i8, ptr %.05987, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, %1
   br i1 %29, label %30, label %42
 
 30:                                               ; preds = %.lr.ph.split
-  %.not73 = icmp eq ptr %.05887, %.05885
+  %.not73 = icmp eq ptr %.05987, %.05985
   br i1 %.not73, label %44, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %.05887, i64 104
+  %32 = getelementptr inbounds i8, ptr %.05987, i64 104
   %33 = load ptr, ptr %32, align 8
   %.not74 = icmp eq ptr %33, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.05887, i64 112
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.05987, i64 112
   %.pre91 = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not74, label %._crit_edge90, label %34
 
@@ -254,22 +254,22 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr nocapture noundef readonly
 
 ._crit_edge90:                                    ; preds = %31, %34
   %36 = phi ptr [ %.pre, %34 ], [ null, %31 ]
-  %37 = getelementptr inbounds i8, ptr %.05887, i64 112
+  %37 = getelementptr inbounds i8, ptr %.05987, i64 112
   %38 = getelementptr inbounds i8, ptr %.pre91, i64 104
   store ptr %36, ptr %38, align 8
   %39 = load ptr, ptr %25, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 112
-  store ptr %.05887, ptr %40, align 8
+  store ptr %.05987, ptr %40, align 8
   %41 = load ptr, ptr %25, align 8
   store ptr %41, ptr %32, align 8
   store ptr null, ptr %37, align 8
-  store ptr %.05887, ptr %25, align 8
+  store ptr %.05987, ptr %25, align 8
   br label %44
 
 42:                                               ; preds = %.lr.ph.split
-  %43 = getelementptr inbounds i8, ptr %.05887, i64 104
-  %.058 = load ptr, ptr %43, align 8
-  %cond = icmp eq ptr %.058, null
+  %43 = getelementptr inbounds i8, ptr %.05987, i64 104
+  %.059 = load ptr, ptr %43, align 8
+  %cond = icmp eq ptr %.059, null
   br i1 %cond, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %42, %.lr.ph.split.us, %21
@@ -282,7 +282,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr nocapture noundef readonly
   br i1 %.not75, label %48, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %.05887, i64 16
+  %46 = getelementptr inbounds i8, ptr %.05987, i64 16
   %47 = load i64, ptr %46, align 8
   store i64 %47, ptr %2, align 8
   br label %48
@@ -292,7 +292,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr nocapture noundef readonly
   br i1 %.not76, label %53, label %49
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %.05887, i64 48
+  %50 = getelementptr inbounds i8, ptr %.05987, i64 48
   %51 = load i8, ptr %50, align 8
   %52 = and i8 %51, 1
   store i8 %52, ptr %4, align 1
@@ -303,7 +303,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr nocapture noundef readonly
   br i1 %.not77, label %58, label %54
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %.05887, i64 50
+  %55 = getelementptr inbounds i8, ptr %.05987, i64 50
   %56 = load i8, ptr %55, align 2
   %57 = and i8 %56, 1
   store i8 %57, ptr %5, align 1
@@ -314,7 +314,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr nocapture noundef readonly
   br i1 %.not78, label %63, label %59
 
 59:                                               ; preds = %58
-  %60 = getelementptr inbounds i8, ptr %.05887, i64 56
+  %60 = getelementptr inbounds i8, ptr %.05987, i64 56
   %61 = load i8, ptr %60, align 8
   %62 = and i8 %61, 1
   store i8 %62, ptr %6, align 1
@@ -325,7 +325,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr nocapture noundef readonly
   br i1 %.not79, label %73, label %64
 
 64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %.05887, i64 240
+  %65 = getelementptr inbounds i8, ptr %.05987, i64 240
   %66 = load ptr, ptr %65, align 8
   %.not80 = icmp eq ptr %66, null
   br i1 %.not80, label %71, label %67
@@ -346,7 +346,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr nocapture noundef readonly
   br i1 %.not81, label %79, label %74
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %.05887, i64 88
+  %75 = getelementptr inbounds i8, ptr %.05987, i64 88
   %76 = load i32, ptr %75, align 8
   %77 = icmp ne i32 %76, 0
   %78 = zext i1 %77 to i8
@@ -358,7 +358,7 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr nocapture noundef readonly
   br i1 %.not82, label %85, label %80
 
 80:                                               ; preds = %79
-  %81 = getelementptr inbounds i8, ptr %.05887, i64 80
+  %81 = getelementptr inbounds i8, ptr %.05987, i64 80
   %82 = load i32, ptr %81, align 8
   %83 = icmp ne i32 %82, 0
   %84 = zext i1 %83 to i8
@@ -370,15 +370,15 @@ define range(i32 -1, 1) i32 @H5C_get_entry_status(ptr nocapture noundef readonly
   br i1 %.not83, label %90, label %86
 
 86:                                               ; preds = %85
-  %87 = getelementptr inbounds i8, ptr %.05887, i64 32
+  %87 = getelementptr inbounds i8, ptr %.05987, i64 32
   %88 = load i8, ptr %87, align 8
   %89 = and i8 %88, 1
   store i8 %89, ptr %10, align 1
   br label %90
 
 90:                                               ; preds = %._crit_edge, %86, %85, %17
-  %.059 = phi i32 [ -1, %17 ], [ 0, %._crit_edge ], [ 0, %86 ], [ 0, %85 ]
-  ret i32 %.059
+  %.058 = phi i32 [ -1, %17 ], [ 0, %._crit_edge ], [ 0, %86 ], [ 0, %85 ]
+  ret i32 %.058
 }
 
 ; Function Attrs: nounwind uwtable
@@ -431,8 +431,8 @@ define range(i32 -1, 1) i32 @H5C_get_entry_ring(ptr nocapture noundef readonly %
   %9 = and i64 %8, 65535
   %10 = getelementptr inbounds i8, ptr %7, i64 280
   %11 = getelementptr inbounds [65536 x ptr], ptr %10, i64 0, i64 %9
-  %.03240 = load ptr, ptr %11, align 8
-  %cond41 = icmp eq ptr %.03240, null
+  %.03340 = load ptr, ptr %11, align 8
+  %cond41 = icmp eq ptr %.03340, null
   br i1 %cond41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
@@ -440,28 +440,28 @@ define range(i32 -1, 1) i32 @H5C_get_entry_ring(ptr nocapture noundef readonly %
   br i1 %.not36, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.03242.us = phi ptr [ %.032.us, %.lr.ph.split.us ], [ %.03240, %.lr.ph ]
-  %12 = getelementptr inbounds i8, ptr %.03242.us, i64 104
-  %.032.us = load ptr, ptr %12, align 8
-  %cond.us = icmp eq ptr %.032.us, null
+  %.03342.us = phi ptr [ %.033.us, %.lr.ph.split.us ], [ %.03340, %.lr.ph ]
+  %12 = getelementptr inbounds i8, ptr %.03342.us, i64 104
+  %.033.us = load ptr, ptr %12, align 8
+  %cond.us = icmp eq ptr %.033.us, null
   br i1 %cond.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %28
-  %.03242 = phi ptr [ %.032, %28 ], [ %.03240, %.lr.ph ]
-  %13 = getelementptr inbounds i8, ptr %.03242, i64 8
+  %.03342 = phi ptr [ %.033, %28 ], [ %.03340, %.lr.ph ]
+  %13 = getelementptr inbounds i8, ptr %.03342, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, %1
   br i1 %15, label %16, label %28
 
 16:                                               ; preds = %.lr.ph.split
-  %.not37 = icmp eq ptr %.03242, %.03240
+  %.not37 = icmp eq ptr %.03342, %.03340
   br i1 %.not37, label %33, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %.03242, i64 104
+  %18 = getelementptr inbounds i8, ptr %.03342, i64 104
   %19 = load ptr, ptr %18, align 8
   %.not38 = icmp eq ptr %19, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.03242, i64 112
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.03342, i64 112
   %.pre46 = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not38, label %._crit_edge45, label %20
 
@@ -473,22 +473,22 @@ define range(i32 -1, 1) i32 @H5C_get_entry_ring(ptr nocapture noundef readonly %
 
 ._crit_edge45:                                    ; preds = %17, %20
   %22 = phi ptr [ %.pre, %20 ], [ null, %17 ]
-  %23 = getelementptr inbounds i8, ptr %.03242, i64 112
+  %23 = getelementptr inbounds i8, ptr %.03342, i64 112
   %24 = getelementptr inbounds i8, ptr %.pre46, i64 104
   store ptr %22, ptr %24, align 8
   %25 = load ptr, ptr %11, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 112
-  store ptr %.03242, ptr %26, align 8
+  store ptr %.03342, ptr %26, align 8
   %27 = load ptr, ptr %11, align 8
   store ptr %27, ptr %18, align 8
   store ptr null, ptr %23, align 8
-  store ptr %.03242, ptr %11, align 8
+  store ptr %.03342, ptr %11, align 8
   br label %33
 
 28:                                               ; preds = %.lr.ph.split
-  %29 = getelementptr inbounds i8, ptr %.03242, i64 104
-  %.032 = load ptr, ptr %29, align 8
-  %cond = icmp eq ptr %.032, null
+  %29 = getelementptr inbounds i8, ptr %.03342, i64 104
+  %.033 = load ptr, ptr %29, align 8
+  %cond = icmp eq ptr %.033, null
   br i1 %cond, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %28, %.lr.ph.split.us, %3
@@ -498,14 +498,14 @@ define range(i32 -1, 1) i32 @H5C_get_entry_ring(ptr nocapture noundef readonly %
   br label %36
 
 33:                                               ; preds = %16, %._crit_edge45
-  %34 = getelementptr inbounds i8, ptr %.03242, i64 64
+  %34 = getelementptr inbounds i8, ptr %.03342, i64 64
   %35 = load i32, ptr %34, align 8
   store i32 %35, ptr %2, align 4
   br label %36
 
 36:                                               ; preds = %33, %._crit_edge
-  %.033 = phi i32 [ -1, %._crit_edge ], [ 0, %33 ]
-  ret i32 %.033
+  %.032 = phi i32 [ -1, %._crit_edge ], [ 0, %33 ]
+  ret i32 %.032
 }
 
 ; Function Attrs: nounwind uwtable

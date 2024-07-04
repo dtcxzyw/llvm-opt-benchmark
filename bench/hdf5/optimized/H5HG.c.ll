@@ -1102,8 +1102,8 @@ define noundef ptr @H5HG_read(ptr noundef %0, ptr nocapture noundef readonly %1,
   br label %75
 
 62:                                               ; preds = %55, %47
-  %.049 = phi ptr [ %2, %47 ], [ %56, %55 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.049, ptr nonnull align 1 %54, i64 %49, i1 false)
+  %.050 = phi ptr [ %2, %47 ], [ %56, %55 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.050, ptr nonnull align 1 %54, i64 %49, i1 false)
   %63 = load ptr, ptr %36, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
@@ -1130,8 +1130,8 @@ define noundef ptr @H5HG_read(ptr noundef %0, ptr nocapture noundef readonly %1,
   br label %75
 
 75:                                               ; preds = %30, %42, %69, %58, %74, %73
-  %.150.ph = phi ptr [ %.049, %73 ], [ %.049, %74 ], [ null, %58 ], [ %.049, %69 ], [ %2, %42 ], [ %2, %30 ]
-  %.0.ph = phi ptr [ %.049, %73 ], [ %.049, %74 ], [ null, %58 ], [ null, %69 ], [ null, %42 ], [ null, %30 ]
+  %.151.ph = phi ptr [ %.050, %73 ], [ %.050, %74 ], [ null, %58 ], [ %.050, %69 ], [ %2, %42 ], [ %2, %30 ]
+  %.0.ph = phi ptr [ %.050, %73 ], [ %.050, %74 ], [ null, %58 ], [ null, %69 ], [ null, %42 ], [ null, %30 ]
   %76 = load i64, ptr %1, align 8
   %77 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_GHEAP, i64 noundef %76, ptr noundef nonnull %16, i32 noundef 0) #7
   %78 = icmp slt i32 %77, 0
@@ -1144,17 +1144,17 @@ define noundef ptr @H5HG_read(ptr noundef %0, ptr nocapture noundef readonly %1,
   br label %83
 
 83:                                               ; preds = %9, %18, %79, %75
-  %.15072 = phi ptr [ %.150.ph, %79 ], [ %.150.ph, %75 ], [ %2, %9 ], [ %2, %18 ]
+  %.15171 = phi ptr [ %.151.ph, %79 ], [ %.151.ph, %75 ], [ %2, %9 ], [ %2, %18 ]
   %.1 = phi ptr [ null, %79 ], [ %.0.ph, %75 ], [ null, %9 ], [ null, %18 ]
   %84 = icmp eq ptr %.1, null
   %85 = icmp eq ptr %2, null
   %or.cond = and i1 %85, %84
-  %86 = icmp ne ptr %.15072, null
+  %86 = icmp ne ptr %.15171, null
   %or.cond3 = and i1 %86, %or.cond
   br i1 %or.cond3, label %87, label %88
 
 87:                                               ; preds = %83
-  call void @free(ptr noundef nonnull %.15072) #7
+  call void @free(ptr noundef nonnull %.15171) #7
   br label %88
 
 88:                                               ; preds = %87, %83

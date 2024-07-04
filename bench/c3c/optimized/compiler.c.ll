@@ -424,7 +424,7 @@ define dso_local void @compiler_parse() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %.01322 = phi i1 [ false, %.lr.ph.preheader ], [ %.2, %37 ]
+  %.01321 = phi i1 [ false, %.lr.ph.preheader ], [ %.2, %37 ]
   store i8 0, ptr %1, align 1
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 64), align 8
   %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
@@ -446,7 +446,7 @@ define dso_local void @compiler_parse() local_unnamed_addr #0 {
 29:                                               ; preds = %26
   %30 = call zeroext i1 @parse_file(ptr noundef nonnull %23) #20
   %not. = xor i1 %30, true
-  %spec.select = select i1 %not., i1 true, i1 %.01322
+  %spec.select = select i1 %not., i1 true, i1 %.01321
   %31 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 169), align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %37
@@ -458,7 +458,7 @@ define dso_local void @compiler_parse() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %29, %33, %26
-  %.2 = phi i1 [ %.01322, %26 ], [ %spec.select, %33 ], [ %spec.select, %29 ]
+  %.2 = phi i1 [ %.01321, %26 ], [ %spec.select, %33 ], [ %spec.select, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -885,9 +885,9 @@ dynamic_lib_name.exit:                            ; preds = %build_base_name.exi
   unreachable
 
 exe_name.exit:                                    ; preds = %.sink.split.i214, %94, %.sink.split.i, %88, %static_lib_name.exit, %dynamic_lib_name.exit, %105, %103, %84, %81, %74
-  %.0178 = phi ptr [ null, %74 ], [ null, %81 ], [ null, %84 ], [ %143, %dynamic_lib_name.exit ], [ null, %static_lib_name.exit ], [ null, %105 ], [ null, %103 ], [ null, %88 ], [ null, %.sink.split.i ], [ null, %94 ], [ null, %.sink.split.i214 ]
-  %.0176 = phi ptr [ null, %74 ], [ null, %81 ], [ null, %84 ], [ null, %dynamic_lib_name.exit ], [ %124, %static_lib_name.exit ], [ null, %105 ], [ null, %103 ], [ null, %88 ], [ null, %.sink.split.i ], [ null, %94 ], [ null, %.sink.split.i214 ]
-  %.0172 = phi ptr [ null, %74 ], [ null, %81 ], [ null, %84 ], [ null, %dynamic_lib_name.exit ], [ null, %static_lib_name.exit ], [ %106, %105 ], [ null, %103 ], [ @.str.17, %88 ], [ %91, %.sink.split.i ], [ @.str.18, %94 ], [ %97, %.sink.split.i214 ]
+  %.0175 = phi ptr [ null, %74 ], [ null, %81 ], [ null, %84 ], [ null, %dynamic_lib_name.exit ], [ null, %static_lib_name.exit ], [ %106, %105 ], [ null, %103 ], [ @.str.17, %88 ], [ %91, %.sink.split.i ], [ @.str.18, %94 ], [ %97, %.sink.split.i214 ]
+  %.0173 = phi ptr [ null, %74 ], [ null, %81 ], [ null, %84 ], [ null, %dynamic_lib_name.exit ], [ %124, %static_lib_name.exit ], [ null, %105 ], [ null, %103 ], [ null, %88 ], [ null, %.sink.split.i ], [ null, %94 ], [ null, %.sink.split.i214 ]
+  %.0171 = phi ptr [ null, %74 ], [ null, %81 ], [ null, %84 ], [ %143, %dynamic_lib_name.exit ], [ null, %static_lib_name.exit ], [ null, %105 ], [ null, %103 ], [ null, %88 ], [ null, %.sink.split.i ], [ null, %94 ], [ null, %.sink.split.i214 ]
   tail call fastcc void @free_arenas()
   %.not198 = icmp eq ptr %75, null
   br i1 %.not198, label %148, label %145
@@ -898,7 +898,7 @@ exe_name.exit:                                    ; preds = %.sink.split.i214, %
   br label %148
 
 148:                                              ; preds = %exe_name.exit, %145
-  %.0162 = phi i32 [ %147, %145 ], [ 0, %exe_name.exit ]
+  %.0166 = phi i32 [ %147, %145 ], [ 0, %exe_name.exit ]
   %149 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 304), align 8
   %.not199 = icmp eq ptr %149, null
   br i1 %.not199, label %153, label %150
@@ -909,8 +909,8 @@ exe_name.exit:                                    ; preds = %.sink.split.i214, %
   br label %153
 
 153:                                              ; preds = %148, %150
-  %.0164 = phi i32 [ %152, %150 ], [ 0, %148 ]
-  %154 = add i32 %.0164, %.0162
+  %.0169 = phi i32 [ %152, %150 ], [ 0, %148 ]
+  %154 = add i32 %.0169, %.0166
   %155 = icmp ugt i32 %154, 1000000
   br i1 %155, label %156, label %157
 
@@ -919,7 +919,7 @@ exe_name.exit:                                    ; preds = %.sink.split.i214, %
   unreachable
 
 157:                                              ; preds = %153
-  %.not200 = icmp eq i32 %.0162, 0
+  %.not200 = icmp eq i32 %.0166, 0
   br i1 %.not200, label %158, label %159
 
 158:                                              ; preds = %157
@@ -927,16 +927,16 @@ exe_name.exit:                                    ; preds = %.sink.split.i214, %
   unreachable
 
 159:                                              ; preds = %157
-  %160 = zext i32 %.0162 to i64
+  %160 = zext i32 %.0166 to i64
   %161 = tail call ptr @ccalloc(i64 noundef 32, i64 noundef %160) #20
   %162 = zext nneg i32 %154 to i64
   %163 = shl nuw nsw i64 %162, 3
   %164 = tail call ptr @cmalloc(i64 noundef %163) #20
-  %.not201 = icmp eq i32 %.0164, 0
+  %.not201 = icmp eq i32 %.0169, 0
   br i1 %.not201, label %.loopexit277, label %.preheader276.preheader
 
 .preheader276.preheader:                          ; preds = %159
-  %wide.trip.count = zext i32 %.0164 to i64
+  %wide.trip.count = zext i32 %.0169 to i64
   br label %.preheader276
 
 .preheader276:                                    ; preds = %.preheader276.preheader, %.preheader276
@@ -947,7 +947,7 @@ exe_name.exit:                                    ; preds = %.sink.split.i214, %
   %168 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 280), align 8
   %169 = tail call ptr @platform_compiler(ptr noundef %167, ptr noundef %168) #20
   %170 = trunc nuw nsw i64 %indvars.iv to i32
-  %171 = add i32 %.0162, %170
+  %171 = add i32 %.0166, %170
   %172 = zext i32 %171 to i64
   %173 = getelementptr inbounds ptr, ptr %164, i64 %172
   store ptr %169, ptr %173, align 8
@@ -956,13 +956,13 @@ exe_name.exit:                                    ; preds = %.sink.split.i214, %
   br i1 %exitcond.not, label %.loopexit277, label %.preheader276, !llvm.loop !11
 
 .loopexit277:                                     ; preds = %.preheader276, %159
-  %umax = tail call i32 @llvm.umax.i32(i32 %.0162, i32 1)
+  %umax = tail call i32 @llvm.umax.i32(i32 %.0166, i32 1)
   %wide.trip.count293 = zext i32 %umax to i64
   br label %174
 
 174:                                              ; preds = %.loopexit277, %202
   %indvars.iv290 = phi i64 [ 0, %.loopexit277 ], [ %indvars.iv.next291, %202 ]
-  %.0175279 = phi ptr [ null, %.loopexit277 ], [ %205, %202 ]
+  %.0168279 = phi ptr [ null, %.loopexit277 ], [ %205, %202 ]
   %175 = getelementptr inbounds %struct.CompileData_, ptr %161, i64 %indvars.iv290
   %176 = getelementptr inbounds ptr, ptr %75, i64 %indvars.iv290
   %177 = load ptr, ptr %176, align 8
@@ -973,7 +973,7 @@ exe_name.exit:                                    ; preds = %.sink.split.i214, %
   store ptr @thread_compile_task_llvm, ptr %178, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %175, i64 24
   store ptr %175, ptr %.sroa.2.0..sroa_idx, align 8
-  %.not.i242 = icmp eq ptr %.0175279, null
+  %.not.i242 = icmp eq ptr %.0168279, null
   br i1 %.not.i242, label %179, label %182
 
 179:                                              ; preds = %174
@@ -983,8 +983,8 @@ exe_name.exit:                                    ; preds = %.sink.split.i214, %
   br label %184
 
 182:                                              ; preds = %174
-  %183 = getelementptr inbounds i8, ptr %.0175279, i64 -8
-  %.phi.trans.insert.i243 = getelementptr inbounds i8, ptr %.0175279, i64 -4
+  %183 = getelementptr inbounds i8, ptr %.0168279, i64 -8
+  %.phi.trans.insert.i243 = getelementptr inbounds i8, ptr %.0168279, i64 -4
   %.pre.i244 = load i32, ptr %.phi.trans.insert.i243, align 4
   br label %184
 
@@ -1105,7 +1105,7 @@ exe_name.exit:                                    ; preds = %.sink.split.i214, %
   tail call void @free(ptr noundef nonnull %161) #20
   %244 = tail call double @bench_mark() #20
   store double %244, ptr @compiler_codegen_time, align 8
-  %.not204 = icmp eq ptr %.0172, null
+  %.not204 = icmp eq ptr %.0175, null
   br i1 %.not204, label %344, label %245
 
 245:                                              ; preds = %243
@@ -1114,16 +1114,16 @@ exe_name.exit:                                    ; preds = %.sink.split.i214, %
   br i1 %.not209, label %249, label %247
 
 247:                                              ; preds = %245
-  %248 = tail call ptr @file_append_path(ptr noundef nonnull %246, ptr noundef nonnull %.0172) #20
+  %248 = tail call ptr @file_append_path(ptr noundef nonnull %246, ptr noundef nonnull %.0175) #20
   br label %249
 
 249:                                              ; preds = %247, %245
-  %.1173 = phi ptr [ %248, %247 ], [ %.0172, %245 ]
-  %250 = tail call zeroext i1 @file_is_dir(ptr noundef %.1173) #20
+  %.1176 = phi ptr [ %248, %247 ], [ %.0175, %245 ]
+  %250 = tail call zeroext i1 @file_is_dir(ptr noundef %.1176) #20
   br i1 %250, label %251, label %252
 
 251:                                              ; preds = %249
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.25, ptr noundef %.1173) #21
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.25, ptr noundef %.1176) #21
   unreachable
 
 252:                                              ; preds = %249
@@ -1152,13 +1152,13 @@ exe_name.exit:                                    ; preds = %.sink.split.i214, %
 
 265:                                              ; preds = %252, %264
   %266 = phi i32 [ %262, %252 ], [ %.pre, %264 ]
-  %.0166.shrunk = phi i1 [ %261, %252 ], [ false, %264 ]
+  %.0164.shrunk = phi i1 [ %261, %252 ], [ false, %264 ]
   %267 = icmp eq i32 %266, 0
-  %or.cond5 = select i1 %.0166.shrunk, i1 true, i1 %267
+  %or.cond5 = select i1 %.0164.shrunk, i1 true, i1 %267
   br i1 %or.cond5, label %.thread272, label %273
 
 .thread272:                                       ; preds = %252, %263, %265
-  tail call void @platform_linker(ptr noundef %.1173, ptr noundef nonnull %164, i32 noundef %154) #20
+  tail call void @platform_linker(ptr noundef %.1176, ptr noundef nonnull %164, i32 noundef %154) #20
   %268 = tail call double @bench_mark() #20
   store double %268, ptr @compiler_link_time, align 8
   tail call fastcc void @compiler_print_bench()
@@ -1181,7 +1181,7 @@ exe_name.exit:                                    ; preds = %.sink.split.i214, %
   br i1 %275, label %276, label %278
 
 276:                                              ; preds = %273
-  %277 = tail call zeroext i1 @linker(ptr noundef %.1173, ptr noundef nonnull %164, i32 noundef %154) #20
+  %277 = tail call zeroext i1 @linker(ptr noundef %.1176, ptr noundef nonnull %164, i32 noundef %154) #20
   br i1 %277, label %279, label %278
 
 278:                                              ; preds = %276, %273
@@ -1208,55 +1208,55 @@ delete_object_files.exit:                         ; preds = %.lr.ph.i249, %.lr.p
   br i1 %285, label %.preheader, label %381
 
 .preheader:                                       ; preds = %delete_object_files.exit
-  %286 = load i8, ptr %.1173, align 1
+  %286 = load i8, ptr %.1176, align 1
   %287 = icmp eq i8 %286, 46
   br i1 %287, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %291
-  %.0165282 = phi ptr [ %292, %291 ], [ %.1173, %.preheader ]
-  %288 = getelementptr inbounds i8, ptr %.0165282, i64 1
+  %.0163282 = phi ptr [ %292, %291 ], [ %.1176, %.preheader ]
+  %288 = getelementptr inbounds i8, ptr %.0163282, i64 1
   %289 = load i8, ptr %288, align 1
   %290 = icmp eq i8 %289, 47
   br i1 %290, label %291, label %.critedge
 
 291:                                              ; preds = %.lr.ph
-  %292 = getelementptr inbounds i8, ptr %.0165282, i64 2
+  %292 = getelementptr inbounds i8, ptr %.0163282, i64 2
   %293 = load i8, ptr %292, align 1
   %294 = icmp eq i8 %293, 46
   br i1 %294, label %.lr.ph, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %.lr.ph, %291, %.preheader
-  %.0165.lcssa = phi ptr [ %.1173, %.preheader ], [ %292, %291 ], [ %.0165282, %.lr.ph ]
+  %.0163.lcssa = phi ptr [ %.1176, %.preheader ], [ %292, %291 ], [ %.0163282, %.lr.ph ]
   tail call void @scratch_buffer_clear() #20
   %295 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 36), align 4
   %296 = icmp eq i32 %295, 15
   br i1 %296, label %297, label %319
 
 297:                                              ; preds = %.critedge
-  %298 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0165.lcssa) #22
+  %298 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0163.lcssa) #22
   %.not287 = icmp eq i64 %298, 0
   br i1 %.not287, label %.loopexit, label %.lr.ph286
 
 .lr.ph286:                                        ; preds = %297, %315
   %299 = phi i64 [ %317, %315 ], [ 0, %297 ]
-  %.0163285 = phi i32 [ %316, %315 ], [ 0, %297 ]
-  %300 = getelementptr inbounds i8, ptr %.0165.lcssa, i64 %299
+  %.0162285 = phi i32 [ %316, %315 ], [ 0, %297 ]
+  %300 = getelementptr inbounds i8, ptr %.0163.lcssa, i64 %299
   %301 = load i8, ptr %300, align 1
   %302 = icmp eq i8 %301, 47
   br i1 %302, label %303, label %.sink.split
 
 303:                                              ; preds = %.lr.ph286
-  %304 = add i32 %.0163285, 1
+  %304 = add i32 %.0162285, 1
   %305 = zext i32 %304 to i64
-  %306 = getelementptr inbounds i8, ptr %.0165.lcssa, i64 %305
+  %306 = getelementptr inbounds i8, ptr %.0163.lcssa, i64 %305
   %307 = load i8, ptr %306, align 1
   %308 = icmp eq i8 %307, 46
   br i1 %308, label %309, label %.sink.split
 
 309:                                              ; preds = %303
-  %310 = add i32 %.0163285, 2
+  %310 = add i32 %.0162285, 2
   %311 = zext i32 %310 to i64
-  %312 = getelementptr inbounds i8, ptr %.0165.lcssa, i64 %311
+  %312 = getelementptr inbounds i8, ptr %.0163.lcssa, i64 %311
   %313 = load i8, ptr %312, align 1
   %314 = icmp eq i8 %313, 47
   br i1 %314, label %315, label %.sink.split
@@ -1267,7 +1267,7 @@ delete_object_files.exit:                         ; preds = %.lr.ph.i249, %.lr.p
   br label %315
 
 315:                                              ; preds = %.sink.split, %309
-  %.1 = phi i32 [ %304, %309 ], [ %.0163285, %.sink.split ]
+  %.1 = phi i32 [ %304, %309 ], [ %.0162285, %.sink.split ]
   %316 = add i32 %.1, 1
   %317 = zext i32 %316 to i64
   %318 = icmp ugt i64 %298, %317
@@ -1275,7 +1275,7 @@ delete_object_files.exit:                         ; preds = %.lr.ph.i249, %.lr.p
 
 319:                                              ; preds = %.critedge
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.28) #20
-  tail call void @scratch_buffer_append(ptr noundef nonnull %.0165.lcssa) #20
+  tail call void @scratch_buffer_append(ptr noundef nonnull %.0163.lcssa) #20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %315, %297, %319
@@ -1324,7 +1324,7 @@ delete_object_files.exit:                         ; preds = %.lr.ph.i249, %.lr.p
   br label %381
 
 344:                                              ; preds = %243
-  %.not205 = icmp eq ptr %.0176, null
+  %.not205 = icmp eq ptr %.0173, null
   br i1 %.not205, label %362, label %345
 
 345:                                              ; preds = %344
@@ -1333,12 +1333,12 @@ delete_object_files.exit:                         ; preds = %.lr.ph.i249, %.lr.p
   br i1 %.not208, label %349, label %347
 
 347:                                              ; preds = %345
-  %348 = tail call ptr @file_append_path(ptr noundef nonnull %346, ptr noundef nonnull %.0176) #20
+  %348 = tail call ptr @file_append_path(ptr noundef nonnull %346, ptr noundef nonnull %.0173) #20
   br label %349
 
 349:                                              ; preds = %347, %345
-  %.1177 = phi ptr [ %348, %347 ], [ %.0176, %345 ]
-  %350 = tail call zeroext i1 @file_is_dir(ptr noundef %.1177) #20
+  %.1174 = phi ptr [ %348, %347 ], [ %.0173, %345 ]
+  %350 = tail call zeroext i1 @file_is_dir(ptr noundef %.1174) #20
   br i1 %350, label %351, label %352
 
 351:                                              ; preds = %349
@@ -1346,11 +1346,11 @@ delete_object_files.exit:                         ; preds = %.lr.ph.i249, %.lr.p
   unreachable
 
 352:                                              ; preds = %349
-  %353 = tail call zeroext i1 @static_lib_linker(ptr noundef %.1177, ptr noundef nonnull %164, i32 noundef %154) #20
+  %353 = tail call zeroext i1 @static_lib_linker(ptr noundef %.1174, ptr noundef nonnull %164, i32 noundef %154) #20
   br i1 %353, label %355, label %354
 
 354:                                              ; preds = %352
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.35, ptr noundef %.1177) #21
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.35, ptr noundef %.1174) #21
   unreachable
 
 355:                                              ; preds = %352
@@ -1370,11 +1370,11 @@ delete_object_files.exit259:                      ; preds = %.lr.ph.i255, %355
   %360 = tail call double @bench_mark() #20
   store double %360, ptr @compiler_link_time, align 8
   tail call fastcc void @compiler_print_bench()
-  %361 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef %.1177)
+  %361 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef %.1174)
   br label %381
 
 362:                                              ; preds = %344
-  %.not206 = icmp eq ptr %.0178, null
+  %.not206 = icmp eq ptr %.0171, null
   br i1 %.not206, label %380, label %363
 
 363:                                              ; preds = %362
@@ -1383,12 +1383,12 @@ delete_object_files.exit259:                      ; preds = %.lr.ph.i255, %355
   br i1 %.not207, label %367, label %365
 
 365:                                              ; preds = %363
-  %366 = tail call ptr @file_append_path(ptr noundef nonnull %364, ptr noundef nonnull %.0178) #20
+  %366 = tail call ptr @file_append_path(ptr noundef nonnull %364, ptr noundef nonnull %.0171) #20
   br label %367
 
 367:                                              ; preds = %365, %363
-  %.1179 = phi ptr [ %366, %365 ], [ %.0178, %363 ]
-  %368 = tail call zeroext i1 @file_is_dir(ptr noundef %.1179) #20
+  %.1172 = phi ptr [ %366, %365 ], [ %.0171, %363 ]
+  %368 = tail call zeroext i1 @file_is_dir(ptr noundef %.1172) #20
   br i1 %368, label %369, label %370
 
 369:                                              ; preds = %367
@@ -1396,11 +1396,11 @@ delete_object_files.exit259:                      ; preds = %.lr.ph.i255, %355
   unreachable
 
 370:                                              ; preds = %367
-  %371 = tail call zeroext i1 @dynamic_lib_linker(ptr noundef %.1179, ptr noundef nonnull %164, i32 noundef %154) #20
+  %371 = tail call zeroext i1 @dynamic_lib_linker(ptr noundef %.1172, ptr noundef nonnull %164, i32 noundef %154) #20
   br i1 %371, label %373, label %372
 
 372:                                              ; preds = %370
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.38, ptr noundef %.1179) #21
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.38, ptr noundef %.1172) #21
   unreachable
 
 373:                                              ; preds = %370
@@ -1417,7 +1417,7 @@ delete_object_files.exit259:                      ; preds = %.lr.ph.i255, %355
   br i1 %exitcond.not.i263, label %delete_object_files.exit265, label %.lr.ph.i261, !llvm.loop !9
 
 delete_object_files.exit265:                      ; preds = %.lr.ph.i261, %373
-  %378 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %.1179)
+  %378 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %.1172)
   %379 = tail call double @bench_mark() #20
   store double %379, ptr @compiler_link_time, align 8
   tail call fastcc void @compiler_print_bench()
@@ -1543,7 +1543,7 @@ define internal fastcc ptr @exe_name() unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %0, %2, %._crit_edge
-  %.013 = phi ptr [ %19, %._crit_edge ], [ @.str.119, %2 ], [ %1, %0 ]
+  %.012 = phi ptr [ %19, %._crit_edge ], [ @.str.119, %2 ], [ %1, %0 ]
   %21 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 224), align 8
   switch i32 %21, label %22 [
     i32 23, label %.sink.split
@@ -1558,12 +1558,12 @@ define internal fastcc ptr @exe_name() unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %22, %20, %20, %20
   %.str.121.sink = phi ptr [ @.str.120, %20 ], [ @.str.120, %20 ], [ @.str.120, %20 ], [ @.str.121, %22 ]
-  %25 = tail call ptr @str_cat(ptr noundef %.013, ptr noundef nonnull %.str.121.sink) #20
+  %25 = tail call ptr @str_cat(ptr noundef %.012, ptr noundef nonnull %.str.121.sink) #20
   br label %26
 
 26:                                               ; preds = %.sink.split, %22
-  %.012 = phi ptr [ %.013, %22 ], [ %25, %.sink.split ]
-  ret ptr %.012
+  %.013 = phi ptr [ %.012, %22 ], [ %25, %.sink.split ]
+  ret ptr %.013
 }
 
 declare ptr @ccalloc(i64 noundef, i64 noundef) local_unnamed_addr #4
@@ -1775,7 +1775,7 @@ define dso_local void @vendor_fetch(ptr nocapture noundef readonly %0) local_unn
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %.02533 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %20 ]
+  %.02532 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %20 ]
   %7 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.44, ptr noundef %8) #20
@@ -1789,7 +1789,7 @@ define dso_local void @vendor_fetch(ptr nocapture noundef readonly %0) local_unn
 
 15:                                               ; preds = %.lr.ph
   %16 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.48)
-  %17 = add i32 %.02533, 1
+  %17 = add i32 %.02532, 1
   br label %20
 
 18:                                               ; preds = %.lr.ph
@@ -1797,7 +1797,7 @@ define dso_local void @vendor_fetch(ptr nocapture noundef readonly %0) local_unn
   br label %20
 
 20:                                               ; preds = %15, %18
-  %.1 = phi i32 [ %.02533, %18 ], [ %17, %15 ]
+  %.1 = phi i32 [ %.02532, %18 ], [ %17, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
@@ -1821,8 +1821,8 @@ define dso_local void @vendor_fetch(ptr nocapture noundef readonly %0) local_unn
   br label %27
 
 27:                                               ; preds = %22, %24
-  %.024 = phi i32 [ %26, %24 ], [ 0, %22 ]
-  %28 = icmp ult i32 %.1, %.024
+  %.026 = phi i32 [ %26, %24 ], [ 0, %22 ]
+  %28 = icmp ult i32 %.1, %.026
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %27
@@ -1849,9 +1849,9 @@ define dso_local void @print_syntax(ptr nocapture noundef readonly %0) local_unn
   br i1 %4, label %.preheader89, label %.loopexit90
 
 .preheader89:                                     ; preds = %1, %15
-  %.07192 = phi i32 [ %.1, %15 ], [ 1, %1 ]
-  %.07291 = phi i32 [ %16, %15 ], [ 1, %1 ]
-  %5 = tail call ptr @token_type_to_string(i32 noundef %.07291) #20
+  %.07392 = phi i32 [ %16, %15 ], [ 1, %1 ]
+  %.07491 = phi i32 [ %.175, %15 ], [ 1, %1 ]
+  %5 = tail call ptr @token_type_to_string(i32 noundef %.07392) #20
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 36
   %8 = add i8 %6, -97
@@ -1868,13 +1868,13 @@ define dso_local void @print_syntax(ptr nocapture noundef readonly %0) local_unn
   ]
 
 12:                                               ; preds = %9
-  %13 = add nsw i32 %.07192, 1
-  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %.07192, ptr noundef nonnull %5)
+  %13 = add nsw i32 %.07491, 1
+  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %.07491, ptr noundef nonnull %5)
   br label %15
 
 15:                                               ; preds = %.preheader89, %9, %9, %12
-  %.1 = phi i32 [ %.07192, %9 ], [ %13, %12 ], [ %.07192, %9 ], [ %.07192, %.preheader89 ]
-  %16 = add nuw nsw i32 %.07291, 1
+  %.175 = phi i32 [ %.07491, %9 ], [ %13, %12 ], [ %.07491, %9 ], [ %.07491, %.preheader89 ]
+  %16 = add nuw nsw i32 %.07392, 1
   %exitcond.not = icmp eq i32 %16, 189
   br i1 %exitcond.not, label %.loopexit90, label %.preheader89, !llvm.loop !18
 
@@ -1885,14 +1885,14 @@ define dso_local void @print_syntax(ptr nocapture noundef readonly %0) local_unn
   br i1 %19, label %.preheader87, label %.loopexit88
 
 .preheader87:                                     ; preds = %.loopexit90, %30
-  %.07394 = phi i32 [ %31, %30 ], [ 1, %.loopexit90 ]
-  %.07493 = phi i32 [ %.175, %30 ], [ 1, %.loopexit90 ]
-  %20 = and i32 %.07394, 254
+  %.07194 = phi i32 [ %31, %30 ], [ 1, %.loopexit90 ]
+  %.07293 = phi i32 [ %.1, %30 ], [ 1, %.loopexit90 ]
+  %20 = and i32 %.07194, 254
   %or.cond = icmp eq i32 %20, 186
   br i1 %or.cond, label %30, label %21
 
 21:                                               ; preds = %.preheader87
-  %22 = tail call ptr @token_type_to_string(i32 noundef %.07394) #20
+  %22 = tail call ptr @token_type_to_string(i32 noundef %.07194) #20
   %23 = load i8, ptr %22, align 1
   switch i8 %23, label %24 [
     i8 64, label %30
@@ -1906,13 +1906,13 @@ define dso_local void @print_syntax(ptr nocapture noundef readonly %0) local_unn
   br i1 %or.cond81, label %30, label %27
 
 27:                                               ; preds = %24
-  %28 = add nsw i32 %.07493, 1
-  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, i32 noundef %.07493, ptr noundef nonnull %22)
+  %28 = add nsw i32 %.07293, 1
+  %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, i32 noundef %.07293, ptr noundef nonnull %22)
   br label %30
 
 30:                                               ; preds = %21, %21, %24, %.preheader87, %27
-  %.175 = phi i32 [ %.07493, %.preheader87 ], [ %.07493, %21 ], [ %.07493, %24 ], [ %28, %27 ], [ %.07493, %21 ]
-  %31 = add nuw nsw i32 %.07394, 1
+  %.1 = phi i32 [ %.07293, %.preheader87 ], [ %.07293, %21 ], [ %.07293, %24 ], [ %28, %27 ], [ %.07293, %21 ]
+  %31 = add nuw nsw i32 %.07194, 1
   %exitcond104.not = icmp eq i32 %31, 189
   br i1 %exitcond104.not, label %.loopexit88, label %.preheader87, !llvm.loop !19
 
@@ -2147,7 +2147,7 @@ define dso_local void @compile() local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %31, %.thread.i
   %40 = phi ptr [ %.pre.i, %.thread.i ], [ %22, %31 ]
-  %.02642.i163 = phi ptr [ %34, %.thread.i ], [ null, %31 ]
+  %.02542.i163 = phi ptr [ %34, %.thread.i ], [ null, %31 ]
   %41 = phi i32 [ %.pre, %.thread.i ], [ %25, %31 ]
   %42 = getelementptr inbounds i8, ptr %14, i64 8
   %wide.trip.count.i = zext i32 %41 to i64
@@ -2167,9 +2167,9 @@ define dso_local void @compile() local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %._crit_edge.i, label %43, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %43, %.thread.i, %39
-  %.0264348.i = phi ptr [ %34, %.thread.i ], [ %34, %39 ], [ %.02642.i163, %43 ]
-  %49 = call zeroext i1 @dir_change(ptr noundef %.0264348.i) #20
-  call void @free(ptr noundef %.0264348.i) #20
+  %.0254348.i = phi ptr [ %34, %.thread.i ], [ %34, %39 ], [ %.02542.i163, %43 ]
+  %49 = call zeroext i1 @dir_change(ptr noundef %.0254348.i) #20
+  call void @free(ptr noundef %.0254348.i) #20
   br label %execute_scripts.exit
 
 execute_scripts.exit:                             ; preds = %21, %23, %._crit_edge.i
@@ -3018,7 +3018,7 @@ scratch_buffer_interned.exit:                     ; preds = %.lr.ph.i.i, %1
 
 25:                                               ; preds = %24, %._crit_edge
   %26 = phi i32 [ %19, %24 ], [ %.pre, %._crit_edge ]
-  %.0263639 = phi i32 [ %19, %24 ], [ 0, %._crit_edge ]
+  %.0273639 = phi i32 [ %19, %24 ], [ 0, %._crit_edge ]
   %27 = phi i32 [ %.pre.i, %24 ], [ 8, %._crit_edge ]
   %.0.i = phi ptr [ %18, %24 ], [ %22, %._crit_edge ]
   %28 = icmp eq i32 %26, %27
@@ -3063,10 +3063,10 @@ scratch_buffer_interned.exit:                     ; preds = %.lr.ph.i.i, %1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %43
-  %.029.in.in = phi i32 [ %.0263639, %43 ], [ %51, %.loopexit.loopexit ]
-  %.029.in = trunc i32 %.029.in.in to i16
-  %.029 = add i16 %.029.in, 1
-  ret i16 %.029
+  %.028.in.in = phi i32 [ %.0273639, %43 ], [ %51, %.loopexit.loopexit ]
+  %.028.in = trunc i32 %.028.in.in to i16
+  %.028 = add i16 %.028.in, 1
+  ret i16 %.028
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3308,8 +3308,8 @@ define dso_local ptr @compiler_find_or_create_module(ptr noundef %0, ptr noundef
   br label %64
 
 64:                                               ; preds = %.sink.split, %2
-  %.033 = phi ptr [ %5, %2 ], [ %7, %.sink.split ]
-  ret ptr %.033
+  %.032 = phi ptr [ %5, %2 ], [ %7, %.sink.split ]
+  ret ptr %.032
 }
 
 declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #4

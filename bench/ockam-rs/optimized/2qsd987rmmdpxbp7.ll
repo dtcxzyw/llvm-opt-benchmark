@@ -13260,8 +13260,8 @@ common.ret:                                       ; preds = %163, %32
   ret void
 
 32:                                               ; preds = %191, %193, %"_ZN4core6option15Option$LT$T$GT$3map17hebfa83372b3caeecE.exit.thread"
-  %.sroa.0105.0 = phi ptr [ %.sroa.097.0.copyload, %191 ], [ %.sroa.097.0142.ph, %"_ZN4core6option15Option$LT$T$GT$3map17hebfa83372b3caeecE.exit.thread" ], [ %180, %193 ]
   %.sroa.5107.0 = phi i8 [ 4, %191 ], [ %.sroa.896.0.ph, %"_ZN4core6option15Option$LT$T$GT$3map17hebfa83372b3caeecE.exit.thread" ], [ 4, %193 ]
+  %.sroa.0105.0 = phi ptr [ %.sroa.097.0.copyload, %191 ], [ %.sroa.097.0142.ph, %"_ZN4core6option15Option$LT$T$GT$3map17hebfa83372b3caeecE.exit.thread" ], [ %180, %193 ]
   store ptr %.sroa.0105.0, ptr %0, align 8
   %.sroa.4106.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4106.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.795, i64 24, i1 false)

@@ -1447,8 +1447,8 @@ define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef
   br label %65
 
 65:                                               ; preds = %.lr.ph287, %70
-  %.0248286 = phi i32 [ 0, %.lr.ph287 ], [ %86, %70 ]
-  %.0249285 = phi i32 [ %18, %.lr.ph287 ], [ %84, %70 ]
+  %.0247286 = phi i32 [ 0, %.lr.ph287 ], [ %86, %70 ]
+  %.0248285 = phi i32 [ %18, %.lr.ph287 ], [ %84, %70 ]
   br i1 %64, label %70, label %66
 
 66:                                               ; preds = %65
@@ -1464,22 +1464,22 @@ define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef
 70:                                               ; preds = %68, %65, %66
   %hf_eue_capabilities_encoding_type.sink = phi ptr [ @hf_modem_capabilities_encoding_type, %66 ], [ @hf_modem_capabilities_encoding_type, %65 ], [ @hf_eue_capabilities_encoding_type, %68 ]
   %71 = load i32, ptr %hf_eue_capabilities_encoding_type.sink, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %71, ptr noundef %0, i32 noundef %.0249285, i32 noundef 1, i32 noundef 0) #6
-  %73 = add i32 %.0249285, 1
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %71, ptr noundef %0, i32 noundef %.0248285, i32 noundef 1, i32 noundef 0) #6
+  %73 = add i32 %.0248285, 1
   %74 = load i32, ptr @ett_dhcpv6_tlv5_type, align 4
   %75 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %74) #6
   %76 = load i32, ptr @hf_capabilities_encoding_length, align 4
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0) #6
   %78 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %73) #6
   %79 = zext i8 %78 to i32
-  %80 = add i32 %.0249285, 2
+  %80 = add i32 %.0248285, 2
   %81 = icmp ugt i8 %78, 2
   %hf_capabilities_encoding_bytes.val = load i32, ptr @hf_capabilities_encoding_bytes, align 4
   %hf_capabilities_encoding_number.val = load i32, ptr @hf_capabilities_encoding_number, align 4
   %82 = select i1 %81, i32 %hf_capabilities_encoding_bytes.val, i32 %hf_capabilities_encoding_number.val
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %82, ptr noundef %0, i32 noundef %80, i32 noundef %79, i32 noundef 0) #6
   %84 = add i32 %80, %79
-  %85 = add i32 %.0248286, 2
+  %85 = add i32 %.0247286, 2
   %86 = add i32 %85, %79
   %87 = icmp slt i32 %86, %17
   br i1 %87, label %65, label %.loopexit, !llvm.loop !7
@@ -1658,8 +1658,8 @@ define internal i32 @dissect_cablelabs_specific_opts(ptr noundef %0, ptr noundef
 
 dissect_packetcable_ccc_option.exit:              ; preds = %142, %168
   %.pre-phi = phi i32 [ %140, %142 ], [ %.pre, %168 ]
-  %.0.i = phi i32 [ 4, %142 ], [ %169, %168 ]
-  %170 = add i32 %.0.i, %.1239281
+  %.040.i = phi i32 [ 4, %142 ], [ %169, %168 ]
+  %170 = add i32 %.040.i, %.1239281
   %171 = icmp slt i32 %170, %17
   br i1 %171, label %.lr.ph282, label %.loopexit, !llvm.loop !9
 
@@ -1773,11 +1773,11 @@ dissect_packetcable_ccc_option.exit:              ; preds = %142, %168
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.0160.i = phi i32 [ %226, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.0148159.i = phi i32 [ %225, %.lr.ph.i ], [ %179, %.lr.ph.preheader.i ]
+  %.0147159.i = phi i32 [ %225, %.lr.ph.i ], [ %179, %.lr.ph.preheader.i ]
   %222 = load i32, ptr @hf_packetcable_cccV6_prov_srv_ipv6, align 4
-  %223 = add i32 %.0148159.i, 1
+  %223 = add i32 %.0147159.i, 1
   %224 = tail call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %222, ptr noundef %0, i32 noundef %223, i32 noundef 4, i32 noundef 0) #6
-  %225 = add i32 %.0148159.i, 16
+  %225 = add i32 %.0147159.i, 16
   %226 = add nuw nsw i32 %.0160.i, 1
   %exitcond.not.i = icmp eq i32 %226, %umax.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !10
@@ -1936,8 +1936,8 @@ dissect_packetcable_ccc_option.exit:              ; preds = %142, %168
 
 dissect_packetcable_cccV6_option.exit:            ; preds = %181, %313
   %.pre-phi306 = phi i32 [ %179, %181 ], [ %.2.i, %313 ]
-  %.0147.i = phi i32 [ 4, %181 ], [ %314, %313 ]
-  %315 = add i32 %.0147.i, %.2279
+  %.0148.i = phi i32 [ 4, %181 ], [ %314, %313 ]
+  %315 = add i32 %.0148.i, %.2279
   %316 = icmp slt i32 %315, %17
   br i1 %316, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
@@ -2394,11 +2394,11 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br label %proto_item_set_url.exit
 
 .lr.ph1406:                                       ; preds = %.preheader, %139
-  %.011971405 = phi i32 [ %148, %139 ], [ 0, %.preheader ]
-  %132 = add i32 %.011971405, %42
+  %.012011405 = phi i32 [ %148, %139 ], [ 0, %.preheader ]
+  %132 = add i32 %.012011405, %42
   %133 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %132) #6
   %134 = zext i16 %133 to i32
-  %135 = sub nsw i32 %26, %.011971405
+  %135 = sub nsw i32 %26, %.012011405
   %136 = icmp slt i32 %135, %134
   br i1 %136, label %137, label %139
 
@@ -2414,7 +2414,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %144 = load i32, ptr @hf_option_userclass_opaque_data, align 4
   %145 = add i32 %132, 2
   %146 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %144, ptr noundef %0, i32 noundef %145, i32 noundef %134, i32 noundef 0) #6
-  %147 = add nuw nsw i32 %.011971405, 2
+  %147 = add nuw nsw i32 %.012011405, 2
   %148 = add nuw nsw i32 %147, %134
   %149 = icmp ult i32 %148, %26
   br i1 %149, label %.lr.ph1406, label %proto_item_set_url.exit, !llvm.loop !14
@@ -2432,13 +2432,13 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br label %proto_item_set_url.exit
 
 155:                                              ; preds = %.preheader1325, %188
-  %.11404 = phi i32 [ 0, %.preheader1325 ], [ %189, %188 ]
-  %156 = add i32 %.11404, %42
+  %.112021404 = phi i32 [ 0, %.preheader1325 ], [ %189, %188 ]
+  %156 = add i32 %.112021404, %42
   %157 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %156) #6
-  %158 = add i32 %152, %.11404
+  %158 = add i32 %152, %.112021404
   %159 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %158) #6
   %160 = zext i16 %159 to i32
-  %161 = sub nsw i32 %26, %.11404
+  %161 = sub nsw i32 %26, %.112021404
   %162 = icmp slt i32 %161, %160
   br i1 %162, label %163, label %165
 
@@ -2457,7 +2457,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %173 = load i32, ptr @hf_option_ntpserver_length, align 4
   %174 = add i32 %156, 2
   %175 = call ptr @proto_tree_add_item(ptr noundef %170, i32 noundef %173, ptr noundef %0, i32 noundef %174, i32 noundef 2, i32 noundef 0) #6
-  %176 = add nuw nsw i32 %.11404, 4
+  %176 = add nuw nsw i32 %.112021404, 4
   switch i16 %157, label %188 [
     i16 1, label %177
     i16 2, label %181
@@ -2542,10 +2542,10 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br label %228
 
 228:                                              ; preds = %.lr.ph1403, %228
-  %.21402 = phi i32 [ %225, %.lr.ph1403 ], [ %spec.select, %228 ]
-  %229 = add i32 %.21402, %42
+  %.212031402 = phi i32 [ %225, %.lr.ph1403 ], [ %spec.select, %228 ]
+  %229 = add i32 %.212031402, %42
   %230 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %37, i32 noundef %229, i32 noundef %227, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8)
-  %231 = add i32 %230, %.21402
+  %231 = add i32 %230, %.212031402
   %232 = load i32, ptr %5, align 4
   %.not1306 = icmp eq i32 %232, 0
   %spec.select = select i1 %.not1306, i32 %231, i32 %26
@@ -2629,10 +2629,10 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br label %279
 
 279:                                              ; preds = %.lr.ph1401, %279
-  %.41400 = phi i32 [ %276, %.lr.ph1401 ], [ %spec.select1312, %279 ]
-  %280 = add i32 %.41400, %42
+  %.412051400 = phi i32 [ %276, %.lr.ph1401 ], [ %spec.select1312, %279 ]
+  %280 = add i32 %.412051400, %42
   %281 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %37, i32 noundef %280, i32 noundef %278, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8)
-  %282 = add i32 %281, %.41400
+  %282 = add i32 %281, %.412051400
   %283 = load i32, ptr %5, align 4
   %.not1304 = icmp eq i32 %283, 0
   %spec.select1312 = select i1 %.not1304, i32 %282, i32 %26
@@ -2691,10 +2691,10 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br label %315
 
 315:                                              ; preds = %.lr.ph1399, %315
-  %.61398 = phi i32 [ 0, %.lr.ph1399 ], [ %spec.select1313, %315 ]
-  %316 = add i32 %.61398, %42
+  %.612071398 = phi i32 [ 0, %.lr.ph1399 ], [ %spec.select1313, %315 ]
+  %316 = add i32 %.612071398, %42
   %317 = tail call fastcc i32 @dhcpv6_option(ptr noundef %0, ptr noundef %1, ptr noundef %37, i32 noundef %316, i32 noundef %314, ptr noundef %5, i32 noundef %6, ptr noundef nonnull byval(%struct.hopcount_info_t) align 8 %7, i8 noundef zeroext %8)
-  %318 = add i32 %317, %.61398
+  %318 = add i32 %317, %.612071398
   %319 = load i32, ptr %5, align 4
   %.not1302 = icmp eq i32 %319, 0
   %spec.select1313 = select i1 %.not1302, i32 %318, i32 %26
@@ -2877,11 +2877,11 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br i1 %.not1420, label %proto_item_set_url.exit, label %.lr.ph1391
 
 .lr.ph1391:                                       ; preds = %418, %.lr.ph1391
-  %.012081390 = phi i32 [ %422, %.lr.ph1391 ], [ 0, %418 ]
+  %.012091390 = phi i32 [ %422, %.lr.ph1391 ], [ 0, %418 ]
   %419 = load i32, ptr @hf_requested_option_code, align 4
-  %420 = add i32 %.012081390, %42
+  %420 = add i32 %.012091390, %42
   %421 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %419, ptr noundef %0, i32 noundef %420, i32 noundef 2, i32 noundef 0) #6
-  %422 = add nuw nsw i32 %.012081390, 2
+  %422 = add nuw nsw i32 %.012091390, 2
   %423 = icmp ult i32 %422, %26
   br i1 %423, label %.lr.ph1391, label %proto_item_set_url.exit, !llvm.loop !22
 
@@ -3056,8 +3056,8 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br i1 %.not1419, label %proto_item_set_url.exit, label %.lr.ph1389
 
 .lr.ph1389:                                       ; preds = %522, %.lr.ph1389
-  %.012181388 = phi i32 [ %541, %.lr.ph1389 ], [ 0, %522 ]
-  %526 = add i32 %.012181388, %42
+  %.012001388 = phi i32 [ %541, %.lr.ph1389 ], [ 0, %522 ]
+  %526 = add i32 %.012001388, %42
   %527 = add i32 %526, 6
   %528 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %527) #6
   %529 = zext i16 %528 to i32
@@ -3072,7 +3072,7 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %538 = load i32, ptr @hf_vendoropts_enterprise_option_data, align 4
   %539 = add i32 %526, 8
   %540 = call ptr @proto_tree_add_item(ptr noundef %533, i32 noundef %538, ptr noundef %0, i32 noundef %539, i32 noundef %529, i32 noundef 0) #6
-  %541 = add i32 %531, %.012181388
+  %541 = add i32 %531, %.012001388
   %542 = sub i32 %525, %541
   %543 = icmp sgt i32 %542, 0
   br i1 %543, label %.lr.ph1389, label %proto_item_set_url.exit, !llvm.loop !23
@@ -3167,11 +3167,11 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br label %proto_item_set_url.exit
 
 .lr.ph1387:                                       ; preds = %.preheader1335, %.lr.ph1387
-  %.112091386 = phi i32 [ %592, %.lr.ph1387 ], [ 0, %.preheader1335 ]
+  %.112101386 = phi i32 [ %592, %.lr.ph1387 ], [ 0, %.preheader1335 ]
   %589 = load i32, ptr @hf_sip_server_a, align 4
-  %590 = add i32 %.112091386, %42
+  %590 = add i32 %.112101386, %42
   %591 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %589, ptr noundef %0, i32 noundef %590, i32 noundef 16, i32 noundef 0) #6
-  %592 = add nuw nsw i32 %.112091386, 16
+  %592 = add nuw nsw i32 %.112101386, 16
   %593 = icmp ult i32 %592, %26
   br i1 %593, label %.lr.ph1387, label %proto_item_set_url.exit, !llvm.loop !24
 
@@ -3189,14 +3189,14 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br label %proto_item_set_url.exit
 
 .lr.ph1384:                                       ; preds = %.preheader1337, %.lr.ph1384
-  %.212101383 = phi i32 [ %603, %.lr.ph1384 ], [ 0, %.preheader1337 ]
+  %.212111383 = phi i32 [ %603, %.lr.ph1384 ], [ 0, %.preheader1337 ]
   %598 = load i32, ptr @hf_dns_servers, align 4
-  %599 = add i32 %.212101383, %42
+  %599 = add i32 %.212111383, %42
   %600 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %598, ptr noundef %0, i32 noundef %599, i32 noundef 16, i32 noundef 0) #6
-  %601 = lshr exact i32 %.212101383, 4
+  %601 = lshr exact i32 %.212111383, 4
   %602 = add nuw nsw i32 %601, 1
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %600, ptr noundef nonnull @.str.802, i32 noundef %602) #6
-  %603 = add nuw nsw i32 %.212101383, 16
+  %603 = add nuw nsw i32 %.212111383, 16
   %604 = icmp ult i32 %603, %26
   br i1 %604, label %.lr.ph1384, label %proto_item_set_url.exit.loopexit1338, !llvm.loop !25
 
@@ -3225,11 +3225,11 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br label %proto_item_set_url.exit
 
 .lr.ph1380:                                       ; preds = %.preheader1339, %.lr.ph1380
-  %.312111379 = phi i32 [ %617, %.lr.ph1380 ], [ 0, %.preheader1339 ]
+  %.312121379 = phi i32 [ %617, %.lr.ph1380 ], [ 0, %.preheader1339 ]
   %614 = load i32, ptr @hf_nis_servers, align 4
-  %615 = add i32 %.312111379, %42
+  %615 = add i32 %.312121379, %42
   %616 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %614, ptr noundef %0, i32 noundef %615, i32 noundef 16, i32 noundef 0) #6
-  %617 = add nuw nsw i32 %.312111379, 16
+  %617 = add nuw nsw i32 %.312121379, 16
   %618 = icmp ult i32 %617, %26
   br i1 %618, label %.lr.ph1380, label %proto_item_set_url.exit, !llvm.loop !26
 
@@ -3247,11 +3247,11 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br label %proto_item_set_url.exit
 
 .lr.ph1378:                                       ; preds = %.preheader1341, %.lr.ph1378
-  %.412121377 = phi i32 [ %626, %.lr.ph1378 ], [ 0, %.preheader1341 ]
+  %.412131377 = phi i32 [ %626, %.lr.ph1378 ], [ 0, %.preheader1341 ]
   %623 = load i32, ptr @hf_nisp_servers, align 4
-  %624 = add i32 %.412121377, %42
+  %624 = add i32 %.412131377, %42
   %625 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %623, ptr noundef %0, i32 noundef %624, i32 noundef 16, i32 noundef 0) #6
-  %626 = add nuw nsw i32 %.412121377, 16
+  %626 = add nuw nsw i32 %.412131377, 16
   %627 = icmp ult i32 %626, %26
   br i1 %627, label %.lr.ph1378, label %proto_item_set_url.exit, !llvm.loop !27
 
@@ -3291,14 +3291,14 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br label %proto_item_set_url.exit
 
 .lr.ph1376:                                       ; preds = %.preheader1343, %.lr.ph1376
-  %.512131375 = phi i32 [ %647, %.lr.ph1376 ], [ 0, %.preheader1343 ]
+  %.512141375 = phi i32 [ %647, %.lr.ph1376 ], [ 0, %.preheader1343 ]
   %642 = load i32, ptr @hf_sntp_servers, align 4
-  %643 = add i32 %.512131375, %42
+  %643 = add i32 %.512141375, %42
   %644 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %642, ptr noundef %0, i32 noundef %643, i32 noundef 16, i32 noundef 0) #6
-  %645 = lshr exact i32 %.512131375, 4
+  %645 = lshr exact i32 %.512141375, 4
   %646 = add nuw nsw i32 %645, 1
   tail call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %644, ptr noundef nonnull @.str.802, i32 noundef %646) #6
-  %647 = add nuw nsw i32 %.512131375, 16
+  %647 = add nuw nsw i32 %.512141375, 16
   %648 = icmp ult i32 %647, %26
   br i1 %648, label %.lr.ph1376, label %proto_item_set_url.exit.loopexit1344, !llvm.loop !28
 
@@ -3340,11 +3340,11 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   br label %proto_item_set_url.exit
 
 .lr.ph1374:                                       ; preds = %.preheader1345, %.lr.ph1374
-  %.612141373 = phi i32 [ %667, %.lr.ph1374 ], [ 0, %.preheader1345 ]
+  %.612151373 = phi i32 [ %667, %.lr.ph1374 ], [ 0, %.preheader1345 ]
   %664 = load i32, ptr @hf_bcmcs_servers_a, align 4
-  %665 = add i32 %.612141373, %42
+  %665 = add i32 %.612151373, %42
   %666 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %664, ptr noundef %0, i32 noundef %665, i32 noundef 16, i32 noundef 0) #6
-  %667 = add nuw nsw i32 %.612141373, 16
+  %667 = add nuw nsw i32 %.612151373, 16
   %668 = icmp ult i32 %667, %26
   br i1 %668, label %.lr.ph1374, label %proto_item_set_url.exit, !llvm.loop !29
 
@@ -3419,11 +3419,11 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %703 = icmp eq i8 %702, 0
   %spec.select1317 = select i1 %703, ptr @.str.817, ptr null
   %704 = icmp eq i8 %702, 1
-  %.11201 = select i1 %704, ptr @.str.818, ptr %spec.select1317
+  %.1 = select i1 %704, ptr @.str.818, ptr %spec.select1317
   %705 = icmp eq i8 %702, 4
-  %.21202 = select i1 %705, ptr @.str.819, ptr %.11201
+  %.2 = select i1 %705, ptr @.str.819, ptr %.1
   %706 = icmp eq i8 %702, 5
-  %spec.select1322 = select i1 %706, ptr @.str.820, ptr %.21202
+  %spec.select1322 = select i1 %706, ptr @.str.820, ptr %.2
   %.pre = zext i8 %700 to i32
   br label %715
 
@@ -3433,11 +3433,11 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
   %710 = icmp eq i32 %709, 0
   %spec.select1318 = select i1 %710, ptr @.str.821, ptr null
   %711 = icmp eq i32 %709, 1
-  %.41204 = select i1 %711, ptr @.str.822, ptr %spec.select1318
+  %.4 = select i1 %711, ptr @.str.822, ptr %spec.select1318
   %712 = icmp eq i32 %709, 4
-  %.51205 = select i1 %712, ptr @.str.823, ptr %.41204
+  %.5 = select i1 %712, ptr @.str.823, ptr %.4
   %713 = icmp eq i32 %709, 5
-  %.61206 = select i1 %713, ptr @.str.824, ptr %.51205
+  %.6 = select i1 %713, ptr @.str.824, ptr %.5
   %714 = and i32 %708, 2
   %.not1278 = icmp ne i32 %714, 0
   %switch = icmp ult i32 %709, 2
@@ -3447,10 +3447,10 @@ define internal fastcc range(i32 0, 65540) i32 @dhcpv6_option(ptr noundef %0, pt
 
 715:                                              ; preds = %707, %701
   %.pre-phi = phi i32 [ %708, %707 ], [ %.pre, %701 ]
-  %.71207 = phi ptr [ %.61206, %707 ], [ %spec.select1322, %701 ]
-  %.01199 = phi ptr [ %spec.select1324, %707 ], [ @.str.816, %701 ]
+  %.7 = phi ptr [ %.6, %707 ], [ %spec.select1322, %701 ]
+  %.01198 = phi ptr [ %spec.select1324, %707 ], [ @.str.816, %701 ]
   %716 = load i32, ptr @hf_clientfqdn_flags, align 4
-  %717 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %37, i32 noundef %716, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef %.pre-phi, ptr noundef nonnull @.str.826, i32 noundef %.pre-phi, ptr noundef %.71207, ptr noundef nonnull %.01199) #6
+  %717 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %37, i32 noundef %716, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef %.pre-phi, ptr noundef nonnull @.str.826, i32 noundef %.pre-phi, ptr noundef %.7, ptr noundef nonnull %.01198) #6
   %718 = load i32, ptr @ett_clientfqdn_flags, align 4
   %719 = tail call ptr @proto_item_add_subtree(ptr noundef %717, i32 noundef %718) #6
   %switch.tableidx = add i8 %8, -1
@@ -3503,11 +3503,11 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   br label %proto_item_set_url.exit
 
 .lr.ph1372:                                       ; preds = %.preheader1347, %.lr.ph1372
-  %.712151371 = phi i32 [ %743, %.lr.ph1372 ], [ 0, %.preheader1347 ]
+  %.712161371 = phi i32 [ %743, %.lr.ph1372 ], [ 0, %.preheader1347 ]
   %740 = load i32, ptr @hf_pana_agent, align 4
-  %741 = add i32 %.712151371, %42
+  %741 = add i32 %.712161371, %42
   %742 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %740, ptr noundef %0, i32 noundef %741, i32 noundef 16, i32 noundef 0) #6
-  %743 = add nuw nsw i32 %.712151371, 16
+  %743 = add nuw nsw i32 %.712161371, 16
   %744 = icmp ult i32 %743, %26
   br i1 %744, label %.lr.ph1372, label %proto_item_set_url.exit, !llvm.loop !30
 
@@ -3641,11 +3641,11 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   br label %proto_item_set_url.exit
 
 .lr.ph1366:                                       ; preds = %.preheader1352, %.lr.ph1366
-  %.812161365 = phi i32 [ %813, %.lr.ph1366 ], [ 0, %.preheader1352 ]
+  %.812171365 = phi i32 [ %813, %.lr.ph1366 ], [ 0, %.preheader1352 ]
   %810 = load i32, ptr @hf_lq_client_link, align 4
-  %811 = add i32 %.812161365, %42
+  %811 = add i32 %.812171365, %42
   %812 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %810, ptr noundef %0, i32 noundef %811, i32 noundef 16, i32 noundef 0) #6
-  %813 = add nuw nsw i32 %.812161365, 16
+  %813 = add nuw nsw i32 %.812171365, 16
   %814 = icmp ult i32 %813, %26
   br i1 %814, label %.lr.ph1366, label %proto_item_set_url.exit, !llvm.loop !33
 
@@ -3663,11 +3663,11 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   br label %proto_item_set_url.exit
 
 .lr.ph1364:                                       ; preds = %.preheader1354, %.lr.ph1364
-  %.912171363 = phi i32 [ %822, %.lr.ph1364 ], [ 0, %.preheader1354 ]
+  %.912181363 = phi i32 [ %822, %.lr.ph1364 ], [ 0, %.preheader1354 ]
   %819 = load i32, ptr @hf_capwap_ac_v6, align 4
-  %820 = add i32 %.912171363, %42
+  %820 = add i32 %.912181363, %42
   %821 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %819, ptr noundef %0, i32 noundef %820, i32 noundef 16, i32 noundef 0) #6
-  %822 = add nuw nsw i32 %.912171363, 16
+  %822 = add nuw nsw i32 %.912181363, 16
   %823 = icmp ult i32 %822, %26
   br i1 %823, label %.lr.ph1364, label %proto_item_set_url.exit, !llvm.loop !34
 

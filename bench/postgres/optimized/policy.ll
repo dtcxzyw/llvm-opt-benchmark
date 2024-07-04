@@ -515,7 +515,7 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
-  %.05263 = phi i32 [ 0, %.lr.ph.preheader ], [ %.153, %59 ]
+  %.064 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %59 ]
   %52 = getelementptr i32, ptr %45, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4
   %.not62 = icmp eq i32 %53, %0
@@ -523,27 +523,27 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
 
 54:                                               ; preds = %.lr.ph
   %55 = zext i32 %53 to i64
-  %56 = add i32 %.05263, 1
-  %57 = sext i32 %.05263 to i64
+  %56 = add i32 %.064, 1
+  %57 = sext i32 %.064 to i64
   %58 = getelementptr i64, ptr %50, i64 %57
   store i64 %55, ptr %58, align 8
   br label %59
 
 59:                                               ; preds = %.lr.ph, %54
-  %.153 = phi i32 [ %56, %54 ], [ %.05263, %.lr.ph ]
+  %.1 = phi i32 [ %56, %54 ], [ %.064, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %59
-  %60 = icmp sgt i32 %.153, 0
+  %60 = icmp sgt i32 %.1, 0
   br i1 %60, label %61, label %._crit_edge.thread
 
 61:                                               ; preds = %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   store i64 1099511627776, ptr %8, align 8
   store i64 0, ptr %7, align 8
-  %62 = call ptr @construct_array_builtin(ptr noundef %50, i32 noundef %.153, i32 noundef 26) #6
+  %62 = call ptr @construct_array_builtin(ptr noundef %50, i32 noundef %.1, i32 noundef 26) #6
   %63 = ptrtoint ptr %62 to i64
   %64 = getelementptr inbounds i8, ptr %6, i64 40
   store i64 %63, ptr %64, align 8
@@ -561,7 +561,7 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
   %70 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 0, ptr %70, align 4
   %71 = getelementptr inbounds i8, ptr %9, i64 4
-  %wide.trip.count70 = zext nneg i32 %.153 to i64
+  %wide.trip.count70 = zext nneg i32 %.1 to i64
   br label %72
 
 72:                                               ; preds = %61, %77
@@ -973,8 +973,8 @@ define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %.loopexit.sink.split, %6
-  %.0 = phi ptr [ %10, %6 ], [ %.sink, %.loopexit.sink.split ], [ %10, %29 ]
-  ret ptr %.0
+  %.024 = phi ptr [ %10, %6 ], [ %.sink, %.loopexit.sink.split ], [ %10, %29 ]
+  ret ptr %.024
 }
 
 declare ptr @make_parsestate(ptr noundef) local_unnamed_addr #1

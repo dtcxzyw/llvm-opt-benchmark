@@ -499,8 +499,8 @@ Abc_NtkVectorPrintVars.exit:                      ; preds = %189, %181
   br label %202
 
 202:                                              ; preds = %.lr.ph251, %Abc_NtkVectorClearPars.exit201._crit_edge
-  %.0249 = phi ptr [ %180, %.lr.ph251 ], [ %261, %Abc_NtkVectorClearPars.exit201._crit_edge ]
-  %.0112248 = phi i32 [ 0, %.lr.ph251 ], [ %.pre269, %Abc_NtkVectorClearPars.exit201._crit_edge ]
+  %.0110249 = phi ptr [ %180, %.lr.ph251 ], [ %261, %Abc_NtkVectorClearPars.exit201._crit_edge ]
+  %.0113248 = phi i32 [ 0, %.lr.ph251 ], [ %.pre269, %Abc_NtkVectorClearPars.exit201._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   %203 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #12
   %204 = icmp slt i32 %203, 0
@@ -517,7 +517,7 @@ Abc_NtkVectorPrintVars.exit:                      ; preds = %189, %181
 Abc_Clock.exit166:                                ; preds = %202, %205
   %.0.i165.neg = phi i64 [ %.neg227, %205 ], [ 1, %202 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %208 = call i32 @Abc_NtkDSat(ptr noundef %.0249, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  %208 = call i32 @Abc_NtkDSat(ptr noundef %.0110249, i64 noundef 0, i64 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %209 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #12
   %210 = icmp slt i32 %209, 0
@@ -542,9 +542,9 @@ Abc_Clock.exit168:                                ; preds = %Abc_Clock.exit166, 
   ]
 
 218:                                              ; preds = %Abc_Clock.exit168
-  %219 = getelementptr inbounds i8, ptr %.0249, i64 304
+  %219 = getelementptr inbounds i8, ptr %.0110249, i64 304
   %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr i8, ptr %.0249, i64 40
+  %221 = getelementptr i8, ptr %.0110249, i64 40
   %.val8.i = load ptr, ptr %221, align 8
   %222 = getelementptr i8, ptr %.val8.i, i64 4
   %.val.val9.i = load i32, ptr %222, align 4
@@ -657,10 +657,10 @@ Abc_NtkModelToVector.exit194:                     ; preds = %.lr.ph.i188, %Abc_N
 
 Abc_NtkVectorClearPars.exit201:                   ; preds = %.lr.ph.i195, %258
   %260 = call ptr @Abc_NtkMiterCofactor(ptr noundef %0, ptr noundef nonnull %152) #12
-  %261 = call ptr @Abc_NtkMiterAnd(ptr noundef %.0249, ptr noundef %260, i32 noundef 0, i32 noundef 0) #12
+  %261 = call ptr @Abc_NtkMiterAnd(ptr noundef %.0110249, ptr noundef %260, i32 noundef 0, i32 noundef 0) #12
   call void @Abc_NtkDelete(ptr noundef %260) #12
-  call void @Abc_NtkDelete(ptr noundef %.0249) #12
-  %.pre269 = add nuw nsw i32 %.0112248, 1
+  call void @Abc_NtkDelete(ptr noundef %.0110249) #12
+  %.pre269 = add nuw nsw i32 %.0113248, 1
   br i1 %.not117, label %Abc_NtkVectorClearPars.exit201._crit_edge, label %262
 
 262:                                              ; preds = %Abc_NtkVectorClearPars.exit201
@@ -705,7 +705,7 @@ Abc_NtkVectorClearPars.exit201._crit_edge:        ; preds = %Abc_NtkVectorClearP
   br label %295
 
 277:                                              ; preds = %Abc_NtkModelToVector.exit194
-  call void @Abc_NtkDelete(ptr noundef %.0249) #12
+  call void @Abc_NtkDelete(ptr noundef %.0110249) #12
   %278 = load i32, ptr %154, align 4
   %279 = icmp sgt i32 %278, 0
   br i1 %279, label %.lr.ph.i211, label %Vec_IntCountZero.exit
@@ -746,7 +746,7 @@ Abc_NtkVectorPrintPars.exit:                      ; preds = %.lr.ph.i216, %Vec_I
   %.val132 = load i32, ptr %154, align 4
   %291 = sub nsw i32 %.val132, %.0.lcssa.i
   %292 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.0.lcssa.i, i32 noundef %291)
-  %293 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.0112248)
+  %293 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.0113248)
   br label %299
 
 .critedge122.sink.split:                          ; preds = %Abc_NtkModelToVector.exit194, %Abc_Clock.exit168
@@ -755,10 +755,10 @@ Abc_NtkVectorPrintPars.exit:                      ; preds = %.lr.ph.i216, %Vec_I
   br label %.critedge122
 
 .critedge122:                                     ; preds = %Abc_Clock.exit168, %.critedge122.sink.split, %196
-  %.0112238 = phi i32 [ 0, %196 ], [ %.0112248, %.critedge122.sink.split ], [ %.0112248, %Abc_Clock.exit168 ]
-  %.0234 = phi ptr [ %180, %196 ], [ %.0249, %.critedge122.sink.split ], [ %.0249, %Abc_Clock.exit168 ]
-  call void @Abc_NtkDelete(ptr noundef %.0234) #12
-  %294 = icmp eq i32 %.0112238, %2
+  %.0113238 = phi i32 [ 0, %196 ], [ %.0113248, %.critedge122.sink.split ], [ %.0113248, %Abc_Clock.exit168 ]
+  %.0110234 = phi ptr [ %180, %196 ], [ %.0110249, %.critedge122.sink.split ], [ %.0110249, %Abc_Clock.exit168 ]
+  call void @Abc_NtkDelete(ptr noundef %.0110234) #12
+  %294 = icmp eq i32 %.0113238, %2
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %.critedge122.thread, %.critedge122

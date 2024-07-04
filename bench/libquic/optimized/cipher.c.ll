@@ -691,9 +691,9 @@ if.end49:                                         ; preds = %if.else37
 
 if.end55:                                         ; preds = %land.lhs.true, %if.end49
   %storemerge = phi i32 [ %6, %if.end49 ], [ 0, %land.lhs.true ]
+  %out.addr.0 = phi ptr [ %add.ptr52, %if.end49 ], [ %out, %land.lhs.true ]
   %in.addr.0 = phi ptr [ %add.ptr, %if.end49 ], [ %in, %land.lhs.true ]
   %in_len.addr.0 = phi i32 [ %sub50, %if.end49 ], [ %in_len, %land.lhs.true ]
-  %out.addr.0 = phi ptr [ %add.ptr52, %if.end49 ], [ %out, %land.lhs.true ]
   store i32 %storemerge, ptr %out_len, align 4
   %block_mask56 = getelementptr inbounds i8, ptr %ctx, i64 112
   %10 = load i32, ptr %block_mask56, align 8

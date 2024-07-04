@@ -166,12 +166,12 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %72
   br label %73
 
 73:                                               ; preds = %Vec_IntFree.exit, %5
-  %.025 = phi ptr [ %69, %Vec_IntFree.exit ], [ null, %5 ]
+  %.026 = phi ptr [ %69, %Vec_IntFree.exit ], [ null, %5 ]
   tail call void @sat_solver_delete(ptr noundef nonnull %3) #13
   br label %74
 
 74:                                               ; preds = %1, %73
-  %.0 = phi ptr [ %.025, %73 ], [ null, %1 ]
+  %.0 = phi ptr [ %.026, %73 ], [ null, %1 ]
   tail call void @Cnf_DataFree(ptr noundef %2) #13
   ret ptr %.0
 }
@@ -2117,9 +2117,9 @@ define ptr @Saig_ManRetimeMinAreaBackward(ptr noundef %0, i32 noundef %1) local_
   br label %12
 
 12:                                               ; preds = %Vec_PtrPush.exit, %8
-  %.033 = phi ptr [ %3, %8 ], [ %41, %Vec_PtrPush.exit ]
-  %13 = tail call i32 @Saig_ManHideBadRegs(ptr noundef %0, ptr noundef %.033)
-  %14 = getelementptr inbounds i8, ptr %.033, i64 8
+  %.0 = phi ptr [ %3, %8 ], [ %41, %Vec_PtrPush.exit ]
+  %13 = tail call i32 @Saig_ManHideBadRegs(ptr noundef %0, ptr noundef %.0)
+  %14 = getelementptr inbounds i8, ptr %.0, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %16
@@ -2129,7 +2129,7 @@ define ptr @Saig_ManRetimeMinAreaBackward(ptr noundef %0, i32 noundef %1) local_
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %12, %16
-  tail call void @free(ptr noundef nonnull %.033) #13
+  tail call void @free(ptr noundef nonnull %.0) #13
   %17 = tail call ptr @Nwk_ManDeriveRetimingCut(ptr noundef %0, i32 noundef 0, i32 noundef %1) #13
   %18 = getelementptr i8, ptr %17, i64 4
   %.val = load i32, ptr %18, align 4
@@ -2224,8 +2224,8 @@ Vec_PtrPush.exit:                                 ; preds = %39, %Vec_PtrFree.ex
   br label %12
 
 50:                                               ; preds = %Vec_PtrFree.exit47, %Vec_PtrFree.exit44
-  %.0 = phi ptr [ null, %Vec_PtrFree.exit44 ], [ %27, %Vec_PtrFree.exit47 ]
-  ret ptr %.0
+  %.033 = phi ptr [ null, %Vec_PtrFree.exit44 ], [ %27, %Vec_PtrFree.exit47 ]
+  ret ptr %.033
 }
 
 declare ptr @Nwk_ManDeriveRetimingCut(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

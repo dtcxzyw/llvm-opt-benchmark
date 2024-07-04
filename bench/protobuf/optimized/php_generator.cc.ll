@@ -1371,8 +1371,8 @@ call38.i.i.noexc.i.i.i:                           ; preds = %if.then.i.i.i.i
 
 invoke.cont14.i.i.i:                              ; preds = %for.body.i.i.i.i.i, %call38.i.i.noexc.i.i.i
   %57 = phi ptr [ %.pre20.i.i.i.i, %call38.i.i.noexc.i.i.i ], [ %49, %for.body.i.i.i.i.i ]
-  %retval.sroa.0.0.i15.i.i.i.i = phi i64 [ %call38.i.i384.i.i.i, %call38.i.i.noexc.i.i.i ], [ %and.i.i.i380.i.i.i, %for.body.i.i.i.i.i ]
-  %second.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.171", ptr %57, i64 %retval.sroa.0.0.i15.i.i.i.i, i32 0, i32 1
+  %retval.sroa.0.0.i14.i.i.i.i = phi i64 [ %call38.i.i384.i.i.i, %call38.i.i.noexc.i.i.i ], [ %and.i.i.i380.i.i.i, %for.body.i.i.i.i.i ]
+  %second.i.i.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.171", ptr %57, i64 %retval.sroa.0.0.i14.i.i.i.i, i32 0, i32 1
   %58 = load ptr, ptr %second.i.i.i.i.i, align 8, !nonnull !6, !noundef !6
   %slots_.i.i.i.i33.i.i.i = getelementptr inbounds i8, ptr %second.i.i.i.i.i, i64 8
   %59 = load ptr, ptr %slots_.i.i.i.i33.i.i.i, align 8
@@ -1573,8 +1573,8 @@ invoke.cont24.i.i.i:                              ; preds = %for.body.i.i413.i.i
   %95 = phi i64 [ %.pre401.i.i, %call38.i.i.noexc442.i.i.i ], [ %70, %for.body.i.i413.i.i.i ]
   %96 = phi ptr [ %.pre400.i.i, %call38.i.i.noexc442.i.i.i ], [ %68, %for.body.i.i413.i.i.i ]
   %97 = phi ptr [ %.pre20.i431.i.i.i, %call38.i.i.noexc442.i.i.i ], [ %73, %for.body.i.i413.i.i.i ]
-  %retval.sroa.0.0.i15.i434.i.i.i = phi i64 [ %target.sroa.0.0.i.i.i.i, %call38.i.i.noexc442.i.i.i ], [ %and.i.i.i417.i.i.i, %for.body.i.i413.i.i.i ]
-  %second.i.i53.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.199", ptr %97, i64 %retval.sroa.0.0.i15.i434.i.i.i, i32 1
+  %retval.sroa.0.0.i14.i434.i.i.i = phi i64 [ %target.sroa.0.0.i.i.i.i, %call38.i.i.noexc442.i.i.i ], [ %and.i.i.i417.i.i.i, %for.body.i.i413.i.i.i ]
+  %second.i.i53.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.199", ptr %97, i64 %retval.sroa.0.0.i14.i434.i.i.i, i32 1
   %98 = load i32, ptr %second.i.i53.i.i.i, align 4
   %cmp.i.i.i = icmp eq i32 %98, 1
   call void @llvm.prefetch.p0(ptr %96, i32 0, i32 1, i32 1)
@@ -1783,8 +1783,8 @@ call38.i.i.noexc501.i.i.i:                        ; preds = %if.then.i486.i.i.i
 
 invoke.cont29.i.i.i:                              ; preds = %for.body.i.i472.i.i.i, %call38.i.i.noexc501.i.i.i
   %124 = phi ptr [ %.pre20.i490.i.i.i, %call38.i.i.noexc501.i.i.i ], [ %97, %for.body.i.i472.i.i.i ]
-  %retval.sroa.0.0.i15.i493.i.i.i = phi i64 [ %call38.i.i502.i.i.i, %call38.i.i.noexc501.i.i.i ], [ %and.i.i.i476.i.i.i, %for.body.i.i472.i.i.i ]
-  %second.i.i110.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.199", ptr %124, i64 %retval.sroa.0.0.i15.i493.i.i.i, i32 1
+  %retval.sroa.0.0.i14.i493.i.i.i = phi i64 [ %call38.i.i502.i.i.i, %call38.i.i.noexc501.i.i.i ], [ %and.i.i.i476.i.i.i, %for.body.i.i472.i.i.i ]
+  %second.i.i110.i.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.199", ptr %124, i64 %retval.sroa.0.0.i14.i493.i.i.i, i32 1
   %125 = load i32, ptr %second.i.i110.i.i.i, align 4
   %sub.i.i.i = add nsw i32 %125, -1
   store i32 %sub.i.i.i, ptr %second.i.i110.i.i.i, align 4
@@ -18325,8 +18325,8 @@ if.then.i:                                        ; preds = %for.end.i.i122
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf14FileDescriptorEiEENS1_6HashEqIS8_vE4HashENSB_2EqESaISt4pairIKS8_iEEE16try_emplace_implIRSF_JEEESE_INS1_12raw_hash_setIS9_SC_SD_SH_E8iteratorEbEOT_DpOT0_.exit: ; preds = %for.body.i.i114, %if.then.i
   %29 = phi ptr [ %.pre20.i, %if.then.i ], [ %21, %for.body.i.i114 ]
-  %retval.sroa.0.0.i15.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i117, %for.body.i.i114 ]
-  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.199", ptr %29, i64 %retval.sroa.0.0.i15.i, i32 1
+  %retval.sroa.0.0.i14.i = phi i64 [ %call38.i.i, %if.then.i ], [ %and.i.i.i117, %for.body.i.i114 ]
+  %second.i.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.199", ptr %29, i64 %retval.sroa.0.0.i14.i, i32 1
   store i32 %count.0, ptr %second.i.i, align 4
   %30 = load i32, ptr %dependency_count_.i, align 8
   %cmp13272 = icmp sgt i32 %30, 0
@@ -18489,8 +18489,8 @@ if.then.i167:                                     ; preds = %for.end.i.i164
 
 invoke.cont:                                      ; preds = %for.body.i.i153, %if.then.i167
   %53 = phi ptr [ %.pre20.i172, %if.then.i167 ], [ %38, %for.body.i.i153 ]
-  %retval.sroa.0.0.i15.i174 = phi i64 [ %call38.i.i168182, %if.then.i167 ], [ %and.i.i.i157, %for.body.i.i153 ]
-  %second.i.i26 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.171", ptr %53, i64 %retval.sroa.0.0.i15.i174, i32 0, i32 1
+  %retval.sroa.0.0.i14.i174 = phi i64 [ %call38.i.i168182, %if.then.i167 ], [ %and.i.i.i157, %for.body.i.i153 ]
+  %second.i.i26 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.171", ptr %53, i64 %retval.sroa.0.0.i14.i174, i32 0, i32 1
   %54 = load ptr, ptr %second.i.i26, align 8
   %slots_.i.i.i.i1.i.i.i = getelementptr inbounds i8, ptr %second.i.i26, i64 8
   %capacity_.i.i.i.i2.i.i.i = getelementptr inbounds i8, ptr %second.i.i26, i64 16
@@ -18572,8 +18572,8 @@ if.then.i225:                                     ; preds = %for.end.i.i222
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIPKN6google8protobuf14FileDescriptorENS0_13flat_hash_setIS8_NS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EEEEESC_SD_SaISt4pairIKS8_SF_EEE16try_emplace_implIRSI_JEEESH_INS1_12raw_hash_setISG_SC_SD_SK_E8iteratorEbEOT_DpOT0_.exit241: ; preds = %for.body.i.i211, %if.then.i225
   %67 = phi ptr [ %.pre20.i231, %if.then.i225 ], [ %59, %for.body.i.i211 ]
-  %retval.sroa.0.0.i15.i233 = phi i64 [ %call38.i.i226, %if.then.i225 ], [ %and.i.i.i215, %for.body.i.i211 ]
-  %second.i.i35 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.171", ptr %67, i64 %retval.sroa.0.0.i15.i233, i32 0, i32 1
+  %retval.sroa.0.0.i14.i233 = phi i64 [ %call38.i.i226, %if.then.i225 ], [ %and.i.i.i215, %for.body.i.i211 ]
+  %second.i.i35 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.171", ptr %67, i64 %retval.sroa.0.0.i14.i233, i32 0, i32 1
   %68 = load ptr, ptr %second.i.i35, align 8, !noalias !534
   tail call void @llvm.prefetch.p0(ptr %68, i32 0, i32 1, i32 1), !noalias !534
   %capacity_.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %second.i.i35, i64 16
@@ -28972,35 +28972,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.020.i, 2
+  %add11.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.020.i, 3
+  %add15.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
+  %div.i = udiv i64 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !1004
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i
@@ -31015,35 +31015,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end14.i
-  %__value.addr.021.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
-  %cmp3.i = icmp ult i32 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end14.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i32 [ %0, %if.end14.i ], [ %cond, %entry ]
+  %cmp3.i = icmp ult i32 %__value.addr.020.i, 100
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %cmp6.i = icmp ult i32 %__value.addr.021.i, 1000
+  %cmp6.i = icmp ult i32 %__value.addr.020.i, 1000
   br i1 %cmp6.i, label %if.then7.i, label %if.end9.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  %add8.i = add i32 %__n.020.i, 2
+  %add8.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %cmp11.i = icmp ult i32 %__value.addr.021.i, 10000
+  %cmp11.i = icmp ult i32 %__value.addr.020.i, 10000
   br i1 %cmp11.i, label %if.then12.i, label %if.end14.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %add13.i = add i32 %__n.020.i, 3
+  %add13.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 if.end14.i:                                       ; preds = %if.end9.i
-  %0 = udiv i32 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i32 %__value.addr.021.i, 100000
+  %0 = udiv i32 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i32 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %if.end.i, !llvm.loop !1133
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %if.end14.i, %entry, %if.then4.i, %if.then7.i, %if.then12.i

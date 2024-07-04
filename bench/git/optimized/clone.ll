@@ -495,9 +495,9 @@ if.else46:                                        ; preds = %if.else
   unreachable
 
 if.end49:                                         ; preds = %if.then44, %do.body
-  %display_repo.0 = phi ptr [ null, %do.body ], [ %call45, %if.then44 ]
-  %repo_to_free.0 = phi ptr [ %call41, %do.body ], [ null, %if.then44 ]
   %repo.0 = phi ptr [ %call41, %do.body ], [ %9, %if.then44 ]
+  %repo_to_free.0 = phi ptr [ %call41, %do.body ], [ null, %if.then44 ]
+  %display_repo.0 = phi ptr [ null, %do.body ], [ %call45, %if.then44 ]
   %10 = load ptr, ptr @option_depth, align 8
   %tobool50.not = icmp eq ptr %10, null
   br i1 %tobool50.not, label %if.end56, label %land.lhs.true51
@@ -609,8 +609,8 @@ if.else102:                                       ; preds = %if.else87
   br label %if.end104
 
 if.end104:                                        ; preds = %if.else102, %if.then100
-  %git_dir.0 = phi ptr [ %call101, %if.then100 ], [ %call103, %if.else102 ]
   %work_tree.1 = phi ptr [ %work_tree.0408, %if.then100 ], [ %dir.0, %if.else102 ]
+  %git_dir.0 = phi ptr [ %call101, %if.then100 ], [ %call103, %if.else102 ]
   %call105 = call i32 @atexit(ptr noundef nonnull @remove_junk) #17
   call void @sigchain_push_common(ptr noundef nonnull @remove_junk_on_signal) #17
   %19 = load i32, ptr @option_bare, align 4

@@ -2215,24 +2215,24 @@ define internal fastcc { i1, i8 } @"_ZN114_$LT$core..iter..adapters..flatten..Fl
   br i1 %8, label %32, label %9
 
 9:                                                ; preds = %5
-  %.012.val13.i.i = load ptr, ptr %3, align 8, !alias.scope !739, !nonnull !5, !align !29, !noundef !5
-  %10 = getelementptr inbounds i8, ptr %.012.val13.i.i, i64 24
+  %.0.val13.i.i = load ptr, ptr %3, align 8, !alias.scope !739, !nonnull !5, !align !29, !noundef !5
+  %10 = getelementptr inbounds i8, ptr %.0.val13.i.i, i64 24
   %11 = load ptr, ptr %10, align 8, !invariant.load !5, !noalias !740, !nonnull !5
   %12 = tail call { i1, i8 } %11(ptr noundef nonnull align 1 %7), !noalias !743
   %13 = extractvalue { i1, i8 } %12, 0
   br i1 %13, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hb65a81e9e8edb527E.exit.i, label %14
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr %.012.val13.i.i, align 8, !invariant.load !5, !noalias !739, !nonnull !5
+  %15 = load ptr, ptr %.0.val13.i.i, align 8, !invariant.load !5, !noalias !739, !nonnull !5
   invoke void %15(ptr noundef nonnull align 1 %7)
           to label %24 unwind label %16, !noalias !736
 
 16:                                               ; preds = %14
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = getelementptr inbounds i8, ptr %.012.val13.i.i, i64 8
+  %18 = getelementptr inbounds i8, ptr %.0.val13.i.i, i64 8
   %19 = load i64, ptr %18, align 8, !range !744, !invariant.load !5, !noalias !739
-  %20 = getelementptr inbounds i8, ptr %.012.val13.i.i, i64 16
+  %20 = getelementptr inbounds i8, ptr %.0.val13.i.i, i64 16
   %21 = load i64, ptr %20, align 8, !range !745, !invariant.load !5, !noalias !739
   %22 = icmp ult i64 %21, -9223372036854775807
   tail call void @llvm.assume(i1 %22)
@@ -2244,9 +2244,9 @@ define internal fastcc { i1, i8 } @"_ZN114_$LT$core..iter..adapters..flatten..Fl
   br label %common.resume.i
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds i8, ptr %.012.val13.i.i, i64 8
+  %25 = getelementptr inbounds i8, ptr %.0.val13.i.i, i64 8
   %26 = load i64, ptr %25, align 8, !range !744, !invariant.load !5, !noalias !739
-  %27 = getelementptr inbounds i8, ptr %.012.val13.i.i, i64 16
+  %27 = getelementptr inbounds i8, ptr %.0.val13.i.i, i64 16
   %28 = load i64, ptr %27, align 8, !range !745, !invariant.load !5, !noalias !739
   %29 = icmp ult i64 %28, -9223372036854775807
   tail call void @llvm.assume(i1 %29)
@@ -2299,8 +2299,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hb65a81e9e8edb527E.exit.i: ; 
 
 44:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h36d586173010342dE.exit.thread.i"
   %45 = getelementptr inbounds i8, ptr %0, i64 40
-  %.012.val13.i14.i = load ptr, ptr %45, align 8, !alias.scope !757, !nonnull !5, !align !29, !noundef !5
-  %46 = getelementptr inbounds i8, ptr %.012.val13.i14.i, i64 24
+  %.0.val13.i14.i = load ptr, ptr %45, align 8, !alias.scope !757, !nonnull !5, !align !29, !noundef !5
+  %46 = getelementptr inbounds i8, ptr %.0.val13.i14.i, i64 24
   %47 = load ptr, ptr %46, align 8, !invariant.load !5, !noalias !758, !nonnull !5
   %48 = tail call { i1, i8 } %47(ptr noundef nonnull align 1 %42), !noalias !758
   %49 = extractvalue { i1, i8 } %48, 0
@@ -2308,16 +2308,16 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hb65a81e9e8edb527E.exit.i: ; 
   br i1 %49, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcab77ab07ef4e1c6E.exit", label %51
 
 51:                                               ; preds = %44
-  %52 = load ptr, ptr %.012.val13.i14.i, align 8, !invariant.load !5, !noalias !757, !nonnull !5
+  %52 = load ptr, ptr %.0.val13.i14.i, align 8, !invariant.load !5, !noalias !757, !nonnull !5
   invoke void %52(ptr noundef nonnull align 1 %42)
           to label %61 unwind label %53, !noalias !757
 
 53:                                               ; preds = %51
   %54 = landingpad { ptr, i32 }
           cleanup
-  %55 = getelementptr inbounds i8, ptr %.012.val13.i14.i, i64 8
+  %55 = getelementptr inbounds i8, ptr %.0.val13.i14.i, i64 8
   %56 = load i64, ptr %55, align 8, !range !744, !invariant.load !5, !noalias !757
-  %57 = getelementptr inbounds i8, ptr %.012.val13.i14.i, i64 16
+  %57 = getelementptr inbounds i8, ptr %.0.val13.i14.i, i64 16
   %58 = load i64, ptr %57, align 8, !range !745, !invariant.load !5, !noalias !757
   %59 = icmp ult i64 %58, -9223372036854775807
   tail call void @llvm.assume(i1 %59)
@@ -2329,9 +2329,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hb65a81e9e8edb527E.exit.i: ; 
   br label %common.resume.i
 
 61:                                               ; preds = %51
-  %62 = getelementptr inbounds i8, ptr %.012.val13.i14.i, i64 8
+  %62 = getelementptr inbounds i8, ptr %.0.val13.i14.i, i64 8
   %63 = load i64, ptr %62, align 8, !range !744, !invariant.load !5, !noalias !757
-  %64 = getelementptr inbounds i8, ptr %.012.val13.i14.i, i64 16
+  %64 = getelementptr inbounds i8, ptr %.0.val13.i14.i, i64 16
   %65 = load i64, ptr %64, align 8, !range !745, !invariant.load !5, !noalias !757
   %66 = icmp ult i64 %65, -9223372036854775807
   tail call void @llvm.assume(i1 %66)
@@ -2384,22 +2384,22 @@ define internal fastcc { i1, i8 } @"_ZN114_$LT$core..iter..adapters..flatten..Fl
   br i1 %10, label %25, label %11
 
 11:                                               ; preds = %.split.us.i
-  %.012.val13.i.us.i = load ptr, ptr %3, align 8, !alias.scope !767, !nonnull !5, !align !29, !noundef !5
-  %12 = getelementptr inbounds i8, ptr %.012.val13.i.us.i, i64 24
+  %.0.val13.i.us.i = load ptr, ptr %3, align 8, !alias.scope !767, !nonnull !5, !align !29, !noundef !5
+  %12 = getelementptr inbounds i8, ptr %.0.val13.i.us.i, i64 24
   %13 = load ptr, ptr %12, align 8, !invariant.load !5, !noalias !768, !nonnull !5
   %14 = tail call { i1, i8 } %13(ptr noundef nonnull align 1 %9), !noalias !771
   %15 = extractvalue { i1, i8 } %14, 0
   br i1 %15, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hb65a81e9e8edb527E.exit.i, label %16
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %.012.val13.i.us.i, align 8, !invariant.load !5, !noalias !767, !nonnull !5
+  %17 = load ptr, ptr %.0.val13.i.us.i, align 8, !invariant.load !5, !noalias !767, !nonnull !5
   invoke void %17(ptr noundef nonnull align 1 %9)
           to label %18 unwind label %.split42.us.i, !noalias !764
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.012.val13.i.us.i, i64 8
+  %19 = getelementptr inbounds i8, ptr %.0.val13.i.us.i, i64 8
   %20 = load i64, ptr %19, align 8, !range !744, !invariant.load !5, !noalias !767
-  %21 = getelementptr inbounds i8, ptr %.012.val13.i.us.i, i64 16
+  %21 = getelementptr inbounds i8, ptr %.0.val13.i.us.i, i64 16
   %22 = load i64, ptr %21, align 8, !range !745, !invariant.load !5, !noalias !767
   %23 = icmp ult i64 %22, -9223372036854775807
   tail call void @llvm.assume(i1 %23)
@@ -2468,15 +2468,15 @@ select.unfold.i.i.i.us.i:                         ; preds = %.sink.split.i.i.i.i
   br i1 %43, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h43a7a9e441818a92E.exit.thread.split.i", label %44
 
 44:                                               ; preds = %.split.i
-  %.012.val13.i.i = load ptr, ptr %3, align 8, !alias.scope !767, !nonnull !5, !align !29, !noundef !5
-  %45 = getelementptr inbounds i8, ptr %.012.val13.i.i, i64 24
+  %.0.val13.i.i = load ptr, ptr %3, align 8, !alias.scope !767, !nonnull !5, !align !29, !noundef !5
+  %45 = getelementptr inbounds i8, ptr %.0.val13.i.i, i64 24
   %46 = load ptr, ptr %45, align 8, !invariant.load !5, !noalias !768, !nonnull !5
   %47 = tail call { i1, i8 } %46(ptr noundef nonnull align 1 %.promoted.i), !noalias !768
   %48 = extractvalue { i1, i8 } %47, 0
   br i1 %48, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hb65a81e9e8edb527E.exit.i, label %49
 
 49:                                               ; preds = %44
-  %50 = load ptr, ptr %.012.val13.i.i, align 8, !invariant.load !5, !noalias !767, !nonnull !5
+  %50 = load ptr, ptr %.0.val13.i.i, align 8, !invariant.load !5, !noalias !767, !nonnull !5
   invoke void %50(ptr noundef nonnull align 1 %.promoted.i)
           to label %59 unwind label %.split42.i, !noalias !767
 
@@ -2487,7 +2487,7 @@ select.unfold.i.i.i.us.i:                         ; preds = %.sink.split.i.i.i.i
 
 52:                                               ; preds = %.split42.i, %.split42.us.i
   %.us-phi44.i = phi ptr [ %.promoted.i, %.split42.i ], [ %9, %.split42.us.i ]
-  %.us-phi45.i = phi ptr [ %.012.val13.i.i, %.split42.i ], [ %.012.val13.i.us.i, %.split42.us.i ]
+  %.us-phi45.i = phi ptr [ %.0.val13.i.i, %.split42.i ], [ %.0.val13.i.us.i, %.split42.us.i ]
   %.us-phi46.i = phi { ptr, i32 } [ %51, %.split42.i ], [ %42, %.split42.us.i ]
   %53 = getelementptr inbounds i8, ptr %.us-phi45.i, i64 8
   %54 = load i64, ptr %53, align 8, !range !744, !invariant.load !5, !noalias !767
@@ -2503,9 +2503,9 @@ select.unfold.i.i.i.us.i:                         ; preds = %.sink.split.i.i.i.i
   br label %common.resume.i
 
 59:                                               ; preds = %49
-  %60 = getelementptr inbounds i8, ptr %.012.val13.i.i, i64 8
+  %60 = getelementptr inbounds i8, ptr %.0.val13.i.i, i64 8
   %61 = load i64, ptr %60, align 8, !range !744, !invariant.load !5, !noalias !767
-  %62 = getelementptr inbounds i8, ptr %.012.val13.i.i, i64 16
+  %62 = getelementptr inbounds i8, ptr %.0.val13.i.i, i64 16
   %63 = load i64, ptr %62, align 8, !range !745, !invariant.load !5, !noalias !767
   %64 = icmp ult i64 %63, -9223372036854775807
   tail call void @llvm.assume(i1 %64)
@@ -2544,8 +2544,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hb65a81e9e8edb527E.exit.i: ; 
 
 70:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h43a7a9e441818a92E.exit.thread.i"
   %71 = getelementptr inbounds i8, ptr %0, i64 64
-  %.012.val13.i14.i = load ptr, ptr %71, align 8, !alias.scope !803, !nonnull !5, !align !29, !noundef !5
-  %72 = getelementptr inbounds i8, ptr %.012.val13.i14.i, i64 24
+  %.0.val13.i14.i = load ptr, ptr %71, align 8, !alias.scope !803, !nonnull !5, !align !29, !noundef !5
+  %72 = getelementptr inbounds i8, ptr %.0.val13.i14.i, i64 24
   %73 = load ptr, ptr %72, align 8, !invariant.load !5, !noalias !804, !nonnull !5
   %74 = tail call { i1, i8 } %73(ptr noundef nonnull align 1 %68), !noalias !804
   %75 = extractvalue { i1, i8 } %74, 0
@@ -2553,16 +2553,16 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hb65a81e9e8edb527E.exit.i: ; 
   br i1 %75, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h36e4191c6d10c9c2E.exit", label %77
 
 77:                                               ; preds = %70
-  %78 = load ptr, ptr %.012.val13.i14.i, align 8, !invariant.load !5, !noalias !803, !nonnull !5
+  %78 = load ptr, ptr %.0.val13.i14.i, align 8, !invariant.load !5, !noalias !803, !nonnull !5
   invoke void %78(ptr noundef nonnull align 1 %68)
           to label %87 unwind label %79, !noalias !803
 
 79:                                               ; preds = %77
   %80 = landingpad { ptr, i32 }
           cleanup
-  %81 = getelementptr inbounds i8, ptr %.012.val13.i14.i, i64 8
+  %81 = getelementptr inbounds i8, ptr %.0.val13.i14.i, i64 8
   %82 = load i64, ptr %81, align 8, !range !744, !invariant.load !5, !noalias !803
-  %83 = getelementptr inbounds i8, ptr %.012.val13.i14.i, i64 16
+  %83 = getelementptr inbounds i8, ptr %.0.val13.i14.i, i64 16
   %84 = load i64, ptr %83, align 8, !range !745, !invariant.load !5, !noalias !803
   %85 = icmp ult i64 %84, -9223372036854775807
   tail call void @llvm.assume(i1 %85)
@@ -2574,9 +2574,9 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hb65a81e9e8edb527E.exit.i: ; 
   br label %common.resume.i
 
 87:                                               ; preds = %77
-  %88 = getelementptr inbounds i8, ptr %.012.val13.i14.i, i64 8
+  %88 = getelementptr inbounds i8, ptr %.0.val13.i14.i, i64 8
   %89 = load i64, ptr %88, align 8, !range !744, !invariant.load !5, !noalias !803
-  %90 = getelementptr inbounds i8, ptr %.012.val13.i14.i, i64 16
+  %90 = getelementptr inbounds i8, ptr %.0.val13.i14.i, i64 16
   %91 = load i64, ptr %90, align 8, !range !745, !invariant.load !5, !noalias !803
   %92 = icmp ult i64 %91, -9223372036854775807
   tail call void @llvm.assume(i1 %92)

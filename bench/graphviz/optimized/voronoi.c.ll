@@ -128,13 +128,13 @@ define void @voronoi(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %61 = getelementptr inbounds i8, ptr %46, i64 8
   %62 = load double, ptr %61, align 8
   %63 = fcmp ogt double %60, %62
-  %.084 = zext i1 %63 to i8
-  %.082 = select i1 %63, ptr %45, ptr %46
+  %.084 = select i1 %63, ptr %45, ptr %46
+  %.083 = zext i1 %63 to i8
   %.081 = select i1 %63, ptr %46, ptr %45
-  %64 = tail call ptr @gvbisect(ptr noundef %.081, ptr noundef %.082) #2
-  %65 = tail call ptr @HEcreate(ptr noundef %64, i8 noundef signext %.084) #2
+  %64 = tail call ptr @gvbisect(ptr noundef %.081, ptr noundef %.084) #2
+  %65 = tail call ptr @HEcreate(ptr noundef %64, i8 noundef signext %.083) #2
   tail call void @ELinsert(ptr noundef %42, ptr noundef %65) #2
-  %66 = xor i8 %.084, 1
+  %66 = xor i8 %.083, 1
   %67 = zext nneg i8 %66 to i32
   tail call void @endpoint(ptr noundef %64, i32 noundef %67, ptr noundef %48) #2
   tail call void @deref(ptr noundef %48) #2
@@ -169,11 +169,11 @@ define void @voronoi(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not9295, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %75, %.lr.ph
-  %.08396 = phi ptr [ %81, %.lr.ph ], [ %77, %75 ]
-  %79 = getelementptr inbounds i8, ptr %.08396, i64 16
+  %.08296 = phi ptr [ %81, %.lr.ph ], [ %77, %75 ]
+  %79 = getelementptr inbounds i8, ptr %.08296, i64 16
   %80 = load ptr, ptr %79, align 8
   tail call void @clip_line(ptr noundef %80) #2
-  %81 = tail call ptr @ELright(ptr noundef %.08396) #2
+  %81 = tail call ptr @ELright(ptr noundef %.08296) #2
   %82 = load ptr, ptr @ELrightend, align 8
   %.not92 = icmp eq ptr %81, %82
   br i1 %.not92, label %._crit_edge, label %.lr.ph

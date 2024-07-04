@@ -143,7 +143,7 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   br label %67
 
 67:                                               ; preds = %24, %66, %22, %13
-  %.077.shrunk = phi i1 [ true, %66 ], [ false, %24 ], [ false, %22 ], [ false, %13 ]
+  %.0.shrunk = phi i1 [ true, %66 ], [ false, %24 ], [ false, %22 ], [ false, %13 ]
   store ptr %0, ptr %3, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 1584
   store ptr %3, ptr %68, align 8
@@ -249,19 +249,19 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   br i1 %112, label %.preheader94.lr.ph, label %._crit_edge
 
 .preheader94.lr.ph:                               ; preds = %._crit_edge99
-  br i1 %.077.shrunk, label %.preheader94.us, label %.preheader94
+  br i1 %.0.shrunk, label %.preheader94.us, label %.preheader94
 
 .preheader94.us:                                  ; preds = %.preheader94.lr.ph, %122
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %122 ], [ 0, %.preheader94.lr.ph ]
-  %.070106.us = phi ptr [ %.3.us, %122 ], [ null, %.preheader94.lr.ph ]
-  %.073105.us = phi ptr [ %.376.us, %122 ], [ null, %.preheader94.lr.ph ]
+  %.067107.us = phi ptr [ %.3.us, %122 ], [ null, %.preheader94.lr.ph ]
+  %.068106.us = phi ptr [ %.371.us, %122 ], [ null, %.preheader94.lr.ph ]
   %113 = load i32, ptr %76, align 4
   %114 = icmp sgt i32 %113, 0
   br i1 %114, label %.lr.ph.us108, label %._crit_edge.split.us.us
 
 ._crit_edge.split.us.us:                          ; preds = %set_color.exit.us.us, %.preheader94.us
-  %.174.lcssa.us = phi ptr [ %.073105.us, %.preheader94.us ], [ %.275.us.us, %set_color.exit.us.us ]
-  %.171.lcssa.us = phi ptr [ %.070106.us, %.preheader94.us ], [ %.272.us.us, %set_color.exit.us.us ]
+  %.169.lcssa.us = phi ptr [ %.068106.us, %.preheader94.us ], [ %.270.us.us, %set_color.exit.us.us ]
+  %.1.lcssa.us = phi ptr [ %.067107.us, %.preheader94.us ], [ %.2.us.us, %set_color.exit.us.us ]
   %115 = load ptr, ptr @cur_term, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 32
   %117 = load ptr, ptr %116, align 8
@@ -275,8 +275,8 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   br label %122
 
 122:                                              ; preds = %120, %._crit_edge.split.us.us
-  %.376.us = phi ptr [ null, %120 ], [ %.174.lcssa.us, %._crit_edge.split.us.us ]
-  %.3.us = phi ptr [ null, %120 ], [ %.171.lcssa.us, %._crit_edge.split.us.us ]
+  %.371.us = phi ptr [ null, %120 ], [ %.169.lcssa.us, %._crit_edge.split.us.us ]
+  %.3.us = phi ptr [ null, %120 ], [ %.1.lcssa.us, %._crit_edge.split.us.us ]
   %123 = call i32 @putwc(i32 noundef 10, ptr noundef nonnull %6) #14
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %124 = load i32, ptr %81, align 8
@@ -286,8 +286,8 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
 
 .lr.ph.us108:                                     ; preds = %.preheader94.us, %set_color.exit.us.us
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %set_color.exit.us.us ], [ 0, %.preheader94.us ]
-  %.171101.us.us = phi ptr [ %.272.us.us, %set_color.exit.us.us ], [ %.070106.us, %.preheader94.us ]
-  %.174100.us.us = phi ptr [ %.275.us.us, %set_color.exit.us.us ], [ %.073105.us, %.preheader94.us ]
+  %.1102.us.us = phi ptr [ %.2.us.us, %set_color.exit.us.us ], [ %.067107.us, %.preheader94.us ]
+  %.169101.us.us = phi ptr [ %.270.us.us, %set_color.exit.us.us ], [ %.068106.us, %.preheader94.us ]
   %127 = load ptr, ptr %85, align 8
   %128 = getelementptr inbounds ptr, ptr %127, i64 %indvars.iv136
   %129 = load ptr, ptr %128, align 8
@@ -296,8 +296,8 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds i8, ptr %130, i64 16
   %134 = load ptr, ptr %133, align 8
-  %.not91.us.us = icmp eq ptr %132, %.171101.us.us
-  %.not92.us.us = icmp eq ptr %134, %.174100.us.us
+  %.not91.us.us = icmp eq ptr %132, %.169101.us.us
+  %.not92.us.us = icmp eq ptr %134, %.1102.us.us
   %or.cond93.us.us = select i1 %.not91.us.us, i1 %.not92.us.us, i1 false
   br i1 %or.cond93.us.us, label %set_color.exit.us.us, label %135
 
@@ -344,7 +344,7 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   br label %167
 
 167:                                              ; preds = %162, %157
-  %.0.i.us.us = phi i32 [ %161, %157 ], [ %166, %162 ]
+  %.024.i.us.us = phi i32 [ %161, %157 ], [ %166, %162 ]
   %168 = add nuw nsw i32 %147, %143
   %169 = add nuw nsw i32 %168, %151
   %170 = icmp ult i32 %169, 2
@@ -376,8 +376,8 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   br label %set_textcolor.exit.i.us.us
 
 set_textcolor.exit.i.us.us:                       ; preds = %178, %.sink.split.i.i.us.us, %174, %171
-  %.024.i.us.us = phi i32 [ %180, %178 ], [ 7, %174 ], [ 0, %171 ], [ %.0.ph.i.i.us.us, %.sink.split.i.i.us.us ]
-  %.1.i.us.us = phi i32 [ %182, %178 ], [ %.0.i.us.us, %174 ], [ %.0.i.us.us, %171 ], [ %.0.i.us.us, %.sink.split.i.i.us.us ]
+  %.1.i.us.us = phi i32 [ %182, %178 ], [ %.024.i.us.us, %174 ], [ %.024.i.us.us, %171 ], [ %.024.i.us.us, %.sink.split.i.i.us.us ]
+  %.0.i.us.us = phi i32 [ %180, %178 ], [ 7, %174 ], [ 0, %171 ], [ %.0.ph.i.i.us.us, %.sink.split.i.i.us.us ]
   %183 = load ptr, ptr @cur_term, align 8
   %184 = getelementptr inbounds i8, ptr %183, i64 32
   %185 = load ptr, ptr %184, align 8
@@ -387,7 +387,7 @@ set_textcolor.exit.i.us.us:                       ; preds = %178, %.sink.split.i
   br i1 %.not33.i.us.us, label %199, label %188
 
 188:                                              ; preds = %set_textcolor.exit.i.us.us
-  %189 = call ptr (ptr, ...) @tparm(ptr noundef nonnull %187, i32 noundef %.024.i.us.us, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %189 = call ptr (ptr, ...) @tparm(ptr noundef nonnull %187, i32 noundef %.0.i.us.us, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   %.not39.i.us.us = icmp eq ptr %189, null
   br i1 %.not39.i.us.us, label %192, label %190
 
@@ -412,7 +412,7 @@ set_textcolor.exit.i.us.us:                       ; preds = %178, %.sink.split.i
   br i1 %.not34.i.us.us, label %213, label %202
 
 202:                                              ; preds = %199
-  %203 = call ptr (ptr, ...) @tparm(ptr noundef nonnull %201, i32 noundef %.024.i.us.us, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
+  %203 = call ptr (ptr, ...) @tparm(ptr noundef nonnull %201, i32 noundef %.0.i.us.us, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   %.not37.i.us.us = icmp eq ptr %203, null
   br i1 %.not37.i.us.us, label %206, label %204
 
@@ -447,8 +447,8 @@ set_textcolor.exit.i.us.us:                       ; preds = %178, %.sink.split.i
   br label %set_color.exit.us.us
 
 set_color.exit.us.us:                             ; preds = %.sink.split.i.us.us, %216, %213, %206, %192, %.lr.ph.us108
-  %.275.us.us = phi ptr [ %.174100.us.us, %.lr.ph.us108 ], [ %134, %192 ], [ %134, %206 ], [ %134, %213 ], [ %134, %216 ], [ %134, %.sink.split.i.us.us ]
-  %.272.us.us = phi ptr [ %.171101.us.us, %.lr.ph.us108 ], [ %132, %192 ], [ %132, %206 ], [ %132, %213 ], [ %132, %216 ], [ %132, %.sink.split.i.us.us ]
+  %.270.us.us = phi ptr [ %.169101.us.us, %.lr.ph.us108 ], [ %132, %192 ], [ %132, %206 ], [ %132, %213 ], [ %132, %216 ], [ %132, %.sink.split.i.us.us ]
+  %.2.us.us = phi ptr [ %.1102.us.us, %.lr.ph.us108 ], [ %134, %192 ], [ %134, %206 ], [ %134, %213 ], [ %134, %216 ], [ %134, %.sink.split.i.us.us ]
   %219 = load ptr, ptr %85, align 8
   %220 = getelementptr inbounds ptr, ptr %219, i64 %indvars.iv136
   %221 = load ptr, ptr %220, align 8
@@ -522,8 +522,8 @@ set_color.exit:                                   ; preds = %.preheader94, %set_
   br label %256
 
 256:                                              ; preds = %255, %7
-  %.0 = phi i32 [ 0, %255 ], [ -1, %7 ]
-  ret i32 %.0
+  %.077 = phi i32 [ 0, %255 ], [ -1, %7 ]
+  ret i32 %.077
 }
 
 declare noalias ptr @open_output(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -798,7 +798,7 @@ define internal void @ascii_line(ptr nocapture noundef readonly %0, i32 %1, i32 
   %16 = udiv i32 %5, 10
   %spec.select = tail call i32 @llvm.umax.i32(i32 %12, i32 %15)
   %spec.select58 = tail call i32 @llvm.umin.i32(i32 %12, i32 %15)
-  %.050 = tail call i32 @llvm.umax.i32(i32 %13, i32 %16)
+  %.049 = tail call i32 @llvm.umax.i32(i32 %13, i32 %16)
   %.048 = tail call i32 @llvm.umin.i32(i32 %13, i32 %16)
   %17 = icmp eq i32 %15, %12
   %18 = icmp eq i32 %16, %13
@@ -809,19 +809,19 @@ define internal void @ascii_line(ptr nocapture noundef readonly %0, i32 %1, i32 
 
 20:                                               ; preds = %19
   tail call fastcc void @merge(ptr noundef %10, i32 noundef %spec.select58, i32 noundef %.048, i32 noundef 2, i32 noundef 0, ptr noundef null)
-  tail call fastcc void @merge(ptr noundef %10, i32 noundef %spec.select58, i32 noundef %.050, i32 noundef 1, i32 noundef 0, ptr noundef null)
+  tail call fastcc void @merge(ptr noundef %10, i32 noundef %spec.select58, i32 noundef %.049, i32 noundef 1, i32 noundef 0, ptr noundef null)
   br label %21
 
 21:                                               ; preds = %19, %20
   %.062 = add nuw nsw i32 %.048, 1
-  %22 = icmp ult i32 %.062, %.050
+  %22 = icmp ult i32 %.062, %.049
   br i1 %22, label %.lr.ph64, label %.loopexit
 
 .lr.ph64:                                         ; preds = %21, %.lr.ph64
   %.063 = phi i32 [ %.0, %.lr.ph64 ], [ %.062, %21 ]
   tail call fastcc void @merge(ptr noundef %10, i32 noundef %spec.select58, i32 noundef %.063, i32 noundef 3, i32 noundef 0, ptr noundef null)
   %.0 = add nuw nsw i32 %.063, 1
-  %exitcond66.not = icmp eq i32 %.0, %.050
+  %exitcond66.not = icmp eq i32 %.0, %.049
   br i1 %exitcond66.not, label %.loopexit, label %.lr.ph64, !llvm.loop !15
 
 23:                                               ; preds = %8

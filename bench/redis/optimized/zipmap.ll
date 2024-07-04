@@ -102,8 +102,8 @@ entry.split.i:                                    ; preds = %if.end
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %entry.split.i, %zipmapDecodeLength.exit32.i
-  %k.0.i = phi ptr [ %k.1.i, %zipmapDecodeLength.exit32.i ], [ null, %entry.split.i ]
   %p.0.i = phi ptr [ %add.ptr28.i, %zipmapDecodeLength.exit32.i ], [ %add.ptr.i, %entry.split.i ]
+  %k.0.i = phi ptr [ %k.1.i, %zipmapDecodeLength.exit32.i ], [ null, %entry.split.i ]
   %3 = load i8, ptr %p.0.i, align 1
   switch i8 %3, label %if.then.i.i [
     i8 -1, label %zipmapLookupRaw.exit
@@ -280,8 +280,8 @@ if.then19:                                        ; preds = %zipmapRawEntryLengt
 
 if.end36:                                         ; preds = %zipmapRawEntryLength.exit, %if.then19, %if.then3, %if.then10
   %zmlen.0 = phi i32 [ %add, %if.then10 ], [ %add, %if.then3 ], [ %add21, %if.then19 ], [ %add33.i, %zipmapRawEntryLength.exit ]
-  %freelen.0 = phi i32 [ %l.1.i, %if.then10 ], [ %l.1.i, %if.then3 ], [ %l.1.i, %if.then19 ], [ %add.i64, %zipmapRawEntryLength.exit ]
   %zm.addr.0 = phi ptr [ %call.i, %if.then10 ], [ %call.i, %if.then3 ], [ %call.i66, %if.then19 ], [ %zm, %zipmapRawEntryLength.exit ]
+  %freelen.0 = phi i32 [ %l.1.i, %if.then10 ], [ %l.1.i, %if.then3 ], [ %l.1.i, %if.then19 ], [ %add.i64, %zipmapRawEntryLength.exit ]
   %p.0 = phi ptr [ %add.ptr5, %if.then10 ], [ %add.ptr5, %if.then3 ], [ %add.ptr24, %if.then19 ], [ %k.0.i, %zipmapRawEntryLength.exit ]
   %sub37 = sub i32 %freelen.0, %l.1.i
   %cmp38 = icmp ugt i32 %sub37, 3
@@ -381,8 +381,8 @@ entry.split.i:                                    ; preds = %entry
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %entry.split.i, %zipmapDecodeLength.exit32.i
-  %k.0.i = phi ptr [ %k.1.i, %zipmapDecodeLength.exit32.i ], [ null, %entry.split.i ]
   %p.0.i = phi ptr [ %add.ptr28.i, %zipmapDecodeLength.exit32.i ], [ %add.ptr.i, %entry.split.i ]
+  %k.0.i = phi ptr [ %k.1.i, %zipmapDecodeLength.exit32.i ], [ null, %entry.split.i ]
   %0 = load i8, ptr %p.0.i, align 1
   switch i8 %0, label %if.then.i.i [
     i8 -1, label %zipmapLookupRaw.exit
@@ -686,15 +686,15 @@ entry.split.i:                                    ; preds = %entry
   br label %while.cond.us40.i
 
 while.cond.us40.i:                                ; preds = %zipmapDecodeLength.exit32.us63.i, %entry.split.i
-  %p.0.us42.i = phi ptr [ %add.ptr28.us72.i, %zipmapDecodeLength.exit32.us63.i ], [ %add.ptr.i, %entry.split.i ]
-  %0 = load i8, ptr %p.0.us42.i, align 1
+  %p.0.us41.i = phi ptr [ %add.ptr28.us72.i, %zipmapDecodeLength.exit32.us63.i ], [ %add.ptr.i, %entry.split.i ]
+  %0 = load i8, ptr %p.0.us41.i, align 1
   switch i8 %0, label %if.then.i.us46.i [
     i8 -1, label %return
     i8 -2, label %if.end.i.us43.i
   ]
 
 if.end.i.us43.i:                                  ; preds = %while.cond.us40.i
-  %add.ptr.i.us44.i = getelementptr inbounds i8, ptr %p.0.us42.i, i64 1
+  %add.ptr.i.us44.i = getelementptr inbounds i8, ptr %p.0.us41.i, i64 1
   %len.0.copyload.i.us45.i = load i32, ptr %add.ptr.i.us44.i, align 1
   br label %land.lhs.true7.us.i
 
@@ -711,7 +711,7 @@ land.lhs.true7.us.i:                              ; preds = %if.then.i.us46.i, %
 
 land.lhs.true10.us.i:                             ; preds = %land.lhs.true7.us.i
   %idx.ext.us.i = zext nneg i32 %conv.i23.us51.i to i64
-  %add.ptr11.us.i = getelementptr inbounds i8, ptr %p.0.us42.i, i64 %idx.ext.us.i
+  %add.ptr11.us.i = getelementptr inbounds i8, ptr %p.0.us41.i, i64 %idx.ext.us.i
   %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %add.ptr11.us.i, ptr nonnull readonly %key, i64 %conv12.us.i)
   %tobool.not.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %tobool.not.us.i, label %if.end, label %if.end17.us52.i
@@ -719,7 +719,7 @@ land.lhs.true10.us.i:                             ; preds = %land.lhs.true7.us.i
 if.end17.us52.i:                                  ; preds = %land.lhs.true10.us.i, %land.lhs.true7.us.i
   %add.us54.i = add i32 %conv.i23.us51.i, %retval.0.i.us49.i
   %idx.ext18.us55.i = zext i32 %add.us54.i to i64
-  %add.ptr19.us56.i = getelementptr inbounds i8, ptr %p.0.us42.i, i64 %idx.ext18.us55.i
+  %add.ptr19.us56.i = getelementptr inbounds i8, ptr %p.0.us41.i, i64 %idx.ext18.us55.i
   %1 = load i8, ptr %add.ptr19.us56.i, align 1
   %cmp.i25.us57.i = icmp ult i8 %1, -2
   br i1 %cmp.i25.us57.i, label %if.then.i30.us61.i, label %if.end.i26.us58.i
@@ -755,7 +755,7 @@ if.then.i.i:                                      ; preds = %if.end
   br label %zipmapRawKeyLength.exit
 
 if.end.i.i:                                       ; preds = %if.end
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %p.0.us42.i, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %p.0.us41.i, i64 1
   %len.0.copyload.i.i = load i32, ptr %add.ptr.i.i, align 1
   br label %zipmapRawKeyLength.exit
 
@@ -765,7 +765,7 @@ zipmapRawKeyLength.exit:                          ; preds = %if.then.i.i, %if.en
   %conv.i3.i = select i1 %cmp1.i.i, i32 1, i32 5
   %add.i = add i32 %conv.i3.i, %retval.0.i.i
   %idx.ext = zext i32 %add.i to i64
-  %add.ptr = getelementptr inbounds i8, ptr %p.0.us42.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %p.0.us41.i, i64 %idx.ext
   %3 = load i8, ptr %add.ptr, align 1
   %cmp.i = icmp ult i8 %3, -2
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -806,15 +806,15 @@ entry.split.i:                                    ; preds = %entry
   br label %while.cond.us40.i
 
 while.cond.us40.i:                                ; preds = %zipmapDecodeLength.exit32.us63.i, %entry.split.i
-  %p.0.us42.i = phi ptr [ %add.ptr28.us72.i, %zipmapDecodeLength.exit32.us63.i ], [ %add.ptr.i, %entry.split.i ]
-  %0 = load i8, ptr %p.0.us42.i, align 1
+  %p.0.us41.i = phi ptr [ %add.ptr28.us72.i, %zipmapDecodeLength.exit32.us63.i ], [ %add.ptr.i, %entry.split.i ]
+  %0 = load i8, ptr %p.0.us41.i, align 1
   switch i8 %0, label %if.then.i.us46.i [
     i8 -1, label %zipmapLookupRaw.exit
     i8 -2, label %if.end.i.us43.i
   ]
 
 if.end.i.us43.i:                                  ; preds = %while.cond.us40.i
-  %add.ptr.i.us44.i = getelementptr inbounds i8, ptr %p.0.us42.i, i64 1
+  %add.ptr.i.us44.i = getelementptr inbounds i8, ptr %p.0.us41.i, i64 1
   %len.0.copyload.i.us45.i = load i32, ptr %add.ptr.i.us44.i, align 1
   br label %land.lhs.true7.us.i
 
@@ -831,7 +831,7 @@ land.lhs.true7.us.i:                              ; preds = %if.then.i.us46.i, %
 
 land.lhs.true10.us.i:                             ; preds = %land.lhs.true7.us.i
   %idx.ext.us.i = zext nneg i32 %conv.i23.us51.i to i64
-  %add.ptr11.us.i = getelementptr inbounds i8, ptr %p.0.us42.i, i64 %idx.ext.us.i
+  %add.ptr11.us.i = getelementptr inbounds i8, ptr %p.0.us41.i, i64 %idx.ext.us.i
   %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %add.ptr11.us.i, ptr nonnull readonly %key, i64 %conv12.us.i)
   %tobool.not.us.i = icmp eq i32 %bcmp.us.i, 0
   br i1 %tobool.not.us.i, label %zipmapLookupRaw.exit, label %if.end17.us52.i
@@ -839,7 +839,7 @@ land.lhs.true10.us.i:                             ; preds = %land.lhs.true7.us.i
 if.end17.us52.i:                                  ; preds = %land.lhs.true10.us.i, %land.lhs.true7.us.i
   %add.us54.i = add i32 %conv.i23.us51.i, %retval.0.i.us49.i
   %idx.ext18.us55.i = zext i32 %add.us54.i to i64
-  %add.ptr19.us56.i = getelementptr inbounds i8, ptr %p.0.us42.i, i64 %idx.ext18.us55.i
+  %add.ptr19.us56.i = getelementptr inbounds i8, ptr %p.0.us41.i, i64 %idx.ext18.us55.i
   %1 = load i8, ptr %add.ptr19.us56.i, align 1
   %cmp.i25.us57.i = icmp ult i8 %1, -2
   br i1 %cmp.i25.us57.i, label %if.then.i30.us61.i, label %if.end.i26.us58.i

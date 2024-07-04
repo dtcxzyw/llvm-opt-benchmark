@@ -10276,8 +10276,8 @@ define dso_local void @_Z29OutputStructUnionDeclarationsRSo(ptr noundef nonnull 
 .lr.ph:                                           ; preds = %5, %24
   %8 = phi ptr [ %25, %24 ], [ %7, %5 ]
   %9 = phi ptr [ %26, %24 ], [ %6, %5 ]
-  %.014 = phi i64 [ %27, %24 ], [ 0, %5 ]
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %.014
+  %.01114 = phi i64 [ %27, %24 ], [ 0, %5 ]
+  %10 = getelementptr inbounds ptr, ptr %8, i64 %.01114
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 76
   %13 = load i8, ptr %12, align 4
@@ -10315,7 +10315,7 @@ define dso_local void @_Z29OutputStructUnionDeclarationsRSo(ptr noundef nonnull 
 24:                                               ; preds = %15, %.lr.ph, %18
   %25 = phi ptr [ %8, %15 ], [ %8, %.lr.ph ], [ %.pre15, %18 ]
   %26 = phi ptr [ %9, %15 ], [ %9, %.lr.ph ], [ %.pre, %18 ]
-  %27 = add nuw i64 %.014, 1
+  %27 = add nuw i64 %.01114, 1
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %25 to i64
   %30 = sub i64 %28, %29

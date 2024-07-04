@@ -462,9 +462,9 @@ land.rhs.lr.ph:                                   ; preds = %while.cond.preheade
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %strbuf_addch.exit
-  %src.addr.037 = phi ptr [ %src, %land.rhs.lr.ph ], [ %incdec.ptr, %strbuf_addch.exit ]
-  %n.addr.036 = phi i32 [ %n, %land.rhs.lr.ph ], [ %dec, %strbuf_addch.exit ]
-  %8 = load i8, ptr %src.addr.037, align 1
+  %n.addr.037 = phi i32 [ %n, %land.rhs.lr.ph ], [ %dec, %strbuf_addch.exit ]
+  %src.addr.036 = phi ptr [ %src, %land.rhs.lr.ph ], [ %incdec.ptr, %strbuf_addch.exit ]
+  %8 = load i8, ptr %src.addr.036, align 1
   %idxprom = zext i8 %8 to i64
   %arrayidx = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
   %9 = load i8, ptr %arrayidx, align 1
@@ -500,14 +500,14 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %16 = load i64, ptr %len.i.i, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %15, i64 %16
   store i8 0, ptr %arrayidx3.i, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.037, i64 1
-  %dec = add nsw i32 %n.addr.036, -1
-  %cmp = icmp sgt i32 %n.addr.036, 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %src.addr.036, i64 1
+  %dec = add nsw i32 %n.addr.037, -1
+  %cmp = icmp sgt i32 %n.addr.037, 1
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %land.rhs, %strbuf_addch.exit, %while.cond.preheader
-  %n.addr.0.lcssa = phi i32 [ %n, %while.cond.preheader ], [ 0, %strbuf_addch.exit ], [ %n.addr.036, %land.rhs ]
-  %src.addr.0.lcssa = phi ptr [ %src, %while.cond.preheader ], [ %incdec.ptr, %strbuf_addch.exit ], [ %src.addr.037, %land.rhs ]
+  %src.addr.0.lcssa = phi ptr [ %src, %while.cond.preheader ], [ %incdec.ptr, %strbuf_addch.exit ], [ %src.addr.036, %land.rhs ]
+  %n.addr.0.lcssa = phi i32 [ %n, %while.cond.preheader ], [ 0, %strbuf_addch.exit ], [ %n.addr.037, %land.rhs ]
   br label %for.body
 
 for.body:                                         ; preds = %while.end, %for.inc

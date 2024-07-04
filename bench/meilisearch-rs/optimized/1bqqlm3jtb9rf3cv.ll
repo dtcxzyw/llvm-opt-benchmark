@@ -1605,9 +1605,9 @@ define internal fastcc { i64, i1 } @_ZN4core5slice4sort9partition17h7e00584d6344
 .lr.ph16.i:                                       ; preds = %95, %.lr.ph16.i
   %126 = phi i8 [ %136, %.lr.ph16.i ], [ %99, %95 ]
   %.sroa.018.315.i = phi ptr [ %128, %.lr.ph16.i ], [ %.sroa.018.1.i, %95 ]
-  %.sroa.0112.014.i = phi i64 [ %127, %.lr.ph16.i ], [ 1, %95 ]
-  %.sroa.058.313.i = phi ptr [ %135, %.lr.ph16.i ], [ %.sroa.058.1.i, %95 ]
-  %127 = add nuw i64 %.sroa.0112.014.i, 1
+  %.sroa.058.314.i = phi ptr [ %135, %.lr.ph16.i ], [ %.sroa.058.1.i, %95 ]
+  %.sroa.0112.013.i = phi i64 [ %127, %.lr.ph16.i ], [ 1, %95 ]
+  %127 = add nuw i64 %.sroa.0112.013.i, 1
   %128 = getelementptr inbounds i8, ptr %.sroa.018.315.i, i64 1
   %129 = load i8, ptr %128, align 1, !noalias !566, !noundef !5
   %130 = zext i8 %129 to i64
@@ -1616,7 +1616,7 @@ define internal fastcc { i64, i1 } @_ZN4core5slice4sort9partition17h7e00584d6344
   %133 = xor i64 %132, -1
   %134 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { [11 x i8], i8, [4 x i8] }, { [16 x i8] } }, ptr %.sroa.044.0.i, i64 %133
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %134, ptr noundef nonnull align 8 dereferenceable(160) %131, i64 160, i1 false), !alias.scope !563, !noalias !596
-  %135 = getelementptr inbounds i8, ptr %.sroa.058.313.i, i64 1
+  %135 = getelementptr inbounds i8, ptr %.sroa.058.314.i, i64 1
   %136 = load i8, ptr %135, align 1, !noalias !566, !noundef !5
   %137 = zext i8 %136 to i64
   %138 = xor i64 %137, -1

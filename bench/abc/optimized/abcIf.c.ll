@@ -2019,7 +2019,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
 95:                                               ; preds = %.lr.ph129, %191
   %indvars.iv159 = phi i64 [ 0, %.lr.ph129 ], [ %indvars.iv.next160, %191 ]
   %96 = phi i8 [ %91, %.lr.ph129 ], [ %195, %191 ]
-  %.079127 = phi i32 [ 2, %.lr.ph129 ], [ %.2.lcssa165, %191 ]
+  %.083126 = phi i32 [ 2, %.lr.ph129 ], [ %.2.lcssa165, %191 ]
   %97 = zext i8 %96 to i32
   %98 = trunc nuw i64 %indvars.iv159 to i32
   %99 = add nsw i32 %97, -1
@@ -2034,21 +2034,21 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %104 = phi ptr [ %102, %101 ], [ %5, %95 ]
   %105 = getelementptr inbounds [5 x ptr], ptr %9, i64 0, i64 %indvars.iv159
   store ptr %104, ptr %105, align 8
-  %106 = sext i32 %.079127 to i64
+  %106 = sext i32 %.083126 to i64
   %107 = getelementptr inbounds [92 x i8], ptr %8, i64 0, i64 %106
   %108 = load i8, ptr %107, align 1
-  %.1105 = add i32 %.079127, 1
+  %.184105 = add i32 %.083126, 1
   %.not132 = icmp eq i8 %108, 0
   br i1 %.not132, label %._crit_edge, label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %103
-  %109 = sext i32 %.1105 to i64
+  %109 = sext i32 %.184105 to i64
   br label %110
 
 110:                                              ; preds = %.lr.ph109, %130
   %indvars.iv141 = phi i64 [ %109, %.lr.ph109 ], [ %indvars.iv.next142, %130 ]
-  %.080107 = phi i32 [ 0, %.lr.ph109 ], [ %133, %130 ]
-  %.083106 = phi i8 [ 0, %.lr.ph109 ], [ %134, %130 ]
+  %.078107 = phi i32 [ 0, %.lr.ph109 ], [ %133, %130 ]
+  %.081106 = phi i8 [ 0, %.lr.ph109 ], [ %134, %130 ]
   %111 = getelementptr inbounds [92 x i8], ptr %8, i64 0, i64 %indvars.iv141
   %112 = load i8, ptr %111, align 1
   %113 = zext i8 %112 to i32
@@ -2084,8 +2084,8 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %131 = getelementptr i8, ptr %.0, i64 20
   %.0.val = load i32, ptr %131, align 4
   %132 = lshr i32 %.0.val, 12
-  %133 = call range(i32 0, 1048576) i32 @llvm.smax.i32(i32 %.080107, i32 %132)
-  %134 = add nuw i8 %.083106, 1
+  %133 = call range(i32 0, 1048576) i32 @llvm.smax.i32(i32 %.078107, i32 %132)
+  %134 = add nuw i8 %.081106, 1
   %indvars.iv.next142 = add nsw i64 %indvars.iv141, 1
   %exitcond.not = icmp eq i8 %134, %108
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %110, !llvm.loop !21
@@ -2095,14 +2095,14 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %103
-  %.080.lcssa = phi i32 [ 0, %103 ], [ %133, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i32 [ %.1105, %103 ], [ %135, %._crit_edge.loopexit ]
+  %.078.lcssa = phi i32 [ 0, %103 ], [ %133, %._crit_edge.loopexit ]
+  %.184.lcssa = phi i32 [ %.184105, %103 ], [ %135, %._crit_edge.loopexit ]
   %136 = zext i8 %108 to i32
   %137 = getelementptr i8, ptr %104, i64 28
   %.val101 = load i32, ptr %137, align 4
   %138 = icmp sgt i32 %.val101, 0
   %139 = zext i1 %138 to i32
-  %140 = add nuw nsw i32 %.080.lcssa, %139
+  %140 = add nuw nsw i32 %.078.lcssa, %139
   %141 = getelementptr inbounds i8, ptr %104, i64 20
   %142 = load i32, ptr %141, align 4
   %143 = shl i32 %140, 12
@@ -2146,18 +2146,18 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
 
 .lr.ph114.us:                                     ; preds = %.lr.ph114.us.preheader, %._crit_edge115.us
   %indvars.iv151 = phi i64 [ 0, %.lr.ph114.us.preheader ], [ %indvars.iv.next152, %._crit_edge115.us ]
-  %.2118.us = phi i32 [ %.1.lcssa, %.lr.ph114.us.preheader ], [ %173, %._crit_edge115.us ]
+  %.2117.us = phi i32 [ %.184.lcssa, %.lr.ph114.us.preheader ], [ %173, %._crit_edge115.us ]
   %163 = getelementptr inbounds i64, ptr %146, i64 %indvars.iv151
   store i64 0, ptr %163, align 8
-  %164 = sext i32 %.2118.us to i64
+  %164 = sext i32 %.2117.us to i64
   br label %165
 
 165:                                              ; preds = %.lr.ph114.us, %165
-  %indvars.iv145 = phi i64 [ %164, %.lr.ph114.us ], [ %indvars.iv.next146, %165 ]
+  %indvars.iv147 = phi i64 [ %164, %.lr.ph114.us ], [ %indvars.iv.next148, %165 ]
   %indvars.iv143 = phi i64 [ 0, %.lr.ph114.us ], [ %indvars.iv.next144, %165 ]
   %166 = phi i64 [ 0, %.lr.ph114.us ], [ %172, %165 ]
-  %indvars.iv.next146 = add nsw i64 %indvars.iv145, 1
-  %167 = getelementptr inbounds [92 x i8], ptr %8, i64 0, i64 %indvars.iv145
+  %indvars.iv.next148 = add nsw i64 %indvars.iv147, 1
+  %167 = getelementptr inbounds [92 x i8], ptr %8, i64 0, i64 %indvars.iv147
   %168 = load i8, ptr %167, align 1
   %169 = zext i8 %168 to i64
   %170 = shl nuw nsw i64 %indvars.iv143, 3
@@ -2169,7 +2169,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %exitcond150.not, label %._crit_edge115.us, label %165, !llvm.loop !22
 
 ._crit_edge115.us:                                ; preds = %165
-  %173 = trunc nsw i64 %indvars.iv.next146 to i32
+  %173 = trunc nsw i64 %indvars.iv.next148 to i32
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
   br i1 %exitcond155.not, label %._crit_edge121, label %.lr.ph114.us, !llvm.loop !23
@@ -2186,7 +2186,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   br label %._crit_edge121.thread
 
 ._crit_edge121.thread:                            ; preds = %148, %.lr.ph120.split.preheader, %175, %._crit_edge121
-  %.2.lcssa165 = phi i32 [ %173, %175 ], [ %173, %._crit_edge121 ], [ %.1.lcssa, %.lr.ph120.split.preheader ], [ %.1.lcssa, %148 ]
+  %.2.lcssa165 = phi i32 [ %173, %175 ], [ %173, %._crit_edge121 ], [ %.184.lcssa, %.lr.ph120.split.preheader ], [ %.184.lcssa, %148 ]
   %179 = phi i32 [ %159, %175 ], [ %159, %._crit_edge121 ], [ %155, %.lr.ph120.split.preheader ], [ %155, %148 ]
   %180 = and i32 %179, 255
   %181 = icmp ult i32 %180, 4
@@ -3184,13 +3184,13 @@ Abc_NodeIfToHop.exit:                             ; preds = %.lr.ph49.i, %421, %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Abc_NodeIfToHop.exit, %388, %385, %381, %377, %If_CutTruthW.exit
-  %.1.sink = phi ptr [ %78, %If_CutTruthW.exit ], [ %.0167, %381 ], [ %.0167, %385 ], [ %.0167, %388 ], [ %.0167, %377 ], [ %80, %Abc_NodeIfToHop.exit ]
-  store ptr %.1.sink, ptr %6, align 8
+  %.1168.sink = phi ptr [ %78, %If_CutTruthW.exit ], [ %.0167, %381 ], [ %.0167, %385 ], [ %.0167, %388 ], [ %.0167, %377 ], [ %80, %Abc_NodeIfToHop.exit ]
+  store ptr %.1168.sink, ptr %6, align 8
   br label %447
 
 447:                                              ; preds = %.sink.split, %4
-  %.0 = phi ptr [ %.val210, %4 ], [ %.1.sink, %.sink.split ]
-  ret ptr %.0
+  %.0169 = phi ptr [ %.val210, %4 ], [ %.1168.sink, %.sink.split ]
+  ret ptr %.0169
 }
 
 declare ptr @Abc_ExactBuildNode(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -3617,8 +3617,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %67 = ptrtoint ptr %62 to i64
   %68 = xor i64 %67, 1
   %69 = inttoptr i64 %68 to ptr
-  %.034 = select i1 %.not39, ptr %62, ptr %69
-  store ptr %.034, ptr %5, align 8
+  %.0 = select i1 %.not39, ptr %62, ptr %69
+  store ptr %.0, ptr %5, align 8
   br label %.loopexit
 
 70:                                               ; preds = %43, %.preheader
@@ -3632,8 +3632,8 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %.loopexit.loopexit, %Vec_PtrPush.exit, %4
-  %.0 = phi ptr [ %.val42, %4 ], [ inttoptr (i64 1 to ptr), %Vec_PtrPush.exit ], [ %.val.pre, %.loopexit.loopexit ], [ %.034, %48 ]
-  ret ptr %.0
+  %.034 = phi ptr [ %.val42, %4 ], [ inttoptr (i64 1 to ptr), %Vec_PtrPush.exit ], [ %.val.pre, %.loopexit.loopexit ], [ %.0, %48 ]
+  ret ptr %.034
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

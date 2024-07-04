@@ -273,15 +273,15 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .lr.ph986:                                        ; preds = %.lr.ph986, %.lr.ph986.preheader
   %indvars.iv1256 = phi i64 [ 2, %.lr.ph986.preheader ], [ %indvars.iv.next1257, %.lr.ph986 ]
   %.0820984 = phi double [ %132, %.lr.ph986.preheader ], [ %145, %.lr.ph986 ]
-  %.0847982 = phi double [ %132, %.lr.ph986.preheader ], [ %143, %.lr.ph986 ]
+  %.0840983 = phi double [ %132, %.lr.ph986.preheader ], [ %143, %.lr.ph986 ]
   %136 = getelementptr inbounds double, ptr %38, i64 %indvars.iv1256
   %137 = load double, ptr %136, align 8
   %138 = call noundef double @llvm.fabs.f64(double %137)
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv1256
   %139 = load double, ptr %gep, align 8
   %140 = call noundef double @llvm.fabs.f64(double %139)
-  %141 = fadd double %.0847982, %140
-  %142 = fdiv double %.0847982, %141
+  %141 = fadd double %.0840983, %140
+  %142 = fdiv double %.0840983, %141
   %143 = fmul double %138, %142
   %144 = fcmp olt double %.0820984, %143
   %145 = select i1 %144, double %.0820984, double %143
@@ -343,25 +343,25 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.0830.ph1133 = phi i32 [ 0, %.lr.ph1007.lr.ph.lr.ph.lr.ph ], [ %.0830.ph90711221483, %.outer.backedge ]
   %.0833.ph1132 = phi i32 [ -1, %.lr.ph1007.lr.ph.lr.ph.lr.ph ], [ %.0833.ph90611211485, %.outer.backedge ]
   %.0834.ph1131 = phi i32 [ 0, %.lr.ph1007.lr.ph.lr.ph.lr.ph ], [ %.08341006, %.outer.backedge ]
-  %.0842.ph1130 = phi i32 [ %151, %.lr.ph1007.lr.ph.lr.ph.lr.ph ], [ %.0842.ph.be, %.outer.backedge ]
-  %165 = zext nneg i32 %.0842.ph1130 to i64
+  %.0844.ph1130 = phi i32 [ %151, %.lr.ph1007.lr.ph.lr.ph.lr.ph ], [ %.0844.ph.be, %.outer.backedge ]
+  %165 = zext nneg i32 %.0844.ph1130 to i64
   %166 = getelementptr inbounds double, ptr %38, i64 %165
-  %167 = add nsw i32 %.0842.ph1130, -1
+  %167 = add nsw i32 %.0844.ph1130, -1
   %168 = zext nneg i32 %167 to i64
   %169 = getelementptr inbounds double, ptr %39, i64 %168
   %170 = getelementptr inbounds double, ptr %38, i64 %168
-  %171 = zext nneg i32 %.0842.ph1130 to i64
+  %171 = zext nneg i32 %.0844.ph1130 to i64
   %172 = zext nneg i32 %167 to i64
-  %wide.trip.count1264 = zext nneg i32 %.0842.ph1130 to i64
+  %wide.trip.count1264 = zext nneg i32 %.0844.ph1130 to i64
   %173 = icmp sgt i32 %.0830.ph1133, %153
   br i1 %173, label %.lr.ph1007.lr.ph.lr.ph._crit_edge, label %.lr.ph1007.preheader
 
 .lr.ph1007.preheader:                             ; preds = %.lr.ph1007.lr.ph.lr.ph, %.outer904
   %.0834.ph90511201486 = phi i32 [ %.1835891, %.outer904 ], [ %.0834.ph1131, %.lr.ph1007.lr.ph.lr.ph ]
-  %.0833.ph90611211485 = phi i32 [ %.0842.ph1130, %.outer904 ], [ %.0833.ph1132, %.lr.ph1007.lr.ph.lr.ph ]
+  %.0833.ph90611211485 = phi i32 [ %.0844.ph1130, %.outer904 ], [ %.0833.ph1132, %.lr.ph1007.lr.ph.lr.ph ]
   %.0830.ph90711221483 = phi i32 [ %644, %.outer904 ], [ %.0830.ph1133, %.lr.ph1007.lr.ph.lr.ph ]
   %.0823.ph90811241482 = phi i32 [ %195, %.outer904 ], [ %.0823.ph1134, %.lr.ph1007.lr.ph.lr.ph ]
-  %174 = icmp slt i32 %.0842.ph1130, %.0823.ph90811241482
+  %174 = icmp slt i32 %.0844.ph1130, %.0823.ph90811241482
   br label %.lr.ph1000
 
 .lr.ph1000:                                       ; preds = %.lr.ph1000.backedge, %.lr.ph1007.preheader
@@ -402,8 +402,8 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .loopexit902:                                     ; preds = %183, %191
   %.lcssa10021008 = phi double [ %180, %191 ], [ %188, %183 ]
   %.2826915 = phi double [ %.2826998, %191 ], [ %190, %183 ]
-  %.0846 = phi i32 [ %193, %191 ], [ 0, %183 ]
-  %195 = add nsw i32 %.0846, 1
+  %.0843 = phi i32 [ %193, %191 ], [ 0, %183 ]
+  %195 = add nsw i32 %.0843, 1
   %196 = icmp eq i32 %195, %167
   br i1 %196, label %197, label %230
 
@@ -424,7 +424,7 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %203 = add nsw i32 %167, %40
   %204 = sext i32 %203 to i64
   %205 = getelementptr inbounds double, ptr %42, i64 %204
-  %206 = add nsw i32 %.0842.ph1130, %40
+  %206 = add nsw i32 %.0844.ph1130, %40
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds double, ptr %42, i64 %207
   call void @drot_(ptr noundef nonnull %2, ptr noundef %205, ptr noundef nonnull %8, ptr noundef %208, ptr noundef nonnull %8, ptr noundef nonnull %28, ptr noundef nonnull %29)
@@ -439,7 +439,7 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %213 = mul nsw i32 %167, %43
   %214 = sext i32 %213 to i64
   %gep1127 = getelementptr double, ptr %invariant.gep1102, i64 %214
-  %215 = mul nsw i32 %.0842.ph1130, %43
+  %215 = mul nsw i32 %.0844.ph1130, %43
   %216 = sext i32 %215 to i64
   %gep1129 = getelementptr double, ptr %invariant.gep1102, i64 %216
   call void @drot_(ptr noundef nonnull %3, ptr noundef %gep1127, ptr noundef nonnull %19, ptr noundef %gep1129, ptr noundef nonnull %19, ptr noundef nonnull %26, ptr noundef nonnull %27)
@@ -454,23 +454,23 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %221 = add nsw i32 %167, %46
   %222 = sext i32 %221 to i64
   %223 = getelementptr inbounds double, ptr %48, i64 %222
-  %224 = add nsw i32 %.0842.ph1130, %46
+  %224 = add nsw i32 %.0844.ph1130, %46
   %225 = sext i32 %224 to i64
   %226 = getelementptr inbounds double, ptr %48, i64 %225
   call void @drot_(ptr noundef nonnull %4, ptr noundef %223, ptr noundef nonnull %12, ptr noundef %226, ptr noundef nonnull %12, ptr noundef nonnull %26, ptr noundef nonnull %27)
   br label %227
 
 227:                                              ; preds = %220, %217
-  %228 = add nsw i32 %.0842.ph1130, -2
+  %228 = add nsw i32 %.0844.ph1130, -2
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %227, %.outer.loopexit
-  %.0842.ph.be = phi i32 [ %228, %227 ], [ %167, %.outer.loopexit ]
-  %229 = icmp slt i32 %.0842.ph.be, 2
+  %.0844.ph.be = phi i32 [ %228, %227 ], [ %167, %.outer.loopexit ]
+  %229 = icmp slt i32 %.0844.ph.be, 2
   br i1 %229, label %.loopexit903, label %.lr.ph1007.lr.ph.lr.ph
 
 230:                                              ; preds = %.loopexit902
-  %.not873 = icmp sge i32 %.0846, %.0833.ph90611211485
+  %.not873 = icmp sge i32 %.0843, %.0833.ph90611211485
   %or.cond885 = select i1 %.not873, i1 true, i1 %174
   br i1 %or.cond885, label %231, label %239
 
@@ -526,22 +526,22 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %249 = load double, ptr %248, align 8
   %250 = call noundef double @llvm.fabs.f64(double %249)
   store i32 %167, ptr %16, align 4
-  %.not875.not1019 = icmp slt i32 %195, %.0842.ph1130
+  %.not875.not1019 = icmp slt i32 %195, %.0844.ph1130
   br i1 %.not875.not1019, label %.lr.ph1024.preheader, label %.loopexit
 
 .lr.ph1024.preheader:                             ; preds = %246
-  %251 = sext i32 %.0846 to i64
+  %251 = sext i32 %.0843 to i64
   %252 = add nsw i64 %251, 1
   br label %.lr.ph1024
 
 .lr.ph1024:                                       ; preds = %.lr.ph1024.preheader, %258
   %indvars.iv1269 = phi i64 [ %252, %.lr.ph1024.preheader ], [ %indvars.iv.next1270, %258 ]
   %.18221022 = phi double [ %250, %.lr.ph1024.preheader ], [ %266, %258 ]
-  %.18481020 = phi double [ %250, %.lr.ph1024.preheader ], [ %264, %258 ]
+  %.18411020 = phi double [ %250, %.lr.ph1024.preheader ], [ %264, %258 ]
   %253 = getelementptr inbounds double, ptr %39, i64 %indvars.iv1269
   %254 = load double, ptr %253, align 8
   %255 = call noundef double @llvm.fabs.f64(double %254)
-  %256 = fmul double %.18481020, 0x3D16A09E667F3BCD
+  %256 = fmul double %.18411020, 0x3D16A09E667F3BCD
   %257 = fcmp ugt double %255, %256
   br i1 %257, label %258, label %.outer910.backedge
 
@@ -560,13 +560,13 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %260 = load double, ptr %259, align 8
   store double %260, ptr %18, align 8
   %261 = call noundef double @llvm.fabs.f64(double %260)
-  %262 = fadd double %.18481020, %255
-  %263 = fdiv double %.18481020, %262
+  %262 = fadd double %.18411020, %255
+  %263 = fdiv double %.18411020, %262
   %264 = fmul double %263, %261
   %265 = fcmp olt double %.18221022, %264
   %266 = select i1 %265, double %.18221022, double %264
   %lftr.wideiv = trunc i64 %indvars.iv.next1270 to i32
-  %exitcond1272.not = icmp eq i32 %.0842.ph1130, %lftr.wideiv
+  %exitcond1272.not = icmp eq i32 %.0844.ph1130, %lftr.wideiv
   br i1 %exitcond1272.not, label %.loopexit, label %.lr.ph1024, !llvm.loop !9
 
 .thread893:                                       ; preds = %..thread893_crit_edge, %231
@@ -585,21 +585,21 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %274 = load double, ptr %166, align 8
   %275 = call noundef double @llvm.fabs.f64(double %274)
   store i32 %195, ptr %16, align 4
-  %.not874.not1043 = icmp sgt i32 %167, %.0846
+  %.not874.not1043 = icmp sgt i32 %167, %.0843
   br i1 %.not874.not1043, label %.lr.ph1048.preheader, label %.loopexit
 
 .lr.ph1048.preheader:                             ; preds = %273
-  %276 = sext i32 %.0846 to i64
+  %276 = sext i32 %.0843 to i64
   br label %.lr.ph1048
 
 .lr.ph1048:                                       ; preds = %.lr.ph1048.preheader, %282
   %indvars.iv1273 = phi i64 [ %172, %.lr.ph1048.preheader ], [ %indvars.iv.next1274, %282 ]
   %.21046 = phi double [ %275, %.lr.ph1048.preheader ], [ %290, %282 ]
-  %.28491044 = phi double [ %275, %.lr.ph1048.preheader ], [ %288, %282 ]
+  %.28421044 = phi double [ %275, %.lr.ph1048.preheader ], [ %288, %282 ]
   %277 = getelementptr inbounds double, ptr %39, i64 %indvars.iv1273
   %278 = load double, ptr %277, align 8
   %279 = call noundef double @llvm.fabs.f64(double %278)
-  %280 = fmul double %.28491044, 0x3D16A09E667F3BCD
+  %280 = fmul double %.28421044, 0x3D16A09E667F3BCD
   %281 = fcmp ugt double %279, %280
   br i1 %281, label %282, label %.outer910.backedge
 
@@ -608,8 +608,8 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %284 = load double, ptr %283, align 8
   store double %284, ptr %18, align 8
   %285 = call noundef double @llvm.fabs.f64(double %284)
-  %286 = fadd double %.28491044, %279
-  %287 = fdiv double %.28491044, %286
+  %286 = fadd double %.28421044, %279
+  %287 = fdiv double %.28421044, %286
   %288 = fmul double %287, %285
   %289 = fcmp olt double %.21046, %288
   %290 = select i1 %289, double %.21046, double %288
@@ -623,7 +623,7 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %293 = phi i1 [ false, %282 ], [ true, %258 ], [ true, %246 ], [ false, %273 ]
   %.1835891 = phi i32 [ %.1835895, %282 ], [ 1, %258 ], [ 1, %246 ], [ %.1835895, %273 ]
   %.3 = phi double [ %290, %282 ], [ %266, %258 ], [ %250, %246 ], [ %275, %273 ]
-  %.neg936 = xor i32 %.0846, -1
+  %.neg936 = xor i32 %.0843, -1
   store double 0x3CB0000000000000, ptr %17, align 8
   store double 0x3CACF68D45228FDF, ptr %18, align 8
   %294 = load i32, ptr %1, align 4
@@ -649,19 +649,19 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %305 = sext i32 %195 to i64
   %306 = getelementptr inbounds double, ptr %38, i64 %305
   %307 = getelementptr inbounds double, ptr %39, i64 %305
-  %308 = sext i32 %.0846 to i64
+  %308 = sext i32 %.0843 to i64
   %gep1099 = getelementptr double, ptr %invariant.gep1098, i64 %308
   call void @dlas2_(ptr noundef nonnull %306, ptr noundef nonnull %307, ptr noundef %gep1099, ptr noundef nonnull %31, ptr noundef nonnull %23)
   br label %309
 
 309:                                              ; preds = %303, %301
-  %.0841 = phi double [ %302, %301 ], [ %304, %303 ]
-  %310 = fcmp ogt double %.0841, 0.000000e+00
+  %.0836 = phi double [ %302, %301 ], [ %304, %303 ]
+  %310 = fcmp ogt double %.0836, 0.000000e+00
   %311 = load double, ptr %31, align 8
   br i1 %310, label %312, label %thread-pre-split896
 
 312:                                              ; preds = %309
-  %313 = fdiv double %311, %.0841
+  %313 = fdiv double %311, %.0836
   store double %313, ptr %17, align 8
   %314 = fmul double %313, %313
   %315 = fcmp olt double %314, 0x3CB0000000000000
@@ -669,12 +669,12 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .thread899:                                       ; preds = %312, %.loopexit
   store double 0.000000e+00, ptr %31, align 8
-  %316 = add nsw i32 %.0830.ph90711221483, %.0842.ph1130
+  %316 = add nsw i32 %.0830.ph90711221483, %.0844.ph1130
   %317 = add i32 %316, %.neg936
   br label %321
 
 thread-pre-split896:                              ; preds = %309, %312
-  %318 = add nsw i32 %.0830.ph90711221483, %.0842.ph1130
+  %318 = add nsw i32 %.0830.ph90711221483, %.0844.ph1130
   %319 = add i32 %318, %.neg936
   %320 = fcmp oeq double %311, 0.000000e+00
   br i1 %320, label %321, label %463
@@ -687,7 +687,7 @@ thread-pre-split896:                              ; preds = %309, %312
 
 323:                                              ; preds = %321
   store i32 %167, ptr %16, align 4
-  %.not8791093.not = icmp slt i32 %.0846, %167
+  %.not8791093.not = icmp slt i32 %.0843, %167
   br i1 %.not8791093.not, label %.lr.ph1096.preheader, label %.._crit_edge1097_crit_edge
 
 .._crit_edge1097_crit_edge:                       ; preds = %323
@@ -765,7 +765,7 @@ thread-pre-split896:                              ; preds = %309, %312
   br i1 %362, label %363, label %371
 
 363:                                              ; preds = %._crit_edge1097
-  %364 = sub i32 %.0842.ph1130, %.0846
+  %364 = sub i32 %.0844.ph1130, %.0843
   store i32 %364, ptr %16, align 4
   %365 = load i32, ptr %1, align 4
   %366 = sext i32 %365 to i64
@@ -782,7 +782,7 @@ thread-pre-split896:                              ; preds = %309, %312
   br i1 %373, label %374, label %378
 
 374:                                              ; preds = %371
-  %375 = sub i32 %.0842.ph1130, %.0846
+  %375 = sub i32 %.0844.ph1130, %.0843
   store i32 %375, ptr %16, align 4
   %376 = mul nsw i32 %195, %43
   %377 = sext i32 %376 to i64
@@ -796,7 +796,7 @@ thread-pre-split896:                              ; preds = %309, %312
   br i1 %380, label %381, label %386
 
 381:                                              ; preds = %378
-  %382 = sub i32 %.0842.ph1130, %.0846
+  %382 = sub i32 %.0844.ph1130, %.0843
   store i32 %382, ptr %16, align 4
   %383 = add nsw i32 %195, %46
   %384 = sext i32 %383 to i64
@@ -816,9 +816,9 @@ thread-pre-split896:                              ; preds = %309, %312
   br label %.outer904
 
 391:                                              ; preds = %321
-  %392 = add nsw i32 %.0846, 2
+  %392 = add nsw i32 %.0843, 2
   store i32 %392, ptr %16, align 4
-  %.not8781088 = icmp slt i32 %.0842.ph1130, %392
+  %.not8781088 = icmp slt i32 %.0844.ph1130, %392
   br i1 %.not8781088, label %.._crit_edge1092_crit_edge, label %.lr.ph1091.preheader
 
 .._crit_edge1092_crit_edge:                       ; preds = %391
@@ -899,7 +899,7 @@ thread-pre-split896:                              ; preds = %309, %312
   br i1 %431, label %432, label %437
 
 432:                                              ; preds = %._crit_edge1092
-  %433 = sub i32 %.0842.ph1130, %.0846
+  %433 = sub i32 %.0844.ph1130, %.0843
   store i32 %433, ptr %16, align 4
   %434 = add nsw i32 %195, %40
   %435 = sext i32 %434 to i64
@@ -913,7 +913,7 @@ thread-pre-split896:                              ; preds = %309, %312
   br i1 %439, label %440, label %447
 
 440:                                              ; preds = %437
-  %441 = sub i32 %.0842.ph1130, %.0846
+  %441 = sub i32 %.0844.ph1130, %.0843
   store i32 %441, ptr %16, align 4
   %442 = load i32, ptr %1, align 4
   %443 = sext i32 %442 to i64
@@ -930,7 +930,7 @@ thread-pre-split896:                              ; preds = %309, %312
   br i1 %449, label %450, label %458
 
 450:                                              ; preds = %447
-  %451 = sub i32 %.0842.ph1130, %.0846
+  %451 = sub i32 %.0844.ph1130, %.0843
   store i32 %451, ptr %16, align 4
   %452 = load i32, ptr %1, align 4
   %453 = sext i32 %452 to i64
@@ -972,7 +972,7 @@ thread-pre-split896:                              ; preds = %309, %312
   %476 = load double, ptr %475, align 8
   store double %476, ptr %22, align 8
   store i32 %167, ptr %16, align 4
-  %.not8771083.not = icmp slt i32 %.0846, %167
+  %.not8771083.not = icmp slt i32 %.0843, %167
   br i1 %.not8771083.not, label %.lr.ph1086, label %._crit_edge1087
 
 .lr.ph1086:                                       ; preds = %464, %512
@@ -1062,7 +1062,7 @@ thread-pre-split896:                              ; preds = %309, %312
   br i1 %525, label %526, label %534
 
 526:                                              ; preds = %._crit_edge1087
-  %527 = sub i32 %.0842.ph1130, %.0846
+  %527 = sub i32 %.0844.ph1130, %.0843
   store i32 %527, ptr %16, align 4
   %528 = load i32, ptr %1, align 4
   %529 = sext i32 %528 to i64
@@ -1079,7 +1079,7 @@ thread-pre-split896:                              ; preds = %309, %312
   br i1 %536, label %537, label %541
 
 537:                                              ; preds = %534
-  %538 = sub i32 %.0842.ph1130, %.0846
+  %538 = sub i32 %.0844.ph1130, %.0843
   store i32 %538, ptr %16, align 4
   %539 = mul nsw i32 %195, %43
   %540 = sext i32 %539 to i64
@@ -1093,7 +1093,7 @@ thread-pre-split896:                              ; preds = %309, %312
   br i1 %543, label %544, label %549
 
 544:                                              ; preds = %541
-  %545 = sub i32 %.0842.ph1130, %.0846
+  %545 = sub i32 %.0844.ph1130, %.0843
   store i32 %545, ptr %16, align 4
   %546 = add nsw i32 %195, %46
   %547 = sext i32 %546 to i64
@@ -1125,9 +1125,9 @@ thread-pre-split896:                              ; preds = %309, %312
   store double %562, ptr %21, align 8
   %563 = load double, ptr %169, align 8
   store double %563, ptr %22, align 8
-  %564 = add nsw i32 %.0846, 2
+  %564 = add nsw i32 %.0843, 2
   store i32 %564, ptr %16, align 4
-  %.not8761076 = icmp slt i32 %.0842.ph1130, %564
+  %.not8761076 = icmp slt i32 %.0844.ph1130, %564
   br i1 %.not8761076, label %.._crit_edge1080_crit_edge, label %.lr.ph1079.preheader
 
 .._crit_edge1080_crit_edge:                       ; preds = %554
@@ -1236,7 +1236,7 @@ thread-pre-split896:                              ; preds = %309, %312
   br i1 %617, label %618, label %623
 
 618:                                              ; preds = %615
-  %619 = sub i32 %.0842.ph1130, %.0846
+  %619 = sub i32 %.0844.ph1130, %.0843
   store i32 %619, ptr %16, align 4
   %620 = add nsw i32 %195, %40
   %621 = sext i32 %620 to i64
@@ -1250,7 +1250,7 @@ thread-pre-split896:                              ; preds = %309, %312
   br i1 %625, label %626, label %633
 
 626:                                              ; preds = %623
-  %627 = sub i32 %.0842.ph1130, %.0846
+  %627 = sub i32 %.0844.ph1130, %.0843
   store i32 %627, ptr %16, align 4
   %628 = load i32, ptr %1, align 4
   %629 = sext i32 %628 to i64
@@ -1267,7 +1267,7 @@ thread-pre-split896:                              ; preds = %309, %312
   br i1 %635, label %636, label %.outer904
 
 636:                                              ; preds = %633
-  %637 = sub i32 %.0842.ph1130, %.0846
+  %637 = sub i32 %.0844.ph1130, %.0843
   store i32 %637, ptr %16, align 4
   %638 = load i32, ptr %1, align 4
   %639 = sext i32 %638 to i64

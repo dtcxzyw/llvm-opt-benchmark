@@ -674,7 +674,7 @@ sub_1:                                            ; preds = %sub_0
   br label %61
 
 61:                                               ; preds = %57, %53, %.critedge, %45
-  %.056 = phi i32 [ %52, %.critedge ], [ %48, %45 ], [ 0, %53 ], [ 0, %57 ]
+  %.060 = phi i32 [ %52, %.critedge ], [ %48, %45 ], [ 0, %53 ], [ 0, %57 ]
   %.055 = phi i32 [ 2, %.critedge ], [ 3, %45 ], [ 1, %53 ], [ %., %57 ]
   %62 = load ptr, ptr @clamdopts, align 8
   %63 = tail call ptr @optget(ptr noundef %62, ptr noundef nonnull @.str.25) #14
@@ -697,8 +697,8 @@ sub_1:                                            ; preds = %sub_0
   %78 = load i32, ptr %77, align 8
   %.not77 = icmp ne i32 %78, 0
   %79 = zext i1 %.not77 to i32
-  %.158 = select i1 %.not76, i32 8, i32 10
-  %80 = or disjoint i32 %.158, %79
+  %.157 = select i1 %.not76, i32 8, i32 10
+  %80 = or disjoint i32 %.157, %79
   store i32 0, ptr %1, align 4
   br i1 %29, label %81, label %105
 
@@ -739,7 +739,7 @@ sub_1:                                            ; preds = %sub_0
   br label %103
 
 103:                                              ; preds = %97, %102
-  %.059.ph = phi i32 [ 1, %97 ], [ 0, %102 ]
+  %.058.ph = phi i32 [ 1, %97 ], [ 0, %102 ]
   %104 = call i32 @close(i32 noundef %95) #14
   br label %.loopexit
 
@@ -778,7 +778,7 @@ sub_1:                                            ; preds = %sub_0
 
 sub_0100.lr.ph:                                   ; preds = %117, %.outer
   %119 = phi ptr [ %133, %.outer ], [ %118, %117 ]
-  %.160.ph107 = phi i32 [ %132, %.outer ], [ 0, %117 ]
+  %.159.ph107 = phi i32 [ %132, %.outer ], [ 0, %117 ]
   br label %sub_0100
 
 sub_0100:                                         ; preds = %sub_0100.lr.ph, %128
@@ -807,18 +807,18 @@ sub_1101:                                         ; preds = %sub_0100
   br i1 %.not82, label %.loopexit, label %sub_0100
 
 .outer:                                           ; preds = %.tail99
-  %131 = tail call fastcc i32 @client_scan(ptr noundef nonnull %120, i32 noundef %.055, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %66, i32 noundef %.056, i32 noundef %80)
-  %132 = add nsw i32 %131, %.160.ph107
+  %131 = tail call fastcc i32 @client_scan(ptr noundef nonnull %120, i32 noundef %.055, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %66, i32 noundef %.060, i32 noundef %80)
+  %132 = add nsw i32 %131, %.159.ph107
   %133 = tail call ptr @filelist(ptr noundef %0, ptr noundef null) #14
   %.not82104 = icmp eq ptr %133, null
   br i1 %.not82104, label %.loopexit, label %sub_0100.lr.ph
 
 134:                                              ; preds = %107
-  %135 = tail call fastcc i32 @client_scan(ptr noundef nonnull @.str.32, i32 noundef %.055, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %66, i32 noundef %.056, i32 noundef %80)
+  %135 = tail call fastcc i32 @client_scan(ptr noundef nonnull @.str.32, i32 noundef %.055, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %66, i32 noundef %.060, i32 noundef %80)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer, %128, %117, %134, %103
-  %.2 = phi i32 [ %.059.ph, %103 ], [ %135, %134 ], [ 0, %117 ], [ %.160.ph107, %128 ], [ %132, %.outer ]
+  %.2 = phi i32 [ %.058.ph, %103 ], [ %135, %134 ], [ 0, %117 ], [ %.159.ph107, %128 ], [ %132, %.outer ]
   %.2.fr = freeze i32 %.2
   %.not86 = icmp eq i32 %.2.fr, 0
   %spec.select98 = select i1 %.not86, i32 0, i32 2

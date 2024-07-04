@@ -117,17 +117,17 @@ if.end9.i.preheader:                              ; preds = %if.end20
 if.end9.i:                                        ; preds = %if.end9.i.preheader, %if.end9.i
   %rnew.sroa.9.1 = phi i64 [ %add.i, %if.end9.i ], [ %rnew.sroa.9.047, %if.end9.i.preheader ]
   %buf_len.addr.235.i = phi i64 [ %buf_len.addr.2.i, %if.end9.i ], [ %buf_len.addr.230.i, %if.end9.i.preheader ]
-  %buf.addr.033.i = phi ptr [ %add.ptr17.i, %if.end9.i ], [ %add.ptr.i, %if.end9.i.preheader ]
-  %pushed.032.i = phi i64 [ %add19.i, %if.end9.i ], [ 0, %if.end9.i.preheader ]
+  %pushed.033.i = phi i64 [ %add19.i, %if.end9.i ], [ 0, %if.end9.i.preheader ]
+  %buf.addr.032.i = phi ptr [ %add.ptr17.i, %if.end9.i ], [ %add.ptr.i, %if.end9.i.preheader ]
   %rem.i19 = urem i64 %rnew.sroa.9.1, %num_bytes
   %sub12.i = sub i64 %num_bytes, %rem.i19
   %spec.select22.i = tail call i64 @llvm.umin.i64(i64 %buf_len.addr.235.i, i64 %sub12.i)
   %add.ptr.i20 = getelementptr inbounds i8, ptr %call4, i64 %rem.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i20, ptr align 1 %buf.addr.033.i, i64 %spec.select22.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i20, ptr align 1 %buf.addr.032.i, i64 %spec.select22.i, i1 false)
   %add.i = add i64 %spec.select22.i, %rnew.sroa.9.1
-  %add.ptr17.i = getelementptr inbounds i8, ptr %buf.addr.033.i, i64 %spec.select22.i
+  %add.ptr17.i = getelementptr inbounds i8, ptr %buf.addr.032.i, i64 %spec.select22.i
   %sub18.i = sub i64 %buf_len.addr.235.i, %spec.select22.i
-  %add19.i = add i64 %spec.select22.i, %pushed.032.i
+  %add19.i = add i64 %spec.select22.i, %pushed.033.i
   %sub.i.i = sub i64 %sub.i.neg.i26.i, %add.i
   %spec.select.i21 = tail call i64 @llvm.umin.i64(i64 %sub18.i, i64 %sub.i.i)
   %sub.i22 = sub i64 4611686018427387904, %add.i
@@ -644,13 +644,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %r.val2.i24.i = phi i64 [ %old_ring_buf.sroa.3.0.copyload, %while.body.lr.ph ], [ %r.val2.i.i, %if.end4 ]
   %r.val.i23.i = phi i64 [ %old_ring_buf.sroa.2.0.copyload, %while.body.lr.ph ], [ %add.i, %if.end4 ]
   %0 = phi i64 [ %.pre, %while.body.lr.ph ], [ %4, %if.end4 ]
-  %buf.addr.023 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %if.end4 ]
-  %consumed_.022 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end4 ]
-  %buf_len.addr.021 = phi i64 [ %buf_len, %while.body.lr.ph ], [ %sub, %if.end4 ]
+  %consumed_.023 = phi i64 [ 0, %while.body.lr.ph ], [ %add, %if.end4 ]
+  %buf_len.addr.022 = phi i64 [ %buf_len, %while.body.lr.ph ], [ %sub, %if.end4 ]
+  %buf.addr.021 = phi ptr [ %buf, %while.body.lr.ph ], [ %add.ptr, %if.end4 ]
   %1 = load ptr, ptr %qss, align 8
   %sub.i.neg.i26.i = sub i64 %0, %r.val.i23.i
   %sub.i27.i = add i64 %sub.i.neg.i26.i, %r.val2.i24.i
-  %spec.select28.i = tail call i64 @llvm.umin.i64(i64 %buf_len.addr.021, i64 %sub.i27.i)
+  %spec.select28.i = tail call i64 @llvm.umin.i64(i64 %buf_len.addr.022, i64 %sub.i27.i)
   %sub29.i = sub i64 4611686018427387904, %r.val.i23.i
   %buf_len.addr.230.i = tail call i64 @llvm.umin.i64(i64 %spec.select28.i, i64 %sub29.i)
   %cmp731.i = icmp eq i64 %buf_len.addr.230.i, 0
@@ -660,19 +660,19 @@ if.end9.i:                                        ; preds = %while.body, %if.end
   %buf_len.addr.235.i = phi i64 [ %buf_len.addr.2.i, %if.end9.i ], [ %buf_len.addr.230.i, %while.body ]
   %r.val.i34.i = phi i64 [ %add.i, %if.end9.i ], [ %r.val.i23.i, %while.body ]
   %2 = phi i64 [ %4, %if.end9.i ], [ %0, %while.body ]
-  %buf.addr.033.i = phi ptr [ %add.ptr17.i, %if.end9.i ], [ %buf.addr.023, %while.body ]
-  %pushed.032.i = phi i64 [ %add19.i, %if.end9.i ], [ 0, %while.body ]
+  %pushed.033.i = phi i64 [ %add19.i, %if.end9.i ], [ 0, %while.body ]
+  %buf.addr.032.i = phi ptr [ %add.ptr17.i, %if.end9.i ], [ %buf.addr.021, %while.body ]
   %rem.i = urem i64 %r.val.i34.i, %2
   %sub12.i = sub i64 %2, %rem.i
   %spec.select22.i = tail call i64 @llvm.umin.i64(i64 %buf_len.addr.235.i, i64 %sub12.i)
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %rem.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %buf.addr.033.i, i64 %spec.select22.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %buf.addr.032.i, i64 %spec.select22.i, i1 false)
   %3 = load i64, ptr %old_ring_buf.sroa.2.0.ring_buf.sroa_idx, align 8
   %add.i = add i64 %3, %spec.select22.i
   store i64 %add.i, ptr %old_ring_buf.sroa.2.0.ring_buf.sroa_idx, align 8
-  %add.ptr17.i = getelementptr inbounds i8, ptr %buf.addr.033.i, i64 %spec.select22.i
+  %add.ptr17.i = getelementptr inbounds i8, ptr %buf.addr.032.i, i64 %spec.select22.i
   %sub18.i = sub i64 %buf_len.addr.235.i, %spec.select22.i
-  %add19.i = add i64 %spec.select22.i, %pushed.032.i
+  %add19.i = add i64 %spec.select22.i, %pushed.033.i
   %4 = load i64, ptr %alloc.i.i, align 8
   %r.val2.i.i = load i64, ptr %old_ring_buf.sroa.3.0.ring_buf.sroa_idx, align 8
   %sub.i.neg.i.i = sub i64 %4, %add.i
@@ -688,14 +688,14 @@ ring_buf_push.exit:                               ; preds = %if.end9.i
   br i1 %cmp2, label %while.end, label %if.end4
 
 if.end4:                                          ; preds = %ring_buf_push.exit
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.023, i64 %add19.i
-  %sub = sub i64 %buf_len.addr.021, %add19.i
-  %add = add i64 %add19.i, %consumed_.022
+  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.021, i64 %add19.i
+  %sub = sub i64 %buf_len.addr.022, %add19.i
+  %add = add i64 %add19.i, %consumed_.023
   %cmp.not = icmp eq i64 %sub, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !6
 
 while.end:                                        ; preds = %if.end4, %ring_buf_push.exit, %while.body
-  %consumed_.0.lcssa = phi i64 [ %add, %if.end4 ], [ %consumed_.022, %ring_buf_push.exit ], [ %consumed_.022, %while.body ]
+  %consumed_.0.lcssa = phi i64 [ %add, %if.end4 ], [ %consumed_.023, %ring_buf_push.exit ], [ %consumed_.023, %while.body ]
   %cmp5.not = icmp eq i64 %consumed_.0.lcssa, 0
   br i1 %cmp5.not, label %return, label %if.then6
 
@@ -818,31 +818,31 @@ entry:
   br i1 %cmp13.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %if.end8
-  %running.015 = phi i64 [ %add9.pre-phi, %if.end8 ], [ 0, %entry ]
-  %i.014 = phi i64 [ %inc, %if.end8 ], [ 0, %entry ]
-  %buf_len = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %iov, i64 %i.014, i32 1
+  %i.015 = phi i64 [ %inc, %if.end8 ], [ 0, %entry ]
+  %running.014 = phi i64 [ %add9.pre-phi, %if.end8 ], [ 0, %entry ]
+  %buf_len = getelementptr inbounds %struct.ossl_qtx_iovec_st, ptr %iov, i64 %i.015, i32 1
   %0 = load i64, ptr %buf_len, align 8
-  %cmp1.not = icmp ult i64 %running.015, %len
+  %cmp1.not = icmp ult i64 %running.014, %len
   br i1 %cmp1.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body
   store i64 0, ptr %buf_len, align 8
-  %.pre = add i64 %0, %running.015
+  %.pre = add i64 %0, %running.014
   br label %if.end8
 
 if.else:                                          ; preds = %for.body
-  %add = add i64 %0, %running.015
+  %add = add i64 %0, %running.014
   %cmp4 = icmp ugt i64 %add, %len
   br i1 %cmp4, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.else
-  %sub = sub i64 %len, %running.015
+  %sub = sub i64 %len, %running.014
   store i64 %sub, ptr %buf_len, align 8
   br label %if.end8
 
 if.end8:                                          ; preds = %if.else, %if.then5, %if.then
   %add9.pre-phi = phi i64 [ %add, %if.else ], [ %add, %if.then5 ], [ %.pre, %if.then ]
-  %inc = add nuw i64 %i.014, 1
+  %inc = add nuw i64 %i.015, 1
   %exitcond.not = icmp eq i64 %inc, %num_iov
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 

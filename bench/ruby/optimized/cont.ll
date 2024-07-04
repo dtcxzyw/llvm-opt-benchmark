@@ -3674,11 +3674,11 @@ cont_save_machine_stack.exit.i:                   ; preds = %132, %rbimpl_size_m
   br label %135
 
 135:                                              ; preds = %135, %cont_save_machine_stack.exit.i
-  %.050.in.i = phi ptr [ %134, %cont_save_machine_stack.exit.i ], [ %.050.i, %135 ]
-  %.049.i = phi i32 [ 0, %cont_save_machine_stack.exit.i ], [ %136, %135 ]
-  %.050.i = load ptr, ptr %.050.in.i, align 8
-  %.not51.i = icmp eq ptr %.050.i, null
-  %136 = add i32 %.049.i, 1
+  %.049.in.i = phi ptr [ %134, %cont_save_machine_stack.exit.i ], [ %.049.i, %135 ]
+  %.048.i = phi i32 [ 0, %cont_save_machine_stack.exit.i ], [ %136, %135 ]
+  %.049.i = load ptr, ptr %.049.in.i, align 8
+  %.not51.i = icmp eq ptr %.049.i, null
+  %136 = add i32 %.048.i, 1
   br i1 %.not51.i, label %137, label %135, !llvm.loop !20
 
 137:                                              ; preds = %135
@@ -3695,7 +3695,7 @@ cont_save_machine_stack.exit.i:                   ; preds = %132, %rbimpl_size_m
 
 .lr.ph.i:                                         ; preds = %137, %147
   %.164.i = phi ptr [ %.1.i, %147 ], [ %.161.i, %137 ]
-  %.04863.i = phi ptr [ %148, %147 ], [ %139, %137 ]
+  %.063.i = phi ptr [ %148, %147 ], [ %139, %137 ]
   %143 = getelementptr inbounds i8, ptr %.164.i, i64 8
   %144 = load i64, ptr %143, align 8
   %.not54.i = icmp eq i64 %144, 0
@@ -3707,15 +3707,15 @@ cont_save_machine_stack.exit.i:                   ; preds = %132, %rbimpl_size_m
   br label %147
 
 147:                                              ; preds = %145, %.lr.ph.i
-  %148 = getelementptr i8, ptr %.04863.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.04863.i, ptr noundef nonnull align 8 dereferenceable(24) %143, i64 24, i1 false)
+  %148 = getelementptr i8, ptr %.063.i, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.063.i, ptr noundef nonnull align 8 dereferenceable(24) %143, i64 24, i1 false)
   %.1.i = load ptr, ptr %.164.i, align 8
   %.not52.i = icmp eq ptr %.1.i, null
   br i1 %.not52.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %147, %137
-  %.048.lcssa.i = phi ptr [ %139, %137 ], [ %148, %147 ]
-  store i64 0, ptr %.048.lcssa.i, align 8
+  %.0.lcssa.i = phi ptr [ %139, %137 ], [ %148, %147 ]
+  store i64 0, ptr %.0.lcssa.i, align 8
   %.0..0..0..0..0..0.40.i = load volatile ptr, ptr %4, align 8
   %149 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.40.i, i64 456
   %150 = call ptr @llvm.frameaddress.p0(i32 0)
@@ -3758,11 +3758,11 @@ cont_save_machine_stack.exit.i:                   ; preds = %132, %rbimpl_size_m
   br label %cont_capture.exit
 
 cont_capture.exit:                                ; preds = %161, %163
-  %.0.i = phi i64 [ %156, %161 ], [ %.0..0..0..0..0..0.19.i, %163 ]
+  %.050.i = phi i64 [ %156, %161 ], [ %.0..0..0..0..0..0.19.i, %163 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  store volatile i64 %.0.i, ptr %7, align 8
+  store volatile i64 %.050.i, ptr %7, align 8
   %164 = load volatile i32, ptr %6, align 4
   %.not = icmp eq i32 %164, 0
   %.0..0..0..0.1 = load volatile i64, ptr %7, align 8
@@ -4496,9 +4496,9 @@ fiber_pool_allocate_memory.exit.thread:           ; preds = %.lr.ph.i, %11, %2
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %26 = phi i64 [ %38, %37 ], [ %.pre, %.lr.ph.preheader ]
-  %.052 = phi ptr [ %41, %37 ], [ %20, %.lr.ph.preheader ]
-  %.03551 = phi i64 [ %50, %37 ], [ 0, %.lr.ph.preheader ]
-  %27 = mul i64 %.03551, %6
+  %.052 = phi i64 [ %50, %37 ], [ 0, %.lr.ph.preheader ]
+  %.03551 = phi ptr [ %41, %37 ], [ %20, %.lr.ph.preheader ]
+  %27 = mul i64 %.052, %6
   %28 = getelementptr i8, ptr %10, i64 %27
   %29 = tail call i32 @mprotect(ptr noundef %28, i64 noundef %26, i32 noundef 0) #9
   %30 = icmp slt i32 %29, 0
@@ -4531,18 +4531,18 @@ fiber_pool_allocate_memory.exit.thread:           ; preds = %.lr.ph.i, %11, %2
   %48 = getelementptr inbounds i8, ptr %41, i64 32
   store ptr %0, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %41, i64 48
-  store ptr %.052, ptr %49, align 8
-  %50 = add nuw i64 %.03551, 1
+  store ptr %.03551, ptr %49, align 8
+  %50 = add nuw i64 %.052, 1
   %exitcond.not = icmp eq i64 %50, %.044
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %37, %18
-  %.0.lcssa = phi ptr [ %20, %18 ], [ %41, %37 ]
+  %.035.lcssa = phi ptr [ %20, %18 ], [ %41, %37 ]
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %21, i64 40
   store ptr %51, ptr %52, align 8
   store ptr %21, ptr %0, align 8
-  store ptr %.0.lcssa, ptr %19, align 8
+  store ptr %.035.lcssa, ptr %19, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 24
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, %.044
@@ -4630,58 +4630,58 @@ define internal fastcc void @rollback_ensure_stack(ptr noundef readonly %0, ptr 
   br i1 %.not63, label %.preheader61, label %.lr.ph
 
 .preheader61:                                     ; preds = %.lr.ph, %2
-  %.043.lcssa = phi i64 [ 0, %2 ], [ %6, %.lr.ph ]
+  %.042.lcssa = phi i64 [ 0, %2 ], [ %6, %.lr.ph ]
   %5 = load i64, ptr %1, align 8
   %.not4966 = icmp eq i64 %5, 0
   br i1 %.not4966, label %.preheader60, label %.lr.ph69
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.04365 = phi i64 [ %6, %.lr.ph ], [ 0, %2 ]
-  %.04764 = phi ptr [ %7, %.lr.ph ], [ %0, %2 ]
-  %6 = add i64 %.04365, 1
-  %7 = load ptr, ptr %.04764, align 8
+  %.04265 = phi i64 [ %6, %.lr.ph ], [ 0, %2 ]
+  %.04664 = phi ptr [ %7, %.lr.ph ], [ %0, %2 ]
+  %6 = add i64 %.04265, 1
+  %7 = load ptr, ptr %.04664, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.preheader61, label %.lr.ph, !llvm.loop !25
 
 .preheader60:                                     ; preds = %.lr.ph69, %.preheader61
-  %.042.lcssa = phi i64 [ 0, %.preheader61 ], [ %8, %.lr.ph69 ]
-  %.not5071 = icmp eq i64 %.043.lcssa, 0
+  %.041.lcssa = phi i64 [ 0, %.preheader61 ], [ %8, %.lr.ph69 ]
+  %.not5071 = icmp eq i64 %.042.lcssa, 0
   br i1 %.not5071, label %._crit_edge, label %.lr.ph74
 
 .lr.ph69:                                         ; preds = %.preheader61, %.lr.ph69
-  %.04268 = phi i64 [ %8, %.lr.ph69 ], [ 0, %.preheader61 ]
-  %.04667 = phi ptr [ %9, %.lr.ph69 ], [ %1, %.preheader61 ]
-  %8 = add i64 %.04268, 1
-  %9 = getelementptr i8, ptr %.04667, i64 24
+  %.04168 = phi i64 [ %8, %.lr.ph69 ], [ 0, %.preheader61 ]
+  %.04567 = phi ptr [ %9, %.lr.ph69 ], [ %1, %.preheader61 ]
+  %8 = add i64 %.04168, 1
+  %9 = getelementptr i8, ptr %.04567, i64 24
   %10 = load i64, ptr %9, align 8
   %.not49 = icmp eq i64 %10, 0
   br i1 %.not49, label %.preheader60, label %.lr.ph69, !llvm.loop !26
 
 .lr.ph74:                                         ; preds = %.preheader60, %18
-  %.04173 = phi i64 [ %19, %18 ], [ %.043.lcssa, %.preheader60 ]
-  %.14872 = phi ptr [ %20, %18 ], [ %0, %.preheader60 ]
-  %.not51 = icmp ult i64 %.042.lcssa, %.04173
+  %.073 = phi i64 [ %19, %18 ], [ %.042.lcssa, %.preheader60 ]
+  %.14772 = phi ptr [ %20, %18 ], [ %0, %.preheader60 ]
+  %.not51 = icmp ult i64 %.041.lcssa, %.073
   br i1 %.not51, label %18, label %11
 
 11:                                               ; preds = %.lr.ph74
-  %12 = getelementptr inbounds i8, ptr %.14872, i64 8
+  %12 = getelementptr inbounds i8, ptr %.14772, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = sub i64 %.042.lcssa, %.04173
+  %14 = sub i64 %.041.lcssa, %.073
   %15 = getelementptr %struct.rb_ensure_entry, ptr %1, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %13, %16
   br i1 %17, label %._crit_edge, label %18
 
 18:                                               ; preds = %11, %.lr.ph74
-  %19 = add i64 %.04173, -1
-  %20 = load ptr, ptr %.14872, align 8
+  %19 = add i64 %.073, -1
+  %20 = load ptr, ptr %.14772, align 8
   %.not50 = icmp eq i64 %19, 0
   br i1 %.not50, label %._crit_edge, label %.lr.ph74, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %18, %11, %.preheader60
-  %.041.lcssa = phi i64 [ 0, %.preheader60 ], [ %.04173, %11 ], [ 0, %18 ]
-  %21 = sub i64 %.042.lcssa, %.041.lcssa
-  %.not88 = icmp eq i64 %.042.lcssa, %.041.lcssa
+  %.0.lcssa = phi i64 [ 0, %.preheader60 ], [ %.073, %11 ], [ 0, %18 ]
+  %21 = sub i64 %.041.lcssa, %.0.lcssa
+  %.not88 = icmp eq i64 %.041.lcssa, %.0.lcssa
   br i1 %.not88, label %.preheader59, label %.lr.ph80
 
 .lr.ph80:                                         ; preds = %._crit_edge
@@ -4692,14 +4692,14 @@ define internal fastcc void @rollback_ensure_stack(ptr noundef readonly %0, ptr 
   br i1 %25, label %.preheader59, label %.lr.ph80.split
 
 .preheader59:                                     ; preds = %39, %.lr.ph80, %._crit_edge
-  %.045.lcssa = phi i64 [ 0, %._crit_edge ], [ %21, %.lr.ph80 ], [ %21, %39 ]
-  %26 = icmp ugt i64 %.043.lcssa, %.041.lcssa
+  %.044.lcssa = phi i64 [ 0, %._crit_edge ], [ %21, %.lr.ph80 ], [ %21, %39 ]
+  %26 = icmp ugt i64 %.042.lcssa, %.0.lcssa
   br i1 %26, label %.lr.ph84, label %.preheader
 
 .lr.ph80.split:                                   ; preds = %.lr.ph80, %39
   %27 = phi ptr [ %40, %39 ], [ %22, %.lr.ph80 ]
-  %.04578 = phi i64 [ %41, %39 ], [ 0, %.lr.ph80 ]
-  %28 = getelementptr %struct.rb_ensure_entry, ptr %1, i64 %.04578, i32 1
+  %.04478 = phi i64 [ %41, %39 ], [ 0, %.lr.ph80 ]
+  %28 = getelementptr %struct.rb_ensure_entry, ptr %1, i64 %.04478, i32 1
   %29 = load ptr, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %30 = getelementptr inbounds i8, ptr %27, i64 1176
@@ -4732,34 +4732,34 @@ lookup_rollback_func.exit:                        ; preds = %32
 
 39:                                               ; preds = %lookup_rollback_func.exit.thread, %lookup_rollback_func.exit
   %40 = phi ptr [ %35, %lookup_rollback_func.exit.thread ], [ %.pre, %lookup_rollback_func.exit ]
-  %41 = add nuw i64 %.04578, 1
+  %41 = add nuw i64 %.04478, 1
   %exitcond.not = icmp eq i64 %41, %21
   br i1 %exitcond.not, label %.preheader59, label %.lr.ph80.split, !llvm.loop !28
 
 .preheader:                                       ; preds = %.lr.ph84, %.preheader59
-  %.not89 = icmp eq i64 %.045.lcssa, 0
+  %.not89 = icmp eq i64 %.044.lcssa, 0
   br i1 %.not89, label %._crit_edge87, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %.preheader
-  %42 = getelementptr %struct.rb_ensure_entry, ptr %1, i64 %.045.lcssa
+  %42 = getelementptr %struct.rb_ensure_entry, ptr %1, i64 %.044.lcssa
   br label %51
 
 .lr.ph84:                                         ; preds = %.preheader59, %.lr.ph84
-  %.083 = phi ptr [ %48, %.lr.ph84 ], [ %0, %.preheader59 ]
-  %.182 = phi i64 [ %49, %.lr.ph84 ], [ %.043.lcssa, %.preheader59 ]
-  %43 = getelementptr inbounds i8, ptr %.083, i64 16
+  %.183 = phi i64 [ %49, %.lr.ph84 ], [ %.042.lcssa, %.preheader59 ]
+  %.04882 = phi ptr [ %48, %.lr.ph84 ], [ %0, %.preheader59 ]
+  %43 = getelementptr inbounds i8, ptr %.04882, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %.083, i64 24
+  %45 = getelementptr inbounds i8, ptr %.04882, i64 24
   %46 = load i64, ptr %45, align 8
   %47 = call i64 %44(i64 noundef %46) #9
-  %48 = load ptr, ptr %.083, align 8
-  %49 = add i64 %.182, -1
-  %50 = icmp ugt i64 %49, %.041.lcssa
+  %48 = load ptr, ptr %.04882, align 8
+  %49 = add i64 %.183, -1
+  %50 = icmp ugt i64 %49, %.0.lcssa
   br i1 %50, label %.lr.ph84, label %.preheader, !llvm.loop !30
 
 51:                                               ; preds = %.lr.ph86, %69
-  %.04485 = phi i64 [ 0, %.lr.ph86 ], [ %70, %69 ]
-  %52 = xor i64 %.04485, -1
+  %.04385 = phi i64 [ 0, %.lr.ph86 ], [ %70, %69 ]
+  %52 = xor i64 %.04385, -1
   %53 = getelementptr %struct.rb_ensure_entry, ptr %42, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
@@ -4794,8 +4794,8 @@ lookup_rollback_func.exit56:                      ; preds = %59
   br label %69
 
 69:                                               ; preds = %lookup_rollback_func.exit56.thread, %lookup_rollback_func.exit56, %65
-  %70 = add nuw i64 %.04485, 1
-  %exitcond94.not = icmp eq i64 %70, %.045.lcssa
+  %70 = add nuw i64 %.04385, 1
+  %exitcond94.not = icmp eq i64 %70, %.044.lcssa
   br i1 %exitcond94.not, label %._crit_edge87, label %51, !llvm.loop !31
 
 ._crit_edge87:                                    ; preds = %69, %.preheader

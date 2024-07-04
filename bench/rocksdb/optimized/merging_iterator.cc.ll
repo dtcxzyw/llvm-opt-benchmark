@@ -1184,12 +1184,12 @@ cond.false.i204:                                  ; preds = %call3.i.noexc209
   br label %invoke.cont124
 
 invoke.cont124:                                   ; preds = %cond.false.i204, %cond.true.i205
-  %ref.tmp123.sroa.0.0.in = phi ptr [ %end_key.i2.i, %cond.true.i205 ], [ %156, %cond.false.i204 ]
   %ref.tmp123.sroa.3.0.in = phi ptr [ %ref.tmp123.sroa.3.0.end_key.i2.i.sroa_idx, %cond.true.i205 ], [ %ref.tmp123.sroa.3.0..sroa_idx, %cond.false.i204 ]
+  %ref.tmp123.sroa.0.0.in = phi ptr [ %end_key.i2.i, %cond.true.i205 ], [ %156, %cond.false.i204 ]
   %ref.tmp123.sroa.4.0 = phi i64 [ 72057594037927935, %cond.true.i205 ], [ %ref.tmp123.sroa.4.0.copyload, %cond.false.i204 ]
   %ref.tmp123.sroa.6.0 = phi i8 [ 15, %cond.true.i205 ], [ %ref.tmp123.sroa.6.0.copyload, %cond.false.i204 ]
-  %ref.tmp123.sroa.3.0 = load i64, ptr %ref.tmp123.sroa.3.0.in, align 8
   %ref.tmp123.sroa.0.0 = load ptr, ptr %ref.tmp123.sroa.0.0.in, align 8
+  %ref.tmp123.sroa.3.0 = load i64, ptr %ref.tmp123.sroa.3.0.in, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i196)
   %add4.i.i.i = add i64 %ref.tmp123.sroa.3.0, 8
   %157 = load i64, ptr %buf_size_.i, align 8
@@ -4598,11 +4598,11 @@ cond.true.i200:                                   ; preds = %call3.i.noexc204, %
   br label %invoke.cont119
 
 invoke.cont119:                                   ; preds = %call3.i.noexc204, %cond.true.i200
-  %ref.tmp118.sroa.0.0.in.in = phi ptr [ %pos_.i1.i201, %cond.true.i200 ], [ %smallest_.i, %call3.i.noexc204 ]
-  %ref.tmp118.sroa.0.0.in = load ptr, ptr %ref.tmp118.sroa.0.0.in.in, align 8, !noalias !134
-  %ref.tmp118.sroa.3.0.in = getelementptr inbounds i8, ptr %ref.tmp118.sroa.0.0.in, i64 8
+  %.pn.in = phi ptr [ %pos_.i1.i201, %cond.true.i200 ], [ %smallest_.i, %call3.i.noexc204 ]
+  %.pn = load ptr, ptr %.pn.in, align 8, !noalias !134
+  %ref.tmp118.sroa.0.0 = load ptr, ptr %.pn, align 8
+  %ref.tmp118.sroa.3.0.in = getelementptr inbounds i8, ptr %.pn, i64 8
   %ref.tmp118.sroa.3.0 = load i64, ptr %ref.tmp118.sroa.3.0.in, align 8
-  %ref.tmp118.sroa.0.0 = load ptr, ptr %ref.tmp118.sroa.0.0.in, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i191)
   %add4.i.i = add i64 %ref.tmp118.sroa.3.0, 8
   %149 = load i64, ptr %buf_size_.i, align 8
@@ -8776,35 +8776,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %__val, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.020.i, 2
+  %add11.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.020.i, 3
+  %add15.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
+  %div.i = udiv i64 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !269
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i

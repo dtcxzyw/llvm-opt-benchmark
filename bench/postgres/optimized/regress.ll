@@ -350,9 +350,9 @@ define noundef i64 @widget_in(ptr nocapture noundef readonly %0) local_unnamed_a
   br label %switch.early.test
 
 switch.early.test:                                ; preds = %1, %15
-  %.026 = phi ptr [ %5, %1 ], [ %16, %15 ]
-  %.01925 = phi i32 [ 0, %1 ], [ %.1.fr, %15 ]
-  %6 = load i8, ptr %.026, align 1
+  %.026 = phi i32 [ 0, %1 ], [ %.1.fr, %15 ]
+  %.01925 = phi ptr [ %5, %1 ], [ %16, %15 ]
+  %6 = load i8, ptr %.01925, align 1
   switch i8 %6, label %7 [
     i8 41, label %.critedge
     i8 0, label %.critedge
@@ -361,22 +361,22 @@ switch.early.test:                                ; preds = %1, %15
 
 7:                                                ; preds = %switch.early.test
   %8 = icmp eq i8 %6, 40
-  %9 = icmp eq i32 %.01925, 0
+  %9 = icmp eq i32 %.026, 0
   %or.cond3 = and i1 %8, %9
   br i1 %or.cond3, label %10, label %15
 
 10:                                               ; preds = %switch.early.test, %7
-  %11 = getelementptr i8, ptr %.026, i64 1
-  %12 = add nsw i32 %.01925, 1
-  %13 = sext i32 %.01925 to i64
+  %11 = getelementptr i8, ptr %.01925, i64 1
+  %12 = add nsw i32 %.026, 1
+  %13 = sext i32 %.026 to i64
   %14 = getelementptr [3 x ptr], ptr %2, i64 0, i64 %13
   store ptr %11, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %7, %10
-  %.1 = phi i32 [ %12, %10 ], [ %.01925, %7 ]
+  %.1 = phi i32 [ %12, %10 ], [ %.026, %7 ]
   %.1.fr = freeze i32 %.1
-  %16 = getelementptr i8, ptr %.026, i64 1
+  %16 = getelementptr i8, ptr %.01925, i64 1
   %17 = icmp sgt i32 %.1.fr, 2
   br i1 %17, label %21, label %switch.early.test, !llvm.loop !7
 
@@ -633,7 +633,7 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   br label %34
 
 34:                                               ; preds = %26, %31
-  %.0121 = phi ptr [ %33, %31 ], [ null, %26 ]
+  %.0122 = phi ptr [ %33, %31 ], [ null, %26 ]
   %35 = getelementptr inbounds i8, ptr %6, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %6, i64 8
@@ -644,8 +644,8 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 
 40:                                               ; preds = %34
   tail call void @pfree(ptr noundef %39) #18
-  %.not143 = icmp eq ptr %.0121, null
-  %41 = select i1 %.not143, ptr %36, ptr %.0121
+  %.not143 = icmp eq ptr %.0122, null
+  %41 = select i1 %.not143, ptr %36, ptr %.0122
   %42 = ptrtoint ptr %41 to i64
   br label %209
 
@@ -744,11 +744,11 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   unreachable
 
 98:                                               ; preds = %87
-  %.not135 = icmp eq ptr %.0121, null
+  %.not135 = icmp eq ptr %.0122, null
   br i1 %.not135, label %126, label %99
 
 99:                                               ; preds = %98
-  %100 = call i64 @SPI_getbinval(ptr noundef nonnull %.0121, ptr noundef nonnull %57, i32 noundef %79, ptr noundef nonnull %4) #18
+  %100 = call i64 @SPI_getbinval(ptr noundef nonnull %.0122, ptr noundef nonnull %57, i32 noundef %79, ptr noundef nonnull %4) #18
   %101 = load i8, ptr %4, align 1
   %102 = trunc i8 %101 to i1
   br i1 %102, label %103, label %107
@@ -762,7 +762,7 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   unreachable
 
 107:                                              ; preds = %99
-  %108 = call i64 @SPI_getbinval(ptr noundef nonnull %.0121, ptr noundef nonnull %57, i32 noundef %89, ptr noundef nonnull %4) #18
+  %108 = call i64 @SPI_getbinval(ptr noundef nonnull %.0122, ptr noundef nonnull %57, i32 noundef %89, ptr noundef nonnull %4) #18
   %109 = load i8, ptr %4, align 1
   %110 = trunc i8 %109 to i1
   br i1 %110, label %111, label %116
@@ -836,7 +836,7 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   br i1 %143, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %138
-  %144 = select i1 %.not135, ptr %36, ptr %.0121
+  %144 = select i1 %.not135, ptr %36, ptr %.0122
   %wide.trip.count = zext nneg i32 %58 to i64
   br label %145
 
@@ -957,15 +957,15 @@ define i64 @ttdummy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   br label %206
 
 206:                                              ; preds = %203, %204
-  %.0122 = phi ptr [ %205, %204 ], [ %36, %203 ]
+  %.0121 = phi ptr [ %205, %204 ], [ %36, %203 ]
   %207 = call i32 @SPI_finish() #18
   call void @pfree(ptr noundef %39) #18
-  %208 = ptrtoint ptr %.0122 to i64
+  %208 = ptrtoint ptr %.0121 to i64
   br label %209
 
 209:                                              ; preds = %206, %127, %125, %40
-  %.0 = phi i64 [ %42, %40 ], [ 0, %125 ], [ %208, %206 ], [ 0, %127 ]
-  ret i64 %.0
+  %.0123 = phi i64 [ %42, %40 ], [ 0, %125 ], [ %208, %206 ], [ 0, %127 ]
+  ret i64 %.0123
 }
 
 declare ptr @SPI_getrelname(ptr noundef) local_unnamed_addr #2
@@ -1278,13 +1278,13 @@ define i64 @make_tuple_indirect(ptr nocapture noundef readonly %0) local_unnamed
   br label %93
 
 93:                                               ; preds = %91, %49
-  %.061 = phi ptr [ %50, %49 ], [ %68, %91 ]
+  %.0 = phi ptr [ %50, %49 ], [ %68, %91 ]
   %94 = call ptr @palloc0(i64 noundef 10) #18
   store i8 1, ptr %94, align 1
   %95 = getelementptr inbounds i8, ptr %94, i64 1
   store i8 1, ptr %95, align 1
   %96 = getelementptr inbounds i8, ptr %94, i64 2
-  store ptr %.061, ptr %96, align 1
+  store ptr %.0, ptr %96, align 1
   %97 = ptrtoint ptr %94 to i64
   store i64 %97, ptr %41, align 8
   br label %98
@@ -2733,9 +2733,9 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
 
 113:                                              ; preds = %67, %76, %98
   %.pre-phi = phi i64 [ %70, %67 ], [ %70, %76 ], [ %.pre, %98 ]
-  %.0 = phi ptr [ %8, %67 ], [ %79, %76 ], [ %109, %98 ]
+  %.070 = phi ptr [ %8, %67 ], [ %79, %76 ], [ %109, %98 ]
   store i64 %.pre-phi, ptr %3, align 16
-  %114 = ptrtoint ptr %.0 to i64
+  %114 = ptrtoint ptr %.070 to i64
   %115 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %114, ptr %115, align 8
   %116 = load ptr, ptr %2, align 8

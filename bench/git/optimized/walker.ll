@@ -77,7 +77,7 @@ if.end.lr.ph:                                     ; preds = %entry
 
 if.end:                                           ; preds = %if.end.lr.ph, %xstrdup_or_null.exit
   %indvars.iv = phi i64 [ 0, %if.end.lr.ph ], [ %indvars.iv.next, %xstrdup_or_null.exit ]
-  %targets_alloc.026 = phi i32 [ 0, %if.end.lr.ph ], [ %targets_alloc.1, %xstrdup_or_null.exit ]
+  %targets_alloc.027 = phi i32 [ 0, %if.end.lr.ph ], [ %targets_alloc.1, %xstrdup_or_null.exit ]
   %1 = load ptr, ptr %buf1, align 8
   %call2 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 9) #15
   %tobool.not = icmp eq ptr %call2, null
@@ -90,13 +90,13 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.then3, %if.end
   %rf_one.0 = phi ptr [ %incdec.ptr, %if.then3 ], [ null, %if.end ]
-  %2 = sext i32 %targets_alloc.026 to i64
+  %2 = sext i32 %targets_alloc.027 to i64
   %cmp5.not = icmp slt i64 %indvars.iv, %2
   br i1 %cmp5.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
-  %tobool7.not = icmp eq i32 %targets_alloc.026, 0
-  %mul = shl nsw i32 %targets_alloc.026, 1
+  %tobool7.not = icmp eq i32 %targets_alloc.027, 0
+  %mul = shl nsw i32 %targets_alloc.027, 1
   %cond = select i1 %tobool7.not, i32 64, i32 %mul
   %conv = sext i32 %cond to i64
   %mul.ov.i = icmp slt i32 %cond, 0
@@ -117,7 +117,7 @@ st_mult.exit22:                                   ; preds = %if.then6
   br label %if.end13
 
 if.end13:                                         ; preds = %st_mult.exit22, %if.end4
-  %targets_alloc.1 = phi i32 [ %cond, %st_mult.exit22 ], [ %targets_alloc.026, %if.end4 ]
+  %targets_alloc.1 = phi i32 [ %cond, %st_mult.exit22 ], [ %targets_alloc.027, %if.end4 ]
   %call14 = call ptr @xstrdup(ptr noundef %1) #14
   %5 = load ptr, ptr %target, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv

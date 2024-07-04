@@ -621,8 +621,8 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_omercP8PJconsts(ptr 
   br label %342
 
 342:                                              ; preds = %326, %275, %240, %205, %189, %99, %90, %86, %80, %75, %7
-  %.0 = phi ptr [ %8, %7 ], [ %206, %205 ], [ %0, %326 ], [ %190, %189 ], [ %241, %240 ], [ %276, %275 ], [ %76, %75 ], [ %81, %80 ], [ %87, %86 ], [ %91, %90 ], [ %100, %99 ]
-  ret ptr %.0
+  %.0237 = phi ptr [ %8, %7 ], [ %206, %205 ], [ %0, %326 ], [ %190, %189 ], [ %241, %240 ], [ %276, %275 ], [ %76, %75 ], [ %81, %80 ], [ %87, %86 ], [ %91, %90 ], [ %100, %99 ]
+  ret ptr %.0237
 }
 
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #1
@@ -710,12 +710,12 @@ define internal { double, double } @_ZL15omerc_e_inverse5PJ_XYP8PJconsts(double 
   br label %22
 
 22:                                               ; preds = %3, %9
-  %.048 = phi double [ %16, %9 ], [ %1, %3 ]
-  %.0 = phi double [ %21, %9 ], [ %0, %3 ]
+  %.048 = phi double [ %21, %9 ], [ %0, %3 ]
+  %.0 = phi double [ %16, %9 ], [ %1, %3 ]
   %23 = getelementptr inbounds i8, ptr %6, i64 40
   %24 = load double, ptr %23, align 8
   %25 = fneg double %24
-  %26 = fmul double %.048, %25
+  %26 = fmul double %.0, %25
   %27 = tail call double @exp(double noundef %26) #11
   %28 = fcmp oeq double %27, 0.000000e+00
   br i1 %28, label %29, label %31
@@ -735,7 +735,7 @@ define internal { double, double } @_ZL15omerc_e_inverse5PJ_XYP8PJconsts(double 
   %35 = fadd double %27, %32
   %36 = fmul double %35, 5.000000e-01
   %37 = load double, ptr %23, align 8
-  %38 = fmul double %.0, %37
+  %38 = fmul double %.048, %37
   %39 = tail call double @sin(double noundef %38) #11
   %40 = getelementptr inbounds i8, ptr %6, i64 64
   %41 = load double, ptr %40, align 8
@@ -788,7 +788,7 @@ define internal { double, double } @_ZL15omerc_e_inverse5PJ_XYP8PJconsts(double 
   %80 = fmul double %78, %79
   %81 = tail call double @llvm.fmuladd.f64(double %34, double %77, double %80)
   %82 = load double, ptr %23, align 8
-  %83 = fmul double %.0, %82
+  %83 = fmul double %.048, %82
   %84 = tail call double @cos(double noundef %83) #11
   %85 = tail call double @atan2(double noundef %81, double noundef %84) #11
   %86 = fmul double %85, %76
@@ -891,8 +891,8 @@ define internal { double, double } @_ZL15omerc_e_forward5PJ_LPP8PJconsts(double 
   br label %74
 
 74:                                               ; preds = %57, %60, %68
-  %.053 = phi double [ %51, %57 ], [ %51, %60 ], [ %70, %68 ]
-  %.0 = phi double [ %59, %57 ], [ %67, %60 ], [ %73, %68 ]
+  %.053 = phi double [ %59, %57 ], [ %67, %60 ], [ %73, %68 ]
+  %.0 = phi double [ %51, %57 ], [ %51, %60 ], [ %70, %68 ]
   %75 = getelementptr inbounds i8, ptr %5, i64 112
   %76 = load i32, ptr %75, align 8
   %.not = icmp eq i32 %76, 0
@@ -901,21 +901,21 @@ define internal { double, double } @_ZL15omerc_e_forward5PJ_LPP8PJconsts(double 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds i8, ptr %5, i64 104
   %79 = load double, ptr %78, align 8
-  %80 = fsub double %.0, %79
+  %80 = fsub double %.053, %79
   %81 = getelementptr inbounds i8, ptr %5, i64 80
   %82 = load double, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %5, i64 72
   %84 = load double, ptr %83, align 8
   %85 = fmul double %80, %84
-  %86 = tail call double @llvm.fmuladd.f64(double %.053, double %82, double %85)
-  %87 = fneg double %.053
+  %86 = tail call double @llvm.fmuladd.f64(double %.0, double %82, double %85)
+  %87 = fneg double %.0
   %88 = fmul double %84, %87
   %89 = tail call double @llvm.fmuladd.f64(double %80, double %82, double %88)
   br label %90
 
 90:                                               ; preds = %74, %77, %41
-  %.sroa.452.0 = phi double [ 0.000000e+00, %41 ], [ %89, %77 ], [ %.053, %74 ]
-  %.sroa.051.0 = phi double [ 0.000000e+00, %41 ], [ %86, %77 ], [ %.0, %74 ]
+  %.sroa.452.0 = phi double [ 0.000000e+00, %41 ], [ %89, %77 ], [ %.0, %74 ]
+  %.sroa.051.0 = phi double [ 0.000000e+00, %41 ], [ %86, %77 ], [ %.053, %74 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.051.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.452.0, 1
   ret { double, double } %.fca.1.insert

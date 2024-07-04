@@ -991,10 +991,10 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv119 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next120, %for.inc ]
   %indvars.iv = phi i64 [ 1, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %numBreaks.0111 = phi i32 [ 1, %for.body.preheader ], [ %call31, %for.inc ]
-  %numCodeUnits.0109 = phi i32 [ %call18, %for.body.preheader ], [ %numCodeUnits.1, %for.inc ]
+  %numCodeUnits.0110 = phi i32 [ %call18, %for.body.preheader ], [ %numCodeUnits.1, %for.inc ]
+  %numBreaks.0109 = phi i32 [ 1, %for.body.preheader ], [ %call31, %for.inc ]
   %9 = trunc nuw nsw i64 %indvars.iv119 to i32
-  %call31 = invoke noundef i32 @_ZNK6icu_7513MlBreakEngine18evaluateBreakpointERKNS_13UnicodeStringEPiiiiRNS_9UVector32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1556) %this, ptr noundef nonnull align 8 dereferenceable(64) %inString, ptr noundef nonnull %call13, i32 noundef %9, i32 noundef %numCodeUnits.0109, i32 noundef %numBreaks.0111, ptr noundef nonnull align 8 dereferenceable(32) %boundary, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call31 = invoke noundef i32 @_ZNK6icu_7513MlBreakEngine18evaluateBreakpointERKNS_13UnicodeStringEPiiiiRNS_9UVector32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1556) %this, ptr noundef nonnull align 8 dereferenceable(64) %inString, ptr noundef nonnull %call13, i32 noundef %9, i32 noundef %numCodeUnits.0110, i32 noundef %numBreaks.0109, ptr noundef nonnull align 8 dereferenceable(32) %boundary, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont30 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont30:                                    ; preds = %for.body
@@ -1005,18 +1005,18 @@ invoke.cont30:                                    ; preds = %for.body
 
 if.then34:                                        ; preds = %invoke.cont30
   %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv119
-  store i32 %numCodeUnits.0109, ptr %gep, align 4
-  %call40 = invoke noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %inString, i32 noundef %numCodeUnits.0109)
+  store i32 %numCodeUnits.0110, ptr %gep, align 4
+  %call40 = invoke noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %inString, i32 noundef %numCodeUnits.0110)
           to label %invoke.cont39 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont39:                                    ; preds = %if.then34
   %cmp41 = icmp ult i32 %call40, 65536
   %cond = select i1 %cmp41, i32 1, i32 2
-  %add42 = add nsw i32 %cond, %numCodeUnits.0109
+  %add42 = add nsw i32 %cond, %numCodeUnits.0110
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont30, %invoke.cont39
-  %numCodeUnits.1 = phi i32 [ %add42, %invoke.cont39 ], [ %numCodeUnits.0109, %invoke.cont30 ]
+  %numCodeUnits.1 = phi i32 [ %add42, %invoke.cont39 ], [ %numCodeUnits.0110, %invoke.cont30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp26 = icmp uge i64 %indvars.iv.next, %8
   %12 = load i32, ptr %status, align 4
@@ -1088,9 +1088,9 @@ for.body64.lr.ph:                                 ; preds = %if.end61
 
 for.body64:                                       ; preds = %for.body64.lr.ph, %if.end91
   %indvars.iv125 = phi i64 [ 0, %for.body64.lr.ph ], [ %indvars.iv.next126, %if.end91 ]
-  %numBreaks.2117 = phi i32 [ %numBreaks.1, %for.body64.lr.ph ], [ %numBreaks.3, %if.end91 ]
-  %correctedNumBreaks.0115 = phi i32 [ 0, %for.body64.lr.ph ], [ %correctedNumBreaks.1, %if.end91 ]
-  %prevUTextPos.0114 = phi i32 [ -1, %for.body64.lr.ph ], [ %cond75, %if.end91 ]
+  %correctedNumBreaks.0116 = phi i32 [ 0, %for.body64.lr.ph ], [ %correctedNumBreaks.1, %if.end91 ]
+  %prevUTextPos.0115 = phi i32 [ -1, %for.body64.lr.ph ], [ %cond75, %if.end91 ]
+  %numBreaks.2114 = phi i32 [ %numBreaks.1, %for.body64.lr.ph ], [ %numBreaks.3, %if.end91 ]
   %19 = load i32, ptr %count.i, align 8
   %20 = sext i32 %19 to i64
   %cmp5.i = icmp slt i64 %indvars.iv125, %20
@@ -1130,7 +1130,7 @@ cond.false:                                       ; preds = %_ZNK6icu_759UVector
 
 cond.end:                                         ; preds = %cond.true.i80, %cond.true, %cond.false
   %cond75 = phi i32 [ %add74, %cond.false ], [ %26, %cond.true.i80 ], [ 0, %cond.true ]
-  %cmp76 = icmp sgt i32 %cond75, %prevUTextPos.0114
+  %cmp76 = icmp sgt i32 %cond75, %prevUTextPos.0115
   br i1 %cmp76, label %if.then77, label %if.else
 
 if.then77:                                        ; preds = %cond.end
@@ -1185,16 +1185,16 @@ if.then.i.i:                                      ; preds = %_ZN6icu_759UVector3
   br label %invoke.cont87
 
 invoke.cont87:                                    ; preds = %if.then.i.i, %call.i.i.i.noexc
-  %inc89 = add nsw i32 %correctedNumBreaks.0115, 1
+  %inc89 = add nsw i32 %correctedNumBreaks.0116, 1
   br label %if.end91
 
 if.else:                                          ; preds = %cond.end
-  %dec = add nsw i32 %numBreaks.2117, -1
+  %dec = add nsw i32 %numBreaks.2114, -1
   br label %if.end91
 
 if.end91:                                         ; preds = %lor.lhs.false, %invoke.cont83, %invoke.cont87, %if.else
-  %correctedNumBreaks.1 = phi i32 [ %inc89, %invoke.cont87 ], [ %correctedNumBreaks.0115, %invoke.cont83 ], [ %correctedNumBreaks.0115, %lor.lhs.false ], [ %correctedNumBreaks.0115, %if.else ]
-  %numBreaks.3 = phi i32 [ %numBreaks.2117, %invoke.cont87 ], [ %numBreaks.2117, %invoke.cont83 ], [ %numBreaks.2117, %lor.lhs.false ], [ %dec, %if.else ]
+  %numBreaks.3 = phi i32 [ %numBreaks.2114, %invoke.cont87 ], [ %numBreaks.2114, %invoke.cont83 ], [ %numBreaks.2114, %lor.lhs.false ], [ %dec, %if.else ]
+  %correctedNumBreaks.1 = phi i32 [ %inc89, %invoke.cont87 ], [ %correctedNumBreaks.0116, %invoke.cont83 ], [ %correctedNumBreaks.0116, %lor.lhs.false ], [ %correctedNumBreaks.0116, %if.else ]
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %32 = sext i32 %numBreaks.3 to i64
   %cmp63 = icmp slt i64 %indvars.iv.next126, %32

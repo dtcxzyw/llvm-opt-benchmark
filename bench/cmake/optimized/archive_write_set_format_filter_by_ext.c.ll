@@ -138,8 +138,8 @@ cmpsuff.exit.thread.i20:                          ; preds = %cmpsuff.exit.i19, %
   br i1 %exitcond.i22, label %get_array_index.exit25.thread, label %17, !llvm.loop !5
 
 get_array_index.exit25.thread28:                  ; preds = %cmpsuff.exit.i, %cmpsuff.exit.i19
-  %.01330.in = phi i64 [ %indvars.iv.i17, %cmpsuff.exit.i19 ], [ %indvars.iv.i, %cmpsuff.exit.i ]
-  %26 = and i64 %.01330.in, 4294967295
+  %.030.in = phi i64 [ %indvars.iv.i17, %cmpsuff.exit.i19 ], [ %indvars.iv.i, %cmpsuff.exit.i ]
+  %26 = and i64 %.030.in, 4294967295
   %27 = getelementptr inbounds [13 x %struct.anon], ptr @names, i64 0, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -160,8 +160,8 @@ get_array_index.exit25.thread:                    ; preds = %cmpsuff.exit.thread
   br label %37
 
 37:                                               ; preds = %get_array_index.exit25.thread28, %get_array_index.exit25.thread, %32
-  %.0 = phi i32 [ %35, %32 ], [ -30, %get_array_index.exit25.thread ], [ %30, %get_array_index.exit25.thread28 ]
-  ret i32 %.0
+  %.013 = phi i32 [ %35, %32 ], [ -30, %get_array_index.exit25.thread ], [ %30, %get_array_index.exit25.thread28 ]
+  ret i32 %.013
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

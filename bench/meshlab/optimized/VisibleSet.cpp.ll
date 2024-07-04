@@ -198,20 +198,20 @@ _ZNSt12_Vector_baseIN10VisibleSet11FaceVisInfoESaIS1_EEC2EmRKS2_.exit.i: ; preds
   %53 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i, float %50, float %52)
   %54 = fsub float %53, %38
   %55 = fneg float %54
-  %56 = fcmp ogt float %.1, %55
+  %56 = fcmp ogt float %.166, %55
   %or.cond.i = select i1 %.040.i, i1 true, i1 %56
-  %.264 = select i1 %or.cond.i, float %55, float %.1
-  %57 = fcmp olt float %.166, %55
+  %.267 = select i1 %or.cond.i, float %55, float %.166
+  %57 = fcmp olt float %.1, %55
   %or.cond26.i = select i1 %.040.i, i1 true, i1 %57
-  %.267 = select i1 %or.cond26.i, float %55, float %.166
+  %.264 = select i1 %or.cond26.i, float %55, float %.1
   %58 = add nuw nsw i32 %.02339.i, 1
   %exitcond.not.i = icmp eq i32 %58, 8
   br i1 %exitcond.not.i, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, label %42, !llvm.loop !7
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit: ; preds = %42
-  %59 = fcmp olt float %.264, %.04278
-  %.143 = select i1 %59, float %.264, float %.04278
-  %60 = fcmp ogt float %.267, %32
+  %59 = fcmp olt float %.267, %.04278
+  %.143 = select i1 %59, float %.267, float %.04278
+  %60 = fcmp ogt float %.264, %32
   br i1 %60, label %61, label %62
 
 .loopexit69:                                      ; preds = %_ZNK15VisibilityCheck13isFaceVisibleEj.exit.thread, %153
@@ -235,11 +235,11 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   resume { ptr, i32 } %lpad.phi
 
 61:                                               ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit
-  store float %.267, ptr %29, align 4
+  store float %.264, ptr %29, align 4
   br label %62
 
 62:                                               ; preds = %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, %61
-  %63 = phi float [ %32, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit ], [ %.267, %61 ]
+  %63 = phi float [ %32, %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit ], [ %.264, %61 ]
   %.sroa.061.0 = load ptr, ptr %.sroa.061.079, align 8
   %.not = icmp eq ptr %.sroa.061.0, %5
   br i1 %.not, label %._crit_edge, label %31
@@ -997,12 +997,12 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   %38 = tail call noundef float @sqrtf(float noundef %.sink) #16
   %39 = fpext float %38 to double
   %40 = fadd double %36, %39
-  %.038 = fptrunc double %40 to float
-  %41 = fcmp ult float %.038, 0.000000e+00
+  %.039 = fptrunc double %40 to float
+  %41 = fcmp ult float %.039, 0.000000e+00
   br i1 %41, label %65, label %42
 
 42:                                               ; preds = %25
-  %43 = tail call noundef float @sqrtf(float noundef %.038) #16
+  %43 = tail call noundef float @sqrtf(float noundef %.039) #16
   %44 = fadd float %33, %43
   %45 = tail call noundef float @powf(float noundef %44, float noundef 0x3FD5555560000000) #16
   %46 = fcmp ult float %33, %43
@@ -1023,8 +1023,8 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   br label %57
 
 57:                                               ; preds = %50, %48
-  %.039 = phi float [ %49, %48 ], [ %56, %50 ]
-  %58 = fadd float %45, %.039
+  %.038 = phi float [ %49, %48 ], [ %56, %50 ]
+  %58 = fadd float %45, %.038
   %59 = fcmp olt float %58, 0.000000e+00
   br i1 %59, label %60, label %78
 
@@ -1036,7 +1036,7 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
   br label %78
 
 65:                                               ; preds = %25
-  %66 = fneg float %.038
+  %66 = fneg float %.039
   %67 = tail call noundef float @sqrtf(float noundef %66) #16
   %68 = tail call noundef float @hypotf(float noundef %33, float noundef %67) #16
   %69 = tail call noundef float @powf(float noundef %68, float noundef 0x3FD5555560000000) #16

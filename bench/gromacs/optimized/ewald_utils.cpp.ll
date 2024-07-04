@@ -9,8 +9,8 @@ define noundef float @_Z17calc_ewaldcoeff_qff(float noundef %0, float noundef %1
 
 3:                                                ; preds = %3, %2
   %indvars.iv = phi i32 [ %indvars.iv.next, %3 ], [ 61, %2 ]
-  %.017 = phi float [ %4, %3 ], [ 5.000000e+00, %2 ]
-  %4 = fmul float %.017, 2.000000e+00
+  %.021 = phi float [ %4, %3 ], [ 5.000000e+00, %2 ]
+  %4 = fmul float %.021, 2.000000e+00
   %5 = fmul float %4, %0
   %6 = tail call noundef float @erfcf(float noundef %5) #4
   %7 = fcmp ogt float %6, %1
@@ -19,15 +19,15 @@ define noundef float @_Z17calc_ewaldcoeff_qff(float noundef %0, float noundef %1
 
 .preheader:                                       ; preds = %3, %.preheader
   %.126 = phi i32 [ %13, %.preheader ], [ 0, %3 ]
-  %.01925 = phi float [ %.019., %.preheader ], [ %4, %3 ]
-  %.02124 = phi float [ %..021, %.preheader ], [ 0.000000e+00, %3 ]
-  %8 = fadd float %.02124, %.01925
+  %.01725 = phi float [ %.017., %.preheader ], [ %4, %3 ]
+  %.01924 = phi float [ %..019, %.preheader ], [ 0.000000e+00, %3 ]
+  %8 = fadd float %.01924, %.01725
   %9 = fmul float %8, 5.000000e-01
   %10 = fmul float %9, %0
   %11 = tail call noundef float @erfcf(float noundef %10) #4
   %12 = fcmp ogt float %11, %1
-  %..021 = select i1 %12, float %9, float %.02124
-  %.019. = select i1 %12, float %.01925, float %9
+  %..019 = select i1 %12, float %9, float %.01924
+  %.017. = select i1 %12, float %.01725, float %9
   %13 = add nuw i32 %.126, 1
   %exitcond.not = icmp eq i32 %13, %indvars.iv
   br i1 %exitcond.not, label %14, label %.preheader, !llvm.loop !7
@@ -45,8 +45,8 @@ define noundef float @_Z18calc_ewaldcoeff_ljff(float noundef %0, float noundef %
 
 3:                                                ; preds = %3, %2
   %indvars.iv = phi i32 [ %indvars.iv.next, %3 ], [ 61, %2 ]
-  %.017 = phi float [ %4, %3 ], [ 5.000000e+00, %2 ]
-  %4 = fmul float %.017, 2.000000e+00
+  %.021 = phi float [ %4, %3 ], [ 5.000000e+00, %2 ]
+  %4 = fmul float %.021, 2.000000e+00
   %5 = fmul float %4, %0
   %6 = fmul float %5, %5
   %7 = fmul float %6, %6
@@ -66,9 +66,9 @@ define noundef float @_Z18calc_ewaldcoeff_ljff(float noundef %0, float noundef %
 
 .preheader:                                       ; preds = %3, %.preheader
   %.126 = phi i32 [ %35, %.preheader ], [ 0, %3 ]
-  %.01925 = phi float [ %.019., %.preheader ], [ %4, %3 ]
-  %.02124 = phi float [ %..021, %.preheader ], [ 0.000000e+00, %3 ]
-  %19 = fadd float %.02124, %.01925
+  %.01725 = phi float [ %.017., %.preheader ], [ %4, %3 ]
+  %.01924 = phi float [ %..019, %.preheader ], [ 0.000000e+00, %3 ]
+  %19 = fadd float %.01924, %.01725
   %20 = fmul float %19, 5.000000e-01
   %21 = fmul float %20, %0
   %22 = fmul float %21, %21
@@ -84,8 +84,8 @@ define noundef float @_Z18calc_ewaldcoeff_ljff(float noundef %0, float noundef %
   %32 = fmul double %31, %26
   %33 = fptrunc double %32 to float
   %34 = fcmp ogt float %33, %1
-  %..021 = select i1 %34, float %20, float %.02124
-  %.019. = select i1 %34, float %.01925, float %20
+  %..019 = select i1 %34, float %20, float %.01924
+  %.017. = select i1 %34, float %.01725, float %20
   %35 = add nuw nsw i32 %.126, 1
   %exitcond.not = icmp eq i32 %35, %indvars.iv
   br i1 %exitcond.not, label %36, label %.preheader, !llvm.loop !9

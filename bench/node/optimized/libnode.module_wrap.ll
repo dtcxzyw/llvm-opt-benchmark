@@ -3016,22 +3016,30 @@ if.then37:                                        ; preds = %if.end34
 
 if.end38:                                         ; preds = %if.end34
   %call.i30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N2v86GlobalINS9_7PromiseEEEESaISD_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %resolve_cache_, ptr noundef nonnull align 8 dereferenceable(32) %specifier_std)
-  %29 = load ptr, ptr %call.i30, align 8, !nonnull !13, !noundef !13
+  %29 = load ptr, ptr %call.i30, align 8
+  %cmp.i.i242 = icmp eq ptr %29, null
+  br i1 %cmp.i.i242, label %_ZN2v89LocalBaseINS_7PromiseEE3NewEPNS_7IsolateEPS1_.exit, label %if.end.i243
+
+if.end.i243:                                      ; preds = %if.end38
   %30 = load i64, ptr %29, align 8
   %call.i256 = call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %call12, i64 noundef %30) #19
-  %call46 = call noundef i32 @_ZN2v87Promise5StateEv(ptr noundef nonnull align 1 dereferenceable(1) %call.i256) #19
+  br label %_ZN2v89LocalBaseINS_7PromiseEE3NewEPNS_7IsolateEPS1_.exit
+
+_ZN2v89LocalBaseINS_7PromiseEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %if.end38, %if.end.i243
+  %retval.i239.sroa.0.0 = phi ptr [ %call.i256, %if.end.i243 ], [ null, %if.end38 ]
+  %call46 = call noundef i32 @_ZN2v87Promise5StateEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i239.sroa.0.0) #19
   %cmp47.not = icmp eq i32 %call46, 1
   br i1 %cmp47.not, label %if.end49, label %if.then48
 
-if.then48:                                        ; preds = %if.end38
+if.then48:                                        ; preds = %_ZN2v89LocalBaseINS_7PromiseEE3NewEPNS_7IsolateEPS1_.exit
   %isolate_.i.i31 = getelementptr inbounds i8, ptr %9, i64 88
   %31 = load ptr, ptr %isolate_.i.i31, align 8
   %call.i.i32 = call ptr @_ZN4node26ERR_VM_MODULE_LINK_FAILUREIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEN2v85LocalINS8_5ValueEEEPNS8_7IsolateEPKcDpOT_(ptr noundef %31, ptr noundef nonnull @.str.57, ptr noundef nonnull align 8 dereferenceable(32) %specifier_std)
   %call6.i.i33 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr %call.i.i32) #19
   br label %cleanup
 
-if.end49:                                         ; preds = %if.end38
-  %call52 = call ptr @_ZN2v87Promise6ResultEv(ptr noundef nonnull align 1 dereferenceable(1) %call.i256) #19
+if.end49:                                         ; preds = %_ZN2v89LocalBaseINS_7PromiseEE3NewEPNS_7IsolateEPS1_.exit
+  %call52 = call ptr @_ZN2v87Promise6ResultEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i239.sroa.0.0) #19
   %cmp.i = icmp eq ptr %call52, null
   br i1 %cmp.i, label %if.then63, label %lor.lhs.false
 
@@ -3645,10 +3653,18 @@ _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.
 
 do.end:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
   %module_ = getelementptr inbounds i8, ptr %retval.i13.0.i, i64 32
-  %24 = load ptr, ptr %module_, align 8, !nonnull !13, !noundef !13
+  %24 = load ptr, ptr %module_, align 8
+  %cmp.i.i95 = icmp eq ptr %24, null
+  br i1 %cmp.i.i95, label %_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %do.end
   %25 = load i64, ptr %24, align 8
   %call.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %13, i64 noundef %25) #19
-  %call18 = tail call noundef i32 @_ZNK2v86Module9GetStatusEv(ptr noundef nonnull align 1 dereferenceable(1) %call.i) #19
+  br label %_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit
+
+_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %do.end, %if.end.i
+  %retval.i92.sroa.0.0 = phi ptr [ %call.i, %if.end.i ], [ null, %do.end ]
+  %call18 = tail call noundef i32 @_ZNK2v86Module9GetStatusEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i92.sroa.0.0) #19
   switch i32 %call18, label %do.body21 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb
@@ -3658,7 +3674,7 @@ do.end:                                           ; preds = %_ZN4node10BaseObjec
     i32 5, label %sw.epilog
   ]
 
-sw.bb:                                            ; preds = %do.end, %do.end
+sw.bb:                                            ; preds = %_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit, %_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit
   %env_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 176
   %26 = load ptr, ptr %env_.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i.i)
@@ -3681,13 +3697,13 @@ _ZN4node11Environment10ThrowErrorEPKc.exit:       ; preds = %sw.bb, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i.i)
   br label %return
 
-do.body21:                                        ; preds = %do.end
+do.body21:                                        ; preds = %_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6loader10ModuleWrap12GetNamespaceERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args) #19
   tail call void @abort() #22
   unreachable
 
-sw.epilog:                                        ; preds = %do.end, %do.end, %do.end, %do.end
-  %call24 = tail call ptr @_ZN2v86Module18GetModuleNamespaceEv(ptr noundef nonnull align 1 dereferenceable(1) %call.i) #19
+sw.epilog:                                        ; preds = %_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit, %_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit, %_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit, %_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit
+  %call24 = tail call ptr @_ZN2v86Module18GetModuleNamespaceEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i92.sroa.0.0) #19
   %29 = load ptr, ptr %args, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %29, i64 24
   %cmp.i.i = icmp eq ptr %call24, null
@@ -4728,20 +4744,28 @@ do.body17:                                        ; preds = %do.body12
 
 do.end20:                                         ; preds = %do.body12
   %module_ = getelementptr inbounds i8, ptr %retval.i13.0.i, i64 32
-  %13 = load ptr, ptr %module_, align 8, !nonnull !13, !noundef !13
+  %13 = load ptr, ptr %module_, align 8
+  %cmp.i.i196 = icmp eq ptr %13, null
+  br i1 %cmp.i.i196, label %_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit, label %if.end.i
+
+if.end.i:                                         ; preds = %do.end20
   %14 = load i64, ptr %13, align 8
   %call.i = tail call noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef %1, i64 noundef %14) #19
-  %call27 = tail call noundef i32 @_ZNK2v86Module9GetStatusEv(ptr noundef nonnull align 1 dereferenceable(1) %call.i) #19
+  br label %_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit
+
+_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %do.end20, %if.end.i
+  %retval.i193.sroa.0.0 = phi ptr [ %call.i, %if.end.i ], [ null, %do.end20 ]
+  %call27 = tail call noundef i32 @_ZNK2v86Module9GetStatusEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i193.sroa.0.0) #19
   %cmp28 = icmp sgt i32 %call27, 2
   br i1 %cmp28, label %do.body33, label %do.end36
 
-do.body33:                                        ; preds = %do.end20
+do.body33:                                        ; preds = %_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6loader10ModuleWrap16CreateCachedDataERKN2v820FunctionCallbackInfoINS2_5ValueEEEE4args_0) #19
   tail call void @abort() #22
   unreachable
 
-do.end36:                                         ; preds = %do.end20
-  %call38 = tail call ptr @_ZN2v86Module22GetUnboundModuleScriptEv(ptr noundef nonnull align 1 dereferenceable(1) %call.i) #19
+do.end36:                                         ; preds = %_ZN2v89LocalBaseINS_6ModuleEE3NewEPNS_7IsolateEPS1_.exit
+  %call38 = tail call ptr @_ZN2v86Module22GetUnboundModuleScriptEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i193.sroa.0.0) #19
   %call46 = tail call noundef ptr @_ZN2v814ScriptCompiler15CreateCodeCacheENS_5LocalINS_19UnboundModuleScriptEEE(ptr %call38) #19
   %15 = load ptr, ptr %args, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %15, i64 8

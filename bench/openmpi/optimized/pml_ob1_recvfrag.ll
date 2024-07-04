@@ -382,9 +382,9 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %18
   br label %47
 
 47:                                               ; preds = %.lr.ph105, %opal_obj_run_destructors.exit
-  %.0103 = phi i64 [ 0, %.lr.ph105 ], [ %199, %opal_obj_run_destructors.exit ]
+  %.045103 = phi i64 [ 0, %.lr.ph105 ], [ %199, %opal_obj_run_destructors.exit ]
   %48 = load ptr, ptr %37, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %.0103
+  %49 = getelementptr inbounds ptr, ptr %48, i64 %.045103
   %50 = load volatile ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %opal_obj_run_destructors.exit, label %52
@@ -401,15 +401,15 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %18
   br label %57
 
 57:                                               ; preds = %.lr.ph, %90
-  %.045100 = phi ptr [ %54, %.lr.ph ], [ %91, %90 ]
-  %58 = getelementptr i8, ptr %.045100, i64 160
-  %.045.val = load ptr, ptr %58, align 8
+  %.0100 = phi ptr [ %54, %.lr.ph ], [ %91, %90 ]
+  %58 = getelementptr i8, ptr %.0100, i64 160
+  %.0.val = load ptr, ptr %58, align 8
   %.val.i = load i8, ptr %38, align 1
   %59 = trunc i8 %.val.i to i1
   br i1 %59, label %60, label %65
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %.045.val, i64 8
+  %61 = getelementptr inbounds i8, ptr %.0.val, i64 8
   %62 = load i32, ptr %61, align 8
   %63 = add i32 %62, 30
   %64 = icmp ult i32 %63, 4
@@ -421,7 +421,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %18
   br i1 %66, label %pml_ob1_frag_is_revoked.exit, label %.thread
 
 pml_ob1_frag_is_revoked.exit:                     ; preds = %65
-  %67 = getelementptr inbounds i8, ptr %.045.val, i64 8
+  %67 = getelementptr inbounds i8, ptr %.0.val, i64 8
   %68 = load i32, ptr %67, align 8
   %69 = add i32 %68, 6
   %or.cond.i.i = icmp ult i32 %69, -2147483641
@@ -431,9 +431,9 @@ pml_ob1_frag_is_revoked.exit:                     ; preds = %65
   br i1 %.not96, label %.thread, label %pml_ob1_frag_is_revoked.exit.thread82
 
 pml_ob1_frag_is_revoked.exit.thread82:            ; preds = %60, %pml_ob1_frag_is_revoked.exit
-  %72 = getelementptr inbounds i8, ptr %.045100, i64 16
+  %72 = getelementptr inbounds i8, ptr %.0100, i64 16
   %73 = load volatile ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %.045100, i64 24
+  %74 = getelementptr inbounds i8, ptr %.0100, i64 24
   %75 = load volatile ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 16
   store volatile ptr %73, ptr %76, align 8
@@ -449,9 +449,9 @@ pml_ob1_frag_is_revoked.exit.thread82:            ; preds = %60, %pml_ob1_frag_i
   store volatile ptr %83, ptr %74, align 8
   %84 = load volatile ptr, ptr %40, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 16
-  store volatile ptr %.045100, ptr %85, align 8
+  store volatile ptr %.0100, ptr %85, align 8
   store volatile ptr %39, ptr %72, align 8
-  store volatile ptr %.045100, ptr %40, align 8
+  store volatile ptr %.0100, ptr %40, align 8
   %86 = load volatile i64, ptr %41, align 8
   %87 = add i64 %86, 1
   store volatile i64 %87, ptr %41, align 8
@@ -459,7 +459,7 @@ pml_ob1_frag_is_revoked.exit.thread82:            ; preds = %60, %pml_ob1_frag_i
   br i1 %.not59, label %90, label %.thread
 
 .thread:                                          ; preds = %65, %pml_ob1_frag_is_revoked.exit, %pml_ob1_frag_is_revoked.exit.thread82
-  %.186 = phi ptr [ %82, %pml_ob1_frag_is_revoked.exit.thread82 ], [ %.045100, %pml_ob1_frag_is_revoked.exit ], [ %.045100, %65 ]
+  %.186 = phi ptr [ %82, %pml_ob1_frag_is_revoked.exit.thread82 ], [ %.0100, %pml_ob1_frag_is_revoked.exit ], [ %.0100, %65 ]
   %88 = getelementptr inbounds i8, ptr %.186, i64 16
   %89 = load volatile ptr, ptr %88, align 8
   br label %90
@@ -688,7 +688,7 @@ remove_head_from_ordered_list.exit._crit_edge:    ; preds = %remove_head_from_or
   br i1 %.not.i72, label %opal_obj_run_destructors.exit, label %.lr.ph.i70, !llvm.loop !11
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i70, %remove_head_from_ordered_list.exit._crit_edge, %47
-  %199 = add nuw i64 %.0103, 1
+  %199 = add nuw i64 %.045103, 1
   %200 = load i64, ptr %35, align 8
   %201 = icmp ult i64 %199, %200
   br i1 %201, label %47, label %._crit_edge106, !llvm.loop !12
@@ -930,14 +930,14 @@ mca_bml_base_get_endpoint.exit:                   ; preds = %2, %18, %21
   br label %30
 
 27:                                               ; preds = %mca_bml_base_btl_array_get_next.exit
-  %28 = add nuw i64 %.0285, 1
+  %28 = add nuw i64 %.05, 1
   %.val = load i64, ptr %24, align 8
   %29 = icmp ult i64 %28, %.val
   br i1 %29, label %30, label %._crit_edge, !llvm.loop !14
 
 30:                                               ; preds = %.lr.ph, %27
   %.val6 = phi i64 [ %.val4, %.lr.ph ], [ %.val, %27 ]
-  %.0285 = phi i64 [ 0, %.lr.ph ], [ %28, %27 ]
+  %.05 = phi i64 [ 0, %.lr.ph ], [ %28, %27 ]
   %31 = icmp eq i64 %.val6, 1
   br i1 %31, label %32, label %34
 
@@ -1408,7 +1408,7 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %44, %51
   br label %105
 
 105:                                              ; preds = %114, %98
-  %.0128 = phi ptr [ %104, %98 ], [ %120, %114 ]
+  %.0131 = phi ptr [ %104, %98 ], [ %120, %114 ]
   %.0 = phi ptr [ %9, %98 ], [ %117, %114 ]
   %106 = load i8, ptr %.0, align 8
   switch i8 %106, label %121 [
@@ -1423,46 +1423,46 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %44, %51
   ]
 
 107:                                              ; preds = %105
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0128, ptr noundef nonnull align 8 dereferenceable(16) %.0, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0131, ptr noundef nonnull align 8 dereferenceable(16) %.0, i64 16, i1 false)
   br label %123
 
 108:                                              ; preds = %105
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0128, ptr noundef nonnull align 8 dereferenceable(32) %.0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0131, ptr noundef nonnull align 8 dereferenceable(32) %.0, i64 32, i1 false)
   br label %123
 
 109:                                              ; preds = %105
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0128, ptr noundef nonnull align 8 dereferenceable(48) %.0, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0131, ptr noundef nonnull align 8 dereferenceable(48) %.0, i64 48, i1 false)
   br label %123
 
 110:                                              ; preds = %105
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0128, ptr noundef nonnull align 8 dereferenceable(40) %.0, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0131, ptr noundef nonnull align 8 dereferenceable(40) %.0, i64 40, i1 false)
   br label %123
 
 111:                                              ; preds = %105
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0128, ptr noundef nonnull align 8 dereferenceable(32) %.0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0131, ptr noundef nonnull align 8 dereferenceable(32) %.0, i64 32, i1 false)
   br label %123
 
 112:                                              ; preds = %105
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.0128, ptr noundef nonnull align 8 dereferenceable(56) %.0, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.0131, ptr noundef nonnull align 8 dereferenceable(56) %.0, i64 56, i1 false)
   br label %123
 
 113:                                              ; preds = %105
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0128, ptr noundef nonnull align 8 dereferenceable(24) %.0, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0131, ptr noundef nonnull align 8 dereferenceable(24) %.0, i64 24, i1 false)
   br label %123
 
 114:                                              ; preds = %105
   %115 = ptrtoint ptr %.0 to i64
   %116 = add i64 %115, 32
   %117 = inttoptr i64 %116 to ptr
-  %118 = ptrtoint ptr %.0128 to i64
+  %118 = ptrtoint ptr %.0131 to i64
   %119 = add i64 %118, 32
   %120 = inttoptr i64 %119 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0128, ptr noundef nonnull align 8 dereferenceable(32) %.0, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0131, ptr noundef nonnull align 8 dereferenceable(32) %.0, i64 32, i1 false)
   br label %105
 
 121:                                              ; preds = %105
   %122 = load i16, ptr %.0, align 8
-  store i16 %122, ptr %.0128, align 8
+  store i16 %122, ptr %.0131, align 8
   br label %123
 
 123:                                              ; preds = %121, %113, %112, %111, %110, %109, %108, %107
@@ -1473,27 +1473,27 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %44, %51
   br i1 %126, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %123, %.lr.ph
-  %.0129170 = phi i64 [ %129, %.lr.ph ], [ %125, %123 ]
-  %.0130169 = phi i64 [ %130, %.lr.ph ], [ 1, %123 ]
-  %127 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %8, i64 %.0130169, i32 1
+  %.0128170 = phi i64 [ %129, %.lr.ph ], [ %125, %123 ]
+  %.0129169 = phi i64 [ %130, %.lr.ph ], [ 1, %123 ]
+  %127 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %8, i64 %.0129169, i32 1
   %128 = load i64, ptr %127, align 8
-  %129 = add i64 %128, %.0129170
-  %130 = add nuw i64 %.0130169, 1
+  %129 = add i64 %128, %.0128170
+  %130 = add nuw i64 %.0129169, 1
   %exitcond.not = icmp eq i64 %130, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %123
-  %.0129.lcssa = phi i64 [ %125, %123 ], [ %129, %.lr.ph ]
+  %.0128.lcssa = phi i64 [ %125, %123 ], [ %129, %.lr.ph ]
   %131 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2408), align 8
   %132 = zext i32 %131 to i64
-  %.not142 = icmp ugt i64 %.0129.lcssa, %132
+  %.not142 = icmp ugt i64 %.0128.lcssa, %132
   br i1 %.not142, label %133, label %138
 
 133:                                              ; preds = %._crit_edge
-  store i64 %.0129.lcssa, ptr %101, align 8
+  store i64 %.0128.lcssa, ptr %101, align 8
   %134 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2400), align 16
   %135 = load ptr, ptr %134, align 8
-  %136 = tail call ptr %135(ptr noundef nonnull %134, i64 noundef %.0129.lcssa, i64 noundef 0) #10
+  %136 = tail call ptr %135(ptr noundef nonnull %134, i64 noundef %.0128.lcssa, i64 noundef 0) #10
   %137 = getelementptr inbounds i8, ptr %99, i64 424
   store ptr %136, ptr %137, align 8
   br label %138
@@ -1502,21 +1502,21 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %44, %51
   %storemerge = phi ptr [ %136, %133 ], [ %102, %._crit_edge ]
   store ptr %storemerge, ptr %100, align 8
   %139 = getelementptr inbounds i8, ptr %99, i64 168
-  store i64 %.0129.lcssa, ptr %139, align 8
+  store i64 %.0128.lcssa, ptr %139, align 8
   %.not180 = icmp eq i64 %11, 0
   br i1 %.not180, label %._crit_edge175, label %.lr.ph174
 
 .lr.ph174:                                        ; preds = %138, %.lr.ph174
   %.1172 = phi ptr [ %145, %.lr.ph174 ], [ %storemerge, %138 ]
-  %.1131171 = phi i64 [ %146, %.lr.ph174 ], [ 0, %138 ]
-  %140 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %8, i64 %.1131171
+  %.1130171 = phi i64 [ %146, %.lr.ph174 ], [ 0, %138 ]
+  %140 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %8, i64 %.1130171
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds i8, ptr %140, i64 8
   %143 = load i64, ptr %142, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1172, ptr align 1 %141, i64 %143, i1 false)
   %144 = load i64, ptr %142, align 8
   %145 = getelementptr inbounds i8, ptr %.1172, i64 %144
-  %146 = add nuw i64 %.1131171, 1
+  %146 = add nuw i64 %.1130171, 1
   %exitcond196.not = icmp eq i64 %146, %11
   br i1 %exitcond196.not, label %._crit_edge175, label %.lr.ph174, !llvm.loop !16
 
@@ -2217,9 +2217,9 @@ define internal fastcc void @append_frag_to_list(ptr noundef %0, ptr noundef %1,
   br label %15
 
 15:                                               ; preds = %24, %8
-  %.064 = phi ptr [ %14, %8 ], [ %30, %24 ]
-  %.063 = phi ptr [ %2, %8 ], [ %27, %24 ]
-  %16 = load i8, ptr %.063, align 8
+  %.068 = phi ptr [ %14, %8 ], [ %30, %24 ]
+  %.067 = phi ptr [ %2, %8 ], [ %27, %24 ]
+  %16 = load i8, ptr %.067, align 8
   switch i8 %16, label %31 [
     i8 65, label %17
     i8 66, label %18
@@ -2232,46 +2232,46 @@ define internal fastcc void @append_frag_to_list(ptr noundef %0, ptr noundef %1,
   ]
 
 17:                                               ; preds = %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.064, ptr noundef nonnull align 8 dereferenceable(16) %.063, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.068, ptr noundef nonnull align 8 dereferenceable(16) %.067, i64 16, i1 false)
   br label %33
 
 18:                                               ; preds = %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.064, ptr noundef nonnull align 8 dereferenceable(32) %.063, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.068, ptr noundef nonnull align 8 dereferenceable(32) %.067, i64 32, i1 false)
   br label %33
 
 19:                                               ; preds = %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.064, ptr noundef nonnull align 8 dereferenceable(48) %.063, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.068, ptr noundef nonnull align 8 dereferenceable(48) %.067, i64 48, i1 false)
   br label %33
 
 20:                                               ; preds = %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.064, ptr noundef nonnull align 8 dereferenceable(40) %.063, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.068, ptr noundef nonnull align 8 dereferenceable(40) %.067, i64 40, i1 false)
   br label %33
 
 21:                                               ; preds = %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.064, ptr noundef nonnull align 8 dereferenceable(32) %.063, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.068, ptr noundef nonnull align 8 dereferenceable(32) %.067, i64 32, i1 false)
   br label %33
 
 22:                                               ; preds = %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.064, ptr noundef nonnull align 8 dereferenceable(56) %.063, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.068, ptr noundef nonnull align 8 dereferenceable(56) %.067, i64 56, i1 false)
   br label %33
 
 23:                                               ; preds = %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.064, ptr noundef nonnull align 8 dereferenceable(24) %.063, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.068, ptr noundef nonnull align 8 dereferenceable(24) %.067, i64 24, i1 false)
   br label %33
 
 24:                                               ; preds = %15
-  %25 = ptrtoint ptr %.063 to i64
+  %25 = ptrtoint ptr %.067 to i64
   %26 = add i64 %25, 32
   %27 = inttoptr i64 %26 to ptr
-  %28 = ptrtoint ptr %.064 to i64
+  %28 = ptrtoint ptr %.068 to i64
   %29 = add i64 %28, 32
   %30 = inttoptr i64 %29 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.064, ptr noundef nonnull align 8 dereferenceable(32) %.063, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.068, ptr noundef nonnull align 8 dereferenceable(32) %.067, i64 32, i1 false)
   br label %15
 
 31:                                               ; preds = %15
-  %32 = load i16, ptr %.063, align 8
-  store i16 %32, ptr %.064, align 8
+  %32 = load i16, ptr %.067, align 8
+  store i16 %32, ptr %.068, align 8
   br label %33
 
 33:                                               ; preds = %31, %23, %22, %21, %20, %19, %18, %17
@@ -2283,27 +2283,27 @@ define internal fastcc void @append_frag_to_list(ptr noundef %0, ptr noundef %1,
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
-  %.06586 = phi i64 [ %40, %.lr.ph ], [ %36, %33 ]
-  %.06685 = phi i64 [ %41, %.lr.ph ], [ 1, %33 ]
-  %38 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %3, i64 %.06685, i32 1
+  %.06386 = phi i64 [ %40, %.lr.ph ], [ %36, %33 ]
+  %.06485 = phi i64 [ %41, %.lr.ph ], [ 1, %33 ]
+  %38 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %3, i64 %.06485, i32 1
   %39 = load i64, ptr %38, align 8
-  %40 = add i64 %39, %.06586
-  %41 = add nuw i64 %.06685, 1
+  %40 = add i64 %39, %.06386
+  %41 = add nuw i64 %.06485, 1
   %exitcond.not = icmp eq i64 %41, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33
-  %.065.lcssa = phi i64 [ %36, %33 ], [ %40, %.lr.ph ]
+  %.063.lcssa = phi i64 [ %36, %33 ], [ %40, %.lr.ph ]
   %42 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2408), align 8
   %43 = zext i32 %42 to i64
-  %.not = icmp ugt i64 %.065.lcssa, %43
+  %.not = icmp ugt i64 %.063.lcssa, %43
   br i1 %.not, label %44, label %49
 
 44:                                               ; preds = %._crit_edge
-  store i64 %.065.lcssa, ptr %11, align 8
+  store i64 %.063.lcssa, ptr %11, align 8
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2400), align 16
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call ptr %46(ptr noundef nonnull %45, i64 noundef %.065.lcssa, i64 noundef 0) #10
+  %47 = tail call ptr %46(ptr noundef nonnull %45, i64 noundef %.063.lcssa, i64 noundef 0) #10
   %48 = getelementptr inbounds i8, ptr %9, i64 424
   store ptr %47, ptr %48, align 8
   br label %49
@@ -2312,37 +2312,37 @@ define internal fastcc void @append_frag_to_list(ptr noundef %0, ptr noundef %1,
   %storemerge = phi ptr [ %47, %44 ], [ %12, %._crit_edge ]
   store ptr %storemerge, ptr %10, align 8
   %50 = getelementptr inbounds i8, ptr %9, i64 168
-  store i64 %.065.lcssa, ptr %50, align 8
+  store i64 %.063.lcssa, ptr %50, align 8
   %.not91 = icmp eq i64 %4, 0
   br i1 %.not91, label %.loopexit, label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %49, %.lr.ph90
   %.188 = phi ptr [ %56, %.lr.ph90 ], [ %storemerge, %49 ]
-  %.16787 = phi i64 [ %57, %.lr.ph90 ], [ 0, %49 ]
-  %51 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %3, i64 %.16787
+  %.16587 = phi i64 [ %57, %.lr.ph90 ], [ 0, %49 ]
+  %51 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %3, i64 %.16587
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %51, i64 8
   %54 = load i64, ptr %53, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.188, ptr align 1 %52, i64 %54, i1 false)
   %55 = load i64, ptr %53, align 8
   %56 = getelementptr inbounds i8, ptr %.188, i64 %55
-  %57 = add nuw i64 %.16787, 1
+  %57 = add nuw i64 %.16587, 1
   %exitcond106.not = icmp eq i64 %57, %4
   br i1 %exitcond106.not, label %.loopexit, label %.lr.ph90, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph90, %49, %6
-  %.068 = phi ptr [ %5, %6 ], [ %9, %49 ], [ %9, %.lr.ph90 ]
+  %.066 = phi ptr [ %5, %6 ], [ %9, %49 ], [ %9, %.lr.ph90 ]
   %58 = getelementptr inbounds i8, ptr %0, i64 16
   %59 = getelementptr inbounds i8, ptr %0, i64 40
   %60 = load volatile ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %.068, i64 24
+  %61 = getelementptr inbounds i8, ptr %.066, i64 24
   store volatile ptr %60, ptr %61, align 8
   %62 = load volatile ptr, ptr %59, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 16
-  store volatile ptr %.068, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %.068, i64 16
+  store volatile ptr %.066, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %.066, i64 16
   store volatile ptr %58, ptr %64, align 8
-  store volatile ptr %.068, ptr %59, align 8
+  store volatile ptr %.066, ptr %59, align 8
   %65 = getelementptr inbounds i8, ptr %0, i64 56
   %66 = load volatile i64, ptr %65, align 8
   %67 = add i64 %66, 1
@@ -2938,8 +2938,8 @@ get_next_posted_recv.exit.i:                      ; preds = %.lr.ph.split.i
   br i1 %.not35.i, label %.loopexit115, label %.lr.ph.split.i, !llvm.loop !25
 
 76:                                               ; preds = %20
-  %.0142.i = load volatile ptr, ptr %13, align 8
-  %.not3.i = icmp eq ptr %.0142.i, %12
+  %.02.i = load volatile ptr, ptr %13, align 8
+  %.not3.i = icmp eq ptr %.02.i, %12
   br i1 %.not3.i, label %.loopexit115, label %.lr.ph.i106
 
 .lr.ph.i106:                                      ; preds = %76
@@ -2947,21 +2947,21 @@ get_next_posted_recv.exit.i:                      ; preds = %.lr.ph.split.i
   br i1 %77, label %.lr.ph.split.i110, label %.lr.ph.split.us.i107
 
 .lr.ph.split.us.i107:                             ; preds = %.lr.ph.i106, %81
-  %.0144.us.i = phi ptr [ %.014.us.i, %81 ], [ %.0142.i, %.lr.ph.i106 ]
-  %78 = getelementptr inbounds i8, ptr %.0144.us.i, i64 492
+  %.04.us.i = phi ptr [ %.0.us.i, %81 ], [ %.02.i, %.lr.ph.i106 ]
+  %78 = getelementptr inbounds i8, ptr %.04.us.i, i64 492
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, %.fr66.i
   br i1 %80, label %.split.us.i108, label %81
 
 81:                                               ; preds = %.lr.ph.split.us.i107
-  %82 = getelementptr inbounds i8, ptr %.0144.us.i, i64 16
-  %.014.us.i = load volatile ptr, ptr %82, align 8
-  %.not.us.i = icmp eq ptr %.014.us.i, %12
+  %82 = getelementptr inbounds i8, ptr %.04.us.i, i64 16
+  %.0.us.i = load volatile ptr, ptr %82, align 8
+  %.not.us.i = icmp eq ptr %.0.us.i, %12
   br i1 %.not.us.i, label %.loopexit115, label %.lr.ph.split.us.i107, !llvm.loop !26
 
 .lr.ph.split.i110:                                ; preds = %.lr.ph.i106, %95
-  %.0144.i = phi ptr [ %.014.i, %95 ], [ %.0142.i, %.lr.ph.i106 ]
-  %83 = getelementptr inbounds i8, ptr %.0144.i, i64 492
+  %.04.i = phi ptr [ %.0.i, %95 ], [ %.02.i, %.lr.ph.i106 ]
+  %83 = getelementptr inbounds i8, ptr %.04.i, i64 492
   %84 = load i32, ptr %83, align 4
   %85 = icmp eq i32 %84, %.fr66.i
   %86 = icmp eq i32 %84, -1
@@ -2969,7 +2969,7 @@ get_next_posted_recv.exit.i:                      ; preds = %.lr.ph.split.i
   br i1 %or.cond.i111, label %.split.us.i108, label %95
 
 .split.us.i108:                                   ; preds = %.lr.ph.split.us.i107, %.lr.ph.split.i110
-  %.us-phi.i109 = phi ptr [ %.0144.i, %.lr.ph.split.i110 ], [ %.0144.us.i, %.lr.ph.split.us.i107 ]
+  %.us-phi.i109 = phi ptr [ %.04.i, %.lr.ph.split.i110 ], [ %.04.us.i, %.lr.ph.split.us.i107 ]
   %87 = getelementptr inbounds i8, ptr %.us-phi.i109, i64 16
   %88 = load volatile ptr, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %.us-phi.i109, i64 24
@@ -2983,23 +2983,23 @@ get_next_posted_recv.exit.i:                      ; preds = %.lr.ph.split.i
   br label %match_incomming.exit
 
 95:                                               ; preds = %.lr.ph.split.i110
-  %96 = getelementptr inbounds i8, ptr %.0144.i, i64 16
-  %.014.i = load volatile ptr, ptr %96, align 8
-  %.not.i112 = icmp eq ptr %.014.i, %12
+  %96 = getelementptr inbounds i8, ptr %.04.i, i64 16
+  %.0.i = load volatile ptr, ptr %96, align 8
+  %.not.i112 = icmp eq ptr %.0.i, %12
   br i1 %.not.i112, label %.loopexit115, label %.lr.ph.split.i110, !llvm.loop !26
 
 match_incomming.exit:                             ; preds = %.split.us.i, %.split.us.i108
   %.sink209 = phi ptr [ %67, %.split.us.i ], [ %14, %.split.us.i108 ]
   %.sink = phi ptr [ %61, %.split.us.i ], [ %89, %.split.us.i108 ]
-  %.0100 = phi ptr [ %.us-phi65.i, %.split.us.i ], [ %.us-phi.i109, %.split.us.i108 ]
+  %.097 = phi ptr [ %.us-phi65.i, %.split.us.i ], [ %.us-phi.i109, %.split.us.i108 ]
   %97 = load volatile i64, ptr %.sink209, align 8
   %98 = add i64 %97, -1
   store volatile i64 %98, ptr %.sink209, align 8
   %99 = load volatile ptr, ptr %.sink, align 8
   %100 = load ptr, ptr %19, align 8
-  %101 = getelementptr inbounds i8, ptr %.0100, i64 496
+  %101 = getelementptr inbounds i8, ptr %.097, i64 496
   store ptr %100, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %.0100, i64 168
+  %102 = getelementptr inbounds i8, ptr %.097, i64 168
   %103 = load i32, ptr %102, align 8
   switch i32 %103, label %.loopexit122 [
     i32 4, label %104
@@ -3007,7 +3007,7 @@ match_incomming.exit:                             ; preds = %.split.us.i, %.spli
   ]
 
 104:                                              ; preds = %match_incomming.exit
-  tail call void @mca_pml_ob1_recv_request_matched_probe(ptr noundef nonnull %.0100, ptr noundef %0, ptr noundef %2, i64 noundef %3) #10
+  tail call void @mca_pml_ob1_recv_request_matched_probe(ptr noundef nonnull %.097, ptr noundef %0, ptr noundef %2, i64 noundef %3) #10
   br label %20
 
 105:                                              ; preds = %match_incomming.exit
@@ -3025,9 +3025,9 @@ match_incomming.exit:                             ; preds = %.split.us.i, %.spli
   br label %114
 
 114:                                              ; preds = %123, %107
-  %.094 = phi ptr [ %113, %107 ], [ %129, %123 ]
-  %.093 = phi ptr [ %1, %107 ], [ %126, %123 ]
-  %115 = load i8, ptr %.093, align 8
+  %.099 = phi ptr [ %113, %107 ], [ %129, %123 ]
+  %.098 = phi ptr [ %1, %107 ], [ %126, %123 ]
+  %115 = load i8, ptr %.098, align 8
   switch i8 %115, label %130 [
     i8 65, label %116
     i8 66, label %117
@@ -3040,46 +3040,46 @@ match_incomming.exit:                             ; preds = %.split.us.i, %.spli
   ]
 
 116:                                              ; preds = %114
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.094, ptr noundef nonnull align 8 dereferenceable(16) %.093, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.099, ptr noundef nonnull align 8 dereferenceable(16) %.098, i64 16, i1 false)
   br label %132
 
 117:                                              ; preds = %114
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.094, ptr noundef nonnull align 8 dereferenceable(32) %.093, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.099, ptr noundef nonnull align 8 dereferenceable(32) %.098, i64 32, i1 false)
   br label %132
 
 118:                                              ; preds = %114
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.094, ptr noundef nonnull align 8 dereferenceable(48) %.093, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.099, ptr noundef nonnull align 8 dereferenceable(48) %.098, i64 48, i1 false)
   br label %132
 
 119:                                              ; preds = %114
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.094, ptr noundef nonnull align 8 dereferenceable(40) %.093, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.099, ptr noundef nonnull align 8 dereferenceable(40) %.098, i64 40, i1 false)
   br label %132
 
 120:                                              ; preds = %114
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.094, ptr noundef nonnull align 8 dereferenceable(32) %.093, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.099, ptr noundef nonnull align 8 dereferenceable(32) %.098, i64 32, i1 false)
   br label %132
 
 121:                                              ; preds = %114
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.094, ptr noundef nonnull align 8 dereferenceable(56) %.093, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.099, ptr noundef nonnull align 8 dereferenceable(56) %.098, i64 56, i1 false)
   br label %132
 
 122:                                              ; preds = %114
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.094, ptr noundef nonnull align 8 dereferenceable(24) %.093, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.099, ptr noundef nonnull align 8 dereferenceable(24) %.098, i64 24, i1 false)
   br label %132
 
 123:                                              ; preds = %114
-  %124 = ptrtoint ptr %.093 to i64
+  %124 = ptrtoint ptr %.098 to i64
   %125 = add i64 %124, 32
   %126 = inttoptr i64 %125 to ptr
-  %127 = ptrtoint ptr %.094 to i64
+  %127 = ptrtoint ptr %.099 to i64
   %128 = add i64 %127, 32
   %129 = inttoptr i64 %128 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.094, ptr noundef nonnull align 8 dereferenceable(32) %.093, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.099, ptr noundef nonnull align 8 dereferenceable(32) %.098, i64 32, i1 false)
   br label %114
 
 130:                                              ; preds = %114
-  %131 = load i16, ptr %.093, align 8
-  store i16 %131, ptr %.094, align 8
+  %131 = load i16, ptr %.098, align 8
+  store i16 %131, ptr %.099, align 8
   br label %132
 
 132:                                              ; preds = %130, %122, %121, %120, %119, %118, %117, %116
@@ -3091,27 +3091,27 @@ match_incomming.exit:                             ; preds = %.split.us.i, %.spli
   br i1 %136, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %132, %.lr.ph
-  %.095145 = phi i64 [ %139, %.lr.ph ], [ %135, %132 ]
-  %.096144 = phi i64 [ %140, %.lr.ph ], [ 1, %132 ]
-  %137 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %2, i64 %.096144, i32 1
+  %.093145 = phi i64 [ %139, %.lr.ph ], [ %135, %132 ]
+  %.094144 = phi i64 [ %140, %.lr.ph ], [ 1, %132 ]
+  %137 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %2, i64 %.094144, i32 1
   %138 = load i64, ptr %137, align 8
-  %139 = add i64 %138, %.095145
-  %140 = add nuw i64 %.096144, 1
+  %139 = add i64 %138, %.093145
+  %140 = add nuw i64 %.094144, 1
   %exitcond.not = icmp eq i64 %140, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %132
-  %.095.lcssa = phi i64 [ %135, %132 ], [ %139, %.lr.ph ]
+  %.093.lcssa = phi i64 [ %135, %132 ], [ %139, %.lr.ph ]
   %141 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2408), align 8
   %142 = zext i32 %141 to i64
-  %.not105 = icmp ugt i64 %.095.lcssa, %142
+  %.not105 = icmp ugt i64 %.093.lcssa, %142
   br i1 %.not105, label %143, label %148
 
 143:                                              ; preds = %._crit_edge
-  store i64 %.095.lcssa, ptr %110, align 8
+  store i64 %.093.lcssa, ptr %110, align 8
   %144 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2400), align 16
   %145 = load ptr, ptr %144, align 8
-  %146 = tail call ptr %145(ptr noundef nonnull %144, i64 noundef %.095.lcssa, i64 noundef 0) #10
+  %146 = tail call ptr %145(ptr noundef nonnull %144, i64 noundef %.093.lcssa, i64 noundef 0) #10
   %147 = getelementptr inbounds i8, ptr %108, i64 424
   store ptr %146, ptr %147, align 8
   br label %148
@@ -3120,29 +3120,29 @@ match_incomming.exit:                             ; preds = %.split.us.i, %.spli
   %storemerge = phi ptr [ %146, %143 ], [ %111, %._crit_edge ]
   store ptr %storemerge, ptr %109, align 8
   %149 = getelementptr inbounds i8, ptr %108, i64 168
-  store i64 %.095.lcssa, ptr %149, align 8
+  store i64 %.093.lcssa, ptr %149, align 8
   %.not150 = icmp eq i64 %3, 0
   br i1 %.not150, label %.loopexit, label %.lr.ph149
 
 .lr.ph149:                                        ; preds = %148, %.lr.ph149
   %.1147 = phi ptr [ %155, %.lr.ph149 ], [ %storemerge, %148 ]
-  %.197146 = phi i64 [ %156, %.lr.ph149 ], [ 0, %148 ]
-  %150 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %2, i64 %.197146
+  %.195146 = phi i64 [ %156, %.lr.ph149 ], [ 0, %148 ]
+  %150 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %2, i64 %.195146
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %150, i64 8
   %153 = load i64, ptr %152, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1147, ptr align 1 %151, i64 %153, i1 false)
   %154 = load i64, ptr %152, align 8
   %155 = getelementptr inbounds i8, ptr %.1147, i64 %154
-  %156 = add nuw i64 %.197146, 1
+  %156 = add nuw i64 %.195146, 1
   %exitcond178.not = icmp eq i64 %156, %3
   br i1 %exitcond178.not, label %.loopexit, label %.lr.ph149, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph149, %148, %105
-  %.098 = phi ptr [ %6, %105 ], [ %108, %148 ], [ %108, %.lr.ph149 ]
-  %157 = getelementptr inbounds i8, ptr %.0100, i64 472
-  store ptr %.098, ptr %157, align 8
-  tail call void @mca_pml_ob1_recv_request_matched_probe(ptr noundef nonnull %.0100, ptr noundef %0, ptr noundef %2, i64 noundef %3) #10
+  %.096 = phi ptr [ %6, %105 ], [ %108, %148 ], [ %108, %.lr.ph149 ]
+  %157 = getelementptr inbounds i8, ptr %.097, i64 472
+  store ptr %.096, ptr %157, align 8
+  tail call void @mca_pml_ob1_recv_request_matched_probe(ptr noundef nonnull %.097, ptr noundef %0, ptr noundef %2, i64 noundef %3) #10
   br label %.loopexit122
 
 .loopexit115:                                     ; preds = %39, %76, %81, %95, %.cont.us.i, %.cont.i
@@ -3151,8 +3151,8 @@ match_incomming.exit:                             ; preds = %.split.us.i, %.spli
   br label %.loopexit122
 
 .loopexit122:                                     ; preds = %match_incomming.exit, %.loopexit115, %.loopexit
-  %.099 = phi ptr [ null, %.loopexit ], [ null, %.loopexit115 ], [ %.0100, %match_incomming.exit ]
-  ret ptr %.099
+  %.0100 = phi ptr [ null, %.loopexit ], [ null, %.loopexit115 ], [ %.097, %match_incomming.exit ]
+  ret ptr %.0100
 }
 
 declare i32 @opal_convertor_unpack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -3167,16 +3167,16 @@ define internal fastcc void @mca_pml_ob1_recv_frag_match_proc(ptr noundef %0, pt
   br label %14
 
 14:                                               ; preds = %136, %8
-  %.044 = phi ptr [ %3, %8 ], [ %139, %136 ]
-  %.043 = phi ptr [ %4, %8 ], [ %140, %136 ]
-  %.042 = phi i64 [ %5, %8 ], [ %142, %136 ]
-  %.041 = phi i32 [ %6, %8 ], [ %146, %136 ]
-  %.040 = phi ptr [ %7, %8 ], [ %81, %136 ]
-  %.0 = phi ptr [ %0, %8 ], [ %144, %136 ]
+  %.044 = phi ptr [ %0, %8 ], [ %144, %136 ]
+  %.043 = phi ptr [ %3, %8 ], [ %139, %136 ]
+  %.042 = phi ptr [ %4, %8 ], [ %140, %136 ]
+  %.041 = phi i64 [ %5, %8 ], [ %142, %136 ]
+  %.040 = phi i32 [ %6, %8 ], [ %146, %136 ]
+  %.0 = phi ptr [ %7, %8 ], [ %81, %136 ]
   %15 = load i16, ptr %11, align 8
   %16 = add i16 %15, 1
   store i16 %16, ptr %11, align 8
-  %17 = tail call fastcc ptr @match_one(ptr noundef %.0, ptr noundef %.044, ptr noundef %.043, i64 noundef %.042, ptr noundef %1, ptr noundef %2, ptr noundef %.040)
+  %17 = tail call fastcc ptr @match_one(ptr noundef %.044, ptr noundef %.043, ptr noundef %.042, i64 noundef %.041, ptr noundef %1, ptr noundef %2, ptr noundef %.0)
   %18 = load i8, ptr @mca_pml_ob1_matching_protection, align 1
   %19 = trunc i8 %18 to i1
   br i1 %19, label %.sink.split, label %20
@@ -3195,30 +3195,30 @@ define internal fastcc void @mca_pml_ob1_recv_frag_match_proc(ptr noundef %0, pt
   br i1 %.not, label %opal_free_list_return.exit, label %25
 
 25:                                               ; preds = %24
-  switch i32 %.041, label %29 [
+  switch i32 %.040, label %29 [
     i32 65, label %26
     i32 66, label %27
     i32 67, label %28
   ]
 
 26:                                               ; preds = %25
-  tail call void @mca_pml_ob1_recv_request_progress_match(ptr noundef nonnull %17, ptr noundef %.0, ptr noundef %.043, i64 noundef %.042) #10
+  tail call void @mca_pml_ob1_recv_request_progress_match(ptr noundef nonnull %17, ptr noundef %.044, ptr noundef %.042, i64 noundef %.041) #10
   br label %29
 
 27:                                               ; preds = %25
-  tail call void @mca_pml_ob1_recv_request_progress_rndv(ptr noundef nonnull %17, ptr noundef %.0, ptr noundef %.043, i64 noundef %.042) #10
+  tail call void @mca_pml_ob1_recv_request_progress_rndv(ptr noundef nonnull %17, ptr noundef %.044, ptr noundef %.042, i64 noundef %.041) #10
   br label %29
 
 28:                                               ; preds = %25
-  tail call void @mca_pml_ob1_recv_request_progress_rget(ptr noundef nonnull %17, ptr noundef %.0, ptr noundef %.043, i64 noundef %.042) #10
+  tail call void @mca_pml_ob1_recv_request_progress_rget(ptr noundef nonnull %17, ptr noundef %.044, ptr noundef %.042, i64 noundef %.041) #10
   br label %29
 
 29:                                               ; preds = %28, %27, %26, %25
-  %.not47 = icmp eq ptr %.040, null
+  %.not47 = icmp eq ptr %.0, null
   br i1 %.not47, label %opal_free_list_return.exit, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %.040, i64 168
+  %31 = getelementptr inbounds i8, ptr %.0, i64 168
   %32 = load i64, ptr %31, align 8
   %33 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2408), align 8
   %34 = zext i32 %33 to i64
@@ -3229,13 +3229,13 @@ define internal fastcc void @mca_pml_ob1_recv_frag_match_proc(ptr noundef %0, pt
   %37 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2400), align 16
   %38 = getelementptr inbounds i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %.040, i64 424
+  %40 = getelementptr inbounds i8, ptr %.0, i64 424
   %41 = load ptr, ptr %40, align 8
   tail call void %39(ptr noundef %37, ptr noundef %41) #10
   br label %42
 
 42:                                               ; preds = %36, %30
-  %43 = getelementptr inbounds i8, ptr %.040, i64 136
+  %43 = getelementptr inbounds i8, ptr %.0, i64 136
   store i64 0, ptr %43, align 8
   %44 = load i8, ptr @opal_uses_threads, align 1
   %45 = trunc i8 %44 to i1
@@ -3243,11 +3243,11 @@ define internal fastcc void @mca_pml_ob1_recv_frag_match_proc(ptr noundef %0, pt
   br i1 %45, label %47, label %60
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %.040, i64 16
+  %48 = getelementptr inbounds i8, ptr %.0, i64 16
   %.08.i.i.i = inttoptr i64 %46 to ptr
   store volatile ptr %.08.i.i.i, ptr %48, align 8
   fence release
-  %49 = ptrtoint ptr %.040 to i64
+  %49 = ptrtoint ptr %.0 to i64
   %50 = cmpxchg volatile ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 680), i64 %46, i64 %49 acquire monotonic, align 8
   %51 = extractvalue { i64, i1 } %50, 1
   br i1 %51, label %opal_lifo_push_atomic.exit.i.i, label %opal_atomic_compare_exchange_strong_ptr.exit.i.i.i
@@ -3277,11 +3277,11 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
 
 60:                                               ; preds = %42
   %61 = inttoptr i64 %46 to ptr
-  %62 = getelementptr inbounds i8, ptr %.040, i64 16
+  %62 = getelementptr inbounds i8, ptr %.0, i64 16
   store volatile ptr %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %.040, i64 32
+  %63 = getelementptr inbounds i8, ptr %.0, i64 32
   store i32 0, ptr %63, align 8
-  %64 = ptrtoint ptr %.040 to i64
+  %64 = ptrtoint ptr %.0 to i64
   store volatile i64 %64, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 680), align 8
   %65 = load volatile ptr, ptr %62, align 8
   %66 = icmp ne ptr %65, getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 688)
@@ -3717,9 +3717,9 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %34, %41
   br label %103
 
 103:                                              ; preds = %112, %96
-  %.0100 = phi ptr [ %102, %96 ], [ %118, %112 ]
-  %.099 = phi ptr [ %1, %96 ], [ %115, %112 ]
-  %104 = load i8, ptr %.099, align 8
+  %.0103 = phi ptr [ %102, %96 ], [ %118, %112 ]
+  %.0102 = phi ptr [ %1, %96 ], [ %115, %112 ]
+  %104 = load i8, ptr %.0102, align 8
   switch i8 %104, label %119 [
     i8 65, label %105
     i8 66, label %106
@@ -3732,46 +3732,46 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %34, %41
   ]
 
 105:                                              ; preds = %103
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0100, ptr noundef nonnull align 8 dereferenceable(16) %.099, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0103, ptr noundef nonnull align 8 dereferenceable(16) %.0102, i64 16, i1 false)
   br label %121
 
 106:                                              ; preds = %103
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0100, ptr noundef nonnull align 8 dereferenceable(32) %.099, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0103, ptr noundef nonnull align 8 dereferenceable(32) %.0102, i64 32, i1 false)
   br label %121
 
 107:                                              ; preds = %103
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0100, ptr noundef nonnull align 8 dereferenceable(48) %.099, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.0103, ptr noundef nonnull align 8 dereferenceable(48) %.0102, i64 48, i1 false)
   br label %121
 
 108:                                              ; preds = %103
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0100, ptr noundef nonnull align 8 dereferenceable(40) %.099, i64 40, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0103, ptr noundef nonnull align 8 dereferenceable(40) %.0102, i64 40, i1 false)
   br label %121
 
 109:                                              ; preds = %103
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0100, ptr noundef nonnull align 8 dereferenceable(32) %.099, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0103, ptr noundef nonnull align 8 dereferenceable(32) %.0102, i64 32, i1 false)
   br label %121
 
 110:                                              ; preds = %103
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.0100, ptr noundef nonnull align 8 dereferenceable(56) %.099, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.0103, ptr noundef nonnull align 8 dereferenceable(56) %.0102, i64 56, i1 false)
   br label %121
 
 111:                                              ; preds = %103
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0100, ptr noundef nonnull align 8 dereferenceable(24) %.099, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0103, ptr noundef nonnull align 8 dereferenceable(24) %.0102, i64 24, i1 false)
   br label %121
 
 112:                                              ; preds = %103
-  %113 = ptrtoint ptr %.099 to i64
+  %113 = ptrtoint ptr %.0102 to i64
   %114 = add i64 %113, 32
   %115 = inttoptr i64 %114 to ptr
-  %116 = ptrtoint ptr %.0100 to i64
+  %116 = ptrtoint ptr %.0103 to i64
   %117 = add i64 %116, 32
   %118 = inttoptr i64 %117 to ptr
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0100, ptr noundef nonnull align 8 dereferenceable(32) %.099, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0103, ptr noundef nonnull align 8 dereferenceable(32) %.0102, i64 32, i1 false)
   br label %103
 
 119:                                              ; preds = %103
-  %120 = load i16, ptr %.099, align 8
-  store i16 %120, ptr %.0100, align 8
+  %120 = load i16, ptr %.0102, align 8
+  store i16 %120, ptr %.0103, align 8
   br label %121
 
 121:                                              ; preds = %119, %111, %110, %109, %108, %107, %106, %105
@@ -3783,27 +3783,27 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %34, %41
   br i1 %125, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %121, %.lr.ph
-  %.0101127 = phi i64 [ %128, %.lr.ph ], [ %124, %121 ]
-  %.0102126 = phi i64 [ %129, %.lr.ph ], [ 1, %121 ]
-  %126 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %2, i64 %.0102126, i32 1
+  %.099127 = phi i64 [ %128, %.lr.ph ], [ %124, %121 ]
+  %.0100126 = phi i64 [ %129, %.lr.ph ], [ 1, %121 ]
+  %126 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %2, i64 %.0100126, i32 1
   %127 = load i64, ptr %126, align 8
-  %128 = add i64 %127, %.0101127
-  %129 = add nuw i64 %.0102126, 1
+  %128 = add i64 %127, %.099127
+  %129 = add nuw i64 %.0100126, 1
   %exitcond.not = icmp eq i64 %129, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %121
-  %.0101.lcssa = phi i64 [ %124, %121 ], [ %128, %.lr.ph ]
+  %.099.lcssa = phi i64 [ %124, %121 ], [ %128, %.lr.ph ]
   %130 = load i32, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2408), align 8
   %131 = zext i32 %130 to i64
-  %.not108 = icmp ugt i64 %.0101.lcssa, %131
+  %.not108 = icmp ugt i64 %.099.lcssa, %131
   br i1 %.not108, label %132, label %137
 
 132:                                              ; preds = %._crit_edge
-  store i64 %.0101.lcssa, ptr %99, align 8
+  store i64 %.099.lcssa, ptr %99, align 8
   %133 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_ob1, i64 2400), align 16
   %134 = load ptr, ptr %133, align 8
-  %135 = tail call ptr %134(ptr noundef nonnull %133, i64 noundef %.0101.lcssa, i64 noundef 0) #10
+  %135 = tail call ptr %134(ptr noundef nonnull %133, i64 noundef %.099.lcssa, i64 noundef 0) #10
   %136 = getelementptr inbounds i8, ptr %97, i64 424
   store ptr %135, ptr %136, align 8
   br label %137
@@ -3812,21 +3812,21 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %34, %41
   %storemerge = phi ptr [ %135, %132 ], [ %100, %._crit_edge ]
   store ptr %storemerge, ptr %98, align 8
   %138 = getelementptr inbounds i8, ptr %97, i64 168
-  store i64 %.0101.lcssa, ptr %138, align 8
+  store i64 %.099.lcssa, ptr %138, align 8
   %.not133 = icmp eq i64 %3, 0
   br i1 %.not133, label %._crit_edge132, label %.lr.ph131
 
 .lr.ph131:                                        ; preds = %137, %.lr.ph131
   %.1129 = phi ptr [ %144, %.lr.ph131 ], [ %storemerge, %137 ]
-  %.1103128 = phi i64 [ %145, %.lr.ph131 ], [ 0, %137 ]
-  %139 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %2, i64 %.1103128
+  %.1101128 = phi i64 [ %145, %.lr.ph131 ], [ 0, %137 ]
+  %139 = getelementptr inbounds %struct.mca_btl_base_segment_t, ptr %2, i64 %.1101128
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %139, i64 8
   %142 = load i64, ptr %141, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1129, ptr align 1 %140, i64 %142, i1 false)
   %143 = load i64, ptr %141, align 8
   %144 = getelementptr inbounds i8, ptr %.1129, i64 %143
-  %145 = add nuw i64 %.1103128, 1
+  %145 = add nuw i64 %.1101128, 1
   %exitcond148.not = icmp eq i64 %145, %3
   br i1 %exitcond148.not, label %._crit_edge132, label %.lr.ph131, !llvm.loop !31
 

@@ -47,8 +47,8 @@ define void @Min_SopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %25
 
 25:                                               ; preds = %25, %.outer.i
-  %.0215.i = phi ptr [ %24, %.outer.i ], [ %.0214.i, %25 ]
-  %.0214.i = load ptr, ptr %.0215.i, align 8
+  %.0225.i = phi ptr [ %24, %.outer.i ], [ %.0214.i, %25 ]
+  %.0214.i = load ptr, ptr %.0225.i, align 8
   %.not.i = icmp eq ptr %.0214.i, null
   %26 = icmp eq ptr %.0214.i, %18
   %or.cond457.i = or i1 %.not.i, %26
@@ -56,7 +56,7 @@ define void @Min_SopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %18, align 8
-  store ptr %28, ptr %.0215.i, align 8
+  store ptr %28, ptr %.0225.i, align 8
   %29 = load ptr, ptr %6, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
@@ -87,11 +87,11 @@ define void @Min_SopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %40
 
 40:                                               ; preds = %.loopexit476.i, %27
-  %.1218.i = phi i32 [ %21, %27 ], [ %39, %.loopexit476.i ]
-  %.1216.i = phi ptr [ %.0215.i, %27 ], [ %38, %.loopexit476.i ]
+  %.1226.i = phi ptr [ %.0225.i, %27 ], [ %38, %.loopexit476.i ]
+  %.1216.i = phi i32 [ %21, %27 ], [ %39, %.loopexit476.i ]
   %.1.i = phi ptr [ %30, %27 ], [ %37, %.loopexit476.i ]
-  %.0227488.i = load ptr, ptr %.1.i, align 8
-  %cond489.i = icmp eq ptr %.0227488.i, null
+  %.0230488.i = load ptr, ptr %.1.i, align 8
+  %cond489.i = icmp eq ptr %.0230488.i, null
   br i1 %cond489.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40
@@ -100,8 +100,8 @@ define void @Min_SopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %43
 
 43:                                               ; preds = %Min_CubesDistTwo.exit.i, %.lr.ph.i
-  %.0227491.i = phi ptr [ %.0227488.i, %.lr.ph.i ], [ %.0227.i, %Min_CubesDistTwo.exit.i ]
-  %.0230490.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %.0227491.i, %Min_CubesDistTwo.exit.i ]
+  %.0230491.i = phi ptr [ %.0230488.i, %.lr.ph.i ], [ %.0230.i, %Min_CubesDistTwo.exit.i ]
+  %.0227490.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %.0230491.i, %Min_CubesDistTwo.exit.i ]
   %44 = load i32, ptr %41, align 8
   %45 = lshr i32 %44, 10
   %46 = and i32 %45, 4095
@@ -109,7 +109,7 @@ define void @Min_SopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %.not67.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %.0227491.i, i64 12
+  %47 = getelementptr inbounds i8, ptr %.0230491.i, i64 12
   %wide.trip.count.i.i = zext nneg i32 %46 to i64
   br label %48
 
@@ -206,27 +206,27 @@ define void @Min_SopMinimize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %87 = load ptr, ptr @stdout, align 8
   tail call void @Min_CubeWrite(ptr noundef %87, ptr noundef nonnull %.1.i) #9
   %88 = load ptr, ptr @stdout, align 8
-  tail call void @Min_CubeWrite(ptr noundef %88, ptr noundef nonnull %.0227491.i) #9
+  tail call void @Min_CubeWrite(ptr noundef %88, ptr noundef nonnull %.0230491.i) #9
   %puts.i.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %Min_CubesDistTwo.exit.i
 
 Min_CubesDistTwo.exit.i:                          ; preds = %61, %55, %74, %.thread.i.i, %84
-  %.0227.i = load ptr, ptr %.0227491.i, align 8
-  %cond.i = icmp eq ptr %.0227.i, null
+  %.0230.i = load ptr, ptr %.0230491.i, align 8
+  %cond.i = icmp eq ptr %.0230.i, null
   br i1 %cond.i, label %._crit_edge.i, label %43, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %Min_CubesDistTwo.exit.i, %40
   %89 = load i32, ptr %0, align 8
-  %90 = icmp slt i32 %.1218.i, %89
+  %90 = icmp slt i32 %.1216.i, %89
   br i1 %90, label %91, label %.thread436.i
 
 91:                                               ; preds = %._crit_edge.i
   %92 = load ptr, ptr %5, align 8
-  %93 = sext i32 %.1218.i to i64
+  %93 = sext i32 %.1216.i to i64
   %94 = getelementptr ptr, ptr %92, i64 %93
   %95 = getelementptr i8, ptr %94, i64 8
-  %.1228492.i = load ptr, ptr %95, align 8
-  %.not246493.i = icmp eq ptr %.1228492.i, null
+  %.1231492.i = load ptr, ptr %95, align 8
+  %.not246493.i = icmp eq ptr %.1231492.i, null
   br i1 %.not246493.i, label %.thread436.i, label %.lr.ph497.i
 
 .lr.ph497.i:                                      ; preds = %91
@@ -235,8 +235,8 @@ Min_CubesDistTwo.exit.i:                          ; preds = %61, %55, %74, %.thr
   br label %98
 
 98:                                               ; preds = %Min_CubesDistTwo.exit281.i, %.lr.ph497.i
-  %.1228495.i = phi ptr [ %.1228492.i, %.lr.ph497.i ], [ %.1228.i, %Min_CubesDistTwo.exit281.i ]
-  %.1231494.i = phi ptr [ %95, %.lr.ph497.i ], [ %.1228495.i, %Min_CubesDistTwo.exit281.i ]
+  %.1231495.i = phi ptr [ %.1231492.i, %.lr.ph497.i ], [ %.1231.i, %Min_CubesDistTwo.exit281.i ]
+  %.1228494.i = phi ptr [ %95, %.lr.ph497.i ], [ %.1231495.i, %Min_CubesDistTwo.exit281.i ]
   %99 = load i32, ptr %96, align 8
   %100 = lshr i32 %99, 10
   %101 = and i32 %100, 4095
@@ -244,7 +244,7 @@ Min_CubesDistTwo.exit.i:                          ; preds = %61, %55, %74, %.thr
   br i1 %.not67.i254.i, label %.thread.i277.i, label %.lr.ph.i255.i
 
 .lr.ph.i255.i:                                    ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %.1228495.i, i64 12
+  %102 = getelementptr inbounds i8, ptr %.1231495.i, i64 12
   %wide.trip.count.i256.i = zext nneg i32 %101 to i64
   br label %103
 
@@ -341,13 +341,13 @@ Min_CubesDistTwo.exit.i:                          ; preds = %61, %55, %74, %.thr
   %142 = load ptr, ptr @stdout, align 8
   tail call void @Min_CubeWrite(ptr noundef %142, ptr noundef nonnull %.1.i) #9
   %143 = load ptr, ptr @stdout, align 8
-  tail call void @Min_CubeWrite(ptr noundef %143, ptr noundef nonnull %.1228495.i) #9
+  tail call void @Min_CubeWrite(ptr noundef %143, ptr noundef nonnull %.1231495.i) #9
   %puts.i279.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %Min_CubesDistTwo.exit281.i
 
 Min_CubesDistTwo.exit281.i:                       ; preds = %116, %110, %129, %.thread.i277.i, %139
-  %.1228.i = load ptr, ptr %.1228495.i, align 8
-  %.not246.i = icmp eq ptr %.1228.i, null
+  %.1231.i = load ptr, ptr %.1231495.i, align 8
+  %.not246.i = icmp eq ptr %.1231.i, null
   br i1 %.not246.i, label %.thread436.i, label %98, !llvm.loop !10
 
 .thread436.i:                                     ; preds = %Min_CubesDistTwo.exit281.i, %91, %._crit_edge.i
@@ -370,14 +370,14 @@ Min_CubesDistTwo.exit281.i:                       ; preds = %116, %110, %129, %.
   br label %.outer.i
 
 .thread443.i:                                     ; preds = %._crit_edge.i.i, %._crit_edge.i274.i
-  %.2229451.i = phi ptr [ %.1228495.i, %._crit_edge.i274.i ], [ %.0227491.i, %._crit_edge.i.i ]
-  %.2232450.i = phi ptr [ %.1231494.i, %._crit_edge.i274.i ], [ %.0230490.i, %._crit_edge.i.i ]
+  %.2229451.i = phi ptr [ %.1228494.i, %._crit_edge.i274.i ], [ %.0227490.i, %._crit_edge.i.i ]
+  %.2232450.i = phi ptr [ %.1231495.i, %._crit_edge.i274.i ], [ %.0230491.i, %._crit_edge.i.i ]
   %.6449.i = phi i32 [ %.3.i271.i, %._crit_edge.i274.i ], [ %.3.i.i, %._crit_edge.i.i ]
   %.6421448.i = phi i32 [ %.346.i270.i, %._crit_edge.i274.i ], [ %.346.i.i, %._crit_edge.i.i ]
-  %154 = load ptr, ptr %.2229451.i, align 8
-  store ptr %154, ptr %.2232450.i, align 8
+  %154 = load ptr, ptr %.2232450.i, align 8
+  store ptr %154, ptr %.2229451.i, align 8
   %155 = load ptr, ptr %6, align 8
-  store ptr %155, ptr %.1216.i, align 8
+  store ptr %155, ptr %.1226.i, align 8
   %156 = load ptr, ptr %.1.i, align 8
   store ptr %156, ptr %155, align 8
   %157 = getelementptr inbounds i8, ptr %.1.i, i64 8
@@ -409,7 +409,7 @@ Min_CubesDistTwo.exit281.i:                       ; preds = %116, %110, %129, %.
   %181 = and i32 %176, 30
   %182 = lshr i32 %180, %181
   %183 = and i32 %182, 3
-  %184 = getelementptr inbounds i8, ptr %.2229451.i, i64 12
+  %184 = getelementptr inbounds i8, ptr %.2232450.i, i64 12
   %185 = getelementptr inbounds [1 x i32], ptr %184, i64 0, i64 %170
   %186 = load i32, ptr %185, align 4
   %187 = lshr i32 %186, %173
@@ -567,7 +567,7 @@ Min_CoverContainsCube.exit309.i:                  ; preds = %230, %236
 
 243:                                              ; preds = %Min_CoverContainsCube.exit309.i
   %.val.i = load ptr, ptr %7, align 8
-  tail call void @Extra_MmFixedEntryRecycle(ptr noundef %.val.i, ptr noundef nonnull %.2229451.i) #9
+  tail call void @Extra_MmFixedEntryRecycle(ptr noundef %.val.i, ptr noundef nonnull %.2232450.i) #9
   %244 = xor i32 %175, 3
   %245 = shl nuw i32 %244, %173
   %246 = load i32, ptr %171, align 4
@@ -615,7 +615,7 @@ Min_SopAddCube.exit312.i:                         ; preds = %268
   %272 = load i32, ptr %189, align 4
   %273 = xor i32 %272, %271
   store i32 %273, ptr %189, align 4
-  %274 = getelementptr inbounds i8, ptr %.2229451.i, i64 8
+  %274 = getelementptr inbounds i8, ptr %.2232450.i, i64 8
   %275 = load i32, ptr %274, align 8
   %276 = and i32 %275, -4194304
   %277 = add i32 %276, -4194304
@@ -625,7 +625,7 @@ Min_SopAddCube.exit312.i:                         ; preds = %268
   br label %280
 
 280:                                              ; preds = %280, %Min_SopAddCube.exit312.i
-  %281 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2229451.i)
+  %281 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2232450.i)
   %.not.i313.i = icmp eq i32 %281, 0
   br i1 %.not.i313.i, label %.outer.i.backedge, label %280, !llvm.loop !14
 
@@ -652,7 +652,7 @@ Min_SopAddCube.exit316.i:                         ; preds = %290
   %294 = load i32, ptr %185, align 4
   %295 = xor i32 %294, %293
   store i32 %295, ptr %185, align 4
-  %296 = getelementptr inbounds i8, ptr %.2229451.i, i64 8
+  %296 = getelementptr inbounds i8, ptr %.2232450.i, i64 8
   %297 = load i32, ptr %296, align 8
   %298 = and i32 %297, -4194304
   %299 = add i32 %298, -4194304
@@ -662,7 +662,7 @@ Min_SopAddCube.exit316.i:                         ; preds = %290
   br label %302
 
 302:                                              ; preds = %302, %Min_SopAddCube.exit316.i
-  %303 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2229451.i)
+  %303 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2232450.i)
   %.not.i317.i = icmp eq i32 %303, 0
   br i1 %.not.i317.i, label %.outer.i.backedge, label %302, !llvm.loop !14
 
@@ -672,7 +672,7 @@ Min_SopAddCube.exit316.i:                         ; preds = %290
   br i1 %.not.i319.i, label %Min_SopAddCube.exit320.i, label %.thread454.i, !llvm.loop !14
 
 Min_SopAddCube.exit320.i:                         ; preds = %.thread454.i, %Min_SopAddCube.exit320.i
-  %305 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2229451.i)
+  %305 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2232450.i)
   %.not.i321.i = icmp eq i32 %305, 0
   br i1 %.not.i321.i, label %.outer.i.backedge, label %Min_SopAddCube.exit320.i, !llvm.loop !14
 
@@ -683,13 +683,13 @@ Min_SopAddCube.exit320.i:                         ; preds = %.thread454.i, %Min_
   br label %308
 
 308:                                              ; preds = %307, %306
-  %.3.i = phi ptr [ %.1.i, %307 ], [ %.2229451.i, %306 ]
-  %.0225.i = phi i32 [ %188, %307 ], [ %175, %306 ]
-  %.0223.i = phi i32 [ %192, %307 ], [ %183, %306 ]
-  %.0221.i = phi i32 [ %175, %307 ], [ %188, %306 ]
-  %.0219.i = phi i32 [ %183, %307 ], [ %192, %306 ]
-  %.2.i = phi ptr [ %.2229451.i, %307 ], [ %.1.i, %306 ]
-  %.not248.i = icmp eq i32 %.0225.i, 3
+  %.3.i = phi ptr [ %.1.i, %307 ], [ %.2232450.i, %306 ]
+  %.0223.i = phi i32 [ %188, %307 ], [ %175, %306 ]
+  %.0221.i = phi i32 [ %192, %307 ], [ %183, %306 ]
+  %.0219.i = phi i32 [ %175, %307 ], [ %188, %306 ]
+  %.0217.i = phi i32 [ %183, %307 ], [ %192, %306 ]
+  %.2.i = phi ptr [ %.2232450.i, %307 ], [ %.1.i, %306 ]
+  %.not248.i = icmp eq i32 %.0223.i, 3
   br i1 %.not248.i, label %310, label %309
 
 309:                                              ; preds = %308
@@ -699,17 +699,17 @@ Min_SopAddCube.exit320.i:                         ; preds = %.thread454.i, %Min_
   %.pre-phi60 = phi i32 [ %181, %309 ], [ %173, %308 ]
   %.pre-phi = phi i64 [ %178, %309 ], [ %170, %308 ]
   %.7.i = phi i32 [ %.6421448.i, %309 ], [ %.6449.i, %308 ]
-  %.1226.i = phi i32 [ %.0223.i, %309 ], [ 3, %308 ]
-  %.1224.i = phi i32 [ %.0225.i, %309 ], [ %.0223.i, %308 ]
-  %.1222.i = phi i32 [ %.0219.i, %309 ], [ %.0221.i, %308 ]
-  %.1220.i = phi i32 [ %.0221.i, %309 ], [ %.0219.i, %308 ]
-  %311 = icmp eq i32 %.1226.i, 3
-  %312 = icmp eq i32 %.1220.i, 3
+  %.1224.i = phi i32 [ %.0221.i, %309 ], [ 3, %308 ]
+  %.1222.i = phi i32 [ %.0223.i, %309 ], [ %.0221.i, %308 ]
+  %.1220.i = phi i32 [ %.0217.i, %309 ], [ %.0219.i, %308 ]
+  %.1218.i = phi i32 [ %.0219.i, %309 ], [ %.0217.i, %308 ]
+  %311 = icmp eq i32 %.1224.i, 3
+  %312 = icmp eq i32 %.1218.i, 3
   %or.cond11.i = select i1 %311, i1 %312, i1 false
   br i1 %or.cond11.i, label %313, label %409
 
 313:                                              ; preds = %310
-  %314 = shl nuw i32 %.1222.i, %.pre-phi60
+  %314 = shl nuw i32 %.1220.i, %.pre-phi60
   %315 = getelementptr inbounds i8, ptr %.2.i, i64 12
   %316 = getelementptr inbounds [1 x i32], ptr %315, i64 0, i64 %.pre-phi
   %317 = load i32, ptr %316, align 4
@@ -815,7 +815,7 @@ Min_CoverContainsCube.exit344.i:                  ; preds = %._crit_edge.i338.i
   store i32 %328, ptr %327, align 8
   %.val252.i = load ptr, ptr %7, align 8
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %.val252.i, ptr noundef nonnull %.3.i) #9
-  %364 = xor i32 %.1224.i, 3
+  %364 = xor i32 %.1222.i, 3
   %365 = shl nuw i32 %364, %320
   %366 = load i32, ptr %324, align 4
   %367 = xor i32 %366, %365
@@ -868,7 +868,7 @@ Min_SopAddCube.exit348.i:                         ; preds = %375
   %393 = and i32 %390, 4194303
   %394 = or disjoint i32 %392, %393
   store i32 %394, ptr %327, align 8
-  %395 = shl nuw i32 %.1224.i, %320
+  %395 = shl nuw i32 %.1222.i, %320
   %396 = getelementptr inbounds i8, ptr %.3.i, i64 12
   %397 = getelementptr inbounds [1 x i32], ptr %396, i64 0, i64 %323
   %398 = load i32, ptr %397, align 4
@@ -966,7 +966,7 @@ Min_CubeIsContained.exit.i367.i:                  ; preds = %431, %423
   store i32 %413, ptr %412, align 4
   %.val253.i = load ptr, ptr %7, align 8
   tail call void @Extra_MmFixedEntryRecycle(ptr noundef %.val253.i, ptr noundef nonnull %.3.i) #9
-  %437 = xor i32 %.1224.i, 3
+  %437 = xor i32 %.1222.i, 3
   %438 = shl nsw i32 %.7.i, 1
   %439 = and i32 %438, 30
   %440 = shl nuw i32 %437, %439
@@ -993,7 +993,7 @@ Min_CubeIsContained.exit.i367.i:                  ; preds = %431, %423
 
 455:                                              ; preds = %._crit_edge.i370.i
   store i32 %413, ptr %412, align 4
-  %456 = shl nuw i32 %.1222.i, %.pre-phi60
+  %456 = shl nuw i32 %.1220.i, %.pre-phi60
   %457 = getelementptr inbounds i8, ptr %.2.i, i64 12
   %458 = getelementptr inbounds [1 x i32], ptr %457, i64 0, i64 %.pre-phi
   %459 = load i32, ptr %458, align 4
@@ -1006,7 +1006,7 @@ Min_CubeIsContained.exit.i367.i:                  ; preds = %431, %423
   %465 = and i32 %462, 4194303
   %466 = or disjoint i32 %464, %465
   store i32 %466, ptr %461, align 8
-  %467 = xor i32 %.1220.i, 3
+  %467 = xor i32 %.1218.i, 3
   %468 = shl nsw i32 %.7.i, 1
   %469 = and i32 %468, 30
   %470 = shl nuw i32 %467, %469
@@ -1835,13 +1835,13 @@ define ptr @Min_SopComplement(ptr noundef %0, ptr noundef readonly %1) local_unn
   br i1 %.not72, label %._crit_edge74, label %.preheader
 
 .preheaderthread-pre-split:                       ; preds = %._crit_edge
-  %.0..0..04667.pr = load ptr, ptr %3, align 8
+  %.0..0..04567.pr = load ptr, ptr %3, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %.preheaderthread-pre-split
-  %.0..04667 = phi ptr [ %.0..0..04667.pr, %.preheaderthread-pre-split ], [ %10, %2 ]
+  %.0..04567 = phi ptr [ %.0..0..04567.pr, %.preheaderthread-pre-split ], [ %10, %2 ]
   %.04373 = phi ptr [ %169, %.preheaderthread-pre-split ], [ %1, %2 ]
-  %.not4968 = icmp eq ptr %.0..04667, null
+  %.not4968 = icmp eq ptr %.0..04567, null
   br i1 %.not4968, label %._crit_edge, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %.preheader
@@ -1850,10 +1850,10 @@ define ptr @Min_SopComplement(ptr noundef %0, ptr noundef readonly %1) local_unn
   br label %27
 
 27:                                               ; preds = %.lr.ph71, %Min_CubesDisjoint.exit
-  %.04670 = phi ptr [ %.0..04667, %.lr.ph71 ], [ %.046, %Min_CubesDisjoint.exit ]
-  %.04569 = phi ptr [ %3, %.lr.ph71 ], [ %.147, %Min_CubesDisjoint.exit ]
-  %28 = getelementptr inbounds i8, ptr %.04670, i64 12
-  %29 = getelementptr inbounds i8, ptr %.04670, i64 8
+  %.04570 = phi ptr [ %.0..04567, %.lr.ph71 ], [ %.045, %Min_CubesDisjoint.exit ]
+  %.04469 = phi ptr [ %3, %.lr.ph71 ], [ %.146, %Min_CubesDisjoint.exit ]
+  %28 = getelementptr inbounds i8, ptr %.04570, i64 12
+  %29 = getelementptr inbounds i8, ptr %.04570, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = lshr i32 %30, 10
   %32 = and i32 %31, 4095
@@ -1883,7 +1883,7 @@ define ptr @Min_SopComplement(ptr noundef %0, ptr noundef readonly %1) local_unn
   br i1 %.not.i, label %33, label %Min_CubesDisjoint.exit.loopexit
 
 .loopexit:                                        ; preds = %33, %27
-  %43 = load ptr, ptr %.04670, align 8
+  %43 = load ptr, ptr %.04570, align 8
   store i32 0, ptr %5, align 4
   %44 = load i32, ptr %26, align 8
   %45 = and i32 %44, 4193280
@@ -2016,7 +2016,7 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %104 = shl nsw i32 %103, 1
   %105 = and i32 %104, 30
   %106 = shl nuw i32 3, %105
-  %107 = getelementptr inbounds i8, ptr %.04670, i64 12
+  %107 = getelementptr inbounds i8, ptr %.04570, i64 12
   %108 = ashr i32 %103, 4
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds [1 x i32], ptr %107, i64 0, i64 %109
@@ -2030,8 +2030,8 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %114 = phi ptr [ %162, %.lr.ph ], [ %107, %.lr.ph.preheader ]
   %115 = phi ptr [ %157, %.lr.ph ], [ %102, %.lr.ph.preheader ]
   %indvars.iv.next84 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.next80, %.lr.ph.preheader ]
-  %.16283 = phi ptr [ %126, %.lr.ph ], [ %.04569, %.lr.ph.preheader ]
-  %.0446382 = phi ptr [ %126, %.lr.ph ], [ %.04670, %.lr.ph.preheader ]
+  %.0476283 = phi ptr [ %126, %.lr.ph ], [ %.04570, %.lr.ph.preheader ]
+  %.16382 = phi ptr [ %126, %.lr.ph ], [ %.04469, %.lr.ph.preheader ]
   %116 = load i32, ptr %115, align 4
   %117 = shl nsw i32 %116, 1
   %118 = ashr i32 %116, 4
@@ -2065,7 +2065,7 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %141 = sext i32 %140 to i64
   %142 = shl nsw i64 %141, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %136, ptr nonnull readonly align 4 %114, i64 %142, i1 false)
-  %143 = getelementptr inbounds i8, ptr %.0446382, i64 8
+  %143 = getelementptr inbounds i8, ptr %.0476283, i64 8
   %144 = load i32, ptr %143, align 8
   %145 = and i32 %144, -4194304
   %146 = or disjoint i32 %145, %135
@@ -2081,7 +2081,7 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   %155 = load i32, ptr %154, align 4
   %156 = xor i32 %151, %155
   store i32 %156, ptr %154, align 4
-  store ptr %126, ptr %.16283, align 8
+  store ptr %126, ptr %.16382, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv.next84, -1
   %.val51 = load ptr, ptr %7, align 8
   %157 = getelementptr inbounds i32, ptr %.val51, i64 %indvars.iv.next
@@ -2100,18 +2100,18 @@ Min_CoverGetDisjVars.exit:                        ; preds = %.loopexit.i
   br i1 %168, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %.loopexit, %Min_CoverGetDisjVars.exit
-  %.044.lcssa = phi ptr [ %.04670, %Min_CoverGetDisjVars.exit ], [ %.04670, %.loopexit ], [ %.04670, %.lr.ph.preheader ], [ %126, %.lr.ph ]
-  store ptr %43, ptr %.044.lcssa, align 8
+  %.047.lcssa = phi ptr [ %.04570, %Min_CoverGetDisjVars.exit ], [ %.04570, %.loopexit ], [ %.04570, %.lr.ph.preheader ], [ %126, %.lr.ph ]
+  store ptr %43, ptr %.047.lcssa, align 8
   br label %Min_CubesDisjoint.exit
 
 Min_CubesDisjoint.exit.loopexit:                  ; preds = %34
-  %.046.pre = load ptr, ptr %.04670, align 8
+  %.045.pre = load ptr, ptr %.04570, align 8
   br label %Min_CubesDisjoint.exit
 
 Min_CubesDisjoint.exit:                           ; preds = %Min_CubesDisjoint.exit.loopexit, %.critedge
-  %.046 = phi ptr [ %43, %.critedge ], [ %.046.pre, %Min_CubesDisjoint.exit.loopexit ]
-  %.147 = phi ptr [ %.044.lcssa, %.critedge ], [ %.04670, %Min_CubesDisjoint.exit.loopexit ]
-  %.not49 = icmp eq ptr %.046, null
+  %.045 = phi ptr [ %43, %.critedge ], [ %.045.pre, %Min_CubesDisjoint.exit.loopexit ]
+  %.146 = phi ptr [ %.047.lcssa, %.critedge ], [ %.04570, %Min_CubesDisjoint.exit.loopexit ]
+  %.not49 = icmp eq ptr %.045, null
   br i1 %.not49, label %._crit_edge, label %27, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %Min_CubesDisjoint.exit, %.preheader

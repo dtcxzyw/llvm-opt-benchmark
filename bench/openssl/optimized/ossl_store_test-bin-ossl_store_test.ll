@@ -379,10 +379,10 @@ land.rhs:                                         ; preds = %land.lhs.true17
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true17, %land.lhs.true13, %land.lhs.true9, %land.lhs.true5, %land.lhs.true, %entry
+  %store_ctx.0 = phi ptr [ %call14, %land.rhs ], [ %call14, %land.lhs.true17 ], [ %call14, %land.lhs.true13 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true5 ], [ null, %land.lhs.true ], [ null, %entry ]
   %provider.0 = phi ptr [ %call6, %land.rhs ], [ %call6, %land.lhs.true17 ], [ %call6, %land.lhs.true13 ], [ %call6, %land.lhs.true9 ], [ %call6, %land.lhs.true5 ], [ null, %land.lhs.true ], [ null, %entry ]
   %libctx.0 = phi ptr [ %call2, %land.rhs ], [ %call2, %land.lhs.true17 ], [ %call2, %land.lhs.true13 ], [ %call2, %land.lhs.true9 ], [ %call2, %land.lhs.true5 ], [ %call2, %land.lhs.true ], [ null, %entry ]
   %bio.0 = phi ptr [ %call10, %land.rhs ], [ %call10, %land.lhs.true17 ], [ %call10, %land.lhs.true13 ], [ %call10, %land.lhs.true9 ], [ null, %land.lhs.true5 ], [ null, %land.lhs.true ], [ null, %entry ]
-  %store_ctx.0 = phi ptr [ %call14, %land.rhs ], [ %call14, %land.lhs.true17 ], [ %call14, %land.lhs.true13 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true5 ], [ null, %land.lhs.true ], [ null, %entry ]
   %land.ext = phi i32 [ %5, %land.rhs ], [ 0, %land.lhs.true17 ], [ 0, %land.lhs.true13 ], [ 0, %land.lhs.true9 ], [ 0, %land.lhs.true5 ], [ 0, %land.lhs.true ], [ 0, %entry ]
   %call26 = tail call i32 @BIO_free(ptr noundef %bio.0) #3
   %call27 = tail call i32 @OSSL_STORE_close(ptr noundef %store_ctx.0) #3

@@ -919,9 +919,9 @@ cond.false:                                       ; preds = %if.end13
   unreachable
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end230
-  %keys_freed.0232 = phi i32 [ 0, %while.body.lr.ph ], [ %inc207, %if.end230 ]
+  %bestdbid.0232 = phi i32 [ undef, %while.body.lr.ph ], [ %bestdbid.5197, %if.end230 ]
   %mem_freed.0231 = phi i64 [ 0, %while.body.lr.ph ], [ %add205, %if.end230 ]
-  %bestdbid.0230 = phi i32 [ undef, %while.body.lr.ph ], [ %bestdbid.5197, %if.end230 ]
+  %keys_freed.0230 = phi i32 [ 0, %while.body.lr.ph ], [ %inc207, %if.end230 ]
   %16 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4824), align 8
   %.fr = freeze i32 %16
   %and = and i32 %.fr, 3
@@ -939,7 +939,7 @@ if.then24:                                        ; preds = %while.body
   br label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then24, %for.end136
-  %bestdbid.1228 = phi i32 [ %bestdbid.0230, %if.then24 ], [ %bestdbid.4, %for.end136 ]
+  %bestdbid.1228 = phi i32 [ %bestdbid.0232, %if.then24 ], [ %bestdbid.4, %for.end136 ]
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
   %cmp31221 = icmp sgt i32 %18, 0
   br i1 %cmp31221, label %for.body.lr.ph, label %if.then236
@@ -1270,7 +1270,7 @@ if.end202:                                        ; preds = %if.end192, %if.then
   tail call void @exitExecutionUnit() #14
   tail call void @postExecutionUnitOperations() #14
   tail call void @decrRefCount(ptr noundef %call186) #14
-  %inc207 = add nuw nsw i32 %keys_freed.0232, 1
+  %inc207 = add nuw nsw i32 %keys_freed.0230, 1
   %rem208 = and i32 %inc207, 15
   %cmp209 = icmp eq i32 %rem208, 0
   br i1 %cmp209, label %if.then211, label %if.end230

@@ -512,8 +512,8 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %41, %43
 
 54:                                               ; preds = %.lr.ph, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit
   %55 = phi ptr [ %48, %.lr.ph ], [ %116, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit ]
-  %.02638 = phi i64 [ 0, %.lr.ph ], [ %114, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit ]
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %.02638
+  %.02538 = phi i64 [ 0, %.lr.ph ], [ %114, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit ]
+  %56 = getelementptr inbounds ptr, ptr %55, i64 %.02538
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 88
   %59 = load ptr, ptr %58, align 8
@@ -649,7 +649,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_it
   br label %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit: ; preds = %tailrecurse.i, %81, %_ZNSt6vectorIPK4FactSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %88
-  %114 = add nuw i64 %.02638, 1
+  %114 = add nuw i64 %.02538, 1
   %115 = load ptr, ptr %46, align 8
   %116 = load ptr, ptr %6, align 8
   %117 = ptrtoint ptr %115 to i64
@@ -661,7 +661,7 @@ _ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit: ; preds = %tailrecurse.i, %81,
 
 thread-pre-split:                                 ; preds = %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit, %44, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
   %122 = phi ptr [ %36, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ %48, %44 ], [ %116, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit ]
-  %.025.in = phi i64 [ %40, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ %52, %44 ], [ %120, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit ]
+  %.026.in = phi i64 [ %40, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ %52, %44 ], [ %120, %_ZNSt6vectorIPK4FactSaIS2_EE9push_backEOS2_.exit ]
   %.not.i.i.i30 = icmp eq ptr %122, null
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit31, label %123
 
@@ -670,8 +670,8 @@ thread-pre-split:                                 ; preds = %_ZNSt6vectorIPK4Fac
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit31
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit31:      ; preds = %thread-pre-split, %123
-  %.025 = trunc i64 %.025.in to i32
-  ret i32 %.025
+  %.026 = trunc i64 %.026.in to i32
+  ret i32 %.026
 }
 
 declare noundef i32 @_ZNK3Lhs18get_indirect_levelEv(ptr noundef nonnull align 8 dereferenceable(41)) local_unnamed_addr #0

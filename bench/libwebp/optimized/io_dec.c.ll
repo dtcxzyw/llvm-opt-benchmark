@@ -531,7 +531,7 @@ define internal i32 @EmitFancyRGB(ptr nocapture noundef readonly %0, ptr nocaptu
   br label %43
 
 43:                                               ; preds = %35, %34
-  %.0 = phi i32 [ %4, %34 ], [ %42, %35 ]
+  %.091 = phi i32 [ %4, %34 ], [ %42, %35 ]
   %44 = icmp sgt i32 %4, 2
   br i1 %44, label %.lr.ph, label %._crit_edge
 
@@ -543,42 +543,42 @@ define internal i32 @EmitFancyRGB(ptr nocapture noundef readonly %0, ptr nocaptu
 
 48:                                               ; preds = %.lr.ph, %48
   %49 = phi i32 [ %45, %.lr.ph ], [ %68, %48 ]
-  %.08797 = phi ptr [ %15, %.lr.ph ], [ %57, %48 ]
-  %.08896 = phi ptr [ %21, %.lr.ph ], [ %61, %48 ]
-  %.09095 = phi ptr [ %25, %.lr.ph ], [ %53, %48 ]
-  %.09194 = phi ptr [ %23, %.lr.ph ], [ %52, %48 ]
+  %.08797 = phi ptr [ %25, %.lr.ph ], [ %53, %48 ]
+  %.08896 = phi ptr [ %23, %.lr.ph ], [ %52, %48 ]
+  %.08995 = phi ptr [ %21, %.lr.ph ], [ %61, %48 ]
+  %.09094 = phi ptr [ %15, %.lr.ph ], [ %57, %48 ]
   %50 = load i32, ptr %46, align 4
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %.09194, i64 %51
-  %53 = getelementptr inbounds i8, ptr %.09095, i64 %51
+  %52 = getelementptr inbounds i8, ptr %.08896, i64 %51
+  %53 = getelementptr inbounds i8, ptr %.08797, i64 %51
   %54 = load i32, ptr %11, align 8
   %55 = shl nsw i32 %54, 1
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i8, ptr %.08797, i64 %56
+  %57 = getelementptr inbounds i8, ptr %.09094, i64 %56
   %58 = load i32, ptr %47, align 8
   %59 = shl nsw i32 %58, 1
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %.08896, i64 %60
+  %61 = getelementptr inbounds i8, ptr %.08995, i64 %60
   %62 = sext i32 %58 to i64
   %63 = sub nsw i64 0, %62
   %64 = getelementptr inbounds i8, ptr %61, i64 %63
   %65 = sext i32 %54 to i64
   %66 = sub nsw i64 0, %65
   %67 = getelementptr inbounds i8, ptr %57, i64 %66
-  tail call void %19(ptr noundef %64, ptr noundef %61, ptr noundef %.09194, ptr noundef %.09095, ptr noundef %52, ptr noundef %53, ptr noundef %67, ptr noundef %57, i32 noundef %30) #6
+  tail call void %19(ptr noundef %64, ptr noundef %61, ptr noundef %.08896, ptr noundef %.08797, ptr noundef %52, ptr noundef %53, ptr noundef %67, ptr noundef %57, i32 noundef %30) #6
   %68 = add nsw i32 %49, 2
   %69 = icmp slt i32 %68, %28
   br i1 %69, label %48, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %48, %43
-  %.091.lcssa = phi ptr [ %23, %43 ], [ %52, %48 ]
-  %.090.lcssa = phi ptr [ %25, %43 ], [ %53, %48 ]
-  %.088.lcssa = phi ptr [ %21, %43 ], [ %61, %48 ]
-  %.087.lcssa = phi ptr [ %15, %43 ], [ %57, %48 ]
+  %.090.lcssa = phi ptr [ %15, %43 ], [ %57, %48 ]
+  %.089.lcssa = phi ptr [ %21, %43 ], [ %61, %48 ]
+  %.088.lcssa = phi ptr [ %23, %43 ], [ %52, %48 ]
+  %.087.lcssa = phi ptr [ %25, %43 ], [ %53, %48 ]
   %70 = getelementptr inbounds i8, ptr %0, i64 48
   %71 = load i32, ptr %70, align 8
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i8, ptr %.088.lcssa, i64 %72
+  %73 = getelementptr inbounds i8, ptr %.089.lcssa, i64 %72
   %74 = getelementptr inbounds i8, ptr %0, i64 128
   %75 = load i32, ptr %74, align 8
   %76 = add nsw i32 %75, %28
@@ -594,10 +594,10 @@ define internal i32 @EmitFancyRGB(ptr nocapture noundef readonly %0, ptr nocaptu
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %82, ptr align 1 %73, i64 %83, i1 false)
   %84 = load ptr, ptr %26, align 8
   %85 = sext i32 %32 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr align 1 %.091.lcssa, i64 %85, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %84, ptr align 1 %.088.lcssa, i64 %85, i1 false)
   %86 = load ptr, ptr %27, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr align 1 %.090.lcssa, i64 %85, i1 false)
-  %87 = add nsw i32 %.0, -1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr align 1 %.087.lcssa, i64 %85, i1 false)
+  %87 = add nsw i32 %.091, -1
   br label %94
 
 88:                                               ; preds = %._crit_edge
@@ -608,12 +608,12 @@ define internal i32 @EmitFancyRGB(ptr nocapture noundef readonly %0, ptr nocaptu
 90:                                               ; preds = %88
   %91 = load i32, ptr %11, align 8
   %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds i8, ptr %.087.lcssa, i64 %92
-  tail call void %19(ptr noundef %73, ptr noundef null, ptr noundef %.091.lcssa, ptr noundef %.090.lcssa, ptr noundef %.091.lcssa, ptr noundef %.090.lcssa, ptr noundef %93, ptr noundef null, i32 noundef %30) #6
+  %93 = getelementptr inbounds i8, ptr %.090.lcssa, i64 %92
+  tail call void %19(ptr noundef %73, ptr noundef null, ptr noundef %.088.lcssa, ptr noundef %.087.lcssa, ptr noundef %.088.lcssa, ptr noundef %.087.lcssa, ptr noundef %93, ptr noundef null, i32 noundef %30) #6
   br label %94
 
 94:                                               ; preds = %88, %90, %80
-  %.1 = phi i32 [ %87, %80 ], [ %.0, %88 ], [ %.0, %90 ]
+  %.1 = phi i32 [ %87, %80 ], [ %.091, %88 ], [ %.091, %90 ]
   ret i32 %.1
 }
 
@@ -749,21 +749,21 @@ GetAlphaSourceRow.exit:                           ; preds = %28, %6
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.047.us = phi ptr [ %63, %._crit_edge.us ], [ %46, %.preheader.us.preheader ]
-  %.02946.us = phi i32 [ %64, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.03145.us = phi i32 [ %57, %._crit_edge.us ], [ 15, %.preheader.us.preheader ]
+  %.047.us = phi i32 [ %64, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.03046.us = phi i32 [ %57, %._crit_edge.us ], [ 15, %.preheader.us.preheader ]
+  %.03145.us = phi ptr [ %63, %._crit_edge.us ], [ %46, %.preheader.us.preheader ]
   %.244.us = phi ptr [ %60, %._crit_edge.us ], [ %.140, %.preheader.us.preheader ]
   br label %47
 
 47:                                               ; preds = %.preheader.us, %47
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %47 ]
-  %.142.us = phi i32 [ %.03145.us, %.preheader.us ], [ %57, %47 ]
+  %.142.us = phi i32 [ %.03046.us, %.preheader.us ], [ %57, %47 ]
   %48 = getelementptr inbounds i8, ptr %.244.us, i64 %indvars.iv
   %49 = load i8, ptr %48, align 1
   %50 = lshr i8 %49, 4
   %51 = zext nneg i8 %50 to i32
   %52 = shl nuw nsw i64 %indvars.iv, 1
-  %53 = getelementptr inbounds i8, ptr %.047.us, i64 %52
+  %53 = getelementptr inbounds i8, ptr %.03145.us, i64 %52
   %54 = load i8, ptr %53, align 1
   %55 = and i8 %54, -16
   %56 = or disjoint i8 %55, %50
@@ -779,8 +779,8 @@ GetAlphaSourceRow.exit:                           ; preds = %28, %6
   %60 = getelementptr inbounds i8, ptr %.244.us, i64 %59
   %61 = load i32, ptr %39, align 8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %.047.us, i64 %62
-  %64 = add nuw nsw i32 %.02946.us, 1
+  %63 = getelementptr inbounds i8, ptr %.03145.us, i64 %62
+  %64 = add nuw nsw i32 %.047.us, 1
   %exitcond52.not = icmp eq i32 %64, %.138
   br i1 %exitcond52.not, label %._crit_edge48, label %.preheader.us, !llvm.loop !7
 
@@ -986,8 +986,8 @@ define internal i32 @EmitRescaledRGB(ptr nocapture noundef readonly %0, ptr noca
 17:                                               ; preds = %.lr.ph, %ExportRGB.exit
   %18 = phi ptr [ %.pre, %.lr.ph ], [ %99, %ExportRGB.exit ]
   %.041 = phi i32 [ 0, %.lr.ph ], [ %27, %ExportRGB.exit ]
-  %.03640 = phi i32 [ 0, %.lr.ph ], [ %.1, %ExportRGB.exit ]
-  %.03739 = phi i32 [ 0, %.lr.ph ], [ %100, %ExportRGB.exit ]
+  %.03640 = phi i32 [ 0, %.lr.ph ], [ %100, %ExportRGB.exit ]
+  %.03739 = phi i32 [ 0, %.lr.ph ], [ %.1, %ExportRGB.exit ]
   %19 = sub nsw i32 %4, %.041
   %20 = load ptr, ptr %9, align 8
   %21 = sext i32 %.041 to i64
@@ -998,7 +998,7 @@ define internal i32 @EmitRescaledRGB(ptr nocapture noundef readonly %0, ptr noca
   %26 = tail call i32 @WebPRescalerImport(ptr noundef %18, i32 noundef %19, ptr noundef %25, i32 noundef %22) #6
   %27 = add nsw i32 %26, %.041
   %28 = load ptr, ptr %11, align 8
-  %29 = sub nsw i32 %6, %.03640
+  %29 = sub nsw i32 %6, %.03739
   %30 = tail call i32 @WebPRescaleNeededLines(ptr noundef %28, i32 noundef %29) #6
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %48, label %31
@@ -1006,7 +1006,7 @@ define internal i32 @EmitRescaledRGB(ptr nocapture noundef readonly %0, ptr noca
 31:                                               ; preds = %17
   %32 = load ptr, ptr %11, align 8
   %33 = load ptr, ptr %12, align 8
-  %34 = sext i32 %.03640 to i64
+  %34 = sext i32 %.03739 to i64
   %35 = load i32, ptr %13, align 4
   %36 = sext i32 %35 to i64
   %37 = mul nsw i64 %36, %34
@@ -1019,11 +1019,11 @@ define internal i32 @EmitRescaledRGB(ptr nocapture noundef readonly %0, ptr noca
   %44 = mul nsw i64 %43, %34
   %45 = getelementptr inbounds i8, ptr %41, i64 %44
   %46 = tail call i32 @WebPRescalerImport(ptr noundef %40, i32 noundef %29, ptr noundef %45, i32 noundef %42) #6
-  %47 = add nsw i32 %39, %.03640
+  %47 = add nsw i32 %39, %.03739
   br label %48
 
 48:                                               ; preds = %31, %17
-  %.1 = phi i32 [ %47, %31 ], [ %.03640, %17 ]
+  %.1 = phi i32 [ %47, %31 ], [ %.03739, %17 ]
   %49 = load ptr, ptr %1, align 8
   %50 = load i32, ptr %49, align 8
   %51 = zext i32 %50 to i64
@@ -1040,7 +1040,7 @@ define internal i32 @EmitRescaledRGB(ptr nocapture noundef readonly %0, ptr noca
 
 WebPRescalerHasPendingOutput.exit.lr.ph.i:        ; preds = %48
   %58 = load i32, ptr %16, align 8
-  %59 = add nsw i32 %58, %.03739
+  %59 = add nsw i32 %58, %.03640
   %60 = getelementptr inbounds i8, ptr %49, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = load i32, ptr %54, align 8
@@ -1107,13 +1107,13 @@ WebPRescalerHasPendingOutput.exit24.i:            ; preds = %71
 ExportRGB.exit:                                   ; preds = %WebPRescalerHasPendingOutput.exit.i, %71, %WebPRescalerHasPendingOutput.exit24.i, %78, %48
   %99 = phi ptr [ %55, %48 ], [ %67, %WebPRescalerHasPendingOutput.exit24.i ], [ %67, %WebPRescalerHasPendingOutput.exit.i ], [ %96, %78 ], [ %67, %71 ]
   %.0.lcssa.i = phi i32 [ 0, %48 ], [ %.031.i, %WebPRescalerHasPendingOutput.exit24.i ], [ %.031.i, %WebPRescalerHasPendingOutput.exit.i ], [ %95, %78 ], [ %.031.i, %71 ]
-  %100 = add nsw i32 %.0.lcssa.i, %.03739
+  %100 = add nsw i32 %.0.lcssa.i, %.03640
   %101 = icmp slt i32 %27, %4
   br i1 %101, label %17, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %ExportRGB.exit, %2
-  %.037.lcssa = phi i32 [ 0, %2 ], [ %100, %ExportRGB.exit ]
-  ret i32 %.037.lcssa
+  %.036.lcssa = phi i32 [ 0, %2 ], [ %100, %ExportRGB.exit ]
+  ret i32 %.036.lcssa
 }
 
 declare void @WebPInitYUV444Converters() local_unnamed_addr #2
@@ -1205,13 +1205,13 @@ WebPRescalerHasPendingOutput.exit.us.preheader:   ; preds = %WebPRescalerHasPend
 
 WebPRescalerHasPendingOutput.exit.us:             ; preds = %WebPRescalerHasPendingOutput.exit.us.preheader, %._crit_edge.us
   %23 = phi ptr [ %47, %._crit_edge.us ], [ %15, %WebPRescalerHasPendingOutput.exit.us.preheader ]
-  %.044.us = phi ptr [ %45, %._crit_edge.us ], [ %22, %WebPRescalerHasPendingOutput.exit.us.preheader ]
-  %.03543.us = phi i32 [ %42, %._crit_edge.us ], [ 15, %WebPRescalerHasPendingOutput.exit.us.preheader ]
-  %.03642.us = phi i32 [ %46, %._crit_edge.us ], [ 0, %WebPRescalerHasPendingOutput.exit.us.preheader ]
+  %.03444.us = phi i32 [ %42, %._crit_edge.us ], [ 15, %WebPRescalerHasPendingOutput.exit.us.preheader ]
+  %.03543.us = phi i32 [ %46, %._crit_edge.us ], [ 0, %WebPRescalerHasPendingOutput.exit.us.preheader ]
+  %.03642.us = phi ptr [ %45, %._crit_edge.us ], [ %22, %WebPRescalerHasPendingOutput.exit.us.preheader ]
   %24 = getelementptr inbounds i8, ptr %23, i64 24
   %25 = load i32, ptr %24, align 8
   %26 = icmp slt i32 %25, 1
-  %27 = icmp slt i32 %.03642.us, %2
+  %27 = icmp slt i32 %.03543.us, %2
   %28 = select i1 %26, i1 %27, i1 false
   br i1 %28, label %.lr.ph.us, label %WebPRescalerHasPendingOutput.exit.thread
 
@@ -1221,7 +1221,7 @@ WebPRescalerHasPendingOutput.exit.us:             ; preds = %WebPRescalerHasPend
 
 29:                                               ; preds = %.lr.ph.us, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %29 ]
-  %.137.us = phi i32 [ %.03543.us, %.lr.ph.us ], [ %42, %29 ]
+  %.137.us = phi i32 [ %.03444.us, %.lr.ph.us ], [ %42, %29 ]
   %30 = load ptr, ptr %14, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 72
   %32 = load ptr, ptr %31, align 8
@@ -1230,7 +1230,7 @@ WebPRescalerHasPendingOutput.exit.us:             ; preds = %WebPRescalerHasPend
   %35 = lshr i8 %34, 4
   %36 = zext nneg i8 %35 to i32
   %37 = shl nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr inbounds i8, ptr %.044.us, i64 %37
+  %38 = getelementptr inbounds i8, ptr %.03642.us, i64 %37
   %39 = load i8, ptr %38, align 1
   %40 = and i8 %39, -16
   %41 = or disjoint i8 %40, %35
@@ -1243,8 +1243,8 @@ WebPRescalerHasPendingOutput.exit.us:             ; preds = %WebPRescalerHasPend
 ._crit_edge.us:                                   ; preds = %29
   %43 = load i32, ptr %8, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %.044.us, i64 %44
-  %46 = add nuw nsw i32 %.03642.us, 1
+  %45 = getelementptr inbounds i8, ptr %.03642.us, i64 %44
+  %46 = add nuw nsw i32 %.03543.us, 1
   %47 = load ptr, ptr %14, align 8
   %48 = getelementptr i8, ptr %47, i64 56
   %.val.i.us = load i32, ptr %48, align 8
@@ -1255,17 +1255,17 @@ WebPRescalerHasPendingOutput.exit.us:             ; preds = %WebPRescalerHasPend
 
 WebPRescalerHasPendingOutput.exit:                ; preds = %WebPRescalerHasPendingOutput.exit.lr.ph, %56
   %50 = phi ptr [ %58, %56 ], [ %15, %WebPRescalerHasPendingOutput.exit.lr.ph ]
-  %.03642 = phi i32 [ %57, %56 ], [ 0, %WebPRescalerHasPendingOutput.exit.lr.ph ]
+  %.03543 = phi i32 [ %57, %56 ], [ 0, %WebPRescalerHasPendingOutput.exit.lr.ph ]
   %51 = getelementptr inbounds i8, ptr %50, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = icmp slt i32 %52, 1
-  %54 = icmp slt i32 %.03642, %2
+  %54 = icmp slt i32 %.03543, %2
   %55 = select i1 %53, i1 %54, i1 false
   br i1 %55, label %56, label %WebPRescalerHasPendingOutput.exit.thread.thread
 
 56:                                               ; preds = %WebPRescalerHasPendingOutput.exit
   tail call void @WebPRescalerExportRow(ptr noundef nonnull %50) #6
-  %57 = add nuw nsw i32 %.03642, 1
+  %57 = add nuw nsw i32 %.03543, 1
   %58 = load ptr, ptr %14, align 8
   %59 = getelementptr i8, ptr %58, i64 56
   %.val.i = load i32, ptr %59, align 8
@@ -1275,21 +1275,21 @@ WebPRescalerHasPendingOutput.exit:                ; preds = %WebPRescalerHasPend
   br i1 %.not3.i, label %WebPRescalerHasPendingOutput.exit, label %WebPRescalerHasPendingOutput.exit.thread.thread, !llvm.loop !14
 
 WebPRescalerHasPendingOutput.exit.thread:         ; preds = %WebPRescalerHasPendingOutput.exit.us, %._crit_edge.us
-  %.036.lcssa.ph = phi i32 [ %.03642.us, %WebPRescalerHasPendingOutput.exit.us ], [ %46, %._crit_edge.us ]
-  %.035.lcssa.ph = phi i32 [ %.03543.us, %WebPRescalerHasPendingOutput.exit.us ], [ %42, %._crit_edge.us ]
-  %61 = icmp ne i32 %.035.lcssa.ph, 15
+  %.035.lcssa.ph = phi i32 [ %.03543.us, %WebPRescalerHasPendingOutput.exit.us ], [ %46, %._crit_edge.us ]
+  %.034.lcssa.ph = phi i32 [ %.03444.us, %WebPRescalerHasPendingOutput.exit.us ], [ %42, %._crit_edge.us ]
+  %61 = icmp ne i32 %.034.lcssa.ph, 15
   %or.cond = select i1 %narrow.i, i1 %61, i1 false
   br i1 %or.cond, label %62, label %WebPRescalerHasPendingOutput.exit.thread.thread
 
 62:                                               ; preds = %WebPRescalerHasPendingOutput.exit.thread
   %63 = load ptr, ptr @WebPApplyAlphaMultiply4444, align 8
   %64 = load i32, ptr %8, align 8
-  tail call void %63(ptr noundef %12, i32 noundef %.fr52, i32 noundef %.036.lcssa.ph, i32 noundef %64) #6
+  tail call void %63(ptr noundef %12, i32 noundef %.fr52, i32 noundef %.035.lcssa.ph, i32 noundef %64) #6
   br label %WebPRescalerHasPendingOutput.exit.thread.thread
 
 WebPRescalerHasPendingOutput.exit.thread.thread:  ; preds = %WebPRescalerHasPendingOutput.exit, %56, %3, %62, %WebPRescalerHasPendingOutput.exit.thread
-  %.036.lcssa60 = phi i32 [ %.036.lcssa.ph, %62 ], [ %.036.lcssa.ph, %WebPRescalerHasPendingOutput.exit.thread ], [ 0, %3 ], [ %.03642, %WebPRescalerHasPendingOutput.exit ], [ %57, %56 ]
-  ret i32 %.036.lcssa60
+  %.035.lcssa60 = phi i32 [ %.035.lcssa.ph, %62 ], [ %.035.lcssa.ph, %WebPRescalerHasPendingOutput.exit.thread ], [ 0, %3 ], [ %.03543, %WebPRescalerHasPendingOutput.exit ], [ %57, %56 ]
+  ret i32 %.035.lcssa60
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1336,7 +1336,7 @@ WebPRescalerHasPendingOutput.exit.preheader:      ; preds = %3
 
 WebPRescalerHasPendingOutput.exit:                ; preds = %39
   %32 = sext i32 %47 to i64
-  %33 = getelementptr inbounds i8, ptr %.03745, i64 %32
+  %33 = getelementptr inbounds i8, ptr %.0313547, i64 %32
   %34 = getelementptr inbounds i8, ptr %49, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = icmp slt i32 %35, 1
@@ -1345,19 +1345,19 @@ WebPRescalerHasPendingOutput.exit:                ; preds = %39
   br i1 %38, label %39, label %WebPRescalerHasPendingOutput.exit.thread.loopexit, !llvm.loop !15
 
 39:                                               ; preds = %.lr.ph, %WebPRescalerHasPendingOutput.exit
-  %.0313547 = phi i32 [ 0, %.lr.ph ], [ %48, %WebPRescalerHasPendingOutput.exit ]
-  %.0303646 = phi i32 [ 0, %.lr.ph ], [ %46, %WebPRescalerHasPendingOutput.exit ]
-  %.03745 = phi ptr [ %31, %.lr.ph ], [ %33, %WebPRescalerHasPendingOutput.exit ]
+  %.0313547 = phi ptr [ %31, %.lr.ph ], [ %33, %WebPRescalerHasPendingOutput.exit ]
+  %.0303646 = phi i32 [ 0, %.lr.ph ], [ %48, %WebPRescalerHasPendingOutput.exit ]
+  %.03745 = phi i32 [ 0, %.lr.ph ], [ %46, %WebPRescalerHasPendingOutput.exit ]
   %40 = phi ptr [ %20, %.lr.ph ], [ %49, %WebPRescalerHasPendingOutput.exit ]
   tail call void @WebPRescalerExportRow(ptr noundef nonnull %40) #6
   %41 = load ptr, ptr @WebPDispatchAlpha, align 8
   %42 = load ptr, ptr %19, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 72
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call i32 %41(ptr noundef %44, i32 noundef 0, i32 noundef %22, i32 noundef 1, ptr noundef %.03745, i32 noundef 0) #6
-  %46 = or i32 %45, %.0303646
+  %45 = tail call i32 %41(ptr noundef %44, i32 noundef 0, i32 noundef %22, i32 noundef 1, ptr noundef %.0313547, i32 noundef 0) #6
+  %46 = or i32 %45, %.03745
   %47 = load i32, ptr %8, align 8
-  %48 = add nuw nsw i32 %.0313547, 1
+  %48 = add nuw nsw i32 %.0303646, 1
   %49 = load ptr, ptr %19, align 8
   %50 = getelementptr i8, ptr %49, i64 56
   %.val.i = load i32, ptr %50, align 8
@@ -1372,19 +1372,19 @@ WebPRescalerHasPendingOutput.exit.thread.loopexit: ; preds = %WebPRescalerHasPen
 
 WebPRescalerHasPendingOutput.exit.thread:         ; preds = %WebPRescalerHasPendingOutput.exit.thread.loopexit, %WebPRescalerHasPendingOutput.exit.preheader
   %53 = phi i32 [ %9, %WebPRescalerHasPendingOutput.exit.preheader ], [ %47, %WebPRescalerHasPendingOutput.exit.thread.loopexit ]
-  %.031.lcssa.ph = phi i32 [ 0, %WebPRescalerHasPendingOutput.exit.preheader ], [ %48, %WebPRescalerHasPendingOutput.exit.thread.loopexit ]
-  %.030.lcssa.ph = phi i1 [ false, %WebPRescalerHasPendingOutput.exit.preheader ], [ %52, %WebPRescalerHasPendingOutput.exit.thread.loopexit ]
-  %or.cond = select i1 %narrow.i, i1 %.030.lcssa.ph, i1 false
+  %.030.lcssa.ph = phi i32 [ 0, %WebPRescalerHasPendingOutput.exit.preheader ], [ %48, %WebPRescalerHasPendingOutput.exit.thread.loopexit ]
+  %.0.lcssa.ph = phi i1 [ false, %WebPRescalerHasPendingOutput.exit.preheader ], [ %52, %WebPRescalerHasPendingOutput.exit.thread.loopexit ]
+  %or.cond = select i1 %narrow.i, i1 %.0.lcssa.ph, i1 false
   br i1 %or.cond, label %54, label %WebPRescalerHasPendingOutput.exit.thread.thread
 
 54:                                               ; preds = %WebPRescalerHasPendingOutput.exit.thread
   %55 = load ptr, ptr @WebPApplyAlphaMultiply, align 8
-  tail call void %55(ptr noundef %12, i32 noundef %17, i32 noundef %22, i32 noundef %.031.lcssa.ph, i32 noundef %53) #6
+  tail call void %55(ptr noundef %12, i32 noundef %17, i32 noundef %22, i32 noundef %.030.lcssa.ph, i32 noundef %53) #6
   br label %WebPRescalerHasPendingOutput.exit.thread.thread
 
 WebPRescalerHasPendingOutput.exit.thread.thread:  ; preds = %3, %54, %WebPRescalerHasPendingOutput.exit.thread
-  %.031.lcssa44 = phi i32 [ %.031.lcssa.ph, %54 ], [ %.031.lcssa.ph, %WebPRescalerHasPendingOutput.exit.thread ], [ 0, %3 ]
-  ret i32 %.031.lcssa44
+  %.030.lcssa44 = phi i32 [ %.030.lcssa.ph, %54 ], [ %.030.lcssa.ph, %WebPRescalerHasPendingOutput.exit.thread ], [ 0, %3 ]
+  ret i32 %.030.lcssa44
 }
 
 declare i32 @WebPRescalerImport(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2

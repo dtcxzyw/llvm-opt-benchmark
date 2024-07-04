@@ -1871,15 +1871,15 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %cond.end39
-  %in.030 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end39 ]
+  %idx.030 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end39 ]
   %out.029 = phi ptr [ %outImg, %for.body.lr.ph ], [ %add.ptr42, %cond.end39 ]
-  %idx.028 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %cond.end39 ]
-  %0 = load float, ptr %in.030, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %in.030, i64 4
+  %in.028 = phi ptr [ %inImg, %for.body.lr.ph ], [ %add.ptr, %cond.end39 ]
+  %0 = load float, ptr %in.028, align 4
+  %arrayidx2 = getelementptr inbounds i8, ptr %in.028, i64 4
   %1 = load float, ptr %arrayidx2, align 4
-  %arrayidx4 = getelementptr inbounds i8, ptr %in.030, i64 8
+  %arrayidx4 = getelementptr inbounds i8, ptr %in.028, i64 8
   %2 = load float, ptr %arrayidx4, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %in.030, i64 12
+  %arrayidx6 = getelementptr inbounds i8, ptr %in.028, i64 12
   %3 = load float, ptr %arrayidx6, align 4
   %cmp8 = fcmp ogt float %0, 0.000000e+00
   br i1 %cmp8, label %cond.true, label %cond.end
@@ -1928,9 +1928,9 @@ cond.end39:                                       ; preds = %cond.end29, %cond.t
   %cond40 = phi float [ %call.i26, %cond.true34 ], [ %3, %cond.end29 ]
   %arrayidx41 = getelementptr inbounds i8, ptr %out.029, i64 12
   store float %cond40, ptr %arrayidx41, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %in.030, i64 16
+  %add.ptr = getelementptr inbounds i8, ptr %in.028, i64 16
   %add.ptr42 = getelementptr inbounds i8, ptr %out.029, i64 16
-  %inc = add nuw nsw i64 %idx.028, 1
+  %inc = add nuw nsw i64 %idx.030, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !53
 

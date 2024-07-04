@@ -351,8 +351,8 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
 .preheader318:                                    ; preds = %._crit_edge364, %63
   %.0368 = phi i32 [ 0, %63 ], [ %190, %._crit_edge364 ]
   %.0258367 = phi i32 [ 0, %63 ], [ %.2, %._crit_edge364 ]
-  %.0270366 = phi double [ %61, %63 ], [ %181, %._crit_edge364 ]
-  %.0271365 = phi double [ %61, %63 ], [ %.2273, %._crit_edge364 ]
+  %.0268366 = phi double [ %61, %63 ], [ %.2270, %._crit_edge364 ]
+  %.0273365 = phi double [ %61, %63 ], [ %181, %._crit_edge364 ]
   br i1 %64, label %._crit_edge331.thread, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader318, %._crit_edge.us
@@ -375,13 +375,13 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
   br i1 %exitcond390.not, label %._crit_edge331, label %.preheader.us, !llvm.loop !13
 
 ._crit_edge331.thread:                            ; preds = %.preheader318
-  %72 = fdiv double 1.000000e+00, %.0270366
+  %72 = fdiv double 1.000000e+00, %.0273365
   %73 = load ptr, ptr %21, align 8
   tail call void @N_VScale(double noundef %72, ptr noundef %73, ptr noundef %73) #6
   br label %._crit_edge
 
 ._crit_edge331:                                   ; preds = %._crit_edge.us
-  %74 = fdiv double 1.000000e+00, %.0270366
+  %74 = fdiv double 1.000000e+00, %.0273365
   %75 = load ptr, ptr %21, align 8
   tail call void @N_VScale(double noundef %74, ptr noundef %75, ptr noundef %75) #6
   br i1 %64, label %._crit_edge, label %.lr.ph
@@ -389,13 +389,13 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
 .lr.ph:                                           ; preds = %._crit_edge331, %136
   %indvars.iv391 = phi i64 [ %indvars.iv.next392, %136 ], [ 0, %._crit_edge331 ]
   %.not311335 = phi i1 [ %.not311, %136 ], [ true, %._crit_edge331 ]
-  %.0260334 = phi i32 [ %78, %136 ], [ 0, %._crit_edge331 ]
-  %.0269333 = phi double [ %132, %136 ], [ 1.000000e+00, %._crit_edge331 ]
+  %.0259334 = phi i32 [ %78, %136 ], [ 0, %._crit_edge331 ]
+  %.0274333 = phi double [ %132, %136 ], [ 1.000000e+00, %._crit_edge331 ]
   %76 = load i32, ptr %14, align 4
   %77 = add nsw i32 %76, 1
   store i32 %77, ptr %14, align 4
   %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 1
-  %78 = add nuw nsw i32 %.0260334, 1
+  %78 = add nuw nsw i32 %.0259334, 1
   %79 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv391
   %80 = load ptr, ptr %79, align 8
   br i1 %.not297, label %82, label %81
@@ -501,8 +501,8 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
   %129 = or disjoint i64 %128, 1
   %130 = getelementptr inbounds double, ptr %25, i64 %129
   %131 = load double, ptr %130, align 8
-  %132 = fmul double %.0269333, %131
-  %133 = fmul double %.0270366, %132
+  %132 = fmul double %.0274333, %131
+  %133 = fmul double %.0273365, %132
   %134 = tail call double @SUNRabs(double noundef %133) #6
   store double %134, ptr %13, align 8
   %135 = fcmp ugt double %134, %6
@@ -526,9 +526,9 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
 
 ._crit_edge:                                      ; preds = %136, %._crit_edge.loopexit.split.loop.exit, %._crit_edge331.thread, %._crit_edge331
   %.not311.lcssa = phi i1 [ false, %._crit_edge331 ], [ false, %._crit_edge331.thread ], [ %.not311335, %._crit_edge.loopexit.split.loop.exit ], [ %.not311, %136 ]
-  %.2273 = phi double [ %.0271365, %._crit_edge331 ], [ %.0271365, %._crit_edge331.thread ], [ %134, %._crit_edge.loopexit.split.loop.exit ], [ %134, %136 ]
+  %.2270 = phi double [ %.0268366, %._crit_edge331 ], [ %.0268366, %._crit_edge331.thread ], [ %134, %._crit_edge.loopexit.split.loop.exit ], [ %134, %136 ]
   %.2 = phi i32 [ %.0258367, %._crit_edge331 ], [ %.0258367, %._crit_edge331.thread ], [ %143, %._crit_edge.loopexit.split.loop.exit ], [ %19, %136 ]
-  store double %.0270366, ptr %29, align 8
+  store double %.0273365, ptr %29, align 8
   %.not308342 = icmp slt i32 %.2, 1
   br i1 %.not308342, label %._crit_edge346, label %.lr.ph345.preheader
 
@@ -609,25 +609,25 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
 
 .lr.ph352:                                        ; preds = %.lr.ph352.preheader, %.lr.ph352
   %indvars.iv403 = phi i64 [ %166, %.lr.ph352.preheader ], [ %indvars.iv.next404, %.lr.ph352 ]
-  %.0275350 = phi double [ 1.000000e+00, %.lr.ph352.preheader ], [ %174, %.lr.ph352 ]
+  %.0272350 = phi double [ 1.000000e+00, %.lr.ph352.preheader ], [ %174, %.lr.ph352 ]
   %.idx = shl i64 %indvars.iv403, 4
   %167 = getelementptr i8, ptr %25, i64 %.idx
   %168 = getelementptr i8, ptr %167, i64 -16
   %169 = load double, ptr %168, align 8
-  %170 = fmul double %.0275350, %169
+  %170 = fmul double %.0272350, %169
   %171 = getelementptr inbounds double, ptr %29, i64 %indvars.iv403
   store double %170, ptr %171, align 8
   %172 = getelementptr i8, ptr %167, i64 -8
   %173 = load double, ptr %172, align 8
-  %174 = fmul double %.0275350, %173
+  %174 = fmul double %.0272350, %173
   %indvars.iv.next404 = add nsw i64 %indvars.iv403, -1
   %175 = icmp ugt i64 %indvars.iv403, 1
   br i1 %175, label %.lr.ph352, label %._crit_edge353, !llvm.loop !16
 
 ._crit_edge353:                                   ; preds = %.lr.ph352, %.preheader316
-  %.0275.lcssa = phi double [ 1.000000e+00, %.preheader316 ], [ %174, %.lr.ph352 ]
-  store double %.0275.lcssa, ptr %29, align 8
-  %176 = fmul double %.0270366, %.0275.lcssa
+  %.0272.lcssa = phi double [ 1.000000e+00, %.preheader316 ], [ %174, %.lr.ph352 ]
+  store double %.0272.lcssa, ptr %29, align 8
+  %176 = fmul double %.0273365, %.0272.lcssa
   %.not312355 = icmp slt i32 %.2, 0
   br i1 %.not312355, label %._crit_edge359, label %.lr.ph358.preheader
 
@@ -675,7 +675,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
   br label %.preheader318
 
 split:                                            ; preds = %164
-  %191 = fcmp olt double %.2273, %61
+  %191 = fcmp olt double %.2270, %61
   br i1 %191, label %192, label %.loopexit
 
 192:                                              ; preds = %split
@@ -710,8 +710,8 @@ split:                                            ; preds = %164
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge346, %124, %122, %120, %split, %58, %16, %203, %199, %163, %159, %107, %98, %91, %50, %39
-  %.0259 = phi i32 [ %52, %50 ], [ %93, %91 ], [ %100, %98 ], [ %109, %107 ], [ %161, %159 ], [ 0, %163 ], [ %201, %199 ], [ 1, %203 ], [ %41, %39 ], [ -1, %16 ], [ 0, %58 ], [ 2, %split ], [ 3, %124 ], [ -4, %122 ], [ -4, %120 ], [ -5, %._crit_edge346 ]
-  ret i32 %.0259
+  %.0275 = phi i32 [ %52, %50 ], [ %93, %91 ], [ %100, %98 ], [ %109, %107 ], [ %161, %159 ], [ 0, %163 ], [ %201, %199 ], [ 1, %203 ], [ %41, %39 ], [ -1, %16 ], [ 0, %58 ], [ 2, %split ], [ 3, %124 ], [ -4, %122 ], [ -4, %120 ], [ -5, %._crit_edge346 ]
+  ret i32 %.0275
 }
 
 declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #1

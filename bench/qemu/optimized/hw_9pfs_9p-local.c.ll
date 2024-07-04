@@ -93,8 +93,8 @@ entry:
 
 while.body:                                       ; preds = %entry, %if.end16
   %4 = phi i8 [ %8, %if.end16 ], [ %2, %entry ]
-  %path.addr.025 = phi ptr [ %path.addr.1, %if.end16 ], [ %path, %entry ]
-  %fd.024 = phi i32 [ %next_fd.0, %if.end16 ], [ %1, %entry ]
+  %fd.025 = phi i32 [ %next_fd.0, %if.end16 ], [ %1, %entry ]
+  %path.addr.024 = phi ptr [ %path.addr.1, %if.end16 ], [ %path, %entry ]
   %cmp3.not = icmp eq i8 %4, 47
   br i1 %cmp3.not, label %if.else, label %if.end
 
@@ -103,38 +103,38 @@ if.else:                                          ; preds = %while.body
   unreachable
 
 if.end:                                           ; preds = %while.body
-  %call = tail call noalias ptr @g_strdup(ptr noundef nonnull %path.addr.025) #15
-  %call.i = tail call ptr @strchrnul(ptr noundef nonnull readonly %path.addr.025, i32 noundef 47) #16
+  %call = tail call noalias ptr @g_strdup(ptr noundef nonnull %path.addr.024) #15
+  %call.i = tail call ptr @strchrnul(ptr noundef nonnull readonly %path.addr.024, i32 noundef 47) #16
   %5 = load i8, ptr %call.i, align 1
   %tobool6.not = icmp eq i8 %5, 0
   br i1 %tobool6.not, label %if.else9, label %if.then7
 
 if.then7:                                         ; preds = %if.end
   %sub.ptr.lhs.cast = ptrtoint ptr %call.i to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %path.addr.025 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %path.addr.024 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %arrayidx = getelementptr i8, ptr %call, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
   %add.ptr = getelementptr i8, ptr %call.i, i64 1
-  %call.i19 = tail call i32 (i32, ptr, i32, ...) @openat64(i32 noundef %fd.024, ptr noundef %call, i32 noundef 2293760) #15
+  %call.i19 = tail call i32 (i32, ptr, i32, ...) @openat64(i32 noundef %fd.025, ptr noundef %call, i32 noundef 2293760) #15
   br label %if.end11
 
 if.else9:                                         ; preds = %if.end
-  %call10 = tail call fastcc i32 @openat_file(i32 noundef %fd.024, ptr noundef %call, i32 noundef %flags, i32 noundef %mode)
+  %call10 = tail call fastcc i32 @openat_file(i32 noundef %fd.025, ptr noundef %call, i32 noundef %flags, i32 noundef %mode)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else9, %if.then7
-  %next_fd.0 = phi i32 [ %call.i19, %if.then7 ], [ %call10, %if.else9 ]
   %path.addr.1 = phi ptr [ %add.ptr, %if.then7 ], [ %call.i, %if.else9 ]
+  %next_fd.0 = phi i32 [ %call.i19, %if.then7 ], [ %call10, %if.else9 ]
   tail call void @g_free(ptr noundef %call) #15
   %6 = load i32, ptr %0, align 4
-  %cmp13.not = icmp eq i32 %fd.024, %6
+  %cmp13.not = icmp eq i32 %fd.025, %6
   br i1 %cmp13.not, label %if.end16, label %if.then15
 
 if.then15:                                        ; preds = %if.end11
   %call.i20 = tail call ptr @__errno_location() #17
   %7 = load i32, ptr %call.i20, align 4
-  %call1.i = tail call i32 @close(i32 noundef %fd.024) #15
+  %call1.i = tail call i32 @close(i32 noundef %fd.025) #15
   store i32 %7, ptr %call.i20, align 4
   br label %if.end16
 
@@ -2645,8 +2645,8 @@ if.else24:                                        ; preds = %if.then20
   br label %return
 
 if.end26:                                         ; preds = %if.end12.i43, %if.end12.i
-  %map_dirfd.0 = phi i32 [ -1, %if.end12.i ], [ %call.i, %if.end12.i43 ]
   %fp.0 = phi ptr [ %call13.i, %if.end12.i ], [ %call13.i44, %if.end12.i43 ]
+  %map_dirfd.0 = phi i32 [ -1, %if.end12.i ], [ %call.i, %if.end12.i43 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %buf, i8 0, i64 100, i1 false)
   %call28116 = call ptr @fgets(ptr noundef nonnull %buf, i32 noundef 100, ptr noundef nonnull %fp.0)
   %tobool29.not117 = icmp eq ptr %call28116, null

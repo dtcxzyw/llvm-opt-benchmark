@@ -354,13 +354,13 @@ is_power_of_2.exit.i:                             ; preds = %30
   br label %73
 
 73:                                               ; preds = %65, %59
-  %.082.i = phi i32 [ %72, %65 ], [ %58, %59 ]
+  %.081.i = phi i32 [ %72, %65 ], [ %58, %59 ]
   %74 = load i32, ptr @verbose_level, align 4
   %75 = icmp sgt i32 %74, 5
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %73
-  %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %63, i32 noundef %.082.i)
+  %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %63, i32 noundef %.081.i)
   br label %78
 
 78:                                               ; preds = %76, %73
@@ -369,7 +369,7 @@ is_power_of_2.exit.i:                             ; preds = %30
   store i32 %63, ptr %80, align 4
   %81 = or disjoint i64 %79, 1
   %82 = getelementptr inbounds i32, ptr %54, i64 %81
-  store i32 %.082.i, ptr %82, align 4
+  store i32 %.081.i, ptr %82, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %59, !llvm.loop !7

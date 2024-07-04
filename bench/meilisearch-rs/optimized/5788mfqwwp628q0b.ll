@@ -2292,7 +2292,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %58
   %.val4.i.i = load i8, ptr %gep.i, align 1, !range !42, !alias.scope !754, !noalias !759, !noundef !23
   %59 = icmp eq i8 %.val4.i.i, %1
-  br i1 %59, label %.loopexit, label %49
+  br i1 %59, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h3d6e700d959c44d2E.llvm.11724494382806012607.exit.thread", label %49
 
 60:                                               ; preds = %50
   %61 = icmp slt <16 x i8> %.sroa.0.0.copyload.i47.i.i, zeroinitializer
@@ -2364,9 +2364,9 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %100 = getelementptr inbounds i8, ptr %44, i64 %99
   %101 = getelementptr inbounds i8, ptr %100, i64 -1
   store i8 %1, ptr %101, align 1, !noalias !767
-  br label %.loopexit
+  br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h3d6e700d959c44d2E.llvm.11724494382806012607.exit.thread"
 
-.loopexit:                                        ; preds = %51, %85
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h3d6e700d959c44d2E.llvm.11724494382806012607.exit.thread": ; preds = %51, %85
   ret i1 %.not
 }
 
@@ -2514,7 +2514,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %.val4.i.i = load ptr, ptr %69, align 8, !noalias !839, !nonnull !23, !noundef !23
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly %53, ptr nonnull readonly %.val4.i.i, i64 %52), !alias.scope !840, !noalias !844
   %70 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
-  br i1 %70, label %97, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7403c2b4944df8f0E.exit.backedge.i"
+  br i1 %70, label %98, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7403c2b4944df8f0E.exit.backedge.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7403c2b4944df8f0E.exit.backedge.i": ; preds = %68, %.lr.ph.i
   %71 = icmp eq i16 %62, 0
@@ -2566,28 +2566,28 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !noalias !854
   br label %106
 
-97:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !858
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1380b73e51c9010eE.llvm.16429374078602074278"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-  %98 = getelementptr inbounds i8, ptr %3, i64 8
-  %99 = load i64, ptr %98, align 8, !range !869, !noalias !858, !noundef !23
-  %100 = icmp eq i64 %99, 0
-  br i1 %100, label %"_ZN4core3ptr74drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$17heb729097e1ce8fd9E.exit", label %101
-
-101:                                              ; preds = %97
-  %102 = load ptr, ptr %3, align 8, !noalias !858, !nonnull !23, !noundef !23
-  %103 = getelementptr inbounds i8, ptr %3, i64 16
-  %104 = load i64, ptr %103, align 8, !noalias !858, !noundef !23
-  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.16429374078602074278"(ptr noalias noundef nonnull readonly align 1 %16, ptr noundef nonnull %102, i64 noundef %99, i64 noundef %104)
-  br label %"_ZN4core3ptr74drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$17heb729097e1ce8fd9E.exit"
-
-"_ZN4core3ptr74drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$17heb729097e1ce8fd9E.exit": ; preds = %97, %101
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !858
-  br label %105
-
-105:                                              ; preds = %106, %"_ZN4core3ptr74drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$17heb729097e1ce8fd9E.exit"
+97:                                               ; preds = %106, %"_ZN4core3ptr74drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$17heb729097e1ce8fd9E.exit"
   %.sroa.0.0 = phi i1 [ false, %106 ], [ true, %"_ZN4core3ptr74drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$17heb729097e1ce8fd9E.exit" ]
   ret i1 %.sroa.0.0
+
+98:                                               ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !858
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1380b73e51c9010eE.llvm.16429374078602074278"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
+  %99 = getelementptr inbounds i8, ptr %3, i64 8
+  %100 = load i64, ptr %99, align 8, !range !869, !noalias !858, !noundef !23
+  %101 = icmp eq i64 %100, 0
+  br i1 %101, label %"_ZN4core3ptr74drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$17heb729097e1ce8fd9E.exit", label %102
+
+102:                                              ; preds = %98
+  %103 = load ptr, ptr %3, align 8, !noalias !858, !nonnull !23, !noundef !23
+  %104 = getelementptr inbounds i8, ptr %3, i64 16
+  %105 = load i64, ptr %104, align 8, !noalias !858, !noundef !23
+  call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h0315fd2d83659e8fE.llvm.16429374078602074278"(ptr noalias noundef nonnull readonly align 1 %16, ptr noundef nonnull %103, i64 noundef %100, i64 noundef %105)
+  br label %"_ZN4core3ptr74drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$17heb729097e1ce8fd9E.exit"
+
+"_ZN4core3ptr74drop_in_place$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$17heb729097e1ce8fd9E.exit": ; preds = %98, %102
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !858
+  br label %97
 
 106:                                              ; preds = %86, %90
   %107 = phi i8 [ %88, %86 ], [ %.pre, %90 ]
@@ -2616,7 +2616,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %122 = getelementptr inbounds i8, ptr %121, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull readonly align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !870
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %105
+  br label %97
 
 123:                                              ; preds = %124
   resume { ptr, i32 } %125

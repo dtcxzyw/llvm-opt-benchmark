@@ -3648,8 +3648,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %all_utf8.0159 = phi i1 [ %all_utf8.1, %for.inc ], [ true, %entry ]
   %it.0158 = phi ptr [ %incdec.ptr, %for.inc ], [ %begin, %entry ]
-  %all_offset32.0157 = phi i8 [ %all_offset32.1, %for.inc ], [ 1, %entry ]
-  %all_fixed_width.0156 = phi i1 [ %all_fixed_width.1, %for.inc ], [ true, %entry ]
+  %all_fixed_width.0157 = phi i1 [ %all_fixed_width.1, %for.inc ], [ true, %entry ]
+  %all_offset32.0156 = phi i8 [ %all_offset32.1, %for.inc ], [ 1, %entry ]
   %0 = load ptr, ptr %it.0158, align 8
   %id_.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load i32, ptr %id_.i, align 8
@@ -3678,8 +3678,8 @@ sw.default:                                       ; preds = %for.body
   br label %return
 
 for.inc:                                          ; preds = %for.body, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %all_fixed_width.1 = phi i1 [ false, %sw.bb4 ], [ false, %sw.bb3 ], [ %all_fixed_width.0156, %sw.bb2 ], [ false, %sw.bb1 ], [ false, %for.body ]
-  %all_offset32.1 = phi i8 [ 0, %sw.bb4 ], [ 0, %sw.bb3 ], [ %all_offset32.0157, %sw.bb2 ], [ %all_offset32.0157, %sw.bb1 ], [ %all_offset32.0157, %for.body ]
+  %all_offset32.1 = phi i8 [ 0, %sw.bb4 ], [ 0, %sw.bb3 ], [ %all_offset32.0156, %sw.bb2 ], [ %all_offset32.0156, %sw.bb1 ], [ %all_offset32.0156, %for.body ]
+  %all_fixed_width.1 = phi i1 [ false, %sw.bb4 ], [ false, %sw.bb3 ], [ %all_fixed_width.0157, %sw.bb2 ], [ false, %sw.bb1 ], [ false, %for.body ]
   %all_utf8.1 = phi i1 [ false, %sw.bb4 ], [ %all_utf8.0159, %sw.bb3 ], [ false, %sw.bb2 ], [ false, %sw.bb1 ], [ %all_utf8.0159, %for.body ]
   %incdec.ptr = getelementptr inbounds i8, ptr %it.0158, i64 24
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr

@@ -527,38 +527,38 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %118, %_ZNSt12_Vecto
   br label %.lr.ph111.preheader
 
 .lr.ph111.preheader:                              ; preds = %._crit_edge, %.preheader.preheader
-  %.051113 = phi i64 [ %168, %._crit_edge ], [ 0, %.preheader.preheader ]
-  %156 = mul nuw nsw i64 %.051113, %153
+  %.042113 = phi i64 [ %168, %._crit_edge ], [ 0, %.preheader.preheader ]
+  %156 = mul nuw nsw i64 %.042113, %153
   %157 = getelementptr i64, ptr %135, i64 %156
-  %158 = mul nuw nsw i64 %.051113, %154
+  %158 = mul nuw nsw i64 %.042113, %154
   %159 = getelementptr i64, ptr %135, i64 %158
   br label %.lr.ph111
 
 .lr.ph111:                                        ; preds = %.lr.ph111.preheader, %166
   %indvars.iv = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next, %166 ]
-  %.049109 = phi i32 [ 0, %.lr.ph111.preheader ], [ %.150, %166 ]
+  %.040109 = phi i32 [ 0, %.lr.ph111.preheader ], [ %.141, %166 ]
   %160 = getelementptr i64, ptr %157, i64 %indvars.iv
   %161 = load i64, ptr %160, align 8
-  %.not73 = icmp eq i64 %161, %.051113
+  %.not73 = icmp eq i64 %161, %.042113
   br i1 %.not73, label %166, label %162
 
 162:                                              ; preds = %.lr.ph111
-  %163 = sext i32 %.049109 to i64
+  %163 = sext i32 %.040109 to i64
   %164 = getelementptr i64, ptr %159, i64 %163
   store i64 %161, ptr %164, align 8
-  %165 = add nsw i32 %.049109, 1
+  %165 = add nsw i32 %.040109, 1
   br label %166
 
 166:                                              ; preds = %162, %.lr.ph111
-  %.150 = phi i32 [ %165, %162 ], [ %.049109, %.lr.ph111 ]
-  %167 = icmp eq i32 %.150, %150
+  %.141 = phi i32 [ %165, %162 ], [ %.040109, %.lr.ph111 ]
+  %167 = icmp eq i32 %.141, %150
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not72 = icmp uge i64 %indvars.iv, %155
   %or.cond = or i1 %167, %.not72
   br i1 %or.cond, label %._crit_edge, label %.lr.ph111, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %166
-  %168 = add nuw nsw i64 %.051113, 1
+  %168 = add nuw nsw i64 %.042113, 1
   %169 = icmp slt i64 %168, %144
   br i1 %169, label %.lr.ph111.preheader, label %.loopexit, !llvm.loop !7
 
@@ -2237,24 +2237,24 @@ define internal void @_ZNK5faiss8IndexNSG15check_knn_graphEPKlli.omp_outlined(pt
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.035.us = phi i64 [ %37, %._crit_edge.us ], [ %20, %.preheader.us.preheader ]
+  %.02535.us = phi i64 [ %37, %._crit_edge.us ], [ %20, %.preheader.us.preheader ]
   %26 = phi i64 [ %36, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %27 = mul nsw i64 %.035.us, %24
+  %27 = mul nsw i64 %.02535.us, %24
   %28 = getelementptr i64, ptr %23, i64 %27
   br label %29
 
 29:                                               ; preds = %.preheader.us, %29
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %29 ]
-  %.02532.us = phi i32 [ 0, %.preheader.us ], [ %.1.us, %29 ]
+  %.02432.us = phi i32 [ 0, %.preheader.us ], [ %.1.us, %29 ]
   %30 = getelementptr i64, ptr %28, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
   %32 = icmp slt i64 %31, 0
   %.not28.us = icmp sge i64 %31, %25
   %or.cond.not31.us = select i1 %32, i1 true, i1 %.not28.us
-  %33 = icmp eq i64 %31, %.035.us
+  %33 = icmp eq i64 %31, %.02535.us
   %or.cond29.us = or i1 %33, %or.cond.not31.us
   %34 = zext i1 %or.cond29.us to i32
-  %.1.us = add nuw nsw i32 %.02532.us, %34
+  %.1.us = add nuw nsw i32 %.02432.us, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !15
@@ -2263,8 +2263,8 @@ define internal void @_ZNK5faiss8IndexNSG15check_knn_graphEPKlli.omp_outlined(pt
   %35 = zext nneg i32 %.1.us to i64
   %36 = add nuw nsw i64 %26, %35
   store i64 %36, ptr %11, align 8
-  %37 = add i64 %.035.us, 1
-  %exitcond39.not = icmp eq i64 %.035.us, %19
+  %37 = add i64 %.02535.us, 1
+  %exitcond39.not = icmp eq i64 %.02535.us, %19
   br i1 %exitcond39.not, label %._crit_edge36, label %.preheader.us
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph

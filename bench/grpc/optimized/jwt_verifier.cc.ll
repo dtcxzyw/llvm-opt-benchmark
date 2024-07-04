@@ -2921,8 +2921,8 @@ _Z19grpc_closure_createPFvPvN4absl12lts_202308026StatusEES_.exit55.i: ; preds = 
 
 if.end61.i:                                       ; preds = %_Z19grpc_closure_createPFvPvN4absl12lts_202308026StatusEES_.exit55.i, %_Z19grpc_closure_createPFvPvN4absl12lts_202308026StatusEES_.exit.i
   %call.i4854.sink143.i = phi ptr [ %call.i4854.i, %_Z19grpc_closure_createPFvPvN4absl12lts_202308026StatusEES_.exit55.i ], [ %call.i4647.i, %_Z19grpc_closure_createPFvPvN4absl12lts_202308026StatusEES_.exit.i ]
-  %host.0.i = phi ptr [ %call48.i, %_Z19grpc_closure_createPFvPvN4absl12lts_202308026StatusEES_.exit55.i ], [ %call33.i, %_Z19grpc_closure_createPFvPvN4absl12lts_202308026StatusEES_.exit.i ]
   %rsp_idx.0.i = phi i64 [ 0, %_Z19grpc_closure_createPFvPvN4absl12lts_202308026StatusEES_.exit55.i ], [ 1, %_Z19grpc_closure_createPFvPvN4absl12lts_202308026StatusEES_.exit.i ]
+  %host.0.i = phi ptr [ %call48.i, %_Z19grpc_closure_createPFvPvN4absl12lts_202308026StatusEES_.exit55.i ], [ %call33.i, %_Z19grpc_closure_createPFvPvN4absl12lts_202308026StatusEES_.exit.i ]
   %cb_arg2.i49.i = getelementptr inbounds i8, ptr %call.i4854.sink143.i, i64 8
   store ptr %call.i, ptr %cb_arg2.i49.i, align 8
   %cb1.i.i51.i = getelementptr inbounds i8, ptr %call.i4854.sink143.i, i64 24

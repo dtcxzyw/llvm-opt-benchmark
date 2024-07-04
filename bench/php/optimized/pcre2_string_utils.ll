@@ -8,18 +8,18 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_8(ptr nocapture noundef readon
   br label %3
 
 3:                                                ; preds = %.critedge, %2
-  %.09 = phi ptr [ %1, %2 ], [ %6, %.critedge ]
   %.08 = phi ptr [ %0, %2 ], [ %5, %.critedge ]
+  %.0 = phi ptr [ %1, %2 ], [ %6, %.critedge ]
   %4 = load i8, ptr %.08, align 1
   %.not = icmp eq i8 %4, 0
-  %.pre = load i8, ptr %.09, align 1
+  %.pre = load i8, ptr %.0, align 1
   %.not12 = icmp eq i8 %.pre, 0
   %or.cond = select i1 %.not, i1 %.not12, i1 false
   br i1 %or.cond, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %3
   %5 = getelementptr inbounds i8, ptr %.08, i64 1
-  %6 = getelementptr inbounds i8, ptr %.09, i64 1
+  %6 = getelementptr inbounds i8, ptr %.0, i64 1
   %.not13 = icmp eq i8 %4, %.pre
   br i1 %.not13, label %3, label %7
 
@@ -29,8 +29,8 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_8(ptr nocapture noundef readon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %7
-  %.0 = phi i32 [ %9, %7 ], [ 0, %3 ]
-  ret i32 %.0
+  %.09 = phi i32 [ %9, %7 ], [ 0, %3 ]
+  ret i32 %.09
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -38,18 +38,18 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_c8_8(ptr nocapture noundef rea
   br label %3
 
 3:                                                ; preds = %.critedge, %2
-  %.09 = phi ptr [ %1, %2 ], [ %6, %.critedge ]
   %.08 = phi ptr [ %0, %2 ], [ %5, %.critedge ]
+  %.0 = phi ptr [ %1, %2 ], [ %6, %.critedge ]
   %4 = load i8, ptr %.08, align 1
   %.not = icmp eq i8 %4, 0
-  %.pre = load i8, ptr %.09, align 1
+  %.pre = load i8, ptr %.0, align 1
   %.not12 = icmp eq i8 %.pre, 0
   %or.cond = select i1 %.not, i1 %.not12, i1 false
   br i1 %or.cond, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %3
   %5 = getelementptr inbounds i8, ptr %.08, i64 1
-  %6 = getelementptr inbounds i8, ptr %.09, i64 1
+  %6 = getelementptr inbounds i8, ptr %.0, i64 1
   %.not13 = icmp eq i8 %4, %.pre
   br i1 %.not13, label %3, label %7
 
@@ -59,8 +59,8 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_c8_8(ptr nocapture noundef rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %7
-  %.0 = phi i32 [ %9, %7 ], [ 0, %3 ]
-  ret i32 %.0
+  %.09 = phi i32 [ %9, %7 ], [ 0, %3 ]
+  ret i32 %.09
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -69,11 +69,11 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_8(ptr nocapture noundef reado
   br i1 %.not15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %9
-  %.0818 = phi ptr [ %11, %9 ], [ %0, %3 ]
-  %.0917 = phi i64 [ %12, %9 ], [ %2, %3 ]
-  %.01016 = phi ptr [ %10, %9 ], [ %1, %3 ]
-  %4 = load i8, ptr %.0818, align 1
-  %5 = load i8, ptr %.01016, align 1
+  %.018 = phi i64 [ %12, %9 ], [ %2, %3 ]
+  %.0817 = phi ptr [ %10, %9 ], [ %1, %3 ]
+  %.0916 = phi ptr [ %11, %9 ], [ %0, %3 ]
+  %4 = load i8, ptr %.0916, align 1
+  %5 = load i8, ptr %.0817, align 1
   %.not13 = icmp eq i8 %4, %5
   br i1 %.not13, label %9, label %6
 
@@ -83,15 +83,15 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_8(ptr nocapture noundef reado
   br label %.loopexit
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.01016, i64 1
-  %11 = getelementptr inbounds i8, ptr %.0818, i64 1
-  %12 = add i64 %.0917, -1
+  %10 = getelementptr inbounds i8, ptr %.0817, i64 1
+  %11 = getelementptr inbounds i8, ptr %.0916, i64 1
+  %12 = add i64 %.018, -1
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %9, %3, %6
-  %.0 = phi i32 [ %8, %6 ], [ 0, %3 ], [ 0, %9 ]
-  ret i32 %.0
+  %.010 = phi i32 [ %8, %6 ], [ 0, %3 ], [ 0, %9 ]
+  ret i32 %.010
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
@@ -100,11 +100,11 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_c8_8(ptr nocapture noundef re
   br i1 %.not15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %9
-  %.0818 = phi ptr [ %11, %9 ], [ %0, %3 ]
-  %.0917 = phi i64 [ %12, %9 ], [ %2, %3 ]
-  %.01016 = phi ptr [ %10, %9 ], [ %1, %3 ]
-  %4 = load i8, ptr %.0818, align 1
-  %5 = load i8, ptr %.01016, align 1
+  %.018 = phi i64 [ %12, %9 ], [ %2, %3 ]
+  %.0817 = phi ptr [ %10, %9 ], [ %1, %3 ]
+  %.0916 = phi ptr [ %11, %9 ], [ %0, %3 ]
+  %4 = load i8, ptr %.0916, align 1
+  %5 = load i8, ptr %.0817, align 1
   %.not13 = icmp eq i8 %4, %5
   br i1 %.not13, label %9, label %6
 
@@ -114,15 +114,15 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_c8_8(ptr nocapture noundef re
   br label %.loopexit
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.01016, i64 1
-  %11 = getelementptr inbounds i8, ptr %.0818, i64 1
-  %12 = add i64 %.0917, -1
+  %10 = getelementptr inbounds i8, ptr %.0817, i64 1
+  %11 = getelementptr inbounds i8, ptr %.0916, i64 1
+  %12 = add i64 %.018, -1
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %9, %3, %6
-  %.0 = phi i32 [ %8, %6 ], [ 0, %3 ], [ 0, %9 ]
-  ret i32 %.0
+  %.010 = phi i32 [ %8, %6 ], [ 0, %3 ], [ 0, %9 ]
+  ret i32 %.010
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

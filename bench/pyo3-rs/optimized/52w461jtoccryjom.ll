@@ -968,8 +968,8 @@ define i32 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..t
   br label %8
 
 8:                                                ; preds = %8, %6
-  %.sroa.07.0 = phi i32 [ %2, %6 ], [ %10, %8 ]
   %.sroa.09.0 = phi i64 [ 0, %6 ], [ %11, %8 ]
+  %.sroa.07.0 = phi i32 [ %2, %6 ], [ %10, %8 ]
   %9 = getelementptr inbounds { i32, [7 x i32] }, ptr %0, i64 %.sroa.09.0
   %10 = call i32 @"_ZN19pyo3_macros_backend6method6FnSpec13parse_fn_type28_$u7b$$u7b$closure$u7d$$u7d$17h686460aaefc26847E"(ptr nonnull align 1 %4, i32 %.sroa.07.0, ptr align 8 %9)
   %11 = add nuw i64 %.sroa.09.0, 1

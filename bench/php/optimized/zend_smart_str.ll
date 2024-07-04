@@ -121,9 +121,9 @@ define void @smart_str_append_escaped(ptr nocapture noundef %0, ptr nocapture no
   br i1 %.not.i, label %zend_compute_escaped_string_len.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %11
-  %.040.i = phi i64 [ %12, %11 ], [ 0, %3 ]
-  %.03739.i = phi i64 [ %.1.i, %11 ], [ %2, %3 ]
-  %4 = getelementptr inbounds i8, ptr %1, i64 %.040.i
+  %.040.i = phi i64 [ %.1.i, %11 ], [ %2, %3 ]
+  %.03739.i = phi i64 [ %12, %11 ], [ 0, %3 ]
+  %4 = getelementptr inbounds i8, ptr %1, i64 %.03739.i
   %5 = load i8, ptr %4, align 1
   switch i8 %5, label %8 [
     i8 92, label %6
@@ -136,24 +136,24 @@ define void @smart_str_append_escaped(ptr nocapture noundef %0, ptr nocapture no
   ]
 
 6:                                                ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %7 = add i64 %.03739.i, 1
+  %7 = add i64 %.040.i, 1
   br label %11
 
 8:                                                ; preds = %.lr.ph.i
   %9 = add i8 %5, -127
   %or.cond20.i = icmp ult i8 %9, -95
-  %10 = add i64 %.03739.i, 3
-  %spec.select.i = select i1 %or.cond20.i, i64 %10, i64 %.03739.i
+  %10 = add i64 %.040.i, 3
+  %spec.select.i = select i1 %or.cond20.i, i64 %10, i64 %.040.i
   br label %11
 
 11:                                               ; preds = %8, %6
   %.1.i = phi i64 [ %7, %6 ], [ %spec.select.i, %8 ]
-  %12 = add nuw i64 %.040.i, 1
+  %12 = add nuw i64 %.03739.i, 1
   %exitcond.not.i = icmp eq i64 %12, %2
   br i1 %exitcond.not.i, label %zend_compute_escaped_string_len.exit, label %.lr.ph.i
 
 zend_compute_escaped_string_len.exit:             ; preds = %11, %3
-  %.037.lcssa.i = phi i64 [ 0, %3 ], [ %.1.i, %11 ]
+  %.0.lcssa.i = phi i64 [ 0, %3 ], [ %.1.i, %11 ]
   %13 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %20, label %14
@@ -161,17 +161,17 @@ zend_compute_escaped_string_len.exit:             ; preds = %11, %3
 14:                                               ; preds = %zend_compute_escaped_string_len.exit
   %15 = getelementptr inbounds i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 8
-  %17 = add i64 %16, %.037.lcssa.i
+  %17 = add i64 %16, %.0.lcssa.i
   %18 = getelementptr inbounds i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8
   %.not59 = icmp ult i64 %17, %19
   br i1 %.not59, label %smart_str_erealloc.exit, label %32
 
 20:                                               ; preds = %zend_compute_escaped_string_len.exit
-  %21 = add i64 %.037.lcssa.i, 4120
+  %21 = add i64 %.0.lcssa.i, 4120
   %22 = and i64 %21, -4096
   %23 = add i64 %22, -25
-  %.inv.i = icmp ugt i64 %.037.lcssa.i, 231
+  %.inv.i = icmp ugt i64 %.0.lcssa.i, 231
   %24 = select i1 %.inv.i, i64 %23, i64 231
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %24, ptr %25, align 8
@@ -205,7 +205,7 @@ smart_str_erealloc.exit:                          ; preds = %32, %20, %14
   %39 = phi i64 [ %.pre, %32 ], [ 0, %20 ], [ %16, %14 ]
   %40 = phi ptr [ %38, %32 ], [ %28, %20 ], [ %13, %14 ]
   %41 = getelementptr inbounds i8, ptr %40, i64 16
-  %42 = add i64 %39, %.037.lcssa.i
+  %42 = add i64 %39, %.0.lcssa.i
   store i64 %42, ptr %41, align 8
   br i1 %.not.i, label %._crit_edge, label %.lr.ph.preheader
 
@@ -215,20 +215,20 @@ smart_str_erealloc.exit:                          ; preds = %32, %20, %14
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %73
-  %.05264 = phi ptr [ %.2, %73 ], [ %44, %.lr.ph.preheader ]
-  %.05363 = phi i64 [ %74, %73 ], [ 0, %.lr.ph.preheader ]
-  %45 = getelementptr inbounds i8, ptr %1, i64 %.05363
+  %.064 = phi i64 [ %74, %73 ], [ 0, %.lr.ph.preheader ]
+  %.05263 = phi ptr [ %.2, %73 ], [ %44, %.lr.ph.preheader ]
+  %45 = getelementptr inbounds i8, ptr %1, i64 %.064
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 92
   %48 = add i8 %46, -127
   %49 = icmp ult i8 %48, -95
   %or.cond5 = or i1 %47, %49
-  %50 = getelementptr inbounds i8, ptr %.05264, i64 1
+  %50 = getelementptr inbounds i8, ptr %.05263, i64 1
   br i1 %or.cond5, label %51, label %72
 
 51:                                               ; preds = %.lr.ph
-  store i8 92, ptr %.05264, align 1
-  %52 = getelementptr inbounds i8, ptr %.05264, i64 2
+  store i8 92, ptr %.05263, align 1
+  %52 = getelementptr inbounds i8, ptr %.05263, i64 2
   switch i8 %46, label %60 [
     i8 10, label %53
     i8 13, label %54
@@ -274,11 +274,11 @@ smart_str_erealloc.exit:                          ; preds = %32, %20, %14
   %63 = add nuw nsw i8 %61, 55
   %64 = or disjoint i8 %61, 48
   %storemerge = select i1 %62, i8 %64, i8 %63
-  %.1 = getelementptr inbounds i8, ptr %.05264, i64 3
+  %.1 = getelementptr inbounds i8, ptr %.05263, i64 3
   store i8 %storemerge, ptr %52, align 1
   %65 = and i8 %46, 15
   %66 = icmp ult i8 %65, 10
-  %67 = getelementptr inbounds i8, ptr %.05264, i64 4
+  %67 = getelementptr inbounds i8, ptr %.05263, i64 4
   br i1 %66, label %68, label %70
 
 68:                                               ; preds = %60
@@ -292,12 +292,12 @@ smart_str_erealloc.exit:                          ; preds = %32, %20, %14
   br label %73
 
 72:                                               ; preds = %.lr.ph
-  store i8 %46, ptr %.05264, align 1
+  store i8 %46, ptr %.05263, align 1
   br label %73
 
 73:                                               ; preds = %72, %68, %70, %59, %58, %57, %56, %55, %54, %53
   %.2 = phi ptr [ %67, %68 ], [ %67, %70 ], [ %52, %59 ], [ %52, %58 ], [ %52, %57 ], [ %52, %56 ], [ %52, %55 ], [ %52, %54 ], [ %52, %53 ], [ %50, %72 ]
-  %74 = add nuw i64 %.05363, 1
+  %74 = add nuw i64 %.064, 1
   %exitcond.not = icmp eq i64 %74, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
@@ -696,13 +696,13 @@ define void @smart_str_append_scalar(ptr nocapture noundef %0, ptr nocapture nou
 smart_str_erealloc.exit:                          ; preds = %21, %15, %9
   %28 = phi i64 [ %11, %9 ], [ 0, %15 ], [ %.pre218, %21 ]
   %29 = phi ptr [ %8, %9 ], [ %17, %15 ], [ %27, %21 ]
-  %.1159 = phi i64 [ %12, %9 ], [ 4, %15 ], [ %12, %21 ]
+  %.1157 = phi i64 [ %12, %9 ], [ 4, %15 ], [ %12, %21 ]
   %30 = getelementptr inbounds i8, ptr %29, i64 24
   %31 = getelementptr inbounds i8, ptr %30, i64 %28
   store i32 1280070990, ptr %31, align 1
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 16
-  store i64 %.1159, ptr %33, align 8
+  store i64 %.1157, ptr %33, align 8
   br label %211
 
 34:                                               ; preds = %3, %3
@@ -752,13 +752,13 @@ smart_str_erealloc.exit:                          ; preds = %21, %15, %9
 smart_str_erealloc.exit185:                       ; preds = %51, %45, %39
   %58 = phi i64 [ %41, %39 ], [ 0, %45 ], [ %.pre216, %51 ]
   %59 = phi ptr [ %38, %39 ], [ %47, %45 ], [ %57, %51 ]
-  %.1157 = phi i64 [ %42, %39 ], [ %37, %45 ], [ %42, %51 ]
+  %.1159 = phi i64 [ %42, %39 ], [ %37, %45 ], [ %42, %51 ]
   %60 = getelementptr inbounds i8, ptr %59, i64 24
   %61 = getelementptr inbounds i8, ptr %60, i64 %58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %61, ptr noundef nonnull align 1 dereferenceable(4) %36, i64 %37, i1 false)
   %62 = load ptr, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 16
-  store i64 %.1157, ptr %63, align 8
+  store i64 %.1159, ptr %63, align 8
   br label %211
 
 64:                                               ; preds = %3

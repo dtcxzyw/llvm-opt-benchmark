@@ -2224,17 +2224,17 @@ for.body39:                                       ; preds = %for.body39.lr.ph, %
   br i1 %cmp43113.not, label %for.inc71, label %for.body45
 
 for.body45:                                       ; preds = %for.body39, %for.inc68
-  %i.0115 = phi i64 [ %inc69, %for.inc68 ], [ 0, %for.body39 ]
-  %nfds.3114 = phi i32 [ %inc46, %for.inc68 ], [ %nfds.2119, %for.body39 ]
-  %inc46 = add i32 %nfds.3114, 1
-  %idxprom = zext i32 %nfds.3114 to i64
+  %nfds.3115 = phi i32 [ %inc46, %for.inc68 ], [ %nfds.2119, %for.body39 ]
+  %i.0114 = phi i64 [ %inc69, %for.inc68 ], [ 0, %for.body39 ]
+  %inc46 = add i32 %nfds.3115, 1
+  %idxprom = zext i32 %nfds.3115 to i64
   %arrayidx47 = getelementptr inbounds %struct.pollfd, ptr %ufds.0, i64 %idxprom
-  %arrayidx48 = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %i.0115
+  %arrayidx48 = getelementptr inbounds [5 x i32], ptr %ps, i64 0, i64 %i.0114
   %12 = load i32, ptr %arrayidx48, align 4
   store i32 %12, ptr %arrayidx47, align 4
   %events = getelementptr inbounds i8, ptr %arrayidx47, i64 4
   store i16 0, ptr %events, align 4
-  %arrayidx49 = getelementptr inbounds [5 x i8], ptr %actions, i64 0, i64 %i.0115
+  %arrayidx49 = getelementptr inbounds [5 x i8], ptr %actions, i64 0, i64 %i.0114
   %13 = load i8, ptr %arrayidx49, align 1
   %14 = and i8 %13, 1
   %spec.store.select = zext nneg i8 %14 to i16
@@ -2250,7 +2250,7 @@ if.then62:                                        ; preds = %for.body45
   br label %for.inc68
 
 for.inc68:                                        ; preds = %for.body45, %if.then62
-  %inc69 = add nuw nsw i64 %i.0115, 1
+  %inc69 = add nuw nsw i64 %i.0114, 1
   %18 = load i32, ptr %num41, align 4
   %conv42 = zext i32 %18 to i64
   %cmp43 = icmp ult i64 %inc69, %conv42
@@ -2270,11 +2270,11 @@ if.end74:                                         ; preds = %for.inc71, %for.con
   br i1 %cmp77122.not, label %for.end130, label %for.body79
 
 for.body79:                                       ; preds = %if.end74, %if.end126
-  %i.1124 = phi i64 [ %inc129, %if.end126 ], [ 0, %if.end74 ]
-  %nfds.5123 = phi i32 [ %inc127, %if.end126 ], [ %nfds.4, %if.end74 ]
-  %arrayidx80 = getelementptr inbounds %struct.curl_waitfd, ptr %extra_fds, i64 %i.1124
+  %nfds.5124 = phi i32 [ %inc127, %if.end126 ], [ %nfds.4, %if.end74 ]
+  %i.1123 = phi i64 [ %inc129, %if.end126 ], [ 0, %if.end74 ]
+  %arrayidx80 = getelementptr inbounds %struct.curl_waitfd, ptr %extra_fds, i64 %i.1123
   %19 = load i32, ptr %arrayidx80, align 4
-  %idxprom82 = zext i32 %nfds.5123 to i64
+  %idxprom82 = zext i32 %nfds.5124 to i64
   %arrayidx83 = getelementptr inbounds %struct.pollfd, ptr %ufds.0, i64 %idxprom82
   store i32 %19, ptr %arrayidx83, align 4
   %events87 = getelementptr inbounds i8, ptr %arrayidx83, i64 4
@@ -2307,8 +2307,8 @@ if.then119:                                       ; preds = %if.end113
   br label %if.end126
 
 if.end126:                                        ; preds = %if.then119, %if.end113
-  %inc127 = add i32 %nfds.5123, 1
-  %inc129 = add nuw nsw i64 %i.1124, 1
+  %inc127 = add i32 %nfds.5124, 1
+  %inc129 = add nuw nsw i64 %i.1123, 1
   %exitcond.not = icmp eq i64 %inc129, %conv76
   br i1 %exitcond.not, label %for.end130, label %for.body79, !llvm.loop !19
 
@@ -2698,8 +2698,8 @@ sigpipe_ignore.exit:                              ; preds = %if.then5, %if.then.
   br label %do.body
 
 do.body:                                          ; preds = %if.end29, %sigpipe_ignore.exit
-  %returncode.0 = phi i32 [ 0, %sigpipe_ignore.exit ], [ %spec.select, %if.end29 ]
   %data.0 = phi ptr [ %5, %sigpipe_ignore.exit ], [ %9, %if.end29 ]
+  %returncode.0 = phi i32 [ 0, %sigpipe_ignore.exit ], [ %spec.select, %if.end29 ]
   %nosig.0 = phi i8 [ %frombool, %sigpipe_ignore.exit ], [ %nosig.1, %if.end29 ]
   %next = getelementptr inbounds i8, ptr %data.0, i64 16
   %9 = load ptr, ptr %next, align 8
@@ -5803,8 +5803,8 @@ if.end26:                                         ; preds = %for.end, %sh_getent
   br label %do.body27
 
 do.body27:                                        ; preds = %do.cond, %if.end26
-  %nosig.0 = phi i8 [ 0, %if.end26 ], [ %nosig.2, %do.cond ]
   %first.0 = phi i8 [ 0, %if.end26 ], [ %first.2, %do.cond ]
+  %nosig.0 = phi i8 [ 0, %if.end26 ], [ %nosig.2, %do.cond ]
   %data.2 = phi ptr [ null, %if.end26 ], [ %22, %do.cond ]
   %result.2 = phi i32 [ 0, %if.end26 ], [ %result.3, %do.cond ]
   %tobool28.not = icmp eq ptr %data.2, null
@@ -5883,8 +5883,8 @@ sigpipe_ignore.exit53:                            ; preds = %sigpipe_restore.exi
   br label %if.end55
 
 if.end55:                                         ; preds = %if.else34, %sigpipe_ignore.exit53, %sigpipe_ignore.exit
-  %nosig.1 = phi i8 [ %frombool53.pre-phi, %sigpipe_ignore.exit53 ], [ %nosig.0, %if.else34 ], [ %frombool33, %sigpipe_ignore.exit ]
   %first.1 = phi i8 [ %first.0, %sigpipe_ignore.exit53 ], [ %first.0, %if.else34 ], [ 1, %sigpipe_ignore.exit ]
+  %nosig.1 = phi i8 [ %frombool53.pre-phi, %sigpipe_ignore.exit53 ], [ %nosig.0, %if.else34 ], [ %frombool33, %sigpipe_ignore.exit ]
   %call56 = call fastcc i32 @multi_runsingle(ptr noundef %multi, ptr noundef nonnull %now, ptr noundef nonnull %data.2)
   %cmp57 = icmp eq i32 %call56, 0
   br i1 %cmp57, label %if.then59, label %if.end65
@@ -5895,8 +5895,8 @@ if.then59:                                        ; preds = %if.end55
   br i1 %tobool61.not, label %if.end65, label %do.end74
 
 if.end65:                                         ; preds = %if.end55, %if.then59, %do.body27
-  %nosig.2 = phi i8 [ %nosig.1, %if.then59 ], [ %nosig.1, %if.end55 ], [ %nosig.0, %do.body27 ]
   %first.2 = phi i8 [ %first.1, %if.then59 ], [ %first.1, %if.end55 ], [ %first.0, %do.body27 ]
+  %nosig.2 = phi i8 [ %nosig.1, %if.then59 ], [ %nosig.1, %if.end55 ], [ %nosig.0, %do.body27 ]
   %result.3 = phi i32 [ 0, %if.then59 ], [ %call56, %if.end55 ], [ %result.2, %do.body27 ]
   %18 = load ptr, ptr %timetree, align 8
   %19 = load i64, ptr %now, align 8

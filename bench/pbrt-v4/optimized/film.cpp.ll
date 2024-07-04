@@ -4643,8 +4643,8 @@ _ZSt3maxIfET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
   %8 = shufflevector <2 x float> %7, <2 x float> poison, <2 x i32> zeroinitializer
   %9 = fmul <2 x float> %call.fca.0.extract, %8
   %mul3.i = fmul float %call.fca.1.extract, %div
-  %rgb.sroa.11.0 = select i1 %cmp, float %mul3.i, float %call.fca.1.extract
   %rgb.sroa.0.0 = select i1 %cmp, <2 x float> %9, <2 x float> %call.fca.0.extract
+  %rgb.sroa.11.0 = select i1 %cmp, float %mul3.i, float %call.fca.1.extract
   %pixels = getelementptr inbounds i8, ptr %this, i64 784
   %p.sroa.0.0.extract.trunc.i = trunc i64 %pFilm.coerce to i32
   %p.sroa.4.0.extract.shift.i = lshr i64 %pFilm.coerce, 32
@@ -8902,12 +8902,12 @@ for.body.lr.ph:                                   ; preds = %invoke.cont52
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %bucketWeightBuffer.080 = phi ptr [ %retval.0.i.i.i, %for.body.lr.ph ], [ %add.ptr66, %for.body ]
   %splatBuffer.079 = phi ptr [ %retval.0.i.i.i45, %for.body.lr.ph ], [ %add.ptr67, %for.body ]
-  %__begin1.sroa.7.078 = phi i32 [ %__begin1.sroa.7.0.extract.trunc, %for.body.lr.ph ], [ %__begin1.sroa.7.1, %for.body ]
-  %__begin1.sroa.0.077 = phi i32 [ %__begin1.sroa.0.0.extract.trunc, %for.body.lr.ph ], [ %__begin1.sroa.0.1, %for.body ]
+  %__begin1.sroa.0.078 = phi i32 [ %__begin1.sroa.0.0.extract.trunc, %for.body.lr.ph ], [ %__begin1.sroa.0.1, %for.body ]
+  %__begin1.sroa.7.077 = phi i32 [ %__begin1.sroa.7.0.extract.trunc, %for.body.lr.ph ], [ %__begin1.sroa.7.1, %for.body ]
   %22 = load i32, ptr %pixels, align 8
-  %sub.i = sub i32 %__begin1.sroa.0.077, %22
+  %sub.i = sub i32 %__begin1.sroa.0.078, %22
   %23 = load i32, ptr %y.i55, align 4
-  %sub6.i = sub nsw i32 %__begin1.sroa.7.078, %23
+  %sub6.i = sub nsw i32 %__begin1.sroa.7.077, %23
   %24 = load ptr, ptr %values.i56, align 8
   %25 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i, align 8
   %sub13.i = sub nsw i32 %25, %22
@@ -8922,13 +8922,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store ptr %add.ptr, ptr %weightSums, align 8
   %bucketSplats = getelementptr inbounds i8, ptr %arrayidx.i, i64 72
   store ptr %splatBuffer.079, ptr %bucketSplats, align 8
-  %inc.i.i = add nsw i32 %__begin1.sroa.0.077, 1
+  %inc.i.i = add nsw i32 %__begin1.sroa.0.078, 1
   %26 = load i32, ptr %pMax.i, align 8
   %cmp.i.i = icmp eq i32 %inc.i.i, %26
   %27 = load i32, ptr %pixelBounds19, align 8
-  %__begin1.sroa.0.1 = select i1 %cmp.i.i, i32 %27, i32 %inc.i.i
   %inc10.i.i = zext i1 %cmp.i.i to i32
-  %__begin1.sroa.7.1 = add nsw i32 %__begin1.sroa.7.078, %inc10.i.i
+  %__begin1.sroa.7.1 = add nsw i32 %__begin1.sroa.7.077, %inc10.i.i
+  %__begin1.sroa.0.1 = select i1 %cmp.i.i, i32 %27, i32 %inc.i.i
   %add.ptr67 = getelementptr inbounds i8, ptr %splatBuffer.079, i64 32
   %add.ptr66 = getelementptr inbounds double, ptr %add.ptr, i64 %idx.ext
   %cmp.not.i.i = icmp ne i32 %__begin1.sroa.0.1, %__begin1.sroa.0.0.extract.trunc
@@ -9836,9 +9836,9 @@ ehcleanup21.thread:                               ; preds = %lpad.i, %lpad
   br label %eh.resume
 
 ehcleanup21:                                      ; preds = %ehcleanup, %lpad.i26, %lpad4
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %23, %lpad4 ], [ %3, %lpad.i26 ]
-  %cleanup.isactive.1 = phi i1 [ %25, %ehcleanup ], [ false, %lpad4 ], [ false, %lpad.i26 ]
-  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element6, %ehcleanup ], [ %arrayinit.element, %lpad4 ], [ %arrayinit.element, %lpad.i26 ]
+  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element6, %ehcleanup ], [ %arrayinit.element, %lpad.i26 ], [ %arrayinit.element, %lpad4 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad.i26 ], [ %23, %lpad4 ]
+  %cleanup.isactive.1 = phi i1 [ %25, %ehcleanup ], [ false, %lpad.i26 ], [ false, %lpad4 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #22
   br i1 %cleanup.isactive.1, label %eh.resume, label %arraydestroy.body23
@@ -15185,11 +15185,11 @@ entry:
   br i1 %cmp4.i.i19.i.not.i.i, label %_ZSt10__invoke_rIvRZN4pbrt13ParallelFor2DERKNS0_7Bounds2IiEESt8functionIFvNS0_6Point2IiEEEEEUlS2_E_JS2_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %entry, %_ZNKSt8functionIFvN4pbrt6Point2IiEEEEclES2_.exit.i.i.i
-  %__begin2.sroa.7.021.i.i.i = phi i32 [ %__begin2.sroa.7.1.i.i.i, %_ZNKSt8functionIFvN4pbrt6Point2IiEEEEclES2_.exit.i.i.i ], [ %b.sroa.4.0.extract.trunc.i.i.i, %entry ]
-  %__begin2.sroa.0.020.i.i.i = phi i32 [ %__begin2.sroa.0.1.i.i.i, %_ZNKSt8functionIFvN4pbrt6Point2IiEEEEclES2_.exit.i.i.i ], [ %b.sroa.0.0.extract.trunc.i.i.i, %entry ]
-  %__begin2.sroa.7.0.insert.ext.i.i.i = zext i32 %__begin2.sroa.7.021.i.i.i to i64
+  %__begin2.sroa.0.021.i.i.i = phi i32 [ %__begin2.sroa.0.1.i.i.i, %_ZNKSt8functionIFvN4pbrt6Point2IiEEEEclES2_.exit.i.i.i ], [ %b.sroa.0.0.extract.trunc.i.i.i, %entry ]
+  %__begin2.sroa.7.020.i.i.i = phi i32 [ %__begin2.sroa.7.1.i.i.i, %_ZNKSt8functionIFvN4pbrt6Point2IiEEEEclES2_.exit.i.i.i ], [ %b.sroa.4.0.extract.trunc.i.i.i, %entry ]
+  %__begin2.sroa.7.0.insert.ext.i.i.i = zext i32 %__begin2.sroa.7.020.i.i.i to i64
   %__begin2.sroa.7.0.insert.shift.i.i.i = shl nuw i64 %__begin2.sroa.7.0.insert.ext.i.i.i, 32
-  %__begin2.sroa.0.0.insert.ext.i.i.i = zext i32 %__begin2.sroa.0.020.i.i.i to i64
+  %__begin2.sroa.0.0.insert.ext.i.i.i = zext i32 %__begin2.sroa.0.021.i.i.i to i64
   %__begin2.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %__begin2.sroa.7.0.insert.shift.i.i.i, %__begin2.sroa.0.0.insert.ext.i.i.i
   %1 = load ptr, ptr %__functor, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.i.i.i.i)
@@ -15208,11 +15208,11 @@ _ZNKSt8functionIFvN4pbrt6Point2IiEEEEclES2_.exit.i.i.i: ; preds = %for.body.i.i.
   %3 = load ptr, ptr %_M_invoker.i.i.i.i, align 8
   call void %3(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %__args.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.i.i.i.i)
-  %inc.i.i.i.i.i = add nsw i32 %__begin2.sroa.0.020.i.i.i, 1
+  %inc.i.i.i.i.i = add nsw i32 %__begin2.sroa.0.021.i.i.i, 1
   %cmp.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i, %b.sroa.5.8.extract.trunc.i.i.i
-  %__begin2.sroa.0.1.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %b.sroa.0.0.extract.trunc.i.i.i, i32 %inc.i.i.i.i.i
   %inc10.i.i.i.i.i = zext i1 %cmp.i.i.i.i.i to i32
-  %__begin2.sroa.7.1.i.i.i = add nsw i32 %__begin2.sroa.7.021.i.i.i, %inc10.i.i.i.i.i
+  %__begin2.sroa.7.1.i.i.i = add nsw i32 %__begin2.sroa.7.020.i.i.i, %inc10.i.i.i.i.i
+  %__begin2.sroa.0.1.i.i.i = select i1 %cmp.i.i.i.i.i, i32 %b.sroa.0.0.extract.trunc.i.i.i, i32 %inc.i.i.i.i.i
   %cmp.not.i.i.i.i.i = icmp ne i32 %__begin2.sroa.0.1.i.i.i, %b.sroa.0.0.extract.trunc.i.i.i
   %cmp4.i.i.i.i.i = icmp ne i32 %__begin2.sroa.7.1.i.i.i, %0
   %4 = select i1 %cmp.not.i.i.i.i.i, i1 true, i1 %cmp4.i.i.i.i.i

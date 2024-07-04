@@ -113,12 +113,12 @@ define internal range(i32 -30, 1) i32 @archive_compressor_zstd_open(ptr nocaptur
   br label %21
 
 21:                                               ; preds = %13, %18, %17, %7
-  %.026 = phi i64 [ %20, %18 ], [ %8, %17 ], [ %8, %7 ], [ %15, %13 ]
+  %.0 = phi i64 [ %20, %18 ], [ %8, %17 ], [ %8, %7 ], [ %15, %13 ]
   %22 = getelementptr inbounds i8, ptr %3, i64 88
-  store i64 %.026, ptr %22, align 8
+  store i64 %.0, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %3, i64 96
   store i64 0, ptr %23, align 8
-  %24 = tail call noalias ptr @malloc(i64 noundef %.026) #12
+  %24 = tail call noalias ptr @malloc(i64 noundef %.0) #12
   store ptr %24, ptr %4, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %28
@@ -157,8 +157,8 @@ define internal range(i32 -30, 1) i32 @archive_compressor_zstd_open(ptr nocaptur
   br label %47
 
 47:                                               ; preds = %38, %35, %26
-  %.0 = phi i32 [ -30, %26 ], [ -30, %35 ], [ 0, %38 ]
-  ret i32 %.0
+  %.026 = phi i32 [ -30, %26 ], [ -30, %35 ], [ 0, %38 ]
+  ret i32 %.026
 }
 
 ; Function Attrs: nounwind uwtable

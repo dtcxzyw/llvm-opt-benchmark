@@ -434,9 +434,9 @@ invoke.cont:                                      ; preds = %_ZNK3ue29CharReach1
   br label %invoke.cont14
 
 invoke.cont14:                                    ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.i61, %invoke.cont
+  %agg.tmp83.sroa.0.0.copyload = phi ptr [ %v.coerce0, %invoke.cont ], [ %9, %_ZNK3ue29CharReach10find_firstEv.exit.i61 ]
   %nocase.1 = phi i8 [ %nocase.0.ph, %invoke.cont ], [ %nocase.289, %_ZNK3ue29CharReach10find_firstEv.exit.i61 ]
   %casefixed.1 = phi i1 [ %casefixed.0.ph, %invoke.cont ], [ %casefixed.290, %_ZNK3ue29CharReach10find_firstEv.exit.i61 ]
-  %agg.tmp83.sroa.0.0.copyload = phi ptr [ %v.coerce0, %invoke.cont ], [ %9, %_ZNK3ue29CharReach10find_firstEv.exit.i61 ]
   %v.sroa.14.0 = phi i64 [ %v.coerce1, %invoke.cont ], [ %10, %_ZNK3ue29CharReach10find_firstEv.exit.i61 ]
   %out_edge_list.i.i = getelementptr inbounds i8, ptr %agg.tmp83.sroa.0.0.copyload, i64 128
   %7 = load i64, ptr %out_edge_list.i.i, align 8

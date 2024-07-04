@@ -320,15 +320,15 @@ define internal { double, double } @_ZL14aeqd_s_inverse5PJ_XYP8PJconsts(double %
   br label %46
 
 46:                                               ; preds = %31, %27
-  %.pn = phi double [ %22, %27 ], [ %45, %31 ]
-  %.pn45 = phi double [ %23, %27 ], [ %43, %31 ]
   %.sroa.6.0 = phi double [ %30, %27 ], [ %39, %31 ]
-  %.sroa.9.0 = fmul double %.0, %.pn45
+  %.pn = phi double [ %23, %27 ], [ %43, %31 ]
+  %.pn45 = phi double [ %22, %27 ], [ %45, %31 ]
+  %.sroa.9.0 = fmul double %.0, %.pn
   %47 = fcmp oeq double %.sroa.9.0, 0.000000e+00
   br i1 %47, label %57, label %48
 
 48:                                               ; preds = %46
-  %.sroa.0.0 = fmul double %.pn, %0
+  %.sroa.0.0 = fmul double %.pn45, %0
   %49 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.9.0) #8
   br label %57
 

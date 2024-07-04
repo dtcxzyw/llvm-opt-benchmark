@@ -33,30 +33,30 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse() local_unnamed_addr #0 {
   br label %5
 
 3:                                                ; preds = %143, %67
-  %.0148 = phi ptr [ %123, %143 ], [ %70, %67 ]
-  %.0142 = phi ptr [ %122, %143 ], [ %.2144, %67 ]
+  %.0149 = phi ptr [ %122, %143 ], [ %.2151, %67 ]
+  %.0144 = phi ptr [ %123, %143 ], [ %70, %67 ]
   %.0.in = phi i8 [ %.in, %143 ], [ %69, %67 ]
   %.0 = sext i8 %.0.in to i32
-  %4 = getelementptr i8, ptr %.0142, i64 1
+  %4 = getelementptr i8, ptr %.0149, i64 1
   br label %5
 
 5:                                                ; preds = %3, %0
-  %.1149 = phi ptr [ %2, %0 ], [ %.0148, %3 ]
-  %.0146 = phi ptr [ %2, %0 ], [ %.1147, %3 ]
-  %.1143 = phi ptr [ %1, %0 ], [ %4, %3 ]
-  %.0139 = phi ptr [ %1, %0 ], [ %.1140, %3 ]
+  %.0156 = phi ptr [ %1, %0 ], [ %.1157, %3 ]
+  %.1150 = phi ptr [ %1, %0 ], [ %4, %3 ]
+  %.0147 = phi ptr [ %2, %0 ], [ %.1148, %3 ]
+  %.1145 = phi ptr [ %2, %0 ], [ %.0144, %3 ]
   %.0137 = phi i64 [ 200, %0 ], [ %.1138, %3 ]
   %.1 = phi i32 [ 0, %0 ], [ %.0, %3 ]
   %6 = trunc nsw i32 %.1 to i8
-  store i8 %6, ptr %.1143, align 1
-  %7 = getelementptr i8, ptr %.0139, i64 %.0137
+  store i8 %6, ptr %.1150, align 1
+  %7 = getelementptr i8, ptr %.0156, i64 %.0137
   %8 = getelementptr i8, ptr %7, i64 -1
-  %.not = icmp ugt ptr %8, %.1143
+  %.not = icmp ugt ptr %8, %.1150
   br i1 %.not, label %32, label %9
 
 9:                                                ; preds = %5
-  %10 = ptrtoint ptr %.1143 to i64
-  %11 = ptrtoint ptr %.0139 to i64
+  %10 = ptrtoint ptr %.1150 to i64
+  %11 = ptrtoint ptr %.0156 to i64
   %12 = sub i64 %10, %11
   %13 = add i64 %12, 1
   %14 = icmp sgt i64 %.0137, 9999
@@ -72,17 +72,17 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse() local_unnamed_addr #0 {
   br i1 %.not176, label %147, label %20
 
 20:                                               ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %.0139, i64 %13, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %.0156, i64 %13, i1 false)
   %21 = add nsw i64 %spec.store.select, 7
   %22 = sdiv i64 %21, 8
   %23 = getelementptr %union.yyalloc, ptr %19, i64 %22
   %24 = shl i64 %13, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %.0146, i64 %24, i1 false)
-  %.not177 = icmp eq ptr %.0139, %1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %.0147, i64 %24, i1 false)
+  %.not177 = icmp eq ptr %.0156, %1
   br i1 %.not177, label %26, label %25
 
 25:                                               ; preds = %20
-  call void @pfree(ptr noundef %.0139) #7
+  call void @pfree(ptr noundef %.0156) #7
   br label %26
 
 26:                                               ; preds = %25, %20
@@ -95,10 +95,10 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse() local_unnamed_addr #0 {
   br i1 %.not178, label %32, label %.loopexit
 
 32:                                               ; preds = %26, %5
-  %.2150 = phi ptr [ %30, %26 ], [ %.1149, %5 ]
-  %.1147 = phi ptr [ %23, %26 ], [ %.0146, %5 ]
-  %.2144 = phi ptr [ %28, %26 ], [ %.1143, %5 ]
-  %.1140 = phi ptr [ %19, %26 ], [ %.0139, %5 ]
+  %.1157 = phi ptr [ %19, %26 ], [ %.0156, %5 ]
+  %.2151 = phi ptr [ %28, %26 ], [ %.1150, %5 ]
+  %.1148 = phi ptr [ %23, %26 ], [ %.0147, %5 ]
+  %.2146 = phi ptr [ %30, %26 ], [ %.1145, %5 ]
   %.1138 = phi i64 [ %spec.store.select, %26 ], [ %.0137, %5 ]
   %33 = icmp eq i32 %.1, 12
   br i1 %33, label %.loopexit, label %34
@@ -152,8 +152,8 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse() local_unnamed_addr #0 {
   br label %60
 
 60:                                               ; preds = %55, %53, %49
-  %.0157 = phi i32 [ 0, %49 ], [ %59, %55 ], [ 2, %53 ]
-  %61 = add nsw i32 %.0157, %38
+  %.0141 = phi i32 [ 0, %49 ], [ %59, %55 ], [ 2, %53 ]
+  %61 = add nsw i32 %.0141, %38
   %or.cond3 = icmp ugt i32 %61, 22
   br i1 %or.cond3, label %72, label %62
 
@@ -162,13 +162,13 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse() local_unnamed_addr #0 {
   %64 = getelementptr [23 x i8], ptr @yycheck, i64 0, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = sext i8 %65 to i32
-  %.not180 = icmp eq i32 %.0157, %66
+  %.not180 = icmp eq i32 %.0141, %66
   br i1 %.not180, label %67, label %72
 
 67:                                               ; preds = %62
   %68 = getelementptr [23 x i8], ptr @yytable, i64 0, i64 %63
   %69 = load i8, ptr %68, align 1
-  %70 = getelementptr i8, ptr %.2150, i64 8
+  %70 = getelementptr i8, ptr %.2146, i64 8
   %71 = load i64, ptr @syncrep_yylval, align 8
   store i64 %71, ptr %70, align 8
   store i32 -2, ptr @syncrep_yychar, align 4
@@ -188,7 +188,7 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse() local_unnamed_addr #0 {
   %80 = load i8, ptr %79, align 1
   %81 = sext i8 %80 to i64
   %82 = sub nsw i64 1, %81
-  %83 = getelementptr %union.YYSTYPE, ptr %.2150, i64 %82
+  %83 = getelementptr %union.YYSTYPE, ptr %.2146, i64 %82
   %.sroa.036.0.copyload = load ptr, ptr %83, align 8
   switch i8 %77, label %119 [
     i8 2, label %84
@@ -203,64 +203,64 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse() local_unnamed_addr #0 {
   ]
 
 84:                                               ; preds = %75
-  %85 = load ptr, ptr %.2150, align 8
+  %85 = load ptr, ptr %.2146, align 8
   store ptr %85, ptr @syncrep_parse_result, align 8
   br label %119
 
 86:                                               ; preds = %75
-  %87 = load ptr, ptr %.2150, align 8
+  %87 = load ptr, ptr %.2146, align 8
   %88 = call fastcc ptr @create_syncrep_config(ptr noundef nonnull @.str, ptr noundef %87, i8 noundef zeroext 0)
   br label %119
 
 89:                                               ; preds = %75
-  %90 = getelementptr i8, ptr %.2150, i64 -24
+  %90 = getelementptr i8, ptr %.2146, i64 -24
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr i8, ptr %.2150, i64 -8
+  %92 = getelementptr i8, ptr %.2146, i64 -8
   %93 = load ptr, ptr %92, align 8
   %94 = call fastcc ptr @create_syncrep_config(ptr noundef %91, ptr noundef %93, i8 noundef zeroext 0)
   br label %119
 
 95:                                               ; preds = %75
-  %96 = getelementptr i8, ptr %.2150, i64 -24
+  %96 = getelementptr i8, ptr %.2146, i64 -24
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr i8, ptr %.2150, i64 -8
+  %98 = getelementptr i8, ptr %.2146, i64 -8
   %99 = load ptr, ptr %98, align 8
   %100 = call fastcc ptr @create_syncrep_config(ptr noundef %97, ptr noundef %99, i8 noundef zeroext 1)
   br label %119
 
 101:                                              ; preds = %75
-  %102 = getelementptr i8, ptr %.2150, i64 -24
+  %102 = getelementptr i8, ptr %.2146, i64 -24
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr i8, ptr %.2150, i64 -8
+  %104 = getelementptr i8, ptr %.2146, i64 -8
   %105 = load ptr, ptr %104, align 8
   %106 = call fastcc ptr @create_syncrep_config(ptr noundef %103, ptr noundef %105, i8 noundef zeroext 0)
   br label %119
 
 107:                                              ; preds = %75
-  %108 = load ptr, ptr %.2150, align 8
+  %108 = load ptr, ptr %.2146, align 8
   %109 = call ptr @list_make1_impl(i32 noundef 1, ptr %108) #7
   br label %119
 
 110:                                              ; preds = %75
-  %111 = getelementptr i8, ptr %.2150, i64 -16
+  %111 = getelementptr i8, ptr %.2146, i64 -16
   %112 = load ptr, ptr %111, align 8
-  %113 = load ptr, ptr %.2150, align 8
+  %113 = load ptr, ptr %.2146, align 8
   %114 = call ptr @lappend(ptr noundef %112, ptr noundef %113) #7
   br label %119
 
 115:                                              ; preds = %75
-  %116 = load ptr, ptr %.2150, align 8
+  %116 = load ptr, ptr %.2146, align 8
   br label %119
 
 117:                                              ; preds = %75
-  %118 = load ptr, ptr %.2150, align 8
+  %118 = load ptr, ptr %.2146, align 8
   br label %119
 
 119:                                              ; preds = %75, %117, %115, %110, %107, %101, %95, %89, %86, %84
   %.sroa.036.0 = phi ptr [ %.sroa.036.0.copyload, %75 ], [ %118, %117 ], [ %116, %115 ], [ %114, %110 ], [ %109, %107 ], [ %106, %101 ], [ %100, %95 ], [ %94, %89 ], [ %88, %86 ], [ %.sroa.036.0.copyload, %84 ]
   %120 = sub nsw i64 0, %81
-  %121 = getelementptr %union.YYSTYPE, ptr %.2150, i64 %120
-  %122 = getelementptr i8, ptr %.2144, i64 %120
+  %121 = getelementptr %union.YYSTYPE, ptr %.2146, i64 %120
+  %122 = getelementptr i8, ptr %.2151, i64 %120
   %123 = getelementptr i8, ptr %121, i64 8
   store ptr %.sroa.036.0, ptr %123, align 8
   %124 = getelementptr [11 x i8], ptr @yyr1, i64 0, i64 %78
@@ -308,17 +308,17 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse() local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %32, %52, %144, %147
-  %.0158 = phi i32 [ 2, %147 ], [ 1, %144 ], [ 1, %52 ], [ 1, %26 ], [ 0, %32 ]
-  %.3 = phi ptr [ %.0139, %147 ], [ %.1140, %144 ], [ %.1140, %52 ], [ %19, %26 ], [ %.1140, %32 ]
-  %.not188 = icmp eq ptr %.3, %1
+  %.3159 = phi ptr [ %.0156, %147 ], [ %.1157, %144 ], [ %.1157, %52 ], [ %19, %26 ], [ %.1157, %32 ]
+  %.0142 = phi i32 [ 2, %147 ], [ 1, %144 ], [ 1, %52 ], [ 1, %26 ], [ 0, %32 ]
+  %.not188 = icmp eq ptr %.3159, %1
   br i1 %.not188, label %149, label %148
 
 148:                                              ; preds = %.loopexit
-  call void @pfree(ptr noundef %.3) #7
+  call void @pfree(ptr noundef %.3159) #7
   br label %149
 
 149:                                              ; preds = %148, %.loopexit
-  ret i32 %.0158
+  ret i32 %.0142
 }
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1

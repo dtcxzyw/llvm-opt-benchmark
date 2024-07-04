@@ -125,7 +125,7 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %23
 
 23:                                               ; preds = %19, %7
-  %.0130 = phi ptr [ %22, %19 ], [ @.str.35, %7 ]
+  %.0134 = phi ptr [ %22, %19 ], [ @.str.35, %7 ]
   %24 = or disjoint i32 %11, 2
   %25 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %24, i32 noundef 1) #3
   %.not151 = icmp eq i32 %25, 0
@@ -138,8 +138,8 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %30
 
 30:                                               ; preds = %26, %23
-  %.0134 = phi i8 [ %27, %26 ], [ 0, %23 ]
-  %.0132 = phi ptr [ %29, %26 ], [ @.str.37, %23 ]
+  %.0129 = phi i8 [ %27, %26 ], [ 0, %23 ]
+  %.0128 = phi ptr [ %29, %26 ], [ @.str.37, %23 ]
   %31 = or disjoint i32 %11, 3
   tail call void @set_actual_length(ptr noundef %0, i32 noundef %31) #3
   br label %60
@@ -161,7 +161,7 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %43
 
 43:                                               ; preds = %39, %32
-  %.1 = phi ptr [ %42, %39 ], [ @.str.39, %32 ]
+  %.1135 = phi ptr [ %42, %39 ], [ @.str.39, %32 ]
   %44 = add i32 %33, -8
   %45 = add i32 %33, -4
   %46 = tail call fastcc ptr @fcoe_get_eof(ptr noundef %0, i32 noundef %45)
@@ -192,60 +192,60 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %60
 
 60:                                               ; preds = %52, %43, %54, %50, %30
-  %.0136 = phi i8 [ %17, %30 ], [ %35, %50 ], [ %35, %54 ], [ %35, %43 ], [ %35, %52 ]
-  %.1135 = phi i8 [ %.0134, %30 ], [ 0, %50 ], [ %55, %54 ], [ 0, %43 ], [ 0, %52 ]
-  %.1133 = phi ptr [ %.0132, %30 ], [ %49, %50 ], [ %59, %54 ], [ %46, %43 ], [ @.str.37, %52 ]
-  %.2 = phi ptr [ %.0130, %30 ], [ %.1, %50 ], [ %.1, %54 ], [ %.1, %43 ], [ %.1, %52 ]
-  %.0129 = phi i32 [ %18, %30 ], [ %38, %50 ], [ %38, %54 ], [ %38, %43 ], [ %38, %52 ]
-  %.0128 = phi i32 [ 2, %30 ], [ 14, %50 ], [ 14, %54 ], [ 14, %43 ], [ 14, %52 ]
-  %.0127 = phi i32 [ %12, %30 ], [ %51, %50 ], [ %34, %54 ], [ %34, %43 ], [ %34, %52 ]
+  %.0137 = phi i32 [ 2, %30 ], [ 14, %50 ], [ 14, %54 ], [ 14, %43 ], [ 14, %52 ]
+  %.0136 = phi i32 [ %18, %30 ], [ %38, %50 ], [ %38, %54 ], [ %38, %43 ], [ %38, %52 ]
+  %.2 = phi ptr [ %.0134, %30 ], [ %.1135, %50 ], [ %.1135, %54 ], [ %.1135, %43 ], [ %.1135, %52 ]
+  %.0133 = phi i32 [ %12, %30 ], [ %51, %50 ], [ %34, %54 ], [ %34, %43 ], [ %34, %52 ]
+  %.0131 = phi i8 [ %17, %30 ], [ %35, %50 ], [ %35, %54 ], [ %35, %43 ], [ %35, %52 ]
+  %.1130 = phi i8 [ %.0129, %30 ], [ 0, %50 ], [ %55, %54 ], [ 0, %43 ], [ 0, %52 ]
+  %.1 = phi ptr [ %.0128, %30 ], [ %49, %50 ], [ %59, %54 ], [ %46, %43 ], [ @.str.37, %52 ]
   %.0126 = phi i32 [ %24, %30 ], [ %44, %50 ], [ %45, %54 ], [ %45, %43 ], [ %45, %52 ]
   %61 = getelementptr inbounds i8, ptr %1, i64 8
   %62 = load ptr, ptr %61, align 8
   tail call void @col_set_str(ptr noundef %62, i32 noundef 34, ptr noundef nonnull @.str.15) #3
-  %63 = add i32 %.0127, %.0128
-  %64 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0128) #3
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %64, i32 %.0127)
-  %65 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0128, i32 noundef %spec.select, i32 noundef %.0127) #3
+  %63 = add i32 %.0133, %.0137
+  %64 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0137) #3
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %64, i32 %.0133)
+  %65 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0137, i32 noundef %spec.select, i32 noundef %.0133) #3
   %66 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %63, i32 noundef 4) #3
   %.not152 = icmp eq i32 %66, 0
   br i1 %.not152, label %70, label %67
 
 67:                                               ; preds = %60
   %68 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %63) #3
-  %69 = tail call i32 @crc32_802_tvb(ptr noundef %65, i32 noundef %.0127) #3
+  %69 = tail call i32 @crc32_802_tvb(ptr noundef %65, i32 noundef %.0133) #3
   %.not153 = icmp eq i32 %68, %69
   %spec.select158 = select i1 %.not153, ptr @.str.39, ptr @.str.41
   br label %70
 
 70:                                               ; preds = %67, %60
-  %.0131 = phi ptr [ @.str.39, %60 ], [ %spec.select158, %67 ]
+  %.0127 = phi ptr [ @.str.39, %60 ], [ %spec.select158, %67 ]
   %.0 = phi i32 [ 0, %60 ], [ %69, %67 ]
-  %71 = and i32 %.0127, 3
+  %71 = and i32 %.0133, 3
   %72 = icmp ne i32 %71, 0
-  %73 = icmp slt i32 %.0127, 24
+  %73 = icmp slt i32 %.0133, 24
   %or.cond = or i1 %73, %72
   %spec.store.select = select i1 %or.cond, ptr @.str.42, ptr @.str.39
   %74 = load i32, ptr @proto_fcoe, align 4
-  %75 = zext i8 %.0136 to i32
+  %75 = zext i8 %.0131 to i32
   %76 = tail call ptr @val_to_str(i32 noundef %75, ptr noundef nonnull @fcoe_sof_vals, ptr noundef nonnull @.str.38) #3
-  %77 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef 0, i32 noundef %.0128, ptr noundef nonnull @.str.43, ptr noundef %.2, ptr noundef %76, ptr noundef %.1133, i32 noundef %.0127, ptr noundef nonnull %.0131, ptr noundef nonnull %spec.store.select) #3
+  %77 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef 0, i32 noundef %.0137, ptr noundef nonnull @.str.43, ptr noundef %.2, ptr noundef %76, ptr noundef %.1, i32 noundef %.0133, ptr noundef nonnull %.0127, ptr noundef nonnull %spec.store.select) #3
   %78 = load i32, ptr @ett_fcoe, align 4
   %79 = tail call ptr @proto_item_add_subtree(ptr noundef %77, i32 noundef %78) #3
   %80 = load i32, ptr @hf_fcoe_ver, align 4
-  %81 = tail call ptr @proto_tree_add_uint(ptr noundef %79, i32 noundef %80, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %.0129) #3
+  %81 = tail call ptr @proto_tree_add_uint(ptr noundef %79, i32 noundef %80, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %.0136) #3
   %82 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
   %.not154 = icmp eq i8 %82, 0
   br i1 %.not154, label %86, label %83
 
 83:                                               ; preds = %70
   %84 = load i32, ptr @hf_fcoe_len, align 4
-  %85 = tail call ptr @proto_tree_add_uint(ptr noundef %79, i32 noundef %84, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %.0127) #3
+  %85 = tail call ptr @proto_tree_add_uint(ptr noundef %79, i32 noundef %84, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %.0133) #3
   br label %86
 
 86:                                               ; preds = %83, %70
   %87 = load i32, ptr @hf_fcoe_sof, align 4
-  %88 = add nsw i32 %.0128, -1
+  %88 = add nsw i32 %.0137, -1
   %89 = tail call ptr @proto_tree_add_uint(ptr noundef %79, i32 noundef %87, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef %75) #3
   %90 = load i32, ptr @hf_fcoe_crc, align 4
   %91 = load i32, ptr @hf_fcoe_crc_status, align 4
@@ -273,14 +273,14 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 102:                                              ; preds = %99, %97
   %103 = getelementptr inbounds i8, ptr %5, i64 4
-  %switch.tableidx = add i8 %.0136, -40
+  %switch.tableidx = add i8 %.0131, -40
   %104 = icmp ult i8 %switch.tableidx, 7
   %switch.cast = zext i8 %switch.tableidx to i56
   %switch.shiftamt = shl nuw nsw i56 %switch.cast, 3
   %switch.downshift = lshr i56 282574488338690, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
   %105 = select i1 %104, i8 %switch.masked, i8 0
-  %.not156 = icmp eq i8 %.1135, 65
+  %.not156 = icmp eq i8 %.1130, 65
   %storemerge.v = select i1 %.not156, i8 64, i8 -128
   %storemerge = or disjoint i8 %105, %storemerge.v
   store i8 %storemerge, ptr %103, align 4

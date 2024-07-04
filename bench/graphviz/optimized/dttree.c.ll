@@ -71,31 +71,31 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %34
 
 34:                                               ; preds = %.preheader552, %56
-  %.0385 = phi ptr [ %42, %56 ], [ %23, %.preheader552 ]
-  %35 = getelementptr inbounds i8, ptr %.0385, i64 8
+  %.0381 = phi ptr [ %42, %56 ], [ %23, %.preheader552 ]
+  %35 = getelementptr inbounds i8, ptr %.0381, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not460601 = icmp eq ptr %36, null
   br i1 %.not460601, label %.._crit_edge605_crit_edge, label %.lr.ph604
 
 .._crit_edge605_crit_edge:                        ; preds = %34
-  %.pre642 = load ptr, ptr %.0385, align 8
+  %.pre642 = load ptr, ptr %.0381, align 8
   br label %._crit_edge605
 
 .lr.ph604:                                        ; preds = %34, %.lr.ph604
   %37 = phi ptr [ %41, %.lr.ph604 ], [ %36, %34 ]
   %38 = phi ptr [ %40, %.lr.ph604 ], [ %35, %34 ]
-  %.1386602 = phi ptr [ %37, %.lr.ph604 ], [ %.0385, %34 ]
+  %.1382602 = phi ptr [ %37, %.lr.ph604 ], [ %.0381, %34 ]
   %39 = load ptr, ptr %37, align 8
   store ptr %39, ptr %38, align 8
-  store ptr %.1386602, ptr %37, align 8
+  store ptr %.1382602, ptr %37, align 8
   %40 = getelementptr inbounds i8, ptr %37, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not460 = icmp eq ptr %41, null
   br i1 %.not460, label %._crit_edge605, label %.lr.ph604
 
 ._crit_edge605:                                   ; preds = %.lr.ph604, %.._crit_edge605_crit_edge
-  %42 = phi ptr [ %.pre642, %.._crit_edge605_crit_edge ], [ %.1386602, %.lr.ph604 ]
-  %.1386.lcssa = phi ptr [ %.0385, %.._crit_edge605_crit_edge ], [ %37, %.lr.ph604 ]
+  %42 = phi ptr [ %.pre642, %.._crit_edge605_crit_edge ], [ %.1382602, %.lr.ph604 ]
+  %.1382.lcssa = phi ptr [ %.0381, %.._crit_edge605_crit_edge ], [ %37, %.lr.ph604 ]
   %43 = load ptr, ptr %29, align 8
   %.not461 = icmp eq ptr %43, null
   br i1 %.not461, label %52, label %44
@@ -104,12 +104,12 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %31, label %45, label %48
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %.1386.lcssa, i64 16
+  %46 = getelementptr inbounds i8, ptr %.1382.lcssa, i64 16
   %47 = load ptr, ptr %46, align 8
   br label %50
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %.1386.lcssa, i64 %33
+  %49 = getelementptr inbounds i8, ptr %.1382.lcssa, i64 %33
   br label %50
 
 50:                                               ; preds = %48, %45
@@ -123,7 +123,7 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %52
-  tail call void @free(ptr noundef nonnull %.1386.lcssa) #5
+  tail call void @free(ptr noundef nonnull %.1382.lcssa) #5
   br label %56
 
 56:                                               ; preds = %52, %55
@@ -161,11 +161,11 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 .lr.ph609:                                        ; preds = %.preheader550, %.lr.ph609
   %66 = phi ptr [ %69, %.lr.ph609 ], [ %63, %.preheader550 ]
-  %.2387608 = phi ptr [ %66, %.lr.ph609 ], [ %23, %.preheader550 ]
+  %.2383608 = phi ptr [ %66, %.lr.ph609 ], [ %23, %.preheader550 ]
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr %.2387608, align 8
-  store ptr %.2387608, ptr %67, align 8
+  store ptr %68, ptr %.2383608, align 8
+  store ptr %.2383608, ptr %67, align 8
   %69 = load ptr, ptr %66, align 8
   %.not458 = icmp eq ptr %69, null
   br i1 %.not458, label %.loopexit, label %.lr.ph609
@@ -173,32 +173,32 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 .lr.ph613:                                        ; preds = %.preheader, %.lr.ph613
   %70 = phi ptr [ %74, %.lr.ph613 ], [ %65, %.preheader ]
   %71 = phi ptr [ %73, %.lr.ph613 ], [ %64, %.preheader ]
-  %.3388612 = phi ptr [ %70, %.lr.ph613 ], [ %23, %.preheader ]
+  %.3384612 = phi ptr [ %70, %.lr.ph613 ], [ %23, %.preheader ]
   %72 = load ptr, ptr %70, align 8
   store ptr %72, ptr %71, align 8
-  store ptr %.3388612, ptr %70, align 8
+  store ptr %.3384612, ptr %70, align 8
   %73 = getelementptr inbounds i8, ptr %70, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not457 = icmp eq ptr %74, null
   br i1 %.not457, label %.loopexit, label %.lr.ph613
 
 .loopexit:                                        ; preds = %.lr.ph609, %.lr.ph613, %.preheader550, %.preheader
-  %.4389 = phi ptr [ %23, %.preheader ], [ %23, %.preheader550 ], [ %70, %.lr.ph613 ], [ %66, %.lr.ph609 ]
+  %.4385 = phi ptr [ %23, %.preheader ], [ %23, %.preheader550 ], [ %70, %.lr.ph613 ], [ %66, %.lr.ph609 ]
   %75 = load ptr, ptr %5, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 8
-  store ptr %.4389, ptr %76, align 8
+  store ptr %.4385, ptr %76, align 8
   %77 = icmp slt i32 %19, 0
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %.loopexit
-  %79 = getelementptr inbounds i8, ptr %.4389, i64 16
+  %79 = getelementptr inbounds i8, ptr %.4385, i64 16
   %80 = load ptr, ptr %79, align 8
   br label %513
 
 81:                                               ; preds = %.loopexit
   %82 = zext nneg i32 %19 to i64
   %83 = sub nsw i64 0, %82
-  %84 = getelementptr inbounds i8, ptr %.4389, i64 %83
+  %84 = getelementptr inbounds i8, ptr %.4385, i64 %83
   br label %513
 
 85:                                               ; preds = %11
@@ -237,8 +237,8 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %105
 
 105:                                              ; preds = %.lr.ph, %128
-  %.0384581 = phi ptr [ %101, %.lr.ph ], [ %130, %128 ]
-  %106 = getelementptr inbounds i8, ptr %.0384581, i64 %102
+  %.0379581 = phi ptr [ %101, %.lr.ph ], [ %130, %128 ]
+  %106 = getelementptr inbounds i8, ptr %.0379581, i64 %102
   br i1 %93, label %107, label %109
 
 107:                                              ; preds = %105
@@ -270,7 +270,7 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %.not466, label %120, label %.loopexit560
 
 120:                                              ; preds = %118
-  %121 = icmp eq ptr %.0384581, %1
+  %121 = icmp eq ptr %.0379581, %1
   br i1 %121, label %122, label %128
 
 122:                                              ; preds = %120
@@ -284,7 +284,7 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 128:                                              ; preds = %120
   %129 = load ptr, ptr %0, align 8
-  %130 = tail call ptr %129(ptr noundef nonnull %0, ptr noundef nonnull %.0384581, i32 noundef 8) #5
+  %130 = tail call ptr %129(ptr noundef nonnull %0, ptr noundef nonnull %.0379581, i32 noundef 8) #5
   %.not464 = icmp eq ptr %130, null
   br i1 %.not464, label %.loopexit560, label %105
 
@@ -384,9 +384,9 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %180
 
 180:                                              ; preds = %174, %178, %160, %140
-  %.0383 = phi ptr [ %141, %140 ], [ %161, %160 ], [ %179, %178 ], [ %177, %174 ]
-  %.0374 = phi ptr [ null, %140 ], [ %1, %160 ], [ null, %178 ], [ null, %174 ]
-  %.0373 = phi ptr [ %1, %140 ], [ %154, %160 ], [ %1, %178 ], [ %1, %174 ]
+  %.0388 = phi ptr [ %1, %140 ], [ %154, %160 ], [ %1, %178 ], [ %1, %174 ]
+  %.0378 = phi ptr [ %141, %140 ], [ %161, %160 ], [ %179, %178 ], [ %177, %174 ]
+  %.0 = phi ptr [ null, %140 ], [ %1, %160 ], [ null, %178 ], [ null, %174 ]
   %181 = icmp slt i32 %19, 0
   %182 = icmp slt i32 %17, 0
   %.not474 = icmp eq ptr %21, null
@@ -398,23 +398,23 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %180
-  %.5390.ph = phi ptr [ %23, %180 ], [ %.5390.ph.be, %.outer.backedge ]
-  %.0380.ph = phi ptr [ %4, %180 ], [ %.0380.ph.be, %.outer.backedge ]
-  %.0376.ph = phi ptr [ %4, %180 ], [ %.0376.ph.be, %.outer.backedge ]
+  %.5386.ph = phi ptr [ %23, %180 ], [ %.5386.ph.be, %.outer.backedge ]
+  %.0375.ph = phi ptr [ %4, %180 ], [ %.0375.ph.be, %.outer.backedge ]
+  %.0373.ph = phi ptr [ %4, %180 ], [ %.0373.ph.be, %.outer.backedge ]
   br label %188
 
 188:                                              ; preds = %.outer, %239
-  %.5390 = phi ptr [ %243, %239 ], [ %.5390.ph, %.outer ]
-  %.0376 = phi ptr [ %215, %239 ], [ %.0376.ph, %.outer ]
+  %.5386 = phi ptr [ %243, %239 ], [ %.5386.ph, %.outer ]
+  %.0373 = phi ptr [ %215, %239 ], [ %.0373.ph, %.outer ]
   br i1 %181, label %189, label %192
 
 189:                                              ; preds = %188
-  %190 = getelementptr inbounds i8, ptr %.5390, i64 16
+  %190 = getelementptr inbounds i8, ptr %.5386, i64 16
   %191 = load ptr, ptr %190, align 8
   br label %194
 
 192:                                              ; preds = %188
-  %193 = getelementptr inbounds i8, ptr %.5390, i64 %184
+  %193 = getelementptr inbounds i8, ptr %.5386, i64 %184
   br label %194
 
 194:                                              ; preds = %192, %189
@@ -431,18 +431,18 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %.not474, label %203, label %201
 
 201:                                              ; preds = %199
-  %202 = tail call i32 %21(ptr noundef %0, ptr noundef %.0383, ptr noundef %200, ptr noundef nonnull %14) #5
+  %202 = tail call i32 %21(ptr noundef %0, ptr noundef %.0378, ptr noundef %200, ptr noundef nonnull %14) #5
   br label %208
 
 203:                                              ; preds = %199
   br i1 %186, label %204, label %206
 
 204:                                              ; preds = %203
-  %205 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0383, ptr noundef nonnull dereferenceable(1) %200) #6
+  %205 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0378, ptr noundef nonnull dereferenceable(1) %200) #6
   br label %208
 
 206:                                              ; preds = %203
-  %207 = tail call i32 @memcmp(ptr noundef %.0383, ptr noundef %200, i64 noundef %187) #6
+  %207 = tail call i32 @memcmp(ptr noundef %.0378, ptr noundef %200, i64 noundef %187) #6
   br label %208
 
 208:                                              ; preds = %204, %206, %201
@@ -455,7 +455,7 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %212, label %213, label %253
 
 213:                                              ; preds = %211
-  %214 = getelementptr inbounds i8, ptr %.5390, i64 8
+  %214 = getelementptr inbounds i8, ptr %.5386, i64 8
   %215 = load ptr, ptr %214, align 8
   %.not478 = icmp eq ptr %215, null
   br i1 %.not478, label %251, label %216
@@ -486,18 +486,18 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %.not474, label %231, label %229
 
 229:                                              ; preds = %227
-  %230 = tail call i32 %21(ptr noundef %0, ptr noundef %.0383, ptr noundef %228, ptr noundef nonnull %14) #5
+  %230 = tail call i32 %21(ptr noundef %0, ptr noundef %.0378, ptr noundef %228, ptr noundef nonnull %14) #5
   br label %236
 
 231:                                              ; preds = %227
   br i1 %186, label %232, label %234
 
 232:                                              ; preds = %231
-  %233 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0383, ptr noundef nonnull dereferenceable(1) %228) #6
+  %233 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0378, ptr noundef nonnull dereferenceable(1) %228) #6
   br label %236
 
 234:                                              ; preds = %231
-  %235 = tail call i32 @memcmp(ptr noundef %.0383, ptr noundef %228, i64 noundef %187) #6
+  %235 = tail call i32 @memcmp(ptr noundef %.0378, ptr noundef %228, i64 noundef %187) #6
   br label %236
 
 236:                                              ; preds = %232, %234, %229
@@ -508,8 +508,8 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 239:                                              ; preds = %236
   %240 = load ptr, ptr %215, align 8
   store ptr %240, ptr %214, align 8
-  store ptr %.5390, ptr %215, align 8
-  %241 = getelementptr inbounds i8, ptr %.0376, i64 8
+  store ptr %.5386, ptr %215, align 8
+  %241 = getelementptr inbounds i8, ptr %.0373, i64 8
   store ptr %215, ptr %241, align 8
   %242 = getelementptr inbounds i8, ptr %215, i64 8
   %243 = load ptr, ptr %242, align 8
@@ -521,29 +521,29 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %245, label %246, label %248
 
 246:                                              ; preds = %244
-  %247 = getelementptr inbounds i8, ptr %.0376, i64 8
+  %247 = getelementptr inbounds i8, ptr %.0373, i64 8
   br label %.loopexit558.sink.split
 
 248:                                              ; preds = %244
-  store ptr %215, ptr %.0380.ph, align 8
-  %249 = getelementptr inbounds i8, ptr %.0376, i64 8
-  store ptr %.5390, ptr %249, align 8
+  store ptr %215, ptr %.0375.ph, align 8
+  %249 = getelementptr inbounds i8, ptr %.0373, i64 8
+  store ptr %.5386, ptr %249, align 8
   %250 = load ptr, ptr %215, align 8
   %.not479 = icmp eq ptr %250, null
   br i1 %.not479, label %.loopexit559, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %248, %278, %284
-  %.5390.ph.be = phi ptr [ %287, %284 ], [ %281, %278 ], [ %250, %248 ]
-  %.0380.ph.be = phi ptr [ %.5390, %284 ], [ %254, %278 ], [ %215, %248 ]
-  %.0376.ph.be = phi ptr [ %254, %284 ], [ %.0376, %278 ], [ %.5390, %248 ]
+  %.5386.ph.be = phi ptr [ %287, %284 ], [ %281, %278 ], [ %250, %248 ]
+  %.0375.ph.be = phi ptr [ %.5386, %284 ], [ %254, %278 ], [ %215, %248 ]
+  %.0373.ph.be = phi ptr [ %254, %284 ], [ %.0373, %278 ], [ %.5386, %248 ]
   br label %.outer
 
 251:                                              ; preds = %213
-  %252 = getelementptr inbounds i8, ptr %.0376, i64 8
+  %252 = getelementptr inbounds i8, ptr %.0373, i64 8
   br label %.loopexit559.sink.split
 
 253:                                              ; preds = %211
-  %254 = load ptr, ptr %.5390, align 8
+  %254 = load ptr, ptr %.5386, align 8
   %.not475 = icmp eq ptr %254, null
   br i1 %.not475, label %.loopexit559.sink.split, label %255
 
@@ -573,18 +573,18 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %.not474, label %270, label %268
 
 268:                                              ; preds = %266
-  %269 = tail call i32 %21(ptr noundef %0, ptr noundef %.0383, ptr noundef %267, ptr noundef nonnull %14) #5
+  %269 = tail call i32 %21(ptr noundef %0, ptr noundef %.0378, ptr noundef %267, ptr noundef nonnull %14) #5
   br label %275
 
 270:                                              ; preds = %266
   br i1 %186, label %271, label %273
 
 271:                                              ; preds = %270
-  %272 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0383, ptr noundef nonnull dereferenceable(1) %267) #6
+  %272 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0378, ptr noundef nonnull dereferenceable(1) %267) #6
   br label %275
 
 273:                                              ; preds = %270
-  %274 = tail call i32 @memcmp(ptr noundef %.0383, ptr noundef %267, i64 noundef %187) #6
+  %274 = tail call i32 @memcmp(ptr noundef %.0378, ptr noundef %267, i64 noundef %187) #6
   br label %275
 
 275:                                              ; preds = %271, %273, %268
@@ -595,9 +595,9 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 278:                                              ; preds = %275
   %279 = getelementptr inbounds i8, ptr %254, i64 8
   %280 = load ptr, ptr %279, align 8
-  store ptr %280, ptr %.5390, align 8
-  store ptr %.5390, ptr %279, align 8
-  store ptr %254, ptr %.0380.ph, align 8
+  store ptr %280, ptr %.5386, align 8
+  store ptr %.5386, ptr %279, align 8
+  store ptr %254, ptr %.0375.ph, align 8
   %281 = load ptr, ptr %254, align 8
   %.not477 = icmp eq ptr %281, null
   br i1 %.not477, label %.loopexit559, label %.outer.backedge
@@ -607,40 +607,40 @@ define internal ptr @dttree(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %283, label %.loopexit558.sink.split, label %284
 
 284:                                              ; preds = %282
-  %285 = getelementptr inbounds i8, ptr %.0376, i64 8
+  %285 = getelementptr inbounds i8, ptr %.0373, i64 8
   store ptr %254, ptr %285, align 8
-  store ptr %.5390, ptr %.0380.ph, align 8
+  store ptr %.5386, ptr %.0375.ph, align 8
   %286 = getelementptr inbounds i8, ptr %254, i64 8
   %287 = load ptr, ptr %286, align 8
   %.not476 = icmp eq ptr %287, null
   br i1 %.not476, label %.loopexit559, label %.outer.backedge
 
 .loopexit558.sink.split:                          ; preds = %282, %246
-  %.0380.sink = phi ptr [ %247, %246 ], [ %.0380.ph, %282 ]
+  %.0375.sink = phi ptr [ %247, %246 ], [ %.0375.ph, %282 ]
   %.7.ph = phi ptr [ %215, %246 ], [ %254, %282 ]
-  %.2382.ph695 = phi ptr [ %.0380.ph, %246 ], [ %.5390, %282 ]
-  %.2378.ph696 = phi ptr [ %.5390, %246 ], [ %.0376, %282 ]
-  store ptr %.5390, ptr %.0380.sink, align 8
+  %.2377.ph695 = phi ptr [ %.0375.ph, %246 ], [ %.5386, %282 ]
+  %.2.ph696 = phi ptr [ %.5386, %246 ], [ %.0373, %282 ]
+  store ptr %.5386, ptr %.0375.sink, align 8
   br label %.loopexit558
 
 .loopexit558:                                     ; preds = %208, %.loopexit558.sink.split, %172
-  %.7 = phi ptr [ %23, %172 ], [ %.7.ph, %.loopexit558.sink.split ], [ %.5390, %208 ]
-  %.2382 = phi ptr [ %4, %172 ], [ %.2382.ph695, %.loopexit558.sink.split ], [ %.0380.ph, %208 ]
-  %.2378 = phi ptr [ %4, %172 ], [ %.2378.ph696, %.loopexit558.sink.split ], [ %.0376, %208 ]
-  %.1375 = phi ptr [ null, %172 ], [ %.0374, %.loopexit558.sink.split ], [ %.0374, %208 ]
-  %.1 = phi ptr [ %1, %172 ], [ %.0373, %.loopexit558.sink.split ], [ %.0373, %208 ]
+  %.1389 = phi ptr [ %1, %172 ], [ %.0388, %.loopexit558.sink.split ], [ %.0388, %208 ]
+  %.7 = phi ptr [ %23, %172 ], [ %.7.ph, %.loopexit558.sink.split ], [ %.5386, %208 ]
+  %.2377 = phi ptr [ %4, %172 ], [ %.2377.ph695, %.loopexit558.sink.split ], [ %.0375.ph, %208 ]
+  %.2 = phi ptr [ %4, %172 ], [ %.2.ph696, %.loopexit558.sink.split ], [ %.0373, %208 ]
+  %.1 = phi ptr [ null, %172 ], [ %.0, %.loopexit558.sink.split ], [ %.0, %208 ]
   %288 = getelementptr inbounds i8, ptr %.7, i64 8
   %289 = load ptr, ptr %288, align 8
-  store ptr %289, ptr %.2382, align 8
+  store ptr %289, ptr %.2377, align 8
   %290 = load ptr, ptr %.7, align 8
-  %291 = getelementptr inbounds i8, ptr %.2378, i64 8
+  %291 = getelementptr inbounds i8, ptr %.2, i64 8
   store ptr %290, ptr %291, align 8
   %292 = and i32 %2, 516
   %.not487 = icmp eq i32 %292, 0
   br i1 %.not487, label %368, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %._crit_edge, %508, %.loopexit558, %427, %446, %449, %450, %504, %499
-  %.8.ph = phi ptr [ %.1375.ph, %508 ], [ %.7, %450 ], [ %.7, %446 ], [ %.7, %449 ], [ %.14549, %499 ], [ %.14549, %504 ], [ %.7, %427 ], [ %.11.lcssa, %._crit_edge ], [ %.7, %.loopexit558 ]
+  %.8.ph = phi ptr [ %.1.ph, %508 ], [ %.7, %450 ], [ %.7, %446 ], [ %.7, %449 ], [ %.14549, %499 ], [ %.14549, %504 ], [ %.7, %427 ], [ %.11.lcssa, %._crit_edge ], [ %.7, %.loopexit558 ]
   %.pr = load ptr, ptr %4, align 16
   br label %293
 
@@ -705,34 +705,34 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
 .preheader554:                                    ; preds = %.preheader554.lr.ph, %354
   %326 = phi ptr [ %294, %.preheader554.lr.ph ], [ %357, %354 ]
   %327 = phi ptr [ %295, %.preheader554.lr.ph ], [ %356, %354 ]
-  %.9597 = phi ptr [ %.8, %.preheader554.lr.ph ], [ %.0391.lcssa, %354 ]
+  %.9597 = phi ptr [ %.8, %.preheader554.lr.ph ], [ %.0380.lcssa, %354 ]
   %328 = load ptr, ptr %326, align 8
   %.not515591 = icmp eq ptr %328, null
   br i1 %.not515591, label %._crit_edge594, label %.lr.ph593
 
 .lr.ph593:                                        ; preds = %.preheader554, %.lr.ph593
   %329 = phi ptr [ %332, %.lr.ph593 ], [ %328, %.preheader554 ]
-  %.0391592 = phi ptr [ %329, %.lr.ph593 ], [ %326, %.preheader554 ]
+  %.0380592 = phi ptr [ %329, %.lr.ph593 ], [ %326, %.preheader554 ]
   %330 = getelementptr inbounds i8, ptr %329, i64 8
   %331 = load ptr, ptr %330, align 8
-  store ptr %331, ptr %.0391592, align 8
-  store ptr %.0391592, ptr %330, align 8
+  store ptr %331, ptr %.0380592, align 8
+  store ptr %.0380592, ptr %330, align 8
   %332 = load ptr, ptr %329, align 8
   %.not515 = icmp eq ptr %332, null
   br i1 %.not515, label %._crit_edge594, label %.lr.ph593
 
 ._crit_edge594:                                   ; preds = %.lr.ph593, %.preheader554
-  %.0391.lcssa = phi ptr [ %326, %.preheader554 ], [ %329, %.lr.ph593 ]
-  store ptr %.0391.lcssa, ptr %327, align 8
+  %.0380.lcssa = phi ptr [ %326, %.preheader554 ], [ %329, %.lr.ph593 ]
+  store ptr %.0380.lcssa, ptr %327, align 8
   br i1 %304, label %333, label %336
 
 333:                                              ; preds = %._crit_edge594
-  %334 = getelementptr inbounds i8, ptr %.0391.lcssa, i64 16
+  %334 = getelementptr inbounds i8, ptr %.0380.lcssa, i64 16
   %335 = load ptr, ptr %334, align 8
   br label %338
 
 336:                                              ; preds = %._crit_edge594
-  %337 = getelementptr inbounds i8, ptr %.0391.lcssa, i64 %322
+  %337 = getelementptr inbounds i8, ptr %.0380.lcssa, i64 %322
   br label %338
 
 338:                                              ; preds = %336, %333
@@ -769,16 +769,16 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
   br i1 %.not517, label %354, label %.loopexit555
 
 354:                                              ; preds = %352
-  %355 = load ptr, ptr %.0391.lcssa, align 8
+  %355 = load ptr, ptr %.0380.lcssa, align 8
   store ptr %355, ptr %327, align 8
-  store ptr %.9597, ptr %.0391.lcssa, align 8
-  %356 = getelementptr inbounds i8, ptr %.0391.lcssa, i64 8
+  store ptr %.9597, ptr %.0380.lcssa, align 8
+  %356 = getelementptr inbounds i8, ptr %.0380.lcssa, i64 8
   %357 = load ptr, ptr %356, align 8
   %.not514 = icmp eq ptr %357, null
   br i1 %.not514, label %.loopexit555, label %.preheader554
 
 .loopexit555:                                     ; preds = %352, %354, %319, %293
-  %.10 = phi ptr [ %.8, %293 ], [ %.8, %319 ], [ %.9597, %352 ], [ %.0391.lcssa, %354 ]
+  %.10 = phi ptr [ %.8, %293 ], [ %.8, %319 ], [ %.9597, %352 ], [ %.0380.lcssa, %354 ]
   %358 = load ptr, ptr %5, align 8
   %359 = getelementptr inbounds i8, ptr %358, i64 8
   store ptr %.10, ptr %359, align 8
@@ -809,8 +809,8 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
   br label %372
 
 372:                                              ; preds = %.loopexit559, %370
-  %.1538 = phi ptr [ %.1.ph, %.loopexit559 ], [ %.1, %370 ]
-  %.2378533 = phi ptr [ %.2378.ph, %.loopexit559 ], [ %.2378, %370 ]
+  %.2537 = phi ptr [ %.2.ph, %.loopexit559 ], [ %.2, %370 ]
+  %.1389530 = phi ptr [ %.1389.ph, %.loopexit559 ], [ %.1389, %370 ]
   %373 = getelementptr inbounds i8, ptr %4, i64 8
   %374 = load ptr, ptr %373, align 8
   %.not508 = icmp eq ptr %374, null
@@ -858,8 +858,8 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
   br label %388
 
 388:                                              ; preds = %460, %385
-  %.1540 = phi ptr [ %.1.ph, %460 ], [ %.1, %385 ]
-  %.2378535 = phi ptr [ %.2378.ph, %460 ], [ %.2378, %385 ]
+  %.2539 = phi ptr [ %.2.ph, %460 ], [ %.2, %385 ]
+  %.1389532 = phi ptr [ %.1389.ph, %460 ], [ %.1389, %385 ]
   %389 = load ptr, ptr %4, align 16
   %.not506 = icmp eq ptr %389, null
   br i1 %.not506, label %.thread543, label %.preheader556
@@ -896,7 +896,7 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
 
 397:                                              ; preds = %396, %122
   %.13 = phi ptr [ %.7, %396 ], [ %125, %122 ]
-  %.3379 = phi ptr [ %.2378, %396 ], [ %4, %122 ]
+  %.3 = phi ptr [ %.2, %396 ], [ %4, %122 ]
   %398 = icmp slt i32 %19, 0
   br i1 %398, label %399, label %402
 
@@ -990,7 +990,7 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
   br i1 %.not494, label %446, label %445
 
 445:                                              ; preds = %442
-  tail call void %444(ptr noundef %.1, ptr noundef nonnull %14) #5
+  tail call void %444(ptr noundef %.1389, ptr noundef nonnull %14) #5
   br label %446
 
 446:                                              ; preds = %445, %442
@@ -999,16 +999,16 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
   br i1 %448, label %449, label %thread-pre-split
 
 449:                                              ; preds = %446
-  tail call void @free(ptr noundef %.1375) #5
+  tail call void @free(ptr noundef %.1) #5
   br label %thread-pre-split
 
 450:                                              ; preds = %437
-  %451 = getelementptr inbounds i8, ptr %.1375, i64 8
+  %451 = getelementptr inbounds i8, ptr %.1, i64 8
   store ptr null, ptr %451, align 8
   %452 = getelementptr inbounds i8, ptr %4, i64 8
   %453 = load ptr, ptr %452, align 8
-  store ptr %453, ptr %.1375, align 8
-  store ptr %.1375, ptr %452, align 8
+  store ptr %453, ptr %.1, align 8
+  store ptr %.1, ptr %452, align 8
   %454 = load ptr, ptr %5, align 8
   %455 = getelementptr inbounds i8, ptr %454, i64 28
   %456 = load i32, ptr %455, align 4
@@ -1017,20 +1017,20 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
   br label %thread-pre-split
 
 .loopexit559.sink.split:                          ; preds = %253, %251
-  %.sink = phi ptr [ %252, %251 ], [ %.0380.ph, %253 ]
-  %.2382.ph.ph = phi ptr [ %.0380.ph, %251 ], [ %.5390, %253 ]
-  %.2378.ph.ph = phi ptr [ %.5390, %251 ], [ %.0376, %253 ]
-  store ptr %.5390, ptr %.sink, align 8
+  %.sink = phi ptr [ %252, %251 ], [ %.0375.ph, %253 ]
+  %.2377.ph.ph = phi ptr [ %.0375.ph, %251 ], [ %.5386, %253 ]
+  %.2.ph.ph = phi ptr [ %.5386, %251 ], [ %.0373, %253 ]
+  store ptr %.5386, ptr %.sink, align 8
   br label %.loopexit559
 
 .loopexit559:                                     ; preds = %239, %248, %278, %284, %.loopexit559.sink.split, %140, %160, %162
-  %.2382.ph = phi ptr [ %4, %162 ], [ %4, %160 ], [ %4, %140 ], [ %.2382.ph.ph, %.loopexit559.sink.split ], [ %.0380.ph, %239 ], [ %.5390, %284 ], [ %254, %278 ], [ %215, %248 ]
-  %.2378.ph = phi ptr [ %4, %162 ], [ %4, %160 ], [ %4, %140 ], [ %.2378.ph.ph, %.loopexit559.sink.split ], [ %215, %239 ], [ %254, %284 ], [ %.0376, %278 ], [ %.5390, %248 ]
-  %.1375.ph = phi ptr [ null, %162 ], [ %1, %160 ], [ null, %140 ], [ %.0374, %.loopexit559.sink.split ], [ %.0374, %284 ], [ %.0374, %278 ], [ %.0374, %248 ], [ %.0374, %239 ]
-  %.1.ph = phi ptr [ %1, %162 ], [ %154, %160 ], [ %1, %140 ], [ %.0373, %.loopexit559.sink.split ], [ %.0373, %284 ], [ %.0373, %278 ], [ %.0373, %248 ], [ %.0373, %239 ]
-  %458 = getelementptr inbounds i8, ptr %.2378.ph, i64 8
+  %.1389.ph = phi ptr [ %1, %162 ], [ %154, %160 ], [ %1, %140 ], [ %.0388, %.loopexit559.sink.split ], [ %.0388, %284 ], [ %.0388, %278 ], [ %.0388, %248 ], [ %.0388, %239 ]
+  %.2377.ph = phi ptr [ %4, %162 ], [ %4, %160 ], [ %4, %140 ], [ %.2377.ph.ph, %.loopexit559.sink.split ], [ %.0375.ph, %239 ], [ %.5386, %284 ], [ %254, %278 ], [ %215, %248 ]
+  %.2.ph = phi ptr [ %4, %162 ], [ %4, %160 ], [ %4, %140 ], [ %.2.ph.ph, %.loopexit559.sink.split ], [ %215, %239 ], [ %254, %284 ], [ %.0373, %278 ], [ %.5386, %248 ]
+  %.1.ph = phi ptr [ null, %162 ], [ %1, %160 ], [ null, %140 ], [ %.0, %.loopexit559.sink.split ], [ %.0, %284 ], [ %.0, %278 ], [ %.0, %248 ], [ %.0, %239 ]
+  %458 = getelementptr inbounds i8, ptr %.2.ph, i64 8
   store ptr null, ptr %458, align 8
-  store ptr null, ptr %.2382.ph, align 8
+  store ptr null, ptr %.2377.ph, align 8
   %459 = and i32 %2, 8
   %.not482 = icmp eq i32 %459, 0
   br i1 %.not482, label %460, label %372
@@ -1046,8 +1046,8 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
   br i1 %.not484, label %476, label %.thread543
 
 .thread543:                                       ; preds = %492, %494, %497, %506, %498, %462, %416, %422, %388, %372
-  %.4 = phi ptr [ %.2378533, %372 ], [ %.2378535, %388 ], [ %.3379, %422 ], [ %.3379, %416 ], [ %.2378536, %498 ], [ %.2378.ph, %462 ], [ %.2378.ph, %506 ], [ %.2378536, %497 ], [ %.2378536, %494 ], [ %.2378536, %492 ]
-  %.2 = phi ptr [ %.1538, %372 ], [ %.1540, %388 ], [ %407, %422 ], [ %407, %416 ], [ %.3, %498 ], [ %.1.ph, %462 ], [ null, %506 ], [ %.3, %497 ], [ %.3, %494 ], [ %.3, %492 ]
+  %.2390 = phi ptr [ %.1389530, %372 ], [ %.1389532, %388 ], [ %407, %422 ], [ %407, %416 ], [ %.3391, %498 ], [ %.1389.ph, %462 ], [ null, %506 ], [ %.3391, %497 ], [ %.3391, %494 ], [ %.3391, %492 ]
+  %.4 = phi ptr [ %.2537, %372 ], [ %.2539, %388 ], [ %.3, %422 ], [ %.3, %416 ], [ %.2540, %498 ], [ %.2.ph, %462 ], [ %.2.ph, %506 ], [ %.2540, %497 ], [ %.2540, %494 ], [ %.2540, %492 ]
   br label %464
 
 464:                                              ; preds = %464, %.thread543
@@ -1068,7 +1068,7 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
   store ptr %471, ptr %473, align 8
   %474 = and i32 %2, 2
   %.not510 = icmp eq i32 %474, 0
-  %475 = select i1 %.not510, ptr null, ptr %.2
+  %475 = select i1 %.not510, ptr null, ptr %.2390
   br label %513
 
 476:                                              ; preds = %462
@@ -1077,21 +1077,21 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
   br i1 %.not485, label %506, label %478
 
 478:                                              ; preds = %476, %432
-  %.1541 = phi ptr [ %.1.ph, %476 ], [ %.1, %432 ]
-  %.2378536 = phi ptr [ %.2378.ph, %476 ], [ %.2378, %432 ]
-  %.7530 = phi ptr [ null, %476 ], [ %.7, %432 ]
+  %.2540 = phi ptr [ %.2.ph, %476 ], [ %.2, %432 ]
+  %.7534 = phi ptr [ null, %476 ], [ %.7, %432 ]
+  %.1389533 = phi ptr [ %.1389.ph, %476 ], [ %.1389, %432 ]
   %479 = getelementptr inbounds i8, ptr %14, i64 16
   %480 = load ptr, ptr %479, align 8
   %.not496 = icmp eq ptr %480, null
   br i1 %.not496, label %483, label %481
 
 481:                                              ; preds = %478
-  %482 = tail call ptr %480(ptr noundef %.1541, ptr noundef nonnull %14) #5
+  %482 = tail call ptr %480(ptr noundef %.1389533, ptr noundef nonnull %14) #5
   br label %483
 
 483:                                              ; preds = %481, %478
-  %.3 = phi ptr [ %482, %481 ], [ %.1541, %478 ]
-  %.not498 = icmp eq ptr %.3, null
+  %.3391 = phi ptr [ %482, %481 ], [ %.1389533, %478 ]
+  %.not498 = icmp eq ptr %.3391, null
   br i1 %.not498, label %498, label %484
 
 484:                                              ; preds = %483
@@ -1100,7 +1100,7 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
 
 486:                                              ; preds = %484
   %487 = zext nneg i32 %19 to i64
-  %488 = getelementptr inbounds i8, ptr %.3, i64 %487
+  %488 = getelementptr inbounds i8, ptr %.3391, i64 %487
   br label %498
 
 489:                                              ; preds = %484
@@ -1110,7 +1110,7 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
 
 .thread546:                                       ; preds = %489
   %491 = getelementptr inbounds i8, ptr %490, i64 16
-  store ptr %.3, ptr %491, align 8
+  store ptr %.3391, ptr %491, align 8
   br label %499
 
 492:                                              ; preds = %489
@@ -1125,11 +1125,11 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
   br i1 %.not501, label %.thread543, label %497
 
 497:                                              ; preds = %494
-  tail call void %496(ptr noundef nonnull %.3, ptr noundef nonnull %14) #5
+  tail call void %496(ptr noundef nonnull %.3391, ptr noundef nonnull %14) #5
   br label %.thread543
 
 498:                                              ; preds = %486, %483
-  %.14 = phi ptr [ %488, %486 ], [ %.7530, %483 ]
+  %.14 = phi ptr [ %488, %486 ], [ %.7534, %483 ]
   %.not503 = icmp eq ptr %.14, null
   br i1 %.not503, label %.thread543, label %499
 
@@ -1160,8 +1160,8 @@ thread-pre-split:                                 ; preds = %._crit_edge, %508, 
   br label %thread-pre-split
 
 513:                                              ; preds = %435, %361, %364, %78, %81, %24, %467, %.loopexit553
-  %.0 = phi ptr [ %475, %467 ], [ null, %.loopexit553 ], [ null, %24 ], [ %80, %78 ], [ %84, %81 ], [ %363, %361 ], [ %367, %364 ], [ null, %435 ]
-  ret ptr %.0
+  %.0387 = phi ptr [ %475, %467 ], [ null, %.loopexit553 ], [ null, %24 ], [ %80, %78 ], [ %84, %81 ], [ %363, %361 ], [ %367, %364 ], [ null, %435 ]
+  ret ptr %.0387
 }
 
 declare i32 @dtrestore(ptr noundef, ptr noundef) local_unnamed_addr #1

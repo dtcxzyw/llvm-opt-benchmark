@@ -873,16 +873,16 @@ define internal fastcc noundef i32 @aprs_timestamp(ptr noundef %0, ptr noundef %
   br label %24
 
 24:                                               ; preds = %16, %23, %22
-  %.033 = phi ptr [ @.str.224, %23 ], [ @.str.223, %22 ], [ @.str.222, %16 ]
+  %.0 = phi ptr [ @.str.224, %23 ], [ @.str.223, %22 ], [ @.str.222, %16 ]
   %25 = load i32, ptr @hf_aprs_dhm, align 4
   %26 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %25, ptr noundef %1, i32 noundef %2, i32 noundef 7, i32 noundef 0) #6
   %27 = load i32, ptr @hf_aprs_tz, align 4
-  %28 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef %4, i32 noundef 1, ptr noundef nonnull %.033) #6
+  %28 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %27, ptr noundef %1, i32 noundef %4, i32 noundef 1, ptr noundef nonnull %.0) #6
   br label %29
 
 29:                                               ; preds = %17, %24, %11
-  %.0 = phi i32 [ 8, %11 ], [ 7, %17 ], [ 7, %24 ]
-  %30 = add i32 %.0, %2
+  %.033 = phi i32 [ 8, %11 ], [ 7, %17 ], [ 7, %24 ]
+  %30 = add i32 %.033, %2
   ret i32 %30
 }
 
@@ -1190,13 +1190,13 @@ dst_code_lookup.exit175:                          ; preds = %84, %85
   br label %101
 
 101:                                              ; preds = %dst_code_lookup.exit175, %14, %4
-  %.0130 = phi i32 [ %57, %dst_code_lookup.exit175 ], [ 0, %14 ], [ 0, %4 ]
-  %.0129 = phi i32 [ %98, %dst_code_lookup.exit175 ], [ 63, %14 ], [ 63, %4 ]
-  %.0128 = phi i32 [ %81, %dst_code_lookup.exit175 ], [ 0, %14 ], [ 0, %4 ]
-  %.0127 = phi i32 [ %99, %dst_code_lookup.exit175 ], [ 63, %14 ], [ 63, %4 ]
-  %.0124 = phi i32 [ %100, %dst_code_lookup.exit175 ], [ 0, %14 ], [ 0, %4 ]
-  %.0123 = phi i32 [ %44, %dst_code_lookup.exit175 ], [ 0, %14 ], [ 0, %4 ]
-  %.0 = phi i32 [ %31, %dst_code_lookup.exit175 ], [ 0, %14 ], [ 0, %4 ]
+  %.0130 = phi i32 [ %31, %dst_code_lookup.exit175 ], [ 0, %14 ], [ 0, %4 ]
+  %.0129 = phi i32 [ %44, %dst_code_lookup.exit175 ], [ 0, %14 ], [ 0, %4 ]
+  %.0128 = phi i32 [ %57, %dst_code_lookup.exit175 ], [ 0, %14 ], [ 0, %4 ]
+  %.0127 = phi i32 [ %98, %dst_code_lookup.exit175 ], [ 63, %14 ], [ 63, %4 ]
+  %.0126 = phi i32 [ %81, %dst_code_lookup.exit175 ], [ 0, %14 ], [ 0, %4 ]
+  %.0125 = phi i32 [ %99, %dst_code_lookup.exit175 ], [ 63, %14 ], [ 63, %4 ]
+  %.0 = phi i32 [ %100, %dst_code_lookup.exit175 ], [ 0, %14 ], [ 0, %4 ]
   %102 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #6
   %103 = zext i8 %102 to i32
   %104 = mul nuw nsw i32 %103, 10
@@ -1223,10 +1223,10 @@ dst_code_lookup.exit175:                          ; preds = %84, %85
   %120 = add nsw i32 %119, %115
   %121 = icmp sgt i32 %120, 399
   %122 = add nsw i32 %120, -400
-  %.0126 = select i1 %121, i32 %122, i32 %120
+  %.0124 = select i1 %121, i32 %122, i32 %120
   %123 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
   %124 = zext i8 %123 to i32
-  %125 = add i32 %.0128, -28
+  %125 = add i32 %.0126, -28
   %126 = add i32 %125, %124
   %127 = add i32 %126, -180
   %or.cond.i176 = icmp ult i32 %127, 10
@@ -1243,14 +1243,14 @@ dst_code_lookup.exit175:                          ; preds = %84, %85
   %133 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #6
   %134 = zext i8 %133 to i32
   %135 = add nsw i32 %134, -28
-  %136 = shl nuw nsw i32 %.0, 2
-  %137 = shl nuw nsw i32 %.0123, 1
-  %138 = or disjoint i32 %136, %137
-  %139 = or disjoint i32 %138, %.0130
+  %136 = shl nuw nsw i32 %.0130, 2
+  %137 = shl nuw nsw i32 %.0129, 1
+  %138 = or disjoint i32 %137, %136
+  %139 = or disjoint i32 %138, %.0128
   %140 = zext nneg i32 %139 to i64
   %141 = getelementptr [8 x %struct.mic_e_msg_table_s], ptr @mic_e_msg_table, i64 0, i64 %140
   %142 = load ptr, ptr %141, align 16
-  %143 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 100, ptr noundef nonnull @.str.225, ptr noundef nonnull %5, i32 noundef %.0129, i32 noundef %.0.i, i32 noundef %spec.select.i177, i32 noundef %135, i32 noundef %.0127, i32 noundef %.0126, i32 noundef %spec.select, i32 noundef %.0124, ptr noundef %142) #6
+  %143 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 100, ptr noundef nonnull @.str.225, ptr noundef nonnull %5, i32 noundef %.0127, i32 noundef %.0.i, i32 noundef %spec.select.i177, i32 noundef %135, i32 noundef %.0125, i32 noundef %.0124, i32 noundef %spec.select, i32 noundef %.0, ptr noundef %142) #6
   %144 = getelementptr inbounds i8, ptr %1, i64 8
   %145 = load ptr, ptr %144, align 8
   call void @col_set_str(ptr noundef %145, i32 noundef 25, ptr noundef nonnull @.str.226) #6
@@ -1263,7 +1263,7 @@ dst_code_lookup.exit175:                          ; preds = %84, %85
   %148 = call ptr @proto_tree_add_string(ptr noundef nonnull %2, i32 noundef %3, ptr noundef %0, i32 noundef 1, i32 noundef %6, ptr noundef %10) #6
   %149 = load i32, ptr @ett_aprs_mic_e, align 4
   %150 = call ptr @proto_item_add_subtree(ptr noundef %148, i32 noundef %149) #6
-  %151 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 100, ptr noundef nonnull @.str.227, ptr noundef nonnull %5, i32 noundef %.0, i32 noundef %.0123, i32 noundef %.0130, i32 noundef %.0129, i32 noundef %.0128, i32 noundef %.0127, i32 noundef %.0124) #6
+  %151 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 100, ptr noundef nonnull @.str.227, ptr noundef nonnull %5, i32 noundef %.0130, i32 noundef %.0129, i32 noundef %.0128, i32 noundef %.0127, i32 noundef %.0126, i32 noundef %.0125, i32 noundef %.0) #6
   %152 = load i32, ptr @hf_aprs_mic_e_dst, align 4
   %153 = call ptr @proto_tree_add_string(ptr noundef %150, i32 noundef %152, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %10) #6
   %154 = load i32, ptr @hf_aprs_mic_e_long_d, align 4

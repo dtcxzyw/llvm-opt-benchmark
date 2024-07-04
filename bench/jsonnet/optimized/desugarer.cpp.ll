@@ -9655,13 +9655,13 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit371.loopexit817
   br label %178
 
 178:                                              ; preds = %177, %126
-  %.0255 = phi i1 [ false, %126 ], [ true, %177 ]
+  %.0256 = phi i1 [ false, %126 ], [ true, %177 ]
   %179 = getelementptr inbounds i8, ptr %125, i64 8
   %180 = load ptr, ptr %127, align 8
   %181 = load ptr, ptr %128, align 8
   %182 = tail call noundef ptr @_ZN7jsonnet8internal9Desugarer6equalsERKNS0_13LocationRangeEPNS0_3ASTES6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(64) %179, ptr noundef %180, ptr noundef %181)
   store ptr %182, ptr %.tr520786, align 8
-  br i1 %.0255, label %183, label %common.ret2151
+  br i1 %.0256, label %183, label %common.ret2151
 
 183:                                              ; preds = %178
   %184 = getelementptr inbounds i8, ptr %125, i64 80
@@ -10048,13 +10048,13 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
   br label %.loopexit
 
 346:                                              ; preds = %325, %322, %319
-  %.0259 = phi ptr [ %326, %325 ], [ %323, %322 ], [ %320, %319 ]
+  %.0255 = phi ptr [ %326, %325 ], [ %323, %322 ], [ %320, %319 ]
   %347 = landingpad { ptr, i32 }
           cleanup
   br label %348
 
 348:                                              ; preds = %346, %348
-  %349 = phi ptr [ %.0259, %346 ], [ %350, %348 ]
+  %349 = phi ptr [ %.0255, %346 ], [ %350, %348 ]
   %350 = getelementptr inbounds i8, ptr %349, i64 -88
   call void @_ZN7jsonnet8internal8ArgParamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %350) #22
   %351 = icmp eq ptr %350, %44

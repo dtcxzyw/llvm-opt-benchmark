@@ -160,59 +160,59 @@ define internal i32 @dissect_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %38
 
 38:                                               ; preds = %20, %34
-  %.0 = phi i8 [ %37, %34 ], [ 0, %20 ]
+  %.073 = phi i8 [ %37, %34 ], [ 0, %20 ]
   %39 = load i32, ptr @hf_igrp_interior_routes, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %39, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #2
   %.not7679 = icmp eq i16 %28, 0
   br i1 %.not7679, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38, %.lr.ph
-  %.07081 = phi i32 [ %44, %.lr.ph ], [ 12, %38 ]
-  %.07380 = phi i16 [ %45, %.lr.ph ], [ %28, %38 ]
+  %.07181 = phi i16 [ %45, %.lr.ph ], [ %28, %38 ]
+  %.07280 = phi i32 [ %44, %.lr.ph ], [ 12, %38 ]
   %41 = load i32, ptr @ett_igrp_vektor, align 4
   %42 = tail call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %41) #2
-  %43 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.07081, i32 noundef 14, i32 noundef -1) #2
-  tail call fastcc void @dissect_vektor_igrp(ptr noundef %1, ptr noundef %43, ptr noundef %42, i8 noundef zeroext %.0)
-  %44 = add nuw nsw i32 %.07081, 14
-  %45 = add i16 %.07380, -1
+  %43 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.07280, i32 noundef 14, i32 noundef -1) #2
+  tail call fastcc void @dissect_vektor_igrp(ptr noundef %1, ptr noundef %43, ptr noundef %42, i8 noundef zeroext %.073)
+  %44 = add nuw nsw i32 %.07280, 14
+  %45 = add i16 %.07181, -1
   %.not76 = icmp eq i16 %45, 0
   br i1 %.not76, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
-  %.070.lcssa = phi i32 [ 12, %38 ], [ %44, %.lr.ph ]
+  %.072.lcssa = phi i32 [ 12, %38 ], [ %44, %.lr.ph ]
   %46 = load i32, ptr @hf_igrp_system_routes, align 4
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %46, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #2
   %.not7782 = icmp eq i16 %29, 0
   br i1 %.not7782, label %._crit_edge87, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %._crit_edge, %.lr.ph86
-  %.184 = phi i32 [ %51, %.lr.ph86 ], [ %.070.lcssa, %._crit_edge ]
-  %.07283 = phi i16 [ %52, %.lr.ph86 ], [ %29, %._crit_edge ]
+  %.07084 = phi i16 [ %52, %.lr.ph86 ], [ %29, %._crit_edge ]
+  %.183 = phi i32 [ %51, %.lr.ph86 ], [ %.072.lcssa, %._crit_edge ]
   %48 = load i32, ptr @ett_igrp_vektor, align 4
   %49 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48) #2
-  %50 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.184, i32 noundef 14, i32 noundef -1) #2
+  %50 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.183, i32 noundef 14, i32 noundef -1) #2
   tail call fastcc void @dissect_vektor_igrp(ptr noundef %1, ptr noundef %50, ptr noundef %49, i8 noundef zeroext 0)
-  %51 = add nuw nsw i32 %.184, 14
-  %52 = add i16 %.07283, -1
+  %51 = add nuw nsw i32 %.183, 14
+  %52 = add i16 %.07084, -1
   %.not77 = icmp eq i16 %52, 0
   br i1 %.not77, label %._crit_edge87, label %.lr.ph86, !llvm.loop !6
 
 ._crit_edge87:                                    ; preds = %.lr.ph86, %._crit_edge
-  %.1.lcssa = phi i32 [ %.070.lcssa, %._crit_edge ], [ %51, %.lr.ph86 ]
+  %.1.lcssa = phi i32 [ %.072.lcssa, %._crit_edge ], [ %51, %.lr.ph86 ]
   %53 = load i32, ptr @hf_igrp_exterior_routes, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %53, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0) #2
   %.not7889 = icmp eq i16 %30, 0
   br i1 %.not7889, label %._crit_edge94, label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %._crit_edge87, %.lr.ph93
-  %.291 = phi i32 [ %58, %.lr.ph93 ], [ %.1.lcssa, %._crit_edge87 ]
-  %.07190 = phi i16 [ %59, %.lr.ph93 ], [ %30, %._crit_edge87 ]
+  %.091 = phi i16 [ %59, %.lr.ph93 ], [ %30, %._crit_edge87 ]
+  %.290 = phi i32 [ %58, %.lr.ph93 ], [ %.1.lcssa, %._crit_edge87 ]
   %55 = load i32, ptr @ett_igrp_vektor, align 4
   %56 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55) #2
-  %57 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.291, i32 noundef 14, i32 noundef -1) #2
+  %57 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.290, i32 noundef 14, i32 noundef -1) #2
   tail call fastcc void @dissect_vektor_igrp(ptr noundef %1, ptr noundef %57, ptr noundef %56, i8 noundef zeroext 0)
-  %58 = add nuw nsw i32 %.291, 14
-  %59 = add i16 %.07190, -1
+  %58 = add nuw nsw i32 %.290, 14
+  %59 = add i16 %.091, -1
   %.not78 = icmp eq i16 %59, 0
   br i1 %.not78, label %._crit_edge94, label %.lr.ph93, !llvm.loop !7
 

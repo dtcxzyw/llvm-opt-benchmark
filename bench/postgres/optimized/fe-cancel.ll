@@ -369,8 +369,8 @@ define range(i32 0, 2) i32 @PQrequestCancel(ptr noundef %0) local_unnamed_addr #
   br label %28
 
 28:                                               ; preds = %.sink.split, %19, %1
-  %.0 = phi i32 [ 0, %1 ], [ 1, %19 ], [ 0, %.sink.split ]
-  ret i32 %.0
+  %.020 = phi i32 [ 0, %1 ], [ 1, %19 ], [ 0, %.sink.split ]
+  ret i32 %.020
 }
 
 ; Function Attrs: nounwind

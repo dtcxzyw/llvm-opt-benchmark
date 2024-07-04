@@ -250,9 +250,9 @@ define void @_ZN5Nbnxm22makeClusterListSimd4xMERKNS_4GridEP16NbnxnPairlistCpuiii
 
 .preheader237.i:                                  ; preds = %.preheader238.i, %93
   %82 = phi i1 [ false, %93 ], [ true, %.preheader238.i ]
-  %.0180245.i = phi i32 [ 1, %93 ], [ 0, %.preheader238.i ]
-  %83 = shl nuw nsw i32 1, %.0180245.i
-  %84 = shl nuw nsw i32 2, %.0180245.i
+  %.0181245.i = phi i32 [ 1, %93 ], [ 0, %.preheader238.i ]
+  %83 = shl nuw nsw i32 1, %.0181245.i
+  %84 = shl nuw nsw i32 2, %.0181245.i
   %85 = zext nneg i32 %84 to i64
   %86 = zext nneg i32 %83 to i64
   br label %87
@@ -398,9 +398,9 @@ define void @_ZN5Nbnxm22makeClusterListSimd4xMERKNS_4GridEP16NbnxnPairlistCpuiii
 
 .preheader233.i:                                  ; preds = %.preheader234.i, %166
   %155 = phi i1 [ false, %166 ], [ true, %.preheader234.i ]
-  %.0178254.i = phi i32 [ 1, %166 ], [ 0, %.preheader234.i ]
-  %156 = shl nuw nsw i32 1, %.0178254.i
-  %157 = shl nuw nsw i32 2, %.0178254.i
+  %.0176254.i = phi i32 [ 1, %166 ], [ 0, %.preheader234.i ]
+  %156 = shl nuw nsw i32 1, %.0176254.i
+  %157 = shl nuw nsw i32 2, %.0176254.i
   %158 = zext nneg i32 %157 to i64
   %159 = zext nneg i32 %156 to i64
   br label %160

@@ -1234,8 +1234,8 @@ land.lhs.true40:                                  ; preds = %land.lhs.true34
   br i1 %cmp47, label %land.lhs.true48, label %do.end.thread
 
 land.lhs.true48:                                  ; preds = %land.lhs.true18, %land.lhs.true40
-  %i.1 = phi i32 [ %inc, %land.lhs.true18 ], [ %inc38, %land.lhs.true40 ]
   %c.0 = phi i32 [ %and10, %land.lhs.true18 ], [ %or, %land.lhs.true40 ]
+  %i.1 = phi i32 [ %inc, %land.lhs.true18 ], [ %inc38, %land.lhs.true40 ]
   %__t.0 = phi i8 [ %and20, %land.lhs.true18 ], [ %sub44, %land.lhs.true40 ]
   %shl49 = shl nuw nsw i32 %c.0, 6
   %conv50 = zext nneg i8 %__t.0 to i32
@@ -1253,8 +1253,8 @@ land.lhs.true56:                                  ; preds = %cond.false54
   br label %land.lhs.true58
 
 land.lhs.true58:                                  ; preds = %land.lhs.true56, %land.lhs.true48
-  %i.2 = phi i32 [ %inc52, %land.lhs.true48 ], [ %inc, %land.lhs.true56 ]
   %c.1 = phi i32 [ %or51, %land.lhs.true48 ], [ %and57, %land.lhs.true56 ]
+  %i.2 = phi i32 [ %inc52, %land.lhs.true48 ], [ %inc, %land.lhs.true56 ]
   %idxprom59 = sext i32 %i.2 to i64
   %arrayidx60 = getelementptr inbounds i8, ptr %1, i64 %idxprom59
   %10 = load i8, ptr %arrayidx60, align 1

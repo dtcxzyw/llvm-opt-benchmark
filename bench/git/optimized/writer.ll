@@ -1684,8 +1684,8 @@ for.end36:                                        ; preds = %for.body31, %writer
   br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !12
 
 while.end:                                        ; preds = %for.end36, %while.cond.preheader
-  %max_level.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %inc, %for.end36 ]
   %index_start.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %4, %for.end36 ]
+  %max_level.0.lcssa = phi i32 [ 0, %while.cond.preheader ], [ %inc, %for.end36 ]
   %call37 = call fastcc i32 @writer_flush_block(ptr noundef nonnull %w)
   %cmp38 = icmp slt i32 %call37, 0
   br i1 %cmp38, label %return, label %if.end41

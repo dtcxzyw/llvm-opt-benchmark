@@ -87,8 +87,8 @@ _ZNK17double_conversion6Double20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i: ; pr
   %5 = and i1 %cmp.i.i.i, %cmp3.i.i.i
   %shl8.i.i = shl nuw nsw i64 %retval.0.i.i.i.i, 2
   %sub11.i.i = add nsw i32 %retval.0.i4.i.i.i, -2
-  %m_minus.sroa.0.0.v.i.i = select i1 %5, i64 %shl8.i.i, i64 %shl.i6.i
   %m_minus.sroa.6.0.i.i = select i1 %5, i32 %sub11.i.i, i32 %sub.i7.i
+  %m_minus.sroa.0.0.v.i.i = select i1 %5, i64 %shl8.i.i, i64 %shl.i6.i
   %sub21.i.i = sub nsw i32 %m_minus.sroa.6.0.i.i, %exponent.1.lcssa.i.i.i.i
   br label %if.end.i
 
@@ -139,18 +139,18 @@ _ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i: ; pr
   %8 = and i1 %cmp.i.i31.i, %cmp3.i.i32.i
   %shl8.i33.i = shl nuw nsw i64 %conv.i.i14.i, 2
   %sub11.i34.i = add nsw i32 %retval.0.i4.i.i17.i, -2
-  %m_minus.sroa.0.0.v.i35.i = select i1 %8, i64 %shl8.i33.i, i64 %shl.i18.i
-  %m_minus.sroa.6.0.i37.i = select i1 %8, i32 %sub11.i34.i, i32 %sub.i20.i
-  %sub21.i38.i = sub nsw i32 %m_minus.sroa.6.0.i37.i, %exponent.1.lcssa.i.i.i29.i
+  %m_minus.sroa.6.0.i35.i = select i1 %8, i32 %sub11.i34.i, i32 %sub.i20.i
+  %m_minus.sroa.0.0.v.i36.i = select i1 %8, i64 %shl8.i33.i, i64 %shl.i18.i
+  %sub21.i38.i = sub nsw i32 %m_minus.sroa.6.0.i35.i, %exponent.1.lcssa.i.i.i29.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i, %_ZNK17double_conversion6Double20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i
   %sub21.i38.sink.i = phi i32 [ %sub21.i38.i, %_ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i ], [ %sub21.i.i, %_ZNK17double_conversion6Double20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i ]
-  %m_minus.sroa.0.0.i36.sink.in.i = phi i64 [ %m_minus.sroa.0.0.v.i35.i, %_ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i ], [ %m_minus.sroa.0.0.v.i.i, %_ZNK17double_conversion6Double20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i ]
+  %m_minus.sroa.0.0.i37.sink.in.i = phi i64 [ %m_minus.sroa.0.0.v.i36.i, %_ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i ], [ %m_minus.sroa.0.0.v.i.i, %_ZNK17double_conversion6Double20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i ]
   %boundary_plus.sroa.0.0.i = phi i64 [ %significand.1.lcssa.i.i.i30.i, %_ZNK17double_conversion6Single20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i ], [ %significand.1.lcssa.i.i.i.i, %_ZNK17double_conversion6Double20NormalizedBoundariesEPNS_5DiyFpES2_.exit.i ]
-  %m_minus.sroa.0.0.i36.sink.i = add nsw i64 %m_minus.sroa.0.0.i36.sink.in.i, -1
+  %m_minus.sroa.0.0.i37.sink.i = add nsw i64 %m_minus.sroa.0.0.i37.sink.in.i, -1
   %sh_prom.i39.i = zext nneg i32 %sub21.i38.sink.i to i64
-  %shl22.i40.i = shl i64 %m_minus.sroa.0.0.i36.sink.i, %sh_prom.i39.i
+  %shl22.i40.i = shl i64 %m_minus.sroa.0.0.i37.sink.i, %sh_prom.i39.i
   store i64 0, ptr %ten_mk.i, align 8
   %e_.i49.i = getelementptr inbounds i8, ptr %ten_mk.i, i64 8
   store i32 0, ptr %e_.i49.i, align 8

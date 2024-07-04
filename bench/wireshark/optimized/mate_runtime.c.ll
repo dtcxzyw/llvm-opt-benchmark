@@ -1613,9 +1613,9 @@ define internal void @get_pdu_fields(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not4044, label %add_avp.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %add_avp.exit.thread56
-  %.03546 = phi ptr [ %80, %add_avp.exit.thread56 ], [ %30, %28 ]
-  %.03645 = phi ptr [ %.1, %add_avp.exit.thread56 ], [ %21, %28 ]
-  %31 = getelementptr inbounds i8, ptr %.03546, i64 32
+  %.046 = phi ptr [ %80, %add_avp.exit.thread56 ], [ %30, %28 ]
+  %.03545 = phi ptr [ %.1, %add_avp.exit.thread56 ], [ %21, %28 ]
+  %31 = getelementptr inbounds i8, ptr %.046, i64 32
   %32 = load ptr, ptr %31, align 8
   %.not41 = icmp eq ptr %32, null
   br i1 %.not41, label %add_avp.exit.thread56, label %33
@@ -1623,7 +1623,7 @@ define internal void @get_pdu_fields(ptr nocapture noundef readonly %0, ptr noun
 33:                                               ; preds = %.lr.ph
   %34 = getelementptr inbounds i8, ptr %32, i64 40
   %35 = load ptr, ptr %34, align 8
-  %.not42 = icmp eq ptr %35, %.03645
+  %.not42 = icmp eq ptr %35, %.03545
   br i1 %.not42, label %add_avp.exit.thread56, label %36
 
 36:                                               ; preds = %33
@@ -1715,8 +1715,8 @@ add_avp.exit:                                     ; preds = %78
   br i1 %.02631.i.ph, label %add_avp.exit.thread, label %add_avp.exit.thread56
 
 add_avp.exit.thread56:                            ; preds = %.thread, %.lr.ph, %33, %add_avp.exit
-  %.1 = phi ptr [ %35, %add_avp.exit ], [ %.03645, %33 ], [ %.03645, %.lr.ph ], [ %35, %.thread ]
-  %79 = getelementptr inbounds i8, ptr %.03546, i64 24
+  %.1 = phi ptr [ %35, %add_avp.exit ], [ %.03545, %33 ], [ %.03545, %.lr.ph ], [ %35, %.thread ]
+  %79 = getelementptr inbounds i8, ptr %.046, i64 24
   %80 = load ptr, ptr %79, align 8
   %.not40 = icmp eq ptr %80, null
   br i1 %.not40, label %add_avp.exit.thread, label %.lr.ph, !llvm.loop !16

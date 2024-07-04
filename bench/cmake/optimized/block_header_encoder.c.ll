@@ -30,7 +30,7 @@ define dso_local i32 @lzma_block_header_size(ptr nocapture noundef %0) local_unn
   br label %14
 
 14:                                               ; preds = %12, %5
-  %.026 = phi i32 [ %13, %12 ], [ 6, %5 ]
+  %.025 = phi i32 [ %13, %12 ], [ 6, %5 ]
   %15 = getelementptr inbounds i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8
   %.not33 = icmp eq i64 %16, -1
@@ -42,11 +42,11 @@ define dso_local i32 @lzma_block_header_size(ptr nocapture noundef %0) local_unn
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %17
-  %21 = add i32 %18, %.026
+  %21 = add i32 %18, %.025
   br label %22
 
 22:                                               ; preds = %20, %14
-  %.1 = phi i32 [ %21, %20 ], [ %.026, %14 ]
+  %.1 = phi i32 [ %21, %20 ], [ %.025, %14 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
@@ -59,9 +59,9 @@ define dso_local i32 @lzma_block_header_size(ptr nocapture noundef %0) local_unn
 
 .lr.ph:                                           ; preds = %26, %33
   %29 = phi ptr [ %38, %33 ], [ %24, %26 ]
-  %.02539 = phi i64 [ %36, %33 ], [ 0, %26 ]
+  %.039 = phi i64 [ %36, %33 ], [ 0, %26 ]
   %.238 = phi i32 [ %35, %33 ], [ %.1, %26 ]
-  %30 = icmp eq i64 %.02539, 4
+  %30 = icmp eq i64 %.039, 4
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %.lr.ph
@@ -72,7 +72,7 @@ define dso_local i32 @lzma_block_header_size(ptr nocapture noundef %0) local_unn
 33:                                               ; preds = %31
   %34 = load i32, ptr %2, align 4
   %35 = add i32 %34, %.238
-  %36 = add nuw nsw i64 %.02539, 1
+  %36 = add nuw nsw i64 %.039, 1
   %37 = load ptr, ptr %23, align 8
   %38 = getelementptr inbounds %struct.lzma_filter, ptr %37, i64 %36
   %39 = load i64, ptr %38, align 8
@@ -87,8 +87,8 @@ define dso_local i32 @lzma_block_header_size(ptr nocapture noundef %0) local_unn
   br label %.loopexit
 
 .loopexit:                                        ; preds = %31, %.lr.ph, %22, %26, %17, %8, %1, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ 8, %1 ], [ 11, %8 ], [ 11, %17 ], [ 11, %26 ], [ 11, %22 ], [ %32, %31 ], [ 11, %.lr.ph ]
-  ret i32 %.0
+  %.026 = phi i32 [ 0, %._crit_edge ], [ 8, %1 ], [ 11, %8 ], [ 11, %17 ], [ 11, %26 ], [ 11, %22 ], [ %32, %31 ], [ 11, %.lr.ph ]
+  ret i32 %.026
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -166,19 +166,19 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
 
 .preheader:                                       ; preds = %35, %43
   %38 = phi ptr [ %44, %43 ], [ %33, %35 ]
-  %.040 = phi i64 [ %45, %43 ], [ 0, %35 ]
-  %39 = icmp eq i64 %.040, 4
+  %.0 = phi i64 [ %45, %43 ], [ 0, %35 ]
+  %39 = icmp eq i64 %.0, 4
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %.preheader
-  %41 = getelementptr inbounds %struct.lzma_filter, ptr %38, i64 %.040
+  %41 = getelementptr inbounds %struct.lzma_filter, ptr %38, i64 %.0
   %42 = call i32 @lzma_filter_flags_encode(ptr noundef %41, ptr noundef nonnull %1, ptr noundef nonnull %3, i64 noundef %13) #5
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %43, label %.loopexit
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %32, align 8
-  %45 = add nuw nsw i64 %.040, 1
+  %45 = add nuw nsw i64 %.0, 1
   %46 = getelementptr inbounds %struct.lzma_filter, ptr %44, i64 %45
   %47 = load i64, ptr %46, align 8
   %.not52 = icmp eq i64 %47, -1
@@ -186,7 +186,7 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
 
 48:                                               ; preds = %43
   %49 = load i8, ptr %16, align 1
-  %50 = trunc i64 %.040 to i8
+  %50 = trunc i64 %.0 to i8
   %51 = or i8 %49, %50
   store i8 %51, ptr %16, align 1
   %52 = load i64, ptr %3, align 8
@@ -199,8 +199,8 @@ define dso_local i32 @lzma_block_header_encode(ptr noundef readonly %0, ptr noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %40, %.preheader, %31, %35, %26, %19, %2, %6, %48
-  %.0 = phi i32 [ 0, %48 ], [ 11, %6 ], [ 11, %2 ], [ %20, %19 ], [ %27, %26 ], [ 11, %35 ], [ 11, %31 ], [ %42, %40 ], [ 11, %.preheader ]
-  ret i32 %.0
+  %.040 = phi i32 [ 0, %48 ], [ 11, %6 ], [ 11, %2 ], [ %20, %19 ], [ %27, %26 ], [ 11, %35 ], [ 11, %31 ], [ %42, %40 ], [ 11, %.preheader ]
+  ret i32 %.040
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

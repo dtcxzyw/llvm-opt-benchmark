@@ -506,16 +506,16 @@ _ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE9push_backEOS2_.exit: ; preds
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE9push_backEOS2_.exit38
-  %.0116 = phi i32 [ 0, %.lr.ph ], [ %.031115, %_ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE9push_backEOS2_.exit38 ]
-  %.031115 = phi i32 [ 0, %.lr.ph ], [ %47, %_ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE9push_backEOS2_.exit38 ]
+  %.0116 = phi i32 [ 0, %.lr.ph ], [ %47, %_ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE9push_backEOS2_.exit38 ]
+  %.031115 = phi i32 [ 0, %.lr.ph ], [ %.0116, %_ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE9push_backEOS2_.exit38 ]
   %41 = load ptr, ptr %39, align 8
-  %42 = sext i32 %.031115 to i64
+  %42 = sext i32 %.0116 to i64
   %43 = getelementptr inbounds i32, ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 255
   %46 = tail call noundef i32 @_ZN4Luau11getOpLengthE10LuauOpcode(i32 noundef %45)
-  %47 = add nsw i32 %46, %.031115
-  %.not = icmp eq i32 %.031115, 0
+  %47 = add nsw i32 %46, %.0116
+  %.not = icmp eq i32 %.0116, 0
   br i1 %.not, label %_ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE9push_backEOS2_.exit35, label %48
 
 48:                                               ; preds = %40
@@ -528,14 +528,14 @@ _ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE9push_backEOS2_.exit: ; preds
 52:                                               ; preds = %48
   %53 = load ptr, ptr %6, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 -4
-  store i32 %.0116, ptr %54, align 4
+  store i32 %.031115, ptr %54, align 4
   %55 = load ptr, ptr %6, align 8
   %56 = load ptr, ptr %8, align 8
   %.not.i.i34 = icmp eq ptr %55, %56
   br i1 %.not.i.i34, label %60, label %57
 
 57:                                               ; preds = %52
-  %.sroa.089.0.insert.ext = zext i32 %.031115 to i64
+  %.sroa.089.0.insert.ext = zext i32 %.0116 to i64
   %.sroa.089.0.insert.insert = or disjoint i64 %.sroa.089.0.insert.ext, -4294967296
   store i64 %.sroa.089.0.insert.insert, ptr %55, align 4
   %58 = load ptr, ptr %6, align 8
@@ -573,7 +573,7 @@ _ZNKSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE12_M_check_lenEmPKc.exit.i40
 _ZNSt12_Vector_baseIN4Luau7CodeGen13BytecodeBlockESaIS2_EE11_M_allocateEm.exit.i43: ; preds = %72, %_ZNKSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE12_M_check_lenEmPKc.exit.i40
   %75 = phi ptr [ %74, %72 ], [ null, %_ZNKSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE12_M_check_lenEmPKc.exit.i40 ]
   %76 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeBlock", ptr %75, i64 %67
-  %.sroa.089.0.insert.ext91 = zext i32 %.031115 to i64
+  %.sroa.089.0.insert.ext91 = zext i32 %.0116 to i64
   %.sroa.089.0.insert.insert93 = or disjoint i64 %.sroa.089.0.insert.ext91, -4294967296
   store i64 %.sroa.089.0.insert.insert93, ptr %76, align 4
   %.not10.i.i.i.i44 = icmp eq ptr %61, %55
@@ -669,7 +669,7 @@ _ZN4Luau7CodeGen10isFastCallE10LuauOpcode.exit.i: ; preds = %_ZNSt6vectorIN4Luau
 _ZN4Luau7CodeGen13getJumpTargetEjj.exit:          ; preds = %85, %87, %89, %93
   %.sink122 = phi i32 [ 1, %85 ], [ 2, %87 ], [ 1, %89 ], [ 1, %93 ]
   %.sink121 = phi i32 [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ %94, %93 ]
-  %95 = add i32 %.031115, %.sink122
+  %95 = add i32 %.0116, %.sink122
   %96 = add i32 %95, %.sink121
   %97 = icmp sgt i32 %96, -1
   br i1 %97, label %98, label %_ZN4Luau7CodeGen13getJumpTargetEjj.exit.thread
@@ -687,7 +687,7 @@ _ZN4Luau7CodeGen13getJumpTargetEjj.exit:          ; preds = %85, %87, %89, %93
 _ZN4Luau7CodeGen10isFastCallE10LuauOpcode.exit:   ; preds = %98
   %99 = load ptr, ptr %6, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 -4
-  store i32 %.031115, ptr %100, align 4
+  store i32 %.0116, ptr %100, align 4
   %101 = sext i32 %47 to i64
   %102 = load ptr, ptr %1, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 %101
@@ -782,7 +782,7 @@ _ZN4Luau7CodeGen13getJumpTargetEjj.exit.thread:   ; preds = %91, %_ZN4Luau7CodeG
 135:                                              ; preds = %_ZN4Luau7CodeGen13getJumpTargetEjj.exit.thread
   %136 = load ptr, ptr %6, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 -4
-  store i32 %.031115, ptr %137, align 4
+  store i32 %.0116, ptr %137, align 4
   br label %_ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE9push_backEOS2_.exit38
 
 _ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE9push_backEOS2_.exit38: ; preds = %98, %98, %98, %98, %98, %_ZNSt6vectorIN4Luau7CodeGen13BytecodeBlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit79, %108, %_ZN4Luau7CodeGen13getJumpTargetEjj.exit.thread, %135, %_ZN4Luau7CodeGen10isFastCallE10LuauOpcode.exit

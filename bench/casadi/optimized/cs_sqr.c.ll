@@ -351,8 +351,8 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef read
   br label %89
 
 89:                                               ; preds = %86, %.lr.ph168
-  %.2 = phi i32 [ %87, %86 ], [ %82, %.lr.ph168 ]
-  %90 = sext i32 %.2 to i64
+  %.2134 = phi i32 [ %87, %86 ], [ %82, %.lr.ph168 ]
+  %90 = sext i32 %.2134 to i64
   %91 = getelementptr inbounds i32, ptr %14, i64 %90
   %92 = trunc nuw nsw i64 %indvars.iv184 to i32
   store i32 %92, ptr %91, align 4
@@ -409,19 +409,19 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef read
 
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %127
   %indvars.iv187 = phi i64 [ 0, %.lr.ph171.preheader ], [ %indvars.iv.next188, %127 ]
-  %.5169 = phi i32 [ %.4.lcssa, %.lr.ph171.preheader ], [ %.6, %127 ]
+  %.5170 = phi i32 [ %.4.lcssa, %.lr.ph171.preheader ], [ %.6, %127 ]
   %122 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv187
   %123 = load i32, ptr %122, align 4
   %124 = icmp slt i32 %123, 0
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %.lr.ph171
-  %126 = add nsw i32 %.5169, 1
-  store i32 %.5169, ptr %122, align 4
+  %126 = add nsw i32 %.5170, 1
+  store i32 %.5170, ptr %122, align 4
   br label %127
 
 127:                                              ; preds = %.lr.ph171, %125
-  %.6 = phi i32 [ %126, %125 ], [ %.5169, %.lr.ph171 ]
+  %.6 = phi i32 [ %126, %125 ], [ %.5170, %.lr.ph171 ]
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
   br i1 %exitcond191.not, label %._crit_edge172, label %.lr.ph171, !llvm.loop !10

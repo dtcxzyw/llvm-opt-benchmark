@@ -45,8 +45,8 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br label %23
 
 23:                                               ; preds = %.lr.ph436, %.loopexit395
-  %.0328435 = phi ptr [ %16, %.lr.ph436 ], [ %361, %.loopexit395 ]
-  %24 = getelementptr inbounds i8, ptr %.0328435, i64 28
+  %.0322435 = phi ptr [ %16, %.lr.ph436 ], [ %361, %.loopexit395 ]
+  %24 = getelementptr inbounds i8, ptr %.0322435, i64 28
   %25 = load i8, ptr %24, align 4
   switch i8 %25, label %.loopexit395 [
     i8 42, label %26
@@ -59,16 +59,16 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   ]
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %.0328435, i64 8
+  %27 = getelementptr inbounds i8, ptr %.0322435, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = sext i32 %28 to i64
   br label %30
 
 30:                                               ; preds = %45, %26
-  %.0319.idx = phi i64 [ %29, %26 ], [ %.1320.idx, %45 ]
-  %.0317 = phi i32 [ 0, %26 ], [ %.1, %45 ]
-  %.0319.ptr = getelementptr inbounds i8, ptr %.0328435, i64 %.0319.idx
-  %31 = getelementptr inbounds i8, ptr %.0319.ptr, i64 28
+  %.0314.idx = phi i64 [ %29, %26 ], [ %.1315.idx, %45 ]
+  %.0313 = phi i32 [ 0, %26 ], [ %.1, %45 ]
+  %.0314.ptr = getelementptr inbounds i8, ptr %.0322435, i64 %.0314.idx
+  %31 = getelementptr inbounds i8, ptr %.0314.ptr, i64 28
   %32 = load i8, ptr %31, align 4
   switch i8 %32, label %.loopexit [
     i8 42, label %33
@@ -76,16 +76,16 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   ]
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %.0319.ptr, i64 8
+  %34 = getelementptr inbounds i8, ptr %.0314.ptr, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
-  %.0319.add = add nsw i64 %.0319.idx, %36
-  %.ptr376 = getelementptr inbounds i8, ptr %.0328435, i64 %.0319.add
-  %.not374432 = icmp sgt i32 %.0317, 0
+  %.0314.add = add nsw i64 %.0314.idx, %36
+  %.ptr376 = getelementptr inbounds i8, ptr %.0322435, i64 %.0314.add
+  %.not374432 = icmp sgt i32 %.0313, 0
   br i1 %.not374432, label %.lr.ph434.preheader, label %.critedge
 
 .lr.ph434.preheader:                              ; preds = %33
-  %wide.trip.count487 = zext nneg i32 %.0317 to i64
+  %wide.trip.count487 = zext nneg i32 %.0313 to i64
   br label %.lr.ph434
 
 37:                                               ; preds = %.lr.ph434
@@ -101,46 +101,46 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br i1 %40, label %.loopexit, label %37
 
 .critedge:                                        ; preds = %37, %33
-  %41 = add nsw i32 %.0317, 1
-  %42 = sext i32 %.0317 to i64
+  %41 = add nsw i32 %.0313, 1
+  %42 = sext i32 %.0313 to i64
   %43 = getelementptr inbounds ptr, ptr %14, i64 %42
   store ptr %.ptr376, ptr %43, align 8
   br label %45
 
 44:                                               ; preds = %30
-  %.0319.add375 = add nsw i64 %.0319.idx, 32
+  %.0314.add375 = add nsw i64 %.0314.idx, 32
   br label %45
 
 45:                                               ; preds = %.critedge, %44
-  %.1320.idx = phi i64 [ %.0319.add, %.critedge ], [ %.0319.add375, %44 ]
-  %.1 = phi i32 [ %41, %.critedge ], [ %.0317, %44 ]
-  %46 = trunc i64 %.1320.idx to i32
+  %.1315.idx = phi i64 [ %.0314.add, %.critedge ], [ %.0314.add375, %44 ]
+  %.1 = phi i32 [ %41, %.critedge ], [ %.0313, %44 ]
+  %46 = trunc i64 %.1315.idx to i32
   store i32 %46, ptr %27, align 8
   br label %30
 
 .loopexit:                                        ; preds = %30, %.lr.ph434
-  %.2321.idx = phi i64 [ %.0319.add, %.lr.ph434 ], [ %.0319.idx, %30 ]
-  %.2321.ptr = getelementptr inbounds i8, ptr %.0328435, i64 %.2321.idx
-  %47 = icmp eq i64 %.2321.idx, 32
+  %.2316.idx = phi i64 [ %.0314.add, %.lr.ph434 ], [ %.0314.idx, %30 ]
+  %.2316.ptr = getelementptr inbounds i8, ptr %.0322435, i64 %.2316.idx
+  %47 = icmp eq i64 %.2316.idx, 32
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %.loopexit
   store i8 0, ptr %24, align 4
-  %49 = getelementptr inbounds i8, ptr %.0328435, i64 29
+  %49 = getelementptr inbounds i8, ptr %.0322435, i64 29
   store i8 0, ptr %49, align 1
   store i32 -1, ptr %27, align 8
-  %50 = getelementptr inbounds i8, ptr %.0328435, i64 30
+  %50 = getelementptr inbounds i8, ptr %.0322435, i64 30
   store i8 0, ptr %50, align 2
-  %51 = getelementptr inbounds i8, ptr %.0328435, i64 12
+  %51 = getelementptr inbounds i8, ptr %.0322435, i64 12
   store i32 -1, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %.0328435, i64 31
+  %52 = getelementptr inbounds i8, ptr %.0322435, i64 31
   store i8 0, ptr %52, align 1
-  %53 = getelementptr inbounds i8, ptr %.0328435, i64 16
+  %53 = getelementptr inbounds i8, ptr %.0322435, i64 16
   store i32 -1, ptr %53, align 8
   br label %.loopexit395
 
 54:                                               ; preds = %.loopexit
-  %55 = getelementptr inbounds i8, ptr %.2321.ptr, i64 28
+  %55 = getelementptr inbounds i8, ptr %.2316.ptr, i64 28
   %56 = load i8, ptr %55, align 4
   switch i8 %56, label %78 [
     i8 62, label %57
@@ -156,8 +156,8 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br i1 %.not379, label %60, label %78
 
 60:                                               ; preds = %57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0328435, ptr noundef nonnull align 8 dereferenceable(32) %.2321.ptr, i64 32, i1 false)
-  %61 = getelementptr inbounds i8, ptr %.0328435, i64 29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0322435, ptr noundef nonnull align 8 dereferenceable(32) %.2316.ptr, i64 32, i1 false)
+  %61 = getelementptr inbounds i8, ptr %.0322435, i64 29
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %62, 1
   br i1 %63, label %64, label %.loopexit395
@@ -189,23 +189,23 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
 
 78:                                               ; preds = %54, %57
   %79 = load ptr, ptr %15, align 8
-  %80 = icmp ugt ptr %.0328435, %79
+  %80 = icmp ugt ptr %.0322435, %79
   br i1 %80, label %81, label %.loopexit395
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %.0328435, i64 -32
-  %83 = getelementptr inbounds i8, ptr %.0328435, i64 -4
+  %82 = getelementptr inbounds i8, ptr %.0322435, i64 -32
+  %83 = getelementptr inbounds i8, ptr %.0322435, i64 -4
   %84 = load i8, ptr %83, align 4
   %.off = add i8 %84, -43
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %85, label %.loopexit395
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %.0328435, i64 -20
+  %86 = getelementptr inbounds i8, ptr %.0322435, i64 -20
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i8, ptr %82, i64 %88
-  %90 = icmp eq ptr %89, %.2321.ptr
+  %90 = icmp eq ptr %89, %.2316.ptr
   br i1 %90, label %91, label %.loopexit395
 
 91:                                               ; preds = %85
@@ -213,17 +213,17 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br label %.loopexit395
 
 92:                                               ; preds = %23, %23
-  %93 = getelementptr inbounds i8, ptr %.0328435, i64 12
+  %93 = getelementptr inbounds i8, ptr %.0322435, i64 12
   %94 = load i32, ptr %93, align 4
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i8, ptr %.0328435, i64 %95
-  %97 = ptrtoint ptr %.0328435 to i64
+  %96 = getelementptr inbounds i8, ptr %.0322435, i64 %95
+  %97 = ptrtoint ptr %.0322435 to i64
   br label %98
 
 98:                                               ; preds = %115, %92
-  %.3322 = phi ptr [ %96, %92 ], [ %.4323, %115 ]
+  %.3317 = phi ptr [ %96, %92 ], [ %.4318, %115 ]
   %.2 = phi i32 [ 0, %92 ], [ %.3, %115 ]
-  %99 = getelementptr inbounds i8, ptr %.3322, i64 28
+  %99 = getelementptr inbounds i8, ptr %.3317, i64 28
   %100 = load i8, ptr %99, align 4
   switch i8 %100, label %.loopexit395 [
     i8 42, label %101
@@ -231,10 +231,10 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   ]
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds i8, ptr %.3322, i64 8
+  %102 = getelementptr inbounds i8, ptr %.3317, i64 8
   %103 = load i32, ptr %102, align 8
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds i8, ptr %.3322, i64 %104
+  %105 = getelementptr inbounds i8, ptr %.3317, i64 %104
   %.not373429 = icmp sgt i32 %.2, 0
   br i1 %.not373429, label %.lr.ph431.preheader, label %.critedge382
 
@@ -262,43 +262,43 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br label %115
 
 113:                                              ; preds = %98
-  %114 = getelementptr inbounds i8, ptr %.3322, i64 32
+  %114 = getelementptr inbounds i8, ptr %.3317, i64 32
   br label %115
 
 115:                                              ; preds = %.critedge382, %113
-  %.4323 = phi ptr [ %105, %.critedge382 ], [ %114, %113 ]
+  %.4318 = phi ptr [ %105, %.critedge382 ], [ %114, %113 ]
   %.3 = phi i32 [ %110, %.critedge382 ], [ %.2, %113 ]
-  %116 = ptrtoint ptr %.4323 to i64
+  %116 = ptrtoint ptr %.4318 to i64
   %117 = sub i64 %116, %97
   %118 = trunc i64 %117 to i32
   store i32 %118, ptr %93, align 4
   br label %98
 
 119:                                              ; preds = %23, %23
-  %120 = getelementptr inbounds i8, ptr %.0328435, i64 12
+  %120 = getelementptr inbounds i8, ptr %.0322435, i64 12
   %121 = load i32, ptr %120, align 4
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i8, ptr %.0328435, i64 29
-  %124 = getelementptr inbounds i8, ptr %.0328435, i64 8
+  %123 = getelementptr inbounds i8, ptr %.0322435, i64 29
+  %124 = getelementptr inbounds i8, ptr %.0322435, i64 8
   %125 = icmp eq i8 %25, 43
   %126 = select i1 %125, i32 44, i32 43
   br label %127
 
 127:                                              ; preds = %182, %119
-  %.5324.idx = phi i64 [ %122, %119 ], [ %.6325.idx, %182 ]
+  %.5319.idx = phi i64 [ %122, %119 ], [ %.6320.idx, %182 ]
   %.4 = phi i32 [ 0, %119 ], [ %.5, %182 ]
-  %.5324.ptr = getelementptr inbounds i8, ptr %.0328435, i64 %.5324.idx
-  %128 = getelementptr inbounds i8, ptr %.5324.ptr, i64 28
+  %.5319.ptr = getelementptr inbounds i8, ptr %.0322435, i64 %.5319.idx
+  %128 = getelementptr inbounds i8, ptr %.5319.ptr, i64 28
   %129 = load i8, ptr %128, align 4
   %130 = icmp eq i8 %129, 42
   br i1 %130, label %131, label %142
 
 131:                                              ; preds = %127
-  %132 = getelementptr inbounds i8, ptr %.5324.ptr, i64 8
+  %132 = getelementptr inbounds i8, ptr %.5319.ptr, i64 8
   %133 = load i32, ptr %132, align 8
   %134 = sext i32 %133 to i64
-  %.5324.add365 = add nsw i64 %.5324.idx, %134
-  %.ptr369 = getelementptr inbounds i8, ptr %.0328435, i64 %.5324.add365
+  %.5319.add365 = add nsw i64 %.5319.idx, %134
+  %.ptr369 = getelementptr inbounds i8, ptr %.0322435, i64 %.5319.add365
   %.not364426 = icmp sgt i32 %.4, 0
   br i1 %.not364426, label %.lr.ph428.preheader, label %.critedge384
 
@@ -331,24 +331,24 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
 
 144:                                              ; preds = %142
   %145 = load i8, ptr %123, align 1
-  %146 = getelementptr inbounds i8, ptr %.5324.ptr, i64 29
+  %146 = getelementptr inbounds i8, ptr %.5319.ptr, i64 29
   %147 = load i8, ptr %146, align 1
   %148 = icmp eq i8 %145, %147
   br i1 %148, label %149, label %165
 
 149:                                              ; preds = %144
   %150 = load i32, ptr %124, align 8
-  %151 = getelementptr inbounds i8, ptr %.5324.ptr, i64 8
+  %151 = getelementptr inbounds i8, ptr %.5319.ptr, i64 8
   %152 = load i32, ptr %151, align 8
   %153 = icmp eq i32 %150, %152
   br i1 %153, label %154, label %165
 
 154:                                              ; preds = %149
-  %155 = getelementptr inbounds i8, ptr %.5324.ptr, i64 12
+  %155 = getelementptr inbounds i8, ptr %.5319.ptr, i64 12
   %156 = load i32, ptr %155, align 4
   %157 = sext i32 %156 to i64
-  %.5324.add = add nsw i64 %.5324.idx, %157
-  %.ptr368 = getelementptr inbounds i8, ptr %.0328435, i64 %.5324.add
+  %.5319.add = add nsw i64 %.5319.idx, %157
+  %.ptr368 = getelementptr inbounds i8, ptr %.0322435, i64 %.5319.add
   %.not363423 = icmp sgt i32 %.4, 0
   br i1 %.not363423, label %.lr.ph425.preheader, label %.critedge386
 
@@ -382,20 +382,20 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
 
 168:                                              ; preds = %165
   %169 = load i8, ptr %123, align 1
-  %170 = getelementptr inbounds i8, ptr %.5324.ptr, i64 29
+  %170 = getelementptr inbounds i8, ptr %.5319.ptr, i64 29
   %171 = load i8, ptr %170, align 1
   %172 = icmp eq i8 %169, %171
   br i1 %172, label %173, label %179
 
 173:                                              ; preds = %168
   %174 = load i32, ptr %124, align 8
-  %175 = getelementptr inbounds i8, ptr %.5324.ptr, i64 8
+  %175 = getelementptr inbounds i8, ptr %.5319.ptr, i64 8
   %176 = load i32, ptr %175, align 8
   %177 = icmp eq i32 %174, %176
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %173
-  %.5324.add367 = add nsw i64 %.5324.idx, 32
+  %.5319.add367 = add nsw i64 %.5319.idx, 32
   br label %182
 
 179:                                              ; preds = %173, %168, %165
@@ -403,33 +403,33 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br i1 %180, label %181, label %.loopexit396
 
 181:                                              ; preds = %179
-  %.5324.add366 = add nsw i64 %.5324.idx, 32
+  %.5319.add366 = add nsw i64 %.5319.idx, 32
   br label %182
 
 182:                                              ; preds = %.critedge384, %178, %181, %.critedge386
-  %.6325.idx = phi i64 [ %.5324.add365, %.critedge384 ], [ %.5324.add, %.critedge386 ], [ %.5324.add367, %178 ], [ %.5324.add366, %181 ]
+  %.6320.idx = phi i64 [ %.5319.add365, %.critedge384 ], [ %.5319.add, %.critedge386 ], [ %.5319.add367, %178 ], [ %.5319.add366, %181 ]
   %.5 = phi i32 [ %139, %.critedge384 ], [ %162, %.critedge386 ], [ %.4, %178 ], [ %.4, %181 ]
-  %183 = trunc i64 %.6325.idx to i32
+  %183 = trunc i64 %.6320.idx to i32
   store i32 %183, ptr %120, align 4
   br label %127
 
 .loopexit396:                                     ; preds = %179, %.lr.ph425, %.lr.ph428
-  %.7326.idx = phi i64 [ %.5324.add365, %.lr.ph428 ], [ %.5324.add, %.lr.ph425 ], [ %.5324.idx, %179 ]
-  %184 = icmp eq i64 %.7326.idx, 32
+  %.7321.idx = phi i64 [ %.5319.add365, %.lr.ph428 ], [ %.5319.add, %.lr.ph425 ], [ %.5319.idx, %179 ]
+  %184 = icmp eq i64 %.7321.idx, 32
   br i1 %184, label %185, label %.loopexit395
 
 185:                                              ; preds = %.loopexit396
-  call void @zend_optimizer_convert_to_free_op1(ptr noundef %0, ptr noundef %.0328435) #5
+  call void @zend_optimizer_convert_to_free_op1(ptr noundef %0, ptr noundef %.0322435) #5
   br label %.loopexit395
 
 186:                                              ; preds = %23, %23
-  %187 = getelementptr inbounds i8, ptr %.0328435, i64 12
+  %187 = getelementptr inbounds i8, ptr %.0322435, i64 12
   %188 = load i32, ptr %187, align 4
   %189 = sext i32 %188 to i64
-  %190 = getelementptr inbounds i8, ptr %.0328435, i64 31
-  %191 = getelementptr inbounds i8, ptr %.0328435, i64 16
-  %192 = getelementptr inbounds i8, ptr %.0328435, i64 29
-  %193 = getelementptr inbounds i8, ptr %.0328435, i64 8
+  %190 = getelementptr inbounds i8, ptr %.0322435, i64 31
+  %191 = getelementptr inbounds i8, ptr %.0322435, i64 16
+  %192 = getelementptr inbounds i8, ptr %.0322435, i64 29
+  %193 = getelementptr inbounds i8, ptr %.0322435, i64 8
   %194 = zext i8 %25 to i32
   %195 = add nsw i32 %194, -3
   %196 = icmp eq i8 %25, 46
@@ -440,7 +440,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
 199:                                              ; preds = %357, %186
   %.8.idx = phi i64 [ %189, %186 ], [ %.9.idx, %357 ]
   %.6 = phi i32 [ 0, %186 ], [ %.7, %357 ]
-  %.8.ptr = getelementptr inbounds i8, ptr %.0328435, i64 %.8.idx
+  %.8.ptr = getelementptr inbounds i8, ptr %.0322435, i64 %.8.idx
   %200 = getelementptr inbounds i8, ptr %.8.ptr, i64 28
   %201 = load i8, ptr %200, align 4
   %202 = icmp eq i8 %201, 42
@@ -451,7 +451,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   %205 = load i32, ptr %204, align 8
   %206 = sext i32 %205 to i64
   %.8.add352 = add nsw i64 %.8.idx, %206
-  %.ptr358 = getelementptr inbounds i8, ptr %.0328435, i64 %.8.add352
+  %.ptr358 = getelementptr inbounds i8, ptr %.0322435, i64 %.8.add352
   %.not349420 = icmp sgt i32 %.6, 0
   br i1 %.not349420, label %.lr.ph422.preheader, label %.critedge388
 
@@ -514,7 +514,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   %237 = load i32, ptr %236, align 4
   %238 = sext i32 %237 to i64
   %.8.add351 = add nsw i64 %.8.idx, %238
-  %.ptr357 = getelementptr inbounds i8, ptr %.0328435, i64 %.8.add351
+  %.ptr357 = getelementptr inbounds i8, ptr %.0322435, i64 %.8.add351
   %.not348417 = icmp sgt i32 %.6, 0
   br i1 %.not348417, label %.lr.ph419.preheader, label %.critedge390
 
@@ -582,7 +582,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   %272 = load i32, ptr %271, align 4
   %273 = sext i32 %272 to i64
   %.8.add350 = add nsw i64 %.8.idx, %273
-  %.ptr356 = getelementptr inbounds i8, ptr %.0328435, i64 %.8.add350
+  %.ptr356 = getelementptr inbounds i8, ptr %.0322435, i64 %.8.add350
   %.not347414 = icmp sgt i32 %.6, 0
   br i1 %.not347414, label %.lr.ph416.preheader, label %.critedge392
 
@@ -720,7 +720,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   %348 = load i32, ptr %347, align 8
   store i32 %348, ptr %191, align 8
   %.8.add = add nsw i64 %.8.idx, 32
-  %.ptr = getelementptr inbounds i8, ptr %.0328435, i64 %.8.add
+  %.ptr = getelementptr inbounds i8, ptr %.0322435, i64 %.8.add
   %.not412 = icmp sgt i32 %.6, 0
   br i1 %.not412, label %.lr.ph.preheader, label %.critedge394
 
@@ -769,7 +769,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br label %.loopexit395
 
 .loopexit395:                                     ; preds = %98, %.lr.ph431, %81, %.thread, %360, %.loopexit396, %185, %48, %78, %91, %85, %60, %76, %23
-  %361 = getelementptr inbounds i8, ptr %.0328435, i64 32
+  %361 = getelementptr inbounds i8, ptr %.0322435, i64 32
   %362 = icmp ult ptr %361, %19
   br i1 %362, label %23, label %._crit_edge
 

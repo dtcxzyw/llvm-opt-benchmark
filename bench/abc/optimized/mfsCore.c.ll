@@ -1214,7 +1214,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br label %23
 
 23:                                               ; preds = %.sink.split, %20, %18
-  %.0147 = phi i32 [ %15, %18 ], [ %15, %20 ], [ %.sink249, %.sink.split ]
+  %.0145 = phi i32 [ %15, %18 ], [ %15, %20 ], [ %.sink249, %.sink.split ]
   %24 = call i32 @Abc_NtkToAig(ptr noundef nonnull %0) #11
   %.not156 = icmp eq i32 %24, 0
   br i1 %.not156, label %25, label %28
@@ -1229,7 +1229,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %29, i64 32
-  store i32 %.0147, ptr %31, align 8
+  store i32 %.0145, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %1, i64 52
   %33 = load i32, ptr %32, align 4
   %.not157 = icmp eq i32 %33, 0
@@ -1299,7 +1299,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br i1 %.not162, label %65, label %73
 
 65:                                               ; preds = %63
-  %66 = call i32 @llvm.smax.i32(i32 %.0147, i32 3)
+  %66 = call i32 @llvm.smax.i32(i32 %.0145, i32 3)
   store i32 %66, ptr %6, align 4
   %67 = getelementptr inbounds i8, ptr %1, i64 60
   %68 = load i32, ptr %67, align 4
@@ -1414,7 +1414,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   %119 = getelementptr i8, ptr %107, i64 28
   %.val180 = load i32, ptr %119, align 4
   %120 = icmp slt i32 %.val180, 2
-  %121 = icmp sgt i32 %.val180, %.0147
+  %121 = icmp sgt i32 %.val180, %.0145
   %or.cond207 = select i1 %120, i1 true, i1 %121
   br i1 %or.cond207, label %137, label %122
 
@@ -1484,7 +1484,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %130, %126, %122
 
 152:                                              ; preds = %.lr.ph230, %.critedge6
   %indvars.iv243 = phi i64 [ 1, %.lr.ph230 ], [ %indvars.iv.next244, %.critedge6 ]
-  %.0148228 = phi i32 [ 0, %.lr.ph230 ], [ %191, %.critedge6 ]
+  %.0146229 = phi i32 [ 0, %.lr.ph230 ], [ %191, %.critedge6 ]
   %.val198 = load ptr, ptr %148, align 8
   %153 = getelementptr inbounds ptr, ptr %.val198, i64 %indvars.iv243
   %154 = load ptr, ptr %153, align 8
@@ -1499,11 +1499,11 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %130, %126, %122
 
 159:                                              ; preds = %158
   %160 = load i32, ptr %144, align 4
-  %161 = icmp sgt i32 %160, %.0148228
+  %161 = icmp sgt i32 %160, %.0146229
   br i1 %161, label %Extra_ProgressBarUpdate.exit200, label %162
 
 162:                                              ; preds = %159, %158
-  call void @Extra_ProgressBarUpdate_int(ptr noundef %144, i32 noundef %.0148228, ptr noundef null) #11
+  call void @Extra_ProgressBarUpdate_int(ptr noundef %144, i32 noundef %.0146229, ptr noundef null) #11
   br label %Extra_ProgressBarUpdate.exit200
 
 Extra_ProgressBarUpdate.exit200:                  ; preds = %162, %159, %152
@@ -1545,7 +1545,7 @@ Extra_ProgressBarUpdate.exit200:                  ; preds = %162, %159, %152
   %179 = getelementptr i8, ptr %169, i64 28
   %.val178 = load i32, ptr %179, align 4
   %180 = icmp slt i32 %.val178, 2
-  %181 = icmp sgt i32 %.val178, %.0147
+  %181 = icmp sgt i32 %.val178, %.0145
   %or.cond208 = select i1 %180, i1 true, i1 %181
   br i1 %or.cond208, label %188, label %182
 
@@ -1571,7 +1571,7 @@ Extra_ProgressBarUpdate.exit200:                  ; preds = %162, %159, %152
 
 .critedge6:                                       ; preds = %173, %188, %Extra_ProgressBarUpdate.exit200
   %.val175.lcssa = phi i32 [ %.val175221, %Extra_ProgressBarUpdate.exit200 ], [ %.val175, %188 ], [ %.val175223, %173 ]
-  %191 = add nsw i32 %.val175.lcssa, %.0148228
+  %191 = add nsw i32 %.val175.lcssa, %.0146229
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %.val197 = load i32, ptr %146, align 4
   %192 = sext i32 %.val197 to i64

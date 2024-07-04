@@ -564,9 +564,9 @@ BufferGetPage.exit:                               ; preds = %7, %13
 
 51:                                               ; preds = %.lr.ph, %.thread
   %.04466 = phi i16 [ 1, %.lr.ph ], [ %.1, %.thread ]
-  %.04565 = phi i16 [ %44, %.lr.ph ], [ %.146, %.thread ]
+  %.04865 = phi i16 [ %44, %.lr.ph ], [ %.149, %.thread ]
   %52 = zext i16 %.04466 to i32
-  %53 = zext i16 %.04565 to i32
+  %53 = zext i16 %.04865 to i32
   %54 = sub nsw i32 %53, %52
   %55 = sdiv i32 %54, 2
   %56 = trunc nsw i32 %55 to i16
@@ -606,30 +606,30 @@ BufferGetPage.exit:                               ; preds = %7, %13
 83:                                               ; preds = %65
   %84 = getelementptr inbounds i8, ptr %1, i64 8
   store i16 %57, ptr %84, align 8
-  %.148.val = load i16, ptr %71, align 2
+  %.147.val = load i16, ptr %71, align 2
   %85 = getelementptr i8, ptr %71, i64 2
-  %.148.val53 = load i16, ptr %85, align 2
-  %86 = zext i16 %.148.val to i32
+  %.147.val53 = load i16, ptr %85, align 2
+  %86 = zext i16 %.147.val to i32
   %87 = shl nuw i32 %86, 16
-  %88 = zext i16 %.148.val53 to i32
+  %88 = zext i16 %.147.val53 to i32
   %89 = or disjoint i32 %87, %88
   br label %106
 
 .thread:                                          ; preds = %59, %65
-  %.04961 = phi i32 [ %81, %65 ], [ -1, %59 ]
-  %90 = icmp sgt i32 %.04961, 0
+  %.04562 = phi i32 [ %81, %65 ], [ -1, %59 ]
+  %90 = icmp sgt i32 %.04562, 0
   %91 = add i16 %57, 1
-  %.146 = select i1 %90, i16 %.04565, i16 %57
+  %.149 = select i1 %90, i16 %.04865, i16 %57
   %.1 = select i1 %90, i16 %91, i16 %.04466
-  %92 = icmp ugt i16 %.146, %.1
+  %92 = icmp ugt i16 %.149, %.1
   br i1 %92, label %51, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.thread, %37
-  %.045.lcssa = phi i16 [ 1, %37 ], [ %.146, %.thread ]
+  %.048.lcssa = phi i16 [ 1, %37 ], [ %.149, %.thread ]
   %93 = getelementptr inbounds i8, ptr %1, i64 8
-  store i16 %.045.lcssa, ptr %93, align 8
+  store i16 %.048.lcssa, ptr %93, align 8
   %94 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
-  %95 = zext i16 %.045.lcssa to i64
+  %95 = zext i16 %.048.lcssa to i64
   %96 = add nsw i64 %95, -1
   %97 = getelementptr [0 x %struct.ItemIdData], ptr %94, i64 0, i64 %96
   %.val57 = load i32, ptr %97, align 4
@@ -1063,10 +1063,10 @@ entryPreparePage.exit.i:                          ; preds = %88, %78
   br label %108
 
 108:                                              ; preds = %120, %.lr.ph.i
-  %.05.i = phi i16 [ 1, %.lr.ph.i ], [ %135, %120 ]
-  %.0764.i = phi ptr [ %9, %.lr.ph.i ], [ %132, %120 ]
-  %.0813.i = phi i64 [ 0, %.lr.ph.i ], [ %134, %120 ]
-  %109 = icmp eq i16 %.05.i, %.val
+  %.0725.i = phi ptr [ %9, %.lr.ph.i ], [ %132, %120 ]
+  %.0764.i = phi i64 [ 0, %.lr.ph.i ], [ %134, %120 ]
+  %.0823.i = phi i16 [ 1, %.lr.ph.i ], [ %135, %120 ]
+  %109 = icmp eq i16 %.0823.i, %.val
   br i1 %109, label %110, label %120
 
 110:                                              ; preds = %108
@@ -1077,16 +1077,16 @@ entryPreparePage.exit.i:                          ; preds = %88, %78
   %narrow91.i = add nuw nsw i16 %114, 7
   %115 = and i16 %narrow91.i, 16376
   %116 = zext nneg i16 %115 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0764.i, ptr align 2 %111, i64 %116, i1 false)
-  %117 = getelementptr i8, ptr %.0764.i, i64 %116
-  %118 = add i64 %.0813.i, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0725.i, ptr align 2 %111, i64 %116, i1 false)
+  %117 = getelementptr i8, ptr %.0725.i, i64 %116
+  %118 = add i64 %.0764.i, 4
   %119 = add i64 %118, %116
   br label %120
 
 120:                                              ; preds = %110, %108
-  %.182.i = phi i64 [ %119, %110 ], [ %.0813.i, %108 ]
-  %.177.i = phi ptr [ %117, %110 ], [ %.0764.i, %108 ]
-  %121 = zext i16 %.05.i to i64
+  %.177.i = phi i64 [ %119, %110 ], [ %.0764.i, %108 ]
+  %.173.i = phi ptr [ %117, %110 ], [ %.0725.i, %108 ]
+  %121 = zext i16 %.0823.i to i64
   %122 = add nsw i64 %121, -1
   %123 = getelementptr [0 x %struct.ItemIdData], ptr %107, i64 0, i64 %122
   %.val93.i = load i32, ptr %123, align 4
@@ -1099,17 +1099,17 @@ entryPreparePage.exit.i:                          ; preds = %88, %78
   %narrow92.i = add nuw nsw i16 %129, 7
   %130 = and i16 %narrow92.i, 16376
   %131 = zext nneg i16 %130 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.177.i, ptr align 2 %126, i64 %131, i1 false)
-  %132 = getelementptr i8, ptr %.177.i, i64 %131
-  %133 = add i64 %.182.i, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.173.i, ptr align 2 %126, i64 %131, i1 false)
+  %132 = getelementptr i8, ptr %.173.i, i64 %131
+  %133 = add i64 %.177.i, 4
   %134 = add i64 %133, %131
-  %135 = add i16 %.05.i, 1
+  %135 = add i16 %.0823.i, 1
   %.not.i14 = icmp ugt i16 %135, %.0.i.i
   br i1 %.not.i14, label %._crit_edge.i, label %108, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %120, %entryPreparePage.exit.i
-  %.081.lcssa.i = phi i64 [ 0, %entryPreparePage.exit.i ], [ %134, %120 ]
-  %.076.lcssa.i = phi ptr [ %9, %entryPreparePage.exit.i ], [ %132, %120 ]
+  %.076.lcssa.i = phi i64 [ 0, %entryPreparePage.exit.i ], [ %134, %120 ]
+  %.072.lcssa.i = phi ptr [ %9, %entryPreparePage.exit.i ], [ %132, %120 ]
   %narrow.i15 = add nuw nsw i16 %.0.i.i, 1
   %136 = icmp eq i16 %narrow.i15, %.val
   br i1 %136, label %137, label %146
@@ -1122,13 +1122,13 @@ entryPreparePage.exit.i:                          ; preds = %88, %78
   %narrow87.i = add nuw nsw i16 %141, 7
   %142 = and i16 %narrow87.i, 16376
   %143 = zext nneg i16 %142 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.076.lcssa.i, ptr align 2 %138, i64 %143, i1 false)
-  %144 = add i64 %.081.lcssa.i, 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.072.lcssa.i, ptr align 2 %138, i64 %143, i1 false)
+  %144 = add i64 %.076.lcssa.i, 4
   %145 = add i64 %144, %143
   br label %146
 
 146:                                              ; preds = %137, %._crit_edge.i
-  %.283.i = phi i64 [ %145, %137 ], [ %.081.lcssa.i, %._crit_edge.i ]
+  %.278.i = phi i64 [ %145, %137 ], [ %.076.lcssa.i, %._crit_edge.i ]
   %147 = load i16, ptr %79, align 4
   %148 = zext i16 %147 to i64
   %149 = getelementptr i8, ptr %71, i64 %148
@@ -1144,16 +1144,16 @@ entryPreparePage.exit.i:                          ; preds = %88, %78
   %158 = load i16, ptr %157, align 2
   %159 = zext i16 %158 to i32
   tail call void @GinInitPage(ptr noundef nonnull %71, i32 noundef %159, i64 noundef %75) #11
-  %160 = lshr i64 %.283.i, 1
+  %160 = lshr i64 %.278.i, 1
   br label %161
 
 161:                                              ; preds = %180, %146
-  %.111.i = phi i16 [ 1, %146 ], [ %186, %180 ]
-  %.0749.i = phi ptr [ %71, %146 ], [ %.175.i, %180 ]
-  %.2788.i = phi ptr [ %9, %146 ], [ %185, %180 ]
-  %.0797.i = phi i64 [ 0, %146 ], [ %.180.i, %180 ]
-  %162 = icmp ugt i64 %.0797.i, %160
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.2788.i, i64 6
+  %.011.i = phi ptr [ %71, %146 ], [ %.1.i, %180 ]
+  %.210.i = phi ptr [ %9, %146 ], [ %185, %180 ]
+  %.0749.i = phi i64 [ 0, %146 ], [ %.175.i, %180 ]
+  %.1837.i = phi i16 [ 1, %146 ], [ %186, %180 ]
+  %162 = icmp ugt i64 %.0749.i, %160
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.210.i, i64 6
   %.pre.i = load i16, ptr %.phi.trans.insert.i, align 2
   %.pre13.i = and i16 %.pre.i, 8191
   br i1 %162, label %168, label %163
@@ -1163,14 +1163,14 @@ entryPreparePage.exit.i:                          ; preds = %88, %78
   %164 = and i16 %narrow89.i, 16376
   %165 = or disjoint i16 %164, 4
   %166 = zext nneg i16 %165 to i64
-  %167 = add nuw i64 %.0797.i, %166
+  %167 = add nuw i64 %.0749.i, %166
   br label %168
 
 168:                                              ; preds = %163, %161
-  %.180.i = phi i64 [ %167, %163 ], [ %.0797.i, %161 ]
-  %.175.i = phi ptr [ %.0749.i, %163 ], [ %72, %161 ]
+  %.175.i = phi i64 [ %167, %163 ], [ %.0749.i, %161 ]
+  %.1.i = phi ptr [ %.011.i, %163 ], [ %72, %161 ]
   %169 = zext nneg i16 %.pre13.i to i64
-  %170 = call zeroext i16 @PageAddItemExtended(ptr noundef %.175.i, ptr noundef nonnull %.2788.i, i64 noundef %169, i16 noundef zeroext 0, i32 noundef 0) #11
+  %170 = call zeroext i16 @PageAddItemExtended(ptr noundef %.1.i, ptr noundef nonnull %.210.i, i64 noundef %169, i16 noundef zeroext 0, i32 noundef 0) #11
   %171 = icmp eq i16 %170, 0
   br i1 %171, label %172, label %180
 
@@ -1192,8 +1192,8 @@ entryPreparePage.exit.i:                          ; preds = %88, %78
   %narrow90.i = add nuw nsw i16 %182, 7
   %183 = and i16 %narrow90.i, 16376
   %184 = zext nneg i16 %183 to i64
-  %185 = getelementptr i8, ptr %.2788.i, i64 %184
-  %186 = add i16 %.111.i, 1
+  %185 = getelementptr i8, ptr %.210.i, i64 %184
+  %186 = add i16 %.1837.i, 1
   %.not88.i = icmp ugt i16 %186, %narrow.i15
   br i1 %.not88.i, label %entrySplitPage.exit, label %161, !llvm.loop !11
 

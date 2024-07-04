@@ -107,13 +107,13 @@ define dso_local i32 @forkname_chars(ptr nocapture noundef readonly %0, ptr noun
 
 .sink.split:                                      ; preds = %15, %12
   %.sink = phi i32 [ %13, %12 ], [ -1, %15 ]
-  %.0.ph = phi i32 [ %11, %12 ], [ 0, %15 ]
+  %.012.ph = phi i32 [ %11, %12 ], [ 0, %15 ]
   store i32 %.sink, ptr %1, align 4
   br label %16
 
 16:                                               ; preds = %.sink.split, %15, %10
-  %.0 = phi i32 [ %11, %10 ], [ 0, %15 ], [ %.0.ph, %.sink.split ]
-  ret i32 %.0
+  %.012 = phi i32 [ %11, %10 ], [ 0, %15 ], [ %.012.ph, %.sink.split ]
+  ret i32 %.012
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

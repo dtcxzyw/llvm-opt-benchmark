@@ -31,9 +31,9 @@ entry:
   br i1 %cmp13, label %for.body, label %for.end
 
 for.body:                                         ; preds = %entry, %for.inc
-  %ret.015 = phi i32 [ %ret.1, %for.inc ], [ 1, %entry ]
-  %i.014 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
-  %call1 = call ptr @ssl3_get_cipher(i32 noundef %i.014) #2
+  %i.015 = phi i32 [ %inc, %for.inc ], [ 0, %entry ]
+  %ret.014 = phi i32 [ %ret.1, %for.inc ], [ 1, %entry ]
+  %call1 = call ptr @ssl3_get_cipher(i32 noundef %i.015) #2
   %min_dtls = getelementptr inbounds i8, ptr %call1, i64 52
   %0 = load i32, ptr %min_dtls, align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -95,8 +95,8 @@ if.else:                                          ; preds = %if.end6
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then11, %if.else, %for.body, %if.then4
-  %ret.1 = phi i32 [ %ret.015, %if.else ], [ 0, %if.then11 ], [ %ret.015, %if.then4 ], [ %ret.015, %for.body ]
-  %inc = add nuw nsw i32 %i.014, 1
+  %ret.1 = phi i32 [ %ret.014, %if.else ], [ 0, %if.then11 ], [ %ret.014, %if.then4 ], [ %ret.014, %for.body ]
+  %inc = add nuw nsw i32 %i.015, 1
   %exitcond.not = icmp eq i32 %inc, %call
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 

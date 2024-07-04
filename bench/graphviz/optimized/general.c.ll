@@ -66,8 +66,8 @@ define noalias noundef ptr @random_permutation(i32 noundef %0) local_unnamed_add
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
-  %.0 = phi ptr [ null, %1 ], [ %5, %.preheader ], [ %5, %.lr.ph ]
-  ret ptr %.0
+  %.022 = phi ptr [ null, %1 ], [ %5, %.preheader ], [ %5, %.lr.ph ]
+  ret ptr %.022
 }
 
 ; Function Attrs: nounwind uwtable

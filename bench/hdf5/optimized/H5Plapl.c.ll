@@ -1645,8 +1645,8 @@ H5VM_limit_enc_size.exit50:                       ; preds = %111, %117, %123, %1
   br label %168
 
 168:                                              ; preds = %163, %98, %23, %10
-  %.035 = phi i32 [ -1, %10 ], [ -1, %23 ], [ -1, %98 ], [ 0, %163 ]
-  ret i32 %.035
+  %.034 = phi i32 [ -1, %10 ], [ -1, %23 ], [ -1, %98 ], [ 0, %163 ]
+  ret i32 %.034
 }
 
 ; Function Attrs: nounwind uwtable

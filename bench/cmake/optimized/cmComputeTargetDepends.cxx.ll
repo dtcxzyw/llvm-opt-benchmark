@@ -2310,12 +2310,12 @@ _ZNSt3setImSt4lessImESaImEED2Ev.exit52:           ; preds = %_ZNSt3setImSt4lessI
   br label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %._crit_edge90
-  %.04691 = phi i64 [ %225, %._crit_edge90 ], [ 0, %.lr.ph93.preheader ]
+  %.04491 = phi i64 [ %225, %._crit_edge90 ], [ 0, %.lr.ph93.preheader ]
   %139 = load ptr, ptr %58, align 8
-  %140 = getelementptr inbounds i64, ptr %139, i64 %.04691
+  %140 = getelementptr inbounds i64, ptr %139, i64 %.04491
   %141 = load i64, ptr %140, align 8
   %142 = load ptr, ptr %7, align 8
-  %143 = getelementptr inbounds %struct.cmGraphEdgeList, ptr %142, i64 %.04691
+  %143 = getelementptr inbounds %struct.cmGraphEdgeList, ptr %142, i64 %.04491
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds i8, ptr %143, i64 8
   %146 = load ptr, ptr %145, align 8
@@ -2488,7 +2488,7 @@ _ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEE
   br i1 %.not68, label %._crit_edge90, label %.lr.ph89
 
 ._crit_edge90:                                    ; preds = %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEERS0_DpOT_.exit, %.lr.ph93
-  %225 = add nuw i64 %.04691, 1
+  %225 = add nuw i64 %.04491, 1
   %exitcond109.not = icmp eq i64 %225, %umax108
   br i1 %exitcond109.not, label %.loopexit, label %.lr.ph93, !llvm.loop !31
 
@@ -4365,7 +4365,7 @@ _ZNK17cmGeneratorTarget22GetPolicyStatusCMP0046Ev.exit: ; preds = %18
   br label %53
 
 31:                                               ; preds = %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0046Ev.exit, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0046Ev.exit, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0046Ev.exit, %28
-  %.028.ph = phi i32 [ 0, %28 ], [ 2, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0046Ev.exit ], [ 2, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0046Ev.exit ], [ 2, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0046Ev.exit ]
+  %.027.ph = phi i32 [ 0, %28 ], [ 2, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0046Ev.exit ], [ 2, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0046Ev.exit ], [ 2, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0046Ev.exit ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 120
   %34 = load ptr, ptr %33, align 8
@@ -4398,7 +4398,7 @@ _ZNK17cmGeneratorTarget22GetPolicyStatusCMP0046Ev.exit: ; preds = %18
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds i8, ptr %2, i64 88
-  invoke void @_ZNK5cmake12IssueMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK19cmListFileBacktrace(ptr noundef nonnull align 8 dereferenceable(2216) %34, i32 noundef %.028.ph, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %48)
+  invoke void @_ZNK5cmake12IssueMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK19cmListFileBacktrace(ptr noundef nonnull align 8 dereferenceable(2216) %34, i32 noundef %.027.ph, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %48)
           to label %49 unwind label %50
 
 49:                                               ; preds = %47

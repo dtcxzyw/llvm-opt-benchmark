@@ -812,34 +812,34 @@ proto_item_set_generated.exit86:                  ; preds = %36, %40, %43
 
 .split.us:                                        ; preds = %47, %.split.us
   %.088.us = phi i32 [ %66, %.split.us ], [ 1, %47 ]
-  %.08187.us = phi i32 [ %65, %.split.us ], [ 8, %47 ]
+  %.08387.us = phi i32 [ %65, %.split.us ], [ 8, %47 ]
   %56 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.088.us) #4
   %57 = load i32, ptr @hf_amr_toc_f, align 4
-  %58 = tail call ptr @proto_tree_add_bits_item(ptr noundef %55, i32 noundef %57, ptr noundef %0, i32 noundef %.08187.us, i32 noundef 1, i32 noundef 0) #4
-  %59 = or disjoint i32 %.08187.us, 1
+  %58 = tail call ptr @proto_tree_add_bits_item(ptr noundef %55, i32 noundef %57, ptr noundef %0, i32 noundef %.08387.us, i32 noundef 1, i32 noundef 0) #4
+  %59 = or disjoint i32 %.08387.us, 1
   %60 = load i32, ptr @hf_amr_nb_toc_ft, align 4
   %61 = tail call ptr @proto_tree_add_bits_item(ptr noundef %55, i32 noundef %60, ptr noundef %0, i32 noundef %59, i32 noundef 4, i32 noundef 0) #4
-  %62 = or disjoint i32 %.08187.us, 5
+  %62 = or disjoint i32 %.08387.us, 5
   %63 = load i32, ptr @hf_amr_toc_q, align 4
   %64 = tail call ptr @proto_tree_add_bits_item(ptr noundef %55, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef 1, i32 noundef 0) #4
-  %65 = add i32 %.08187.us, 8
+  %65 = add i32 %.08387.us, 8
   %66 = add i32 %.088.us, 1
   %67 = icmp slt i8 %56, 0
   br i1 %67, label %.split.us, label %.loopexit, !llvm.loop !7
 
 .split:                                           ; preds = %47, %.split
   %.088 = phi i32 [ %78, %.split ], [ 1, %47 ]
-  %.08187 = phi i32 [ %77, %.split ], [ 8, %47 ]
+  %.08387 = phi i32 [ %77, %.split ], [ 8, %47 ]
   %68 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.088) #4
   %69 = load i32, ptr @hf_amr_toc_f, align 4
-  %70 = tail call ptr @proto_tree_add_bits_item(ptr noundef %55, i32 noundef %69, ptr noundef %0, i32 noundef %.08187, i32 noundef 1, i32 noundef 0) #4
-  %71 = or disjoint i32 %.08187, 1
+  %70 = tail call ptr @proto_tree_add_bits_item(ptr noundef %55, i32 noundef %69, ptr noundef %0, i32 noundef %.08387, i32 noundef 1, i32 noundef 0) #4
+  %71 = or disjoint i32 %.08387, 1
   %72 = load i32, ptr @hf_amr_wb_toc_ft, align 4
   %73 = tail call ptr @proto_tree_add_bits_item(ptr noundef %55, i32 noundef %72, ptr noundef %0, i32 noundef %71, i32 noundef 4, i32 noundef 0) #4
-  %74 = or disjoint i32 %.08187, 5
+  %74 = or disjoint i32 %.08387, 5
   %75 = load i32, ptr @hf_amr_toc_q, align 4
   %76 = tail call ptr @proto_tree_add_bits_item(ptr noundef %55, i32 noundef %75, ptr noundef %0, i32 noundef %74, i32 noundef 1, i32 noundef 0) #4
-  %77 = add i32 %.08187, 8
+  %77 = add i32 %.08387, 8
   %78 = add i32 %.088, 1
   %79 = icmp slt i8 %68, 0
   br i1 %79, label %.split, label %.loopexit, !llvm.loop !7
@@ -870,13 +870,13 @@ define internal fastcc void @dissect_amr_be(ptr noundef %0, ptr noundef %1, ptr 
   br label %8
 
 8:                                                ; preds = %34, %4
-  %.089 = phi i32 [ 3, %4 ], [ %31, %34 ]
-  %.088 = phi i32 [ 0, %4 ], [ %.1, %34 ]
-  %.086 = phi i32 [ 4, %4 ], [ %35, %34 ]
-  %9 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.086, i32 noundef 1) #4
+  %.089 = phi i32 [ 4, %4 ], [ %35, %34 ]
+  %.088 = phi i32 [ 3, %4 ], [ %31, %34 ]
+  %.087 = phi i32 [ 0, %4 ], [ %.1, %34 ]
+  %9 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.089, i32 noundef 1) #4
   %10 = load i32, ptr @hf_amr_toc_f, align 4
-  %11 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %.086, i32 noundef 1, i32 noundef 0) #4
-  %12 = or disjoint i32 %.086, 1
+  %11 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %.089, i32 noundef 1, i32 noundef 0) #4
+  %12 = or disjoint i32 %.089, 1
   %13 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %12, i32 noundef 4) #4
   %14 = zext i8 %13 to i64
   br i1 %5, label %15, label %21
@@ -899,12 +899,12 @@ define internal fastcc void @dissect_amr_be(ptr noundef %0, ptr noundef %1, ptr 
 26:                                               ; preds = %21, %15
   %.093 = phi ptr [ %17, %15 ], [ %23, %21 ]
   %.pn = phi i32 [ %20, %15 ], [ %25, %21 ]
-  %27 = add i32 %.086, 5
-  %.1 = add i32 %.pn, %.088
+  %27 = add i32 %.089, 5
+  %.1 = add i32 %.pn, %.087
   %28 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %27, i32 noundef 1) #4
   %29 = load i32, ptr @hf_amr_toc_q, align 4
   %30 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %31 = add i32 %.089, 6
+  %31 = add i32 %.088, 6
   %32 = icmp eq i8 %28, 1
   %.str.136..str.137 = select i1 %32, ptr @.str.136, ptr @.str.137
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.093, ptr noundef nonnull %.str.136..str.137) #4
@@ -912,7 +912,7 @@ define internal fastcc void @dissect_amr_be(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %33, label %34, label %.critedge
 
 34:                                               ; preds = %26
-  %35 = add i32 %.086, 6
+  %35 = add i32 %.089, 6
   %36 = sdiv i32 %31, 8
   %37 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %36) #4
   %38 = icmp sgt i32 %37, 2
@@ -931,20 +931,20 @@ define internal fastcc void @dissect_amr_be(ptr noundef %0, ptr noundef %1, ptr 
   br label %45
 
 45:                                               ; preds = %.critedge, %40
-  %.087 = phi i32 [ %44, %40 ], [ 0, %.critedge ]
+  %.086 = phi i32 [ %44, %40 ], [ 0, %.critedge ]
   %46 = sdiv i32 %31, 8
   %47 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %46) #4
-  %48 = icmp slt i32 %47, %.087
+  %48 = icmp slt i32 %47, %.086
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %45
   %50 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %46) #4
-  %51 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_amr_not_enough_data_for_frames, ptr noundef %0, i32 noundef %46, i32 noundef %.087, ptr noundef nonnull @.str.138, i32 noundef %50, i32 noundef %.087) #4
+  %51 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_amr_not_enough_data_for_frames, ptr noundef %0, i32 noundef %46, i32 noundef %.086, ptr noundef nonnull @.str.138, i32 noundef %50, i32 noundef %.086) #4
   br label %55
 
 52:                                               ; preds = %45
   %53 = load i32, ptr @hf_amr_frame_data, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef %46, i32 noundef %.087, i32 noundef 0) #4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef %46, i32 noundef %.086, i32 noundef 0) #4
   br label %55
 
 55:                                               ; preds = %52, %49

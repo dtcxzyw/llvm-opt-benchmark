@@ -431,8 +431,8 @@ calculate_padding.exit78:                         ; preds = %59, %61
 .lr.ph117.split.us:                               ; preds = %.lr.ph117, %94
   %72 = phi i8 [ %99, %94 ], [ %71, %.lr.ph117 ]
   %73 = phi ptr [ %98, %94 ], [ %.promoted91103, %.lr.ph117 ]
-  %.056115.us = phi i64 [ %.157.us, %94 ], [ 0, %.lr.ph117 ]
-  %.058114.us = phi i64 [ %97, %94 ], [ 0, %.lr.ph117 ]
+  %.056115.us = phi i64 [ %97, %94 ], [ 0, %.lr.ph117 ]
+  %.057114.us = phi i64 [ %.158.us, %94 ], [ 0, %.lr.ph117 ]
   store i64 0, ptr %13, align 8
   store i32 0, ptr %14, align 4
   store i64 0, ptr %15, align 8
@@ -442,7 +442,7 @@ calculate_padding.exit78:                         ; preds = %59, %61
   br i1 %76, label %77, label %calculate_padding.exit81.us
 
 77:                                               ; preds = %.lr.ph117.split.us
-  %78 = srem i64 %.058114.us, %75
+  %78 = srem i64 %.056115.us, %75
   %79 = icmp sgt i64 %78, 0
   %80 = sub nsw i64 %75, %78
   %spec.select.i80.us = select i1 %79, i64 %80, i64 0
@@ -450,7 +450,7 @@ calculate_padding.exit78:                         ; preds = %59, %61
 
 calculate_padding.exit81.us:                      ; preds = %77, %.lr.ph117.split.us
   %81 = phi i64 [ 0, %.lr.ph117.split.us ], [ %spec.select.i80.us, %77 ]
-  %82 = add i64 %81, %.058114.us
+  %82 = add i64 %81, %.056115.us
   %.not69.us = icmp eq i8 %72, 120
   br i1 %.not69.us, label %calculate_padding.exit81.us._crit_edge, label %83
 
@@ -479,8 +479,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 87:                                               ; preds = %switch.lookup, %switch.hole_check, %83
   %.055.us = phi i1 [ %85, %83 ], [ %85, %switch.hole_check ], [ %switch.masked, %switch.lookup ]
-  %88 = add i64 %.056115.us, 1
-  %89 = getelementptr %struct.rb_memory_view_item_component_t, ptr %70, i64 %.056115.us
+  %88 = add i64 %.057114.us, 1
+  %89 = getelementptr %struct.rb_memory_view_item_component_t, ptr %70, i64 %.057114.us
   %90 = load i8, ptr %12, align 1
   %91 = and i8 %90, 1
   %92 = zext i1 %.055.us to i8
@@ -500,7 +500,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 94:                                               ; preds = %calculate_padding.exit81.us._crit_edge, %87
   %95 = phi i64 [ %93, %87 ], [ %.pre131, %calculate_padding.exit81.us._crit_edge ]
-  %.157.us = phi i64 [ %88, %87 ], [ %.056115.us, %calculate_padding.exit81.us._crit_edge ]
+  %.158.us = phi i64 [ %88, %87 ], [ %.057114.us, %calculate_padding.exit81.us._crit_edge ]
   %96 = mul i64 %95, %74
   %97 = add i64 %96, %82
   %98 = load ptr, ptr %11, align 8
@@ -511,8 +511,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 calculate_padding.exit81:                         ; preds = %.lr.ph117, %114
   %100 = phi i8 [ %119, %114 ], [ %71, %.lr.ph117 ]
   %101 = phi ptr [ %118, %114 ], [ %.promoted91103, %.lr.ph117 ]
-  %.056115 = phi i64 [ %.157, %114 ], [ 0, %.lr.ph117 ]
-  %.058114 = phi i64 [ %117, %114 ], [ 0, %.lr.ph117 ]
+  %.056115 = phi i64 [ %117, %114 ], [ 0, %.lr.ph117 ]
+  %.057114 = phi i64 [ %.158, %114 ], [ 0, %.lr.ph117 ]
   store i64 0, ptr %13, align 8
   store i32 0, ptr %14, align 4
   store i64 0, ptr %15, align 8
@@ -545,8 +545,8 @@ switch.lookup165:                                 ; preds = %switch.hole_check16
 
 107:                                              ; preds = %switch.lookup165, %switch.hole_check164, %103
   %.055 = phi i1 [ %105, %103 ], [ %105, %switch.hole_check164 ], [ %switch.masked172, %switch.lookup165 ]
-  %108 = add i64 %.056115, 1
-  %109 = getelementptr %struct.rb_memory_view_item_component_t, ptr %70, i64 %.056115
+  %108 = add i64 %.057114, 1
+  %109 = getelementptr %struct.rb_memory_view_item_component_t, ptr %70, i64 %.057114
   %110 = load i8, ptr %12, align 1
   %111 = and i8 %110, 1
   %112 = zext i1 %.055 to i8
@@ -557,7 +557,7 @@ switch.lookup165:                                 ; preds = %switch.hole_check16
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 2
   store i8 %112, ptr %.sroa.3.0..sroa_idx, align 2
   %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 8
-  store i64 %.058114, ptr %.sroa.44.0..sroa_idx, align 8
+  store i64 %.056115, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 16
   store i64 %102, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 24
@@ -566,9 +566,9 @@ switch.lookup165:                                 ; preds = %switch.hole_check16
 
 114:                                              ; preds = %calculate_padding.exit81._crit_edge, %107
   %115 = phi i64 [ %113, %107 ], [ %.pre130, %calculate_padding.exit81._crit_edge ]
-  %.157 = phi i64 [ %108, %107 ], [ %.056115, %calculate_padding.exit81._crit_edge ]
+  %.158 = phi i64 [ %108, %107 ], [ %.057114, %calculate_padding.exit81._crit_edge ]
   %116 = mul i64 %115, %102
-  %117 = add i64 %116, %.058114
+  %117 = add i64 %116, %.056115
   %118 = load ptr, ptr %11, align 8
   %119 = load i8, ptr %118, align 1
   %.not68 = icmp eq i8 %119, 0
@@ -1267,24 +1267,24 @@ rb_memory_view_extract_item_member.exit:          ; preds = %7
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %.02127 = phi i64 [ %21, %._crit_edge ], [ 0, %.preheader.preheader ]
-  %13 = getelementptr %struct.rb_memory_view_item_component_t, ptr %1, i64 %.02127
+  %.02227 = phi i64 [ %21, %._crit_edge ], [ 0, %.preheader.preheader ]
+  %13 = getelementptr %struct.rb_memory_view_item_component_t, ptr %1, i64 %.02227
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8
   %.not28 = icmp eq i64 %15, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.02226 = phi i64 [ %18, %.lr.ph ], [ 0, %.preheader ]
-  %16 = tail call fastcc i64 @extract_item_member(ptr noundef nonnull %0, ptr noundef %13, i64 noundef %.02226)
+  %.02126 = phi i64 [ %18, %.lr.ph ], [ 0, %.preheader ]
+  %16 = tail call fastcc i64 @extract_item_member(ptr noundef nonnull %0, ptr noundef %13, i64 noundef %.02126)
   %17 = tail call i64 @rb_ary_push(i64 noundef %12, i64 noundef %16) #16
-  %18 = add nuw i64 %.02226, 1
+  %18 = add nuw i64 %.02126, 1
   %19 = load i64, ptr %14, align 8
   %20 = icmp ult i64 %18, %19
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %21 = add nuw i64 %.02127, 1
+  %21 = add nuw i64 %.02227, 1
   %exitcond.not = icmp eq i64 %21, %2
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !23
 
@@ -1514,24 +1514,24 @@ rb_memory_view_extract_item_member.exit.i:        ; preds = %93
   br label %.preheader.i9
 
 .preheader.i9:                                    ; preds = %._crit_edge.i, %.preheader.preheader.i
-  %.02127.i = phi i64 [ %107, %._crit_edge.i ], [ 0, %.preheader.preheader.i ]
-  %99 = getelementptr %struct.rb_memory_view_item_component_t, ptr %87, i64 %.02127.i
+  %.02227.i = phi i64 [ %107, %._crit_edge.i ], [ 0, %.preheader.preheader.i ]
+  %99 = getelementptr %struct.rb_memory_view_item_component_t, ptr %87, i64 %.02227.i
   %100 = getelementptr inbounds i8, ptr %99, i64 24
   %101 = load i64, ptr %100, align 8
   %.not28.i = icmp eq i64 %101, 0
   br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i10
 
 .lr.ph.i10:                                       ; preds = %.preheader.i9, %.lr.ph.i10
-  %.02226.i = phi i64 [ %104, %.lr.ph.i10 ], [ 0, %.preheader.i9 ]
-  %102 = call fastcc i64 @extract_item_member(ptr noundef nonnull readonly %.051.i, ptr noundef readonly %99, i64 noundef %.02226.i)
+  %.02126.i = phi i64 [ %104, %.lr.ph.i10 ], [ 0, %.preheader.i9 ]
+  %102 = call fastcc i64 @extract_item_member(ptr noundef nonnull readonly %.051.i, ptr noundef readonly %99, i64 noundef %.02126.i)
   %103 = call i64 @rb_ary_push(i64 noundef %98, i64 noundef %102) #16
-  %104 = add nuw i64 %.02226.i, 1
+  %104 = add nuw i64 %.02126.i, 1
   %105 = load i64, ptr %100, align 8
   %106 = icmp ult i64 %104, %105
   br i1 %106, label %.lr.ph.i10, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i10, %.preheader.i9
-  %107 = add nuw i64 %.02127.i, 1
+  %107 = add nuw i64 %.02227.i, 1
   %exitcond.not.i11 = icmp eq i64 %107, %89
   br i1 %exitcond.not.i11, label %rb_memory_view_extract_item_members.exit, label %.preheader.i9, !llvm.loop !23
 

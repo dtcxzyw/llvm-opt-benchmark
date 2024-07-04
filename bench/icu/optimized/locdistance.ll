@@ -379,8 +379,8 @@ entry:
   br i1 %cmp.i, label %cond.end, label %for.cond.i
 
 for.cond.i:                                       ; preds = %entry, %call.i.noexc
-  %c.0.i = phi i8 [ %4, %call.i.noexc ], [ %3, %entry ]
   %s.addr.0.i = phi ptr [ %incdec.ptr.i, %call.i.noexc ], [ %2, %entry ]
+  %c.0.i = phi i8 [ %4, %call.i.noexc ], [ %3, %entry ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s.addr.0.i, i64 1
   %4 = load i8, ptr %incdec.ptr.i, align 1
   %cmp2.not.i = icmp eq i8 %4, 0
@@ -455,9 +455,9 @@ for.body.lr.ph:                                   ; preds = %cond.end.thread, %c
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %shiftedThreshold.addr.0185 = phi i32 [ %shiftedThreshold, %for.body.lr.ph ], [ %shiftedThreshold.addr.1, %for.inc ]
-  %bestIndex.0184 = phi i32 [ -1, %for.body.lr.ph ], [ %bestIndex.1, %for.inc ]
-  %bestLikelyInfo.0182 = phi i32 [ -1, %for.body.lr.ph ], [ %bestLikelyInfo.1, %for.inc ]
+  %bestLikelyInfo.0184 = phi i32 [ -1, %for.body.lr.ph ], [ %bestLikelyInfo.1, %for.inc ]
+  %bestIndex.0183 = phi i32 [ -1, %for.body.lr.ph ], [ %bestIndex.1, %for.inc ]
+  %shiftedThreshold.addr.0182 = phi i32 [ %shiftedThreshold, %for.body.lr.ph ], [ %shiftedThreshold.addr.1, %for.inc ]
   %arrayidx = getelementptr inbounds ptr, ptr %supportedLSRs, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx, align 8
   br i1 %cmp155200, label %if.then, label %if.end14
@@ -505,15 +505,15 @@ if.end:                                           ; preds = %if.then8, %if.then
   br i1 %cmp.i86, label %if.else, label %for.cond.i87
 
 for.cond.i87:                                     ; preds = %if.end, %call.i.noexc100
-  %c.0.i88 = phi i8 [ %13, %call.i.noexc100 ], [ %12, %if.end ]
-  %s.addr.0.i89 = phi ptr [ %incdec.ptr.i90, %call.i.noexc100 ], [ %11, %if.end ]
-  %incdec.ptr.i90 = getelementptr inbounds i8, ptr %s.addr.0.i89, i64 1
+  %s.addr.0.i88 = phi ptr [ %incdec.ptr.i90, %call.i.noexc100 ], [ %11, %if.end ]
+  %c.0.i89 = phi i8 [ %13, %call.i.noexc100 ], [ %12, %if.end ]
+  %incdec.ptr.i90 = getelementptr inbounds i8, ptr %s.addr.0.i88, i64 1
   %13 = load i8, ptr %incdec.ptr.i90, align 1
   %cmp2.not.i91 = icmp eq i8 %13, 0
   br i1 %cmp2.not.i91, label %if.else.i97, label %if.then3.i92
 
 if.then3.i92:                                     ; preds = %for.cond.i87
-  %conv4.i93 = zext i8 %c.0.i88 to i32
+  %conv4.i93 = zext i8 %c.0.i89 to i32
   %call.i101 = invoke noundef i32 @_ZN6icu_759BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %iter, i32 noundef %conv4.i93)
           to label %call.i.noexc100 unwind label %lpad.loopexit
 
@@ -523,7 +523,7 @@ call.i.noexc100:                                  ; preds = %if.then3.i92
   br i1 %tobool.not.i95, label %if.else, label %for.cond.i87, !llvm.loop !4
 
 if.else.i97:                                      ; preds = %for.cond.i87
-  %14 = or i8 %c.0.i88, -128
+  %14 = or i8 %c.0.i89, -128
   %or.i98 = zext i8 %14 to i32
   %call8.i103 = invoke noundef i32 @_ZN6icu_759BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %iter, i32 noundef %or.i98)
           to label %call8.i.noexc102 unwind label %lpad.loopexit.split-lp.loopexit
@@ -570,7 +570,7 @@ if.end25:                                         ; preds = %if.else, %if.then16
   %cmp15158 = phi i1 [ false, %if.then16 ], [ true, %if.else ]
   %distance.2 = phi i32 [ %and17, %if.then16 ], [ %distance.1, %if.else ]
   %flags.0 = phi i32 [ %and, %if.then16 ], [ 0, %if.else ]
-  %add = add nsw i32 %shiftedThreshold.addr.0185, 7
+  %add = add nsw i32 %shiftedThreshold.addr.0182, 7
   %shr = ashr i32 %add, 3
   %shr28 = ashr i32 %distance.2, 2
   %spec.select = select i1 %cmp26, i32 %shr28, i32 %distance.2
@@ -692,7 +692,7 @@ if.then84:                                        ; preds = %if.end80
   %flags86 = getelementptr inbounds i8, ptr %9, i64 36
   %46 = load i32, ptr %flags86, align 4
   %xor = xor i32 %46, %45
-  %cmp87 = icmp slt i32 %xor, %shiftedThreshold.addr.0185
+  %cmp87 = icmp slt i32 %xor, %shiftedThreshold.addr.0182
   br i1 %cmp87, label %if.then88, label %for.inc
 
 if.then88:                                        ; preds = %if.then84
@@ -701,7 +701,7 @@ if.then88:                                        ; preds = %if.then84
 lor.lhs.false90:                                  ; preds = %if.then88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pSupp.i)
   store ptr %desired, ptr %pSupp.i, align 8
-  %call.i137 = invoke noundef i32 @_ZNK6icu_7514LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %pSupp.i, i32 noundef 1, i32 noundef %shiftedThreshold.addr.0185, i32 noundef %favorSubtag, i32 noundef 0)
+  %call.i137 = invoke noundef i32 @_ZNK6icu_7514LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %pSupp.i, i32 noundef 1, i32 noundef %shiftedThreshold.addr.0182, i32 noundef %favorSubtag, i32 noundef 0)
           to label %invoke.cont91 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont91:                                    ; preds = %lor.lhs.false90
@@ -718,7 +718,7 @@ if.then96:                                        ; preds = %if.then94
   br label %cleanup
 
 if.else100:                                       ; preds = %if.end80
-  %cmp101 = icmp slt i32 %shl.i133, %shiftedThreshold.addr.0185
+  %cmp101 = icmp slt i32 %shl.i133, %shiftedThreshold.addr.0182
   br i1 %cmp101, label %if.then102, label %if.else110
 
 if.then102:                                       ; preds = %if.else100
@@ -727,7 +727,7 @@ if.then102:                                       ; preds = %if.else100
 lor.lhs.false104:                                 ; preds = %if.then102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pSupp.i138)
   store ptr %desired, ptr %pSupp.i138, align 8
-  %call.i142 = invoke noundef i32 @_ZNK6icu_7514LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %pSupp.i138, i32 noundef 1, i32 noundef %shiftedThreshold.addr.0185, i32 noundef %favorSubtag, i32 noundef 0)
+  %call.i142 = invoke noundef i32 @_ZNK6icu_7514LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %pSupp.i138, i32 noundef 1, i32 noundef %shiftedThreshold.addr.0182, i32 noundef %favorSubtag, i32 noundef 0)
           to label %invoke.cont105 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont105:                                   ; preds = %lor.lhs.false104
@@ -739,8 +739,8 @@ if.then108:                                       ; preds = %invoke.cont105, %if
   br label %for.inc
 
 if.else110:                                       ; preds = %if.else100
-  %cmp111 = icmp eq i32 %shl.i133, %shiftedThreshold.addr.0185
-  %cmp113 = icmp sgt i32 %bestIndex.0184, -1
+  %cmp111 = icmp eq i32 %shl.i133, %shiftedThreshold.addr.0182
+  %cmp113 = icmp sgt i32 %bestIndex.0183, -1
   %or.cond2 = select i1 %cmp111, i1 %cmp113, i1 false
   br i1 %or.cond2, label %if.then114, label %for.inc
 
@@ -750,7 +750,7 @@ if.then114:                                       ; preds = %if.else110
 lor.lhs.false116:                                 ; preds = %if.then114
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pSupp.i144)
   store ptr %desired, ptr %pSupp.i144, align 8
-  %call.i148 = invoke noundef i32 @_ZNK6icu_7514LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %pSupp.i144, i32 noundef 1, i32 noundef %shiftedThreshold.addr.0185, i32 noundef %favorSubtag, i32 noundef 0)
+  %call.i148 = invoke noundef i32 @_ZNK6icu_7514LocaleDistance23getBestIndexAndDistanceERKNS_3LSREPPS2_ii20ULocMatchFavorSubtag18ULocMatchDirection(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %pSupp.i144, i32 noundef 1, i32 noundef %shiftedThreshold.addr.0182, i32 noundef %favorSubtag, i32 noundef 0)
           to label %invoke.cont117 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont117:                                   ; preds = %lor.lhs.false116
@@ -760,22 +760,22 @@ invoke.cont117:                                   ; preds = %lor.lhs.false116
 
 if.then120:                                       ; preds = %invoke.cont117, %if.then114
   %47 = load ptr, ptr %this, align 8
-  %idxprom121 = zext nneg i32 %bestIndex.0184 to i64
+  %idxprom121 = zext nneg i32 %bestIndex.0183 to i64
   %arrayidx122 = getelementptr inbounds ptr, ptr %supportedLSRs, i64 %idxprom121
   %48 = load ptr, ptr %arrayidx122, align 8
-  %call124 = invoke noundef i32 @_ZNK6icu_7513LikelySubtags13compareLikelyERKNS_3LSRES3_i(ptr noundef nonnull align 8 dereferenceable(352) %47, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %48, i32 noundef %bestLikelyInfo.0182)
+  %call124 = invoke noundef i32 @_ZNK6icu_7513LikelySubtags13compareLikelyERKNS_3LSRES3_i(ptr noundef nonnull align 8 dereferenceable(352) %47, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %48, i32 noundef %bestLikelyInfo.0184)
           to label %invoke.cont123 unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont123:                                   ; preds = %if.then120
   %and125 = and i32 %call124, 1
   %cmp126.not = icmp eq i32 %and125, 0
-  %spec.select74 = select i1 %cmp126.not, i32 %bestIndex.0184, i32 %44
+  %spec.select74 = select i1 %cmp126.not, i32 %bestIndex.0183, i32 %44
   br label %for.inc
 
 for.inc:                                          ; preds = %invoke.cont123, %if.then94, %invoke.cont91, %if.then84, %if.else110, %invoke.cont117, %invoke.cont105, %if.then108, %if.else66, %if.end50, %if.end25
-  %bestLikelyInfo.1 = phi i32 [ %bestLikelyInfo.0182, %if.end25 ], [ %bestLikelyInfo.0182, %if.end50 ], [ %bestLikelyInfo.0182, %invoke.cont91 ], [ %bestLikelyInfo.0182, %if.then84 ], [ -1, %if.then108 ], [ %bestLikelyInfo.0182, %invoke.cont105 ], [ %bestLikelyInfo.0182, %invoke.cont117 ], [ %bestLikelyInfo.0182, %if.else110 ], [ %bestLikelyInfo.0182, %if.else66 ], [ -1, %if.then94 ], [ %call124, %invoke.cont123 ]
-  %bestIndex.1 = phi i32 [ %bestIndex.0184, %if.end25 ], [ %bestIndex.0184, %if.end50 ], [ %bestIndex.0184, %invoke.cont91 ], [ %bestIndex.0184, %if.then84 ], [ %44, %if.then108 ], [ %bestIndex.0184, %invoke.cont105 ], [ %bestIndex.0184, %invoke.cont117 ], [ %bestIndex.0184, %if.else110 ], [ %bestIndex.0184, %if.else66 ], [ %44, %if.then94 ], [ %spec.select74, %invoke.cont123 ]
-  %shiftedThreshold.addr.1 = phi i32 [ %shiftedThreshold.addr.0185, %if.end25 ], [ %shiftedThreshold.addr.0185, %if.end50 ], [ %shiftedThreshold.addr.0185, %invoke.cont91 ], [ %shiftedThreshold.addr.0185, %if.then84 ], [ %shl.i133, %if.then108 ], [ %shiftedThreshold.addr.0185, %invoke.cont105 ], [ %shiftedThreshold.addr.0185, %invoke.cont117 ], [ %shiftedThreshold.addr.0185, %if.else110 ], [ %shiftedThreshold.addr.0185, %if.else66 ], [ %xor, %if.then94 ], [ %shiftedThreshold.addr.0185, %invoke.cont123 ]
+  %shiftedThreshold.addr.1 = phi i32 [ %shiftedThreshold.addr.0182, %if.end25 ], [ %shiftedThreshold.addr.0182, %if.end50 ], [ %shiftedThreshold.addr.0182, %invoke.cont91 ], [ %shiftedThreshold.addr.0182, %if.then84 ], [ %shl.i133, %if.then108 ], [ %shiftedThreshold.addr.0182, %invoke.cont105 ], [ %shiftedThreshold.addr.0182, %invoke.cont117 ], [ %shiftedThreshold.addr.0182, %if.else110 ], [ %shiftedThreshold.addr.0182, %if.else66 ], [ %xor, %if.then94 ], [ %shiftedThreshold.addr.0182, %invoke.cont123 ]
+  %bestIndex.1 = phi i32 [ %bestIndex.0183, %if.end25 ], [ %bestIndex.0183, %if.end50 ], [ %bestIndex.0183, %invoke.cont91 ], [ %bestIndex.0183, %if.then84 ], [ %44, %if.then108 ], [ %bestIndex.0183, %invoke.cont105 ], [ %bestIndex.0183, %invoke.cont117 ], [ %bestIndex.0183, %if.else110 ], [ %bestIndex.0183, %if.else66 ], [ %44, %if.then94 ], [ %spec.select74, %invoke.cont123 ]
+  %bestLikelyInfo.1 = phi i32 [ %bestLikelyInfo.0184, %if.end25 ], [ %bestLikelyInfo.0184, %if.end50 ], [ %bestLikelyInfo.0184, %invoke.cont91 ], [ %bestLikelyInfo.0184, %if.then84 ], [ -1, %if.then108 ], [ %bestLikelyInfo.0184, %invoke.cont105 ], [ %bestLikelyInfo.0184, %invoke.cont117 ], [ %bestLikelyInfo.0184, %if.else110 ], [ %bestLikelyInfo.0184, %if.else66 ], [ -1, %if.then94 ], [ %call124, %invoke.cont123 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
@@ -829,8 +829,8 @@ entry:
   br i1 %cmp, label %return, label %for.cond
 
 for.cond:                                         ; preds = %entry, %if.then3
-  %c.0 = phi i8 [ %1, %if.then3 ], [ %0, %entry ]
   %s.addr.0 = phi ptr [ %incdec.ptr, %if.then3 ], [ %s, %entry ]
+  %c.0 = phi i8 [ %1, %if.then3 ], [ %0, %entry ]
   %incdec.ptr = getelementptr inbounds i8, ptr %s.addr.0, i64 1
   %1 = load i8, ptr %incdec.ptr, align 1
   %cmp2.not = icmp eq i8 %1, 0
@@ -890,8 +890,8 @@ entry:
   br i1 %cmp.i, label %if.then3, label %for.cond.i
 
 for.cond.i:                                       ; preds = %entry, %if.then3.i
-  %c.0.i = phi i8 [ %1, %if.then3.i ], [ %0, %entry ]
   %s.addr.0.i = phi ptr [ %incdec.ptr.i, %if.then3.i ], [ %desired, %entry ]
+  %c.0.i = phi i8 [ %1, %if.then3.i ], [ %0, %entry ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s.addr.0.i, i64 1
   %1 = load i8, ptr %incdec.ptr.i, align 1
   %cmp2.not.i = icmp eq i8 %1, 0
@@ -918,22 +918,22 @@ if.then:                                          ; preds = %if.else.i
   br i1 %cmp.i9, label %if.then3, label %for.cond.i10
 
 for.cond.i10:                                     ; preds = %if.then, %if.then3.i15
-  %c.0.i11 = phi i8 [ %4, %if.then3.i15 ], [ %3, %if.then ]
-  %s.addr.0.i12 = phi ptr [ %incdec.ptr.i13, %if.then3.i15 ], [ %supported, %if.then ]
-  %incdec.ptr.i13 = getelementptr inbounds i8, ptr %s.addr.0.i12, i64 1
+  %s.addr.0.i11 = phi ptr [ %incdec.ptr.i13, %if.then3.i15 ], [ %supported, %if.then ]
+  %c.0.i12 = phi i8 [ %4, %if.then3.i15 ], [ %3, %if.then ]
+  %incdec.ptr.i13 = getelementptr inbounds i8, ptr %s.addr.0.i11, i64 1
   %4 = load i8, ptr %incdec.ptr.i13, align 1
   %cmp2.not.i14 = icmp eq i8 %4, 0
   br i1 %cmp2.not.i14, label %if.else.i21, label %if.then3.i15
 
 if.then3.i15:                                     ; preds = %for.cond.i10
-  %conv4.i16 = zext i8 %c.0.i11 to i32
+  %conv4.i16 = zext i8 %c.0.i12 to i32
   %call.i17 = tail call noundef i32 @_ZN6icu_759BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %iter, i32 noundef %conv4.i16)
   %and.i18 = and i32 %call.i17, 1
   %tobool.not.i19 = icmp eq i32 %and.i18, 0
   br i1 %tobool.not.i19, label %if.then3, label %for.cond.i10, !llvm.loop !4
 
 if.else.i21:                                      ; preds = %for.cond.i10
-  %5 = or i8 %c.0.i11, -128
+  %5 = or i8 %c.0.i12, -128
   %or.i22 = zext i8 %5 to i32
   %call8.i23 = tail call noundef i32 @_ZN6icu_759BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %iter, i32 noundef %or.i22)
   %cmp11.i = icmp sgt i32 %call8.i23, 1
@@ -1050,8 +1050,8 @@ if.end13:                                         ; preds = %if.then6, %if.then
   br label %return.sink.split
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.then69
-  %supported.0 = phi i8 [ %20, %if.then69 ], [ %1, %for.cond.preheader ]
   %desired.0 = phi i8 [ %18, %if.then69 ], [ %0, %for.cond.preheader ]
+  %supported.0 = phi i8 [ %20, %if.then69 ], [ %1, %for.cond.preheader ]
   %regionDistance.0 = phi i32 [ %regionDistance.4, %if.then69 ], [ 0, %for.cond.preheader ]
   %star.0 = phi i8 [ %star.3, %if.then69 ], [ 0, %for.cond.preheader ]
   %desiredPartitions.addr.0 = phi ptr [ %incdec.ptr66, %if.then69 ], [ %incdec.ptr, %for.cond.preheader ]
@@ -1087,8 +1087,8 @@ cond.end:                                         ; preds = %if.then22, %cond.tr
   br label %for.cond25
 
 for.cond25:                                       ; preds = %if.then48, %cond.end
-  %supported.1 = phi i8 [ %supported.0, %cond.end ], [ %12, %if.then48 ]
   %supportedPartitions.addr.1 = phi ptr [ %incdec.ptr1, %cond.end ], [ %incdec.ptr45, %if.then48 ]
+  %supported.1 = phi i8 [ %supported.0, %cond.end ], [ %12, %if.then48 ]
   %regionDistance.1 = phi i32 [ %regionDistance.0, %cond.end ], [ %spec.select, %if.then48 ]
   %star.1 = phi i8 [ %star.0, %cond.end ], [ %star.2, %if.then48 ]
   %conv26 = sext i8 %supported.1 to i32

@@ -51,23 +51,23 @@ if.end.lr.ph:                                     ; preds = %entry
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.end33
   %call130 = phi i32 [ %call124, %if.end.lr.ph ], [ %call1, %if.end33 ]
-  %addr.addr.028 = phi i64 [ %addr, %if.end.lr.ph ], [ %addr.addr.2, %if.end33 ]
-  %len.027 = phi i64 [ 0, %if.end.lr.ph ], [ %len.2, %if.end33 ]
-  %and22.pn = and i64 %addr.addr.028, 4095
+  %len.028 = phi i64 [ 0, %if.end.lr.ph ], [ %len.2, %if.end33 ]
+  %addr.addr.027 = phi i64 [ %addr, %if.end.lr.ph ], [ %addr.addr.2, %if.end33 ]
+  %and22.pn = and i64 %addr.addr.027, 4095
   %sub29 = sub nuw nsw i64 4096, %and22.pn
   %and3 = and i32 %call130, 512
   %tobool4.not = icmp eq i32 %and3, 0
   br i1 %tobool4.not, label %if.else, label %do.body.preheader
 
 do.body.preheader:                                ; preds = %if.end
-  %0 = add i64 %len.027, 4096
+  %0 = add i64 %len.028, 4096
   %1 = sub i64 %0, %and22.pn
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond
-  %len.1 = phi i64 [ %inc14, %do.cond ], [ %len.027, %do.body.preheader ]
+  %addr.addr.1 = phi i64 [ %inc, %do.cond ], [ %addr.addr.027, %do.body.preheader ]
+  %len.1 = phi i64 [ %inc14, %do.cond ], [ %len.028, %do.body.preheader ]
   %left_in_page.0 = phi i64 [ %dec, %do.cond ], [ %sub29, %do.body.preheader ]
-  %addr.addr.1 = phi i64 [ %inc, %do.cond ], [ %addr.addr.028, %do.body.preheader ]
   %call7 = call i32 @cpu_memory_rw_debug(ptr noundef %add.ptr.i, i64 noundef %addr.addr.1, ptr noundef nonnull %c, i64 noundef 1, i1 noundef zeroext false) #6
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end10, label %return
@@ -98,20 +98,20 @@ if.then23:                                        ; preds = %if.else
   %sub.ptr.lhs.cast = ptrtoint ptr %call21 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %add = add i64 %sub.ptr.sub, %len.027
+  %add = add i64 %sub.ptr.sub, %len.028
   %cmp24 = icmp ult i64 %add, 2147483648
   %cond = select i1 %cmp24, i64 %add, i64 -1
   br label %return
 
 if.end26:                                         ; preds = %if.else
-  %add27 = add i64 %sub29, %addr.addr.028
-  %add28 = add i64 %sub29, %len.027
+  %add27 = add i64 %sub29, %addr.addr.027
+  %add28 = add i64 %sub29, %len.028
   %cmp29 = icmp ugt i64 %add28, 2147483647
   br i1 %cmp29, label %return, label %if.end33
 
 if.end33:                                         ; preds = %do.cond, %if.end26
-  %len.2 = phi i64 [ %add28, %if.end26 ], [ %1, %do.cond ]
   %addr.addr.2 = phi i64 [ %add27, %if.end26 ], [ %inc, %do.cond ]
+  %len.2 = phi i64 [ %add28, %if.end26 ], [ %1, %do.cond ]
   %call1 = call i32 @probe_access_flags(ptr noundef %env, i64 noundef %addr.addr.2, i32 noundef 0, i32 noundef 0, i32 noundef %call, i1 noundef zeroext true, ptr noundef nonnull %h, i64 noundef 0) #6
   %and2 = and i32 %call1, 2048
   %tobool.not = icmp eq i32 %and2, 0

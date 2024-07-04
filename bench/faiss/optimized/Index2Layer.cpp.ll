@@ -482,25 +482,25 @@ define void @_ZNK5faiss11Index2Layer9sa_encodeElPKfPh(ptr noundef nonnull align 
   br label %33
 
 33:                                               ; preds = %.lr.ph80, %39
-  %.03979 = phi i64 [ 0, %.lr.ph80 ], [ %34, %39 ]
-  %34 = add nsw i64 %.03979, %27
+  %.03679 = phi i64 [ 0, %.lr.ph80 ], [ %34, %39 ]
+  %34 = add nsw i64 %.03679, %27
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %34, i64 %1)
   %35 = load i8, ptr %30, align 8
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %33
-  %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i64 noundef %.03979, i64 noundef %.sroa.speculated, i64 noundef %1)
+  %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i64 noundef %.03679, i64 noundef %.sroa.speculated, i64 noundef %1)
   br label %39
 
 39:                                               ; preds = %37, %33
-  %40 = sub nsw i64 %.sroa.speculated, %.03979
+  %40 = sub nsw i64 %.sroa.speculated, %.03679
   %41 = load i32, ptr %31, align 8
   %42 = sext i32 %41 to i64
-  %43 = mul nsw i64 %.03979, %42
+  %43 = mul nsw i64 %.03679, %42
   %44 = getelementptr inbounds float, ptr %2, i64 %43
   %45 = load i64, ptr %32, align 8
-  %46 = mul i64 %45, %.03979
+  %46 = mul i64 %45, %.03679
   %47 = getelementptr inbounds i8, ptr %3, i64 %46
   %48 = load ptr, ptr %0, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 144

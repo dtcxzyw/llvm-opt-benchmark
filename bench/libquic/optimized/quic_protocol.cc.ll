@@ -6379,16 +6379,16 @@ while.cond.i.i.preheader.lr.ph:                   ; preds = %_ZNK3net11IntervalS
   br label %while.cond.i.i.preheader
 
 while.cond.i.i.preheader:                         ; preds = %while.cond.i.i.preheader.lr.ph, %if.end34
-  %mine.sroa.0.098 = phi ptr [ %retval.sroa.0.0.i.i, %while.cond.i.i.preheader.lr.ph ], [ %mine.sroa.0.4, %if.end34 ]
-  %theirs.sroa.0.097 = phi ptr [ %retval.sroa.0.0.i.i48, %while.cond.i.i.preheader.lr.ph ], [ %22, %if.end34 ]
-  %max_.i.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %mine.sroa.0.098, i64 40
+  %theirs.sroa.0.098 = phi ptr [ %retval.sroa.0.0.i.i48, %while.cond.i.i.preheader.lr.ph ], [ %22, %if.end34 ]
+  %mine.sroa.0.097 = phi ptr [ %retval.sroa.0.0.i.i, %while.cond.i.i.preheader.lr.ph ], [ %mine.sroa.0.4, %if.end34 ]
+  %max_.i.i.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %mine.sroa.0.097, i64 40
   %.pre107 = load i64, ptr %max_.i.i.i.i.i.phi.trans.insert, align 8
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %while.end51.i.i
   %21 = phi i64 [ %27, %while.end51.i.i ], [ %.pre107, %while.cond.i.i.preheader ]
-  %mine.sroa.0.1 = phi ptr [ %mine.sroa.0.2, %while.end51.i.i ], [ %mine.sroa.0.098, %while.cond.i.i.preheader ]
-  %22 = phi ptr [ %.lcssa43.i.i, %while.end51.i.i ], [ %theirs.sroa.0.097, %while.cond.i.i.preheader ]
+  %mine.sroa.0.1 = phi ptr [ %mine.sroa.0.2, %while.end51.i.i ], [ %mine.sroa.0.097, %while.cond.i.i.preheader ]
+  %22 = phi ptr [ %.lcssa43.i.i, %while.end51.i.i ], [ %theirs.sroa.0.098, %while.cond.i.i.preheader ]
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %mine.sroa.0.1, i64 32
   %23 = load i64, ptr %_M_storage.i.i.i.i, align 8
   %cmp.i.not.i.i.i = icmp ult i64 %23, %21

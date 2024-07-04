@@ -53,8 +53,8 @@ define void @amd_l1(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocap
   br label %32
 
 32:                                               ; preds = %.lr.ph150, %.loopexit137
-  %.0126149 = phi i64 [ %26, %.lr.ph150 ], [ %44, %.loopexit137 ]
-  %33 = getelementptr inbounds i64, ptr %2, i64 %.0126149
+  %.0129149 = phi i64 [ %26, %.lr.ph150 ], [ %44, %.loopexit137 ]
+  %33 = getelementptr inbounds i64, ptr %2, i64 %.0129149
   %34 = load i64, ptr %33, align 8
   %35 = icmp slt i64 %34, %.0125152
   br i1 %35, label %36, label %49
@@ -71,7 +71,7 @@ define void @amd_l1(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocap
   store i64 %42, ptr %31, align 8
   %43 = getelementptr inbounds i64, ptr %16, i64 %41
   store i64 %34, ptr %43, align 8
-  %44 = add i64 %.0126149, 1
+  %44 = add i64 %.0129149, 1
   %gep = getelementptr i64, ptr %invariant.gep, i64 %34
   %45 = load i64, ptr %gep, align 8
   %46 = getelementptr inbounds i64, ptr %15, i64 %34
@@ -82,12 +82,12 @@ define void @amd_l1(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocap
 49:                                               ; preds = %32
   %50 = icmp eq i64 %34, %.0125152
   %51 = zext i1 %50 to i64
-  %spec.select = add nsw i64 %.0126149, %51
+  %spec.select = add nsw i64 %.0129149, %51
   br label %.loopexit138
 
 .lr.ph147:                                        ; preds = %36, %55
-  %.0129146 = phi i64 [ %63, %55 ], [ %47, %36 ]
-  %52 = getelementptr inbounds i64, ptr %2, i64 %.0129146
+  %.0126146 = phi i64 [ %63, %55 ], [ %47, %36 ]
+  %52 = getelementptr inbounds i64, ptr %2, i64 %.0126146
   %53 = load i64, ptr %52, align 8
   %54 = icmp slt i64 %53, %.0125152
   br i1 %54, label %55, label %64
@@ -104,26 +104,26 @@ define void @amd_l1(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocap
   store i64 %61, ptr %37, align 8
   %62 = getelementptr inbounds i64, ptr %16, i64 %60
   store i64 %53, ptr %62, align 8
-  %63 = add i64 %.0129146, 1
+  %63 = add i64 %.0126146, 1
   %exitcond168.not = icmp eq i64 %63, %45
   br i1 %exitcond168.not, label %.loopexit137, label %.lr.ph147, !llvm.loop !6
 
 64:                                               ; preds = %.lr.ph147
   %65 = icmp eq i64 %53, %.0125152
   %66 = zext i1 %65 to i64
-  %spec.select136 = add nsw i64 %.0129146, %66
+  %spec.select136 = add nsw i64 %.0126146, %66
   br label %.loopexit137
 
 .loopexit137:                                     ; preds = %55, %36, %64
-  %.1130 = phi i64 [ %spec.select136, %64 ], [ %47, %36 ], [ %45, %55 ]
-  store i64 %.1130, ptr %46, align 8
+  %.1127 = phi i64 [ %spec.select136, %64 ], [ %47, %36 ], [ %45, %55 ]
+  store i64 %.1127, ptr %46, align 8
   %exitcond169.not = icmp eq i64 %44, %29
   br i1 %exitcond169.not, label %.loopexit138, label %32, !llvm.loop !7
 
 .loopexit138:                                     ; preds = %.loopexit137, %24, %49
-  %.1127 = phi i64 [ %spec.select, %49 ], [ %26, %24 ], [ %29, %.loopexit137 ]
+  %.1130 = phi i64 [ %spec.select, %49 ], [ %26, %24 ], [ %29, %.loopexit137 ]
   %67 = getelementptr inbounds i64, ptr %15, i64 %.0125152
-  store i64 %.1127, ptr %67, align 8
+  store i64 %.1130, ptr %67, align 8
   %exitcond170.not = icmp eq i64 %27, %0
   br i1 %exitcond170.not, label %.preheader, label %24, !llvm.loop !8
 

@@ -437,10 +437,10 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
 
 .lr.ph.lr.ph.i:                                   ; preds = %.outer.i, %.lr.ph.lr.ph.lr.ph.i
   %indvars.iv111.i = phi i64 [ 0, %.lr.ph.lr.ph.lr.ph.i ], [ %indvars.iv.next112.i, %.outer.i ]
-  %.028.ph81.i = phi i32 [ 0, %.lr.ph.lr.ph.lr.ph.i ], [ %lftr.wideiv.i95, %.outer.i ]
+  %.027.ph81.i = phi i32 [ 0, %.lr.ph.lr.ph.lr.ph.i ], [ %lftr.wideiv.i95, %.outer.i ]
   %exitcond114.not.i = icmp eq i64 %indvars.iv111.i, %29
-  %44 = zext i32 %.028.ph81.i to i64
-  %umax118.i = call i32 @llvm.umax.i32(i32 %.028.ph81.i, i32 %.0.lcssa.i)
+  %44 = zext i32 %.027.ph81.i to i64
+  %umax118.i = call i32 @llvm.umax.i32(i32 %.027.ph81.i, i32 %.0.lcssa.i)
   br i1 %exitcond114.not.i, label %.lr.ph.lr.ph.split.i, label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.lr.ph.i, %.split41.us.split.us.us.i
@@ -537,33 +537,33 @@ uv__cpu_num.exit.thread:                          ; preds = %21, %._crit_edge.i,
   br label %72
 
 .outer34._crit_edge.i:                            ; preds = %.split41.split.us.i, %61, %.lr.ph.split.split.i, %.outer34._crit_edge.loopexit94.i, %.outer34._crit_edge.loopexit93.i, %.outer34._crit_edge.loopexit91.i
-  %.029.ph.lcssa37.i = phi i32 [ %66, %.outer34._crit_edge.loopexit91.i ], [ %67, %.outer34._crit_edge.loopexit93.i ], [ %68, %.outer34._crit_edge.loopexit94.i ], [ %.0.lcssa.i, %.lr.ph.split.split.i ], [ %.0.lcssa.i, %61 ], [ %.0.lcssa.i, %.split41.split.us.i ]
+  %.028.ph.lcssa37.i = phi i32 [ %66, %.outer34._crit_edge.loopexit91.i ], [ %67, %.outer34._crit_edge.loopexit93.i ], [ %68, %.outer34._crit_edge.loopexit94.i ], [ %.0.lcssa.i, %.lr.ph.split.split.i ], [ %.0.lcssa.i, %61 ], [ %.0.lcssa.i, %.split41.split.us.i ]
   %71 = call i32 @fclose(ptr noundef nonnull %33)
-  %.not32.i = icmp eq i32 %.029.ph.lcssa37.i, 0
+  %.not32.i = icmp eq i32 %.028.ph.lcssa37.i, 0
   br i1 %.not32.i, label %77, label %72
 
 72:                                               ; preds = %.outer34._crit_edge.i, %.outer34._crit_edge.thread129.i
-  %.029.ph.lcssa37132.i = phi i32 [ %69, %.outer34._crit_edge.thread129.i ], [ %.029.ph.lcssa37.i, %.outer34._crit_edge.i ]
-  %73 = add i32 %.029.ph.lcssa37132.i, -1
+  %.028.ph.lcssa37132.i = phi i32 [ %69, %.outer34._crit_edge.thread129.i ], [ %.028.ph.lcssa37.i, %.outer34._crit_edge.i ]
+  %73 = add i32 %.028.ph.lcssa37132.i, -1
   %74 = zext i32 %73 to i64
   %75 = getelementptr inbounds %struct.uv_cpu_info_s, ptr %30, i64 %74
   %76 = load ptr, ptr %75, align 8
   br label %77
 
 77:                                               ; preds = %72, %.outer34._crit_edge.i, %.outer34._crit_edge.thread.i
-  %.029.ph.lcssa37128.i = phi i32 [ %.029.ph.lcssa37132.i, %72 ], [ 0, %.outer34._crit_edge.i ], [ 0, %.outer34._crit_edge.thread.i ]
-  %.027.i = phi ptr [ %76, %72 ], [ @.str.14, %.outer34._crit_edge.i ], [ @.str.14, %.outer34._crit_edge.thread.i ]
-  %78 = icmp ult i32 %.029.ph.lcssa37128.i, %.0.lcssa.i
+  %.028.ph.lcssa37128.i = phi i32 [ %.028.ph.lcssa37132.i, %72 ], [ 0, %.outer34._crit_edge.i ], [ 0, %.outer34._crit_edge.thread.i ]
+  %.029.i = phi ptr [ %76, %72 ], [ @.str.14, %.outer34._crit_edge.i ], [ @.str.14, %.outer34._crit_edge.thread.i ]
+  %78 = icmp ult i32 %.028.ph.lcssa37128.i, %.0.lcssa.i
   br i1 %78, label %.lr.ph85.preheader.i, label %read_models.exit.thread
 
 .lr.ph85.preheader.i:                             ; preds = %77
-  %79 = zext i32 %.029.ph.lcssa37128.i to i64
+  %79 = zext i32 %.028.ph.lcssa37128.i to i64
   br label %.lr.ph85.i
 
 .lr.ph85.i:                                       ; preds = %83, %.lr.ph85.preheader.i
   %indvars.iv121.i = phi i64 [ %79, %.lr.ph85.preheader.i ], [ %indvars.iv.next122.i, %83 ]
-  %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.027.i) #16
-  %81 = call ptr @uv__strndup(ptr noundef %.027.i, i64 noundef %80) #14
+  %80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.029.i) #16
+  %81 = call ptr @uv__strndup(ptr noundef %.029.i, i64 noundef %80) #14
   %82 = icmp eq ptr %81, null
   br i1 %82, label %.thread66, label %83
 
@@ -690,7 +690,7 @@ read_models.exit:                                 ; preds = %32
   br i1 %.not, label %.lr.ph.i38, label %read_speeds.exit
 
 121:                                              ; preds = %read_models.exit, %.thread66
-  %.01971 = phi i32 [ -12, %.thread66 ], [ %87, %read_models.exit ]
+  %.071 = phi i32 [ -12, %.thread66 ], [ %87, %read_models.exit ]
   call void @uv_free_cpu_info(ptr noundef nonnull %30, i32 noundef %.0.lcssa.i) #14
   br label %135
 
@@ -736,7 +736,7 @@ read_speeds.exit:                                 ; preds = %read_cpufreq.exit.i
   br label %135
 
 135:                                              ; preds = %uv__cpu_num.exit.thread, %28, %read_speeds.exit, %121
-  %.1 = phi i32 [ -12, %28 ], [ %.01971, %121 ], [ 0, %read_speeds.exit ], [ -5, %uv__cpu_num.exit.thread ]
+  %.1 = phi i32 [ -12, %28 ], [ %.071, %121 ], [ 0, %read_speeds.exit ], [ -5, %uv__cpu_num.exit.thread ]
   %136 = call i32 @fclose(ptr noundef nonnull %15)
   %.not25 = icmp eq i32 %136, 0
   br i1 %.not25, label %141, label %137
@@ -754,8 +754,8 @@ read_speeds.exit:                                 ; preds = %read_cpufreq.exit.i
   unreachable
 
 141:                                              ; preds = %135, %137, %137, %17
-  %.0 = phi i32 [ %20, %17 ], [ %.1, %137 ], [ %.1, %137 ], [ %.1, %135 ]
-  ret i32 %.0
+  %.019 = phi i32 [ %20, %17 ], [ %.1, %137 ], [ %.1, %137 ], [ %.1, %135 ]
+  ret i32 %.019
 }
 
 declare ptr @uv__open_file(ptr noundef) local_unnamed_addr #1
@@ -780,8 +780,8 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_interface_addresses
   br i1 %.not, label %.preheader76, label %5
 
 .preheader76:                                     ; preds = %2
-  %.04877 = load ptr, ptr %3, align 8
-  %.not5678 = icmp eq ptr %.04877, null
+  %.05077 = load ptr, ptr %3, align 8
+  %.not5678 = icmp eq ptr %.05077, null
   br i1 %.not5678, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %2
@@ -791,15 +791,15 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_interface_addresses
   br label %95
 
 .lr.ph:                                           ; preds = %.preheader76, %uv__ifaddr_exclude.exit.thread
-  %.04879 = phi ptr [ %.048, %uv__ifaddr_exclude.exit.thread ], [ %.04877, %.preheader76 ]
-  %9 = getelementptr inbounds i8, ptr %.04879, i64 16
+  %.05079 = phi ptr [ %.050, %uv__ifaddr_exclude.exit.thread ], [ %.05077, %.preheader76 ]
+  %9 = getelementptr inbounds i8, ptr %.05079, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 65
   %or.cond.not.i = icmp eq i32 %11, 65
   br i1 %or.cond.not.i, label %12, label %uv__ifaddr_exclude.exit.thread
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %.04879, i64 24
+  %13 = getelementptr inbounds i8, ptr %.05079, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %uv__ifaddr_exclude.exit.thread, label %16
@@ -816,8 +816,8 @@ uv__ifaddr_exclude.exit:                          ; preds = %16
   br label %uv__ifaddr_exclude.exit.thread
 
 uv__ifaddr_exclude.exit.thread:                   ; preds = %16, %12, %.lr.ph, %uv__ifaddr_exclude.exit
-  %.048 = load ptr, ptr %.04879, align 8
-  %.not56 = icmp eq ptr %.048, null
+  %.050 = load ptr, ptr %.05079, align 8
+  %.not56 = icmp eq ptr %.050, null
   br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %uv__ifaddr_exclude.exit.thread, %.preheader76
@@ -826,7 +826,7 @@ uv__ifaddr_exclude.exit.thread:                   ; preds = %16, %12, %.lr.ph, %
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %._crit_edge
-  call void @freeifaddrs(ptr noundef %.04877) #14
+  call void @freeifaddrs(ptr noundef %.05077) #14
   br label %95
 
 24:                                               ; preds = %._crit_edge
@@ -846,21 +846,21 @@ uv__ifaddr_exclude.exit.thread:                   ; preds = %16, %12, %.lr.ph, %
   br label %95
 
 .preheader:                                       ; preds = %uv__ifaddr_exclude.exit65.thread
-  %.288.pre = load ptr, ptr %3, align 8
-  %.not5989 = icmp eq ptr %.288.pre, null
+  %.25288.pre = load ptr, ptr %3, align 8
+  %.not5989 = icmp eq ptr %.25288.pre, null
   br i1 %.not5989, label %._crit_edge92, label %.lr.ph91
 
 .lr.ph84:                                         ; preds = %.preheader75, %uv__ifaddr_exclude.exit65.thread
-  %.183 = phi ptr [ %.1, %uv__ifaddr_exclude.exit65.thread ], [ %27, %.preheader75 ]
-  %.05082 = phi ptr [ %.151, %uv__ifaddr_exclude.exit65.thread ], [ %26, %.preheader75 ]
-  %29 = getelementptr inbounds i8, ptr %.183, i64 16
+  %.15183 = phi ptr [ %.151, %uv__ifaddr_exclude.exit65.thread ], [ %27, %.preheader75 ]
+  %.04982 = phi ptr [ %.1, %uv__ifaddr_exclude.exit65.thread ], [ %26, %.preheader75 ]
+  %29 = getelementptr inbounds i8, ptr %.15183, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 65
   %or.cond.not.i63 = icmp eq i32 %31, 65
   br i1 %or.cond.not.i63, label %32, label %uv__ifaddr_exclude.exit65.thread
 
 32:                                               ; preds = %.lr.ph84
-  %33 = getelementptr inbounds i8, ptr %.183, i64 24
+  %33 = getelementptr inbounds i8, ptr %.15183, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %uv__ifaddr_exclude.exit65.thread, label %36
@@ -871,14 +871,14 @@ uv__ifaddr_exclude.exit.thread:                   ; preds = %16, %12, %.lr.ph, %
   br i1 %38, label %uv__ifaddr_exclude.exit65.thread, label %uv__ifaddr_exclude.exit65
 
 uv__ifaddr_exclude.exit65:                        ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %.183, i64 8
+  %39 = getelementptr inbounds i8, ptr %.15183, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr @uv__strdup(ptr noundef %40) #14
-  store ptr %41, ptr %.05082, align 8
+  store ptr %41, ptr %.04982, align 8
   %42 = load ptr, ptr %33, align 8
   %43 = load i16, ptr %42, align 2
   %44 = icmp eq i16 %43, 10
-  %45 = getelementptr inbounds i8, ptr %.05082, i64 20
+  %45 = getelementptr inbounds i8, ptr %.04982, i64 20
   br i1 %44, label %46, label %47
 
 46:                                               ; preds = %uv__ifaddr_exclude.exit65
@@ -890,11 +890,11 @@ uv__ifaddr_exclude.exit65:                        ; preds = %36
   br label %48
 
 48:                                               ; preds = %47, %46
-  %49 = getelementptr inbounds i8, ptr %.183, i64 32
+  %49 = getelementptr inbounds i8, ptr %.15183, i64 32
   %50 = load ptr, ptr %49, align 8
   %51 = load i16, ptr %50, align 2
   %52 = icmp eq i16 %51, 10
-  %53 = getelementptr inbounds i8, ptr %.05082, i64 48
+  %53 = getelementptr inbounds i8, ptr %.04982, i64 48
   br i1 %52, label %54, label %55
 
 54:                                               ; preds = %48
@@ -909,27 +909,27 @@ uv__ifaddr_exclude.exit65:                        ; preds = %36
   %57 = load i32, ptr %29, align 8
   %58 = lshr i32 %57, 3
   %.lobit = and i32 %58, 1
-  %59 = getelementptr inbounds i8, ptr %.05082, i64 16
+  %59 = getelementptr inbounds i8, ptr %.04982, i64 16
   store i32 %.lobit, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %.05082, i64 80
+  %60 = getelementptr inbounds i8, ptr %.04982, i64 80
   br label %uv__ifaddr_exclude.exit65.thread
 
 uv__ifaddr_exclude.exit65.thread:                 ; preds = %36, %32, %.lr.ph84, %56
-  %.151 = phi ptr [ %60, %56 ], [ %.05082, %.lr.ph84 ], [ %.05082, %32 ], [ %.05082, %36 ]
-  %.1 = load ptr, ptr %.183, align 8
-  %.not58 = icmp eq ptr %.1, null
+  %.1 = phi ptr [ %60, %56 ], [ %.04982, %.lr.ph84 ], [ %.04982, %32 ], [ %.04982, %36 ]
+  %.151 = load ptr, ptr %.15183, align 8
+  %.not58 = icmp eq ptr %.151, null
   br i1 %.not58, label %.preheader, label %.lr.ph84, !llvm.loop !16
 
 .lr.ph91:                                         ; preds = %.preheader, %uv__ifaddr_exclude.exit68.thread
-  %.290 = phi ptr [ %.2, %uv__ifaddr_exclude.exit68.thread ], [ %.288.pre, %.preheader ]
-  %61 = getelementptr inbounds i8, ptr %.290, i64 16
+  %.25290 = phi ptr [ %.252, %uv__ifaddr_exclude.exit68.thread ], [ %.25288.pre, %.preheader ]
+  %61 = getelementptr inbounds i8, ptr %.25290, i64 16
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 65
   %or.cond.not.i66 = icmp eq i32 %63, 65
   br i1 %or.cond.not.i66, label %64, label %uv__ifaddr_exclude.exit68.thread
 
 64:                                               ; preds = %.lr.ph91
-  %65 = getelementptr inbounds i8, ptr %.290, i64 24
+  %65 = getelementptr inbounds i8, ptr %.25290, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %uv__ifaddr_exclude.exit68.thread, label %68
@@ -946,16 +946,16 @@ uv__ifaddr_exclude.exit68:                        ; preds = %68
 
 .lr.ph87:                                         ; preds = %uv__ifaddr_exclude.exit68
   %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %.290, i64 8
+  %74 = getelementptr inbounds i8, ptr %.25290, i64 8
   br label %75
 
 75:                                               ; preds = %.lr.ph87, %89
   %76 = phi i32 [ %71, %.lr.ph87 ], [ %90, %89 ]
-  %.04986 = phi i32 [ 0, %.lr.ph87 ], [ %92, %89 ]
-  %.25285 = phi ptr [ %73, %.lr.ph87 ], [ %91, %89 ]
+  %.04886 = phi i32 [ 0, %.lr.ph87 ], [ %92, %89 ]
+  %.285 = phi ptr [ %73, %.lr.ph87 ], [ %91, %89 ]
   %77 = load ptr, ptr %74, align 8
   %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #16
-  %79 = load ptr, ptr %.25285, align 8
+  %79 = load ptr, ptr %.285, align 8
   %80 = call i32 @strncmp(ptr noundef %79, ptr noundef %77, i64 noundef %78) #16
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %89
@@ -970,7 +970,7 @@ uv__ifaddr_exclude.exit68:                        ; preds = %68
 
 85:                                               ; preds = %82, %82
   %86 = load ptr, ptr %65, align 8
-  %87 = getelementptr inbounds i8, ptr %.25285, i64 8
+  %87 = getelementptr inbounds i8, ptr %.285, i64 8
   %88 = getelementptr inbounds i8, ptr %86, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %87, ptr noundef nonnull align 4 dereferenceable(6) %88, i64 6, i1 false)
   %.pre = load i32, ptr %1, align 4
@@ -978,18 +978,18 @@ uv__ifaddr_exclude.exit68:                        ; preds = %68
 
 89:                                               ; preds = %82, %85, %75
   %90 = phi i32 [ %76, %82 ], [ %.pre, %85 ], [ %76, %75 ]
-  %91 = getelementptr inbounds i8, ptr %.25285, i64 80
-  %92 = add nuw nsw i32 %.04986, 1
+  %91 = getelementptr inbounds i8, ptr %.285, i64 80
+  %92 = add nuw nsw i32 %.04886, 1
   %93 = icmp slt i32 %92, %90
   br i1 %93, label %75, label %uv__ifaddr_exclude.exit68.thread, !llvm.loop !17
 
 uv__ifaddr_exclude.exit68.thread:                 ; preds = %89, %uv__ifaddr_exclude.exit68, %68, %64, %.lr.ph91
-  %.2 = load ptr, ptr %.290, align 8
-  %.not59 = icmp eq ptr %.2, null
+  %.252 = load ptr, ptr %.25290, align 8
+  %.not59 = icmp eq ptr %.252, null
   br i1 %.not59, label %._crit_edge92, label %.lr.ph91, !llvm.loop !18
 
 ._crit_edge92:                                    ; preds = %uv__ifaddr_exclude.exit68.thread, %.preheader75, %.preheader
-  %94 = phi ptr [ null, %.preheader ], [ null, %.preheader75 ], [ %.288.pre, %uv__ifaddr_exclude.exit68.thread ]
+  %94 = phi ptr [ null, %.preheader ], [ null, %.preheader75 ], [ %.25288.pre, %uv__ifaddr_exclude.exit68.thread ]
   call void @freeifaddrs(ptr noundef %94) #14
   br label %95
 

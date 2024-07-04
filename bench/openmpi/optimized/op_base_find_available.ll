@@ -18,16 +18,16 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_op_base_find_available(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_op_base_framework, i64 112), align 8
-  %.014.in20 = getelementptr inbounds i8, ptr %3, i64 16
-  %.01421 = load volatile ptr, ptr %.014.in20, align 8
+  %.0.in20 = getelementptr inbounds i8, ptr %3, i64 16
+  %.021 = load volatile ptr, ptr %.0.in20, align 8
   %.not22 = icmp eq ptr %3, getelementptr inbounds (i8, ptr @ompi_op_base_framework, i64 96)
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %init_query.exit
-  %.01425 = phi ptr [ %.014, %init_query.exit ], [ %.01421, %2 ]
-  %.014.in24 = phi ptr [ %.014.in, %init_query.exit ], [ %.014.in20, %2 ]
-  %.023 = phi ptr [ %.01425, %init_query.exit ], [ %3, %2 ]
-  %4 = getelementptr inbounds i8, ptr %.023, i64 40
+  %.025 = phi ptr [ %.0, %init_query.exit ], [ %.021, %2 ]
+  %.0.in24 = phi ptr [ %.0.in, %init_query.exit ], [ %.0.in20, %2 ]
+  %.01423 = phi ptr [ %.025, %init_query.exit ], [ %3, %2 ]
+  %4 = getelementptr inbounds i8, ptr %.01423, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_op_base_framework, i64 76), align 4
   %7 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %6) #3
@@ -100,13 +100,13 @@ define noundef i32 @ompi_op_base_find_available(i1 noundef zeroext %0, i1 nounde
   br label %init_query.exit
 
 46:                                               ; preds = %28, %31, %39, %38
-  %47 = load volatile ptr, ptr %.014.in24, align 8
-  %48 = getelementptr inbounds i8, ptr %.023, i64 24
+  %47 = load volatile ptr, ptr %.0.in24, align 8
+  %48 = getelementptr inbounds i8, ptr %.01423, i64 24
   %49 = load volatile ptr, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 16
   store volatile ptr %47, ptr %50, align 8
   %51 = load volatile ptr, ptr %48, align 8
-  %52 = load volatile ptr, ptr %.014.in24, align 8
+  %52 = load volatile ptr, ptr %.0.in24, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 24
   store volatile ptr %51, ptr %53, align 8
   %54 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_op_base_framework, i64 136), align 8
@@ -115,7 +115,7 @@ define noundef i32 @ompi_op_base_find_available(i1 noundef zeroext %0, i1 nounde
   %56 = load volatile ptr, ptr %48, align 8
   %57 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_op_base_framework, i64 76), align 4
   tail call void @mca_base_component_close(ptr noundef nonnull %5, i32 noundef %57) #3
-  %58 = getelementptr inbounds i8, ptr %.023, i64 8
+  %58 = getelementptr inbounds i8, ptr %.01423, i64 8
   %59 = load i8, ptr @opal_uses_threads, align 1
   %60 = trunc i8 %59 to i1
   br i1 %60, label %61, label %64
@@ -138,7 +138,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %61, %64
   br i1 %68, label %69, label %init_query.exit
 
 69:                                               ; preds = %opal_thread_add_fetch_32.exit
-  %70 = load ptr, ptr %.023, align 8
+  %70 = load ptr, ptr %.01423, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 48
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %72, align 8
@@ -148,20 +148,20 @@ opal_thread_add_fetch_32.exit:                    ; preds = %61, %64
 .lr.ph.i:                                         ; preds = %69, %.lr.ph.i
   %74 = phi ptr [ %76, %.lr.ph.i ], [ %73, %69 ]
   %.07.i = phi ptr [ %75, %.lr.ph.i ], [ %72, %69 ]
-  tail call void %74(ptr noundef nonnull %.023) #3
+  tail call void %74(ptr noundef nonnull %.01423) #3
   %75 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %76 = load ptr, ptr %75, align 8
   %.not.i17 = icmp eq ptr %76, null
   br i1 %.not.i17, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %69
-  tail call void @free(ptr noundef %.023) #3
+  tail call void @free(ptr noundef %.01423) #3
   br label %init_query.exit
 
 init_query.exit:                                  ; preds = %43, %42, %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  %.014.in = getelementptr inbounds i8, ptr %.01425, i64 16
-  %.014 = load volatile ptr, ptr %.014.in, align 8
-  %.not = icmp eq ptr %.01425, getelementptr inbounds (i8, ptr @ompi_op_base_framework, i64 96)
+  %.0.in = getelementptr inbounds i8, ptr %.025, i64 16
+  %.0 = load volatile ptr, ptr %.0.in, align 8
+  %.not = icmp eq ptr %.025, getelementptr inbounds (i8, ptr @ompi_op_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %init_query.exit, %2

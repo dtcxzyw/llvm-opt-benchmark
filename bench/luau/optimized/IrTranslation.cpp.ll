@@ -3754,9 +3754,9 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3
   br i1 %67, label %68, label %.thread268
 
 68:                                               ; preds = %.thread, %63
-  %.sroa.1.0.extract.trunc263267 = phi i8 [ 15, %.thread ], [ %.sroa.1.0.extract.trunc, %63 ]
+  %.sroa.1.0.extract.trunc263265 = phi i8 [ 15, %.thread ], [ %.sroa.1.0.extract.trunc, %63 ]
   %69 = phi i32 [ 15, %.thread ], [ %22, %63 ]
-  %70 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen22isUserdataBytecodeTypeEh(i8 noundef zeroext %.sroa.1.0.extract.trunc263267)
+  %70 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen22isUserdataBytecodeTypeEh(i8 noundef zeroext %.sroa.1.0.extract.trunc263265)
   br i1 %70, label %73, label %.thread268
 
 71:                                               ; preds = %63
@@ -3764,7 +3764,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3
   br i1 %72, label %73, label %.thread268
 
 73:                                               ; preds = %71, %68
-  %.sroa.1.0.extract.trunc263265 = phi i8 [ %.sroa.1.0.extract.trunc, %71 ], [ %.sroa.1.0.extract.trunc263267, %68 ]
+  %.sroa.1.0.extract.trunc263266 = phi i8 [ %.sroa.1.0.extract.trunc, %71 ], [ %.sroa.1.0.extract.trunc263265, %68 ]
   %74 = trunc i32 %6 to i8
   %75 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %74)
   %76 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder6vmExitEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %2)
@@ -3801,7 +3801,7 @@ _ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit: ; preds = %3
   %101 = getelementptr inbounds i8, ptr %99, i64 20
   %102 = load i32, ptr %101, align 4
   %103 = zext i32 %102 to i64
-  %104 = tail call noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %.sroa.1.0.extract.trunc263265, ptr noundef nonnull %100, i64 noundef %103, i32 noundef %87, i32 noundef %7, i32 noundef %90, i32 noundef %92, i32 noundef %2)
+  %104 = tail call noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %.sroa.1.0.extract.trunc263266, ptr noundef nonnull %100, i64 noundef %103, i32 noundef %87, i32 noundef %7, i32 noundef %90, i32 noundef %92, i32 noundef %2)
   br i1 %104, label %178, label %105
 
 105:                                              ; preds = %83, %79, %73

@@ -360,8 +360,8 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.inc, %entry
-  %c_get_libctx.0 = phi ptr [ null, %entry ], [ %c_get_libctx.1, %for.inc ]
   %in.addr.0 = phi ptr [ %in, %entry ], [ %incdec.ptr, %for.inc ]
+  %c_get_libctx.0 = phi ptr [ null, %entry ], [ %c_get_libctx.1, %for.inc ]
   %0 = load i32, ptr %in.addr.0, align 8
   switch i32 %0, label %for.inc [
     i32 0, label %for.end

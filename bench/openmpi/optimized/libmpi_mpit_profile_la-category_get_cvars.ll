@@ -52,13 +52,13 @@ define range(i32 0, -2147483648) i32 @PMPI_T_category_get_cvars(i32 noundef %0, 
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %9
-  %.014 = phi i32 [ %11, %9 ], [ %7, %12 ], [ %7, %.lr.ph ]
+  %.013 = phi i32 [ %11, %9 ], [ %7, %12 ], [ %7, %.lr.ph ]
   call void @ompi_mpit_unlock() #3
   br label %22
 
 22:                                               ; preds = %3, %.loopexit
-  %.0 = phi i32 [ %.014, %.loopexit ], [ 55, %3 ]
-  ret i32 %.0
+  %.014 = phi i32 [ %.013, %.loopexit ], [ 55, %3 ]
+  ret i32 %.014
 }
 
 declare void @ompi_mpit_lock() local_unnamed_addr #1

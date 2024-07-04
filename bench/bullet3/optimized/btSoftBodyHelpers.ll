@@ -4266,29 +4266,29 @@ for.cond107.preheader.lr.ph:                      ; preds = %delete.notnull101
   br i1 %cmp108256, label %for.cond107.preheader.us, label %return
 
 for.cond107.preheader.us:                         ; preds = %for.cond107.preheader.lr.ph, %for.cond107.for.inc199_crit_edge.us
-  %iy.1261.us = phi i32 [ %add113.us, %for.cond107.for.inc199_crit_edge.us ], [ 0, %for.cond107.preheader.lr.ph ]
-  %z.0260.us = phi i32 [ %.us-phi.us, %for.cond107.for.inc199_crit_edge.us ], [ 0, %for.cond107.preheader.lr.ph ]
-  %add113.us = add nuw nsw i32 %iy.1261.us, 1
+  %z.0261.us = phi i32 [ %.us-phi.us, %for.cond107.for.inc199_crit_edge.us ], [ 0, %for.cond107.preheader.lr.ph ]
+  %iy.1260.us = phi i32 [ %add113.us, %for.cond107.for.inc199_crit_edge.us ], [ 0, %for.cond107.preheader.lr.ph ]
+  %add113.us = add nuw nsw i32 %iy.1260.us, 1
   %cmp114.us.not = icmp slt i32 %add113.us, %resy
-  %mul116.us = mul nuw nsw i32 %iy.1261.us, %resx
+  %mul116.us = mul nuw nsw i32 %iy.1260.us, %resx
   %mul122.us = mul nuw nsw i32 %add113.us, %resx
-  %sub8.i.us = sub nsw i32 %sub4.i, %iy.1261.us
+  %sub8.i.us = sub nsw i32 %sub4.i, %iy.1260.us
   %conv9.i.us = sitofp i32 %sub8.i.us to float
   %mul10.i.us = fmul float %div6.i, %conv9.i.us
-  %33 = xor i32 %iy.1261.us, -1
+  %33 = xor i32 %iy.1260.us, -1
   %sub19.i.us = add i32 %sub4.i, %33
   %conv20.i.us = sitofp i32 %sub19.i.us to float
   %mul21.i.us = fmul float %div6.i, %conv20.i.us
   br i1 %cmp114.us.not, label %for.body109.us262, label %for.body109.us.us
 
 for.body109.us262:                                ; preds = %for.cond107.preheader.us, %for.inc196.us
-  %z.1258.us = phi i32 [ %z.2.us, %for.inc196.us ], [ %z.0260.us, %for.cond107.preheader.us ]
-  %ix106.0257.us263 = phi i32 [ %add110.us264, %for.inc196.us ], [ 0, %for.cond107.preheader.us ]
-  %add110.us264 = add nuw nsw i32 %ix106.0257.us263, 1
+  %ix106.0258.us263 = phi i32 [ %add110.us264, %for.inc196.us ], [ 0, %for.cond107.preheader.us ]
+  %z.1257.us = phi i32 [ %z.2.us, %for.inc196.us ], [ %z.0261.us, %for.cond107.preheader.us ]
+  %add110.us264 = add nuw nsw i32 %ix106.0258.us263, 1
   %cmp111.us265.not = icmp slt i32 %add110.us264, %resx
-  %add117.us266 = add nuw nsw i32 %ix106.0257.us263, %mul116.us
+  %add117.us266 = add nuw nsw i32 %ix106.0258.us263, %mul116.us
   %add120.us267 = add nuw nsw i32 %add110.us264, %mul116.us
-  %add123.us = add nuw nsw i32 %ix106.0257.us263, %mul122.us
+  %add123.us = add nuw nsw i32 %ix106.0258.us263, %mul122.us
   %add127.us = add nuw nsw i32 %add110.us264, %mul122.us
   br i1 %cmp111.us265.not, label %if.then129.us268, label %for.inc196.us.critedge
 
@@ -4299,9 +4299,9 @@ if.then129.us268:                                 ; preds = %for.body109.us262
   br i1 %tobool137.not, label %if.end190.critedge.us, label %if.then138.us
 
 if.then138.us:                                    ; preds = %if.then129.us268
-  %conv1.i.us = uitofp nneg i32 %ix106.0257.us263 to float
+  %conv1.i.us = uitofp nneg i32 %ix106.0258.us263 to float
   %mul.i.us = fmul float %div.i, %conv1.i.us
-  %idxprom141.us = sext i32 %z.1258.us to i64
+  %idxprom141.us = sext i32 %z.1257.us to i64
   %arrayidx142.us = getelementptr inbounds float, ptr %tex_coords, i64 %idxprom141.us
   store float %mul.i.us, ptr %arrayidx142.us, align 4
   %arrayidx146.us = getelementptr i8, ptr %arrayidx142.us, i64 4
@@ -4343,7 +4343,7 @@ if.then192.us:                                    ; preds = %if.end190.us
   br label %if.end193.us
 
 if.end193.us:                                     ; preds = %if.then192.us, %if.end190.us
-  %add194.us = add nsw i32 %z.1258.us, 12
+  %add194.us = add nsw i32 %z.1257.us, 12
   br label %for.inc196.us
 
 for.inc196.us.critedge:                           ; preds = %for.body109.us262
@@ -4351,24 +4351,24 @@ for.inc196.us.critedge:                           ; preds = %for.body109.us262
   br label %for.inc196.us
 
 for.inc196.us:                                    ; preds = %for.inc196.us.critedge, %if.end193.us
-  %z.2.us = phi i32 [ %add194.us, %if.end193.us ], [ %z.1258.us, %for.inc196.us.critedge ]
+  %z.2.us = phi i32 [ %add194.us, %if.end193.us ], [ %z.1257.us, %for.inc196.us.critedge ]
   %exitcond285.not = icmp eq i32 %add110.us264, %resx
   br i1 %exitcond285.not, label %for.cond107.for.inc199_crit_edge.us, label %for.body109.us262, !llvm.loop !37
 
 for.cond107.for.inc199_crit_edge.us:              ; preds = %if.end130.us.us, %for.inc196.us
-  %.us-phi.us = phi i32 [ %z.2.us, %for.inc196.us ], [ %z.0260.us, %if.end130.us.us ]
+  %.us-phi.us = phi i32 [ %z.2.us, %for.inc196.us ], [ %z.0261.us, %if.end130.us.us ]
   %exitcond286.not = icmp eq i32 %add113.us, %resy
   br i1 %exitcond286.not, label %return, label %for.cond107.preheader.us, !llvm.loop !38
 
 for.body109.us.us:                                ; preds = %for.cond107.preheader.us, %if.end130.us.us
-  %ix106.0257.us.us = phi i32 [ %add110.us.us, %if.end130.us.us ], [ 0, %for.cond107.preheader.us ]
-  %add110.us.us = add nuw nsw i32 %ix106.0257.us.us, 1
+  %ix106.0258.us.us = phi i32 [ %add110.us.us, %if.end130.us.us ], [ 0, %for.cond107.preheader.us ]
+  %add110.us.us = add nuw nsw i32 %ix106.0258.us.us, 1
   %cmp111.us.us.not = icmp slt i32 %add110.us.us, %resx
   br i1 %cmp111.us.us.not, label %if.then129.us.us, label %if.end130.us.us
 
 if.then129.us.us:                                 ; preds = %for.body109.us.us
   %add120.us.us = add nuw nsw i32 %add110.us.us, %mul116.us
-  %add117.us.us = add nuw nsw i32 %ix106.0257.us.us, %mul116.us
+  %add117.us.us = add nuw nsw i32 %ix106.0258.us.us, %mul116.us
   tail call void @_ZN10btSoftBody10appendLinkEiiPNS_8MaterialEb(ptr noundef nonnull align 8 dereferenceable(2064) %call.i200, i32 noundef %add117.us.us, i32 noundef %add120.us.us, ptr noundef null, i1 noundef zeroext false)
   br label %if.end130.us.us
 

@@ -485,19 +485,19 @@ define internal i32 @dissect_fcfcs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %91
 
 91:                                               ; preds = %88, %83
-  %.0169 = phi i32 [ %31, %83 ], [ %., %88 ]
-  %.0168 = phi i32 [ 0, %83 ], [ %.185, %88 ]
-  %.not184 = icmp eq i32 %.0169, 32769
+  %.0168 = phi i32 [ %31, %83 ], [ %., %88 ]
+  %.0 = phi i32 [ 0, %83 ], [ %.185, %88 ]
+  %.not184 = icmp eq i32 %.0168, 32769
   %92 = load ptr, ptr %9, align 8
   br i1 %.not184, label %.thread, label %94
 
 .thread:                                          ; preds = %91
-  %93 = call ptr @val_to_str(i32 noundef %.0168, ptr noundef nonnull @fc_fcs_opcode_abbrev_val, ptr noundef nonnull @.str.188) #4
+  %93 = call ptr @val_to_str(i32 noundef %.0, ptr noundef nonnull @fc_fcs_opcode_abbrev_val, ptr noundef nonnull @.str.188) #4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %92, i32 noundef 25, ptr noundef nonnull @.str.190, ptr noundef %93) #4
   br label %98
 
 94:                                               ; preds = %91
-  %95 = call ptr @val_to_str(i32 noundef %.0169, ptr noundef nonnull @fc_fcs_opcode_abbrev_val, ptr noundef nonnull @.str.188) #4
+  %95 = call ptr @val_to_str(i32 noundef %.0168, ptr noundef nonnull @fc_fcs_opcode_abbrev_val, ptr noundef nonnull @.str.188) #4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %92, i32 noundef 25, ptr noundef nonnull @.str.189, ptr noundef %95) #4
   br i1 %.not179, label %96, label %98
 
@@ -507,7 +507,7 @@ define internal i32 @dissect_fcfcs(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 98:                                               ; preds = %.thread, %77, %94, %73
   %.0171 = phi i32 [ 1, %73 ], [ 0, %94 ], [ 0, %77 ], [ 0, %.thread ]
-  %.1 = phi i32 [ %31, %73 ], [ %.0169, %94 ], [ %31, %77 ], [ 32769, %.thread ]
+  %.1 = phi i32 [ %31, %73 ], [ %.0168, %94 ], [ %31, %77 ], [ 32769, %.thread ]
   %.not182 = icmp eq ptr %2, null
   br i1 %.not182, label %104, label %99
 
@@ -677,8 +677,8 @@ dissect_fcfcs_dpln.exit:                          ; preds = %132, %130, %137, %1
   br label %140
 
 140:                                              ; preds = %4, %dissect_fcfcs_dpln.exit, %96, %79
-  %.0 = phi i32 [ %139, %dissect_fcfcs_dpln.exit ], [ 0, %96 ], [ 0, %79 ], [ 0, %4 ]
-  ret i32 %.0
+  %.0169 = phi i32 [ %139, %dissect_fcfcs_dpln.exit ], [ 0, %96 ], [ 0, %79 ], [ 0, %4 ]
+  ret i32 %.0169
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1497,14 +1497,14 @@ define internal fastcc void @dissect_fcfcs_gcap(ptr noundef %0, ptr noundef %1, 
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6, %22
-  %.033 = phi i32 [ %23, %22 ], [ 20, %6 ]
-  %.02932 = phi i32 [ %24, %22 ], [ 0, %6 ]
-  %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.033) #4
+  %.033 = phi i32 [ %24, %22 ], [ 0, %6 ]
+  %.02932 = phi i32 [ %23, %22 ], [ 20, %6 ]
+  %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02932) #4
   %12 = load i32, ptr @hf_fcs_mgmt_subtype, align 4
   %13 = zext i8 %11 to i32
-  %14 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %.033, i32 noundef 1, i32 noundef %13) #4
+  %14 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %.02932, i32 noundef 1, i32 noundef %13) #4
   %15 = load i32, ptr @hf_fcs_vnd_capmask, align 4
-  %16 = or disjoint i32 %.033, 1
+  %16 = or disjoint i32 %.02932, 1
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef 3, i32 noundef 0) #4
   switch i8 %11, label %22 [
     i8 1, label %.sink.split
@@ -1517,13 +1517,13 @@ define internal fastcc void @dissect_fcfcs_gcap(ptr noundef %0, ptr noundef %1, 
 .sink.split:                                      ; preds = %.lr.ph, %18
   %hf_fcs_unsmask.sink = phi ptr [ @hf_fcs_unsmask, %18 ], [ @hf_fcs_fcsmask, %.lr.ph ]
   %19 = load i32, ptr %hf_fcs_unsmask.sink, align 4
-  %20 = add i32 %.033, 4
+  %20 = add i32 %.02932, 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef 0) #4
   br label %22
 
 22:                                               ; preds = %.sink.split, %.lr.ph
-  %23 = add i32 %.033, 8
-  %24 = add nuw nsw i32 %.02932, 1
+  %23 = add i32 %.02932, 8
+  %24 = add nuw nsw i32 %.033, 1
   %exitcond.not = icmp eq i32 %24, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 

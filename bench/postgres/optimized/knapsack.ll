@@ -30,14 +30,14 @@ define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr nocap
   br label %19
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.062 = phi i32 [ %18, %.lr.ph ], [ 0, %4 ]
-  %14 = sext i32 %.062 to i64
+  %.05362 = phi i32 [ %18, %.lr.ph ], [ 0, %4 ]
+  %14 = sext i32 %.05362 to i64
   %15 = getelementptr double, ptr %11, i64 %14
   store double 0.000000e+00, ptr %15, align 8
   %16 = tail call ptr @bms_make_singleton(i32 noundef %1) #2
   %17 = getelementptr ptr, ptr %12, i64 %14
   store ptr %16, ptr %17, align 8
-  %18 = add i32 %.062, 1
+  %18 = add i32 %.05362, 1
   %.not = icmp sgt i32 %18, %0
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !5
 
@@ -64,8 +64,8 @@ define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr nocap
   br i1 %.not60, label %.lr.ph65.split.us, label %.lr.ph65.split
 
 .lr.ph65.split.us:                                ; preds = %.lr.ph65, %39
-  %.05364.us = phi i32 [ %40, %39 ], [ %0, %.lr.ph65 ]
-  %28 = sext i32 %.05364.us to i64
+  %.064.us = phi i32 [ %40, %39 ], [ %0, %.lr.ph65 ]
+  %28 = sext i32 %.064.us to i64
   %29 = getelementptr double, ptr %11, i64 %28
   %30 = load double, ptr %29, align 8
   %31 = fadd double %26, %30
@@ -83,14 +83,14 @@ define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr nocap
   br label %39
 
 39:                                               ; preds = %33, %.lr.ph65.split.us
-  %40 = add i32 %.05364.us, -1
+  %40 = add i32 %.064.us, -1
   %.not59.us = icmp slt i32 %40, 0
   br i1 %.not59.us, label %._crit_edge, label %.lr.ph65.split.us, !llvm.loop !7
 
 .lr.ph65.split:                                   ; preds = %.lr.ph65, %59
-  %.05364 = phi i32 [ %60, %59 ], [ %0, %.lr.ph65 ]
-  %41 = sub i32 %.05364, %.fr
-  %42 = sext i32 %.05364 to i64
+  %.064 = phi i32 [ %60, %59 ], [ %0, %.lr.ph65 ]
+  %41 = sub i32 %.064, %.fr
+  %42 = sext i32 %.064 to i64
   %43 = getelementptr double, ptr %11, i64 %42
   %44 = load double, ptr %43, align 8
   %45 = sext i32 %41 to i64
@@ -115,7 +115,7 @@ define dso_local ptr @DiscreteKnapsack(i32 noundef %0, i32 noundef %1, ptr nocap
   br label %59
 
 59:                                               ; preds = %.lr.ph65.split, %50
-  %60 = add i32 %.05364, -1
+  %60 = add i32 %.064, -1
   %.not59 = icmp slt i32 %60, %.fr
   br i1 %.not59, label %._crit_edge, label %.lr.ph65.split, !llvm.loop !7
 

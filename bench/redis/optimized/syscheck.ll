@@ -309,10 +309,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %if.end10
   %1 = phi ptr [ %5, %if.end10 ], [ %0, %entry ]
-  %cur_check.010 = phi ptr [ %incdec.ptr, %if.end10 ], [ @checks, %entry ]
-  %ret.09 = phi i32 [ %ret.1, %if.end10 ], [ 1, %entry ]
+  %ret.010 = phi i32 [ %ret.1, %if.end10 ], [ 1, %entry ]
+  %cur_check.09 = phi ptr [ %incdec.ptr, %if.end10 ], [ @checks, %entry ]
   %call = call i32 %1(ptr noundef nonnull %err_msg) #8
-  %2 = load ptr, ptr %cur_check.010, align 8
+  %2 = load ptr, ptr %cur_check.09, align 8
   %call2 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %2)
   switch i32 %call, label %if.else7 [
     i32 0, label %if.then
@@ -336,9 +336,9 @@ if.else7:                                         ; preds = %while.body
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then5, %if.else7, %if.then
-  %ret.1 = phi i32 [ %ret.09, %if.then ], [ %ret.09, %if.then5 ], [ 0, %if.else7 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %cur_check.010, i64 16
-  %check_fn = getelementptr inbounds i8, ptr %cur_check.010, i64 24
+  %ret.1 = phi i32 [ %ret.010, %if.then ], [ %ret.010, %if.then5 ], [ 0, %if.else7 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %cur_check.09, i64 16
+  %check_fn = getelementptr inbounds i8, ptr %cur_check.09, i64 24
   %5 = load ptr, ptr %check_fn, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !5

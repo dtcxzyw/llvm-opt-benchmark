@@ -883,14 +883,14 @@ Vec_MemHashAlloc.exit:                            ; preds = %Abc_PrimeCudd.exit.
 52:                                               ; preds = %.lr.ph76, %373
   %53 = phi i32 [ %8, %.lr.ph76 ], [ %365, %373 ]
   %54 = phi i32 [ 0, %.lr.ph76 ], [ %366, %373 ]
-  %.03275 = phi i32 [ 0, %.lr.ph76 ], [ %374, %373 ]
+  %.075 = phi i32 [ 0, %.lr.ph76 ], [ %374, %373 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %3, i8 0, i64 100, i1 false)
   br i1 %.not3671, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %52 ]
   %55 = trunc nuw nsw i64 %indvars.iv to i32
-  %56 = lshr i32 %.03275, %55
+  %56 = lshr i32 %.075, %55
   %57 = trunc i32 %56 to i8
   %58 = and i8 %57, 1
   %59 = or disjoint i8 %58, 48
@@ -1579,7 +1579,7 @@ Vec_MemHashInsert.exit:                           ; preds = %275, %.lr.ph.i19.i,
   br label %373
 
 373:                                              ; preds = %372, %371
-  %374 = add nuw nsw i32 %.03275, 1
+  %374 = add nuw nsw i32 %.075, 1
   %exitcond98.not = icmp eq i32 %374, %smax
   br i1 %exitcond98.not, label %._crit_edge77, label %52, !llvm.loop !26
 

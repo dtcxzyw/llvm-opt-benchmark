@@ -10,7 +10,7 @@ define i64 @f64_to_i32(i64 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) loc
   %6 = and i64 %0, 4503599627370495
   %.not = icmp eq i64 %5, 0
   %7 = or disjoint i64 %6, 4503599627370496
-  %.017 = select i1 %.not, i64 %6, i64 %7
+  %.0 = select i1 %.not, i64 %6, i64 %7
   %8 = icmp ult i64 %5, 1063
   br i1 %8, label %9, label %softfloat_shiftRightJam64.exit
 
@@ -30,12 +30,12 @@ define i64 @f64_to_i32(i64 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) loc
   br label %softfloat_shiftRightJam64.exit
 
 19:                                               ; preds = %9
-  %20 = icmp ne i64 %.017, 0
+  %20 = icmp ne i64 %.0, 0
   %21 = zext i1 %20 to i64
   br label %softfloat_shiftRightJam64.exit
 
 softfloat_shiftRightJam64.exit:                   ; preds = %19, %11, %3
-  %.1 = phi i64 [ %.017, %3 ], [ %18, %11 ], [ %21, %19 ]
+  %.1 = phi i64 [ %.0, %3 ], [ %18, %11 ], [ %21, %19 ]
   %22 = icmp eq i64 %6, 0
   %23 = icmp ne i64 %5, 2047
   %24 = icmp slt i64 %0, 0

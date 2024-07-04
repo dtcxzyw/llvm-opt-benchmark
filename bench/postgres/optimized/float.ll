@@ -187,7 +187,7 @@ define dso_local float @float4in_internal(ptr noundef %0, ptr noundef writeonly 
 
 10:                                               ; preds = %.lr.ph, %16
   %11 = phi i8 [ %7, %.lr.ph ], [ %18, %16 ]
-  %.05468 = phi ptr [ %0, %.lr.ph ], [ %17, %16 ]
+  %.05568 = phi ptr [ %0, %.lr.ph ], [ %17, %16 ]
   %12 = zext i8 %11 to i64
   %13 = getelementptr i16, ptr %9, i64 %12
   %14 = load i16, ptr %13, align 2
@@ -196,7 +196,7 @@ define dso_local float @float4in_internal(ptr noundef %0, ptr noundef writeonly 
   br i1 %.not58, label %.critedge, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr i8, ptr %.05468, i64 1
+  %17 = getelementptr i8, ptr %.05568, i64 1
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !5
@@ -214,81 +214,81 @@ define dso_local float @float4in_internal(ptr noundef %0, ptr noundef writeonly 
 .critedge:                                        ; preds = %10
   %23 = tail call ptr @__errno_location() #20
   store i32 0, ptr %23, align 4
-  %24 = call float @strtof(ptr noundef nonnull %.05468, ptr noundef nonnull %6) #19
+  %24 = call float @strtof(ptr noundef nonnull %.05568, ptr noundef nonnull %6) #19
   %25 = load ptr, ptr %6, align 8
-  %26 = icmp ne ptr %25, %.05468
+  %26 = icmp ne ptr %25, %.05568
   %.pr = load i32, ptr %23, align 4
   %.not59 = icmp eq i32 %.pr, 0
   %or.cond82 = select i1 %26, i1 %.not59, i1 false
   br i1 %or.cond82, label %80, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.critedge
-  %27 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.6, i64 noundef 3) #19
+  %27 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05568, ptr noundef nonnull @.str.6, i64 noundef 3) #19
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %thread-pre-split
-  %30 = getelementptr i8, ptr %.05468, i64 3
+  %30 = getelementptr i8, ptr %.05568, i64 3
   store ptr %30, ptr %6, align 8
   br label %80
 
 31:                                               ; preds = %thread-pre-split
-  %32 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.7, i64 noundef 8) #19
+  %32 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05568, ptr noundef nonnull @.str.7, i64 noundef 8) #19
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %31
-  %35 = getelementptr i8, ptr %.05468, i64 8
+  %35 = getelementptr i8, ptr %.05568, i64 8
   store ptr %35, ptr %6, align 8
   br label %80
 
 36:                                               ; preds = %31
-  %37 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.8, i64 noundef 9) #19
+  %37 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05568, ptr noundef nonnull @.str.8, i64 noundef 9) #19
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %36
-  %40 = getelementptr i8, ptr %.05468, i64 9
+  %40 = getelementptr i8, ptr %.05568, i64 9
   store ptr %40, ptr %6, align 8
   br label %80
 
 41:                                               ; preds = %36
-  %42 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.9, i64 noundef 9) #19
+  %42 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05568, ptr noundef nonnull @.str.9, i64 noundef 9) #19
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %41
-  %45 = getelementptr i8, ptr %.05468, i64 9
+  %45 = getelementptr i8, ptr %.05568, i64 9
   store ptr %45, ptr %6, align 8
   br label %80
 
 46:                                               ; preds = %41
-  %47 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.10, i64 noundef 3) #19
+  %47 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05568, ptr noundef nonnull @.str.10, i64 noundef 3) #19
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %46
-  %50 = getelementptr i8, ptr %.05468, i64 3
+  %50 = getelementptr i8, ptr %.05568, i64 3
   store ptr %50, ptr %6, align 8
   br label %80
 
 51:                                               ; preds = %46
-  %52 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.11, i64 noundef 4) #19
+  %52 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05568, ptr noundef nonnull @.str.11, i64 noundef 4) #19
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %51
-  %55 = getelementptr i8, ptr %.05468, i64 4
+  %55 = getelementptr i8, ptr %.05568, i64 4
   store ptr %55, ptr %6, align 8
   br label %80
 
 56:                                               ; preds = %51
-  %57 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.12, i64 noundef 4) #19
+  %57 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05568, ptr noundef nonnull @.str.12, i64 noundef 4) #19
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
-  %60 = getelementptr i8, ptr %.05468, i64 4
+  %60 = getelementptr i8, ptr %.05568, i64 4
   store ptr %60, ptr %6, align 8
   br label %80
 
@@ -303,9 +303,9 @@ thread-pre-split:                                 ; preds = %.critedge
   br i1 %or.cond3, label %65, label %80
 
 65:                                               ; preds = %63
-  %66 = tail call ptr @pstrdup(ptr noundef nonnull %.05468) #19
+  %66 = tail call ptr @pstrdup(ptr noundef nonnull %.05568) #19
   %67 = ptrtoint ptr %25 to i64
-  %68 = ptrtoint ptr %.05468 to i64
+  %68 = ptrtoint ptr %.05568 to i64
   %69 = sub i64 %67, %68
   %70 = getelementptr i8, ptr %66, i64 %69
   store i8 0, ptr %70, align 1
@@ -330,7 +330,7 @@ thread-pre-split:                                 ; preds = %.critedge
 
 80:                                               ; preds = %.critedge, %29, %39, %49, %59, %63, %54, %44, %34
   %.promoted = phi ptr [ %30, %29 ], [ %35, %34 ], [ %40, %39 ], [ %45, %44 ], [ %50, %49 ], [ %55, %54 ], [ %60, %59 ], [ %25, %63 ], [ %25, %.critedge ]
-  %.055 = phi float [ 0x7FF8000000000000, %29 ], [ 0x7FF0000000000000, %34 ], [ 0x7FF0000000000000, %39 ], [ 0xFFF0000000000000, %44 ], [ 0x7FF0000000000000, %49 ], [ 0x7FF0000000000000, %54 ], [ 0xFFF0000000000000, %59 ], [ %24, %63 ], [ %24, %.critedge ]
+  %.0 = phi float [ 0x7FF8000000000000, %29 ], [ 0x7FF0000000000000, %34 ], [ 0x7FF0000000000000, %39 ], [ 0xFFF0000000000000, %44 ], [ 0x7FF0000000000000, %49 ], [ 0x7FF0000000000000, %54 ], [ 0xFFF0000000000000, %59 ], [ %24, %63 ], [ %24, %.critedge ]
   %81 = load i8, ptr %.promoted, align 1
   %.not6071 = icmp eq i8 %81, 0
   br i1 %.not6071, label %.critedge5, label %.lr.ph73
@@ -380,8 +380,8 @@ thread-pre-split:                                 ; preds = %.critedge
   br label %100
 
 100:                                              ; preds = %.critedge5, %93, %97, %95, %77, %75, %72, %65, %20, %._crit_edge
-  %.0 = phi float [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %20 ], [ 0.000000e+00, %65 ], [ 0.000000e+00, %72 ], [ 0.000000e+00, %75 ], [ 0.000000e+00, %77 ], [ 0.000000e+00, %95 ], [ 0.000000e+00, %97 ], [ %.055, %93 ], [ %.055, %.critedge5 ]
-  ret float %.0
+  %.054 = phi float [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %20 ], [ 0.000000e+00, %65 ], [ 0.000000e+00, %72 ], [ 0.000000e+00, %75 ], [ 0.000000e+00, %77 ], [ 0.000000e+00, %95 ], [ 0.000000e+00, %97 ], [ %.0, %93 ], [ %.0, %.critedge5 ]
+  ret float %.054
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -492,7 +492,7 @@ define dso_local double @float8in_internal(ptr noundef %0, ptr noundef writeonly
 
 10:                                               ; preds = %.lr.ph, %16
   %11 = phi i8 [ %7, %.lr.ph ], [ %18, %16 ]
-  %.05468 = phi ptr [ %0, %.lr.ph ], [ %17, %16 ]
+  %.05568 = phi ptr [ %0, %.lr.ph ], [ %17, %16 ]
   %12 = zext i8 %11 to i64
   %13 = getelementptr i16, ptr %9, i64 %12
   %14 = load i16, ptr %13, align 2
@@ -501,7 +501,7 @@ define dso_local double @float8in_internal(ptr noundef %0, ptr noundef writeonly
   br i1 %.not58, label %.critedge, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr i8, ptr %.05468, i64 1
+  %17 = getelementptr i8, ptr %.05568, i64 1
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !8
@@ -519,81 +519,81 @@ define dso_local double @float8in_internal(ptr noundef %0, ptr noundef writeonly
 .critedge:                                        ; preds = %10
   %23 = tail call ptr @__errno_location() #20
   store i32 0, ptr %23, align 4
-  %24 = call double @strtod(ptr noundef nonnull %.05468, ptr noundef nonnull %6) #19
+  %24 = call double @strtod(ptr noundef nonnull %.05568, ptr noundef nonnull %6) #19
   %25 = load ptr, ptr %6, align 8
-  %26 = icmp ne ptr %25, %.05468
+  %26 = icmp ne ptr %25, %.05568
   %.pr = load i32, ptr %23, align 4
   %.not59 = icmp eq i32 %.pr, 0
   %or.cond82 = select i1 %26, i1 %.not59, i1 false
   br i1 %or.cond82, label %80, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.critedge
-  %27 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.6, i64 noundef 3) #19
+  %27 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05568, ptr noundef nonnull @.str.6, i64 noundef 3) #19
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %thread-pre-split
-  %30 = getelementptr i8, ptr %.05468, i64 3
+  %30 = getelementptr i8, ptr %.05568, i64 3
   store ptr %30, ptr %6, align 8
   br label %80
 
 31:                                               ; preds = %thread-pre-split
-  %32 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.7, i64 noundef 8) #19
+  %32 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05568, ptr noundef nonnull @.str.7, i64 noundef 8) #19
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %31
-  %35 = getelementptr i8, ptr %.05468, i64 8
+  %35 = getelementptr i8, ptr %.05568, i64 8
   store ptr %35, ptr %6, align 8
   br label %80
 
 36:                                               ; preds = %31
-  %37 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.8, i64 noundef 9) #19
+  %37 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05568, ptr noundef nonnull @.str.8, i64 noundef 9) #19
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %36
-  %40 = getelementptr i8, ptr %.05468, i64 9
+  %40 = getelementptr i8, ptr %.05568, i64 9
   store ptr %40, ptr %6, align 8
   br label %80
 
 41:                                               ; preds = %36
-  %42 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.9, i64 noundef 9) #19
+  %42 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05568, ptr noundef nonnull @.str.9, i64 noundef 9) #19
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %41
-  %45 = getelementptr i8, ptr %.05468, i64 9
+  %45 = getelementptr i8, ptr %.05568, i64 9
   store ptr %45, ptr %6, align 8
   br label %80
 
 46:                                               ; preds = %41
-  %47 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.10, i64 noundef 3) #19
+  %47 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05568, ptr noundef nonnull @.str.10, i64 noundef 3) #19
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %46
-  %50 = getelementptr i8, ptr %.05468, i64 3
+  %50 = getelementptr i8, ptr %.05568, i64 3
   store ptr %50, ptr %6, align 8
   br label %80
 
 51:                                               ; preds = %46
-  %52 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.11, i64 noundef 4) #19
+  %52 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05568, ptr noundef nonnull @.str.11, i64 noundef 4) #19
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %51
-  %55 = getelementptr i8, ptr %.05468, i64 4
+  %55 = getelementptr i8, ptr %.05568, i64 4
   store ptr %55, ptr %6, align 8
   br label %80
 
 56:                                               ; preds = %51
-  %57 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05468, ptr noundef nonnull @.str.12, i64 noundef 4) #19
+  %57 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %.05568, ptr noundef nonnull @.str.12, i64 noundef 4) #19
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
-  %60 = getelementptr i8, ptr %.05468, i64 4
+  %60 = getelementptr i8, ptr %.05568, i64 4
   store ptr %60, ptr %6, align 8
   br label %80
 
@@ -608,9 +608,9 @@ thread-pre-split:                                 ; preds = %.critedge
   br i1 %or.cond3, label %65, label %80
 
 65:                                               ; preds = %63
-  %66 = tail call ptr @pstrdup(ptr noundef nonnull %.05468) #19
+  %66 = tail call ptr @pstrdup(ptr noundef nonnull %.05568) #19
   %67 = ptrtoint ptr %25 to i64
-  %68 = ptrtoint ptr %.05468 to i64
+  %68 = ptrtoint ptr %.05568 to i64
   %69 = sub i64 %67, %68
   %70 = getelementptr i8, ptr %66, i64 %69
   store i8 0, ptr %70, align 1
@@ -635,7 +635,7 @@ thread-pre-split:                                 ; preds = %.critedge
 
 80:                                               ; preds = %.critedge, %29, %39, %49, %59, %63, %54, %44, %34
   %.promoted = phi ptr [ %30, %29 ], [ %35, %34 ], [ %40, %39 ], [ %45, %44 ], [ %50, %49 ], [ %55, %54 ], [ %60, %59 ], [ %25, %63 ], [ %25, %.critedge ]
-  %.055 = phi double [ 0x7FF8000000000000, %29 ], [ 0x7FF0000000000000, %34 ], [ 0x7FF0000000000000, %39 ], [ 0xFFF0000000000000, %44 ], [ 0x7FF0000000000000, %49 ], [ 0x7FF0000000000000, %54 ], [ 0xFFF0000000000000, %59 ], [ %24, %63 ], [ %24, %.critedge ]
+  %.0 = phi double [ 0x7FF8000000000000, %29 ], [ 0x7FF0000000000000, %34 ], [ 0x7FF0000000000000, %39 ], [ 0xFFF0000000000000, %44 ], [ 0x7FF0000000000000, %49 ], [ 0x7FF0000000000000, %54 ], [ 0xFFF0000000000000, %59 ], [ %24, %63 ], [ %24, %.critedge ]
   %81 = load i8, ptr %.promoted, align 1
   %.not6071 = icmp eq i8 %81, 0
   br i1 %.not6071, label %.critedge5, label %.lr.ph73
@@ -685,8 +685,8 @@ thread-pre-split:                                 ; preds = %.critedge
   br label %100
 
 100:                                              ; preds = %.critedge5, %93, %97, %95, %77, %75, %72, %65, %20, %._crit_edge
-  %.0 = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %20 ], [ 0.000000e+00, %65 ], [ 0.000000e+00, %72 ], [ 0.000000e+00, %75 ], [ 0.000000e+00, %77 ], [ 0.000000e+00, %95 ], [ 0.000000e+00, %97 ], [ %.055, %93 ], [ %.055, %.critedge5 ]
-  ret double %.0
+  %.054 = phi double [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %20 ], [ 0.000000e+00, %65 ], [ 0.000000e+00, %72 ], [ 0.000000e+00, %75 ], [ 0.000000e+00, %77 ], [ 0.000000e+00, %95 ], [ 0.000000e+00, %97 ], [ %.0, %93 ], [ %.0, %.critedge5 ]
+  ret double %.054
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
@@ -3421,10 +3421,10 @@ define dso_local i64 @dcosd(ptr nocapture noundef readonly %0) local_unnamed_add
   %17 = tail call double @fmod(double noundef %5, double noundef 3.600000e+02) #19
   %18 = fcmp olt double %17, 0.000000e+00
   %19 = fneg double %17
-  %.016 = select i1 %18, double %19, double %17
-  %20 = fcmp ogt double %.016, 1.800000e+02
-  %21 = fsub double 3.600000e+02, %.016
-  %.1 = select i1 %20, double %21, double %.016
+  %.015 = select i1 %18, double %19, double %17
+  %20 = fcmp ogt double %.015, 1.800000e+02
+  %21 = fsub double 3.600000e+02, %.015
+  %.1 = select i1 %20, double %21, double %.015
   %22 = fcmp ogt double %.1, 9.000000e+01
   %23 = fsub double 1.800000e+02, %.1
   %.2 = select i1 %22, double %23, double %.1
@@ -3475,8 +3475,8 @@ cosd_q1.exit:                                     ; preds = %25, %33
   br label %47
 
 47:                                               ; preds = %1, %43
-  %.015 = phi i64 [ %46, %43 ], [ 9221120237041090560, %1 ]
-  ret i64 %.015
+  %.016 = phi i64 [ %46, %43 ], [ 9221120237041090560, %1 ]
+  ret i64 %.016
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
@@ -3646,16 +3646,16 @@ define dso_local i64 @dsind(ptr nocapture noundef readonly %0) local_unnamed_add
   %17 = tail call double @fmod(double noundef %5, double noundef 3.600000e+02) #19
   %18 = fcmp olt double %17, 0.000000e+00
   %19 = fneg double %17
-  %.017 = select i1 %18, double %19, double %17
+  %.016 = select i1 %18, double %19, double %17
   %.0 = select i1 %18, i32 -1, i32 1
-  %20 = fcmp ogt double %.017, 1.800000e+02
-  %21 = fsub double 3.600000e+02, %.017
+  %20 = fcmp ogt double %.016, 1.800000e+02
+  %21 = fsub double 3.600000e+02, %.016
   %22 = sub nsw i32 0, %.0
-  %.118 = select i1 %20, double %21, double %.017
+  %.117 = select i1 %20, double %21, double %.016
   %.1 = select i1 %20, i32 %22, i32 %.0
-  %23 = fcmp ogt double %.118, 9.000000e+01
-  %24 = fsub double 1.800000e+02, %.118
-  %.2 = select i1 %23, double %24, double %.118
+  %23 = fcmp ogt double %.117, 9.000000e+01
+  %24 = fsub double 1.800000e+02, %.117
+  %.2 = select i1 %23, double %24, double %.117
   %25 = sitofp i32 %.1 to double
   %26 = fcmp ugt double %.2, 3.000000e+01
   br i1 %26, label %33, label %27
@@ -3703,8 +3703,8 @@ sind_q1.exit:                                     ; preds = %27, %33
   br label %48
 
 48:                                               ; preds = %1, %46
-  %.016 = phi i64 [ %47, %46 ], [ 9221120237041090560, %1 ]
-  ret i64 %.016
+  %.018 = phi i64 [ %47, %46 ], [ 9221120237041090560, %1 ]
+  ret i64 %.018
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4336,25 +4336,25 @@ float8_pl.exit:                                   ; preds = %54
   unreachable
 
 84:                                               ; preds = %52, %check_float8_array.exit60, %float8_pl.exit
-  %.050 = phi double [ %76, %float8_pl.exit ], [ %50, %check_float8_array.exit60 ], [ %45, %52 ]
+  %.050 = phi double [ %63, %float8_pl.exit ], [ %46, %check_float8_array.exit60 ], [ %41, %52 ]
   %.049 = phi double [ %55, %float8_pl.exit ], [ %48, %check_float8_array.exit60 ], [ %43, %52 ]
-  %.048 = phi double [ %63, %float8_pl.exit ], [ %46, %check_float8_array.exit60 ], [ %41, %52 ]
+  %.048 = phi double [ %76, %float8_pl.exit ], [ %50, %check_float8_array.exit60 ], [ %45, %52 ]
   %85 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
   %.not = icmp eq i32 %85, 0
   br i1 %.not, label %87, label %86
 
 86:                                               ; preds = %84
-  store double %.048, ptr %25, align 8
+  store double %.050, ptr %25, align 8
   store double %.049, ptr %42, align 8
-  store double %.050, ptr %44, align 8
+  store double %.048, ptr %44, align 8
   br label %91
 
 87:                                               ; preds = %84
-  store double %.048, ptr %2, align 16
+  store double %.050, ptr %2, align 16
   %88 = getelementptr inbounds i8, ptr %2, i64 8
   store double %.049, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %2, i64 16
-  store double %.050, ptr %89, align 16
+  store double %.048, ptr %89, align 16
   %90 = call ptr @construct_array(ptr noundef nonnull %2, i32 noundef 3, i32 noundef 701, i32 noundef 8, i1 noundef zeroext true, i8 noundef signext 100) #19
   br label %91
 
@@ -5312,10 +5312,10 @@ float8_pl.exit121:                                ; preds = %94
   unreachable
 
 133:                                              ; preds = %61, %check_float8_array.exit118, %120
-  %.0100 = phi double [ %125, %120 ], [ %58, %check_float8_array.exit118 ], [ %48, %61 ]
-  %.099 = phi double [ %112, %120 ], [ %56, %check_float8_array.exit118 ], [ %46, %61 ]
-  %.098 = phi double [ %95, %120 ], [ %54, %check_float8_array.exit118 ], [ %44, %61 ]
-  %.097 = phi double [ %86, %120 ], [ %52, %check_float8_array.exit118 ], [ %42, %61 ]
+  %.098 = phi double [ %86, %120 ], [ %52, %check_float8_array.exit118 ], [ %42, %61 ]
+  %.097 = phi double [ %95, %120 ], [ %54, %check_float8_array.exit118 ], [ %44, %61 ]
+  %.096 = phi double [ %112, %120 ], [ %56, %check_float8_array.exit118 ], [ %46, %61 ]
+  %.095 = phi double [ %125, %120 ], [ %58, %check_float8_array.exit118 ], [ %48, %61 ]
   %134 = phi <2 x double> [ %65, %120 ], [ %50, %check_float8_array.exit118 ], [ %49, %61 ]
   %135 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
   %.not = icmp eq i32 %135, 0
@@ -5323,22 +5323,22 @@ float8_pl.exit121:                                ; preds = %94
 
 136:                                              ; preds = %133
   store <2 x double> %134, ptr %25, align 8
-  store double %.097, ptr %41, align 8
-  store double %.098, ptr %43, align 8
-  store double %.099, ptr %45, align 8
-  store double %.0100, ptr %47, align 8
+  store double %.098, ptr %41, align 8
+  store double %.097, ptr %43, align 8
+  store double %.096, ptr %45, align 8
+  store double %.095, ptr %47, align 8
   br label %143
 
 137:                                              ; preds = %133
   store <2 x double> %134, ptr %2, align 16
   %138 = getelementptr inbounds i8, ptr %2, i64 16
-  store double %.097, ptr %138, align 16
+  store double %.098, ptr %138, align 16
   %139 = getelementptr inbounds i8, ptr %2, i64 24
-  store double %.098, ptr %139, align 8
+  store double %.097, ptr %139, align 8
   %140 = getelementptr inbounds i8, ptr %2, i64 32
-  store double %.099, ptr %140, align 16
+  store double %.096, ptr %140, align 16
   %141 = getelementptr inbounds i8, ptr %2, i64 40
-  store double %.0100, ptr %141, align 8
+  store double %.095, ptr %141, align 8
   %142 = call ptr @construct_array(ptr noundef nonnull %2, i32 noundef 6, i32 noundef 701, i32 noundef 8, i1 noundef zeroext true, i8 noundef signext 100) #19
   br label %143
 

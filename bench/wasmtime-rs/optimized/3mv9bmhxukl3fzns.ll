@@ -25,7 +25,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl10camel_case17hb369193350f44
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %3
-  %.0 = phi i1 [ true, %3 ], [ %.0.be, %.backedge.backedge ]
+  %.011 = phi i1 [ true, %3 ], [ %.011.be, %.backedge.backedge ]
   %13 = invoke { i32, i32 } @_ZN4core3str11validations15next_code_point17h4ef10cb72acfe20cE(ptr nonnull align 8 %5)
           to label %16 unwind label %14
 
@@ -39,8 +39,8 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl10camel_case17hb369193350f44
   %17 = extractvalue { i32, i32 } %13, 0
   %18 = icmp eq i32 %17, 0
   %19 = extractvalue { i32, i32 } %13, 1
-  %.011 = select i1 %18, i32 1114112, i32 %19
-  switch i32 %.011, label %21 [
+  %.0 = select i1 %18, i32 1114112, i32 %19
+  switch i32 %.0, label %21 [
     i32 1114112, label %20
     i32 95, label %.backedge.backedge
   ]
@@ -50,18 +50,18 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl10camel_case17hb369193350f44
   ret void
 
 21:                                               ; preds = %16
-  br i1 %.0, label %23, label %22
+  br i1 %.011, label %23, label %22
 
 22:                                               ; preds = %21
-  invoke void @_ZN5alloc6string6String4push17h51489566e10b8d01E(ptr nonnull align 8 %6, i32 %.011)
+  invoke void @_ZN5alloc6string6String4push17h51489566e10b8d01E(ptr nonnull align 8 %6, i32 %.0)
           to label %.backedge.backedge unwind label %14
 
 .backedge.backedge:                               ; preds = %22, %24, %16
-  %.0.be = phi i1 [ true, %16 ], [ false, %24 ], [ false, %22 ]
+  %.011.be = phi i1 [ true, %16 ], [ false, %24 ], [ false, %22 ]
   br label %.backedge
 
 23:                                               ; preds = %21
-  invoke void @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$12to_uppercase17h967a4ecdc00c91adE"(ptr nonnull sret({ { [2 x i32], i32 } }) align 4 %4, i32 %.011)
+  invoke void @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$12to_uppercase17h967a4ecdc00c91adE"(ptr nonnull sret({ { [2 x i32], i32 } }) align 4 %4, i32 %.0)
           to label %24 unwind label %14
 
 24:                                               ; preds = %23

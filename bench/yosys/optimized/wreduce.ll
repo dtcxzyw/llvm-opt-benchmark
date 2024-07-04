@@ -13311,14 +13311,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
+  %30 = getelementptr inbounds i8, ptr %.073, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !241
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -13765,8 +13765,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.0
+  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -32587,7 +32587,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i136: ; preds = %210, %.critedge
   br i1 %220, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %217, %305
-  %.069635 = phi i32 [ %306, %305 ], [ 0, %217 ]
+  %.070635 = phi i32 [ %306, %305 ], [ 0, %217 ]
   %.sroa.6.sroa.8.sroa.0.0634 = phi i24 [ %.sroa.6.sroa.8.sroa.0.1, %305 ], [ %.sroa.6.sroa.8.0.extract.trunc, %217 ]
   %.sroa.6.sroa.0.0633 = phi i8 [ %.sroa.6.sroa.0.1, %305 ], [ %.sroa.6.sroa.0.0.extract.trunc, %217 ]
   %.sroa.0438.0631 = phi ptr [ %.sroa.0438.1, %305 ], [ %.sroa.0438.0.copyload, %217 ]
@@ -32611,7 +32611,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i136: ; preds = %210, %.critedge
 
 _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit.thread:      ; preds = %229
   %231 = load i32, ptr %4, align 8
-  %232 = mul nsw i32 %231, %.069635
+  %232 = mul nsw i32 %231, %.070635
   %233 = sext i32 %232 to i64
   %234 = add nsw i64 %indvars.iv.next, %233
   %235 = load ptr, ptr %47, align 8
@@ -32647,7 +32647,7 @@ _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit148:          ; preds = %245
 
 _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit148.thread:   ; preds = %245, %.lr.ph, %225, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit148
   %250 = load i32, ptr %4, align 8
-  %251 = mul nsw i32 %250, %.069635
+  %251 = mul nsw i32 %250, %.070635
   %252 = sext i32 %251 to i64
   %253 = add nsw i64 %indvars.iv.next, %252
   %254 = load ptr, ptr %47, align 8
@@ -32696,7 +32696,7 @@ _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit156:          ; preds = %267
 
 272:                                              ; preds = %229, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit156, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit148, %269
   %273 = load i32, ptr %4, align 8
-  %274 = mul nsw i32 %273, %.069635
+  %274 = mul nsw i32 %273, %.070635
   %275 = sext i32 %274 to i64
   %276 = add nsw i64 %indvars.iv.next, %275
   %277 = load ptr, ptr %47, align 8
@@ -32732,7 +32732,7 @@ _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit164:          ; preds = %287
 
 _ZNK5Yosys5RTLIL6SigBitneERKS1_.exit164.thread:   ; preds = %287, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit164
   %292 = load i32, ptr %4, align 8
-  %293 = mul nsw i32 %292, %.069635
+  %293 = mul nsw i32 %292, %.070635
   %294 = sext i32 %293 to i64
   %295 = add nsw i64 %indvars.iv.next, %294
   %296 = load ptr, ptr %47, align 8
@@ -32782,7 +32782,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i165: ; preds = %._ZNK5Yosys5RTLI
   %.sroa.0438.1 = phi ptr [ %.sroa.0438.0.copyload442, %303 ], [ %.sroa.0438.0631, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit164 ]
   %.sroa.6.sroa.0.1 = phi i8 [ %.sroa.6.sroa.0.0.extract.trunc459, %303 ], [ %.sroa.6.sroa.0.0633, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit164 ]
   %.sroa.6.sroa.8.sroa.0.1 = phi i24 [ %.sroa.6.sroa.8.0.extract.trunc471, %303 ], [ %.sroa.6.sroa.8.sroa.0.0634, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit164 ]
-  %306 = add nuw nsw i32 %.069635, 1
+  %306 = add nuw nsw i32 %.070635, 1
   %307 = icmp slt i32 %306, %219
   br i1 %307, label %.lr.ph, label %._crit_edge, !llvm.loop !458
 

@@ -395,18 +395,18 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 120:                                              ; preds = %.lr.ph, %346
   %.0338508 = phi i32 [ 0, %.lr.ph ], [ %351, %346 ]
   %.0339507 = phi i32 [ 0, %.lr.ph ], [ %.3576, %346 ]
-  %.0344506 = phi double [ %55, %.lr.ph ], [ %217, %346 ]
-  %.0347505 = phi double [ 0.000000e+00, %.lr.ph ], [ %219, %346 ]
-  %.0350504 = phi double [ -1.000000e+00, %.lr.ph ], [ %.2352, %346 ]
-  %.0359503 = phi double [ 0.000000e+00, %.lr.ph ], [ %212, %346 ]
-  %.sroa.0.0502 = phi double [ %54, %.lr.ph ], [ %295, %346 ]
+  %.0343506 = phi double [ -1.000000e+00, %.lr.ph ], [ %.2345, %346 ]
+  %.sroa.0.0505 = phi double [ %54, %.lr.ph ], [ %295, %346 ]
+  %.0353504 = phi double [ 0.000000e+00, %.lr.ph ], [ %212, %346 ]
+  %.0357503 = phi double [ 0.000000e+00, %.lr.ph ], [ %219, %346 ]
+  %.0360502 = phi double [ %55, %.lr.ph ], [ %217, %346 ]
   %121 = load i32, ptr %12, align 4
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %12, align 4
   %123 = load ptr, ptr %52, align 8
   %124 = load ptr, ptr %80, align 8
   %125 = tail call double @N_VDotProd(ptr noundef %123, ptr noundef %124) #5
-  %126 = fdiv double %.sroa.0.0502, %125
+  %126 = fdiv double %.sroa.0.0505, %125
   %127 = load ptr, ptr %108, align 8
   %128 = fneg double %126
   %129 = load ptr, ptr %80, align 8
@@ -519,10 +519,10 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   %193 = phi i1 [ false, %185 ], [ true, %290 ]
   %.0501 = phi double [ 1.000000e+00, %185 ], [ 2.000000e+00, %290 ]
   %.1500 = phi i32 [ %.0339507, %185 ], [ %.3, %290 ]
-  %.1345499 = phi double [ %.0344506, %185 ], [ %217, %290 ]
-  %.1348498 = phi double [ %.0347505, %185 ], [ %219, %290 ]
-  %.1351497 = phi double [ %.0350504, %185 ], [ %.2352, %290 ]
-  %.1360496 = phi double [ %.0359503, %185 ], [ %212, %290 ]
+  %.1344499 = phi double [ %.0343506, %185 ], [ %.2345, %290 ]
+  %.1354498 = phi double [ %.0353504, %185 ], [ %212, %290 ]
+  %.1358497 = phi double [ %.0357503, %185 ], [ %219, %290 ]
+  %.1361496 = phi double [ %.0360502, %185 ], [ %217, %290 ]
   br i1 %192, label %194, label %206
 
 194:                                              ; preds = %191
@@ -541,19 +541,19 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
 
 206:                                              ; preds = %191, %194
   %.sink632 = phi ptr [ %108, %194 ], [ %117, %191 ]
-  %.0362 = phi double [ %205, %194 ], [ %.1351497, %191 ]
-  %.2352 = phi double [ %199, %194 ], [ %.1351497, %191 ]
+  %.0352 = phi double [ %205, %194 ], [ %.1344499, %191 ]
+  %.2345 = phi double [ %199, %194 ], [ %.1344499, %191 ]
   %207 = load ptr, ptr %.sink632, align 8
-  %208 = fmul double %.1360496, %.1360496
-  %209 = fmul double %208, %.1348498
+  %208 = fmul double %.1354498, %.1354498
+  %209 = fmul double %.1358497, %208
   %210 = fdiv double %209, %126
   %211 = load ptr, ptr %113, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %207, double noundef %210, ptr noundef %211, ptr noundef %211) #5
-  %212 = fdiv double %.0362, %.1345499
+  %212 = fdiv double %.0352, %.1361496
   %213 = tail call double @llvm.fmuladd.f64(double %212, double %212, double 1.000000e+00)
   %214 = tail call double @SUNRsqrt(double noundef %213) #5
   %215 = fdiv double 1.000000e+00, %214
-  %216 = fmul double %.1345499, %212
+  %216 = fmul double %.1361496, %212
   %217 = fmul double %216, %215
   %218 = fmul double %215, %215
   %219 = fmul double %126, %218
@@ -703,19 +703,19 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   br i1 %289, label %290, label %.thread.thread
 
 290:                                              ; preds = %226, %282
-  %.2356 = phi double [ %288, %282 ], [ %222, %226 ]
+  %.2349 = phi double [ %288, %282 ], [ %222, %226 ]
   %.3 = phi i32 [ 1, %282 ], [ %.1500, %226 ]
   br i1 %192, label %191, label %.thread572, !llvm.loop !4
 
 .thread572:                                       ; preds = %228, %290
   %.3576 = phi i32 [ %.3, %290 ], [ %.1500, %228 ]
-  %.2356575 = phi double [ %.2356, %290 ], [ %222, %228 ]
+  %.2349575 = phi double [ %.2349, %290 ], [ %222, %228 ]
   %291 = load ptr, ptr %52, align 8
   %292 = load ptr, ptr %104, align 8
   %293 = getelementptr inbounds i8, ptr %292, i64 8
   %294 = load ptr, ptr %293, align 8
   %295 = tail call double @N_VDotProd(ptr noundef %291, ptr noundef %294) #5
-  %296 = fdiv double %295, %.sroa.0.0502
+  %296 = fdiv double %295, %.sroa.0.0505
   %297 = load ptr, ptr %104, align 8
   %298 = getelementptr inbounds i8, ptr %297, i64 8
   %299 = load ptr, ptr %298, align 8
@@ -821,8 +821,8 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   br i1 %353, label %120, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %346, %102
-  %.4358 = phi double [ -1.000000e+00, %102 ], [ %.2356575, %346 ]
-  %354 = fcmp olt double %.4358, %55
+  %.4351 = phi double [ -1.000000e+00, %102 ], [ %.2349575, %346 ]
+  %354 = fcmp olt double %.4351, %55
   br i1 %354, label %.thread.thread, label %.loopexit
 
 .thread.thread:                                   ; preds = %206, %282, %.thread
@@ -851,8 +851,8 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %236, %356, %362, %.thread, %357, %51, %14, %337, %327, %320, %275, %259, %249, %174, %162, %153, %93, %83, %74, %40, %26
-  %.0343 = phi i32 [ %42, %40 ], [ %76, %74 ], [ %85, %83 ], [ %95, %93 ], [ %155, %153 ], [ %164, %162 ], [ %176, %174 ], [ %322, %320 ], [ %329, %327 ], [ %339, %337 ], [ %251, %249 ], [ %261, %259 ], [ %277, %275 ], [ %28, %26 ], [ -1, %14 ], [ 0, %51 ], [ -3, %357 ], [ 2, %.thread ], [ %not., %362 ], [ %not., %356 ], [ -3, %236 ]
-  ret i32 %.0343
+  %.0356 = phi i32 [ %42, %40 ], [ %76, %74 ], [ %85, %83 ], [ %95, %93 ], [ %155, %153 ], [ %164, %162 ], [ %176, %174 ], [ %322, %320 ], [ %329, %327 ], [ %339, %337 ], [ %251, %249 ], [ %261, %259 ], [ %277, %275 ], [ %28, %26 ], [ -1, %14 ], [ 0, %51 ], [ -3, %357 ], [ 2, %.thread ], [ %not., %362 ], [ %not., %356 ], [ -3, %236 ]
+  ret i32 %.0356
 }
 
 declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -722,8 +722,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %179
 
 179:                                              ; preds = %214, %.lr.ph45.i
-  %.03243.i = phi i64 [ 0, %.lr.ph45.i ], [ %215, %214 ]
-  %180 = getelementptr inbounds %struct.H5F_sect_info_t, ptr %172, i64 %.03243.i, i32 1
+  %.043.i = phi i64 [ 0, %.lr.ph45.i ], [ %215, %214 ]
+  %180 = getelementptr inbounds %struct.H5F_sect_info_t, ptr %172, i64 %.043.i, i32 1
   %181 = load i64, ptr %180, align 8
   %182 = icmp ult i64 %181, 10
   br i1 %182, label %183, label %.lr.ph.i.i47.preheader
@@ -799,7 +799,7 @@ ceil_log10.exit.i:                                ; preds = %.lr.ph.i.i47, %183
   br label %214
 
 214:                                              ; preds = %209, %._crit_edge.i49
-  %215 = add nuw i64 %.03243.i, 1
+  %215 = add nuw i64 %.043.i, 1
   %exitcond.not.i = icmp eq i64 %215, %175
   br i1 %exitcond.not.i, label %._crit_edge46.thread57.i, label %179
 
@@ -1074,7 +1074,7 @@ define internal range(i32 -1, 1) i32 @obj_stats(ptr noundef %0, ptr nocapture no
   %6 = alloca %struct.H5G_info_t, align 8
   %7 = alloca %struct.H5O_native_info_t, align 8
   %8 = icmp eq ptr %2, null
-  br i1 %8, label %9, label %attribute_stats.exit96
+  br i1 %8, label %9, label %attribute_stats.exit97
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %3, align 8
@@ -1085,7 +1085,7 @@ define internal range(i32 -1, 1) i32 @obj_stats(ptr noundef %0, ptr nocapture no
 13:                                               ; preds = %9
   %14 = load i32, ptr @enable_error_stack, align 4
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %16, label %attribute_stats.exit96
+  br i1 %15, label %16, label %attribute_stats.exit97
 
 16:                                               ; preds = %13
   %17 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1099,14 +1099,14 @@ define internal range(i32 -1, 1) i32 @obj_stats(ptr noundef %0, ptr nocapture no
   %22 = load i64, ptr @H5E_tools_g, align 8
   %23 = load i64, ptr @H5E_tools_min_id_g, align 8
   %24 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %17, ptr noundef nonnull @.str.81, ptr noundef nonnull @__func__.obj_stats, i32 noundef 631, i64 noundef %19, i64 noundef %22, i64 noundef %23, ptr noundef nonnull @.str.82) #16
-  br label %attribute_stats.exit96
+  br label %attribute_stats.exit97
 
 25:                                               ; preds = %16
   %26 = load ptr, ptr @stderr, align 8
   %27 = call i64 @fwrite(ptr nonnull @.str.82, i64 33, i64 1, ptr %26) #21
   %28 = load ptr, ptr @stderr, align 8
   %fputc35 = call i32 @fputc(i32 10, ptr %28)
-  br label %attribute_stats.exit96
+  br label %attribute_stats.exit97
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds i8, ptr %1, i64 28
@@ -1323,8 +1323,8 @@ ceil_log10.exit.i:                                ; preds = %.lr.ph.i.i, %90
   %150 = load i64, ptr %149, align 8
   %151 = load i32, ptr @sattrs_threshold, align 4
   %152 = sext i32 %151 to i64
-  %.not.i51 = icmp ugt i64 %150, %152
-  br i1 %.not.i51, label %159, label %153
+  %.not.i52 = icmp ugt i64 %150, %152
+  br i1 %.not.i52, label %159, label %153
 
 153:                                              ; preds = %138
   %154 = getelementptr inbounds i8, ptr %3, i64 120
@@ -1333,11 +1333,11 @@ ceil_log10.exit.i:                                ; preds = %.lr.ph.i.i, %90
   %157 = load i64, ptr %156, align 8
   %158 = add i64 %157, 1
   store i64 %158, ptr %156, align 8
-  %.pre.i52 = load i64, ptr %149, align 8
+  %.pre.i53 = load i64, ptr %149, align 8
   br label %159
 
 159:                                              ; preds = %153, %138
-  %160 = phi i64 [ %.pre.i52, %153 ], [ %150, %138 ]
+  %160 = phi i64 [ %.pre.i53, %153 ], [ %150, %138 ]
   %161 = getelementptr inbounds i8, ptr %3, i64 112
   %162 = load i64, ptr %161, align 8
   %163 = icmp ugt i64 %160, %162
@@ -1345,25 +1345,25 @@ ceil_log10.exit.i:                                ; preds = %.lr.ph.i.i, %90
 
 164:                                              ; preds = %159
   store i64 %160, ptr %161, align 8
-  %.pr.i64 = load i64, ptr %149, align 8
+  %.pr.i65 = load i64, ptr %149, align 8
   br label %165
 
 165:                                              ; preds = %164, %159
-  %166 = phi i64 [ %.pr.i64, %164 ], [ %160, %159 ]
-  %.not6.i.i53 = icmp eq i64 %166, 0
-  br i1 %.not6.i.i53, label %ceil_log10.exit.i58, label %.lr.ph.i.i54
+  %166 = phi i64 [ %.pr.i65, %164 ], [ %160, %159 ]
+  %.not6.i.i54 = icmp eq i64 %166, 0
+  br i1 %.not6.i.i54, label %ceil_log10.exit.i59, label %.lr.ph.i.i55
 
-.lr.ph.i.i54:                                     ; preds = %165, %.lr.ph.i.i54
-  %.08.i.i55 = phi i32 [ %168, %.lr.ph.i.i54 ], [ 0, %165 ]
-  %.057.i.i56 = phi i64 [ %167, %.lr.ph.i.i54 ], [ 1, %165 ]
-  %167 = mul i64 %.057.i.i56, 10
-  %168 = add i32 %.08.i.i55, 1
-  %.not.i.i57 = icmp ugt i64 %167, %166
-  br i1 %.not.i.i57, label %ceil_log10.exit.i58, label %.lr.ph.i.i54
+.lr.ph.i.i55:                                     ; preds = %165, %.lr.ph.i.i55
+  %.08.i.i56 = phi i32 [ %168, %.lr.ph.i.i55 ], [ 0, %165 ]
+  %.057.i.i57 = phi i64 [ %167, %.lr.ph.i.i55 ], [ 1, %165 ]
+  %167 = mul i64 %.057.i.i57, 10
+  %168 = add i32 %.08.i.i56, 1
+  %.not.i.i58 = icmp ugt i64 %167, %166
+  br i1 %.not.i.i58, label %ceil_log10.exit.i59, label %.lr.ph.i.i55
 
-ceil_log10.exit.i58:                              ; preds = %.lr.ph.i.i54, %165
-  %.0.lcssa.i.i59 = phi i32 [ 0, %165 ], [ %168, %.lr.ph.i.i54 ]
-  %169 = add i32 %.0.lcssa.i.i59, 1
+ceil_log10.exit.i59:                              ; preds = %.lr.ph.i.i55, %165
+  %.0.lcssa.i.i60 = phi i32 [ 0, %165 ], [ %168, %.lr.ph.i.i55 ]
+  %169 = add i32 %.0.lcssa.i.i60, 1
   %170 = getelementptr inbounds i8, ptr %3, i64 128
   %171 = load i32, ptr %170, align 8
   %172 = icmp ugt i32 %169, %171
@@ -1371,17 +1371,17 @@ ceil_log10.exit.i58:                              ; preds = %.lr.ph.i.i54, %165
   %174 = load ptr, ptr %173, align 8
   br i1 %172, label %175, label %192
 
-175:                                              ; preds = %ceil_log10.exit.i58
+175:                                              ; preds = %ceil_log10.exit.i59
   %176 = zext i32 %169 to i64
   %177 = shl nuw nsw i64 %176, 3
   %178 = call ptr @realloc(ptr noundef %174, i64 noundef %177) #19
   store ptr %178, ptr %173, align 8
   %179 = load i32, ptr %170, align 8
-  %180 = icmp ult i32 %179, %.0.lcssa.i.i59
-  br i1 %180, label %.lr.ph.i62, label %._crit_edge.i60
+  %180 = icmp ult i32 %179, %.0.lcssa.i.i60
+  br i1 %180, label %.lr.ph.i63, label %._crit_edge.i61
 
-.lr.ph.i62:                                       ; preds = %175, %.lr.ph.i62
-  %181 = phi i32 [ %186, %.lr.ph.i62 ], [ %179, %175 ]
+.lr.ph.i63:                                       ; preds = %175, %.lr.ph.i63
+  %181 = phi i32 [ %186, %.lr.ph.i63 ], [ %179, %175 ]
   %182 = load ptr, ptr %173, align 8
   %183 = add nuw i32 %181, 1
   store i32 %183, ptr %170, align 8
@@ -1389,44 +1389,44 @@ ceil_log10.exit.i58:                              ; preds = %.lr.ph.i.i54, %165
   %185 = getelementptr inbounds i64, ptr %182, i64 %184
   store i64 0, ptr %185, align 8
   %186 = load i32, ptr %170, align 8
-  %187 = icmp ult i32 %186, %.0.lcssa.i.i59
-  br i1 %187, label %.lr.ph.i62, label %._crit_edge.loopexit.i63
+  %187 = icmp ult i32 %186, %.0.lcssa.i.i60
+  br i1 %187, label %.lr.ph.i63, label %._crit_edge.loopexit.i64
 
-._crit_edge.loopexit.i63:                         ; preds = %.lr.ph.i62
+._crit_edge.loopexit.i64:                         ; preds = %.lr.ph.i63
   %.pre32.i = load ptr, ptr %173, align 8
-  br label %._crit_edge.i60
+  br label %._crit_edge.i61
 
-._crit_edge.i60:                                  ; preds = %._crit_edge.loopexit.i63, %175
-  %188 = phi ptr [ %178, %175 ], [ %.pre32.i, %._crit_edge.loopexit.i63 ]
-  %.lcssa.i61 = phi i32 [ %179, %175 ], [ %186, %._crit_edge.loopexit.i63 ]
-  %189 = add i32 %.lcssa.i61, 1
+._crit_edge.i61:                                  ; preds = %._crit_edge.loopexit.i64, %175
+  %188 = phi ptr [ %178, %175 ], [ %.pre32.i, %._crit_edge.loopexit.i64 ]
+  %.lcssa.i62 = phi i32 [ %179, %175 ], [ %186, %._crit_edge.loopexit.i64 ]
+  %189 = add i32 %.lcssa.i62, 1
   store i32 %189, ptr %170, align 8
-  %190 = zext i32 %.0.lcssa.i.i59 to i64
+  %190 = zext i32 %.0.lcssa.i.i60 to i64
   %191 = getelementptr inbounds i64, ptr %188, i64 %190
   store i64 1, ptr %191, align 8
   br label %group_stats.exit
 
-192:                                              ; preds = %ceil_log10.exit.i58
-  %193 = zext i32 %.0.lcssa.i.i59 to i64
+192:                                              ; preds = %ceil_log10.exit.i59
+  %193 = zext i32 %.0.lcssa.i.i60 to i64
   %194 = getelementptr inbounds i64, ptr %174, i64 %193
   %195 = load i64, ptr %194, align 8
   %196 = add i64 %195, 1
   store i64 %196, ptr %194, align 8
   br label %group_stats.exit
 
-group_stats.exit:                                 ; preds = %192, %._crit_edge.i60
+group_stats.exit:                                 ; preds = %192, %._crit_edge.i61
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %attribute_stats.exit96
+  br label %attribute_stats.exit97
 
 .thread:                                          ; preds = %57, %106
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %attribute_stats.exit96
+  br label %attribute_stats.exit97
 
 197:                                              ; preds = %65, %69, %114, %118
   %.pr = load i32, ptr @enable_error_stack, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %198 = icmp sgt i32 %.pr, 0
-  br i1 %198, label %199, label %attribute_stats.exit96
+  br i1 %198, label %199, label %attribute_stats.exit97
 
 199:                                              ; preds = %197
   %200 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1440,14 +1440,14 @@ group_stats.exit:                                 ; preds = %192, %._crit_edge.i
   %205 = load i64, ptr @H5E_tools_g, align 8
   %206 = load i64, ptr @H5E_tools_min_id_g, align 8
   %207 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %200, ptr noundef nonnull @.str.81, ptr noundef nonnull @__func__.obj_stats, i32 noundef 640, i64 noundef %202, i64 noundef %205, i64 noundef %206, ptr noundef nonnull @.str.83) #16
-  br label %attribute_stats.exit96
+  br label %attribute_stats.exit97
 
 208:                                              ; preds = %199
   %209 = load ptr, ptr @stderr, align 8
   %210 = call i64 @fwrite(ptr nonnull @.str.83, i64 18, i64 1, ptr %209) #21
   %211 = load ptr, ptr @stderr, align 8
   %fputc34 = call i32 @fputc(i32 10, ptr %211)
-  br label %attribute_stats.exit96
+  br label %attribute_stats.exit97
 
 212:                                              ; preds = %37
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
@@ -1475,15 +1475,15 @@ group_stats.exit:                                 ; preds = %192, %._crit_edge.i
 229:                                              ; preds = %212
   %230 = load i32, ptr @enable_error_stack, align 4
   %231 = icmp sgt i32 %230, 0
-  br i1 %231, label %232, label %.thread102
+  br i1 %231, label %232, label %.thread103
 
 232:                                              ; preds = %229
   %233 = load i64, ptr @H5tools_ERR_STACK_g, align 8
   %234 = icmp sgt i64 %233, -1
   %235 = load i64, ptr @H5tools_ERR_CLS_g, align 8
   %236 = icmp sgt i64 %235, -1
-  %or.cond.i50 = select i1 %234, i1 %236, i1 false
-  br i1 %or.cond.i50, label %237, label %241
+  %or.cond.i51 = select i1 %234, i1 %236, i1 false
+  br i1 %or.cond.i51, label %237, label %241
 
 237:                                              ; preds = %232
   %238 = load i64, ptr @H5E_tools_g, align 8
@@ -1515,8 +1515,8 @@ group_stats.exit:                                 ; preds = %192, %._crit_edge.i
   %257 = load i64, ptr %256, align 8
   %258 = load i32, ptr @sattrs_threshold, align 4
   %259 = sext i32 %258 to i64
-  %.not.i65 = icmp ugt i64 %257, %259
-  br i1 %.not.i65, label %266, label %260
+  %.not.i66 = icmp ugt i64 %257, %259
+  br i1 %.not.i66, label %266, label %260
 
 260:                                              ; preds = %245
   %261 = getelementptr inbounds i8, ptr %3, i64 120
@@ -1525,11 +1525,11 @@ group_stats.exit:                                 ; preds = %192, %._crit_edge.i
   %264 = load i64, ptr %263, align 8
   %265 = add i64 %264, 1
   store i64 %265, ptr %263, align 8
-  %.pre.i66 = load i64, ptr %256, align 8
+  %.pre.i67 = load i64, ptr %256, align 8
   br label %266
 
 266:                                              ; preds = %260, %245
-  %267 = phi i64 [ %.pre.i66, %260 ], [ %257, %245 ]
+  %267 = phi i64 [ %.pre.i67, %260 ], [ %257, %245 ]
   %268 = getelementptr inbounds i8, ptr %3, i64 112
   %269 = load i64, ptr %268, align 8
   %270 = icmp ugt i64 %267, %269
@@ -1537,25 +1537,25 @@ group_stats.exit:                                 ; preds = %192, %._crit_edge.i
 
 271:                                              ; preds = %266
   store i64 %267, ptr %268, align 8
-  %.pr.i79 = load i64, ptr %256, align 8
+  %.pr.i80 = load i64, ptr %256, align 8
   br label %272
 
 272:                                              ; preds = %271, %266
-  %273 = phi i64 [ %.pr.i79, %271 ], [ %267, %266 ]
-  %.not6.i.i67 = icmp eq i64 %273, 0
-  br i1 %.not6.i.i67, label %ceil_log10.exit.i72, label %.lr.ph.i.i68
+  %273 = phi i64 [ %.pr.i80, %271 ], [ %267, %266 ]
+  %.not6.i.i68 = icmp eq i64 %273, 0
+  br i1 %.not6.i.i68, label %ceil_log10.exit.i73, label %.lr.ph.i.i69
 
-.lr.ph.i.i68:                                     ; preds = %272, %.lr.ph.i.i68
-  %.08.i.i69 = phi i32 [ %275, %.lr.ph.i.i68 ], [ 0, %272 ]
-  %.057.i.i70 = phi i64 [ %274, %.lr.ph.i.i68 ], [ 1, %272 ]
-  %274 = mul i64 %.057.i.i70, 10
-  %275 = add i32 %.08.i.i69, 1
-  %.not.i.i71 = icmp ugt i64 %274, %273
-  br i1 %.not.i.i71, label %ceil_log10.exit.i72, label %.lr.ph.i.i68
+.lr.ph.i.i69:                                     ; preds = %272, %.lr.ph.i.i69
+  %.08.i.i70 = phi i32 [ %275, %.lr.ph.i.i69 ], [ 0, %272 ]
+  %.057.i.i71 = phi i64 [ %274, %.lr.ph.i.i69 ], [ 1, %272 ]
+  %274 = mul i64 %.057.i.i71, 10
+  %275 = add i32 %.08.i.i70, 1
+  %.not.i.i72 = icmp ugt i64 %274, %273
+  br i1 %.not.i.i72, label %ceil_log10.exit.i73, label %.lr.ph.i.i69
 
-ceil_log10.exit.i72:                              ; preds = %.lr.ph.i.i68, %272
-  %.0.lcssa.i.i73 = phi i32 [ 0, %272 ], [ %275, %.lr.ph.i.i68 ]
-  %276 = add i32 %.0.lcssa.i.i73, 1
+ceil_log10.exit.i73:                              ; preds = %.lr.ph.i.i69, %272
+  %.0.lcssa.i.i74 = phi i32 [ 0, %272 ], [ %275, %.lr.ph.i.i69 ]
+  %276 = add i32 %.0.lcssa.i.i74, 1
   %277 = getelementptr inbounds i8, ptr %3, i64 128
   %278 = load i32, ptr %277, align 8
   %279 = icmp ugt i32 %276, %278
@@ -1563,17 +1563,17 @@ ceil_log10.exit.i72:                              ; preds = %.lr.ph.i.i68, %272
   %281 = load ptr, ptr %280, align 8
   br i1 %279, label %282, label %299
 
-282:                                              ; preds = %ceil_log10.exit.i72
+282:                                              ; preds = %ceil_log10.exit.i73
   %283 = zext i32 %276 to i64
   %284 = shl nuw nsw i64 %283, 3
   %285 = call ptr @realloc(ptr noundef %281, i64 noundef %284) #19
   store ptr %285, ptr %280, align 8
   %286 = load i32, ptr %277, align 8
-  %287 = icmp ult i32 %286, %.0.lcssa.i.i73
-  br i1 %287, label %.lr.ph.i76, label %._crit_edge.i74
+  %287 = icmp ult i32 %286, %.0.lcssa.i.i74
+  br i1 %287, label %.lr.ph.i77, label %._crit_edge.i75
 
-.lr.ph.i76:                                       ; preds = %282, %.lr.ph.i76
-  %288 = phi i32 [ %293, %.lr.ph.i76 ], [ %286, %282 ]
+.lr.ph.i77:                                       ; preds = %282, %.lr.ph.i77
+  %288 = phi i32 [ %293, %.lr.ph.i77 ], [ %286, %282 ]
   %289 = load ptr, ptr %280, align 8
   %290 = add nuw i32 %288, 1
   store i32 %290, ptr %277, align 8
@@ -1581,41 +1581,41 @@ ceil_log10.exit.i72:                              ; preds = %.lr.ph.i.i68, %272
   %292 = getelementptr inbounds i64, ptr %289, i64 %291
   store i64 0, ptr %292, align 8
   %293 = load i32, ptr %277, align 8
-  %294 = icmp ult i32 %293, %.0.lcssa.i.i73
-  br i1 %294, label %.lr.ph.i76, label %._crit_edge.loopexit.i77
+  %294 = icmp ult i32 %293, %.0.lcssa.i.i74
+  br i1 %294, label %.lr.ph.i77, label %._crit_edge.loopexit.i78
 
-._crit_edge.loopexit.i77:                         ; preds = %.lr.ph.i76
-  %.pre32.i78 = load ptr, ptr %280, align 8
-  br label %._crit_edge.i74
+._crit_edge.loopexit.i78:                         ; preds = %.lr.ph.i77
+  %.pre32.i79 = load ptr, ptr %280, align 8
+  br label %._crit_edge.i75
 
-._crit_edge.i74:                                  ; preds = %._crit_edge.loopexit.i77, %282
-  %295 = phi ptr [ %285, %282 ], [ %.pre32.i78, %._crit_edge.loopexit.i77 ]
-  %.lcssa.i75 = phi i32 [ %286, %282 ], [ %293, %._crit_edge.loopexit.i77 ]
-  %296 = add i32 %.lcssa.i75, 1
+._crit_edge.i75:                                  ; preds = %._crit_edge.loopexit.i78, %282
+  %295 = phi ptr [ %285, %282 ], [ %.pre32.i79, %._crit_edge.loopexit.i78 ]
+  %.lcssa.i76 = phi i32 [ %286, %282 ], [ %293, %._crit_edge.loopexit.i78 ]
+  %296 = add i32 %.lcssa.i76, 1
   store i32 %296, ptr %277, align 8
-  %297 = zext i32 %.0.lcssa.i.i73 to i64
+  %297 = zext i32 %.0.lcssa.i.i74 to i64
   %298 = getelementptr inbounds i64, ptr %295, i64 %297
   store i64 1, ptr %298, align 8
-  br label %attribute_stats.exit80
+  br label %attribute_stats.exit81
 
-299:                                              ; preds = %ceil_log10.exit.i72
-  %300 = zext i32 %.0.lcssa.i.i73 to i64
+299:                                              ; preds = %ceil_log10.exit.i73
+  %300 = zext i32 %.0.lcssa.i.i74 to i64
   %301 = getelementptr inbounds i64, ptr %281, i64 %300
   %302 = load i64, ptr %301, align 8
   %303 = add i64 %302, 1
   store i64 %303, ptr %301, align 8
-  br label %attribute_stats.exit80
+  br label %attribute_stats.exit81
 
-attribute_stats.exit80:                           ; preds = %._crit_edge.i74, %299
+attribute_stats.exit81:                           ; preds = %._crit_edge.i75, %299
   %304 = call i64 @H5Dget_storage_size(i64 noundef %227) #16
   %305 = call i64 @H5Dget_create_plist(i64 noundef %227) #16
   %306 = icmp slt i64 %305, 0
   br i1 %306, label %307, label %323
 
-307:                                              ; preds = %attribute_stats.exit80
+307:                                              ; preds = %attribute_stats.exit81
   %308 = load i32, ptr @enable_error_stack, align 4
   %309 = icmp sgt i32 %308, 0
-  br i1 %309, label %310, label %.thread102
+  br i1 %309, label %310, label %.thread103
 
 310:                                              ; preds = %307
   %311 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1638,7 +1638,7 @@ attribute_stats.exit80:                           ; preds = %._crit_edge.i74, %2
   %fputc190.i = call i32 @fputc(i32 10, ptr %322)
   br label %688
 
-323:                                              ; preds = %attribute_stats.exit80
+323:                                              ; preds = %attribute_stats.exit81
   %324 = call i32 @H5Pget_layout(i64 noundef %305) #16
   %325 = icmp slt i32 %324, 0
   br i1 %325, label %326, label %342
@@ -1646,7 +1646,7 @@ attribute_stats.exit80:                           ; preds = %._crit_edge.i74, %2
 326:                                              ; preds = %323
   %327 = load i32, ptr @enable_error_stack, align 4
   %328 = icmp sgt i32 %327, 0
-  br i1 %328, label %329, label %.thread102
+  br i1 %328, label %329, label %.thread103
 
 329:                                              ; preds = %326
   %330 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1693,7 +1693,7 @@ attribute_stats.exit80:                           ; preds = %._crit_edge.i74, %2
 355:                                              ; preds = %347
   %356 = load i32, ptr @enable_error_stack, align 4
   %357 = icmp sgt i32 %356, 0
-  br i1 %357, label %358, label %.thread102
+  br i1 %357, label %358, label %.thread103
 
 358:                                              ; preds = %355
   %359 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1741,7 +1741,7 @@ attribute_stats.exit80:                           ; preds = %._crit_edge.i74, %2
 383:                                              ; preds = %377
   %384 = load i32, ptr @enable_error_stack, align 4
   %385 = icmp sgt i32 %384, 0
-  br i1 %385, label %386, label %.thread102
+  br i1 %385, label %386, label %.thread103
 
 386:                                              ; preds = %383
   %387 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1772,7 +1772,7 @@ attribute_stats.exit80:                           ; preds = %._crit_edge.i74, %2
 402:                                              ; preds = %399
   %403 = load i32, ptr @enable_error_stack, align 4
   %404 = icmp sgt i32 %403, 0
-  br i1 %404, label %405, label %.thread102
+  br i1 %404, label %405, label %.thread103
 
 405:                                              ; preds = %402
   %406 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1839,25 +1839,25 @@ attribute_stats.exit80:                           ; preds = %._crit_edge.i74, %2
   %444 = load i64, ptr %443, align 8
   %445 = add i64 %444, 1
   store i64 %445, ptr %443, align 8
-  %.pre.i49 = load i64, ptr %5, align 16
+  %.pre.i50 = load i64, ptr %5, align 16
   br label %446
 
 446:                                              ; preds = %440, %436
-  %447 = phi i64 [ %.pre.i49, %440 ], [ %431, %436 ]
-  %.not6.i.i39 = icmp eq i64 %447, 0
-  br i1 %.not6.i.i39, label %ceil_log10.exit.i44, label %.lr.ph.i.i40
+  %447 = phi i64 [ %.pre.i50, %440 ], [ %431, %436 ]
+  %.not6.i.i40 = icmp eq i64 %447, 0
+  br i1 %.not6.i.i40, label %ceil_log10.exit.i45, label %.lr.ph.i.i41
 
-.lr.ph.i.i40:                                     ; preds = %446, %.lr.ph.i.i40
-  %.08.i.i41 = phi i32 [ %449, %.lr.ph.i.i40 ], [ 0, %446 ]
-  %.057.i.i42 = phi i64 [ %448, %.lr.ph.i.i40 ], [ 1, %446 ]
-  %448 = mul i64 %.057.i.i42, 10
-  %449 = add i32 %.08.i.i41, 1
-  %.not.i.i43 = icmp ugt i64 %448, %447
-  br i1 %.not.i.i43, label %ceil_log10.exit.i44, label %.lr.ph.i.i40
+.lr.ph.i.i41:                                     ; preds = %446, %.lr.ph.i.i41
+  %.08.i.i42 = phi i32 [ %449, %.lr.ph.i.i41 ], [ 0, %446 ]
+  %.057.i.i43 = phi i64 [ %448, %.lr.ph.i.i41 ], [ 1, %446 ]
+  %448 = mul i64 %.057.i.i43, 10
+  %449 = add i32 %.08.i.i42, 1
+  %.not.i.i44 = icmp ugt i64 %448, %447
+  br i1 %.not.i.i44, label %ceil_log10.exit.i45, label %.lr.ph.i.i41
 
-ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
-  %.0.lcssa.i.i45 = phi i32 [ 0, %446 ], [ %449, %.lr.ph.i.i40 ]
-  %450 = add i32 %.0.lcssa.i.i45, 1
+ceil_log10.exit.i45:                              ; preds = %.lr.ph.i.i41, %446
+  %.0.lcssa.i.i46 = phi i32 [ 0, %446 ], [ %449, %.lr.ph.i.i41 ]
+  %450 = add i32 %.0.lcssa.i.i46, 1
   %451 = getelementptr inbounds i8, ptr %3, i64 536
   %452 = load i32, ptr %451, align 8
   %453 = icmp ugt i32 %450, %452
@@ -1865,7 +1865,7 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
   %455 = load ptr, ptr %454, align 8
   br i1 %453, label %456, label %490
 
-456:                                              ; preds = %ceil_log10.exit.i44
+456:                                              ; preds = %ceil_log10.exit.i45
   %457 = zext i32 %450 to i64
   %458 = shl nuw nsw i64 %457, 3
   %459 = call ptr @realloc(ptr noundef %455, i64 noundef %458) #19
@@ -1875,13 +1875,13 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
 
 .preheader192.i:                                  ; preds = %456
   %461 = load i32, ptr %451, align 8
-  %462 = icmp ult i32 %461, %.0.lcssa.i.i45
-  br i1 %462, label %.lr.ph.i47, label %._crit_edge.i46
+  %462 = icmp ult i32 %461, %.0.lcssa.i.i46
+  br i1 %462, label %.lr.ph.i48, label %._crit_edge.i47
 
 463:                                              ; preds = %456
   %464 = load i32, ptr @enable_error_stack, align 4
   %465 = icmp sgt i32 %464, 0
-  br i1 %465, label %466, label %.thread102
+  br i1 %465, label %466, label %.thread103
 
 466:                                              ; preds = %463
   %467 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1904,8 +1904,8 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
   %fputc185.i = call i32 @fputc(i32 10, ptr %478)
   br label %688
 
-.lr.ph.i47:                                       ; preds = %.preheader192.i, %.lr.ph.i47
-  %479 = phi i32 [ %484, %.lr.ph.i47 ], [ %461, %.preheader192.i ]
+.lr.ph.i48:                                       ; preds = %.preheader192.i, %.lr.ph.i48
+  %479 = phi i32 [ %484, %.lr.ph.i48 ], [ %461, %.preheader192.i ]
   %480 = load ptr, ptr %454, align 8
   %481 = add nuw i32 %479, 1
   store i32 %481, ptr %451, align 8
@@ -1913,32 +1913,32 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
   %483 = getelementptr inbounds i64, ptr %480, i64 %482
   store i64 0, ptr %483, align 8
   %484 = load i32, ptr %451, align 8
-  %485 = icmp ult i32 %484, %.0.lcssa.i.i45
-  br i1 %485, label %.lr.ph.i47, label %._crit_edge.loopexit.i48
+  %485 = icmp ult i32 %484, %.0.lcssa.i.i46
+  br i1 %485, label %.lr.ph.i48, label %._crit_edge.loopexit.i49
 
-._crit_edge.loopexit.i48:                         ; preds = %.lr.ph.i47
+._crit_edge.loopexit.i49:                         ; preds = %.lr.ph.i48
   %.pre211.i = load ptr, ptr %454, align 8
-  br label %._crit_edge.i46
+  br label %._crit_edge.i47
 
-._crit_edge.i46:                                  ; preds = %._crit_edge.loopexit.i48, %.preheader192.i
-  %486 = phi ptr [ %459, %.preheader192.i ], [ %.pre211.i, %._crit_edge.loopexit.i48 ]
-  %.lcssa198.i = phi i32 [ %461, %.preheader192.i ], [ %484, %._crit_edge.loopexit.i48 ]
+._crit_edge.i47:                                  ; preds = %._crit_edge.loopexit.i49, %.preheader192.i
+  %486 = phi ptr [ %459, %.preheader192.i ], [ %.pre211.i, %._crit_edge.loopexit.i49 ]
+  %.lcssa198.i = phi i32 [ %461, %.preheader192.i ], [ %484, %._crit_edge.loopexit.i49 ]
   %487 = add i32 %.lcssa198.i, 1
   store i32 %487, ptr %451, align 8
-  %488 = zext i32 %.0.lcssa.i.i45 to i64
+  %488 = zext i32 %.0.lcssa.i.i46 to i64
   %489 = getelementptr inbounds i64, ptr %486, i64 %488
   store i64 1, ptr %489, align 8
   br label %495
 
-490:                                              ; preds = %ceil_log10.exit.i44
-  %491 = zext i32 %.0.lcssa.i.i45 to i64
+490:                                              ; preds = %ceil_log10.exit.i45
+  %491 = zext i32 %.0.lcssa.i.i46 to i64
   %492 = getelementptr inbounds i64, ptr %455, i64 %491
   %493 = load i64, ptr %492, align 8
   %494 = add i64 %493, 1
   store i64 %494, ptr %492, align 8
   br label %495
 
-495:                                              ; preds = %490, %._crit_edge.i46, %423
+495:                                              ; preds = %490, %._crit_edge.i47, %423
   %496 = call i32 @H5Sclose(i64 noundef %381) #16
   %497 = icmp slt i32 %496, 0
   br i1 %497, label %498, label %514
@@ -1946,7 +1946,7 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
 498:                                              ; preds = %495
   %499 = load i32, ptr @enable_error_stack, align 4
   %500 = icmp sgt i32 %499, 0
-  br i1 %500, label %501, label %.thread102
+  br i1 %500, label %501, label %.thread103
 
 501:                                              ; preds = %498
   %502 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -1987,7 +1987,7 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
 520:                                              ; preds = %514
   %521 = load i32, ptr @enable_error_stack, align 4
   %522 = icmp sgt i32 %521, 0
-  br i1 %522, label %523, label %.thread102
+  br i1 %522, label %523, label %.thread103
 
 523:                                              ; preds = %520
   %524 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -2051,7 +2051,7 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
 560:                                              ; preds = %.critedge.i
   %561 = load i32, ptr @enable_error_stack, align 4
   %562 = icmp sgt i32 %561, 0
-  br i1 %562, label %563, label %.thread102
+  br i1 %562, label %563, label %.thread103
 
 563:                                              ; preds = %560
   %564 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -2085,7 +2085,7 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
 581:                                              ; preds = %576
   %582 = load i32, ptr @enable_error_stack, align 4
   %583 = icmp sgt i32 %582, 0
-  br i1 %583, label %584, label %.thread102
+  br i1 %583, label %584, label %.thread103
 
 584:                                              ; preds = %581
   %585 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -2105,7 +2105,7 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
   %594 = load ptr, ptr @stderr, align 8
   %595 = call i64 @fwrite(ptr nonnull @.str.98, i64 16, i64 1, ptr %594) #21
   %596 = load ptr, ptr @stderr, align 8
-  %fputc.i38 = call i32 @fputc(i32 10, ptr %596)
+  %fputc.i39 = call i32 @fputc(i32 10, ptr %596)
   br label %688
 
 597:                                              ; preds = %576
@@ -2141,7 +2141,7 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
 615:                                              ; preds = %612
   %616 = load i32, ptr @enable_error_stack, align 4
   %617 = icmp sgt i32 %616, 0
-  br i1 %617, label %618, label %.thread102
+  br i1 %617, label %618, label %.thread103
 
 618:                                              ; preds = %615
   %619 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -2171,9 +2171,9 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
 
 634:                                              ; preds = %631
   %635 = icmp eq i32 %632, 0
-  br i1 %635, label %.thread.i37, label %.lr.ph205.i
+  br i1 %635, label %.thread.i38, label %.lr.ph205.i
 
-.thread.i37:                                      ; preds = %634
+.thread.i38:                                      ; preds = %634
   %636 = getelementptr inbounds i8, ptr %3, i64 456
   %637 = load i64, ptr %636, align 8
   %638 = add i64 %637, 1
@@ -2206,7 +2206,7 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
   %exitcond.not.i = icmp eq i32 %650, %632
   br i1 %exitcond.not.i, label %.loopexit.i, label %641
 
-.loopexit.i:                                      ; preds = %649, %.thread.i37, %631
+.loopexit.i:                                      ; preds = %649, %.thread.i38, %631
   %651 = call i32 @H5Pclose(i64 noundef %305) #16
   %652 = icmp slt i32 %651, 0
   br i1 %652, label %653, label %669
@@ -2214,7 +2214,7 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
 653:                                              ; preds = %.loopexit.i
   %654 = load i32, ptr @enable_error_stack, align 4
   %655 = icmp sgt i32 %654, 0
-  br i1 %655, label %656, label %.thread102
+  br i1 %655, label %656, label %.thread103
 
 656:                                              ; preds = %653
   %657 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -2245,7 +2245,7 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
 672:                                              ; preds = %669
   %673 = load i32, ptr @enable_error_stack, align 4
   %674 = icmp sgt i32 %673, 0
-  br i1 %674, label %675, label %.thread102
+  br i1 %674, label %675, label %.thread103
 
 675:                                              ; preds = %672
   %676 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -2270,17 +2270,17 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
 
 dataset_stats.exit:                               ; preds = %669
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  br label %attribute_stats.exit96
+  br label %attribute_stats.exit97
 
-.thread102:                                       ; preds = %229, %307, %326, %355, %383, %402, %463, %498, %520, %560, %581, %615, %653, %672
+.thread103:                                       ; preds = %229, %307, %326, %355, %383, %402, %463, %498, %520, %560, %581, %615, %653, %672
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  br label %attribute_stats.exit96
+  br label %attribute_stats.exit97
 
 688:                                              ; preds = %237, %241, %315, %319, %334, %338, %363, %367, %391, %395, %410, %414, %471, %475, %506, %510, %528, %532, %568, %572, %589, %593, %623, %627, %661, %665, %680, %684
-  %.pr100 = load i32, ptr @enable_error_stack, align 4
+  %.pr101 = load i32, ptr @enable_error_stack, align 4
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
-  %689 = icmp sgt i32 %.pr100, 0
-  br i1 %689, label %690, label %attribute_stats.exit96
+  %689 = icmp sgt i32 %.pr101, 0
+  br i1 %689, label %690, label %attribute_stats.exit97
 
 690:                                              ; preds = %688
   %691 = load i64, ptr @H5tools_ERR_STACK_g, align 8
@@ -2294,14 +2294,14 @@ dataset_stats.exit:                               ; preds = %669
   %696 = load i64, ptr @H5E_tools_g, align 8
   %697 = load i64, ptr @H5E_tools_min_id_g, align 8
   %698 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %691, ptr noundef nonnull @.str.81, ptr noundef nonnull @__func__.obj_stats, i32 noundef 645, i64 noundef %693, i64 noundef %696, i64 noundef %697, ptr noundef nonnull @.str.84) #16
-  br label %attribute_stats.exit96
+  br label %attribute_stats.exit97
 
 699:                                              ; preds = %690
   %700 = load ptr, ptr @stderr, align 8
   %701 = call i64 @fwrite(ptr nonnull @.str.84, i64 20, i64 1, ptr %700) #21
   %702 = load ptr, ptr @stderr, align 8
   %fputc = call i32 @fputc(i32 10, ptr %702)
-  br label %attribute_stats.exit96
+  br label %attribute_stats.exit97
 
 703:                                              ; preds = %37
   %704 = getelementptr inbounds i8, ptr %3, i64 32
@@ -2330,8 +2330,8 @@ dataset_stats.exit:                               ; preds = %669
   %723 = load i64, ptr %722, align 8
   %724 = load i32, ptr @sattrs_threshold, align 4
   %725 = sext i32 %724 to i64
-  %.not.i81 = icmp ugt i64 %723, %725
-  br i1 %.not.i81, label %732, label %726
+  %.not.i82 = icmp ugt i64 %723, %725
+  br i1 %.not.i82, label %732, label %726
 
 726:                                              ; preds = %703
   %727 = getelementptr inbounds i8, ptr %3, i64 120
@@ -2340,11 +2340,11 @@ dataset_stats.exit:                               ; preds = %669
   %730 = load i64, ptr %729, align 8
   %731 = add i64 %730, 1
   store i64 %731, ptr %729, align 8
-  %.pre.i82 = load i64, ptr %722, align 8
+  %.pre.i83 = load i64, ptr %722, align 8
   br label %732
 
 732:                                              ; preds = %726, %703
-  %733 = phi i64 [ %.pre.i82, %726 ], [ %723, %703 ]
+  %733 = phi i64 [ %.pre.i83, %726 ], [ %723, %703 ]
   %734 = getelementptr inbounds i8, ptr %3, i64 112
   %735 = load i64, ptr %734, align 8
   %736 = icmp ugt i64 %733, %735
@@ -2352,25 +2352,25 @@ dataset_stats.exit:                               ; preds = %669
 
 737:                                              ; preds = %732
   store i64 %733, ptr %734, align 8
-  %.pr.i95 = load i64, ptr %722, align 8
+  %.pr.i96 = load i64, ptr %722, align 8
   br label %738
 
 738:                                              ; preds = %737, %732
-  %739 = phi i64 [ %.pr.i95, %737 ], [ %733, %732 ]
-  %.not6.i.i83 = icmp eq i64 %739, 0
-  br i1 %.not6.i.i83, label %ceil_log10.exit.i88, label %.lr.ph.i.i84
+  %739 = phi i64 [ %.pr.i96, %737 ], [ %733, %732 ]
+  %.not6.i.i84 = icmp eq i64 %739, 0
+  br i1 %.not6.i.i84, label %ceil_log10.exit.i89, label %.lr.ph.i.i85
 
-.lr.ph.i.i84:                                     ; preds = %738, %.lr.ph.i.i84
-  %.08.i.i85 = phi i32 [ %741, %.lr.ph.i.i84 ], [ 0, %738 ]
-  %.057.i.i86 = phi i64 [ %740, %.lr.ph.i.i84 ], [ 1, %738 ]
-  %740 = mul i64 %.057.i.i86, 10
-  %741 = add i32 %.08.i.i85, 1
-  %.not.i.i87 = icmp ugt i64 %740, %739
-  br i1 %.not.i.i87, label %ceil_log10.exit.i88, label %.lr.ph.i.i84
+.lr.ph.i.i85:                                     ; preds = %738, %.lr.ph.i.i85
+  %.08.i.i86 = phi i32 [ %741, %.lr.ph.i.i85 ], [ 0, %738 ]
+  %.057.i.i87 = phi i64 [ %740, %.lr.ph.i.i85 ], [ 1, %738 ]
+  %740 = mul i64 %.057.i.i87, 10
+  %741 = add i32 %.08.i.i86, 1
+  %.not.i.i88 = icmp ugt i64 %740, %739
+  br i1 %.not.i.i88, label %ceil_log10.exit.i89, label %.lr.ph.i.i85
 
-ceil_log10.exit.i88:                              ; preds = %.lr.ph.i.i84, %738
-  %.0.lcssa.i.i89 = phi i32 [ 0, %738 ], [ %741, %.lr.ph.i.i84 ]
-  %742 = add i32 %.0.lcssa.i.i89, 1
+ceil_log10.exit.i89:                              ; preds = %.lr.ph.i.i85, %738
+  %.0.lcssa.i.i90 = phi i32 [ 0, %738 ], [ %741, %.lr.ph.i.i85 ]
+  %742 = add i32 %.0.lcssa.i.i90, 1
   %743 = getelementptr inbounds i8, ptr %3, i64 128
   %744 = load i32, ptr %743, align 8
   %745 = icmp ugt i32 %742, %744
@@ -2378,17 +2378,17 @@ ceil_log10.exit.i88:                              ; preds = %.lr.ph.i.i84, %738
   %747 = load ptr, ptr %746, align 8
   br i1 %745, label %748, label %765
 
-748:                                              ; preds = %ceil_log10.exit.i88
+748:                                              ; preds = %ceil_log10.exit.i89
   %749 = zext i32 %742 to i64
   %750 = shl nuw nsw i64 %749, 3
   %751 = call ptr @realloc(ptr noundef %747, i64 noundef %750) #19
   store ptr %751, ptr %746, align 8
   %752 = load i32, ptr %743, align 8
-  %753 = icmp ult i32 %752, %.0.lcssa.i.i89
-  br i1 %753, label %.lr.ph.i92, label %._crit_edge.i90
+  %753 = icmp ult i32 %752, %.0.lcssa.i.i90
+  br i1 %753, label %.lr.ph.i93, label %._crit_edge.i91
 
-.lr.ph.i92:                                       ; preds = %748, %.lr.ph.i92
-  %754 = phi i32 [ %759, %.lr.ph.i92 ], [ %752, %748 ]
+.lr.ph.i93:                                       ; preds = %748, %.lr.ph.i93
+  %754 = phi i32 [ %759, %.lr.ph.i93 ], [ %752, %748 ]
   %755 = load ptr, ptr %746, align 8
   %756 = add nuw i32 %754, 1
   store i32 %756, ptr %743, align 8
@@ -2396,40 +2396,40 @@ ceil_log10.exit.i88:                              ; preds = %.lr.ph.i.i84, %738
   %758 = getelementptr inbounds i64, ptr %755, i64 %757
   store i64 0, ptr %758, align 8
   %759 = load i32, ptr %743, align 8
-  %760 = icmp ult i32 %759, %.0.lcssa.i.i89
-  br i1 %760, label %.lr.ph.i92, label %._crit_edge.loopexit.i93
+  %760 = icmp ult i32 %759, %.0.lcssa.i.i90
+  br i1 %760, label %.lr.ph.i93, label %._crit_edge.loopexit.i94
 
-._crit_edge.loopexit.i93:                         ; preds = %.lr.ph.i92
-  %.pre32.i94 = load ptr, ptr %746, align 8
-  br label %._crit_edge.i90
+._crit_edge.loopexit.i94:                         ; preds = %.lr.ph.i93
+  %.pre32.i95 = load ptr, ptr %746, align 8
+  br label %._crit_edge.i91
 
-._crit_edge.i90:                                  ; preds = %._crit_edge.loopexit.i93, %748
-  %761 = phi ptr [ %751, %748 ], [ %.pre32.i94, %._crit_edge.loopexit.i93 ]
-  %.lcssa.i91 = phi i32 [ %752, %748 ], [ %759, %._crit_edge.loopexit.i93 ]
-  %762 = add i32 %.lcssa.i91, 1
+._crit_edge.i91:                                  ; preds = %._crit_edge.loopexit.i94, %748
+  %761 = phi ptr [ %751, %748 ], [ %.pre32.i95, %._crit_edge.loopexit.i94 ]
+  %.lcssa.i92 = phi i32 [ %752, %748 ], [ %759, %._crit_edge.loopexit.i94 ]
+  %762 = add i32 %.lcssa.i92, 1
   store i32 %762, ptr %743, align 8
-  %763 = zext i32 %.0.lcssa.i.i89 to i64
+  %763 = zext i32 %.0.lcssa.i.i90 to i64
   %764 = getelementptr inbounds i64, ptr %761, i64 %763
   store i64 1, ptr %764, align 8
-  br label %attribute_stats.exit96
+  br label %attribute_stats.exit97
 
-765:                                              ; preds = %ceil_log10.exit.i88
-  %766 = zext i32 %.0.lcssa.i.i89 to i64
+765:                                              ; preds = %ceil_log10.exit.i89
+  %766 = zext i32 %.0.lcssa.i.i90 to i64
   %767 = getelementptr inbounds i64, ptr %747, i64 %766
   %768 = load i64, ptr %767, align 8
   %769 = add i64 %768, 1
   store i64 %769, ptr %767, align 8
-  br label %attribute_stats.exit96
+  br label %attribute_stats.exit97
 
 770:                                              ; preds = %37
   %771 = getelementptr inbounds i8, ptr %3, i64 48
   %772 = load i64, ptr %771, align 8
   %773 = add i64 %772, 1
   store i64 %773, ptr %771, align 8
-  br label %attribute_stats.exit96
+  br label %attribute_stats.exit97
 
-attribute_stats.exit96:                           ; preds = %765, %._crit_edge.i90, %.thread102, %dataset_stats.exit, %.thread, %group_stats.exit, %688, %699, %695, %197, %208, %204, %13, %25, %21, %4, %770
-  %.0 = phi i32 [ 0, %770 ], [ 0, %dataset_stats.exit ], [ 0, %group_stats.exit ], [ 0, %4 ], [ -1, %21 ], [ -1, %25 ], [ -1, %13 ], [ -1, %204 ], [ -1, %208 ], [ -1, %197 ], [ -1, %695 ], [ -1, %699 ], [ -1, %688 ], [ -1, %.thread ], [ -1, %.thread102 ], [ 0, %._crit_edge.i90 ], [ 0, %765 ]
+attribute_stats.exit97:                           ; preds = %765, %._crit_edge.i91, %.thread103, %dataset_stats.exit, %.thread, %group_stats.exit, %688, %699, %695, %197, %208, %204, %13, %25, %21, %4, %770
+  %.0 = phi i32 [ 0, %770 ], [ 0, %dataset_stats.exit ], [ 0, %group_stats.exit ], [ 0, %4 ], [ -1, %21 ], [ -1, %25 ], [ -1, %13 ], [ -1, %204 ], [ -1, %208 ], [ -1, %197 ], [ -1, %695 ], [ -1, %699 ], [ -1, %688 ], [ -1, %.thread ], [ -1, %.thread103 ], [ 0, %._crit_edge.i91 ], [ 0, %765 ]
   ret i32 %.0
 }
 

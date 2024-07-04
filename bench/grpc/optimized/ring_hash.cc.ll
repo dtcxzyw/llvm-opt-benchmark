@@ -2421,9 +2421,9 @@ while.body.lr.ph.i.i:                             ; preds = %invoke.cont96.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %invoke.cont129.i.i, %while.body.lr.ph.i.i
-  %current_hashes.1243.i.i = phi double [ %current_hashes.0254.i.i, %while.body.lr.ph.i.i ], [ %inc127.i.i, %invoke.cont129.i.i ]
-  %count.0242.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %inc.i.i, %invoke.cont129.i.i ]
-  %call.i102.i.i = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %count.0242.i.i, ptr noundef nonnull %digits_.i.i.i)
+  %count.0243.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %inc.i.i, %invoke.cont129.i.i ]
+  %current_hashes.1242.i.i = phi double [ %current_hashes.0254.i.i, %while.body.lr.ph.i.i ], [ %inc127.i.i, %invoke.cont129.i.i ]
+  %call.i102.i.i = invoke noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef %count.0243.i.i, ptr noundef nonnull %digits_.i.i.i)
           to label %invoke.cont104.i.i unwind label %lpad93.loopexit.i.i, !noalias !19
 
 invoke.cont104.i.i:                               ; preds = %while.body.i.i
@@ -2710,8 +2710,8 @@ if.then.i156.i.i:                                 ; preds = %invoke.cont126.i.i
   br label %invoke.cont129.i.i
 
 invoke.cont129.i.i:                               ; preds = %if.then.i156.i.i, %invoke.cont126.i.i
-  %inc127.i.i = fadd double %current_hashes.1243.i.i, 1.000000e+00
-  %inc.i.i = add i64 %count.0242.i.i, 1
+  %inc127.i.i = fadd double %current_hashes.1242.i.i, 1.000000e+00
+  %inc.i.i = add i64 %count.0243.i.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %count_str.i.i) #23, !noalias !19
   %cmp102.i.i = fcmp olt double %inc127.i.i, %60
   br i1 %cmp102.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !36

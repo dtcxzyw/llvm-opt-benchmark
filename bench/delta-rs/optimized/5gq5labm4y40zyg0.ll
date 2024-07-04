@@ -780,8 +780,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6793203773dd59
 
 73:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit.backedge.i.i.i.i.i", %.lr.ph.i.i.i.i.i
   %74 = phi i16 [ %72, %.lr.ph.i.i.i.i.i ], [ %86, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit.backedge.i.i.i.i.i" ]
-  %.02631.i.i.i.i.i = phi i16 [ %70, %.lr.ph.i.i.i.i.i ], [ %74, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit.backedge.i.i.i.i.i" ]
-  %75 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02631.i.i.i.i.i, i1 true)
+  %.031.i.i.i.i.i = phi i16 [ %70, %.lr.ph.i.i.i.i.i ], [ %74, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit.backedge.i.i.i.i.i" ]
+  %75 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.031.i.i.i.i.i, i1 true)
   %76 = zext nneg i16 %75 to i64
   %77 = add i64 %.sroa.0.025.i.i.i.i.i, %76
   %78 = and i64 %77, %.val4.i.i.i.i

@@ -1130,7 +1130,7 @@ _Z16numPbcDimensions7PbcType.exit:                ; preds = %4, %4
 
 .preheader257.split.us:                           ; preds = %.preheader257, %.preheader257.split.us
   %indvars.iv304 = phi i64 [ %indvars.iv.next305, %.preheader257.split.us ], [ 0, %.preheader257 ]
-  %.0205260.us = phi i32 [ %spec.select373, %.preheader257.split.us ], [ 0, %.preheader257 ]
+  %.0206259.us = phi i32 [ %spec.select373, %.preheader257.split.us ], [ 0, %.preheader257 ]
   %71 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv304
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 0
@@ -1141,7 +1141,7 @@ _Z16numPbcDimensions7PbcType.exit:                ; preds = %4, %4
   %spec.select = zext i1 %not.or.cond284 to i32
   %not.or.cond284375 = xor i1 %or.cond284, true
   %75 = zext i1 %not.or.cond284375 to i32
-  %spec.select373 = add nuw nsw i32 %.0205260.us, %75
+  %spec.select373 = add nuw nsw i32 %.0206259.us, %75
   %76 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %indvars.iv304
   store i32 %spec.select, ptr %76, align 4
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
@@ -1202,9 +1202,9 @@ _Z16numPbcDimensions7PbcType.exit:                ; preds = %4, %4
   br label %328
 
 .preheader257.split.split:                        ; preds = %.preheader257.split, %.preheader257.split.split
-  %.0205260385 = phi i32 [ %90, %.preheader257.split.split ], [ 0, %.preheader257.split ]
+  %.0206259385 = phi i32 [ %90, %.preheader257.split.split ], [ 0, %.preheader257.split ]
   %indvars.iv300384 = phi i64 [ %indvars.iv.next301, %.preheader257.split.split ], [ 0, %.preheader257.split ]
-  %90 = add nuw nsw i32 %.0205260385, 1
+  %90 = add nuw nsw i32 %.0206259385, 1
   %91 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %indvars.iv300384
   store i32 1, ptr %91, align 4
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300384, 1
@@ -1512,8 +1512,8 @@ _Z11max_cutoff27PbcTypePA3_Kf.exit:               ; preds = %.loopexit252, %173
 
 233:                                              ; preds = %.preheader246, %257
   %indvars.iv328 = phi i64 [ 0, %.preheader246 ], [ %indvars.iv.next329, %257 ]
-  %.0196275 = phi float [ 0.000000e+00, %.preheader246 ], [ %264, %257 ]
-  %.0197274 = phi float [ 0.000000e+00, %.preheader246 ], [ %261, %257 ]
+  %.0195275 = phi float [ 0.000000e+00, %.preheader246 ], [ %264, %257 ]
+  %.0196274 = phi float [ 0.000000e+00, %.preheader246 ], [ %261, %257 ]
   %234 = getelementptr inbounds [3 x float], ptr %3, i64 0, i64 %indvars.iv328
   %235 = load float, ptr %234, align 4
   %236 = getelementptr inbounds [3 x float], ptr %27, i64 0, i64 %indvars.iv328
@@ -1559,10 +1559,10 @@ _Z11max_cutoff27PbcTypePA3_Kf.exit:               ; preds = %.loopexit252, %173
   %258 = phi float [ %242, %250 ], [ %242, %254 ], [ 0.000000e+00, %245 ]
   %259 = phi float [ %.sroa.speculated237, %250 ], [ %.sroa.speculated, %254 ], [ 0.000000e+00, %245 ]
   %260 = fmul float %259, %259
-  %261 = fadd float %.0197274, %260
+  %261 = fadd float %.0196274, %260
   %262 = fadd float %259, %258
   %263 = fmul float %262, %262
-  %264 = fadd float %.0196275, %263
+  %264 = fadd float %.0195275, %263
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %exitcond331.not = icmp eq i64 %indvars.iv.next329, 3
   br i1 %exitcond331.not, label %265, label %233, !llvm.loop !15
@@ -1574,7 +1574,7 @@ _Z11max_cutoff27PbcTypePA3_Kf.exit:               ; preds = %.loopexit252, %173
 
 .preheader245.outer:                              ; preds = %265, %.thread358
   %indvars.iv336.ph = phi i64 [ %indvars.iv.next337360, %.thread358 ], [ 0, %265 ]
-  %.0194279.ph = phi i1 [ false, %.thread358 ], [ true, %265 ]
+  %.0193279.ph = phi i1 [ false, %.thread358 ], [ true, %265 ]
   br label %.preheader245
 
 .preheader245:                                    ; preds = %.preheader245.outer, %287
@@ -1623,7 +1623,7 @@ _Z11max_cutoff27PbcTypePA3_Kf.exit:               ; preds = %.loopexit252, %173
   br i1 %exitcond338.not361, label %.thread363, label %.preheader245.outer, !llvm.loop !17
 
 288:                                              ; preds = %287
-  br i1 %.0194279.ph, label %289, label %.thread363
+  br i1 %.0193279.ph, label %289, label %.thread363
 
 289:                                              ; preds = %288
   %290 = load i32, ptr %47, align 4

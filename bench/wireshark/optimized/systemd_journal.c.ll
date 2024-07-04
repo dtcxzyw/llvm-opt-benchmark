@@ -185,13 +185,13 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
   br label %14
 
 14:                                               ; preds = %67, %5
-  %.061115 = phi i64 [ 0, %5 ], [ %.1, %67 ]
-  %.062114 = phi i32 [ 0, %5 ], [ %70, %67 ]
+  %.061115 = phi i32 [ 0, %5 ], [ %70, %67 ]
+  %.063114 = phi i32 [ 0, %5 ], [ %.1, %67 ]
   %.064113 = phi i32 [ 0, %5 ], [ %.165, %67 ]
   %.067112 = phi i32 [ 0, %5 ], [ %.168, %67 ]
-  %.070111 = phi i32 [ 0, %5 ], [ %.171, %67 ]
-  %15 = getelementptr i8, ptr %10, i64 %.061115
-  %16 = trunc i64 %.061115 to i32
+  %.070111 = phi i64 [ 0, %5 ], [ %.171, %67 ]
+  %15 = getelementptr i8, ptr %10, i64 %.070111
+  %16 = trunc i64 %.070111 to i32
   %17 = sub nsw i32 262144, %16
   %18 = call ptr @file_gets(ptr noundef %15, i32 noundef %17, ptr noundef %0) #9
   %.not = icmp eq ptr %18, null
@@ -199,7 +199,7 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
 
 19:                                               ; preds = %14
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #10
-  %21 = add i64 %20, %.061115
+  %21 = add i64 %20, %.070111
   %22 = load i8, ptr %18, align 1
   %23 = icmp eq i8 %22, 10
   br i1 %23, label %.thread, label %24
@@ -291,34 +291,34 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
   br label %67
 
 67:                                               ; preds = %40, %24, %64, %43, %30, %35
-  %.171 = phi i32 [ %.070111, %30 ], [ %.070111, %35 ], [ %.070111, %43 ], [ %.070111, %64 ], [ 1, %24 ], [ %.070111, %40 ]
-  %.168 = phi i32 [ %.067112, %30 ], [ 1, %35 ], [ %.067112, %43 ], [ %.067112, %64 ], [ %.067112, %24 ], [ %.067112, %40 ]
-  %.165 = phi i32 [ %.064113, %30 ], [ %.064113, %35 ], [ %.064113, %43 ], [ %.064113, %64 ], [ %.064113, %24 ], [ 1, %40 ]
-  %.1 = phi i64 [ %21, %30 ], [ %21, %35 ], [ %21, %43 ], [ %66, %64 ], [ %21, %24 ], [ %21, %40 ]
-  %68 = add i64 %.1, -262143
+  %.171 = phi i64 [ %21, %30 ], [ %21, %35 ], [ %21, %43 ], [ %66, %64 ], [ %21, %24 ], [ %21, %40 ]
+  %.168 = phi i32 [ %.067112, %30 ], [ %.067112, %35 ], [ %.067112, %43 ], [ %.067112, %64 ], [ 1, %24 ], [ %.067112, %40 ]
+  %.165 = phi i32 [ %.064113, %30 ], [ 1, %35 ], [ %.064113, %43 ], [ %.064113, %64 ], [ %.064113, %24 ], [ %.064113, %40 ]
+  %.1 = phi i32 [ %.063114, %30 ], [ %.063114, %35 ], [ %.063114, %43 ], [ %.063114, %64 ], [ %.063114, %24 ], [ 1, %40 ]
+  %68 = add i64 %.171, -262143
   %69 = icmp ult i64 %68, -262145
-  %70 = add nuw nsw i32 %.062114, 1
+  %70 = add nuw nsw i32 %.061115, 1
   %exitcond.not = icmp eq i32 %70, 100
   %or.cond146 = select i1 %69, i1 true, i1 %exitcond.not
   br i1 %or.cond146, label %71, label %14, !llvm.loop !6
 
 71:                                               ; preds = %67, %14
-  %.272 = phi i32 [ %.171, %67 ], [ %.070111, %14 ]
+  %.272 = phi i64 [ %.171, %67 ], [ %.070111, %14 ]
   %.269 = phi i32 [ %.168, %67 ], [ %.067112, %14 ]
   %.266 = phi i32 [ %.165, %67 ], [ %.064113, %14 ]
-  %.2 = phi i64 [ %.1, %67 ], [ %.061115, %14 ]
-  %72 = icmp ne i32 %.272, 0
-  %73 = icmp ne i32 %.269, 0
+  %.2 = phi i32 [ %.1, %67 ], [ %.063114, %14 ]
+  %72 = icmp ne i32 %.269, 0
+  %73 = icmp ne i32 %.266, 0
   %or.cond = select i1 %72, i1 %73, i1 false
-  %74 = icmp ne i32 %.266, 0
+  %74 = icmp ne i32 %.2, 0
   %or.cond3 = select i1 %or.cond, i1 %74, i1 false
   br i1 %or.cond3, label %78, label %.loopexit
 
 .thread:                                          ; preds = %19
-  %75 = icmp ne i32 %.070111, 0
-  %76 = icmp ne i32 %.067112, 0
+  %75 = icmp ne i32 %.067112, 0
+  %76 = icmp ne i32 %.064113, 0
   %or.cond88 = select i1 %75, i1 %76, i1 false
-  %77 = icmp ne i32 %.064113, 0
+  %77 = icmp ne i32 %.063114, 0
   %or.cond389 = select i1 %or.cond88, i1 %77, i1 false
   br i1 %or.cond389, label %.thread92, label %.loopexit
 
@@ -328,14 +328,14 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
   br i1 %.not82, label %.loopexit, label %.thread92
 
 .thread92:                                        ; preds = %.thread, %78
-  %.29195 = phi i64 [ %.2, %78 ], [ %21, %.thread ]
+  %.2729095 = phi i64 [ %.272, %78 ], [ %21, %.thread ]
   store i32 4, ptr %1, align 8
   %80 = call ptr @wtap_block_create(i32 noundef 10) #9
   %81 = getelementptr inbounds i8, ptr %1, i64 232
   store ptr %80, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 3, ptr %82, align 4
-  %83 = trunc i64 %.29195 to i32
+  %83 = trunc i64 %.2729095 to i32
   %84 = getelementptr inbounds i8, ptr %1, i64 64
   store i32 %83, ptr %84, align 8
   br label %.loopexit

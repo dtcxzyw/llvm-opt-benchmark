@@ -300,8 +300,8 @@ ExecProcNode.exit:                                ; preds = %30, %35
   br label %58
 
 58:                                               ; preds = %.thread, %21, %53, %47, %44
-  %.0 = phi ptr [ %14, %53 ], [ null, %44 ], [ %14, %47 ], [ null, %21 ], [ %14, %.thread ]
-  ret ptr %.0
+  %.032 = phi ptr [ %14, %53 ], [ null, %44 ], [ %14, %47 ], [ null, %21 ], [ %14, %.thread ]
+  ret ptr %.032
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

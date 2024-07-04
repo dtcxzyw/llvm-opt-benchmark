@@ -380,8 +380,8 @@ Kit_PlaStart.exit:                                ; preds = %16, %6
   br i1 %36, label %.lr.ph.us, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %._crit_edge.us, %.lr.ph35, %Kit_PlaStart.exit, %3
-  %.0 = phi ptr [ null, %3 ], [ %10, %Kit_PlaStart.exit ], [ %10, %.lr.ph35 ], [ %10, %._crit_edge.us ]
-  ret ptr %.0
+  %.027 = phi ptr [ null, %3 ], [ %10, %Kit_PlaStart.exit ], [ %10, %.lr.ph35 ], [ %10, %._crit_edge.us ]
+  ret ptr %.027
 }
 
 ; Function Attrs: nounwind uwtable
@@ -442,7 +442,7 @@ Kit_PlaGetVarNum.exit.thread:                     ; preds = %3
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %Vec_IntPush.exit.us
-  %.01927.us = phi ptr [ %47, %Vec_IntPush.exit.us ], [ %0, %.preheader.us.preheader ]
+  %.02027.us = phi ptr [ %47, %Vec_IntPush.exit.us ], [ %0, %.preheader.us.preheader ]
   br label %49
 
 .Vec_IntGrow.exit10_crit_edge.i.us:               ; preds = %._crit_edge.us
@@ -502,7 +502,7 @@ Vec_IntPush.exit.us:                              ; preds = %Vec_IntGrow.exit.i.
   %45 = sext i32 %43 to i64
   %46 = getelementptr inbounds i32, ptr %42, i64 %45
   store i32 %.1.us, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %.01927.us, i64 %18
+  %47 = getelementptr inbounds i8, ptr %.02027.us, i64 %18
   %48 = load i8, ptr %47, align 1
   %.not.us = icmp eq i8 %48, 0
   br i1 %.not.us, label %._crit_edge28, label %.preheader.us, !llvm.loop !12
@@ -511,7 +511,7 @@ Vec_IntPush.exit.us:                              ; preds = %Vec_IntGrow.exit.i.
   %indvars.iv = phi i64 [ %21, %.preheader.us ], [ %indvars.iv.next, %60 ]
   %.024.us = phi i32 [ 0, %.preheader.us ], [ %.1.us, %60 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %50 = getelementptr inbounds i8, ptr %.01927.us, i64 %indvars.iv.next
+  %50 = getelementptr inbounds i8, ptr %.02027.us, i64 %indvars.iv.next
   %51 = load i8, ptr %50, align 1
   switch i8 %51, label %60 [
     i8 48, label %57
@@ -545,7 +545,7 @@ Vec_IntPush.exit.us:                              ; preds = %Vec_IntGrow.exit.i.
   br i1 %64, label %22, label %.Vec_IntGrow.exit10_crit_edge.i.us
 
 .preheader:                                       ; preds = %.preheader.preheader, %Vec_IntPush.exit
-  %.01927 = phi ptr [ %93, %Vec_IntPush.exit ], [ %0, %.preheader.preheader ]
+  %.02027 = phi ptr [ %93, %Vec_IntPush.exit ], [ %0, %.preheader.preheader ]
   %65 = load i32, ptr %20, align 4
   %66 = load i32, ptr %1, align 8
   %67 = icmp eq i32 %65, %66
@@ -608,7 +608,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %91 = sext i32 %89 to i64
   %92 = getelementptr inbounds i32, ptr %88, i64 %91
   store i32 0, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %.01927, i64 %19
+  %93 = getelementptr inbounds i8, ptr %.02027, i64 %19
   %94 = load i8, ptr %93, align 1
   %.not = icmp eq i8 %94, 0
   br i1 %.not, label %._crit_edge28, label %.preheader, !llvm.loop !12
@@ -764,44 +764,44 @@ Kit_PlaStart.exit.i:                              ; preds = %35, %25
   br i1 %55, label %.lr.ph.us.i, label %Kit_PlaCreateFromIsop.exit, !llvm.loop !11
 
 Kit_PlaCreateFromIsop.exit:                       ; preds = %._crit_edge.us.i, %21, %Kit_PlaStart.exit.i, %.lr.ph35.i
-  %.0.i = phi ptr [ null, %21 ], [ %29, %Kit_PlaStart.exit.i ], [ %29, %.lr.ph35.i ], [ %29, %._crit_edge.us.i ]
+  %.027.i = phi ptr [ null, %21 ], [ %29, %Kit_PlaStart.exit.i ], [ %29, %.lr.ph35.i ], [ %29, %._crit_edge.us.i ]
   %.not17 = icmp eq i32 %22, 0
   br i1 %.not17, label %Kit_PlaComplement.exit, label %.preheader
 
 .preheader:                                       ; preds = %Kit_PlaCreateFromIsop.exit, %63
-  %.0.i24 = phi ptr [ %64, %63 ], [ %.0.i, %Kit_PlaCreateFromIsop.exit ]
-  %56 = load i8, ptr %.0.i24, align 1
+  %.0.i = phi ptr [ %64, %63 ], [ %.027.i, %Kit_PlaCreateFromIsop.exit ]
+  %56 = load i8, ptr %.0.i, align 1
   switch i8 %56, label %63 [
     i8 0, label %Kit_PlaComplement.exit
     i8 10, label %57
   ]
 
 57:                                               ; preds = %.preheader
-  %58 = getelementptr inbounds i8, ptr %.0.i24, i64 -1
+  %58 = getelementptr inbounds i8, ptr %.0.i, i64 -1
   %59 = load i8, ptr %58, align 1
   switch i8 %59, label %63 [
-    i8 48, label %.sink.split.i25
+    i8 48, label %.sink.split.i24
     i8 49, label %60
     i8 120, label %61
     i8 110, label %62
   ]
 
 60:                                               ; preds = %57
-  br label %.sink.split.i25
+  br label %.sink.split.i24
 
 61:                                               ; preds = %57
-  br label %.sink.split.i25
+  br label %.sink.split.i24
 
 62:                                               ; preds = %57
-  br label %.sink.split.i25
+  br label %.sink.split.i24
 
-.sink.split.i25:                                  ; preds = %62, %61, %60, %57
-  %.sink.i26 = phi i8 [ 48, %60 ], [ 120, %62 ], [ 110, %61 ], [ 49, %57 ]
-  store i8 %.sink.i26, ptr %58, align 1
+.sink.split.i24:                                  ; preds = %62, %61, %60, %57
+  %.sink.i25 = phi i8 [ 48, %60 ], [ 120, %62 ], [ 110, %61 ], [ 49, %57 ]
+  store i8 %.sink.i25, ptr %58, align 1
   br label %63
 
-63:                                               ; preds = %.sink.split.i25, %57, %.preheader
-  %64 = getelementptr inbounds i8, ptr %.0.i24, i64 1
+63:                                               ; preds = %.sink.split.i24, %57, %.preheader
+  %64 = getelementptr inbounds i8, ptr %.0.i, i64 1
   br label %.preheader, !llvm.loop !8
 
 Kit_PlaComplement.exit.sink.split:                ; preds = %select.unfold.i, %select.unfold.i19
@@ -811,7 +811,7 @@ Kit_PlaComplement.exit.sink.split:                ; preds = %select.unfold.i, %s
   br label %Kit_PlaComplement.exit
 
 Kit_PlaComplement.exit:                           ; preds = %.preheader, %Kit_PlaComplement.exit.sink.split, %Kit_PlaCreateFromIsop.exit
-  %.0 = phi ptr [ %.0.i, %Kit_PlaCreateFromIsop.exit ], [ %65, %Kit_PlaComplement.exit.sink.split ], [ %.0.i, %.preheader ]
+  %.0 = phi ptr [ %.027.i, %Kit_PlaCreateFromIsop.exit ], [ %65, %Kit_PlaComplement.exit.sink.split ], [ %.027.i, %.preheader ]
   ret ptr %.0
 }
 
@@ -845,8 +845,8 @@ define ptr @Kit_PlaFromIsop(ptr nocapture noundef %0, i32 noundef %1, ptr nocapt
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11, %90
-  %.02471 = phi i32 [ %91, %90 ], [ 0, %11 ]
-  %14 = shl nuw i32 %.02471, 1
+  %.071 = phi i32 [ %91, %90 ], [ 0, %11 ]
+  %14 = shl nuw i32 %.071, 1
   %15 = ashr i32 %13, %14
   %16 = and i32 %15, 3
   switch i32 %16, label %default.unreachable [
@@ -1033,7 +1033,7 @@ default.unreachable:                              ; preds = %.lr.ph
   br label %90
 
 90:                                               ; preds = %.sink.split, %.lr.ph
-  %91 = add nuw nsw i32 %.02471, 1
+  %91 = add nuw nsw i32 %.071, 1
   %exitcond.not = icmp eq i32 %91, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
@@ -1302,8 +1302,8 @@ Vec_StrPush.exit70:                               ; preds = %.Vec_StrGrow.exit10
   br label %205
 
 205:                                              ; preds = %3, %Vec_StrPush.exit70
-  %.0 = phi ptr [ %.val28, %Vec_StrPush.exit70 ], [ null, %3 ]
-  ret ptr %.0
+  %.024 = phi ptr [ %.val28, %Vec_StrPush.exit70 ], [ null, %3 ]
+  ret ptr %.024
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1654,17 +1654,17 @@ select.unfold.preheader.i47.us.preheader:         ; preds = %.lr.ph71.split.us
   br label %select.unfold.preheader.i47.us
 
 Kit_TruthFill.exit.us.us:                         ; preds = %.lr.ph71.split.us, %Kit_TruthFill.exit.us.us
-  %.03969.us.us = phi ptr [ %28, %Kit_TruthFill.exit.us.us ], [ %0, %.lr.ph71.split.us ]
-  %.04068.us.us = phi i32 [ %29, %Kit_TruthFill.exit.us.us ], [ 0, %.lr.ph71.split.us ]
-  %28 = getelementptr inbounds i8, ptr %.03969.us.us, i64 %8
-  %29 = add nuw nsw i32 %.04068.us.us, 1
+  %.03970.us.us = phi i32 [ %29, %Kit_TruthFill.exit.us.us ], [ 0, %.lr.ph71.split.us ]
+  %.04168.us.us = phi ptr [ %28, %Kit_TruthFill.exit.us.us ], [ %0, %.lr.ph71.split.us ]
+  %28 = getelementptr inbounds i8, ptr %.04168.us.us, i64 %8
+  %29 = add nuw nsw i32 %.03970.us.us, 1
   %30 = icmp slt i32 %29, %20
   br i1 %30, label %Kit_TruthFill.exit.us.us, label %.loopexit.sink.split, !llvm.loop !21
 
 select.unfold.preheader.i47.us:                   ; preds = %select.unfold.preheader.i47.us.preheader, %Kit_TruthOr.exit.loopexit.us
-  %.03969.us = phi ptr [ %59, %Kit_TruthOr.exit.loopexit.us ], [ %0, %select.unfold.preheader.i47.us.preheader ]
-  %.04068.us = phi i32 [ %60, %Kit_TruthOr.exit.loopexit.us ], [ 0, %select.unfold.preheader.i47.us.preheader ]
-  %31 = getelementptr inbounds i8, ptr %.03969.us, i64 %23
+  %.03970.us = phi i32 [ %60, %Kit_TruthOr.exit.loopexit.us ], [ 0, %select.unfold.preheader.i47.us.preheader ]
+  %.04168.us = phi ptr [ %59, %Kit_TruthOr.exit.loopexit.us ], [ %0, %select.unfold.preheader.i47.us.preheader ]
+  %31 = getelementptr inbounds i8, ptr %.04168.us, i64 %23
   %32 = load i8, ptr %31, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %3, i8 -1, i64 %25, i1 false)
   br label %39
@@ -1683,7 +1683,7 @@ select.unfold.i57.us:                             ; preds = %Kit_TruthAnd.exit.u
 
 39:                                               ; preds = %select.unfold.preheader.i47.us, %Kit_TruthAnd.exit.us75
   %indvars.iv = phi i64 [ 0, %select.unfold.preheader.i47.us ], [ %indvars.iv.next, %Kit_TruthAnd.exit.us75 ]
-  %40 = getelementptr inbounds i8, ptr %.03969.us, i64 %indvars.iv
+  %40 = getelementptr inbounds i8, ptr %.04168.us, i64 %indvars.iv
   %41 = load i8, ptr %40, align 1
   switch i8 %41, label %Kit_TruthAnd.exit.us75 [
     i8 49, label %select.unfold.preheader.i49.us
@@ -1733,8 +1733,8 @@ Kit_TruthAnd.exit.us75:                           ; preds = %select.unfold.i52.u
   br i1 %exitcond.not, label %select.unfold.i57.us, label %39, !llvm.loop !25
 
 Kit_TruthOr.exit.loopexit.us:                     ; preds = %select.unfold.i57.us
-  %59 = getelementptr inbounds i8, ptr %.03969.us, i64 %8
-  %60 = add nuw nsw i32 %.04068.us, 1
+  %59 = getelementptr inbounds i8, ptr %.04168.us, i64 %8
+  %60 = add nuw nsw i32 %.03970.us, 1
   %61 = icmp slt i32 %60, %20
   br i1 %61, label %select.unfold.preheader.i47.us, label %.loopexit, !llvm.loop !21
 
@@ -1742,17 +1742,17 @@ Kit_TruthOr.exit.loopexit.us:                     ; preds = %select.unfold.i57.u
   br i1 %15, label %Kit_TruthFill.exit.us81, label %select.unfold.preheader.i47
 
 Kit_TruthFill.exit.us81:                          ; preds = %.lr.ph71.split, %Kit_TruthFill.exit.us81
-  %.03969.us78 = phi ptr [ %62, %Kit_TruthFill.exit.us81 ], [ %0, %.lr.ph71.split ]
-  %.04068.us79 = phi i32 [ %63, %Kit_TruthFill.exit.us81 ], [ 0, %.lr.ph71.split ]
-  %62 = getelementptr inbounds i8, ptr %.03969.us78, i64 %8
-  %63 = add nuw nsw i32 %.04068.us79, 1
+  %.03970.us78 = phi i32 [ %63, %Kit_TruthFill.exit.us81 ], [ 0, %.lr.ph71.split ]
+  %.04168.us79 = phi ptr [ %62, %Kit_TruthFill.exit.us81 ], [ %0, %.lr.ph71.split ]
+  %62 = getelementptr inbounds i8, ptr %.04168.us79, i64 %8
+  %63 = add nuw nsw i32 %.03970.us78, 1
   %64 = icmp slt i32 %63, %20
   br i1 %64, label %Kit_TruthFill.exit.us81, label %.loopexit.sink.split, !llvm.loop !21
 
 select.unfold.preheader.i47:                      ; preds = %.lr.ph71.split, %Kit_TruthOr.exit.loopexit
-  %.03969 = phi ptr [ %73, %Kit_TruthOr.exit.loopexit ], [ %0, %.lr.ph71.split ]
-  %.04068 = phi i32 [ %74, %Kit_TruthOr.exit.loopexit ], [ 0, %.lr.ph71.split ]
-  %65 = getelementptr inbounds i8, ptr %.03969, i64 %23
+  %.03970 = phi i32 [ %74, %Kit_TruthOr.exit.loopexit ], [ 0, %.lr.ph71.split ]
+  %.04168 = phi ptr [ %73, %Kit_TruthOr.exit.loopexit ], [ %0, %.lr.ph71.split ]
+  %65 = getelementptr inbounds i8, ptr %.04168, i64 %23
   %66 = load i8, ptr %65, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %3, i8 -1, i64 %25, i1 false)
   br label %select.unfold.i57
@@ -1770,14 +1770,14 @@ select.unfold.i57:                                ; preds = %select.unfold.i57, 
   br i1 %72, label %select.unfold.i57, label %Kit_TruthOr.exit.loopexit, !llvm.loop !22
 
 Kit_TruthOr.exit.loopexit:                        ; preds = %select.unfold.i57
-  %73 = getelementptr inbounds i8, ptr %.03969, i64 %8
-  %74 = add nuw nsw i32 %.04068, 1
+  %73 = getelementptr inbounds i8, ptr %.04168, i64 %8
+  %74 = add nuw nsw i32 %.03970, 1
   %75 = icmp slt i32 %74, %20
   br i1 %75, label %select.unfold.preheader.i47, label %.loopexit, !llvm.loop !21
 
 .loopexit.sink.split:                             ; preds = %Kit_TruthFill.exit.us81, %Kit_TruthFill.exit.us.us
-  %.03969.us.us.lcssa.sink = phi ptr [ %.03969.us.us, %Kit_TruthFill.exit.us.us ], [ %.03969.us78, %Kit_TruthFill.exit.us81 ]
-  %76 = getelementptr inbounds i8, ptr %.03969.us.us.lcssa.sink, i64 %23
+  %.04168.us.us.lcssa.sink = phi ptr [ %.04168.us.us, %Kit_TruthFill.exit.us.us ], [ %.04168.us79, %Kit_TruthFill.exit.us81 ]
+  %76 = getelementptr inbounds i8, ptr %.04168.us.us.lcssa.sink, i64 %23
   %77 = load i8, ptr %76, align 1
   br label %.loopexit
 

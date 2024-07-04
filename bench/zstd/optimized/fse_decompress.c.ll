@@ -50,7 +50,7 @@ for.body.lr.ph:                                   ; preds = %if.end11
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %highThreshold.082 = phi i32 [ %sub, %for.body.lr.ph ], [ %highThreshold.1, %for.inc ]
-  %DTableH.sroa.2.081 = phi i16 [ 1, %for.body.lr.ph ], [ %DTableH.sroa.2.2, %for.inc ]
+  %DTableH.sroa.2.080 = phi i16 [ 1, %for.body.lr.ph ], [ %DTableH.sroa.2.2, %for.inc ]
   %arrayidx = getelementptr inbounds i16, ptr %normalizedCounter, i64 %indvars.iv
   %0 = load i16, ptr %arrayidx, align 2
   %cmp24 = icmp eq i16 %0, -1
@@ -67,12 +67,12 @@ if.then26:                                        ; preds = %for.body
 if.else:                                          ; preds = %for.body
   %conv23 = sext i16 %0 to i32
   %cmp36.not = icmp sgt i32 %conv35, %conv23
-  %spec.select = select i1 %cmp36.not, i16 %DTableH.sroa.2.081, i16 0
+  %spec.select = select i1 %cmp36.not, i16 %DTableH.sroa.2.080, i16 0
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then26, %if.else
   %.sink = phi i16 [ 1, %if.then26 ], [ %0, %if.else ]
-  %DTableH.sroa.2.2 = phi i16 [ %DTableH.sroa.2.081, %if.then26 ], [ %spec.select, %if.else ]
+  %DTableH.sroa.2.2 = phi i16 [ %DTableH.sroa.2.080, %if.then26 ], [ %spec.select, %if.else ]
   %highThreshold.1 = phi i32 [ %dec, %if.then26 ], [ %highThreshold.082, %if.else ]
   %1 = getelementptr inbounds i16, ptr %workSpace, i64 %indvars.iv
   store i16 %.sink, ptr %1, align 2
@@ -105,11 +105,11 @@ for.cond83.preheader:                             ; preds = %for.end75
 
 for.body61:                                       ; preds = %for.body61.preheader, %for.end75
   %indvars.iv111 = phi i64 [ 0, %for.body61.preheader ], [ %indvars.iv.next112, %for.end75 ]
-  %pos.098 = phi i64 [ 0, %for.body61.preheader ], [ %add77, %for.end75 ]
   %sv.097 = phi i64 [ 0, %for.body61.preheader ], [ %add80, %for.end75 ]
+  %pos.096 = phi i64 [ 0, %for.body61.preheader ], [ %add77, %for.end75 ]
   %arrayidx63 = getelementptr inbounds i16, ptr %normalizedCounter, i64 %indvars.iv111
   %2 = load i16, ptr %arrayidx63, align 2
-  %add.ptr65 = getelementptr inbounds i8, ptr %add.ptr2, i64 %pos.098
+  %add.ptr65 = getelementptr inbounds i8, ptr %add.ptr2, i64 %pos.096
   store i64 %sv.097, ptr %add.ptr65, align 1
   %cmp6793 = icmp sgt i16 %2, 8
   br i1 %cmp6793, label %for.body69.preheader, label %for.end75
@@ -128,7 +128,7 @@ for.body69:                                       ; preds = %for.body69.preheade
 
 for.end75:                                        ; preds = %for.body69, %for.body61
   %conv76 = sext i16 %2 to i64
-  %add77 = add i64 %pos.098, %conv76
+  %add77 = add i64 %pos.096, %conv76
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %add80 = add i64 %sv.097, 72340172838076673
   %exitcond116.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count115

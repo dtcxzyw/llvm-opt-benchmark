@@ -314,8 +314,8 @@ define internal i32 @dissect_tzsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %25
 
 25:                                               ; preds = %13, %4
-  %.067 = phi ptr [ %15, %13 ], [ null, %4 ]
-  %.0 = phi ptr [ %17, %13 ], [ null, %4 ]
+  %.067 = phi ptr [ %17, %13 ], [ null, %4 ]
+  %.0 = phi ptr [ %15, %13 ], [ null, %4 ]
   %26 = add i8 %8, -6
   %or.cond = icmp ult i8 %26, -2
   br i1 %or.cond, label %.preheader, label %152
@@ -333,7 +333,7 @@ define internal i32 @dissect_tzsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 29:                                               ; preds = %.preheader
   %30 = load i32, ptr @ett_tag, align 4
   %31 = tail call ptr @val_to_str_const(i32 noundef %28, ptr noundef nonnull @option_tag_vals, ptr noundef nonnull @.str.142) #2
-  %32 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0, ptr noundef %0, i32 noundef %.0107.i, i32 noundef 1, i32 noundef %30, ptr noundef null, ptr noundef %31) #2
+  %32 = tail call ptr @proto_tree_add_subtree(ptr noundef %.067, ptr noundef %0, i32 noundef %.0107.i, i32 noundef 1, i32 noundef %30, ptr noundef null, ptr noundef %31) #2
   %33 = load i32, ptr @hf_option_tag, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %0, i32 noundef %.0107.i, i32 noundef 1, i32 noundef 0) #2
   br label %47
@@ -345,7 +345,7 @@ define internal i32 @dissect_tzsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %39 = add nuw nsw i32 %38, 2
   %40 = load i32, ptr @ett_tag, align 4
   %41 = tail call ptr @val_to_str_const(i32 noundef %28, ptr noundef nonnull @option_tag_vals, ptr noundef nonnull @.str.142) #2
-  %42 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0, ptr noundef %0, i32 noundef %.0107.i, i32 noundef %39, i32 noundef %40, ptr noundef null, ptr noundef %41) #2
+  %42 = tail call ptr @proto_tree_add_subtree(ptr noundef %.067, ptr noundef %0, i32 noundef %.0107.i, i32 noundef %39, i32 noundef %40, ptr noundef null, ptr noundef %41) #2
   %43 = load i32, ptr @hf_option_tag, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %0, i32 noundef %.0107.i, i32 noundef 1, i32 noundef 0) #2
   %45 = load i32, ptr @hf_option_length, align 4
@@ -388,7 +388,7 @@ define internal i32 @dissect_tzsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.not111.i = icmp eq i8 %.0102.i, 0
   %51 = select i1 %.not111.i, ptr @.str.206, ptr @.str.205
   %52 = select i1 %.not110.i, ptr %51, ptr @.str.204
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.067, ptr noundef nonnull @.str.203, ptr noundef nonnull %52) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0, ptr noundef nonnull @.str.203, ptr noundef nonnull %52) #2
   br label %add_option_info.exit
 
 53:                                               ; preds = %47
@@ -501,7 +501,7 @@ add_option_info.exit:                             ; preds = %49, %50
   br i1 %.not, label %119, label %118
 
 118:                                              ; preds = %add_option_info.exit
-  tail call void @proto_item_set_end(ptr noundef %.067, ptr noundef %0, i32 noundef %48) #2
+  tail call void @proto_item_set_end(ptr noundef %.0, ptr noundef %0, i32 noundef %48) #2
   br label %119
 
 119:                                              ; preds = %118, %add_option_info.exit

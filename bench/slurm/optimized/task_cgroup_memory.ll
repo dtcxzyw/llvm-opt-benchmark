@@ -253,7 +253,7 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   br label %38
 
 38:                                               ; preds = %33, %36, %swap_limit_in_bytes.exit
-  %.022 = phi i64 [ %.0.i2912, %swap_limit_in_bytes.exit ], [ %.0.i410, %36 ], [ %.0.i410, %33 ]
+  %.0 = phi i64 [ %.0.i2912, %swap_limit_in_bytes.exit ], [ %.0.i410, %36 ], [ %.0.i410, %33 ]
   call void @cgroup_init_limits(ptr noundef nonnull %3) #4
   %39 = load i8, ptr @constrain_ram_space, align 1
   %40 = trunc nuw i8 %39 to i1
@@ -261,7 +261,7 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   %41 = getelementptr inbounds i8, ptr %3, i64 64
   store i64 %spec.select, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %3, i64 72
-  store i64 %.022, ptr %42, align 8
+  store i64 %.0, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %3, i64 80
   store i64 -2, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %3, i64 88
@@ -314,8 +314,8 @@ swap_limit_in_bytes.exit:                         ; preds = %5, %11
   br label %68
 
 68:                                               ; preds = %65, %63, %67
-  %.0 = phi i32 [ 0, %67 ], [ -1, %63 ], [ -1, %65 ]
-  ret i32 %.0
+  %.023 = phi i32 [ 0, %67 ], [ -1, %63 ], [ -1, %65 ]
+  ret i32 %.023
 }
 
 declare i32 @cgroup_g_step_start_oom_mgr() local_unnamed_addr #1

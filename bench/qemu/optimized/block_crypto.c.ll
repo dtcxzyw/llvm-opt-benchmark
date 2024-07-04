@@ -307,8 +307,8 @@ if.end24.i:                                       ; preds = %if.end15.i
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %if.end24.i, %if.end15.i, %block_crypto_open_opts_init.exit.i, %block_crypto_open_opts_init.exit.thread.i
-  %open_opts.0.i = phi ptr [ %4, %if.end24.i ], [ null, %block_crypto_open_opts_init.exit.i ], [ %4, %if.end15.i ], [ null, %block_crypto_open_opts_init.exit.thread.i ]
   %ret.0.i = phi i32 [ 0, %if.end24.i ], [ -22, %block_crypto_open_opts_init.exit.i ], [ -5, %if.end15.i ], [ -22, %block_crypto_open_opts_init.exit.thread.i ]
+  %open_opts.0.i = phi ptr [ %4, %if.end24.i ], [ null, %block_crypto_open_opts_init.exit.i ], [ %4, %if.end15.i ], [ null, %block_crypto_open_opts_init.exit.thread.i ]
   %tobool25.not.i = icmp eq ptr %call11.i, null
   br i1 %tobool25.not.i, label %glib_autoptr_cleanup_GraphLockableMainloop.exit.i, label %lor.lhs.false.i.i
 
@@ -333,14 +333,14 @@ if.then5.i.i:                                     ; preds = %land.lhs.true.i.i
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit.i
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit.i: ; preds = %if.then5.i.i, %land.lhs.true.i.i, %cleanup.i, %if.end3.i
-  %ret.08.i = phi i32 [ %ret.0.i, %cleanup.i ], [ %ret.0.i, %land.lhs.true.i.i ], [ %ret.0.i, %if.then5.i.i ], [ -22, %if.end3.i ]
-  %open_opts.07.i = phi ptr [ %open_opts.0.i, %cleanup.i ], [ %open_opts.0.i, %land.lhs.true.i.i ], [ %open_opts.0.i, %if.then5.i.i ], [ null, %if.end3.i ]
-  call void @qapi_free_QCryptoBlockOpenOptions(ptr noundef %open_opts.07.i) #9
+  %open_opts.08.i = phi ptr [ %open_opts.0.i, %cleanup.i ], [ %open_opts.0.i, %land.lhs.true.i.i ], [ %open_opts.0.i, %if.then5.i.i ], [ null, %if.end3.i ]
+  %ret.07.i = phi i32 [ %ret.0.i, %cleanup.i ], [ %ret.0.i, %land.lhs.true.i.i ], [ %ret.0.i, %if.then5.i.i ], [ -22, %if.end3.i ]
+  call void @qapi_free_QCryptoBlockOpenOptions(ptr noundef %open_opts.08.i) #9
   call void @bdrv_graph_rdunlock_main_loop() #9
   br label %block_crypto_open_generic.exit
 
 block_crypto_open_generic.exit:                   ; preds = %do.end.i, %glib_autoptr_cleanup_GraphLockableMainloop.exit.i
-  %retval.0.i = phi i32 [ %ret.08.i, %glib_autoptr_cleanup_GraphLockableMainloop.exit.i ], [ %call1.i, %do.end.i ]
+  %retval.0.i = phi i32 [ %ret.07.i, %glib_autoptr_cleanup_GraphLockableMainloop.exit.i ], [ %call1.i, %do.end.i ]
   ret i32 %retval.0.i
 }
 

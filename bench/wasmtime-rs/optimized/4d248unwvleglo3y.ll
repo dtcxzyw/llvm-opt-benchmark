@@ -577,8 +577,8 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
   br label %20
 
 .loopexit.i.i:                                    ; preds = %80, %78, %76
-  %.013.i.i.i = phi i64 [ 1, %76 ], [ %..i.i.i, %80 ], [ 2, %78 ]
-  %19 = add i64 %.013.i.i.i, %22
+  %.012.i.i.i = phi i64 [ 1, %76 ], [ %..i.i.i, %80 ], [ 2, %78 ]
+  %19 = add i64 %.012.i.i.i, %22
   store i64 %19, ptr %14, align 8, !alias.scope !71, !noalias !72
   br label %20
 
@@ -1029,9 +1029,9 @@ define void @"_ZN96_$LT$wasmtime_cli_flags..WasiNnGraph$u20$as$u20$wasmtime_cli_
           to label %30 unwind label %28
 
 25:                                               ; preds = %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread", %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit"
-  %.sink6.i55 = phi ptr [ %18, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread" ], [ %21, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit" ]
+  %.sink6.i56 = phi ptr [ %18, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread" ], [ %21, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit" ]
   %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink6.i55, ptr %26, align 8
+  store ptr %.sink6.i56, ptr %26, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %78
@@ -6779,9 +6779,9 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %156
 
 156:                                              ; preds = %153, %155
-  %.sroa.0104.0 = phi i64 [ 0, %155 ], [ %.sroa.011.0.copyload, %153 ]
-  %.sroa.4106.0 = phi ptr [ inttoptr (i64 8 to ptr), %155 ], [ %.sroa.613.sroa.0.0.copyload, %153 ]
   %.sroa.6109.0 = phi i64 [ 0, %155 ], [ %.sroa.613.sroa.4.0.copyload, %153 ]
+  %.sroa.4106.0 = phi ptr [ inttoptr (i64 8 to ptr), %155 ], [ %.sroa.613.sroa.0.0.copyload, %153 ]
+  %.sroa.0104.0 = phi i64 [ 0, %155 ], [ %.sroa.011.0.copyload, %153 ]
   %157 = getelementptr inbounds i8, ptr %0, i64 360
   invoke void @"_ZN4core3ptr115drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Wasm$GT$$GT$$GT$17h72f5aaaf1fa030f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %157)
           to label %160 unwind label %158

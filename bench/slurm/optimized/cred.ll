@@ -633,7 +633,7 @@ define ptr @slurm_cred_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   br label %29
 
 29:                                               ; preds = %15, %18, %21, %24, %27
-  %.017 = phi ptr [ null, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ]
+  %.0 = phi ptr [ null, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %15 ]
   %30 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %3) #10
   %.not24 = icmp eq i32 %30, 0
   br i1 %.not24, label %33, label %31
@@ -645,8 +645,8 @@ define ptr @slurm_cred_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   unreachable
 
 33:                                               ; preds = %29, %10
-  %.0 = phi ptr [ null, %10 ], [ %.017, %29 ]
-  ret ptr %.0
+  %.017 = phi ptr [ null, %10 ], [ %.0, %29 ]
+  ret ptr %.017
 }
 
 ; Function Attrs: nounwind uwtable

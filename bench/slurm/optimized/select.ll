@@ -218,12 +218,12 @@ define noundef i32 @select_g_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
   br label %17
 
 17:                                               ; preds = %15, %11
-  %.032 = phi ptr [ %12, %11 ], [ %16, %15 ]
-  %.not39 = icmp eq ptr %.032, null
+  %.0 = phi ptr [ %12, %11 ], [ %16, %15 ]
+  %.not39 = icmp eq ptr %.0, null
   br i1 %.not39, label %25, label %18
 
 18:                                               ; preds = %17
-  %19 = tail call i32 @list_count(ptr noundef nonnull %.032) #15
+  %19 = tail call i32 @list_count(ptr noundef nonnull %.0) #15
   %.not40 = icmp eq i32 %19, 0
   br i1 %.not40, label %25, label %20
 
@@ -233,7 +233,7 @@ define noundef i32 @select_g_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
   store ptr %22, ptr @ops, align 8
   %23 = tail call ptr @slurm_xcalloc(i64 noundef %21, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.38, i32 noundef 196, ptr noundef nonnull @__func__.select_g_init) #15
   store ptr %23, ptr @select_context, align 8
-  %24 = call i32 @list_for_each(ptr noundef nonnull %.032, ptr noundef nonnull @_load_plugins, ptr noundef nonnull %2) #15
+  %24 = call i32 @list_for_each(ptr noundef nonnull %.0, ptr noundef nonnull @_load_plugins, ptr noundef nonnull %2) #15
   br label %25
 
 25:                                               ; preds = %20, %18, %17
@@ -310,7 +310,7 @@ define noundef i32 @select_g_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
   unreachable
 
 .loopexit:                                        ; preds = %32, %6
-  %.1 = phi ptr [ null, %6 ], [ %.032, %32 ]
+  %.1 = phi ptr [ null, %6 ], [ %.0, %32 ]
   %60 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @select_context_lock) #15
   %.not42 = icmp eq i32 %60, 0
   br i1 %.not42, label %63, label %61
@@ -658,13 +658,13 @@ define i32 @select_g_fini() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %.018 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
+  %.01017 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
   %8 = load ptr, ptr @select_context, align 8
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @plugin_context_destroy(ptr noundef %10) #15
   %.not16 = icmp eq i32 %11, 0
-  %spec.select = select i1 %.not16, i32 %.018, i32 %11
+  %spec.select = select i1 %.not16, i32 %.01017, i32 %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr @select_context_cnt, align 4
   %13 = sext i32 %12 to i64
@@ -672,14 +672,14 @@ define i32 @select_g_fini() local_unnamed_addr #0 {
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
+  %.010.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
   tail call void @slurm_xfree(ptr noundef nonnull @ops) #15
   tail call void @slurm_xfree(ptr noundef nonnull @select_context) #15
   store i32 -1, ptr @select_context_cnt, align 4
   br label %15
 
 15:                                               ; preds = %._crit_edge, %4
-  %.2 = phi i32 [ %.0.lcssa, %._crit_edge ], [ 0, %4 ]
+  %.2 = phi i32 [ %.010.lcssa, %._crit_edge ], [ 0, %4 ]
   %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @select_context_lock) #15
   %.not15 = icmp eq i32 %16, 0
   br i1 %.not15, label %19, label %17

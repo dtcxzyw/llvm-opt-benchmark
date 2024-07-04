@@ -1144,9 +1144,9 @@ lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.
   br label %ehcleanup
 
 for.body245:                                      ; preds = %for.body245.preheader, %for.inc295
-  %veto.0658 = phi i1 [ %veto.1, %for.inc295 ], [ false, %for.body245.preheader ]
+  %cnt235.0658 = phi i32 [ %inc297, %for.inc295 ], [ 0, %for.body245.preheader ]
   %need.0657 = phi i1 [ %104, %for.inc295 ], [ false, %for.body245.preheader ]
-  %cnt235.0656 = phi i32 [ %inc297, %for.inc295 ], [ 0, %for.body245.preheader ]
+  %veto.0656 = phi i1 [ %veto.1, %for.inc295 ], [ false, %for.body245.preheader ]
   %it236.sroa.0.0655 = phi ptr [ %115, %for.inc295 ], [ %90, %for.body245.preheader ]
   %_M_storage.i.i201 = getelementptr inbounds i8, ptr %it236.sroa.0.0655, i64 16
   %99 = load <4 x float>, ptr %_M_storage.i.i201, align 8
@@ -1172,11 +1172,11 @@ _ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit215.thread: ; preds = %_ZN
   br i1 %cmp253, label %if.then254, label %if.end257
 
 if.then254:                                       ; preds = %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit215.thread
-  store i32 %cnt235.0656, ptr %lockedPos252, align 8
+  store i32 %cnt235.0658, ptr %lockedPos252, align 8
   br label %for.inc295
 
 if.end257:                                        ; preds = %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit215.thread
-  br i1 %veto.0658, label %for.inc295, label %land.lhs.true259
+  br i1 %veto.0656, label %for.inc295, label %land.lhs.true259
 
 land.lhs.true259:                                 ; preds = %if.end257
   %106 = load ptr, ptr %add.ptr.i180, align 8
@@ -1242,7 +1242,7 @@ _ZNSt7__cxx114listIN6Assimp17STransformVecInfoESaIS2_EE5eraseESt20_List_const_it
 for.inc295:                                       ; preds = %land.lhs.true259, %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit233, %if.end257, %if.then254
   %veto.1 = phi i1 [ true, %if.then254 ], [ true, %if.end257 ], [ false, %_ZNK6Assimp17STransformVecInfo15IsUntransformedEv.exit233 ], [ false, %land.lhs.true259 ]
   %115 = load ptr, ptr %it236.sroa.0.0655, align 8
-  %inc297 = add i32 %cnt235.0656, 1
+  %inc297 = add i32 %cnt235.0658, 1
   %cmp.i200.not = icmp eq ptr %115, %add.ptr.i180
   br i1 %cmp.i200.not, label %for.end298, label %for.body245, !llvm.loop !18
 
@@ -1260,13 +1260,13 @@ for.cond347.preheader:                            ; preds = %for.inc342, %for.co
 
 for.body310:                                      ; preds = %for.cond305.preheader, %for.inc342
   %it236.sroa.0.1675 = phi ptr [ %it236.sroa.0.1, %for.inc342 ], [ %it236.sroa.0.1671, %for.cond305.preheader ]
-  %cnt235.1674 = phi i32 [ %inc344, %for.inc342 ], [ 0, %for.cond305.preheader ]
-  %untransformed.0673 = phi i32 [ %untransformed.1, %for.inc342 ], [ 0, %for.cond305.preheader ]
+  %untransformed.0674 = phi i32 [ %untransformed.1, %for.inc342 ], [ 0, %for.cond305.preheader ]
+  %cnt235.1673 = phi i32 [ %inc344, %for.inc342 ], [ 0, %for.cond305.preheader ]
   %_M_storage.i.i254 = getelementptr inbounds i8, ptr %it236.sroa.0.1675, i64 16
   %lockedPos312 = getelementptr inbounds i8, ptr %it236.sroa.0.1675, i64 48
   %116 = load i32, ptr %lockedPos312, align 8
   %cmp313.not = icmp eq i32 %116, -286331154
-  %cmp317.not = icmp eq i32 %116, %cnt235.1674
+  %cmp317.not = icmp eq i32 %116, %cnt235.1673
   %or.cond = select i1 %cmp313.not, i1 true, i1 %cmp317.not
   br i1 %or.cond, label %for.inc342, label %while.cond.preheader
 
@@ -1291,13 +1291,13 @@ if.end333:                                        ; preds = %while.cond.preheade
   %_M_storage.i.i257 = getelementptr inbounds i8, ptr %it2.sroa.0.1.us, i64 16
   call void @_ZSt4swapIN6Assimp17STransformVecInfoEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i257, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i254) #17
   %118 = load i32, ptr %lockedPos312, align 8
-  %cmp338 = icmp eq i32 %118, %untransformed.0673
-  %spec.select147 = select i1 %cmp338, i32 %cnt235.1674, i32 %untransformed.0673
+  %cmp338 = icmp eq i32 %118, %untransformed.0674
+  %spec.select147 = select i1 %cmp338, i32 %cnt235.1673, i32 %untransformed.0674
   br label %for.inc342
 
 for.inc342:                                       ; preds = %if.end333, %for.body310, %invoke.cont330
-  %untransformed.1 = phi i32 [ %untransformed.0673, %invoke.cont330 ], [ %untransformed.0673, %for.body310 ], [ %spec.select147, %if.end333 ]
-  %inc344 = add i32 %cnt235.1674, 1
+  %untransformed.1 = phi i32 [ %untransformed.0674, %invoke.cont330 ], [ %untransformed.0674, %for.body310 ], [ %spec.select147, %if.end333 ]
+  %inc344 = add i32 %cnt235.1673, 1
   %it236.sroa.0.1 = load ptr, ptr %it236.sroa.0.1675, align 8
   %cmp.i253.not = icmp eq ptr %it236.sroa.0.1, %add.ptr.i180
   br i1 %cmp.i253.not, label %for.cond347.preheader, label %for.body310, !llvm.loop !19

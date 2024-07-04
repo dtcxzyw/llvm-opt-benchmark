@@ -5288,26 +5288,26 @@ define void @Ivy_FraigCheckOutputSimsSavePattern(ptr nocapture noundef readonly 
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %._crit_edge.loopexit.split.loop.exit, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %11, %._crit_edge.loopexit.split.loop.exit ], [ %6, %10 ]
-  %12 = zext nneg i32 %.0.lcssa to i64
+  %.024.lcssa = phi i32 [ 0, %2 ], [ %11, %._crit_edge.loopexit.split.loop.exit ], [ %6, %10 ]
+  %12 = zext nneg i32 %.024.lcssa to i64
   %13 = getelementptr inbounds [0 x i32], ptr %4, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
   br label %15
 
 15:                                               ; preds = %._crit_edge, %18
-  %.02433 = phi i32 [ 0, %._crit_edge ], [ %19, %18 ]
-  %16 = shl nuw i32 1, %.02433
+  %.033 = phi i32 [ 0, %._crit_edge ], [ %19, %18 ]
+  %16 = shl nuw i32 1, %.033
   %17 = and i32 %14, %16
   %.not25 = icmp eq i32 %17, 0
   br i1 %.not25, label %18, label %20
 
 18:                                               ; preds = %15
-  %19 = add nuw nsw i32 %.02433, 1
+  %19 = add nuw nsw i32 %.033, 1
   %exitcond39.not = icmp eq i32 %19, 32
   br i1 %exitcond39.not, label %20, label %15, !llvm.loop !57
 
 20:                                               ; preds = %15, %18
-  %.024.lcssa = phi i32 [ %.02433, %15 ], [ 32, %18 ]
+  %.0.lcssa = phi i32 [ %.033, %15 ], [ 32, %18 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 124
@@ -5324,11 +5324,11 @@ define void @Ivy_FraigCheckOutputSimsSavePattern(ptr nocapture noundef readonly 
   br i1 %31, label %.lr.ph37, label %.critedge
 
 .lr.ph37:                                         ; preds = %20
-  %32 = lshr i32 %.024.lcssa, 5
-  %33 = add nuw i32 %32, %.0.lcssa
+  %32 = lshr i32 %.0.lcssa, 5
+  %33 = add nuw i32 %32, %.024.lcssa
   %34 = and i32 %33, 134217727
   %35 = zext nneg i32 %34 to i64
-  %36 = and i32 %.024.lcssa, 31
+  %36 = and i32 %.0.lcssa, 31
   %.phi.trans.insert = getelementptr i8, ptr %29, i64 8
   %.val26.pre = load ptr, ptr %.phi.trans.insert, align 8
   %37 = zext nneg i32 %.val34 to i64
@@ -5431,25 +5431,25 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr nocapture noundef reado
 
 ._crit_edge.i:                                    ; preds = %25, %._crit_edge.loopexit.split.loop.exit.i
   %.pre-phi = phi i64 [ %.pre, %._crit_edge.loopexit.split.loop.exit.i ], [ %wide.trip.count.i, %25 ]
-  %.0.lcssa.i = phi i32 [ %26, %._crit_edge.loopexit.split.loop.exit.i ], [ %10, %25 ]
+  %.024.lcssa.i = phi i32 [ %26, %._crit_edge.loopexit.split.loop.exit.i ], [ %10, %25 ]
   %27 = getelementptr inbounds [0 x i32], ptr %19, i64 0, i64 %.pre-phi
   %28 = load i32, ptr %27, align 4
   br label %29
 
 29:                                               ; preds = %32, %._crit_edge.i
-  %.02433.i = phi i32 [ 0, %._crit_edge.i ], [ %33, %32 ]
-  %30 = shl nuw i32 1, %.02433.i
+  %.033.i = phi i32 [ 0, %._crit_edge.i ], [ %33, %32 ]
+  %30 = shl nuw i32 1, %.033.i
   %31 = and i32 %30, %28
   %.not25.i = icmp eq i32 %31, 0
   br i1 %.not25.i, label %32, label %34
 
 32:                                               ; preds = %29
-  %33 = add nuw nsw i32 %.02433.i, 1
+  %33 = add nuw nsw i32 %.033.i, 1
   %exitcond39.not.i = icmp eq i32 %33, 32
   br i1 %exitcond39.not.i, label %34, label %29, !llvm.loop !57
 
 34:                                               ; preds = %32, %29
-  %.024.lcssa.i = phi i32 [ %.02433.i, %29 ], [ 32, %32 ]
+  %.0.lcssa.i = phi i32 [ %.033.i, %29 ], [ 32, %32 ]
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr i8, ptr %36, i64 124
@@ -5464,11 +5464,11 @@ define range(i32 0, 2) i32 @Ivy_FraigCheckOutputSims(ptr nocapture noundef reado
   br i1 %43, label %.lr.ph37.i, label %Ivy_FraigCheckOutputSimsSavePattern.exit
 
 .lr.ph37.i:                                       ; preds = %34
-  %44 = lshr i32 %.024.lcssa.i, 5
-  %45 = add nuw i32 %44, %.0.lcssa.i
+  %44 = lshr i32 %.0.lcssa.i, 5
+  %45 = add nuw i32 %44, %.024.lcssa.i
   %46 = and i32 %45, 134217727
   %47 = zext nneg i32 %46 to i64
-  %48 = and i32 %.024.lcssa.i, 31
+  %48 = and i32 %.0.lcssa.i, 31
   %.phi.trans.insert.i = getelementptr i8, ptr %41, i64 8
   %.val26.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   %49 = zext nneg i32 %.val34.i to i64
@@ -5547,30 +5547,30 @@ Abc_Clock.exit:                                   ; preds = %14, %17
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit, %32
-  %.020.val.sink = phi ptr [ %.020.val, %32 ], [ %22, %Abc_Clock.exit ]
-  %.01834 = phi i32 [ %.1, %32 ], [ 0, %Abc_Clock.exit ]
-  %23 = getelementptr i8, ptr %.020.val.sink, i64 56
-  %.020.val = load ptr, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %.020.val.sink, i64 8
+  %.019.val.sink = phi ptr [ %.019.val, %32 ], [ %22, %Abc_Clock.exit ]
+  %.034 = phi i32 [ %.1, %32 ], [ 0, %Abc_Clock.exit ]
+  %23 = getelementptr i8, ptr %.019.val.sink, i64 56
+  %.019.val = load ptr, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %.019.val.sink, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 16
   %.not25 = icmp eq i32 %26, 0
   br i1 %.not25, label %27, label %32
 
 27:                                               ; preds = %.lr.ph
-  %28 = call i32 @Ivy_FraigRefineClass_rec(ptr noundef nonnull %0, ptr noundef nonnull %.020.val.sink)
+  %28 = call i32 @Ivy_FraigRefineClass_rec(ptr noundef nonnull %0, ptr noundef nonnull %.019.val.sink)
   %29 = icmp sgt i32 %28, 0
   %30 = zext i1 %29 to i32
-  %31 = add nsw i32 %.01834, %30
+  %31 = add nsw i32 %.034, %30
   br label %32
 
 32:                                               ; preds = %.lr.ph, %27
-  %.1 = phi i32 [ %.01834, %.lr.ph ], [ %31, %27 ]
-  %.not26 = icmp eq ptr %.020.val, null
+  %.1 = phi i32 [ %.034, %.lr.ph ], [ %31, %27 ]
+  %.not26 = icmp eq ptr %.019.val, null
   br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %32, %Abc_Clock.exit
-  %.018.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1, %32 ]
+  %.0.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.1, %32 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %33 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #25
   %34 = icmp slt i32 %33, 0
@@ -5596,8 +5596,8 @@ Abc_Clock.exit28:                                 ; preds = %._crit_edge, %35
   br label %46
 
 46:                                               ; preds = %9, %Abc_Clock.exit28
-  %.0 = phi i32 [ %.018.lcssa, %Abc_Clock.exit28 ], [ 0, %9 ]
-  ret i32 %.0
+  %.018 = phi i32 [ %.0.lcssa, %Abc_Clock.exit28 ], [ 0, %9 ]
+  ret i32 %.018
 }
 
 ; Function Attrs: nofree nounwind uwtable

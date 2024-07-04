@@ -1133,13 +1133,13 @@ agxblen.exit.i:
   br label %9
 
 9:                                                ; preds = %11, %agxblen.exit.i
-  %.0.in.i = phi i64 [ %.0.i.i, %agxblen.exit.i ], [ %.0.i, %11 ]
-  %10 = icmp eq i64 %.0.in.i, 0
+  %.027.in.i = phi i64 [ %.0.i.i, %agxblen.exit.i ], [ %.027.i, %11 ]
+  %10 = icmp eq i64 %.027.in.i, 0
   br i1 %10, label %agxbuf_trim_zeros.exit, label %11
 
 11:                                               ; preds = %9
-  %.0.i = add i64 %.0.in.i, -1
-  %12 = getelementptr inbounds i8, ptr %8, i64 %.0.i
+  %.027.i = add i64 %.027.in.i, -1
+  %12 = getelementptr inbounds i8, ptr %8, i64 %.027.i
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 46
   br i1 %14, label %agxblen.exit36.i, label %9
@@ -1148,13 +1148,13 @@ agxblen.exit36.i:                                 ; preds = %11, %26
   %15 = phi i64 [ %27, %26 ], [ %7, %11 ]
   %.val.i3749.i = phi i8 [ %.val.i37.i, %26 ], [ %.val.i.i, %11 ]
   %.val.i = phi i8 [ %.val48.i, %26 ], [ %.val.i.i, %11 ]
-  %.027.in.i = phi i64 [ %.027.i, %26 ], [ %.0.i.i, %11 ]
-  %.027.i = add i64 %.027.in.i, -1
-  %16 = icmp eq i64 %.027.in.i, %.0.in.i
+  %.0.in.i = phi i64 [ %.0.i, %26 ], [ %.0.i.i, %11 ]
+  %.0.i = add i64 %.0.in.i, -1
+  %16 = icmp eq i64 %.0.in.i, %.027.in.i
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %agxblen.exit36.i
-  %18 = getelementptr inbounds i8, ptr %8, i64 %.027.i
+  %18 = getelementptr inbounds i8, ptr %8, i64 %.0.i
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 48
   br i1 %20, label %21, label %agxbuf_trim_zeros.exit
@@ -1575,13 +1575,13 @@ agxblen.exit.i:                                   ; preds = %65, %agxbstart.exit
   br label %70
 
 70:                                               ; preds = %72, %agxblen.exit.i
-  %.0.in.i = phi i64 [ %.0.i.i, %agxblen.exit.i ], [ %.0.i, %72 ]
-  %71 = icmp eq i64 %.0.in.i, 0
+  %.027.in.i = phi i64 [ %.0.i.i, %agxblen.exit.i ], [ %.027.i, %72 ]
+  %71 = icmp eq i64 %.027.in.i, 0
   br i1 %71, label %agxbuf_trim_zeros.exit, label %72
 
 72:                                               ; preds = %70
-  %.0.i = add i64 %.0.in.i, -1
-  %73 = getelementptr inbounds i8, ptr %69, i64 %.0.i
+  %.027.i = add i64 %.027.in.i, -1
+  %73 = getelementptr inbounds i8, ptr %69, i64 %.027.i
   %74 = load i8, ptr %73, align 1
   %75 = icmp eq i8 %74, 46
   br i1 %75, label %76, label %70
@@ -1606,13 +1606,13 @@ agxblen.exit36.i:                                 ; preds = %79, %77
 83:                                               ; preds = %95, %agxblen.exit36.i
   %.val.i3749.i = phi i8 [ %.val.i.i, %agxblen.exit36.i ], [ %.val.i37.i, %95 ]
   %.val.i = phi i8 [ %.val.i.i, %agxblen.exit36.i ], [ %.val48.i, %95 ]
-  %.027.in.i = phi i64 [ %.0.i35.i, %agxblen.exit36.i ], [ %.027.i, %95 ]
-  %.027.i = add i64 %.027.in.i, -1
-  %84 = icmp eq i64 %.027.in.i, %.0.in.i
+  %.0.in.i = phi i64 [ %.0.i35.i, %agxblen.exit36.i ], [ %.0.i, %95 ]
+  %.0.i = add i64 %.0.in.i, -1
+  %84 = icmp eq i64 %.0.in.i, %.027.in.i
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %69, i64 %.027.i
+  %86 = getelementptr inbounds i8, ptr %69, i64 %.0.i
   %87 = load i8, ptr %86, align 1
   %88 = icmp eq i8 %87, 48
   br i1 %88, label %89, label %agxbuf_trim_zeros.exit

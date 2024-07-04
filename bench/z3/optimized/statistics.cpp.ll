@@ -354,7 +354,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %max.010 = phi i32 [ 0, %for.body.lr.ph ], [ %max.1, %for.body ]
+  %max.09 = phi i32 [ 0, %for.body.lr.ph ], [ %max.1, %for.body ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx.i, align 8
   %3 = load i8, ptr %2, align 1
@@ -363,7 +363,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %spec.select = getelementptr inbounds i8, ptr %2, i64 %spec.select.idx
   %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #18
   %conv4 = trunc i64 %call3 to i32
-  %max.1 = tail call i32 @llvm.umax.i32(i32 %max.010, i32 %conv4)
+  %max.1 = tail call i32 @llvm.umax.i32(i32 %max.09, i32 %conv4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
@@ -813,7 +813,7 @@ for.body.lr.ph.i132:                              ; preds = %invoke.cont14
 
 for.body.i133:                                    ; preds = %for.body.i133, %for.body.lr.ph.i132
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i132 ], [ %indvars.iv.next.i, %for.body.i133 ]
-  %max.010.i = phi i32 [ 0, %for.body.lr.ph.i132 ], [ %max.1.i, %for.body.i133 ]
+  %max.09.i = phi i32 [ 0, %for.body.lr.ph.i132 ], [ %max.1.i, %for.body.i133 ]
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv.i
   %40 = load ptr, ptr %arrayidx.i.i, align 8
   %41 = load i8, ptr %40, align 1
@@ -822,7 +822,7 @@ for.body.i133:                                    ; preds = %for.body.i133, %for
   %spec.select.i = getelementptr inbounds i8, ptr %40, i64 %spec.select.idx.i
   %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #18
   %conv4.i = trunc i64 %call3.i to i32
-  %max.1.i = call i32 @llvm.umax.i32(i32 %max.010.i, i32 %conv4.i)
+  %max.1.i = call i32 @llvm.umax.i32(i32 %max.09.i, i32 %conv4.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %invoke.cont15, label %for.body.i133, !llvm.loop !7
@@ -1683,7 +1683,7 @@ for.body.lr.ph.i127:                              ; preds = %invoke.cont14
 
 for.body.i128:                                    ; preds = %for.body.i128, %for.body.lr.ph.i127
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i127 ], [ %indvars.iv.next.i, %for.body.i128 ]
-  %max.010.i = phi i32 [ 0, %for.body.lr.ph.i127 ], [ %max.1.i, %for.body.i128 ]
+  %max.09.i = phi i32 [ 0, %for.body.lr.ph.i127 ], [ %max.1.i, %for.body.i128 ]
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv.i
   %40 = load ptr, ptr %arrayidx.i.i, align 8
   %41 = load i8, ptr %40, align 1
@@ -1692,7 +1692,7 @@ for.body.i128:                                    ; preds = %for.body.i128, %for
   %spec.select.i = getelementptr inbounds i8, ptr %40, i64 %spec.select.idx.i
   %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #18
   %conv4.i = trunc i64 %call3.i to i32
-  %max.1.i = call i32 @llvm.umax.i32(i32 %max.010.i, i32 %conv4.i)
+  %max.1.i = call i32 @llvm.umax.i32(i32 %max.09.i, i32 %conv4.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_Z11get_max_lenR10ptr_bufferIcLj16EE.exit, label %for.body.i128, !llvm.loop !7

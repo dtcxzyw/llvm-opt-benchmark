@@ -848,19 +848,19 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
   %98 = add i64 %97, %73
   %99 = icmp ugt i64 %98, 8
   %100 = sub i64 8, %97
-  %.0107 = select i1 %99, i64 %100, i64 %73
+  %.0 = select i1 %99, i64 %100, i64 %73
   %101 = getelementptr i8, ptr %96, i64 %97
   %102 = load ptr, ptr %7, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %101, ptr align 1 %102, i64 %.0107, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %101, ptr align 1 %102, i64 %.0, i1 false)
   %103 = load i64, ptr %61, align 8
-  %104 = add i64 %103, %.0107
+  %104 = add i64 %103, %.0
   store i64 %104, ptr %61, align 8
-  %105 = add i64 %.0107, 7
+  %105 = add i64 %.0, 7
   %106 = and i64 %105, -8
   %107 = load i64, ptr %44, align 8
   %108 = add i64 %107, %106
   store i64 %108, ptr %44, align 8
-  %109 = sub i64 %73, %.0107
+  %109 = sub i64 %73, %.0
   store i64 %109, ptr %6, align 8
   %110 = icmp ugt i64 %104, 7
   br i1 %110, label %111, label %114
@@ -1005,8 +1005,8 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
   br label %.loopexit
 
 .loopexit:                                        ; preds = %66, %173, %shm_mq_get_sender.exit, %128, %178, %132, %81, %40
-  %.0 = phi i32 [ 0, %81 ], [ 0, %132 ], [ 0, %178 ], [ 2, %40 ], [ %129, %128 ], [ %.0.i, %shm_mq_get_sender.exit ], [ %175, %173 ], [ %69, %66 ]
-  ret i32 %.0
+  %.0107 = phi i32 [ 0, %81 ], [ 0, %132 ], [ 0, %178 ], [ 2, %40 ], [ %129, %128 ], [ %.0.i, %shm_mq_get_sender.exit ], [ %175, %173 ], [ %69, %66 ]
+  ret i32 %.0107
 }
 
 ; Function Attrs: nounwind uwtable

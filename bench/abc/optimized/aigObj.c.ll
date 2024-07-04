@@ -1154,13 +1154,13 @@ define void @Aig_ObjPrint(ptr nocapture noundef readonly %0, ptr noundef %1) loc
   br label %13
 
 13:                                               ; preds = %9, %6
-  %.056 = phi ptr [ %12, %9 ], [ %1, %6 ]
-  %14 = getelementptr i8, ptr %.056, i64 36
-  %.056.val86 = load i32, ptr %14, align 4
-  %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.056.val86)
-  %16 = getelementptr i8, ptr %.056, i64 24
-  %.056.val83 = load i64, ptr %16, align 8
-  %17 = and i64 %.056.val83, 7
+  %.057 = phi ptr [ %12, %9 ], [ %1, %6 ]
+  %14 = getelementptr i8, ptr %.057, i64 36
+  %.057.val86 = load i32, ptr %14, align 4
+  %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.057.val86)
+  %16 = getelementptr i8, ptr %.057, i64 24
+  %.057.val83 = load i64, ptr %16, align 8
+  %17 = and i64 %.057.val83, 7
   switch i64 %17, label %42 [
     i64 1, label %18
     i64 2, label %20
@@ -1177,9 +1177,9 @@ define void @Aig_ObjPrint(ptr nocapture noundef readonly %0, ptr noundef %1) loc
   br label %60
 
 22:                                               ; preds = %13
-  %23 = getelementptr i8, ptr %.056, i64 8
-  %.056.val76 = load ptr, ptr %23, align 8
-  %24 = ptrtoint ptr %.056.val76 to i64
+  %23 = getelementptr i8, ptr %.057, i64 8
+  %.057.val76 = load ptr, ptr %23, align 8
+  %24 = ptrtoint ptr %.057.val76 to i64
   %25 = and i64 %24, -2
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds i8, ptr %26, i64 36
@@ -1191,9 +1191,9 @@ define void @Aig_ObjPrint(ptr nocapture noundef readonly %0, ptr noundef %1) loc
   br label %60
 
 32:                                               ; preds = %13
-  %33 = getelementptr i8, ptr %.056, i64 8
-  %.056.val75 = load ptr, ptr %33, align 8
-  %34 = ptrtoint ptr %.056.val75 to i64
+  %33 = getelementptr i8, ptr %.057, i64 8
+  %.057.val75 = load ptr, ptr %33, align 8
+  %34 = ptrtoint ptr %.057.val75 to i64
   %35 = and i64 %34, -2
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds i8, ptr %36, i64 36
@@ -1205,9 +1205,9 @@ define void @Aig_ObjPrint(ptr nocapture noundef readonly %0, ptr noundef %1) loc
   br label %60
 
 42:                                               ; preds = %13
-  %43 = getelementptr i8, ptr %.056, i64 8
-  %.056.val = load ptr, ptr %43, align 8
-  %44 = ptrtoint ptr %.056.val to i64
+  %43 = getelementptr i8, ptr %.057, i64 8
+  %.057.val = load ptr, ptr %43, align 8
+  %44 = ptrtoint ptr %.057.val to i64
   %45 = and i64 %44, -2
   %46 = inttoptr i64 %45 to ptr
   %47 = getelementptr inbounds i8, ptr %46, i64 36
@@ -1215,9 +1215,9 @@ define void @Aig_ObjPrint(ptr nocapture noundef readonly %0, ptr noundef %1) loc
   %49 = and i64 %44, 1
   %.not65 = icmp eq i64 %49, 0
   %50 = select i1 %.not65, ptr @.str.7, ptr @.str.6
-  %51 = getelementptr i8, ptr %.056, i64 16
-  %.056.val77 = load ptr, ptr %51, align 8
-  %52 = ptrtoint ptr %.056.val77 to i64
+  %51 = getelementptr i8, ptr %.057, i64 16
+  %.057.val77 = load ptr, ptr %51, align 8
+  %52 = ptrtoint ptr %.057.val77 to i64
   %53 = and i64 %52, -2
   %54 = inttoptr i64 %53 to ptr
   %55 = getelementptr inbounds i8, ptr %54, i64 36
@@ -1229,8 +1229,8 @@ define void @Aig_ObjPrint(ptr nocapture noundef readonly %0, ptr noundef %1) loc
   br label %60
 
 60:                                               ; preds = %20, %32, %42, %22, %18
-  %.056.val85 = load i64, ptr %16, align 8
-  %61 = trunc i64 %.056.val85 to i32
+  %.057.val85 = load i64, ptr %16, align 8
+  %61 = trunc i64 %.057.val85 to i32
   %62 = lshr i32 %61, 6
   %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %62)
   %64 = getelementptr inbounds i8, ptr %0, i64 248
@@ -1252,15 +1252,15 @@ define void @Aig_ObjPrint(ptr nocapture noundef readonly %0, ptr noundef %1) loc
   %74 = load i32, ptr %14, align 4
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds ptr, ptr %73, i64 %75
-  %.05792 = load ptr, ptr %76, align 8
-  %.not7393 = icmp eq ptr %.05792, null
+  %.05692 = load ptr, ptr %76, align 8
+  %.not7393 = icmp eq ptr %.05692, null
   br i1 %.not7393, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %71, %.lr.ph
-  %.05794 = phi ptr [ %.057, %.lr.ph ], [ %.05792, %71 ]
-  %77 = getelementptr inbounds i8, ptr %.05794, i64 36
+  %.05694 = phi ptr [ %.056, %.lr.ph ], [ %.05692, %71 ]
+  %77 = getelementptr inbounds i8, ptr %.05694, i64 36
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %.05794, i64 24
+  %79 = getelementptr inbounds i8, ptr %.05694, i64 24
   %80 = load i64, ptr %79, align 8
   %81 = load i64, ptr %16, align 8
   %82 = xor i64 %81, %80
@@ -1272,8 +1272,8 @@ define void @Aig_ObjPrint(ptr nocapture noundef readonly %0, ptr noundef %1) loc
   %87 = load i32, ptr %77, align 4
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds ptr, ptr %86, i64 %88
-  %.057 = load ptr, ptr %89, align 8
-  %.not73 = icmp eq ptr %.057, null
+  %.056 = load ptr, ptr %89, align 8
+  %.not73 = icmp eq ptr %.056, null
   br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %71

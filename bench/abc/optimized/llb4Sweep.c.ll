@@ -874,7 +874,7 @@ define noundef ptr @Llb4_Nonlin4SweepBadMonitor(ptr nocapture noundef readonly %
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %.027 = phi ptr [ %6, %.lr.ph ], [ %24, %11 ]
+  %.02126 = phi ptr [ %6, %.lr.ph ], [ %24, %11 ]
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr i8, ptr %12, i64 8
   %.val = load ptr, ptr %13, align 8
@@ -890,9 +890,9 @@ define noundef ptr @Llb4_Nonlin4SweepBadMonitor(ptr nocapture noundef readonly %
   %21 = ptrtoint ptr %20 to i64
   %22 = xor i64 %21, 1
   %23 = inttoptr i64 %22 to ptr
-  %24 = tail call ptr @Cudd_bddAnd(ptr noundef %2, ptr noundef %.027, ptr noundef %23) #13
+  %24 = tail call ptr @Cudd_bddAnd(ptr noundef %2, ptr noundef %.02126, ptr noundef %23) #13
   tail call void @Cudd_Ref(ptr noundef %24) #13
-  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.027) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.02126) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val24 = load i32, ptr %7, align 8
   %25 = sext i32 %.val24 to i64
@@ -900,10 +900,10 @@ define noundef ptr @Llb4_Nonlin4SweepBadMonitor(ptr nocapture noundef readonly %
   br i1 %26, label %11, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %11, %3
-  %.0.lcssa = phi ptr [ %6, %3 ], [ %24, %11 ]
-  tail call void @Cudd_Deref(ptr noundef %.0.lcssa) #13
+  %.021.lcssa = phi ptr [ %6, %3 ], [ %24, %11 ]
+  tail call void @Cudd_Deref(ptr noundef %.021.lcssa) #13
   store i64 %5, ptr %4, align 8
-  %27 = ptrtoint ptr %.0.lcssa to i64
+  %27 = ptrtoint ptr %.021.lcssa to i64
   %28 = xor i64 %27, 1
   %29 = inttoptr i64 %28 to ptr
   ret ptr %29

@@ -31,8 +31,8 @@ define dso_local noundef zeroext i1 @fsm_set_avail(ptr nocapture noundef %0, i32
   br label %13
 
 13:                                               ; preds = %32, %12
-  %.034 = phi i32 [ %4, %12 ], [ %15, %32 ]
-  %14 = add i32 %.034, -1
+  %.035 = phi i32 [ %4, %12 ], [ %15, %32 ]
+  %14 = add i32 %.035, -1
   %15 = sdiv i32 %14, 2
   %16 = shl nsw i32 %15, 1
   %17 = or disjoint i32 %16, 1
@@ -51,15 +51,15 @@ define dso_local noundef zeroext i1 @fsm_set_avail(ptr nocapture noundef %0, i32
   br label %27
 
 27:                                               ; preds = %23, %13
-  %.035 = phi i8 [ %., %23 ], [ %21, %13 ]
+  %.034 = phi i8 [ %., %23 ], [ %21, %13 ]
   %28 = sext i32 %15 to i64
   %29 = getelementptr [0 x i8], ptr %5, i64 0, i64 %28
   %30 = load i8, ptr %29, align 1
-  %31 = icmp eq i8 %30, %.035
+  %31 = icmp eq i8 %30, %.034
   br i1 %31, label %34, label %32
 
 32:                                               ; preds = %27
-  store i8 %.035, ptr %29, align 1
+  store i8 %.034, ptr %29, align 1
   %33 = icmp sgt i32 %14, 1
   br i1 %33, label %13, label %34, !llvm.loop !5
 
@@ -116,7 +116,7 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr nocapture noundef %0) local_un
 
 3:                                                ; preds = %1, %17
   %indvars.iv = phi i64 [ 4094, %1 ], [ %indvars.iv.next, %17 ]
-  %.02129 = phi i1 [ false, %1 ], [ %.122, %17 ]
+  %.02228 = phi i1 [ false, %1 ], [ %.123, %17 ]
   %4 = shl nuw i64 %indvars.iv, 1
   %5 = add nuw nsw i64 %4, 2
   %6 = icmp ult i64 %indvars.iv, 4082
@@ -147,13 +147,13 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr nocapture noundef %0) local_un
   br label %17
 
 17:                                               ; preds = %.thread, %16
-  %.122 = phi i1 [ true, %16 ], [ %.02129, %.thread ]
+  %.123 = phi i1 [ true, %16 ], [ %.02228, %.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not30 = icmp eq i64 %indvars.iv, 0
   br i1 %.not30, label %18, label %3, !llvm.loop !7
 
 18:                                               ; preds = %17
-  ret i1 %.122
+  ret i1 %.123
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

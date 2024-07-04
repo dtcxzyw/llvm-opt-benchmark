@@ -120,14 +120,14 @@ opal_pointer_array_get_item.exit.i:               ; preds = %41, %35, %.lr.ph.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %24, %46, %.preheader.i, %20, %11, %13
-  %.0.i.sink = phi i32 [ 7, %13 ], [ 7, %11 ], [ %19, %20 ], [ %48, %46 ], [ 14, %.preheader.i ], [ 14, %24 ]
+  %.010.i.sink = phi i32 [ 7, %13 ], [ 7, %11 ], [ %19, %20 ], [ %48, %46 ], [ 14, %.preheader.i ], [ 14, %24 ]
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 296), align 8
   %50 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_world, i64 304), align 8
-  %51 = tail call i32 @ompi_errhandler_invoke(ptr noundef %49, ptr noundef nonnull @ompi_mpi_comm_world, i32 noundef %50, i32 noundef %.0.i.sink, ptr noundef nonnull @FUNC_NAME) #3
+  %51 = tail call i32 @ompi_errhandler_invoke(ptr noundef %49, ptr noundef nonnull @ompi_mpi_comm_world, i32 noundef %50, i32 noundef %.010.i.sink, ptr noundef nonnull @FUNC_NAME) #3
   br label %52
 
 52:                                               ; preds = %.sink.split, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ %.0.i.sink, %.sink.split ]
+  %.0 = phi i32 [ 0, %.thread ], [ %.010.i.sink, %.sink.split ]
   ret i32 %.0
 }
 

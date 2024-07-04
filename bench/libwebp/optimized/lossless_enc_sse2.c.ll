@@ -557,7 +557,7 @@ define internal float @CombinedShannonEntropy_SSE2(ptr nocapture noundef readonl
 3:                                                ; preds = %2, %._crit_edge
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %._crit_edge ]
   %.084104 = phi float [ 0.000000e+00, %2 ], [ %.1.lcssa, %._crit_edge ]
-  %.085103 = phi i32 [ 0, %2 ], [ %.186.lcssa, %._crit_edge ]
+  %.086103 = phi i32 [ 0, %2 ], [ %.187.lcssa, %._crit_edge ]
   %.088102 = phi i32 [ 0, %2 ], [ %.189.lcssa, %._crit_edge ]
   %4 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %5 = load <4 x i32>, ptr %4, align 1
@@ -596,10 +596,10 @@ define internal float @CombinedShannonEntropy_SSE2(ptr nocapture noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %VP8LFastSLog2.exit92
   %.199 = phi float [ %65, %VP8LFastSLog2.exit92 ], [ %.084104, %.lr.ph.preheader ]
-  %.18698 = phi i32 [ %55, %VP8LFastSLog2.exit92 ], [ %.085103, %.lr.ph.preheader ]
-  %.08797 = phi i32 [ %67, %VP8LFastSLog2.exit92 ], [ %32, %.lr.ph.preheader ]
+  %.08598 = phi i32 [ %67, %VP8LFastSLog2.exit92 ], [ %32, %.lr.ph.preheader ]
+  %.18797 = phi i32 [ %55, %VP8LFastSLog2.exit92 ], [ %.086103, %.lr.ph.preheader ]
   %.18996 = phi i32 [ %.290, %VP8LFastSLog2.exit92 ], [ %.088102, %.lr.ph.preheader ]
-  %33 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.08797, i1 true)
+  %33 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %.08598, i1 true)
   %34 = shl nuw nsw i32 1, %33
   %35 = and i32 %34, %28
   %.not91 = icmp eq i32 %35, 0
@@ -638,7 +638,7 @@ VP8LFastSLog2.exit:                               ; preds = %41, %45
   %52 = getelementptr inbounds i32, ptr %1, i64 %.pre108
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, %51
-  %55 = add i32 %54, %.18698
+  %55 = add i32 %54, %.18797
   %56 = icmp ult i32 %54, 256
   br i1 %56, label %57, label %61
 
@@ -656,32 +656,32 @@ VP8LFastSLog2.exit:                               ; preds = %41, %45
 VP8LFastSLog2.exit92:                             ; preds = %57, %61
   %64 = phi float [ %60, %57 ], [ %63, %61 ]
   %65 = fsub float %.2, %64
-  %66 = add nsw i32 %.08797, -1
-  %67 = and i32 %66, %.08797
+  %66 = add nsw i32 %.08598, -1
+  %67 = and i32 %66, %.08598
   %.not = icmp eq i32 %67, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %VP8LFastSLog2.exit92, %3
   %.189.lcssa = phi i32 [ %.088102, %3 ], [ %.290, %VP8LFastSLog2.exit92 ]
-  %.186.lcssa = phi i32 [ %.085103, %3 ], [ %55, %VP8LFastSLog2.exit92 ]
+  %.187.lcssa = phi i32 [ %.086103, %3 ], [ %55, %VP8LFastSLog2.exit92 ]
   %.1.lcssa = phi float [ %.084104, %3 ], [ %65, %VP8LFastSLog2.exit92 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
   %68 = icmp ult i64 %indvars.iv, 240
   br i1 %68, label %3, label %69, !llvm.loop !18
 
 69:                                               ; preds = %._crit_edge
-  %70 = icmp ult i32 %.186.lcssa, 256
+  %70 = icmp ult i32 %.187.lcssa, 256
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %69
-  %72 = zext nneg i32 %.186.lcssa to i64
+  %72 = zext nneg i32 %.187.lcssa to i64
   %73 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %72
   %74 = load float, ptr %73, align 4
   br label %VP8LFastSLog2.exit93
 
 75:                                               ; preds = %69
   %76 = load ptr, ptr @VP8LFastSLog2Slow, align 8
-  %77 = tail call float %76(i32 noundef %.186.lcssa) #7
+  %77 = tail call float %76(i32 noundef %.187.lcssa) #7
   br label %VP8LFastSLog2.exit93
 
 VP8LFastSLog2.exit93:                             ; preds = %71, %75

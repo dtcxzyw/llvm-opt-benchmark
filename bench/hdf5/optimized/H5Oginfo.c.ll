@@ -157,15 +157,15 @@ define internal ptr @H5O__ginfo_decode(ptr nocapture readnone %0, ptr nocapture 
   br label %87
 
 87:                                               ; preds = %84, %65
-  %.067 = phi ptr [ %83, %65 ], [ %42, %84 ]
+  %.068 = phi ptr [ %83, %65 ], [ %42, %84 ]
   br i1 %51, label %88, label %117
 
 88:                                               ; preds = %87
-  %89 = icmp ugt ptr %.067, %.ptr74
+  %89 = icmp ugt ptr %.068, %.ptr74
   br i1 %89, label %95, label %90
 
 90:                                               ; preds = %88
-  %91 = ptrtoint ptr %.067 to i64
+  %91 = ptrtoint ptr %.068 to i64
   %92 = add i64 %10, 1
   %93 = sub i64 %92, %91
   %94 = icmp ult i64 %93, 4
@@ -178,20 +178,20 @@ define internal ptr @H5O__ginfo_decode(ptr nocapture readnone %0, ptr nocapture 
   br label %120
 
 99:                                               ; preds = %90
-  %100 = load i8, ptr %.067, align 1
+  %100 = load i8, ptr %.068, align 1
   %101 = zext i8 %100 to i16
   %102 = getelementptr inbounds i8, ptr %26, i64 12
-  %103 = getelementptr inbounds i8, ptr %.067, i64 1
+  %103 = getelementptr inbounds i8, ptr %.068, i64 1
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i16
   %106 = shl nuw i16 %105, 8
   %107 = or disjoint i16 %106, %101
   store i16 %107, ptr %102, align 4
-  %108 = getelementptr inbounds i8, ptr %.067, i64 2
+  %108 = getelementptr inbounds i8, ptr %.068, i64 2
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i16
   %111 = getelementptr inbounds i8, ptr %26, i64 14
-  %112 = getelementptr inbounds i8, ptr %.067, i64 3
+  %112 = getelementptr inbounds i8, ptr %.068, i64 3
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i16
   %115 = shl nuw i16 %114, 8

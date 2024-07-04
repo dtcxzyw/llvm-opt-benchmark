@@ -94,9 +94,9 @@ for.end:                                          ; preds = %for.cond, %if.then
   br label %for.body13
 
 for.body13:                                       ; preds = %for.end, %for.inc30
-  %m.119 = phi double [ %m.0, %for.end ], [ %m.2, %for.inc30 ]
-  %i.118 = phi i64 [ %conv9, %for.end ], [ %dec31, %for.inc30 ]
-  %arrayidx14 = getelementptr inbounds %struct.Node, ptr %5, i64 %i.118
+  %i.119 = phi i64 [ %conv9, %for.end ], [ %dec31, %for.inc30 ]
+  %m.118 = phi double [ %m.0, %for.end ], [ %m.2, %for.inc30 ]
+  %arrayidx14 = getelementptr inbounds %struct.Node, ptr %5, i64 %i.119
   %7 = load i64, ptr %arrayidx14, align 8
   %cmp15 = icmp eq i64 %7, -1
   br i1 %cmp15, label %for.inc30, label %land.lhs.true
@@ -106,7 +106,7 @@ land.lhs.true:                                    ; preds = %for.body13
   %8 = load i64, ptr %key, align 8
   %cmp19 = icmp ult i64 %8, -1829587348619264
   %9 = bitcast i64 %8 to double
-  %cmp25 = fcmp olt double %m.119, %9
+  %cmp25 = fcmp olt double %m.118, %9
   %or.cond = select i1 %cmp19, i1 %cmp25, i1 false
   br i1 %or.cond, label %if.then27, label %for.inc30
 
@@ -114,9 +114,9 @@ if.then27:                                        ; preds = %land.lhs.true
   br label %for.inc30
 
 for.inc30:                                        ; preds = %for.body13, %land.lhs.true, %if.then27
-  %m.2 = phi double [ %m.119, %for.body13 ], [ %9, %if.then27 ], [ %m.119, %land.lhs.true ]
-  %dec31 = add nsw i64 %i.118, -1
-  %cmp11 = icmp sgt i64 %i.118, 0
+  %m.2 = phi double [ %m.118, %for.body13 ], [ %9, %if.then27 ], [ %m.118, %land.lhs.true ]
+  %dec31 = add nsw i64 %i.119, -1
+  %cmp11 = icmp sgt i64 %i.119, 0
   br i1 %cmp11, label %for.body13, label %for.end32, !llvm.loop !6
 
 for.end32:                                        ; preds = %for.inc30

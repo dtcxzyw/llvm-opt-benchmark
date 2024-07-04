@@ -44,7 +44,7 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
   br label %10
 
 8:                                                ; preds = %765, %769, %74
-  %.0355 = phi ptr [ %75, %74 ], [ %748, %769 ], [ %748, %765 ]
+  %.0362 = phi ptr [ %75, %74 ], [ %748, %769 ], [ %748, %765 ]
   %.0346 = phi ptr [ %.2348, %74 ], [ %747, %769 ], [ %747, %765 ]
   %.0334 = phi i32 [ %70, %74 ], [ %772, %769 ], [ %768, %765 ]
   %.0329 = phi i32 [ -2, %74 ], [ %.5, %769 ], [ %.5, %765 ]
@@ -52,7 +52,7 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
   br label %10
 
 10:                                               ; preds = %8, %2
-  %.1356 = phi ptr [ %5, %2 ], [ %.0355, %8 ]
+  %.1363 = phi ptr [ %5, %2 ], [ %.0362, %8 ]
   %.0353 = phi ptr [ %5, %2 ], [ %.1354, %8 ]
   %.1347 = phi ptr [ %4, %2 ], [ %9, %8 ]
   %.0342 = phi ptr [ %4, %2 ], [ %.1343, %8 ]
@@ -107,7 +107,7 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
   br i1 %.not383, label %37, label %.loopexit539
 
 37:                                               ; preds = %31, %10
-  %.2357 = phi ptr [ %35, %31 ], [ %.1356, %10 ]
+  %.2364 = phi ptr [ %35, %31 ], [ %.1363, %10 ]
   %.1354 = phi ptr [ %28, %31 ], [ %.0353, %10 ]
   %.2348 = phi ptr [ %33, %31 ], [ %.1347, %10 ]
   %.1343 = phi ptr [ %24, %31 ], [ %.0342, %10 ]
@@ -152,9 +152,9 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
   br label %60
 
 60:                                               ; preds = %55, %53, %49
-  %.0364 = phi i32 [ 0, %49 ], [ %59, %55 ], [ 2, %53 ]
+  %.0359 = phi i32 [ 0, %49 ], [ %59, %55 ], [ 2, %53 ]
   %.3 = phi i32 [ 0, %49 ], [ %.2, %55 ], [ %.2, %53 ]
-  %61 = add nsw i32 %.0364, %43
+  %61 = add nsw i32 %.0359, %43
   %or.cond3 = icmp ugt i32 %61, 239
   br i1 %or.cond3, label %76, label %62
 
@@ -163,7 +163,7 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
   %64 = getelementptr [240 x i16], ptr @yycheck, i64 0, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = sext i16 %65 to i32
-  %.not384 = icmp eq i32 %.0364, %66
+  %.not384 = icmp eq i32 %.0359, %66
   br i1 %.not384, label %67, label %76
 
 67:                                               ; preds = %62
@@ -178,7 +178,7 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
   br label %81
 
 74:                                               ; preds = %67
-  %75 = getelementptr i8, ptr %.2357, i64 16
+  %75 = getelementptr i8, ptr %.2364, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   br label %8
 
@@ -191,18 +191,18 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
   br i1 %80, label %.loopexit539.sink.split, label %81
 
 81:                                               ; preds = %76, %72
-  %.0362 = phi i32 [ %79, %76 ], [ %73, %72 ]
+  %.0361 = phi i32 [ %79, %76 ], [ %73, %72 ]
   %.5 = phi i32 [ %.4, %76 ], [ %.3, %72 ]
-  %82 = sext i32 %.0362 to i64
+  %82 = sext i32 %.0361 to i64
   %83 = getelementptr [137 x i8], ptr @yyr2, i64 0, i64 %82
   %84 = load i8, ptr %83, align 1
   %85 = sext i8 %84 to i64
   %86 = sub nsw i64 1, %85
-  %87 = getelementptr %union.YYSTYPE, ptr %.2357, i64 %86
+  %87 = getelementptr %union.YYSTYPE, ptr %.2364, i64 %86
   %.sroa.044.0.copyload = load ptr, ptr %87, align 8
   %.sroa.102.0..sroa_idx = getelementptr inbounds i8, ptr %87, i64 8
   %88 = load i64, ptr %.sroa.102.0..sroa_idx, align 8
-  switch i32 %.0362, label %makeItemList.exit [
+  switch i32 %.0361, label %makeItemList.exit [
     i32 2, label %89
     i32 3, label %97
     i32 4, label %98
@@ -308,9 +308,9 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
 89:                                               ; preds = %81
   %90 = call ptr @palloc(i64 noundef 16) #5
   store ptr %90, ptr %0, align 8
-  %91 = load ptr, ptr %.2357, align 8
+  %91 = load ptr, ptr %.2364, align 8
   store ptr %91, ptr %90, align 8
-  %92 = getelementptr i8, ptr %.2357, i64 -16
+  %92 = getelementptr i8, ptr %.2364, i64 -16
   %93 = load i8, ptr %92, align 8
   %94 = load ptr, ptr %0, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 8
@@ -323,11 +323,11 @@ define dso_local noundef i32 @jsonpath_yyparse(ptr noundef %0, ptr noundef %1) l
   br label %makeItemList.exit
 
 98:                                               ; preds = %81
-  %99 = load ptr, ptr %.2357, align 8
+  %99 = load ptr, ptr %.2364, align 8
   br label %makeItemList.exit
 
 100:                                              ; preds = %81
-  %101 = load ptr, ptr %.2357, align 8
+  %101 = load ptr, ptr %.2364, align 8
   br label %makeItemList.exit
 
 102:                                              ; preds = %81
@@ -364,11 +364,11 @@ makeItemString.exit:                              ; preds = %111, %114
   store i32 1, ptr %112, align 8
   %115 = getelementptr inbounds i8, ptr %112, i64 8
   store ptr null, ptr %115, align 8
-  %116 = load ptr, ptr %.2357, align 8
+  %116 = load ptr, ptr %.2364, align 8
   %117 = getelementptr inbounds i8, ptr %112, i64 16
   %118 = getelementptr inbounds i8, ptr %112, i64 24
   store ptr %116, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %.2357, i64 8
+  %119 = getelementptr inbounds i8, ptr %.2364, i64 8
   %120 = load i32, ptr %119, align 8
   store i32 %120, ptr %117, align 8
   br label %makeItemList.exit
@@ -439,7 +439,7 @@ makeItemNumeric.exit:                             ; preds = %138, %141
   store i32 2, ptr %139, align 8
   %142 = getelementptr inbounds i8, ptr %139, i64 8
   store ptr null, ptr %142, align 8
-  %143 = load ptr, ptr %.2357, align 8
+  %143 = load ptr, ptr %.2364, align 8
   %144 = ptrtoint ptr %143 to i64
   %145 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %144, i64 noundef 0, i64 noundef -1) #5
   %146 = inttoptr i64 %145 to ptr
@@ -462,7 +462,7 @@ makeItemNumeric.exit404:                          ; preds = %149, %152
   store i32 2, ptr %150, align 8
   %153 = getelementptr inbounds i8, ptr %150, i64 8
   store ptr null, ptr %153, align 8
-  %154 = load ptr, ptr %.2357, align 8
+  %154 = load ptr, ptr %.2364, align 8
   %155 = ptrtoint ptr %154 to i64
   %156 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %155, i64 noundef 0, i64 noundef -1) #5
   %157 = inttoptr i64 %156 to ptr
@@ -485,11 +485,11 @@ makeItemVariable.exit:                            ; preds = %160, %163
   store i32 28, ptr %161, align 8
   %164 = getelementptr inbounds i8, ptr %161, i64 8
   store ptr null, ptr %164, align 8
-  %165 = load ptr, ptr %.2357, align 8
+  %165 = load ptr, ptr %.2364, align 8
   %166 = getelementptr inbounds i8, ptr %161, i64 16
   %167 = getelementptr inbounds i8, ptr %161, i64 24
   store ptr %165, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %.2357, i64 8
+  %168 = getelementptr inbounds i8, ptr %.2364, i64 8
   %169 = load i32, ptr %168, align 8
   store i32 %169, ptr %166, align 8
   br label %makeItemList.exit
@@ -537,12 +537,12 @@ makeItemVariable.exit:                            ; preds = %160, %163
   br label %makeItemList.exit
 
 188:                                              ; preds = %81
-  %189 = getelementptr i8, ptr %.2357, i64 -16
+  %189 = getelementptr i8, ptr %.2364, i64 -16
   %190 = load ptr, ptr %189, align 8
   br label %makeItemList.exit
 
 191:                                              ; preds = %81
-  %192 = getelementptr i8, ptr %.2357, i64 -16
+  %192 = getelementptr i8, ptr %.2364, i64 -16
   %193 = load ptr, ptr %192, align 8
   %194 = call ptr @palloc(i64 noundef 40) #5
   %195 = load volatile i32, ptr @InterruptPending, align 4
@@ -562,15 +562,15 @@ makeItemUnary.exit:                               ; preds = %191, %196
   br label %makeItemList.exit
 
 199:                                              ; preds = %81
-  %200 = load ptr, ptr %.2357, align 8
+  %200 = load ptr, ptr %.2364, align 8
   br label %makeItemList.exit
 
 201:                                              ; preds = %81
-  %202 = getelementptr i8, ptr %.2357, i64 -16
+  %202 = getelementptr i8, ptr %.2364, i64 -16
   %203 = load i32, ptr %202, align 8
-  %204 = getelementptr i8, ptr %.2357, i64 -32
+  %204 = getelementptr i8, ptr %.2364, i64 -32
   %205 = load ptr, ptr %204, align 8
-  %206 = load ptr, ptr %.2357, align 8
+  %206 = load ptr, ptr %.2364, align 8
   %207 = call ptr @palloc(i64 noundef 40) #5
   %208 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i407 = icmp eq i32 %208, 0
@@ -591,9 +591,9 @@ makeItemBinary.exit:                              ; preds = %201, %209
   br label %makeItemList.exit
 
 213:                                              ; preds = %81
-  %214 = getelementptr i8, ptr %.2357, i64 -32
+  %214 = getelementptr i8, ptr %.2364, i64 -32
   %215 = load ptr, ptr %214, align 8
-  %216 = load ptr, ptr %.2357, align 8
+  %216 = load ptr, ptr %.2364, align 8
   %217 = call ptr @palloc(i64 noundef 40) #5
   %218 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i409 = icmp eq i32 %218, 0
@@ -614,9 +614,9 @@ makeItemBinary.exit411:                           ; preds = %213, %219
   br label %makeItemList.exit
 
 223:                                              ; preds = %81
-  %224 = getelementptr i8, ptr %.2357, i64 -32
+  %224 = getelementptr i8, ptr %.2364, i64 -32
   %225 = load ptr, ptr %224, align 8
-  %226 = load ptr, ptr %.2357, align 8
+  %226 = load ptr, ptr %.2364, align 8
   %227 = call ptr @palloc(i64 noundef 40) #5
   %228 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i412 = icmp eq i32 %228, 0
@@ -637,7 +637,7 @@ makeItemBinary.exit414:                           ; preds = %223, %229
   br label %makeItemList.exit
 
 233:                                              ; preds = %81
-  %234 = load ptr, ptr %.2357, align 8
+  %234 = load ptr, ptr %.2364, align 8
   %235 = call ptr @palloc(i64 noundef 40) #5
   %236 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i15.i415 = icmp eq i32 %236, 0
@@ -656,7 +656,7 @@ makeItemUnary.exit416:                            ; preds = %233, %237
   br label %makeItemList.exit
 
 240:                                              ; preds = %81
-  %241 = getelementptr i8, ptr %.2357, i64 -48
+  %241 = getelementptr i8, ptr %.2364, i64 -48
   %242 = load ptr, ptr %241, align 8
   %243 = call ptr @palloc(i64 noundef 40) #5
   %244 = load volatile i32, ptr @InterruptPending, align 4
@@ -676,9 +676,9 @@ makeItemUnary.exit418:                            ; preds = %240, %245
   br label %makeItemList.exit
 
 248:                                              ; preds = %81
-  %249 = getelementptr i8, ptr %.2357, i64 -48
+  %249 = getelementptr i8, ptr %.2364, i64 -48
   %250 = load ptr, ptr %249, align 8
-  %251 = load ptr, ptr %.2357, align 8
+  %251 = load ptr, ptr %.2364, align 8
   %252 = call ptr @palloc(i64 noundef 40) #5
   %253 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i419 = icmp eq i32 %253, 0
@@ -699,9 +699,9 @@ makeItemBinary.exit421:                           ; preds = %248, %254
   br label %makeItemList.exit
 
 258:                                              ; preds = %81
-  %259 = getelementptr i8, ptr %.2357, i64 -32
+  %259 = getelementptr i8, ptr %.2364, i64 -32
   %260 = load ptr, ptr %259, align 8
-  %261 = call fastcc zeroext i1 @makeItemLikeRegex(ptr noundef %260, ptr noundef nonnull %.2357, ptr noundef null, ptr noundef nonnull %6, ptr noundef %1)
+  %261 = call fastcc zeroext i1 @makeItemLikeRegex(ptr noundef %260, ptr noundef nonnull %.2364, ptr noundef null, ptr noundef nonnull %6, ptr noundef %1)
   br i1 %261, label %262, label %.loopexit539
 
 262:                                              ; preds = %258
@@ -709,10 +709,10 @@ makeItemBinary.exit421:                           ; preds = %248, %254
   br label %makeItemList.exit
 
 264:                                              ; preds = %81
-  %265 = getelementptr i8, ptr %.2357, i64 -64
+  %265 = getelementptr i8, ptr %.2364, i64 -64
   %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr i8, ptr %.2357, i64 -32
-  %268 = call fastcc zeroext i1 @makeItemLikeRegex(ptr noundef %266, ptr noundef %267, ptr noundef nonnull %.2357, ptr noundef nonnull %7, ptr noundef %1)
+  %267 = getelementptr i8, ptr %.2364, i64 -32
+  %268 = call fastcc zeroext i1 @makeItemLikeRegex(ptr noundef %266, ptr noundef %267, ptr noundef nonnull %.2364, ptr noundef nonnull %7, ptr noundef %1)
   br i1 %268, label %269, label %.loopexit539
 
 269:                                              ; preds = %264
@@ -733,11 +733,11 @@ makeItemString.exit425:                           ; preds = %271, %274
   store i32 1, ptr %272, align 8
   %275 = getelementptr inbounds i8, ptr %272, i64 8
   store ptr null, ptr %275, align 8
-  %276 = load ptr, ptr %.2357, align 8
+  %276 = load ptr, ptr %.2364, align 8
   %277 = getelementptr inbounds i8, ptr %272, i64 16
   %278 = getelementptr inbounds i8, ptr %272, i64 24
   store ptr %276, ptr %278, align 8
-  %279 = getelementptr inbounds i8, ptr %.2357, i64 8
+  %279 = getelementptr inbounds i8, ptr %.2364, i64 8
   %280 = load i32, ptr %279, align 8
   store i32 %280, ptr %277, align 8
   br label %makeItemList.exit
@@ -756,17 +756,17 @@ makeItemVariable.exit428:                         ; preds = %281, %284
   store i32 28, ptr %282, align 8
   %285 = getelementptr inbounds i8, ptr %282, i64 8
   store ptr null, ptr %285, align 8
-  %286 = load ptr, ptr %.2357, align 8
+  %286 = load ptr, ptr %.2364, align 8
   %287 = getelementptr inbounds i8, ptr %282, i64 16
   %288 = getelementptr inbounds i8, ptr %282, i64 24
   store ptr %286, ptr %288, align 8
-  %289 = getelementptr inbounds i8, ptr %.2357, i64 8
+  %289 = getelementptr inbounds i8, ptr %.2364, i64 8
   %290 = load i32, ptr %289, align 8
   store i32 %290, ptr %287, align 8
   br label %makeItemList.exit
 
 291:                                              ; preds = %81
-  %292 = load ptr, ptr %.2357, align 8
+  %292 = load ptr, ptr %.2364, align 8
   br label %makeItemList.exit
 
 293:                                              ; preds = %81
@@ -818,33 +818,33 @@ makeItemType.exit432:                             ; preds = %303, %306
   br label %makeItemList.exit
 
 308:                                              ; preds = %81
-  %309 = load ptr, ptr %.2357, align 8
+  %309 = load ptr, ptr %.2364, align 8
   %310 = call ptr @list_make1_impl(i32 noundef 1, ptr %309) #5
   br label %makeItemList.exit
 
 311:                                              ; preds = %81
-  %312 = getelementptr i8, ptr %.2357, i64 -32
+  %312 = getelementptr i8, ptr %.2364, i64 -32
   %313 = load ptr, ptr %312, align 8
-  %314 = load ptr, ptr %.2357, align 8
+  %314 = load ptr, ptr %.2364, align 8
   %315 = call ptr @list_make2_impl(i32 noundef 1, ptr %313, ptr %314) #5
   br label %makeItemList.exit
 
 316:                                              ; preds = %81
-  %317 = getelementptr i8, ptr %.2357, i64 -32
+  %317 = getelementptr i8, ptr %.2364, i64 -32
   %318 = load ptr, ptr %317, align 8
-  %319 = load ptr, ptr %.2357, align 8
+  %319 = load ptr, ptr %.2364, align 8
   %320 = call ptr @list_make2_impl(i32 noundef 1, ptr %318, ptr %319) #5
   br label %makeItemList.exit
 
 321:                                              ; preds = %81
-  %322 = getelementptr i8, ptr %.2357, i64 -16
+  %322 = getelementptr i8, ptr %.2364, i64 -16
   %323 = load ptr, ptr %322, align 8
-  %324 = load ptr, ptr %.2357, align 8
+  %324 = load ptr, ptr %.2364, align 8
   %325 = call ptr @lappend(ptr noundef %323, ptr noundef %324) #5
   br label %makeItemList.exit
 
 326:                                              ; preds = %81
-  %327 = load ptr, ptr %.2357, align 8
+  %327 = load ptr, ptr %.2364, align 8
   %328 = getelementptr i8, ptr %327, i64 16
   %.val.i = load ptr, ptr %328, align 8
   %329 = load ptr, ptr %.val.i, align 8
@@ -854,8 +854,8 @@ makeItemType.exit432:                             ; preds = %303, %306
   br i1 %332, label %makeItemList.exit, label %.preheader23.i
 
 .preheader23.i:                                   ; preds = %326, %.preheader23.i
-  %.016.i = phi ptr [ %334, %.preheader23.i ], [ %329, %326 ]
-  %333 = getelementptr inbounds i8, ptr %.016.i, i64 8
+  %.017.i = phi ptr [ %334, %.preheader23.i ], [ %329, %326 ]
+  %333 = getelementptr inbounds i8, ptr %.017.i, i64 8
   %334 = load ptr, ptr %333, align 8
   %.not.i433 = icmp eq ptr %334, null
   br i1 %.not.i433, label %.preheader.i, label %.preheader23.i, !llvm.loop !5
@@ -866,11 +866,11 @@ makeItemType.exit432:                             ; preds = %303, %306
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %.preheader.i ]
-  %.125.i = phi ptr [ %338, %.lr.ph.i ], [ %.016.i, %.preheader.i ]
+  %.124.i = phi ptr [ %338, %.lr.ph.i ], [ %.017.i, %.preheader.i ]
   %336 = load ptr, ptr %328, align 8
   %337 = getelementptr %union.ListCell, ptr %336, i64 %indvars.iv.i
   %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr inbounds i8, ptr %.125.i, i64 8
+  %339 = getelementptr inbounds i8, ptr %.124.i, i64 8
   store ptr %338, ptr %339, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %340 = load i32, ptr %330, align 4
@@ -879,12 +879,12 @@ makeItemType.exit432:                             ; preds = %303, %306
   br i1 %342, label %.lr.ph.i, label %makeItemList.exit, !llvm.loop !7
 
 343:                                              ; preds = %81
-  %344 = getelementptr i8, ptr %.2357, i64 -16
+  %344 = getelementptr i8, ptr %.2364, i64 -16
   %345 = load ptr, ptr %344, align 8
   br label %makeItemList.exit
 
 346:                                              ; preds = %81
-  %347 = load ptr, ptr %.2357, align 8
+  %347 = load ptr, ptr %.2364, align 8
   %348 = load i32, ptr %347, align 8
   %349 = icmp eq i32 %348, 2
   br i1 %349, label %350, label %353
@@ -914,14 +914,14 @@ makeItemType.exit16.i:                            ; preds = %356, %353
   br label %makeItemList.exit
 
 359:                                              ; preds = %81
-  %360 = load ptr, ptr %.2357, align 8
+  %360 = load ptr, ptr %.2364, align 8
   %361 = call fastcc ptr @makeItemUnary(i32 noundef 20, ptr noundef %360)
   br label %makeItemList.exit
 
 362:                                              ; preds = %81
-  %363 = getelementptr i8, ptr %.2357, i64 -32
+  %363 = getelementptr i8, ptr %.2364, i64 -32
   %364 = load ptr, ptr %363, align 8
-  %365 = load ptr, ptr %.2357, align 8
+  %365 = load ptr, ptr %.2364, align 8
   %366 = call ptr @palloc(i64 noundef 40) #5
   %367 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i437 = icmp eq i32 %367, 0
@@ -942,9 +942,9 @@ makeItemBinary.exit439:                           ; preds = %362, %368
   br label %makeItemList.exit
 
 372:                                              ; preds = %81
-  %373 = getelementptr i8, ptr %.2357, i64 -32
+  %373 = getelementptr i8, ptr %.2364, i64 -32
   %374 = load ptr, ptr %373, align 8
-  %375 = load ptr, ptr %.2357, align 8
+  %375 = load ptr, ptr %.2364, align 8
   %376 = call ptr @palloc(i64 noundef 40) #5
   %377 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i440 = icmp eq i32 %377, 0
@@ -965,9 +965,9 @@ makeItemBinary.exit442:                           ; preds = %372, %378
   br label %makeItemList.exit
 
 382:                                              ; preds = %81
-  %383 = getelementptr i8, ptr %.2357, i64 -32
+  %383 = getelementptr i8, ptr %.2364, i64 -32
   %384 = load ptr, ptr %383, align 8
-  %385 = load ptr, ptr %.2357, align 8
+  %385 = load ptr, ptr %.2364, align 8
   %386 = call ptr @palloc(i64 noundef 40) #5
   %387 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i443 = icmp eq i32 %387, 0
@@ -988,9 +988,9 @@ makeItemBinary.exit445:                           ; preds = %382, %388
   br label %makeItemList.exit
 
 392:                                              ; preds = %81
-  %393 = getelementptr i8, ptr %.2357, i64 -32
+  %393 = getelementptr i8, ptr %.2364, i64 -32
   %394 = load ptr, ptr %393, align 8
-  %395 = load ptr, ptr %.2357, align 8
+  %395 = load ptr, ptr %.2364, align 8
   %396 = call ptr @palloc(i64 noundef 40) #5
   %397 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i446 = icmp eq i32 %397, 0
@@ -1011,9 +1011,9 @@ makeItemBinary.exit448:                           ; preds = %392, %398
   br label %makeItemList.exit
 
 402:                                              ; preds = %81
-  %403 = getelementptr i8, ptr %.2357, i64 -32
+  %403 = getelementptr i8, ptr %.2364, i64 -32
   %404 = load ptr, ptr %403, align 8
-  %405 = load ptr, ptr %.2357, align 8
+  %405 = load ptr, ptr %.2364, align 8
   %406 = call ptr @palloc(i64 noundef 40) #5
   %407 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i449 = icmp eq i32 %407, 0
@@ -1034,7 +1034,7 @@ makeItemBinary.exit451:                           ; preds = %402, %408
   br label %makeItemList.exit
 
 412:                                              ; preds = %81
-  %413 = load ptr, ptr %.2357, align 8
+  %413 = load ptr, ptr %.2364, align 8
   %414 = call ptr @palloc(i64 noundef 40) #5
   %415 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i452 = icmp eq i32 %415, 0
@@ -1055,9 +1055,9 @@ makeItemBinary.exit454:                           ; preds = %412, %416
   br label %makeItemList.exit
 
 420:                                              ; preds = %81
-  %421 = getelementptr i8, ptr %.2357, i64 -32
+  %421 = getelementptr i8, ptr %.2364, i64 -32
   %422 = load ptr, ptr %421, align 8
-  %423 = load ptr, ptr %.2357, align 8
+  %423 = load ptr, ptr %.2364, align 8
   %424 = call ptr @palloc(i64 noundef 40) #5
   %425 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i.i455 = icmp eq i32 %425, 0
@@ -1078,14 +1078,14 @@ makeItemBinary.exit457:                           ; preds = %420, %426
   br label %makeItemList.exit
 
 430:                                              ; preds = %81
-  %431 = load ptr, ptr %.2357, align 8
+  %431 = load ptr, ptr %.2364, align 8
   %432 = call ptr @list_make1_impl(i32 noundef 1, ptr %431) #5
   br label %makeItemList.exit
 
 433:                                              ; preds = %81
-  %434 = getelementptr i8, ptr %.2357, i64 -32
+  %434 = getelementptr i8, ptr %.2364, i64 -32
   %435 = load ptr, ptr %434, align 8
-  %436 = load ptr, ptr %.2357, align 8
+  %436 = load ptr, ptr %.2364, align 8
   %437 = call ptr @lappend(ptr noundef %435, ptr noundef %436) #5
   br label %makeItemList.exit
 
@@ -1106,7 +1106,7 @@ makeItemType.exit459:                             ; preds = %438, %441
   br label %makeItemList.exit
 
 443:                                              ; preds = %81
-  %444 = getelementptr i8, ptr %.2357, i64 -16
+  %444 = getelementptr i8, ptr %.2364, i64 -16
   %445 = load ptr, ptr %444, align 8
   %446 = call ptr @palloc(i64 noundef 40) #5
   %447 = load volatile i32, ptr @InterruptPending, align 4
@@ -1169,7 +1169,7 @@ list_length.exit.i:                               ; preds = %450, %makeItemType.
   br i1 %476, label %.lr.ph27.i, label %makeItemList.exit
 
 477:                                              ; preds = %81
-  %478 = load ptr, ptr %.2357, align 8
+  %478 = load ptr, ptr %.2364, align 8
   %479 = call i32 @pg_strtoint32(ptr noundef %478) #5
   %480 = ptrtoint ptr %.sroa.044.0.copyload to i64
   %.sroa.044.0.insert.ext = zext i32 %479 to i64
@@ -1205,7 +1205,7 @@ makeAny.exit:                                     ; preds = %485, %488
   br label %makeItemList.exit
 
 492:                                              ; preds = %81
-  %493 = getelementptr i8, ptr %.2357, i64 -16
+  %493 = getelementptr i8, ptr %.2364, i64 -16
   %494 = load i32, ptr %493, align 8
   %495 = call ptr @palloc(i64 noundef 40) #5
   %496 = load volatile i32, ptr @InterruptPending, align 4
@@ -1228,9 +1228,9 @@ makeAny.exit469:                                  ; preds = %492, %497
   br label %makeItemList.exit
 
 502:                                              ; preds = %81
-  %503 = getelementptr i8, ptr %.2357, i64 -48
+  %503 = getelementptr i8, ptr %.2364, i64 -48
   %504 = load i32, ptr %503, align 8
-  %505 = getelementptr i8, ptr %.2357, i64 -16
+  %505 = getelementptr i8, ptr %.2364, i64 -16
   %506 = load i32, ptr %505, align 8
   %507 = call ptr @palloc(i64 noundef 40) #5
   %508 = load volatile i32, ptr @InterruptPending, align 4
@@ -1254,7 +1254,7 @@ makeAny.exit472:                                  ; preds = %502, %509
   br label %makeItemList.exit
 
 515:                                              ; preds = %81
-  %516 = load ptr, ptr %.2357, align 8
+  %516 = load ptr, ptr %.2364, align 8
   br label %makeItemList.exit
 
 517:                                              ; preds = %81
@@ -1274,15 +1274,15 @@ makeItemType.exit474:                             ; preds = %517, %520
   br label %makeItemList.exit
 
 522:                                              ; preds = %81
-  %523 = load ptr, ptr %.2357, align 8
+  %523 = load ptr, ptr %.2364, align 8
   br label %makeItemList.exit
 
 524:                                              ; preds = %81
-  %525 = load ptr, ptr %.2357, align 8
+  %525 = load ptr, ptr %.2364, align 8
   br label %makeItemList.exit
 
 526:                                              ; preds = %81
-  %527 = getelementptr i8, ptr %.2357, i64 -32
+  %527 = getelementptr i8, ptr %.2364, i64 -32
   %528 = load i32, ptr %527, align 8
   %529 = call ptr @palloc(i64 noundef 40) #5
   %530 = load volatile i32, ptr @InterruptPending, align 4
@@ -1300,7 +1300,7 @@ makeItemType.exit476:                             ; preds = %526, %531
   br label %makeItemList.exit
 
 533:                                              ; preds = %81
-  %534 = getelementptr i8, ptr %.2357, i64 -16
+  %534 = getelementptr i8, ptr %.2364, i64 -16
   %535 = load ptr, ptr %534, align 8
   %536 = call ptr @palloc(i64 noundef 40) #5
   %537 = load volatile i32, ptr @InterruptPending, align 4
@@ -1320,7 +1320,7 @@ makeItemUnary.exit480:                            ; preds = %533, %538
   br label %makeItemList.exit
 
 541:                                              ; preds = %81
-  %542 = getelementptr i8, ptr %.2357, i64 -16
+  %542 = getelementptr i8, ptr %.2364, i64 -16
   %543 = load ptr, ptr %542, align 8
   %.not.i481 = icmp eq ptr %543, null
   br i1 %.not.i481, label %list_length.exit.thread, label %list_length.exit
@@ -1406,7 +1406,7 @@ makeItemBinary.exit494:                           ; preds = %559, %564
   br label %774
 
 573:                                              ; preds = %81
-  %574 = getelementptr i8, ptr %.2357, i64 -16
+  %574 = getelementptr i8, ptr %.2364, i64 -16
   %575 = load ptr, ptr %574, align 8
   %576 = call ptr @palloc(i64 noundef 40) #5
   %577 = load volatile i32, ptr @InterruptPending, align 4
@@ -1426,7 +1426,7 @@ makeItemUnary.exit498:                            ; preds = %573, %578
   br label %makeItemList.exit
 
 581:                                              ; preds = %81
-  %582 = getelementptr i8, ptr %.2357, i64 -16
+  %582 = getelementptr i8, ptr %.2364, i64 -16
   %583 = load ptr, ptr %582, align 8
   %584 = call ptr @palloc(i64 noundef 40) #5
   %585 = load volatile i32, ptr @InterruptPending, align 4
@@ -1446,7 +1446,7 @@ makeItemUnary.exit502:                            ; preds = %581, %586
   br label %makeItemList.exit
 
 589:                                              ; preds = %81
-  %590 = getelementptr i8, ptr %.2357, i64 -16
+  %590 = getelementptr i8, ptr %.2364, i64 -16
   %591 = load ptr, ptr %590, align 8
   %592 = call ptr @palloc(i64 noundef 40) #5
   %593 = load volatile i32, ptr @InterruptPending, align 4
@@ -1466,7 +1466,7 @@ makeItemUnary.exit506:                            ; preds = %589, %594
   br label %makeItemList.exit
 
 597:                                              ; preds = %81
-  %598 = getelementptr i8, ptr %.2357, i64 -16
+  %598 = getelementptr i8, ptr %.2364, i64 -16
   %599 = load ptr, ptr %598, align 8
   %600 = call ptr @palloc(i64 noundef 40) #5
   %601 = load volatile i32, ptr @InterruptPending, align 4
@@ -1486,7 +1486,7 @@ makeItemUnary.exit510:                            ; preds = %597, %602
   br label %makeItemList.exit
 
 605:                                              ; preds = %81
-  %606 = getelementptr i8, ptr %.2357, i64 -16
+  %606 = getelementptr i8, ptr %.2364, i64 -16
   %607 = load ptr, ptr %606, align 8
   %608 = call ptr @palloc(i64 noundef 40) #5
   %609 = load volatile i32, ptr @InterruptPending, align 4
@@ -1519,7 +1519,7 @@ makeItemNumeric.exit517:                          ; preds = %613, %616
   store i32 2, ptr %614, align 8
   %617 = getelementptr inbounds i8, ptr %614, i64 8
   store ptr null, ptr %617, align 8
-  %618 = load ptr, ptr %.2357, align 8
+  %618 = load ptr, ptr %.2364, align 8
   %619 = ptrtoint ptr %618 to i64
   %620 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %619, i64 noundef 0, i64 noundef -1) #5
   %621 = inttoptr i64 %620 to ptr
@@ -1542,7 +1542,7 @@ makeItemNumeric.exit520:                          ; preds = %624, %627
   store i32 2, ptr %625, align 8
   %628 = getelementptr inbounds i8, ptr %625, i64 8
   store ptr null, ptr %628, align 8
-  %629 = load ptr, ptr %.2357, align 8
+  %629 = load ptr, ptr %.2364, align 8
   %630 = ptrtoint ptr %629 to i64
   %631 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %630, i64 noundef 0, i64 noundef -1) #5
   %632 = inttoptr i64 %631 to ptr
@@ -1590,7 +1590,7 @@ makeItemNumeric.exit528:                          ; preds = %645, %648
   store i32 2, ptr %646, align 8
   %649 = getelementptr inbounds i8, ptr %646, i64 8
   store ptr null, ptr %649, align 8
-  %650 = load ptr, ptr %.2357, align 8
+  %650 = load ptr, ptr %.2364, align 8
   %651 = ptrtoint ptr %650 to i64
   %652 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %651, i64 noundef 0, i64 noundef -1) #5
   %653 = inttoptr i64 %652 to ptr
@@ -1601,19 +1601,19 @@ makeItemNumeric.exit528:                          ; preds = %645, %648
   br label %makeItemList.exit
 
 657:                                              ; preds = %81
-  %658 = load ptr, ptr %.2357, align 8
+  %658 = load ptr, ptr %.2364, align 8
   %659 = call ptr @list_make1_impl(i32 noundef 1, ptr %658) #5
   br label %makeItemList.exit
 
 660:                                              ; preds = %81
-  %661 = getelementptr i8, ptr %.2357, i64 -32
+  %661 = getelementptr i8, ptr %.2364, i64 -32
   %662 = load ptr, ptr %661, align 8
-  %663 = load ptr, ptr %.2357, align 8
+  %663 = load ptr, ptr %.2364, align 8
   %664 = call ptr @lappend(ptr noundef %662, ptr noundef %663) #5
   br label %makeItemList.exit
 
 665:                                              ; preds = %81
-  %666 = load ptr, ptr %.2357, align 8
+  %666 = load ptr, ptr %.2364, align 8
   br label %makeItemList.exit
 
 667:                                              ; preds = %81
@@ -1633,7 +1633,7 @@ makeItemNumeric.exit531:                          ; preds = %668, %671
   store i32 2, ptr %669, align 8
   %672 = getelementptr inbounds i8, ptr %669, i64 8
   store ptr null, ptr %672, align 8
-  %673 = load ptr, ptr %.2357, align 8
+  %673 = load ptr, ptr %.2364, align 8
   %674 = ptrtoint ptr %673 to i64
   %675 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %674, i64 noundef 0, i64 noundef -1) #5
   %676 = inttoptr i64 %675 to ptr
@@ -1643,7 +1643,7 @@ makeItemNumeric.exit531:                          ; preds = %668, %671
   br label %makeItemList.exit
 
 679:                                              ; preds = %81
-  %680 = load ptr, ptr %.2357, align 8
+  %680 = load ptr, ptr %.2364, align 8
   br label %makeItemList.exit
 
 681:                                              ; preds = %81
@@ -1663,17 +1663,17 @@ makeItemString.exit535:                           ; preds = %682, %685
   store i32 1, ptr %683, align 8
   %686 = getelementptr inbounds i8, ptr %683, i64 8
   store ptr null, ptr %686, align 8
-  %687 = load ptr, ptr %.2357, align 8
+  %687 = load ptr, ptr %.2364, align 8
   %688 = getelementptr inbounds i8, ptr %683, i64 16
   %689 = getelementptr inbounds i8, ptr %683, i64 24
   store ptr %687, ptr %689, align 8
-  %690 = getelementptr inbounds i8, ptr %.2357, i64 8
+  %690 = getelementptr inbounds i8, ptr %.2364, i64 8
   %691 = load i32, ptr %690, align 8
   store i32 %691, ptr %688, align 8
   br label %makeItemList.exit
 
 692:                                              ; preds = %81
-  %693 = load ptr, ptr %.2357, align 8
+  %693 = load ptr, ptr %.2364, align 8
   br label %makeItemList.exit
 
 694:                                              ; preds = %81
@@ -1693,11 +1693,11 @@ makeItemKey.exit:                                 ; preds = %695, %698
   store i32 1, ptr %696, align 8
   %699 = getelementptr inbounds i8, ptr %696, i64 8
   store ptr null, ptr %699, align 8
-  %700 = load ptr, ptr %.2357, align 8
+  %700 = load ptr, ptr %.2364, align 8
   %701 = getelementptr inbounds i8, ptr %696, i64 16
   %702 = getelementptr inbounds i8, ptr %696, i64 24
   store ptr %700, ptr %702, align 8
-  %703 = getelementptr inbounds i8, ptr %.2357, i64 8
+  %703 = getelementptr inbounds i8, ptr %.2364, i64 8
   %704 = load i32, ptr %703, align 8
   store i32 %704, ptr %701, align 8
   store i32 25, ptr %696, align 8
@@ -1798,7 +1798,7 @@ makeItemList.exit:                                ; preds = %.lr.ph27.i, %.lr.ph
   %.sroa.044.0 = phi ptr [ %.sroa.044.0.copyload, %81 ], [ %743, %741 ], [ %740, %738 ], [ %737, %735 ], [ %734, %732 ], [ %731, %729 ], [ %728, %726 ], [ %725, %723 ], [ %722, %720 ], [ %719, %717 ], [ %716, %714 ], [ %713, %711 ], [ %710, %708 ], [ %707, %705 ], [ %696, %makeItemKey.exit ], [ null, %694 ], [ %693, %692 ], [ %683, %makeItemString.exit535 ], [ null, %681 ], [ %680, %679 ], [ %669, %makeItemNumeric.exit531 ], [ null, %667 ], [ %666, %665 ], [ %664, %660 ], [ %659, %657 ], [ %656, %makeItemNumeric.exit528 ], [ %614, %makeItemNumeric.exit517 ], [ %608, %makeItemUnary.exit514 ], [ %600, %makeItemUnary.exit510 ], [ %592, %makeItemUnary.exit506 ], [ %584, %makeItemUnary.exit502 ], [ %576, %makeItemUnary.exit498 ], [ %546, %makeItemBinary.exit484 ], [ %553, %makeItemBinary.exit489 ], [ %562, %makeItemBinary.exit494 ], [ %536, %makeItemUnary.exit480 ], [ %529, %makeItemType.exit476 ], [ %525, %524 ], [ %523, %522 ], [ %518, %makeItemType.exit474 ], [ %516, %515 ], [ %507, %makeAny.exit472 ], [ %495, %makeAny.exit469 ], [ %486, %makeAny.exit ], [ %484, %482 ], [ %481, %477 ], [ %439, %makeItemType.exit459 ], [ %437, %433 ], [ %432, %430 ], [ %424, %makeItemBinary.exit457 ], [ %414, %makeItemBinary.exit454 ], [ %406, %makeItemBinary.exit451 ], [ %396, %makeItemBinary.exit448 ], [ %386, %makeItemBinary.exit445 ], [ %376, %makeItemBinary.exit442 ], [ %366, %makeItemBinary.exit439 ], [ %361, %359 ], [ %345, %343 ], [ %325, %321 ], [ %320, %316 ], [ %315, %311 ], [ %310, %308 ], [ %304, %makeItemType.exit432 ], [ %299, %makeItemType.exit430 ], [ %294, %makeItemType.exit ], [ %292, %291 ], [ %282, %makeItemVariable.exit428 ], [ %272, %makeItemString.exit425 ], [ %270, %269 ], [ %263, %262 ], [ %252, %makeItemBinary.exit421 ], [ %243, %makeItemUnary.exit418 ], [ %235, %makeItemUnary.exit416 ], [ %227, %makeItemBinary.exit414 ], [ %217, %makeItemBinary.exit411 ], [ %207, %makeItemBinary.exit ], [ %200, %199 ], [ %194, %makeItemUnary.exit ], [ %190, %188 ], [ %187, %185 ], [ %184, %182 ], [ %181, %179 ], [ %178, %176 ], [ %175, %173 ], [ %172, %170 ], [ %161, %makeItemVariable.exit ], [ %150, %makeItemNumeric.exit404 ], [ %139, %makeItemNumeric.exit ], [ %133, %makeItemBool.exit399 ], [ %127, %makeItemBool.exit ], [ %122, %makeItemString.exit394 ], [ %112, %makeItemString.exit ], [ %110, %108 ], [ %107, %105 ], [ %104, %102 ], [ %101, %100 ], [ %99, %98 ], [ %.sroa.044.0.copyload, %97 ], [ %.sroa.044.0.copyload, %89 ], [ %329, %326 ], [ %329, %.preheader.i ], [ %347, %350 ], [ %354, %makeItemType.exit16.i ], [ %446, %list_length.exit.i ], [ %446, %.lr.ph.i462 ], [ %625, %637 ], [ %640, %makeItemType.exit16.i522 ], [ %329, %.lr.ph.i ], [ %446, %.lr.ph27.i ]
   %744 = sext i8 %84 to i64
   %745 = sub nsw i64 0, %744
-  %746 = getelementptr %union.YYSTYPE, ptr %.2357, i64 %745
+  %746 = getelementptr %union.YYSTYPE, ptr %.2364, i64 %745
   %747 = getelementptr i8, ptr %.2348, i64 %745
   %748 = getelementptr i8, ptr %746, i64 16
   store ptr %.sroa.044.0, ptr %748, align 8
@@ -1839,13 +1839,13 @@ makeItemList.exit:                                ; preds = %.lr.ph27.i, %.lr.ph
 
 .loopexit539.sink.split:                          ; preds = %14, %20, %76
   %.str.4.sink = phi ptr [ @.str.4, %76 ], [ @.str.7, %20 ], [ @.str.7, %14 ]
-  %.0363.ph = phi i32 [ 1, %76 ], [ 2, %20 ], [ 2, %14 ]
+  %.0360.ph = phi i32 [ 1, %76 ], [ 2, %20 ], [ 2, %14 ]
   %.3345.ph = phi ptr [ %.1343, %76 ], [ %.0342, %20 ], [ %.0342, %14 ]
   call void @jsonpath_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.str.4.sink) #5
   br label %.loopexit539
 
 .loopexit539:                                     ; preds = %37, %51, %31, %258, %264, %.loopexit539.sink.split
-  %.0363 = phi i32 [ %.0363.ph, %.loopexit539.sink.split ], [ 0, %37 ], [ 1, %51 ], [ 1, %31 ], [ 1, %258 ], [ 1, %264 ]
+  %.0360 = phi i32 [ %.0360.ph, %.loopexit539.sink.split ], [ 0, %37 ], [ 1, %51 ], [ 1, %31 ], [ 1, %258 ], [ 1, %264 ]
   %.3345 = phi ptr [ %.3345.ph, %.loopexit539.sink.split ], [ %.1343, %37 ], [ %.1343, %51 ], [ %24, %31 ], [ %.1343, %258 ], [ %.1343, %264 ]
   %.not389 = icmp eq ptr %.3345, %4
   br i1 %.not389, label %774, label %773
@@ -1855,7 +1855,7 @@ makeItemList.exit:                                ; preds = %.lr.ph27.i, %.lr.ph
   br label %774
 
 774:                                              ; preds = %.loopexit539, %773, %569, %567
-  %.0 = phi i32 [ 0, %567 ], [ 0, %569 ], [ %.0363, %773 ], [ %.0363, %.loopexit539 ]
+  %.0 = phi i32 [ 0, %567 ], [ 0, %569 ], [ %.0360, %773 ], [ %.0360, %.loopexit539 ]
   ret i32 %.0
 }
 
@@ -2163,8 +2163,8 @@ define dso_local noundef zeroext i1 @jspConvertRegexFlags(i32 noundef %0, ptr no
   br label %20
 
 20:                                               ; preds = %16, %14, %19
-  %.0 = phi i1 [ true, %19 ], [ false, %14 ], [ false, %16 ]
-  ret i1 %.0
+  %.015 = phi i1 [ true, %19 ], [ false, %14 ], [ false, %16 ]
+  ret i1 %.015
 }
 
 declare void @ProcessInterrupts() local_unnamed_addr #2

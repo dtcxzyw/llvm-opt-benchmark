@@ -39,16 +39,16 @@ define void @dot_compoundEdges(ptr noundef %0) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %.lr.ph25, %._crit_edge
-  %.01323 = phi ptr [ %5, %.lr.ph25 ], [ %381, %._crit_edge ]
-  %12 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.01323) #11
+  %.023 = phi ptr [ %5, %.lr.ph25 ], [ %381, %._crit_edge ]
+  %12 = call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.023) #11
   %.not1417 = icmp eq ptr %12, null
   br i1 %.not1417, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %makeCompoundEdge.exit
-  %.018 = phi ptr [ %380, %makeCompoundEdge.exit ], [ %12, %11 ]
+  %.01318 = phi ptr [ %380, %makeCompoundEdge.exit ], [ %12, %11 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  %13 = call ptr @agget(ptr noundef nonnull %.018, ptr noundef nonnull @.str) #11
+  %13 = call ptr @agget(ptr noundef nonnull %.01318, ptr noundef nonnull @.str) #11
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %getCluster.exit.i, label %14
 
@@ -68,7 +68,7 @@ define void @dot_compoundEdges(ptr noundef %0) local_unnamed_addr #0 {
 
 getCluster.exit.i:                                ; preds = %20, %17, %14, %.lr.ph
   %.0.i.i = phi ptr [ null, %14 ], [ null, %.lr.ph ], [ null, %20 ], [ %18, %17 ]
-  %22 = call ptr @agget(ptr noundef nonnull %.018, ptr noundef nonnull @.str.1) #11
+  %22 = call ptr @agget(ptr noundef nonnull %.01318, ptr noundef nonnull @.str.1) #11
   %.not.i232.i = icmp eq ptr %22, null
   br i1 %.not.i232.i, label %getCluster.exit234.i, label %23
 
@@ -98,7 +98,7 @@ getCluster.exit234.i:                             ; preds = %30, %23, %getCluste
   %33 = phi i1 [ %29, %getCluster.exit234.thread.i ], [ true, %getCluster.exit234.i ]
   %34 = phi i1 [ true, %getCluster.exit234.thread.i ], [ false, %getCluster.exit234.i ]
   %.0.i233252.i = phi ptr [ %27, %getCluster.exit234.thread.i ], [ null, %getCluster.exit234.i ]
-  %35 = getelementptr inbounds i8, ptr %.018, i64 16
+  %35 = getelementptr inbounds i8, ptr %.01318, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
@@ -112,19 +112,19 @@ getCluster.exit234.i:                             ; preds = %30, %23, %getCluste
   br i1 %42, label %43, label %59
 
 43:                                               ; preds = %39
-  %44 = load i32, ptr %.018, align 8
+  %44 = load i32, ptr %.01318, align 8
   %45 = and i32 %44, 3
   %46 = icmp eq i32 %45, 3
   %.idx.i = select i1 %46, i64 0, i64 64
-  %47 = getelementptr inbounds i8, ptr %.018, i64 %.idx.i
+  %47 = getelementptr inbounds i8, ptr %.01318, i64 %.idx.i
   %48 = getelementptr inbounds i8, ptr %47, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = call ptr @agnameof(ptr noundef %49) #11
-  %51 = load i32, ptr %.018, align 8
+  %51 = load i32, ptr %.01318, align 8
   %52 = and i32 %51, 3
   %53 = icmp eq i32 %52, 2
   %.idx230.i = select i1 %53, i64 0, i64 -64
-  %54 = getelementptr inbounds i8, ptr %.018, i64 %.idx230.i
+  %54 = getelementptr inbounds i8, ptr %.01318, i64 %.idx230.i
   %55 = getelementptr inbounds i8, ptr %54, i64 56
   %56 = load ptr, ptr %55, align 8
   %57 = call ptr @agnameof(ptr noundef %56) #11
@@ -135,16 +135,16 @@ getCluster.exit234.i:                             ; preds = %30, %23, %getCluste
   %60 = load ptr, ptr %38, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 8
   %62 = load i64, ptr %61, align 8
-  %63 = load i32, ptr %.018, align 8
+  %63 = load i32, ptr %.01318, align 8
   %64 = and i32 %63, 3
   %65 = icmp eq i32 %64, 2
-  %66 = getelementptr inbounds i8, ptr %.018, i64 -64
-  %67 = select i1 %65, ptr %.018, ptr %66
+  %66 = getelementptr inbounds i8, ptr %.01318, i64 -64
+  %67 = select i1 %65, ptr %.01318, ptr %66
   %68 = getelementptr inbounds i8, ptr %67, i64 56
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq i32 %64, 3
-  %71 = getelementptr inbounds i8, ptr %.018, i64 64
-  %72 = select i1 %70, ptr %.018, ptr %71
+  %71 = getelementptr inbounds i8, ptr %.01318, i64 64
+  %72 = select i1 %70, ptr %.01318, ptr %71
   %73 = getelementptr inbounds i8, ptr %72, i64 56
   %74 = load ptr, ptr %73, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
@@ -190,14 +190,14 @@ inBoxf.exit.i:                                    ; preds = %95
 
 inBoxf.exit.thread.i:                             ; preds = %inBoxf.exit.i, %95, %91, %79
   %102 = call ptr @agnameof(ptr noundef %74) #11
-  %103 = load i32, ptr %.018, align 8
+  %103 = load i32, ptr %.01318, align 8
   %104 = and i32 %103, 3
   %105 = icmp eq i32 %104, 2
-  %106 = select i1 %105, ptr %.018, ptr %66
+  %106 = select i1 %105, ptr %.01318, ptr %66
   %107 = getelementptr inbounds i8, ptr %106, i64 56
   %108 = load ptr, ptr %107, align 8
   %109 = call ptr @agnameof(ptr noundef %108) #11
-  %110 = call ptr @agget(ptr noundef nonnull %.018, ptr noundef nonnull @.str) #11
+  %110 = call ptr @agget(ptr noundef nonnull %.01318, ptr noundef nonnull @.str) #11
   %111 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %102, ptr noundef %109, ptr noundef %110) #11
   br label %211
 
@@ -238,14 +238,14 @@ inBoxf.exit.thread.i:                             ; preds = %inBoxf.exit.i, %95,
 
 137:                                              ; preds = %125
   %138 = call ptr @agnameof(ptr noundef nonnull %74) #11
-  %139 = load i32, ptr %.018, align 8
+  %139 = load i32, ptr %.01318, align 8
   %140 = and i32 %139, 3
   %141 = icmp eq i32 %140, 2
-  %142 = select i1 %141, ptr %.018, ptr %66
+  %142 = select i1 %141, ptr %.01318, ptr %66
   %143 = getelementptr inbounds i8, ptr %142, i64 56
   %144 = load ptr, ptr %143, align 8
   %145 = call ptr @agnameof(ptr noundef %144) #11
-  %146 = call ptr @agget(ptr noundef nonnull %.018, ptr noundef nonnull @.str) #11
+  %146 = call ptr @agget(ptr noundef nonnull %.01318, ptr noundef nonnull @.str) #11
   %147 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %138, ptr noundef %145, ptr noundef %146) #11
   br label %211
 
@@ -292,7 +292,7 @@ inBoxf.exit236.thread.i:                          ; preds = %125
 
 179:                                              ; preds = %inBoxf.exit236.thread.i
   %180 = load ptr, ptr %60, align 8
-  %181 = call i64 @arrowEndClip(ptr noundef nonnull %.018, ptr noundef %180, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %2, i32 noundef %178) #11
+  %181 = call i64 @arrowEndClip(ptr noundef nonnull %.01318, ptr noundef %180, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %2, i32 noundef %178) #11
   br label %182
 
 182:                                              ; preds = %179, %inBoxf.exit236.thread.i
@@ -342,7 +342,7 @@ inBoxf.exit236.thread.i:                          ; preds = %125
 
 206:                                              ; preds = %204
   %207 = load ptr, ptr %60, align 8
-  %208 = call i64 @arrowEndClip(ptr noundef nonnull %.018, ptr noundef %207, i64 noundef 0, i64 noundef %.1199.lcssa.i, ptr noundef nonnull %2, i32 noundef %205) #11
+  %208 = call i64 @arrowEndClip(ptr noundef nonnull %.01318, ptr noundef %207, i64 noundef 0, i64 noundef %.1199.lcssa.i, ptr noundef nonnull %2, i32 noundef %205) #11
   br label %209
 
 209:                                              ; preds = %206, %204
@@ -473,7 +473,7 @@ inBoxf.exit243.thread.i:                          ; preds = %252
 
 297:                                              ; preds = %inBoxf.exit243.thread.i
   %298 = load ptr, ptr %60, align 8
-  %299 = call i64 @arrowStartClip(ptr noundef nonnull %.018, ptr noundef %298, i64 noundef %271, i64 noundef %271, ptr noundef nonnull %2, i32 noundef %296) #11
+  %299 = call i64 @arrowStartClip(ptr noundef nonnull %.01318, ptr noundef %298, i64 noundef %271, i64 noundef %271, ptr noundef nonnull %2, i32 noundef %296) #11
   br label %.thread260.i
 
 .preheader265.i:                                  ; preds = %239
@@ -546,26 +546,26 @@ inBoxf.exit243.thread.i:                          ; preds = %252
 330:                                              ; preds = %327
   %331 = load ptr, ptr %60, align 8
   %332 = add i64 %.5.i, -3
-  %333 = call i64 @arrowStartClip(ptr noundef nonnull %.018, ptr noundef %331, i64 noundef %328, i64 noundef %332, ptr noundef nonnull %2, i32 noundef %329) #11
+  %333 = call i64 @arrowStartClip(ptr noundef nonnull %.01318, ptr noundef %331, i64 noundef %328, i64 noundef %332, ptr noundef nonnull %2, i32 noundef %329) #11
   br label %.thread260.i
 
 .sink.split.i:                                    ; preds = %252, %inBoxf.exit241.i, %232, %228, %216
   %.str.6.sink.i = phi ptr [ @.str.5, %232 ], [ @.str.5, %216 ], [ @.str.5, %228 ], [ @.str.5, %inBoxf.exit241.i ], [ @.str.6, %252 ]
-  %334 = load i32, ptr %.018, align 8
+  %334 = load i32, ptr %.01318, align 8
   %335 = and i32 %334, 3
   %336 = icmp eq i32 %335, 3
-  %337 = select i1 %336, ptr %.018, ptr %71
+  %337 = select i1 %336, ptr %.01318, ptr %71
   %338 = getelementptr inbounds i8, ptr %337, i64 56
   %339 = load ptr, ptr %338, align 8
   %340 = call ptr @agnameof(ptr noundef %339) #11
-  %341 = load i32, ptr %.018, align 8
+  %341 = load i32, ptr %.01318, align 8
   %342 = and i32 %341, 3
   %343 = icmp eq i32 %342, 2
-  %344 = select i1 %343, ptr %.018, ptr %66
+  %344 = select i1 %343, ptr %.01318, ptr %66
   %345 = getelementptr inbounds i8, ptr %344, i64 56
   %346 = load ptr, ptr %345, align 8
   %347 = call ptr @agnameof(ptr noundef %346) #11
-  %348 = call ptr @agget(ptr noundef nonnull %.018, ptr noundef nonnull @.str.1) #11
+  %348 = call ptr @agget(ptr noundef nonnull %.01318, ptr noundef nonnull @.str.1) #11
   %349 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull %.str.6.sink.i, ptr noundef %340, ptr noundef %347, ptr noundef %348) #11
   br label %350
 
@@ -639,12 +639,12 @@ gv_calloc.exit.i:                                 ; preds = %359
 makeCompoundEdge.exit:                            ; preds = %getCluster.exit234.i, %32, %43, %._crit_edge281.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  %380 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.018) #11
+  %380 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.01318) #11
   %.not14 = icmp eq ptr %380, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %makeCompoundEdge.exit, %11
-  %381 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01323) #11
+  %381 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.023) #11
   %.not = icmp eq ptr %381, null
   br i1 %.not, label %._crit_edge26, label %11
 
@@ -883,15 +883,15 @@ define internal fastcc double @findVertical(ptr noundef %0, double noundef %1, d
 17:                                               ; preds = %17, %10
   %indvars.iv.i = phi i64 [ 1, %10 ], [ %indvars.iv.next.i, %17 ]
   %.128.i = phi i32 [ %.0.i, %10 ], [ %.2.i, %17 ]
-  %.02126.i = phi i32 [ %15, %10 ], [ %23, %17 ]
+  %.02027.i = phi i32 [ %15, %10 ], [ %23, %17 ]
   %18 = getelementptr inbounds %struct.pointf_s, ptr %0, i64 %indvars.iv.i
   %19 = load double, ptr %18, align 8
   %20 = fcmp olt double %19, %3
   %21 = fcmp ogt double %19, %3
   %22 = zext i1 %21 to i32
   %23 = select i1 %20, i32 -1, i32 %22
-  %24 = icmp ne i32 %23, %.02126.i
-  %25 = icmp ne i32 %.02126.i, 0
+  %24 = icmp ne i32 %23, %.02027.i
+  %25 = icmp ne i32 %.02027.i, 0
   %or.cond.i = and i1 %25, %24
   %26 = zext i1 %or.cond.i to i32
   %.2.i = add nuw nsw i32 %.128.i, %26
@@ -964,15 +964,15 @@ define internal fastcc double @findHorizontal(ptr noundef %0, double noundef %1,
 18:                                               ; preds = %18, %10
   %indvars.iv.i = phi i64 [ 1, %10 ], [ %indvars.iv.next.i, %18 ]
   %.128.i = phi i32 [ %.0.i, %10 ], [ %.2.i, %18 ]
-  %.02126.i = phi i32 [ %16, %10 ], [ %24, %18 ]
+  %.02027.i = phi i32 [ %16, %10 ], [ %24, %18 ]
   %19 = getelementptr inbounds %struct.pointf_s, ptr %0, i64 %indvars.iv.i, i32 1
   %20 = load double, ptr %19, align 8
   %21 = fcmp olt double %20, %3
   %22 = fcmp ogt double %20, %3
   %23 = zext i1 %22 to i32
   %24 = select i1 %21, i32 -1, i32 %23
-  %25 = icmp ne i32 %24, %.02126.i
-  %26 = icmp ne i32 %.02126.i, 0
+  %25 = icmp ne i32 %24, %.02027.i
+  %26 = icmp ne i32 %.02027.i, 0
   %or.cond.i = and i1 %26, %25
   %27 = zext i1 %or.cond.i to i32
   %.2.i = add nuw nsw i32 %.128.i, %27

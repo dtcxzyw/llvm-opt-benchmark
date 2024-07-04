@@ -537,8 +537,8 @@ define internal i64 @php_userstreamop_write(ptr nocapture noundef readonly %0, p
   br label %52
 
 52:                                               ; preds = %3, %.thread
-  %.0 = phi i64 [ %.1, %.thread ], [ -1, %3 ]
-  ret i64 %.0
+  %.0132 = phi i64 [ %.1, %.thread ], [ -1, %3 ]
+  ret i64 %.0132
 }
 
 ; Function Attrs: nounwind uwtable
@@ -630,13 +630,13 @@ define internal i64 @php_userstreamop_read(ptr nocapture noundef %0, ptr nocaptu
 
 48:                                               ; preds = %40, %38
   %49 = phi ptr [ %.pre, %40 ], [ %35, %38 ]
-  %.0147 = phi i64 [ %2, %40 ], [ %37, %38 ]
+  %.0146 = phi i64 [ %2, %40 ], [ %37, %38 ]
   %50 = getelementptr inbounds i8, ptr %49, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 8 %50, i64 %.0147, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 8 %50, i64 %.0146, i1 false)
   br label %51
 
 51:                                               ; preds = %48, %.critedge
-  %.1 = phi i64 [ %.0147, %48 ], [ 0, %.critedge ]
+  %.1 = phi i64 [ %.0146, %48 ], [ 0, %.critedge ]
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #11
   store i32 0, ptr %30, align 8
   %52 = call noalias ptr @_emalloc_40() #11
@@ -705,8 +705,8 @@ define internal i64 @php_userstreamop_read(ptr nocapture noundef %0, ptr nocaptu
   br label %81
 
 81:                                               ; preds = %29, %3, %.thread, %60, %34, %22
-  %.0146 = phi i64 [ -1, %22 ], [ -1, %60 ], [ %.1, %.thread ], [ -1, %34 ], [ -1, %3 ], [ -1, %29 ]
-  ret i64 %.0146
+  %.0147 = phi i64 [ -1, %22 ], [ -1, %60 ], [ %.1, %.thread ], [ -1, %34 ], [ -1, %3 ], [ -1, %29 ]
+  ret i64 %.0147
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1482,14 +1482,14 @@ define internal range(i64 -1, 258) i64 @php_userstreamop_readdir(ptr nocapture n
   br label %36
 
 36:                                               ; preds = %18, %18, %8, %29, %22
-  %.074 = phi i64 [ 257, %22 ], [ 0, %29 ], [ 0, %8 ], [ 0, %18 ], [ 0, %18 ]
+  %.073 = phi i64 [ 257, %22 ], [ 0, %29 ], [ 0, %8 ], [ 0, %18 ], [ 0, %18 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #11
   br label %37
 
 37:                                               ; preds = %3, %36
-  %.073 = phi i64 [ %.074, %36 ], [ -1, %3 ]
-  ret i64 %.073
+  %.074 = phi i64 [ %.073, %36 ], [ -1, %3 ]
+  ret i64 %.074
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1898,7 +1898,7 @@ define internal range(i32 -1, 1) i32 @user_wrapper_stat_url(ptr nocapture nounde
   br label %50
 
 50:                                               ; preds = %42, %44, %41
-  %.0133 = phi i32 [ 0, %41 ], [ -1, %44 ], [ -1, %42 ]
+  %.0 = phi i32 [ 0, %41 ], [ -1, %44 ], [ -1, %42 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %9) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
@@ -1907,8 +1907,8 @@ define internal range(i32 -1, 1) i32 @user_wrapper_stat_url(ptr nocapture nounde
   br label %51
 
 51:                                               ; preds = %5, %50
-  %.0 = phi i32 [ %.0133, %50 ], [ -1, %5 ]
-  ret i32 %.0
+  %.0133 = phi i32 [ %.0, %50 ], [ -1, %5 ]
+  ret i32 %.0133
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2131,7 +2131,7 @@ define internal range(i32 0, 2) i32 @user_wrapper_unlink(ptr nocapture noundef r
   br label %46
 
 46:                                               ; preds = %33, %14, %40, %37
-  %.0131 = phi i32 [ %39, %37 ], [ 0, %40 ], [ 0, %14 ], [ 0, %33 ]
+  %.0 = phi i32 [ %39, %37 ], [ 0, %40 ], [ 0, %14 ], [ 0, %33 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %8) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #11
@@ -2139,8 +2139,8 @@ define internal range(i32 0, 2) i32 @user_wrapper_unlink(ptr nocapture noundef r
   br label %47
 
 47:                                               ; preds = %4, %46
-  %.0 = phi i32 [ %.0131, %46 ], [ 0, %4 ]
-  ret i32 %.0
+  %.0131 = phi i32 [ %.0, %46 ], [ 0, %4 ]
+  ret i32 %.0131
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2239,7 +2239,7 @@ define internal range(i32 0, 2) i32 @user_wrapper_rename(ptr nocapture noundef r
   br label %58
 
 58:                                               ; preds = %45, %15, %52, %49
-  %.0191 = phi i32 [ %51, %49 ], [ 0, %52 ], [ 0, %15 ], [ 0, %45 ]
+  %.0 = phi i32 [ %51, %49 ], [ 0, %52 ], [ 0, %15 ], [ 0, %45 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %9) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
@@ -2248,8 +2248,8 @@ define internal range(i32 0, 2) i32 @user_wrapper_rename(ptr nocapture noundef r
   br label %59
 
 59:                                               ; preds = %5, %58
-  %.0 = phi i32 [ %.0191, %58 ], [ 0, %5 ]
-  ret i32 %.0
+  %.0191 = phi i32 [ %.0, %58 ], [ 0, %5 ]
+  ret i32 %.0191
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2435,7 +2435,7 @@ define internal range(i32 0, 2) i32 @user_wrapper_rmdir(ptr nocapture noundef re
   br label %49
 
 49:                                               ; preds = %36, %14, %43, %40
-  %.0134 = phi i32 [ %42, %40 ], [ 0, %43 ], [ 0, %14 ], [ 0, %36 ]
+  %.0 = phi i32 [ %42, %40 ], [ 0, %43 ], [ 0, %14 ], [ 0, %36 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %8) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #11
@@ -2444,8 +2444,8 @@ define internal range(i32 0, 2) i32 @user_wrapper_rmdir(ptr nocapture noundef re
   br label %50
 
 50:                                               ; preds = %4, %49
-  %.0 = phi i32 [ %.0134, %49 ], [ 0, %4 ]
-  ret i32 %.0
+  %.0134 = phi i32 [ %.0, %49 ], [ 0, %4 ]
+  ret i32 %.0134
 }
 
 ; Function Attrs: nounwind uwtable

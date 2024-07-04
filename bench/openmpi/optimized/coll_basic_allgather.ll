@@ -96,12 +96,12 @@ ompi_comm_remote_size.exit:                       ; preds = %8, %16
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %50
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
-  %.pn.pn = phi ptr [ %3, %.lr.ph.preheader ], [ %.0100162, %50 ]
-  %.0100162 = getelementptr inbounds i8, ptr %.pn.pn, i64 %48
+  %.pn.pn = phi ptr [ %3, %.lr.ph.preheader ], [ %.097162, %50 ]
+  %.097162 = getelementptr inbounds i8, ptr %.pn.pn, i64 %48
   %51 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 64), align 8
   %52 = getelementptr inbounds ptr, ptr %35, i64 %indvars.iv
   %53 = trunc nuw nsw i64 %indvars.iv to i32
-  %54 = tail call i32 %51(ptr noundef %.0100162, i64 noundef %45, ptr noundef %5, i32 noundef %53, i32 noundef -10, ptr noundef %6, ptr noundef nonnull %52) #4
+  %54 = tail call i32 %51(ptr noundef %.097162, i64 noundef %45, ptr noundef %5, i32 noundef %53, i32 noundef -10, ptr noundef %6, ptr noundef nonnull %52) #4
   %.not130 = icmp eq i32 %54, 0
   br i1 %.not130, label %50, label %.loopexit
 
@@ -206,9 +206,9 @@ ompi_coll_base_free_reqs.exit.thread183:          ; preds = %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %101, %._crit_edge165, %93, %88, %81, %opal_datatype_span.exit, %._crit_edge, %43, %37
-  %.1103 = phi ptr [ null, %37 ], [ null, %43 ], [ null, %._crit_edge ], [ null, %opal_datatype_span.exit ], [ %79, %81 ], [ %79, %88 ], [ %79, %93 ], [ %79, %._crit_edge165 ], [ %79, %101 ], [ null, %.lr.ph ]
-  %.097 = phi i32 [ %42, %37 ], [ %46, %43 ], [ %57, %._crit_edge ], [ -2, %opal_datatype_span.exit ], [ %87, %81 ], [ %92, %88 ], [ %95, %93 ], [ %108, %._crit_edge165 ], [ %104, %101 ], [ %54, %.lr.ph ]
-  %109 = icmp ne i32 %.097, 0
+  %.0103 = phi i32 [ %42, %37 ], [ %46, %43 ], [ %57, %._crit_edge ], [ -2, %opal_datatype_span.exit ], [ %87, %81 ], [ %92, %88 ], [ %95, %93 ], [ %108, %._crit_edge165 ], [ %104, %101 ], [ %54, %.lr.ph ]
+  %.1100 = phi ptr [ null, %37 ], [ null, %43 ], [ null, %._crit_edge ], [ null, %opal_datatype_span.exit ], [ %79, %81 ], [ %79, %88 ], [ %79, %93 ], [ %79, %._crit_edge165 ], [ %79, %101 ], [ null, %.lr.ph ]
+  %109 = icmp ne i32 %.0103, 0
   %110 = icmp sgt i32 %21, -1
   %or.cond157 = select i1 %109, i1 %110, i1 false
   br i1 %or.cond157, label %.lr.ph.preheader.i, label %ompi_coll_base_free_reqs.exit
@@ -259,16 +259,16 @@ ompi_request_cancel.exit.i:                       ; preds = %120, %117
   br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !7
 
 ompi_coll_base_free_reqs.exit:                    ; preds = %128, %.loopexit
-  %.not135 = icmp eq ptr %.1103, null
+  %.not135 = icmp eq ptr %.1100, null
   br i1 %.not135, label %ompi_coll_base_free_reqs.exit.thread, label %129
 
 129:                                              ; preds = %ompi_coll_base_free_reqs.exit
-  call void @free(ptr noundef nonnull %.1103) #4
+  call void @free(ptr noundef nonnull %.1100) #4
   br label %ompi_coll_base_free_reqs.exit.thread
 
 ompi_coll_base_free_reqs.exit.thread:             ; preds = %ompi_coll_base_free_reqs.exit.thread183, %22, %26, %129, %ompi_coll_base_free_reqs.exit
-  %.097152156 = phi i32 [ %.097, %129 ], [ %.097, %ompi_coll_base_free_reqs.exit ], [ -2, %26 ], [ %25, %22 ], [ %99, %ompi_coll_base_free_reqs.exit.thread183 ]
-  ret i32 %.097152156
+  %.0103151156 = phi i32 [ %.0103, %129 ], [ %.0103, %ompi_coll_base_free_reqs.exit ], [ -2, %26 ], [ %25, %22 ], [ %99, %ompi_coll_base_free_reqs.exit.thread183 ]
+  ret i32 %.0103151156
 }
 
 declare ptr @ompi_coll_base_comm_get_reqs(ptr noundef, i32 noundef) local_unnamed_addr #1

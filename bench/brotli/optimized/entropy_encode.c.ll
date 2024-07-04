@@ -720,19 +720,19 @@ if.then6:                                         ; preds = %for.end
   br i1 %cmp25.not.i, label %DecideOverRleUse.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then6, %for.end.i
-  %total_reps_zero.030.i = phi i64 [ %total_reps_zero.1.i, %for.end.i ], [ 0, %if.then6 ]
-  %i.029.i = phi i64 [ %add26.pre-phi.i, %for.end.i ], [ 0, %if.then6 ]
-  %count_reps_non_zero.028.i = phi i64 [ %count_reps_non_zero.1.i, %for.end.i ], [ 1, %if.then6 ]
-  %count_reps_zero.027.i = phi i64 [ %count_reps_zero.1.i, %for.end.i ], [ 1, %if.then6 ]
-  %total_reps_non_zero.026.i = phi i64 [ %total_reps_non_zero.1.i, %for.end.i ], [ 0, %if.then6 ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %depth, i64 %i.029.i
+  %i.030.i = phi i64 [ %add26.pre-phi.i, %for.end.i ], [ 0, %if.then6 ]
+  %count_reps_non_zero.029.i = phi i64 [ %count_reps_non_zero.1.i, %for.end.i ], [ 1, %if.then6 ]
+  %count_reps_zero.028.i = phi i64 [ %count_reps_zero.1.i, %for.end.i ], [ 1, %if.then6 ]
+  %total_reps_non_zero.027.i = phi i64 [ %total_reps_non_zero.1.i, %for.end.i ], [ 0, %if.then6 ]
+  %total_reps_zero.026.i = phi i64 [ %total_reps_zero.1.i, %for.end.i ], [ 0, %if.then6 ]
+  %arrayidx.i = getelementptr inbounds i8, ptr %depth, i64 %i.030.i
   %2 = load i8, ptr %arrayidx.i, align 1
-  %k.020.i = add nuw i64 %i.029.i, 1
+  %k.020.i = add nuw i64 %i.030.i, 1
   %cmp221.i = icmp ult i64 %k.020.i, %new_length.088
   br i1 %cmp221.i, label %land.rhs.preheader.i, label %for.end.i
 
 land.rhs.preheader.i:                             ; preds = %for.body.i
-  %3 = sub i64 %new_length.088, %i.029.i
+  %3 = sub i64 %new_length.088, %i.030.i
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.body7.i, %land.rhs.preheader.i
@@ -751,7 +751,7 @@ for.body7.i:                                      ; preds = %land.rhs.i
 
 for.end.loopexit.i:                               ; preds = %for.body7.i, %land.rhs.i
   %reps.0.lcssa.ph.i = phi i64 [ %reps.022.i, %land.rhs.i ], [ %3, %for.body7.i ]
-  %.pre.i = add i64 %reps.0.lcssa.ph.i, %i.029.i
+  %.pre.i = add i64 %reps.0.lcssa.ph.i, %i.030.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.body.i
@@ -760,17 +760,17 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   %cmp9.i = icmp ugt i64 %reps.0.lcssa.i, 2
   %cmp12.i = icmp eq i8 %2, 0
   %or.cond.i = select i1 %cmp9.i, i1 %cmp12.i, i1 false
-  %inc15.i = zext i1 %or.cond.i to i64
-  %count_reps_zero.1.i = add i64 %count_reps_zero.027.i, %inc15.i
   %add14.i = select i1 %or.cond.i, i64 %reps.0.lcssa.i, i64 0
-  %total_reps_zero.1.i = add i64 %add14.i, %total_reps_zero.030.i
+  %total_reps_zero.1.i = add i64 %add14.i, %total_reps_zero.026.i
+  %inc15.i = zext i1 %or.cond.i to i64
+  %count_reps_zero.1.i = add i64 %count_reps_zero.028.i, %inc15.i
   %cmp16.i = icmp ugt i64 %reps.0.lcssa.i, 3
   %cmp20.i = icmp ne i8 %2, 0
   %or.cond1.i = select i1 %cmp16.i, i1 %cmp20.i, i1 false
   %add23.i = select i1 %or.cond1.i, i64 %reps.0.lcssa.i, i64 0
-  %total_reps_non_zero.1.i = add i64 %add23.i, %total_reps_non_zero.026.i
+  %total_reps_non_zero.1.i = add i64 %add23.i, %total_reps_non_zero.027.i
   %inc24.i = zext i1 %or.cond1.i to i64
-  %count_reps_non_zero.1.i = add i64 %count_reps_non_zero.028.i, %inc24.i
+  %count_reps_non_zero.1.i = add i64 %count_reps_non_zero.029.i, %inc24.i
   %cmp.i = icmp ult i64 %add26.pre-phi.i, %new_length.088
   br i1 %cmp.i, label %for.body.i, label %for.end27.loopexit.i, !llvm.loop !22
 
@@ -781,10 +781,10 @@ for.end27.loopexit.i:                             ; preds = %for.end.i
 
 DecideOverRleUse.exit:                            ; preds = %for.end.thread108, %if.then6, %for.end27.loopexit.i
   %new_length.0.lcssa111114 = phi i64 [ 0, %if.then6 ], [ %new_length.088, %for.end27.loopexit.i ], [ 0, %for.end.thread108 ]
+  %total_reps_zero.0.lcssa.i = phi i64 [ 0, %if.then6 ], [ %total_reps_zero.1.i, %for.end27.loopexit.i ], [ 0, %for.end.thread108 ]
   %total_reps_non_zero.0.lcssa.i = phi i64 [ 0, %if.then6 ], [ %total_reps_non_zero.1.i, %for.end27.loopexit.i ], [ 0, %for.end.thread108 ]
   %count_reps_zero.0.lcssa.i = phi i64 [ 2, %if.then6 ], [ %6, %for.end27.loopexit.i ], [ 2, %for.end.thread108 ]
   %count_reps_non_zero.0.lcssa.i = phi i64 [ 2, %if.then6 ], [ %5, %for.end27.loopexit.i ], [ 2, %for.end.thread108 ]
-  %total_reps_zero.0.lcssa.i = phi i64 [ 0, %if.then6 ], [ %total_reps_zero.1.i, %for.end27.loopexit.i ], [ 0, %for.end.thread108 ]
   %cmp28.i = icmp ugt i64 %total_reps_non_zero.0.lcssa.i, %count_reps_non_zero.0.lcssa.i
   %cmp32.i = icmp ugt i64 %total_reps_zero.0.lcssa.i, %count_reps_zero.0.lcssa.i
   br label %if.end7
@@ -797,9 +797,9 @@ if.end7:                                          ; preds = %DecideOverRleUse.ex
   br i1 %cmp996.not, label %for.end43, label %for.body11
 
 for.body11:                                       ; preds = %if.end7, %if.end41
-  %previous_value.099 = phi i8 [ %previous_value.1, %if.end41 ], [ 8, %if.end7 ]
-  %i.197 = phi i64 [ %add42, %if.end41 ], [ 0, %if.end7 ]
-  %arrayidx12 = getelementptr inbounds i8, ptr %depth, i64 %i.197
+  %i.198 = phi i64 [ %add42, %if.end41 ], [ 0, %if.end7 ]
+  %previous_value.097 = phi i8 [ %previous_value.1, %if.end41 ], [ 8, %if.end7 ]
+  %arrayidx12 = getelementptr inbounds i8, ptr %depth, i64 %i.198
   %7 = load i8, ptr %arrayidx12, align 1
   %cmp14 = icmp ne i8 %7, 0
   %or.cond = select i1 %cmp14, i1 %use_rle_for_non_zero.0, i1 false
@@ -809,12 +809,12 @@ for.body11:                                       ; preds = %if.end7, %if.end41
   br i1 %or.cond81, label %for.cond22.preheader, label %if.end35.thread
 
 for.cond22.preheader:                             ; preds = %for.body11
-  %k.090 = add nuw i64 %i.197, 1
+  %k.090 = add nuw i64 %i.198, 1
   %cmp2391 = icmp ult i64 %k.090, %new_length.0.lcssa107
   br i1 %cmp2391, label %land.rhs.preheader, label %if.end35.thread119
 
 land.rhs.preheader:                               ; preds = %for.cond22.preheader
-  %8 = sub i64 %new_length.0.lcssa107, %i.197
+  %8 = sub i64 %new_length.0.lcssa107, %i.198
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.body30
@@ -971,7 +971,7 @@ while.body.i29.i:                                 ; preds = %Reverse.exit.i, %wh
 
 if.else40:                                        ; preds = %if.end35.thread119, %if.end35.thread, %if.end35
   %reps.168 = phi i64 [ 1, %if.end35.thread ], [ %reps.0.lcssa, %if.end35 ], [ 1, %if.end35.thread119 ]
-  %cmp.not.i = icmp eq i8 %previous_value.099, %7
+  %cmp.not.i = icmp eq i8 %previous_value.097, %7
   br i1 %cmp.not.i, label %if.end.i40, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else40
@@ -1116,8 +1116,8 @@ while.body.i38.i:                                 ; preds = %Reverse.exit.i49, %
 
 if.end41:                                         ; preds = %for.body.i63, %while.body.i38.i, %for.body.i33, %while.body.i29.i, %Reverse.exit.i49, %for.cond.preheader.i60, %Reverse.exit.i, %for.cond.preheader.i
   %reps.167 = phi i64 [ 0, %for.cond.preheader.i ], [ %reps.16973, %Reverse.exit.i ], [ %reps.168, %for.cond.preheader.i60 ], [ %reps.168, %Reverse.exit.i49 ], [ %reps.16973, %while.body.i29.i ], [ %reps.169747780, %for.body.i33 ], [ %reps.168, %while.body.i38.i ], [ %reps.168, %for.body.i63 ]
-  %previous_value.1 = phi i8 [ %previous_value.099, %for.cond.preheader.i ], [ %previous_value.099, %Reverse.exit.i ], [ %7, %for.cond.preheader.i60 ], [ %7, %Reverse.exit.i49 ], [ %previous_value.099, %while.body.i29.i ], [ %previous_value.099, %for.body.i33 ], [ %7, %while.body.i38.i ], [ %7, %for.body.i63 ]
-  %add42 = add i64 %reps.167, %i.197
+  %previous_value.1 = phi i8 [ %previous_value.097, %for.cond.preheader.i ], [ %previous_value.097, %Reverse.exit.i ], [ %7, %for.cond.preheader.i60 ], [ %7, %Reverse.exit.i49 ], [ %previous_value.097, %while.body.i29.i ], [ %previous_value.097, %for.body.i33 ], [ %7, %while.body.i38.i ], [ %7, %for.body.i63 ]
+  %add42 = add i64 %reps.167, %i.198
   %cmp9 = icmp ult i64 %add42, %new_length.0.lcssa107
   br i1 %cmp9, label %for.body11, label %for.end43, !llvm.loop !27
 

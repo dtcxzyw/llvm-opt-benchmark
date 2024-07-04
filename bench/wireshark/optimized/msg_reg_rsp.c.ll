@@ -101,9 +101,9 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   br label %16
 
 16:                                               ; preds = %.lr.ph169, %.loopexit
-  %.0168 = phi i32 [ 1, %.lr.ph169 ], [ %124, %.loopexit ]
-  %.0155167 = phi i32 [ 0, %.lr.ph169 ], [ %.1, %.loopexit ]
-  %17 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %.0168) #2
+  %.0154168 = phi i32 [ 0, %.lr.ph169 ], [ %.1, %.loopexit ]
+  %.0155167 = phi i32 [ 1, %.lr.ph169 ], [ %124, %.loopexit ]
+  %17 = call i32 @init_tlv_info(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %.0155167) #2
   %18 = call i32 @get_tlv_type(ptr noundef nonnull %5) #2
   %19 = call i32 @get_tlv_length(ptr noundef nonnull %5) #2
   %20 = icmp eq i32 %18, -1
@@ -116,13 +116,13 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %24 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %24, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.25) #2
   %25 = load i32, ptr @hf_reg_invalid_tlv, align 4
-  %26 = sub i32 %7, %.0168
-  %27 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %25, ptr noundef %0, i32 noundef %.0168, i32 noundef %26, i32 noundef 0) #2
+  %26 = sub i32 %7, %.0155167
+  %27 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %25, ptr noundef %0, i32 noundef %.0155167, i32 noundef %26, i32 noundef 0) #2
   br label %.loopexit162
 
 28:                                               ; preds = %16
   %29 = call i32 @get_tlv_value_offset(ptr noundef nonnull %5) #2
-  %30 = add i32 %29, %.0168
+  %30 = add i32 %29, %.0155167
   switch i32 %18, label %121 [
     i32 1, label %31
     i32 2, label %31
@@ -168,29 +168,29 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
 
 31:                                               ; preds = %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28
   %32 = load i32, ptr @proto_mac_mgmt_msg_reg_rsp_decoder, align 4
-  call void @dissect_extended_tlv(ptr noundef %11, i32 noundef %18, ptr noundef %0, i32 noundef %30, i32 noundef %19, ptr noundef %1, i32 noundef %.0168, i32 noundef %32) #2
+  call void @dissect_extended_tlv(ptr noundef %11, i32 noundef %18, ptr noundef %0, i32 noundef %30, i32 noundef %19, ptr noundef %1, i32 noundef %.0155167, i32 noundef %32) #2
   br label %.loopexit
 
 33:                                               ; preds = %28
   %34 = load i32, ptr @hf_reg_rsp_secondary_mgmt_cid, align 4
-  %35 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %34, ptr noundef %0, i32 noundef %.0168, i32 noundef 0) #2
+  %35 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %34, ptr noundef %0, i32 noundef %.0155167, i32 noundef 0) #2
   br label %.loopexit
 
 36:                                               ; preds = %28
   %37 = load i32, ptr @hf_reg_total_provisioned_sf, align 4
-  %38 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %37, ptr noundef %0, i32 noundef %.0168, i32 noundef 0) #2
+  %38 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %37, ptr noundef %0, i32 noundef %.0155167, i32 noundef 0) #2
   br label %.loopexit
 
 39:                                               ; preds = %28
   %40 = load i32, ptr @ett_reg_rsp_message_tree, align 4
   %41 = load i32, ptr @proto_mac_mgmt_msg_reg_rsp_decoder, align 4
-  %42 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %40, ptr noundef %11, i32 noundef %41, ptr noundef %0, i32 noundef %.0168, i32 noundef %19, ptr noundef nonnull @.str.26) #2
+  %42 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %40, ptr noundef %11, i32 noundef %41, ptr noundef %0, i32 noundef %.0155167, i32 noundef %19, ptr noundef nonnull @.str.26) #2
   %43 = icmp ult i32 %30, %19
   br i1 %43, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %39, %74
-  %.0154166 = phi i32 [ %75, %74 ], [ %30, %39 ]
-  %44 = call i32 @init_tlv_info(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %.0154166) #2
+  %.0166 = phi i32 [ %75, %74 ], [ %30, %39 ]
+  %44 = call i32 @init_tlv_info(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %.0166) #2
   %45 = call i32 @get_tlv_type(ptr noundef nonnull %6) #2
   %46 = call i32 @get_tlv_length(ptr noundef nonnull %6) #2
   %47 = icmp eq i32 %45, -1
@@ -203,13 +203,13 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
   %51 = load ptr, ptr %15, align 8
   call void @col_append_sep_str(ptr noundef %51, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.25) #2
   %52 = load i32, ptr @hf_reg_invalid_tlv, align 4
-  %53 = sub i32 %7, %.0168
-  %54 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %52, ptr noundef %0, i32 noundef %.0168, i32 noundef %53, i32 noundef 0) #2
+  %53 = sub i32 %7, %.0155167
+  %54 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %52, ptr noundef %0, i32 noundef %.0155167, i32 noundef %53, i32 noundef 0) #2
   br label %.loopexit
 
 55:                                               ; preds = %.lr.ph
   %56 = call i32 @get_tlv_value_offset(ptr noundef nonnull %6) #2
-  %57 = add i32 %56, %.0154166
+  %57 = add i32 %56, %.0166
   switch i32 %45, label %71 [
     i32 1, label %58
     i32 2, label %61
@@ -218,18 +218,18 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
 
 58:                                               ; preds = %55
   %59 = load i32, ptr @hf_reg_rsp_new_cid_after_ho, align 4
-  %60 = call ptr @add_tlv_subtree(ptr noundef nonnull %6, ptr noundef %42, i32 noundef %59, ptr noundef %0, i32 noundef %.0154166, i32 noundef 0) #2
+  %60 = call ptr @add_tlv_subtree(ptr noundef nonnull %6, ptr noundef %42, i32 noundef %59, ptr noundef %0, i32 noundef %.0166, i32 noundef 0) #2
   br label %74
 
 61:                                               ; preds = %55
   %62 = load i32, ptr @hf_reg_rsp_service_flow_id, align 4
-  %63 = call ptr @add_tlv_subtree(ptr noundef nonnull %6, ptr noundef %42, i32 noundef %62, ptr noundef %0, i32 noundef %.0154166, i32 noundef 0) #2
+  %63 = call ptr @add_tlv_subtree(ptr noundef nonnull %6, ptr noundef %42, i32 noundef %62, ptr noundef %0, i32 noundef %.0166, i32 noundef 0) #2
   br label %74
 
 64:                                               ; preds = %55
   %65 = load i32, ptr @ett_reg_rsp_message_tree, align 4
   %66 = load i32, ptr @proto_mac_mgmt_msg_reg_rsp_decoder, align 4
-  %67 = call ptr @add_protocol_subtree(ptr noundef nonnull %6, i32 noundef %65, ptr noundef %42, i32 noundef %66, ptr noundef %0, i32 noundef %.0154166, i32 noundef %46, ptr noundef nonnull @.str.27) #2
+  %67 = call ptr @add_protocol_subtree(ptr noundef nonnull %6, i32 noundef %65, ptr noundef %42, i32 noundef %66, ptr noundef %0, i32 noundef %.0166, i32 noundef %46, ptr noundef nonnull @.str.27) #2
   %68 = load ptr, ptr @dsc_rsp_handle, align 8
   %69 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %57, i32 noundef %46) #2
   %70 = call i32 @call_dissector(ptr noundef %68, ptr noundef %69, ptr noundef %1, ptr noundef %67) #2
@@ -237,7 +237,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
 
 71:                                               ; preds = %55
   %72 = load i32, ptr @hf_tlv_type, align 4
-  %73 = call ptr @add_tlv_subtree(ptr noundef nonnull %6, ptr noundef %42, i32 noundef %72, ptr noundef %0, i32 noundef %.0154166, i32 noundef 0) #2
+  %73 = call ptr @add_tlv_subtree(ptr noundef nonnull %6, ptr noundef %42, i32 noundef %72, ptr noundef %0, i32 noundef %.0166, i32 noundef 0) #2
   br label %74
 
 74:                                               ; preds = %71, %64, %61, %58
@@ -247,7 +247,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
 
 77:                                               ; preds = %28
   %78 = load i32, ptr @hf_reg_rsp_system_resource_retain_time, align 4
-  %79 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %78, ptr noundef %0, i32 noundef %.0168, i32 noundef 0) #2
+  %79 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %78, ptr noundef %0, i32 noundef %.0155167, i32 noundef 0) #2
   %80 = load i32, ptr @include_cor2_changes, align 4
   %.not = icmp eq i32 %80, 0
   br i1 %.not, label %82, label %81
@@ -263,7 +263,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
 83:                                               ; preds = %28
   %84 = load i32, ptr @ett_mac_mgmt_msg_reg_rsp_decoder, align 4
   %85 = load i32, ptr @proto_mac_mgmt_msg_reg_rsp_decoder, align 4
-  %86 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %84, ptr noundef %11, i32 noundef %85, ptr noundef %0, i32 noundef %.0168, i32 noundef %19, ptr noundef nonnull @.str.30) #2
+  %86 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %84, ptr noundef %11, i32 noundef %85, ptr noundef %0, i32 noundef %.0155167, i32 noundef %19, ptr noundef nonnull @.str.30) #2
   %87 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %30, i32 noundef %19) #2
   call void @wimax_service_flow_encodings_decoder(ptr noundef %87, ptr noundef %1, ptr noundef %86) #2
   br label %.loopexit
@@ -271,7 +271,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
 88:                                               ; preds = %28
   %89 = load i32, ptr @ett_mac_mgmt_msg_reg_rsp_decoder, align 4
   %90 = load i32, ptr @proto_mac_mgmt_msg_reg_rsp_decoder, align 4
-  %91 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %89, ptr noundef %11, i32 noundef %90, ptr noundef %0, i32 noundef %.0168, i32 noundef %19, ptr noundef nonnull @.str.31) #2
+  %91 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %89, ptr noundef %11, i32 noundef %90, ptr noundef %0, i32 noundef %.0155167, i32 noundef %19, ptr noundef nonnull @.str.31) #2
   %92 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %30, i32 noundef %19) #2
   call void @wimax_service_flow_encodings_decoder(ptr noundef %92, ptr noundef %1, ptr noundef %91) #2
   br label %.loopexit
@@ -279,16 +279,16 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
 93:                                               ; preds = %28
   %94 = load i32, ptr @ett_mac_mgmt_msg_reg_rsp_decoder, align 4
   %95 = load i32, ptr @proto_mac_mgmt_msg_reg_rsp_decoder, align 4
-  %96 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %94, ptr noundef %11, i32 noundef %95, ptr noundef %0, i32 noundef %.0168, i32 noundef %19, ptr noundef nonnull @.str.32) #2
-  %97 = add i32 %.0168, 2
+  %96 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %94, ptr noundef %11, i32 noundef %95, ptr noundef %0, i32 noundef %.0155167, i32 noundef %19, ptr noundef nonnull @.str.32) #2
+  %97 = add i32 %.0155167, 2
   call void @wimax_hmac_tuple_decoder(ptr noundef %96, ptr noundef %0, i32 noundef %97, i32 noundef %19) #2
   br label %.loopexit
 
 98:                                               ; preds = %28
   %99 = load i32, ptr @ett_mac_mgmt_msg_reg_rsp_decoder, align 4
   %100 = load i32, ptr @proto_mac_mgmt_msg_reg_rsp_decoder, align 4
-  %101 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %99, ptr noundef %11, i32 noundef %100, ptr noundef %0, i32 noundef %.0168, i32 noundef %19, ptr noundef nonnull @.str.33) #2
-  %102 = add i32 %.0168, 2
+  %101 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %99, ptr noundef %11, i32 noundef %100, ptr noundef %0, i32 noundef %.0155167, i32 noundef %19, ptr noundef nonnull @.str.33) #2
+  %102 = add i32 %.0155167, 2
   call void @wimax_cmac_tuple_decoder(ptr noundef %101, ptr noundef %0, i32 noundef %102, i32 noundef %19) #2
   br label %.loopexit
 
@@ -308,35 +308,35 @@ define internal i32 @dissect_mac_mgmt_msg_reg_rsp_decoder(ptr noundef %0, ptr no
 110:                                              ; preds = %107, %103
   %111 = load i32, ptr @ett_mac_mgmt_msg_reg_rsp_decoder, align 4
   %112 = load i32, ptr @proto_mac_mgmt_msg_reg_rsp_decoder, align 4
-  %113 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %111, ptr noundef %11, i32 noundef %112, ptr noundef %0, i32 noundef %.0168, i32 noundef %19, ptr noundef nonnull @.str.34) #2
+  %113 = call ptr @add_protocol_subtree(ptr noundef nonnull %5, i32 noundef %111, ptr noundef %11, i32 noundef %112, ptr noundef %0, i32 noundef %.0155167, i32 noundef %19, ptr noundef nonnull @.str.34) #2
   call void @wimax_short_hmac_tuple_decoder(ptr noundef %113, ptr noundef %0, i32 noundef %30, i32 noundef %19) #2
   br label %.loopexit
 
 114:                                              ; preds = %107
   %115 = load i32, ptr @hf_tlv_type, align 4
-  %116 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %115, ptr noundef %0, i32 noundef %.0168, i32 noundef 0) #2
+  %116 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %115, ptr noundef %0, i32 noundef %.0155167, i32 noundef 0) #2
   br label %.loopexit
 
 117:                                              ; preds = %28, %28, %28
-  %118 = sub i32 %7, %.0168
-  %119 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0168, i32 noundef %118) #2
+  %118 = sub i32 %7, %.0155167
+  %119 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0155167, i32 noundef %118) #2
   %120 = call i32 @wimax_common_tlv_encoding_decoder(ptr noundef %119, ptr noundef %1, ptr noundef %11) #2
   br label %.loopexit
 
 121:                                              ; preds = %28
   %122 = load i32, ptr @hf_tlv_type, align 4
-  %123 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %122, ptr noundef %0, i32 noundef %.0168, i32 noundef 0) #2
+  %123 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %122, ptr noundef %0, i32 noundef %.0155167, i32 noundef 0) #2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %74, %39, %110, %114, %81, %82, %50, %121, %117, %98, %93, %88, %83, %36, %33, %31
-  %.1 = phi i32 [ %.0155167, %121 ], [ %.0155167, %117 ], [ %.0155167, %110 ], [ %.0155167, %114 ], [ %.0155167, %98 ], [ 1, %93 ], [ %.0155167, %88 ], [ %.0155167, %83 ], [ %.0155167, %81 ], [ %.0155167, %82 ], [ %.0155167, %50 ], [ %.0155167, %36 ], [ %.0155167, %33 ], [ %.0155167, %31 ], [ %.0155167, %39 ], [ %.0155167, %74 ]
+  %.1 = phi i32 [ %.0154168, %121 ], [ %.0154168, %117 ], [ %.0154168, %110 ], [ %.0154168, %114 ], [ %.0154168, %98 ], [ 1, %93 ], [ %.0154168, %88 ], [ %.0154168, %83 ], [ %.0154168, %81 ], [ %.0154168, %82 ], [ %.0154168, %50 ], [ %.0154168, %36 ], [ %.0154168, %33 ], [ %.0154168, %31 ], [ %.0154168, %39 ], [ %.0154168, %74 ]
   %124 = add i32 %30, %19
   %125 = icmp ult i32 %124, %7
   br i1 %125, label %16, label %.loopexit162, !llvm.loop !6
 
 .loopexit162:                                     ; preds = %.loopexit, %23
-  %.0155165 = phi i32 [ %.0155167, %23 ], [ %.1, %.loopexit ]
-  %.not161 = icmp eq i32 %.0155165, 0
+  %.0154164 = phi i32 [ %.0154168, %23 ], [ %.1, %.loopexit ]
+  %.not161 = icmp eq i32 %.0154164, 0
   br i1 %.not161, label %.loopexit162.thread, label %126
 
 .loopexit162.thread:                              ; preds = %4, %.loopexit162

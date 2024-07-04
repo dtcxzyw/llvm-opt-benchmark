@@ -47,9 +47,9 @@ while.cond:                                       ; preds = %while.cond.backedge
   %text.0 = phi i32 [ 0, %entry ], [ %text.0.be, %while.cond.backedge ]
   %noout.0 = phi i32 [ 0, %entry ], [ %noout.0.be, %while.cond.backedge ]
   %check.0 = phi i32 [ 0, %entry ], [ %check.0.be, %while.cond.backedge ]
+  %e.0 = phi ptr [ null, %entry ], [ %e.0.be, %while.cond.backedge ]
   %infile.0 = phi ptr [ null, %entry ], [ %infile.0.be, %while.cond.backedge ]
   %outfile.0 = phi ptr [ null, %entry ], [ %outfile.0.be, %while.cond.backedge ]
-  %e.0 = phi ptr [ null, %entry ], [ %e.0.be, %while.cond.backedge ]
   %call1 = tail call i32 @opt_next() #2
   switch i32 %call1, label %while.cond.backedge [
     i32 0, label %while.end
@@ -70,9 +70,9 @@ while.cond.backedge:                              ; preds = %while.cond, %sw.bb1
   %text.0.be = phi i32 [ %text.0, %sw.bb15 ], [ %text.0, %sw.bb13 ], [ %text.0, %sw.bb12 ], [ 1, %sw.bb11 ], [ %text.0, %sw.bb8 ], [ %text.0, %sw.bb6 ], [ %text.0, %sw.bb4 ], [ %text.0, %while.cond ]
   %noout.0.be = phi i32 [ %noout.0, %sw.bb15 ], [ %noout.0, %sw.bb13 ], [ 1, %sw.bb12 ], [ %noout.0, %sw.bb11 ], [ %noout.0, %sw.bb8 ], [ %noout.0, %sw.bb6 ], [ %noout.0, %sw.bb4 ], [ %noout.0, %while.cond ]
   %check.0.be = phi i32 [ %check.0, %sw.bb15 ], [ 1, %sw.bb13 ], [ %check.0, %sw.bb12 ], [ %check.0, %sw.bb11 ], [ %check.0, %sw.bb8 ], [ %check.0, %sw.bb6 ], [ %check.0, %sw.bb4 ], [ %check.0, %while.cond ]
+  %e.0.be = phi ptr [ %e.0, %sw.bb15 ], [ %e.0, %sw.bb13 ], [ %e.0, %sw.bb12 ], [ %e.0, %sw.bb11 ], [ %call10, %sw.bb8 ], [ %e.0, %sw.bb6 ], [ %e.0, %sw.bb4 ], [ %e.0, %while.cond ]
   %infile.0.be = phi ptr [ %infile.0, %sw.bb15 ], [ %infile.0, %sw.bb13 ], [ %infile.0, %sw.bb12 ], [ %infile.0, %sw.bb11 ], [ %infile.0, %sw.bb8 ], [ %infile.0, %sw.bb6 ], [ %call5, %sw.bb4 ], [ %infile.0, %while.cond ]
   %outfile.0.be = phi ptr [ %outfile.0, %sw.bb15 ], [ %outfile.0, %sw.bb13 ], [ %outfile.0, %sw.bb12 ], [ %outfile.0, %sw.bb11 ], [ %outfile.0, %sw.bb8 ], [ %call7, %sw.bb6 ], [ %outfile.0, %sw.bb4 ], [ %outfile.0, %while.cond ]
-  %e.0.be = phi ptr [ %e.0, %sw.bb15 ], [ %e.0, %sw.bb13 ], [ %e.0, %sw.bb12 ], [ %e.0, %sw.bb11 ], [ %call10, %sw.bb8 ], [ %e.0, %sw.bb6 ], [ %e.0, %sw.bb4 ], [ %e.0, %while.cond ]
   br label %while.cond, !llvm.loop !5
 
 opthelp:                                          ; preds = %while.cond, %while.end
@@ -202,10 +202,10 @@ if.then61:                                        ; preds = %if.end59
   br label %end
 
 end:                                              ; preds = %sw.bb15, %if.end59, %if.then61, %if.end24, %if.end20, %if.else52, %if.then46, %if.then33, %sw.bb3, %opthelp
+  %out.0 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end20 ], [ null, %if.end24 ], [ %call25, %if.then33 ], [ %call25, %if.then46 ], [ %call25, %if.else52 ], [ %call25, %if.then61 ], [ %call25, %if.end59 ], [ null, %sw.bb15 ]
   %pkey.0 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end20 ], [ null, %if.end24 ], [ null, %if.then33 ], [ %call31, %if.then46 ], [ %call31, %if.else52 ], [ %call31, %if.then61 ], [ %call31, %if.end59 ], [ null, %sw.bb15 ]
   %ctx.2 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end20 ], [ null, %if.end24 ], [ null, %if.then33 ], [ null, %if.then46 ], [ %ctx.0, %if.else52 ], [ %ctx.1, %if.then61 ], [ %ctx.1, %if.end59 ], [ null, %sw.bb15 ]
   %ret.0 = phi i32 [ 0, %sw.bb3 ], [ 1, %opthelp ], [ 1, %if.end20 ], [ 1, %if.end24 ], [ 1, %if.then33 ], [ 1, %if.then46 ], [ 1, %if.else52 ], [ 0, %if.then61 ], [ 0, %if.end59 ], [ 1, %sw.bb15 ]
-  %out.0 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end20 ], [ null, %if.end24 ], [ %call25, %if.then33 ], [ %call25, %if.then46 ], [ %call25, %if.else52 ], [ %call25, %if.then61 ], [ %call25, %if.end59 ], [ null, %sw.bb15 ]
   %in.0 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end20 ], [ %call21, %if.end24 ], [ %call21, %if.then33 ], [ %call21, %if.then46 ], [ %call21, %if.else52 ], [ %call21, %if.then61 ], [ %call21, %if.end59 ], [ null, %sw.bb15 ]
   tail call void @EVP_PKEY_CTX_free(ptr noundef %ctx.2) #2
   tail call void @EVP_PKEY_free(ptr noundef %pkey.0) #2

@@ -79,8 +79,8 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false4
   br label %err
 
 err:                                              ; preds = %lor.lhs.false9, %entry, %lor.lhs.false, %lor.lhs.false4
-  %out.0 = phi ptr [ %call6, %lor.lhs.false4 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %lor.lhs.false9 ]
   %ret.0 = phi i32 [ 0, %lor.lhs.false4 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false9 ]
+  %out.0 = phi ptr [ %call6, %lor.lhs.false4 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call6, %lor.lhs.false9 ]
   call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str.3, i32 noundef 79) #2
   call void @CRYPTO_free(ptr noundef %out.0, ptr noundef nonnull @.str.3, i32 noundef 80) #2
   ret i32 %ret.0
@@ -146,8 +146,8 @@ if.end33:                                         ; preds = %if.else26, %if.then
   br label %err
 
 err:                                              ; preds = %if.else26, %if.else, %if.then14, %if.then, %lor.lhs.false, %lor.lhs.false5, %if.end33
-  %out.1 = phi ptr [ %out.0, %if.end33 ], [ %call6, %if.then14 ], [ %call6, %if.else ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %if.then ], [ null, %if.else26 ]
   %ret.0 = phi i32 [ 1, %if.end33 ], [ 0, %if.then14 ], [ 0, %if.else ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %if.then ], [ 0, %if.else26 ]
+  %out.1 = phi ptr [ %out.0, %if.end33 ], [ %call6, %if.then14 ], [ %call6, %if.else ], [ %call6, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %if.then ], [ null, %if.else26 ]
   call void @CRYPTO_free(ptr noundef %call28, ptr noundef nonnull @.str.3, i32 noundef 109) #2
   call void @CRYPTO_free(ptr noundef %out.1, ptr noundef nonnull @.str.3, i32 noundef 110) #2
   ret i32 %ret.0

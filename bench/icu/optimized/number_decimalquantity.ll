@@ -3844,16 +3844,16 @@ for.cond.preheader:                               ; preds = %if.end9
   br i1 %cmp1524, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %n.addr.026 = phi double [ %mul, %for.body ], [ %n, %for.cond.preheader ]
-  %i.025 = phi i32 [ %sub16, %for.body ], [ %conv12, %for.cond.preheader ]
-  %mul = fmul double %n.addr.026, 1.000000e+22
-  %sub16 = add nsw i32 %i.025, -22
-  %cmp15 = icmp ugt i32 %i.025, 43
+  %i.026 = phi i32 [ %sub16, %for.body ], [ %conv12, %for.cond.preheader ]
+  %n.addr.025 = phi double [ %mul, %for.body ], [ %n, %for.cond.preheader ]
+  %mul = fmul double %n.addr.025, 1.000000e+22
+  %sub16 = add nsw i32 %i.026, -22
+  %cmp15 = icmp ugt i32 %i.026, 43
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %i.0.lcssa = phi i32 [ %conv12, %for.cond.preheader ], [ %sub16, %for.body ]
   %n.addr.0.lcssa = phi double [ %n, %for.cond.preheader ], [ %mul, %for.body ]
+  %i.0.lcssa = phi i32 [ %conv12, %for.cond.preheader ], [ %sub16, %for.body ]
   %idxprom = zext nneg i32 %i.0.lcssa to i64
   %arrayidx = getelementptr inbounds [22 x double], ptr @_ZN12_GLOBAL__N_118DOUBLE_MULTIPLIERSE, i64 0, i64 %idxprom
   %6 = load double, ptr %arrayidx, align 8
@@ -3861,16 +3861,16 @@ for.end:                                          ; preds = %for.body, %for.cond
   br label %if.end29
 
 for.body21:                                       ; preds = %for.cond19.preheader, %for.body21
-  %n.addr.122 = phi double [ %div22, %for.body21 ], [ %n, %for.cond19.preheader ]
-  %i18.021 = phi i32 [ %add, %for.body21 ], [ %conv12, %for.cond19.preheader ]
-  %div22 = fdiv double %n.addr.122, 1.000000e+22
-  %add = add nsw i32 %i18.021, 22
-  %cmp20 = icmp ult i32 %i18.021, -43
+  %i18.022 = phi i32 [ %add, %for.body21 ], [ %conv12, %for.cond19.preheader ]
+  %n.addr.121 = phi double [ %div22, %for.body21 ], [ %n, %for.cond19.preheader ]
+  %div22 = fdiv double %n.addr.121, 1.000000e+22
+  %add = add nsw i32 %i18.022, 22
+  %cmp20 = icmp ult i32 %i18.022, -43
   br i1 %cmp20, label %for.body21, label %for.end24, !llvm.loop !23
 
 for.end24:                                        ; preds = %for.body21, %for.cond19.preheader
-  %i18.0.lcssa = phi i32 [ %conv12, %for.cond19.preheader ], [ %add, %for.body21 ]
   %n.addr.1.lcssa = phi double [ %n, %for.cond19.preheader ], [ %div22, %for.body21 ]
+  %i18.0.lcssa = phi i32 [ %conv12, %for.cond19.preheader ], [ %add, %for.body21 ]
   %sub25 = sub nsw i32 0, %i18.0.lcssa
   %idxprom26 = zext nneg i32 %sub25 to i64
   %arrayidx27 = getelementptr inbounds [22 x double], ptr @_ZN12_GLOBAL__N_118DOUBLE_MULTIPLIERSE, i64 0, i64 %idxprom26

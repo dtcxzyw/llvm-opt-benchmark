@@ -860,8 +860,8 @@ _ZL19calc_ke_part_normalILb0EEvPA3_KfN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEES8_S
 526:                                              ; preds = %602, %.lr.ph89.i.i
   %indvars.iv109.i.i = phi i64 [ 0, %.lr.ph89.i.i ], [ %indvars.iv.next110.i.i, %602 ]
   %.087.i.i = phi double [ 0.000000e+00, %.lr.ph89.i.i ], [ %552, %602 ]
-  %.06786.i.i = phi float [ 0.000000e+00, %.lr.ph89.i.i ], [ %.1.i.i, %602 ]
-  %.07084.i.i = phi i32 [ 0, %.lr.ph89.i.i ], [ %.171.i.i, %602 ]
+  %.06586.i.i = phi float [ 0.000000e+00, %.lr.ph89.i.i ], [ %.1.i.i, %602 ]
+  %.06685.i.i = phi i32 [ 0, %.lr.ph89.i.i ], [ %.167.i.i, %602 ]
   %527 = load ptr, ptr %517, align 8
   %528 = load ptr, ptr %518, align 8
   %529 = icmp eq ptr %527, %528
@@ -874,7 +874,7 @@ _ZL19calc_ke_part_normalILb0EEvPA3_KfN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEES8_S
   br label %534
 
 534:                                              ; preds = %530, %526
-  %.171.i.i = phi i32 [ %.07084.i.i, %526 ], [ %533, %530 ]
+  %.167.i.i = phi i32 [ %.06685.i.i, %526 ], [ %533, %530 ]
   %535 = load ptr, ptr %519, align 8
   %536 = getelementptr inbounds float, ptr %535, i64 %indvars.iv109.i.i
   %537 = load float, ptr %536, align 4
@@ -900,7 +900,7 @@ _ZL19calc_ke_part_normalILb0EEvPA3_KfN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEES8_S
   %556 = fneg float %542
   %557 = tail call float @llvm.fmuladd.f32(float %556, float %555, float %549)
   store float %557, ptr %24, align 4
-  %558 = zext nneg i32 %.171.i.i to i64
+  %558 = zext nneg i32 %.167.i.i to i64
   br i1 %54, label %.preheader.us.i33.i, label %.preheader.i31.i
 
 .preheader.us.i33.i:                              ; preds = %534, %.split.us.us.i.i
@@ -978,14 +978,14 @@ _ZL19calc_ke_part_normalILb0EEvPA3_KfN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEES8_S
   %595 = extractelement <2 x float> %554, i64 1
   %596 = tail call noundef float @llvm.fmuladd.f32(float %595, float %595, float %594)
   %597 = fpext float %596 to double
-  %598 = fpext float %.06786.i.i to double
+  %598 = fpext float %.06586.i.i to double
   %599 = fmul double %591, -5.000000e-01
   %600 = tail call double @llvm.fmuladd.f64(double %599, double %597, double %598)
   %601 = fptrunc double %600 to float
   br label %602
 
 602:                                              ; preds = %583, %578, %.split83.us.i.i
-  %.1.i.i = phi float [ %601, %583 ], [ %.06786.i.i, %578 ], [ %.06786.i.i, %.split83.us.i.i ]
+  %.1.i.i = phi float [ %601, %583 ], [ %.06586.i.i, %578 ], [ %.06586.i.i, %.split83.us.i.i ]
   %indvars.iv.next110.i.i = add nuw nsw i64 %indvars.iv109.i.i, 1
   %exitcond112.not.i.i = icmp eq i64 %indvars.iv.next110.i.i, %wide.trip.count.i.i
   br i1 %exitcond112.not.i.i, label %._crit_edge90.loopexit.i.i, label %526, !llvm.loop !21
@@ -995,9 +995,9 @@ _ZL19calc_ke_part_normalILb0EEvPA3_KfN3gmx8ArrayRefIKNS3_11BasicVectorIfEEEES8_S
   br label %_ZL17calc_ke_part_viscPA3_KfN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_PK9t_grpoptsPK9t_mdatomsP14gmx_ekindata_tP6t_nrnbb.exit.i
 
 _ZL17calc_ke_part_viscPA3_KfN3gmx8ArrayRefIKNS2_11BasicVectorIfEEEES7_PK9t_grpoptsPK9t_mdatomsP14gmx_ekindata_tP6t_nrnbb.exit.i: ; preds = %._crit_edge90.loopexit.i.i, %._crit_edge.i30.i
-  %.067.lcssa.i.i = phi float [ 0.000000e+00, %._crit_edge.i30.i ], [ %.1.i.i, %._crit_edge90.loopexit.i.i ]
+  %.065.lcssa.i.i = phi float [ 0.000000e+00, %._crit_edge.i30.i ], [ %.1.i.i, %._crit_edge90.loopexit.i.i ]
   %.0.lcssa.i.i = phi float [ 0.000000e+00, %._crit_edge.i30.i ], [ %603, %._crit_edge90.loopexit.i.i ]
-  store float %.067.lcssa.i.i, ptr %508, align 8
+  store float %.065.lcssa.i.i, ptr %508, align 8
   %604 = getelementptr inbounds i8, ptr %4, i64 196
   store float %.0.lcssa.i.i, ptr %604, align 4
   %605 = sitofp i32 %490 to double
@@ -1670,7 +1670,7 @@ define internal void @_ZL19calc_ke_part_normalILb1EEvPA3_KfN3gmx8ArrayRefIKNS3_1
 
 64:                                               ; preds = %.lr.ph74, %159
   %indvars.iv92 = phi i64 [ %63, %.lr.ph74 ], [ %indvars.iv.next93, %159 ]
-  %.171 = phi i32 [ 0, %.lr.ph74 ], [ %.2, %159 ]
+  %.16372 = phi i32 [ 0, %.lr.ph74 ], [ %.2, %159 ]
   %65 = load ptr, ptr %3, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 448
   %67 = load ptr, ptr %66, align 8
@@ -1686,7 +1686,7 @@ define internal void @_ZL19calc_ke_part_normalILb1EEvPA3_KfN3gmx8ArrayRefIKNS3_1
   br label %75
 
 75:                                               ; preds = %71, %64
-  %.2 = phi i32 [ %.171, %64 ], [ %74, %71 ]
+  %.2 = phi i32 [ %.16372, %64 ], [ %74, %71 ]
   %76 = getelementptr inbounds i8, ptr %65, i64 96
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds float, ptr %77, i64 %indvars.iv92
@@ -1975,7 +1975,7 @@ define internal void @_ZL19calc_ke_part_normalILb0EEvPA3_KfN3gmx8ArrayRefIKNS3_1
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %119
   %indvars.iv70 = phi i64 [ %55, %.lr.ph56.preheader ], [ %indvars.iv.next71, %119 ]
-  %.153 = phi i32 [ 0, %.lr.ph56.preheader ], [ %.2, %119 ]
+  %.154 = phi i32 [ 0, %.lr.ph56.preheader ], [ %.2, %119 ]
   %56 = load ptr, ptr %3, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 448
   %58 = load ptr, ptr %57, align 8
@@ -1991,7 +1991,7 @@ define internal void @_ZL19calc_ke_part_normalILb0EEvPA3_KfN3gmx8ArrayRefIKNS3_1
   br label %66
 
 66:                                               ; preds = %62, %.lr.ph56
-  %.2 = phi i32 [ %.153, %.lr.ph56 ], [ %65, %62 ]
+  %.2 = phi i32 [ %.154, %.lr.ph56 ], [ %65, %62 ]
   %67 = getelementptr inbounds i8, ptr %56, i64 96
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds float, ptr %68, i64 %indvars.iv70

@@ -248,20 +248,20 @@ cairo_loadimage.exit.thread54:                    ; preds = %7, %cairo_loadimage
   br label %38
 
 38:                                               ; preds = %.lr.ph.us, %54
-  %.062.us = phi i32 [ 0, %.lr.ph.us ], [ %55, %54 ]
-  %.04961.us = phi ptr [ %37, %.lr.ph.us ], [ %40, %54 ]
-  %39 = getelementptr inbounds i8, ptr %.04961.us, i64 3
-  %40 = getelementptr inbounds i8, ptr %.04961.us, i64 4
+  %.062.us = phi ptr [ %37, %.lr.ph.us ], [ %40, %54 ]
+  %.04961.us = phi i32 [ 0, %.lr.ph.us ], [ %55, %54 ]
+  %39 = getelementptr inbounds i8, ptr %.062.us, i64 3
+  %40 = getelementptr inbounds i8, ptr %.062.us, i64 4
   %41 = load i8, ptr %39, align 1
   %42 = icmp ult i8 %41, 127
   br i1 %42, label %52, label %43
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %.04961.us, i64 2
+  %44 = getelementptr inbounds i8, ptr %.062.us, i64 2
   %45 = load i8, ptr %44, align 1
-  %46 = getelementptr inbounds i8, ptr %.04961.us, i64 1
+  %46 = getelementptr inbounds i8, ptr %.062.us, i64 1
   %47 = load i8, ptr %46, align 1
-  %48 = load i8, ptr %.04961.us, align 1
+  %48 = load i8, ptr %.062.us, align 1
   %49 = zext i8 %45 to i32
   %50 = zext i8 %47 to i32
   %51 = zext i8 %48 to i32
@@ -273,7 +273,7 @@ cairo_loadimage.exit.thread54:                    ; preds = %7, %cairo_loadimage
   br label %54
 
 54:                                               ; preds = %52, %43
-  %55 = add nuw nsw i32 %.062.us, 1
+  %55 = add nuw nsw i32 %.04961.us, 1
   %exitcond69.not = icmp eq i32 %55, %.fr67
   br i1 %exitcond69.not, label %._crit_edge.us, label %38
 

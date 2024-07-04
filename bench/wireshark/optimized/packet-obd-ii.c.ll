@@ -755,7 +755,7 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr nocapture no
   br label %16
 
 16:                                               ; preds = %8, %8, %11, %14
-  %.037 = phi i16 [ %13, %11 ], [ %15, %14 ], [ 0, %8 ], [ 0, %8 ]
+  %.0 = phi i16 [ %13, %11 ], [ %15, %14 ], [ 0, %8 ], [ 0, %8 ]
   %17 = getelementptr inbounds i8, ptr %1, i64 13
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
@@ -769,7 +769,7 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr nocapture no
   ]
 
 22:                                               ; preds = %16
-  %23 = zext i16 %.037 to i32
+  %23 = zext i16 %.0 to i32
   %24 = tail call ptr @val_to_str_ext(i32 noundef %23, ptr noundef nonnull @obdii_mode01_pid_vals_ext, ptr noundef nonnull @.str.301) #6
   %25 = load i32, ptr @hf_obdii_mode01_pid, align 4
   %26 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef %7, i32 noundef %23) #6
@@ -791,7 +791,7 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr nocapture no
   br label %57
 
 38:                                               ; preds = %16
-  %39 = zext i16 %.037 to i32
+  %39 = zext i16 %.0 to i32
   %40 = tail call ptr @val_to_str_ext(i32 noundef %39, ptr noundef nonnull @obdii_mode09_pid_vals_ext, ptr noundef nonnull @.str.301) #6
   %41 = load i32, ptr @hf_obdii_mode09_pid, align 4
   %42 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %41, ptr noundef %0, i32 noundef 1, i32 noundef %7, i32 noundef %39) #6
@@ -805,7 +805,7 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr nocapture no
 
 48:                                               ; preds = %16
   %49 = tail call ptr @wmem_packet_scope() #6
-  %50 = zext i16 %.037 to i32
+  %50 = zext i16 %.0 to i32
   %51 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %49, ptr noundef nonnull @.str.301, i32 noundef %50) #6
   %52 = load ptr, ptr %1, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 8
@@ -820,8 +820,8 @@ define internal fastcc i32 @dissect_obdii_query(ptr noundef %0, ptr nocapture no
   br label %59
 
 59:                                               ; preds = %3, %8, %57
-  %.0 = phi i32 [ %58, %57 ], [ 0, %8 ], [ 0, %3 ]
-  ret i32 %.0
+  %.037 = phi i32 [ %58, %57 ], [ 0, %8 ], [ 0, %3 ]
+  ret i32 %.037
 }
 
 ; Function Attrs: nounwind uwtable

@@ -349,18 +349,18 @@ for.body.lr.ph.i.i:                               ; preds = %call14.i.noexc.i
   br label %for.body.i33.i
 
 for.body.i33.i:                                   ; preds = %call.i37.noexc.i, %for.body.lr.ph.i.i
-  %in_group.017.i.i = phi i1 [ false, %for.body.lr.ph.i.i ], [ %in_group.2.i.i, %call.i37.noexc.i ]
-  %i.016.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i36.i, %call.i37.noexc.i ]
+  %i.017.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i36.i, %call.i37.noexc.i ]
+  %in_group.016.i.i = phi i1 [ false, %for.body.lr.ph.i.i ], [ %in_group.2.i.i, %call.i37.noexc.i ]
   %11 = load ptr, ptr %9, align 8
-  %call2.i40.i = invoke ptr @sk_value(ptr noundef %11, i64 noundef %i.016.i.i)
+  %call2.i40.i = invoke ptr @sk_value(ptr noundef %11, i64 noundef %i.017.i.i)
           to label %call2.i.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.i
 
 call2.i.noexc.i:                                  ; preds = %for.body.i33.i
-  br i1 %in_group.017.i.i, label %if.then7.i.i, label %land.lhs.true.i.i
+  br i1 %in_group.016.i.i, label %if.then7.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %call2.i.noexc.i
   %12 = load ptr, ptr %in_group_flags.i32.i, align 8
-  %arrayidx.i34.i = getelementptr inbounds i8, ptr %12, i64 %i.016.i.i
+  %arrayidx.i34.i = getelementptr inbounds i8, ptr %12, i64 %i.017.i.i
   %13 = load i8, ptr %arrayidx.i34.i, align 1
   %tobool3.not.i.i = icmp eq i8 %13, 0
   %14 = load ptr, ptr @stderr, align 8
@@ -382,7 +382,7 @@ if.then7.i.i:                                     ; preds = %if.end.thread.i.i, 
 call10.i.noexc.i:                                 ; preds = %if.then7.i.i
   %call11.i35.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.29, ptr noundef %call10.i41.i) #25
   %20 = load ptr, ptr %in_group_flags.i32.i, align 8
-  %arrayidx15.i.i = getelementptr inbounds i8, ptr %20, i64 %i.016.i.i
+  %arrayidx15.i.i = getelementptr inbounds i8, ptr %20, i64 %i.017.i.i
   %21 = load i8, ptr %arrayidx15.i.i, align 1
   %tobool16.not.i.i = icmp eq i8 %21, 0
   br i1 %tobool16.not.i.i, label %if.then17.i.i, label %for.inc.i.i
@@ -409,7 +409,7 @@ for.inc.i.i:                                      ; preds = %call10.c.i.noexc.i,
           to label %call.i37.noexc.i unwind label %lpad.loopexit.split-lp.i.loopexit.i
 
 call.i37.noexc.i:                                 ; preds = %for.inc.i.i
-  %inc.i36.i = add nuw i64 %i.016.i.i, 1
+  %inc.i36.i = add nuw i64 %i.017.i.i, 1
   %cmp.i38.i = icmp ult i64 %inc.i36.i, %call.i3743.i
   br i1 %cmp.i38.i, label %for.body.i33.i, label %if.then.i.i.i, !llvm.loop !7
 

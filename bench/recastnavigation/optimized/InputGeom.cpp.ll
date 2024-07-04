@@ -335,11 +335,11 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11loadGeomSetEP9rcContextRKNSt
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %69, %81
-  %.027.i = phi ptr [ %71, %81 ], [ %.06198, %69 ]
-  %.01526.i = phi i32 [ %.1.i, %81 ], [ 0, %69 ]
-  %.01824.i = phi i8 [ %.119.i, %81 ], [ 1, %69 ]
-  %70 = load i8, ptr %.027.i, align 1
-  %71 = getelementptr inbounds i8, ptr %.027.i, i64 1
+  %.027.i = phi i32 [ %.1.i, %81 ], [ 0, %69 ]
+  %.01725.i = phi i8 [ %.118.i, %81 ], [ 1, %69 ]
+  %.01924.i = phi ptr [ %71, %81 ], [ %.06198, %69 ]
+  %70 = load i8, ptr %.01924.i, align 1
+  %71 = getelementptr inbounds i8, ptr %.01924.i, i64 1
   switch i8 %70, label %76 [
     i8 10, label %72
     i8 13, label %81
@@ -348,28 +348,28 @@ define dso_local noundef zeroext i1 @_ZN9InputGeom11loadGeomSetEP9rcContextRKNSt
   ]
 
 72:                                               ; preds = %.lr.ph.i
-  %73 = trunc nuw i8 %.01824.i to i1
+  %73 = trunc nuw i8 %.01725.i to i1
   %not..i = xor i1 %73, true
   br label %81
 
 74:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %75 = trunc nuw i8 %.01824.i to i1
+  %75 = trunc nuw i8 %.01725.i to i1
   br i1 %75, label %81, label %76
 
 76:                                               ; preds = %74, %.lr.ph.i
-  %77 = add nsw i32 %.01526.i, 1
-  %78 = sext i32 %.01526.i to i64
+  %77 = add nsw i32 %.027.i, 1
+  %78 = sext i32 %.027.i to i64
   %79 = getelementptr inbounds i8, ptr %4, i64 %78
   store i8 %70, ptr %79, align 1
-  %80 = icmp sgt i32 %.01526.i, 509
+  %80 = icmp sgt i32 %.027.i, 509
   br label %81
 
 81:                                               ; preds = %76, %74, %72, %.lr.ph.i
-  %.119.i = phi i8 [ %.01824.i, %74 ], [ %.01824.i, %.lr.ph.i ], [ %.01824.i, %72 ], [ 0, %76 ]
-  %.117.i = phi i1 [ false, %74 ], [ false, %.lr.ph.i ], [ %not..i, %72 ], [ %80, %76 ]
-  %.1.i = phi i32 [ %.01526.i, %74 ], [ %.01526.i, %.lr.ph.i ], [ %.01526.i, %72 ], [ %77, %76 ]
+  %.118.i = phi i8 [ %.01725.i, %74 ], [ %.01725.i, %.lr.ph.i ], [ %.01725.i, %72 ], [ 0, %76 ]
+  %.116.i = phi i1 [ false, %74 ], [ false, %.lr.ph.i ], [ %not..i, %72 ], [ %80, %76 ]
+  %.1.i = phi i32 [ %.027.i, %74 ], [ %.027.i, %.lr.ph.i ], [ %.027.i, %72 ], [ %77, %76 ]
   %82 = icmp uge ptr %71, %39
-  %.not22.i = select i1 %.117.i, i1 true, i1 %82
+  %.not22.i = select i1 %.116.i, i1 true, i1 %82
   br i1 %.not22.i, label %_ZL8parseRowPcS_S_i.exit, label %.lr.ph.i, !llvm.loop !5
 
 _ZL8parseRowPcS_S_i.exit:                         ; preds = %81
@@ -513,17 +513,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .lr.ph:                                           ; preds = %139, %_ZL8parseRowPcS_S_i.exit92
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL8parseRowPcS_S_i.exit92 ], [ 0, %139 ]
-  %.196 = phi ptr [ %.0.lcssa.i81, %_ZL8parseRowPcS_S_i.exit92 ], [ %71, %139 ]
+  %.196 = phi ptr [ %.019.lcssa.i80, %_ZL8parseRowPcS_S_i.exit92 ], [ %71, %139 ]
   store i8 0, ptr %4, align 16
   %.not.i79 = icmp ult ptr %.196, %39
   br i1 %.not.i79, label %.lr.ph.i82, label %_ZL8parseRowPcS_S_i.exit92
 
 .lr.ph.i82:                                       ; preds = %.lr.ph, %161
-  %.027.i83 = phi ptr [ %151, %161 ], [ %.196, %.lr.ph ]
-  %.01526.i84 = phi i32 [ %.1.i88, %161 ], [ 0, %.lr.ph ]
-  %.01824.i85 = phi i8 [ %.119.i86, %161 ], [ 1, %.lr.ph ]
-  %150 = load i8, ptr %.027.i83, align 1
-  %151 = getelementptr inbounds i8, ptr %.027.i83, i64 1
+  %.027.i83 = phi i32 [ %.1.i88, %161 ], [ 0, %.lr.ph ]
+  %.01725.i84 = phi i8 [ %.118.i86, %161 ], [ 1, %.lr.ph ]
+  %.01924.i85 = phi ptr [ %151, %161 ], [ %.196, %.lr.ph ]
+  %150 = load i8, ptr %.01924.i85, align 1
+  %151 = getelementptr inbounds i8, ptr %.01924.i85, i64 1
   switch i8 %150, label %156 [
     i8 10, label %152
     i8 13, label %161
@@ -532,28 +532,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   ]
 
 152:                                              ; preds = %.lr.ph.i82
-  %153 = trunc nuw i8 %.01824.i85 to i1
+  %153 = trunc nuw i8 %.01725.i84 to i1
   %not..i91 = xor i1 %153, true
   br label %161
 
 154:                                              ; preds = %.lr.ph.i82, %.lr.ph.i82
-  %155 = trunc nuw i8 %.01824.i85 to i1
+  %155 = trunc nuw i8 %.01725.i84 to i1
   br i1 %155, label %161, label %156
 
 156:                                              ; preds = %154, %.lr.ph.i82
-  %157 = add nsw i32 %.01526.i84, 1
-  %158 = sext i32 %.01526.i84 to i64
+  %157 = add nsw i32 %.027.i83, 1
+  %158 = sext i32 %.027.i83 to i64
   %159 = getelementptr inbounds i8, ptr %4, i64 %158
   store i8 %150, ptr %159, align 1
-  %160 = icmp sgt i32 %.01526.i84, 509
+  %160 = icmp sgt i32 %.027.i83, 509
   br label %161
 
 161:                                              ; preds = %156, %154, %152, %.lr.ph.i82
-  %.119.i86 = phi i8 [ %.01824.i85, %154 ], [ %.01824.i85, %.lr.ph.i82 ], [ %.01824.i85, %152 ], [ 0, %156 ]
-  %.117.i87 = phi i1 [ false, %154 ], [ false, %.lr.ph.i82 ], [ %not..i91, %152 ], [ %160, %156 ]
-  %.1.i88 = phi i32 [ %.01526.i84, %154 ], [ %.01526.i84, %.lr.ph.i82 ], [ %.01526.i84, %152 ], [ %157, %156 ]
+  %.118.i86 = phi i8 [ %.01725.i84, %154 ], [ %.01725.i84, %.lr.ph.i82 ], [ %.01725.i84, %152 ], [ 0, %156 ]
+  %.116.i87 = phi i1 [ false, %154 ], [ false, %.lr.ph.i82 ], [ %not..i91, %152 ], [ %160, %156 ]
+  %.1.i88 = phi i32 [ %.027.i83, %154 ], [ %.027.i83, %.lr.ph.i82 ], [ %.027.i83, %152 ], [ %157, %156 ]
   %162 = icmp uge ptr %151, %39
-  %.not22.i89 = select i1 %.117.i87, i1 true, i1 %162
+  %.not22.i89 = select i1 %.116.i87, i1 true, i1 %162
   br i1 %.not22.i89, label %._crit_edge.loopexit.i90, label %.lr.ph.i82, !llvm.loop !5
 
 ._crit_edge.loopexit.i90:                         ; preds = %161
@@ -561,9 +561,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %_ZL8parseRowPcS_S_i.exit92
 
 _ZL8parseRowPcS_S_i.exit92:                       ; preds = %.lr.ph, %._crit_edge.loopexit.i90
-  %.015.lcssa.i80 = phi i64 [ 0, %.lr.ph ], [ %163, %._crit_edge.loopexit.i90 ]
-  %.0.lcssa.i81 = phi ptr [ %.196, %.lr.ph ], [ %151, %._crit_edge.loopexit.i90 ]
-  %164 = getelementptr inbounds i8, ptr %4, i64 %.015.lcssa.i80
+  %.019.lcssa.i80 = phi ptr [ %.196, %.lr.ph ], [ %151, %._crit_edge.loopexit.i90 ]
+  %.0.lcssa.i81 = phi i64 [ 0, %.lr.ph ], [ %163, %._crit_edge.loopexit.i90 ]
+  %164 = getelementptr inbounds i8, ptr %4, i64 %.0.lcssa.i81
   store i8 0, ptr %164, align 1
   %165 = mul nuw nsw i64 %indvars.iv, 3
   %166 = getelementptr inbounds [36 x float], ptr %142, i64 0, i64 %165
@@ -584,7 +584,7 @@ _ZL8parseRowPcS_S_i.exit92:                       ; preds = %.lr.ph, %._crit_edg
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %_ZL8parseRowPcS_S_i.exit92, %.preheader, %139, %_ZL8parseRowPcS_S_i.exit, %105, %102, %175, %136, %96
-  %.2 = phi ptr [ %71, %96 ], [ %71, %105 ], [ %71, %102 ], [ %71, %136 ], [ %71, %175 ], [ %71, %_ZL8parseRowPcS_S_i.exit ], [ %71, %139 ], [ %71, %.preheader ], [ %.0.lcssa.i81, %_ZL8parseRowPcS_S_i.exit92 ]
+  %.2 = phi ptr [ %71, %96 ], [ %71, %105 ], [ %71, %102 ], [ %71, %136 ], [ %71, %175 ], [ %71, %_ZL8parseRowPcS_S_i.exit ], [ %71, %139 ], [ %71, %.preheader ], [ %.019.lcssa.i80, %_ZL8parseRowPcS_S_i.exit92 ]
   %177 = icmp ult ptr %.2, %39
   br i1 %177, label %69, label %._crit_edge, !llvm.loop !9
 
@@ -1088,7 +1088,7 @@ _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit:          ; preds = %39, %45, %49, %68
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %._crit_edge
   %87 = phi float [ 1.000000e+00, %.lr.ph64.preheader ], [ %202, %._crit_edge ]
   %indvars.iv66 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next67, %._crit_edge ]
-  %.04162 = phi i1 [ false, %.lr.ph64.preheader ], [ %.1.lcssa, %._crit_edge ]
+  %.04261 = phi i1 [ false, %.lr.ph64.preheader ], [ %.1.lcssa, %._crit_edge ]
   %88 = load ptr, ptr %0, align 8
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds [512 x i32], ptr %8, i64 0, i64 %indvars.iv66
@@ -1115,7 +1115,7 @@ _ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit:          ; preds = %39, %45, %49, %68
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread
   %106 = phi float [ %87, %.lr.ph.preheader ], [ %200, %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread ]
-  %.159 = phi i1 [ %.04162, %.lr.ph.preheader ], [ %.2, %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread ]
+  %.159 = phi i1 [ %.04261, %.lr.ph.preheader ], [ %.2, %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread ]
   %107 = getelementptr inbounds i32, ptr %100, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4
   %109 = mul nsw i32 %108, 3
@@ -1234,7 +1234,7 @@ _ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread: ; preds = %189, %174
 
 ._crit_edge:                                      ; preds = %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread, %.lr.ph64
   %202 = phi float [ %87, %.lr.ph64 ], [ %200, %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread ]
-  %.1.lcssa = phi i1 [ %.04162, %.lr.ph64 ], [ %.2, %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread ]
+  %.1.lcssa = phi i1 [ %.04261, %.lr.ph64 ], [ %.2, %_ZL24intersectSegmentTrianglePKfS0_S0_S0_S0_Rf.exit.thread ]
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph64, !llvm.loop !16
@@ -1597,8 +1597,8 @@ define dso_local void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noca
 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %.0142146 = phi i32 [ %27, %.lr.ph ], [ %99, %34 ]
-  %35 = mul nsw i32 %.0142146, 3
+  %.0144146 = phi i32 [ %27, %.lr.ph ], [ %99, %34 ]
+  %35 = mul nsw i32 %.0144146, 3
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds [36 x float], ptr %15, i64 0, i64 %36
   %38 = mul nuw nsw i64 %indvars.iv, 3
@@ -1726,8 +1726,8 @@ define dso_local void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noca
 
 131:                                              ; preds = %.lr.ph155, %131
   %indvars.iv173 = phi i64 [ 0, %.lr.ph155 ], [ %indvars.iv.next174, %131 ]
-  %.0144153 = phi i32 [ %125, %.lr.ph155 ], [ %178, %131 ]
-  %132 = mul nsw i32 %.0144153, 3
+  %.0142153 = phi i32 [ %125, %.lr.ph155 ], [ %178, %131 ]
+  %132 = mul nsw i32 %.0142153, 3
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds [36 x float], ptr %113, i64 0, i64 %133
   %135 = mul nuw nsw i64 %indvars.iv173, 3

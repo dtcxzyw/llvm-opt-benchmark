@@ -584,8 +584,8 @@ rb_array_const_ptr.exit:                          ; preds = %17, %19
   br label %31
 
 31:                                               ; preds = %26, %rb_array_const_ptr.exit
-  %.022 = phi i64 [ %30, %26 ], [ 4, %rb_array_const_ptr.exit ]
-  %.0 = phi i64 [ %28, %26 ], [ 4, %rb_array_const_ptr.exit ]
+  %.022 = phi i64 [ %28, %26 ], [ 4, %rb_array_const_ptr.exit ]
+  %.0 = phi i64 [ %30, %26 ], [ 4, %rb_array_const_ptr.exit ]
   %32 = tail call i64 @rb_io_get_write_io(i64 noundef %0) #10
   %33 = tail call i32 @rb_io_descriptor(i64 noundef %32) #10
   %34 = getelementptr inbounds i8, ptr %3, i64 6
@@ -613,22 +613,22 @@ rb_array_const_ptr.exit:                          ; preds = %17, %19
 47:                                               ; preds = %41, %44
   %48 = phi i16 [ %46, %44 ], [ 0, %41 ]
   store i16 %48, ptr %36, align 2
-  %49 = icmp eq i64 %.0, 4
+  %49 = icmp eq i64 %.022, 4
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %47
-  %51 = tail call i64 @rb_num2uint(i64 noundef %.0) #10
+  %51 = tail call i64 @rb_num2uint(i64 noundef %.022) #10
   %52 = trunc i64 %51 to i16
   br label %53
 
 53:                                               ; preds = %47, %50
   %54 = phi i16 [ %52, %50 ], [ 0, %47 ]
   store i16 %54, ptr %35, align 2
-  %55 = icmp eq i64 %.022, 4
+  %55 = icmp eq i64 %.0, 4
   br i1 %55, label %59, label %56
 
 56:                                               ; preds = %53
-  %57 = tail call i64 @rb_num2uint(i64 noundef %.022) #10
+  %57 = tail call i64 @rb_num2uint(i64 noundef %.0) #10
   %58 = trunc i64 %57 to i16
   br label %59
 
@@ -1370,7 +1370,7 @@ RB_SYMBOL_P.exit.thread27.i:                      ; preds = %RB_SYMBOL_P.exit.i,
   unreachable
 
 Check_Type.exit:                                  ; preds = %RB_SYMBOL_P.exit.i, %7, %rb_check_arity.exit
-  %.047 = phi i64 [ 0, %rb_check_arity.exit ], [ %8, %7 ], [ %8, %RB_SYMBOL_P.exit.i ]
+  %.0 = phi i64 [ 0, %rb_check_arity.exit ], [ %8, %7 ], [ %8, %RB_SYMBOL_P.exit.i ]
   %20 = load i64, ptr @rb_cIO, align 8
   %21 = icmp eq i64 %20, %2
   %22 = load i64, ptr @rb_cFile, align 8
@@ -1408,30 +1408,30 @@ Check_Type.exit:                                  ; preds = %RB_SYMBOL_P.exit.i,
   br label %42
 
 42:                                               ; preds = %37, %.critedge, %Check_Type.exit
-  %.048 = phi i64 [ 0, %.critedge ], [ %27, %37 ], [ 0, %Check_Type.exit ]
-  %.not53 = icmp eq i64 %.047, 0
+  %.046 = phi i64 [ 0, %.critedge ], [ %27, %37 ], [ 0, %Check_Type.exit ]
+  %.not53 = icmp eq i64 %.0, 0
   br i1 %.not53, label %53, label %43
 
 43:                                               ; preds = %42
   %44 = load i64, ptr @id_close, align 8
   %45 = tail call i64 @rb_id2sym(i64 noundef %44) #10
-  %46 = icmp eq i64 %.047, %45
+  %46 = icmp eq i64 %.0, %45
   %47 = icmp eq i32 %0, 1
   %or.cond = and i1 %47, %46
   br i1 %or.cond, label %48, label %53
 
 48:                                               ; preds = %43
-  %.not55 = icmp eq i64 %.048, 0
+  %.not55 = icmp eq i64 %.046, 0
   br i1 %.not55, label %70, label %49
 
 49:                                               ; preds = %48
-  %50 = tail call i64 @rb_io_close(i64 noundef %.048) #10
+  %50 = tail call i64 @rb_io_close(i64 noundef %.046) #10
   %51 = load i64, ptr @id_console, align 8
   %52 = tail call i64 @rb_const_remove(i64 noundef %spec.select, i64 noundef %51) #10
   br label %70
 
 53:                                               ; preds = %43, %42
-  %.not54 = icmp eq i64 %.048, 0
+  %.not54 = icmp eq i64 %.046, 0
   br i1 %.not54, label %54, label %62
 
 54:                                               ; preds = %53
@@ -1448,7 +1448,7 @@ Check_Type.exit:                                  ; preds = %RB_SYMBOL_P.exit.i,
   br label %62
 
 62:                                               ; preds = %59, %53
-  %.1 = phi i64 [ %.048, %53 ], [ %60, %59 ]
+  %.1 = phi i64 [ %.046, %53 ], [ %60, %59 ]
   br i1 %.not53, label %70, label %63
 
 63:                                               ; preds = %62
@@ -1469,8 +1469,8 @@ Check_Type.exit:                                  ; preds = %RB_SYMBOL_P.exit.i,
   br label %70
 
 70:                                               ; preds = %62, %54, %48, %49, %63
-  %.046 = phi i64 [ %69, %63 ], [ 4, %49 ], [ 4, %48 ], [ 4, %54 ], [ %.1, %62 ]
-  ret i64 %.046
+  %.049 = phi i64 [ %69, %63 ], [ 4, %49 ], [ 4, %48 ], [ 4, %54 ], [ %.1, %62 ]
+  ret i64 %.049
 }
 
 declare i64 @rb_define_module_under(i64 noundef, ptr noundef) local_unnamed_addr #1
@@ -2190,7 +2190,7 @@ direct_query.exit:                                ; preds = %13
   br label %22
 
 22:                                               ; preds = %direct_query.exit, %2
-  %.024 = phi i32 [ %8, %direct_query.exit ], [ 0, %2 ]
+  %.023 = phi i32 [ %8, %direct_query.exit ], [ 0, %2 ]
   %23 = tail call i64 @rb_io_getbyte(i64 noundef %0) #10
   %.not30 = icmp eq i64 %23, 55
   br i1 %.not30, label %24, label %direct_query.exit.thread
@@ -2208,15 +2208,15 @@ direct_query.exit:                                ; preds = %13
 
 .lr.ph:                                           ; preds = %26, %55
   %30 = phi i64 [ %56, %55 ], [ %28, %26 ]
-  %.02338 = phi i32 [ %.1, %55 ], [ 0, %26 ]
-  %.12537 = phi i32 [ %.2, %55 ], [ %.024, %26 ]
+  %.038 = phi i32 [ %.1, %55 ], [ 0, %26 ]
+  %.12437 = phi i32 [ %.2, %55 ], [ %.023, %26 ]
   %31 = tail call i64 @rb_num2uint(i64 noundef %30) #10
   %32 = trunc i64 %31 to i32
   %33 = icmp eq i32 %32, 59
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %.lr.ph
-  %35 = sext i32 %.02338 to i64
+  %35 = sext i32 %.038 to i64
   %36 = shl nsw i64 %35, 1
   %37 = or disjoint i64 %36, 1
   %38 = tail call i64 @rb_ary_push(i64 noundef %27, i64 noundef %37) #10
@@ -2228,21 +2228,21 @@ direct_query.exit:                                ; preds = %13
   br i1 %41, label %46, label %42
 
 42:                                               ; preds = %39
-  %43 = mul nsw i32 %.02338, 10
+  %43 = mul nsw i32 %.038, 10
   %44 = add i32 %43, -48
   %45 = add i32 %44, %32
   br label %55
 
 46:                                               ; preds = %39
-  %.not33 = icmp ne i32 %.12537, 0
-  %47 = icmp eq i32 %.12537, %32
+  %.not33 = icmp ne i32 %.12437, 0
+  %47 = icmp eq i32 %.12437, %32
   %or.cond = and i1 %.not33, %47
   br i1 %or.cond, label %55, label %48
 
 48:                                               ; preds = %46
   %49 = trunc i64 %31 to i8
   store i8 %49, ptr %3, align 1
-  %50 = sext i32 %.02338 to i64
+  %50 = sext i32 %.038 to i64
   %51 = shl nsw i64 %50, 1
   %52 = or disjoint i64 %51, 1
   %53 = tail call i64 @rb_ary_push(i64 noundef %27, i64 noundef %52) #10
@@ -2250,20 +2250,20 @@ direct_query.exit:                                ; preds = %13
   br label %.loopexit
 
 55:                                               ; preds = %46, %42, %34
-  %.2 = phi i32 [ %.12537, %34 ], [ %.12537, %42 ], [ 0, %46 ]
-  %.1 = phi i32 [ 0, %34 ], [ %45, %42 ], [ %.02338, %46 ]
+  %.2 = phi i32 [ %.12437, %34 ], [ %.12437, %42 ], [ 0, %46 ]
+  %.1 = phi i32 [ 0, %34 ], [ %45, %42 ], [ %.038, %46 ]
   %56 = tail call i64 @rb_io_getbyte(i64 noundef %0) #10
   %57 = icmp eq i64 %56, 4
   br i1 %57, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %55, %26, %48
-  %.026 = phi i64 [ %54, %48 ], [ 4, %26 ], [ 4, %55 ]
-  %58 = call i64 @rb_ary_push(i64 noundef %27, i64 noundef %.026) #10
+  %.025 = phi i64 [ %54, %48 ], [ 4, %26 ], [ 4, %55 ]
+  %58 = call i64 @rb_ary_push(i64 noundef %27, i64 noundef %.025) #10
   br label %direct_query.exit.thread
 
 direct_query.exit.thread:                         ; preds = %13, %4, %24, %22, %.loopexit
-  %.0 = phi i64 [ %58, %.loopexit ], [ 4, %22 ], [ 4, %24 ], [ 4, %4 ], [ 4, %13 ]
-  ret i64 %.0
+  %.026 = phi i64 [ %58, %.loopexit ], [ 4, %22 ], [ 4, %24 ], [ 4, %4 ], [ 4, %13 ]
+  ret i64 %.026
 }
 
 ; Function Attrs: nounwind uwtable

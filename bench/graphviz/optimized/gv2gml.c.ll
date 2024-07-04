@@ -353,31 +353,31 @@ emitGraphAttrs.exit.i:                            ; preds = %emitAttr.exit116, %
   br i1 %.not197.i.i.i, label %emitNode.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i, %emitAttr.exit108
-  %.0214.i.i.i = phi ptr [ %302, %emitAttr.exit108 ], [ %129, %.lr.ph.i ]
-  %.0125213.i.i.i = phi ptr [ %.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
-  %.0126212.i.i.i = phi i32 [ %.1127.i.i.i, %emitAttr.exit108 ], [ 0, %.lr.ph.i ]
-  %.0128211.i.i.i = phi i32 [ %.1129.i.i.i, %emitAttr.exit108 ], [ 0, %.lr.ph.i ]
-  %.sroa.51.0210.i.i.i = phi ptr [ %.sroa.51.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
-  %.sroa.48.0209.i.i.i = phi ptr [ %.sroa.48.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
-  %.sroa.45.0208.i.i.i = phi ptr [ %.sroa.45.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
-  %.sroa.40.0207.i.i.i = phi ptr [ %.sroa.40.4.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
-  %.sroa.37.0206.i.i.i = phi ptr [ %.sroa.37.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
-  %.sroa.33.0205.i.i.i = phi ptr [ %.sroa.33.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
-  %.sroa.29.0204.i.i.i = phi ptr [ %.sroa.29.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
+  %.0214.i.i.i = phi ptr [ %.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
+  %.0125213.i.i.i = phi i32 [ %.1126.i.i.i, %emitAttr.exit108 ], [ 0, %.lr.ph.i ]
+  %.0127212.i.i.i = phi i32 [ %.1128.i.i.i, %emitAttr.exit108 ], [ 0, %.lr.ph.i ]
+  %.sroa.51.0211.i.i.i = phi ptr [ %.sroa.51.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
+  %.sroa.48.0210.i.i.i = phi ptr [ %.sroa.48.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
+  %.sroa.45.0209.i.i.i = phi ptr [ %.sroa.45.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
+  %.sroa.40.0208.i.i.i = phi ptr [ %.sroa.40.4.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
+  %.sroa.37.0207.i.i.i = phi ptr [ %.sroa.37.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
+  %.sroa.33.0206.i.i.i = phi ptr [ %.sroa.33.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
+  %.sroa.29.0205.i.i.i = phi ptr [ %.sroa.29.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
+  %.0129204.i.i.i = phi ptr [ %302, %emitAttr.exit108 ], [ %129, %.lr.ph.i ]
   %.sroa.24.0203.i.i.i = phi ptr [ %.sroa.24.1.i.i.i, %emitAttr.exit108 ], [ null, %.lr.ph.i ]
   %.sroa.22.0202.i.i.i = phi double [ %.sroa.22.1.i.i.i, %emitAttr.exit108 ], [ 0.000000e+00, %.lr.ph.i ]
   %.sroa.20.0201.i.i.i = phi double [ %.sroa.20.1.i.i.i, %emitAttr.exit108 ], [ 0.000000e+00, %.lr.ph.i ]
   %.sroa.18.0200.i.i.i = phi double [ %.sroa.18.1.i.i.i, %emitAttr.exit108 ], [ 0.000000e+00, %.lr.ph.i ]
   %.sroa.1619.0199.i.i.i = phi double [ %.sroa.1619.1.i.i.i, %emitAttr.exit108 ], [ 0.000000e+00, %.lr.ph.i ]
   %.sroa.0.0198.i.i.i = phi i32 [ %.sroa.0.3.i.i.i, %emitAttr.exit108 ], [ 0, %.lr.ph.i ]
-  %130 = getelementptr inbounds i8, ptr %.0214.i.i.i, i64 16
+  %130 = getelementptr inbounds i8, ptr %.0129204.i.i.i, i64 16
   %131 = load ptr, ptr %130, align 8
   %132 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(6) @.str.22) #13
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %134, label %143
 
 134:                                              ; preds = %.lr.ph.i.i.i
-  %135 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %135 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0129204.i.i.i) #14
   %136 = load i8, ptr %135, align 1
   %.not158.i.i.i = icmp eq i8 %136, 0
   br i1 %.not158.i.i.i, label %emitAttr.exit108, label %137
@@ -388,7 +388,7 @@ emitGraphAttrs.exit.i:                            ; preds = %emitAttr.exit116, %
   %.sroa.0.2.i.i.i = or i32 %139, %.sroa.0.0198.i.i.i
   %140 = and i32 %138, 32
   %.not161.i.i.i = icmp eq i32 %140, 0
-  %.sroa.40.1.i.i.i = select i1 %.not161.i.i.i, ptr %.sroa.40.0207.i.i.i, ptr @.str.23
+  %.sroa.40.1.i.i.i = select i1 %.not161.i.i.i, ptr %.sroa.40.0208.i.i.i, ptr @.str.23
   %141 = and i32 %138, 64
   %.not162.i.i.i = icmp eq i32 %141, 0
   %.sroa.40.2.i.i.i = select i1 %.not162.i.i.i, ptr %.sroa.40.1.i.i.i, ptr @.str.24
@@ -403,7 +403,7 @@ emitGraphAttrs.exit.i:                            ; preds = %emitAttr.exit116, %
   br i1 %145, label %sub_0.i.i.i, label %202
 
 sub_0.i.i.i:                                      ; preds = %143
-  %146 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %146 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0129204.i.i.i) #14
   %147 = load i8, ptr %146, align 1
   %148 = zext i8 %147 to i32
   %149 = sub nsw i32 92, %148
@@ -547,11 +547,11 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br i1 %204, label %205, label %208
 
 205:                                              ; preds = %202
-  %206 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %206 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0129204.i.i.i) #14
   %207 = load i8, ptr %206, align 1
   %.not156.i.i.i = icmp eq i8 %207, 0
-  %spec.select164.i.i.i = select i1 %.not156.i.i.i, ptr %.sroa.37.0206.i.i.i, ptr %206
-  %spec.select165.i.i.i = select i1 %.not156.i.i.i, i32 %.0128211.i.i.i, i32 1
+  %spec.select164.i.i.i = select i1 %.not156.i.i.i, ptr %.sroa.37.0207.i.i.i, ptr %206
+  %spec.select165.i.i.i = select i1 %.not156.i.i.i, i32 %.0127212.i.i.i, i32 1
   br label %emitAttr.exit108
 
 208:                                              ; preds = %202
@@ -560,7 +560,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br i1 %210, label %211, label %218
 
 211:                                              ; preds = %208
-  %212 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %212 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0129204.i.i.i) #14
   %213 = load i8, ptr %212, align 1
   %.not155.i.i.i = icmp eq i8 %213, 0
   br i1 %.not155.i.i.i, label %emitAttr.exit108, label %214
@@ -577,7 +577,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br i1 %220, label %221, label %228
 
 221:                                              ; preds = %218
-  %222 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %222 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0129204.i.i.i) #14
   %223 = load i8, ptr %222, align 1
   %.not154.i.i.i = icmp eq i8 %223, 0
   br i1 %.not154.i.i.i, label %emitAttr.exit108, label %224
@@ -594,7 +594,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br i1 %230, label %231, label %239
 
 231:                                              ; preds = %228
-  %232 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %232 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0129204.i.i.i) #14
   %233 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %232, ptr noundef nonnull @.str.32, ptr noundef nonnull %31, ptr noundef nonnull %32) #14
   %234 = icmp eq i32 %233, 2
   br i1 %234, label %235, label %emitAttr.exit108
@@ -611,11 +611,11 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br i1 %241, label %242, label %245
 
 242:                                              ; preds = %239
-  %243 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %243 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0129204.i.i.i) #14
   %244 = load i8, ptr %243, align 1
   %.not153.i.i.i = icmp eq i8 %244, 0
   %spec.select166.i.i.i = select i1 %.not153.i.i.i, ptr %.sroa.24.0203.i.i.i, ptr %243
-  %spec.select167.i.i.i = select i1 %.not153.i.i.i, i32 %.0128211.i.i.i, i32 1
+  %spec.select167.i.i.i = select i1 %.not153.i.i.i, i32 %.0127212.i.i.i, i32 1
   br label %emitAttr.exit108
 
 245:                                              ; preds = %239
@@ -624,7 +624,7 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br i1 %247, label %248, label %252
 
 248:                                              ; preds = %245
-  %249 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %249 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0129204.i.i.i) #14
   %250 = load i8, ptr %249, align 1
   %.not152.i.i.i = icmp eq i8 %250, 0
   br i1 %.not152.i.i.i, label %emitAttr.exit108, label %251
@@ -638,11 +638,11 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br i1 %254, label %255, label %258
 
 255:                                              ; preds = %252
-  %256 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %256 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0129204.i.i.i) #14
   %257 = load i8, ptr %256, align 1
   %.not151.i.i.i = icmp eq i8 %257, 0
-  %spec.select168.i.i.i = select i1 %.not151.i.i.i, ptr %.sroa.29.0204.i.i.i, ptr %256
-  %spec.select169.i.i.i = select i1 %.not151.i.i.i, i32 %.0128211.i.i.i, i32 1
+  %spec.select168.i.i.i = select i1 %.not151.i.i.i, ptr %.sroa.29.0205.i.i.i, ptr %256
+  %spec.select169.i.i.i = select i1 %.not151.i.i.i, i32 %.0127212.i.i.i, i32 1
   br label %emitAttr.exit108
 
 258:                                              ; preds = %252
@@ -651,11 +651,11 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br i1 %260, label %261, label %264
 
 261:                                              ; preds = %258
-  %262 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %262 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0129204.i.i.i) #14
   %263 = load i8, ptr %262, align 1
   %.not150.i.i.i = icmp eq i8 %263, 0
-  %spec.select170.i.i.i = select i1 %.not150.i.i.i, ptr %.sroa.33.0205.i.i.i, ptr %262
-  %spec.select171.i.i.i = select i1 %.not150.i.i.i, i32 %.0128211.i.i.i, i32 1
+  %spec.select170.i.i.i = select i1 %.not150.i.i.i, ptr %.sroa.33.0206.i.i.i, ptr %262
+  %spec.select171.i.i.i = select i1 %.not150.i.i.i, i32 %.0127212.i.i.i, i32 1
   br label %emitAttr.exit108
 
 264:                                              ; preds = %258
@@ -664,11 +664,11 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br i1 %266, label %267, label %270
 
 267:                                              ; preds = %264
-  %268 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %268 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0129204.i.i.i) #14
   %269 = load i8, ptr %268, align 1
   %.not149.i.i.i = icmp eq i8 %269, 0
-  %spec.select172.i.i.i = select i1 %.not149.i.i.i, ptr %.sroa.51.0210.i.i.i, ptr %268
-  %spec.select173.i.i.i = select i1 %.not149.i.i.i, i32 %.0126212.i.i.i, i32 1
+  %spec.select172.i.i.i = select i1 %.not149.i.i.i, ptr %.sroa.51.0211.i.i.i, ptr %268
+  %spec.select173.i.i.i = select i1 %.not149.i.i.i, i32 %.0125213.i.i.i, i32 1
   br label %emitAttr.exit108
 
 270:                                              ; preds = %264
@@ -677,24 +677,24 @@ indent.exit.i96:                                  ; preds = %.lr.ph.i.i93
   br i1 %272, label %273, label %276
 
 273:                                              ; preds = %270
-  %274 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %274 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0129204.i.i.i) #14
   %275 = load i8, ptr %274, align 1
   %.not148.i.i.i = icmp eq i8 %275, 0
-  %spec.select174.i.i.i = select i1 %.not148.i.i.i, ptr %.sroa.48.0209.i.i.i, ptr %274
-  %spec.select175.i.i.i = select i1 %.not148.i.i.i, i32 %.0126212.i.i.i, i32 1
+  %spec.select174.i.i.i = select i1 %.not148.i.i.i, ptr %.sroa.48.0210.i.i.i, ptr %274
+  %spec.select175.i.i.i = select i1 %.not148.i.i.i, i32 %.0125213.i.i.i, i32 1
   br label %emitAttr.exit108
 
 276:                                              ; preds = %270
   %277 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %131, ptr noundef nonnull readonly dereferenceable(10) @.str.39) #13
   %278 = icmp eq i32 %277, 0
-  %279 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0214.i.i.i) #14
+  %279 = call ptr @agxget(ptr noundef nonnull %.019226.i, ptr noundef nonnull %.0129204.i.i.i) #14
   br i1 %278, label %280, label %282
 
 280:                                              ; preds = %276
   %281 = load i8, ptr %279, align 1
   %.not147.i.i.i = icmp eq i8 %281, 0
-  %spec.select176.i.i.i = select i1 %.not147.i.i.i, ptr %.sroa.45.0208.i.i.i, ptr %279
-  %spec.select177.i.i.i = select i1 %.not147.i.i.i, i32 %.0126212.i.i.i, i32 1
+  %spec.select176.i.i.i = select i1 %.not147.i.i.i, ptr %.sroa.45.0209.i.i.i, ptr %279
+  %spec.select177.i.i.i = select i1 %.not147.i.i.i, i32 %.0125213.i.i.i, i32 1
   br label %emitAttr.exit108
 
 282:                                              ; preds = %276
@@ -757,22 +757,22 @@ emitAttr.exit108:                                 ; preds = %.loopexit.i91, %293
   %.sroa.20.1.i.i.i = phi double [ %.sroa.20.0201.i.i.i, %137 ], [ %.sroa.20.0201.i.i.i, %134 ], [ %.sroa.20.0201.i.i.i, %181 ], [ %216, %214 ], [ %.sroa.20.0201.i.i.i, %211 ], [ %.sroa.20.0201.i.i.i, %224 ], [ %.sroa.20.0201.i.i.i, %221 ], [ %.sroa.20.0201.i.i.i, %235 ], [ %.sroa.20.0201.i.i.i, %231 ], [ %.sroa.20.0201.i.i.i, %251 ], [ %.sroa.20.0201.i.i.i, %248 ], [ %.sroa.20.0201.i.i.i, %205 ], [ %.sroa.20.0201.i.i.i, %242 ], [ %.sroa.20.0201.i.i.i, %255 ], [ %.sroa.20.0201.i.i.i, %261 ], [ %.sroa.20.0201.i.i.i, %267 ], [ %.sroa.20.0201.i.i.i, %273 ], [ %.sroa.20.0201.i.i.i, %280 ], [ %.sroa.20.0201.i.i.i, %172 ], [ %.sroa.20.0201.i.i.i, %.loopexit.i107 ], [ %.sroa.20.0201.i.i.i, %193 ], [ %.sroa.20.0201.i.i.i, %.loopexit.i99 ], [ %.sroa.20.0201.i.i.i, %293 ], [ %.sroa.20.0201.i.i.i, %.loopexit.i91 ]
   %.sroa.22.1.i.i.i = phi double [ %.sroa.22.0202.i.i.i, %137 ], [ %.sroa.22.0202.i.i.i, %134 ], [ %.sroa.22.0202.i.i.i, %181 ], [ %.sroa.22.0202.i.i.i, %214 ], [ %.sroa.22.0202.i.i.i, %211 ], [ %226, %224 ], [ %.sroa.22.0202.i.i.i, %221 ], [ %.sroa.22.0202.i.i.i, %235 ], [ %.sroa.22.0202.i.i.i, %231 ], [ %.sroa.22.0202.i.i.i, %251 ], [ %.sroa.22.0202.i.i.i, %248 ], [ %.sroa.22.0202.i.i.i, %205 ], [ %.sroa.22.0202.i.i.i, %242 ], [ %.sroa.22.0202.i.i.i, %255 ], [ %.sroa.22.0202.i.i.i, %261 ], [ %.sroa.22.0202.i.i.i, %267 ], [ %.sroa.22.0202.i.i.i, %273 ], [ %.sroa.22.0202.i.i.i, %280 ], [ %.sroa.22.0202.i.i.i, %172 ], [ %.sroa.22.0202.i.i.i, %.loopexit.i107 ], [ %.sroa.22.0202.i.i.i, %193 ], [ %.sroa.22.0202.i.i.i, %.loopexit.i99 ], [ %.sroa.22.0202.i.i.i, %293 ], [ %.sroa.22.0202.i.i.i, %.loopexit.i91 ]
   %.sroa.24.1.i.i.i = phi ptr [ %.sroa.24.0203.i.i.i, %137 ], [ %.sroa.24.0203.i.i.i, %134 ], [ %.sroa.24.0203.i.i.i, %181 ], [ %.sroa.24.0203.i.i.i, %214 ], [ %.sroa.24.0203.i.i.i, %211 ], [ %.sroa.24.0203.i.i.i, %224 ], [ %.sroa.24.0203.i.i.i, %221 ], [ %.sroa.24.0203.i.i.i, %235 ], [ %.sroa.24.0203.i.i.i, %231 ], [ %.sroa.24.0203.i.i.i, %251 ], [ %.sroa.24.0203.i.i.i, %248 ], [ %.sroa.24.0203.i.i.i, %205 ], [ %spec.select166.i.i.i, %242 ], [ %.sroa.24.0203.i.i.i, %255 ], [ %.sroa.24.0203.i.i.i, %261 ], [ %.sroa.24.0203.i.i.i, %267 ], [ %.sroa.24.0203.i.i.i, %273 ], [ %.sroa.24.0203.i.i.i, %280 ], [ %.sroa.24.0203.i.i.i, %172 ], [ %.sroa.24.0203.i.i.i, %.loopexit.i107 ], [ %.sroa.24.0203.i.i.i, %193 ], [ %.sroa.24.0203.i.i.i, %.loopexit.i99 ], [ %.sroa.24.0203.i.i.i, %293 ], [ %.sroa.24.0203.i.i.i, %.loopexit.i91 ]
-  %.sroa.29.1.i.i.i = phi ptr [ %.sroa.29.0204.i.i.i, %137 ], [ %.sroa.29.0204.i.i.i, %134 ], [ %.sroa.29.0204.i.i.i, %181 ], [ %.sroa.29.0204.i.i.i, %214 ], [ %.sroa.29.0204.i.i.i, %211 ], [ %.sroa.29.0204.i.i.i, %224 ], [ %.sroa.29.0204.i.i.i, %221 ], [ %.sroa.29.0204.i.i.i, %235 ], [ %.sroa.29.0204.i.i.i, %231 ], [ %249, %251 ], [ %.sroa.29.0204.i.i.i, %248 ], [ %.sroa.29.0204.i.i.i, %205 ], [ %.sroa.29.0204.i.i.i, %242 ], [ %spec.select168.i.i.i, %255 ], [ %.sroa.29.0204.i.i.i, %261 ], [ %.sroa.29.0204.i.i.i, %267 ], [ %.sroa.29.0204.i.i.i, %273 ], [ %.sroa.29.0204.i.i.i, %280 ], [ %.sroa.29.0204.i.i.i, %172 ], [ %.sroa.29.0204.i.i.i, %.loopexit.i107 ], [ %.sroa.29.0204.i.i.i, %193 ], [ %.sroa.29.0204.i.i.i, %.loopexit.i99 ], [ %.sroa.29.0204.i.i.i, %293 ], [ %.sroa.29.0204.i.i.i, %.loopexit.i91 ]
-  %.sroa.33.1.i.i.i = phi ptr [ %.sroa.33.0205.i.i.i, %137 ], [ %.sroa.33.0205.i.i.i, %134 ], [ %.sroa.33.0205.i.i.i, %181 ], [ %.sroa.33.0205.i.i.i, %214 ], [ %.sroa.33.0205.i.i.i, %211 ], [ %.sroa.33.0205.i.i.i, %224 ], [ %.sroa.33.0205.i.i.i, %221 ], [ %.sroa.33.0205.i.i.i, %235 ], [ %.sroa.33.0205.i.i.i, %231 ], [ %249, %251 ], [ %.sroa.33.0205.i.i.i, %248 ], [ %.sroa.33.0205.i.i.i, %205 ], [ %.sroa.33.0205.i.i.i, %242 ], [ %.sroa.33.0205.i.i.i, %255 ], [ %spec.select170.i.i.i, %261 ], [ %.sroa.33.0205.i.i.i, %267 ], [ %.sroa.33.0205.i.i.i, %273 ], [ %.sroa.33.0205.i.i.i, %280 ], [ %.sroa.33.0205.i.i.i, %172 ], [ %.sroa.33.0205.i.i.i, %.loopexit.i107 ], [ %.sroa.33.0205.i.i.i, %193 ], [ %.sroa.33.0205.i.i.i, %.loopexit.i99 ], [ %.sroa.33.0205.i.i.i, %293 ], [ %.sroa.33.0205.i.i.i, %.loopexit.i91 ]
-  %.sroa.37.1.i.i.i = phi ptr [ %.sroa.37.0206.i.i.i, %137 ], [ %.sroa.37.0206.i.i.i, %134 ], [ %.sroa.37.0206.i.i.i, %181 ], [ %.sroa.37.0206.i.i.i, %214 ], [ %.sroa.37.0206.i.i.i, %211 ], [ %.sroa.37.0206.i.i.i, %224 ], [ %.sroa.37.0206.i.i.i, %221 ], [ %.sroa.37.0206.i.i.i, %235 ], [ %.sroa.37.0206.i.i.i, %231 ], [ %.sroa.37.0206.i.i.i, %251 ], [ %.sroa.37.0206.i.i.i, %248 ], [ %spec.select164.i.i.i, %205 ], [ %.sroa.37.0206.i.i.i, %242 ], [ %.sroa.37.0206.i.i.i, %255 ], [ %.sroa.37.0206.i.i.i, %261 ], [ %.sroa.37.0206.i.i.i, %267 ], [ %.sroa.37.0206.i.i.i, %273 ], [ %.sroa.37.0206.i.i.i, %280 ], [ %.sroa.37.0206.i.i.i, %172 ], [ %.sroa.37.0206.i.i.i, %.loopexit.i107 ], [ %.sroa.37.0206.i.i.i, %193 ], [ %.sroa.37.0206.i.i.i, %.loopexit.i99 ], [ %.sroa.37.0206.i.i.i, %293 ], [ %.sroa.37.0206.i.i.i, %.loopexit.i91 ]
-  %.sroa.40.4.i.i.i = phi ptr [ %.sroa.40.3.i.i.i, %137 ], [ %.sroa.40.0207.i.i.i, %134 ], [ %.sroa.40.0207.i.i.i, %181 ], [ %.sroa.40.0207.i.i.i, %214 ], [ %.sroa.40.0207.i.i.i, %211 ], [ %.sroa.40.0207.i.i.i, %224 ], [ %.sroa.40.0207.i.i.i, %221 ], [ %.sroa.40.0207.i.i.i, %235 ], [ %.sroa.40.0207.i.i.i, %231 ], [ %.sroa.40.0207.i.i.i, %251 ], [ %.sroa.40.0207.i.i.i, %248 ], [ %.sroa.40.0207.i.i.i, %205 ], [ %.sroa.40.0207.i.i.i, %242 ], [ %.sroa.40.0207.i.i.i, %255 ], [ %.sroa.40.0207.i.i.i, %261 ], [ %.sroa.40.0207.i.i.i, %267 ], [ %.sroa.40.0207.i.i.i, %273 ], [ %.sroa.40.0207.i.i.i, %280 ], [ %.sroa.40.0207.i.i.i, %172 ], [ %.sroa.40.0207.i.i.i, %.loopexit.i107 ], [ %.sroa.40.0207.i.i.i, %193 ], [ %.sroa.40.0207.i.i.i, %.loopexit.i99 ], [ %.sroa.40.0207.i.i.i, %293 ], [ %.sroa.40.0207.i.i.i, %.loopexit.i91 ]
-  %.sroa.45.1.i.i.i = phi ptr [ %.sroa.45.0208.i.i.i, %137 ], [ %.sroa.45.0208.i.i.i, %134 ], [ %.sroa.45.0208.i.i.i, %181 ], [ %.sroa.45.0208.i.i.i, %214 ], [ %.sroa.45.0208.i.i.i, %211 ], [ %.sroa.45.0208.i.i.i, %224 ], [ %.sroa.45.0208.i.i.i, %221 ], [ %.sroa.45.0208.i.i.i, %235 ], [ %.sroa.45.0208.i.i.i, %231 ], [ %.sroa.45.0208.i.i.i, %251 ], [ %.sroa.45.0208.i.i.i, %248 ], [ %.sroa.45.0208.i.i.i, %205 ], [ %.sroa.45.0208.i.i.i, %242 ], [ %.sroa.45.0208.i.i.i, %255 ], [ %.sroa.45.0208.i.i.i, %261 ], [ %.sroa.45.0208.i.i.i, %267 ], [ %.sroa.45.0208.i.i.i, %273 ], [ %spec.select176.i.i.i, %280 ], [ %.sroa.45.0208.i.i.i, %172 ], [ %.sroa.45.0208.i.i.i, %.loopexit.i107 ], [ %.sroa.45.0208.i.i.i, %193 ], [ %.sroa.45.0208.i.i.i, %.loopexit.i99 ], [ %.sroa.45.0208.i.i.i, %293 ], [ %.sroa.45.0208.i.i.i, %.loopexit.i91 ]
-  %.sroa.48.1.i.i.i = phi ptr [ %.sroa.48.0209.i.i.i, %137 ], [ %.sroa.48.0209.i.i.i, %134 ], [ %.sroa.48.0209.i.i.i, %181 ], [ %.sroa.48.0209.i.i.i, %214 ], [ %.sroa.48.0209.i.i.i, %211 ], [ %.sroa.48.0209.i.i.i, %224 ], [ %.sroa.48.0209.i.i.i, %221 ], [ %.sroa.48.0209.i.i.i, %235 ], [ %.sroa.48.0209.i.i.i, %231 ], [ %.sroa.48.0209.i.i.i, %251 ], [ %.sroa.48.0209.i.i.i, %248 ], [ %.sroa.48.0209.i.i.i, %205 ], [ %.sroa.48.0209.i.i.i, %242 ], [ %.sroa.48.0209.i.i.i, %255 ], [ %.sroa.48.0209.i.i.i, %261 ], [ %.sroa.48.0209.i.i.i, %267 ], [ %spec.select174.i.i.i, %273 ], [ %.sroa.48.0209.i.i.i, %280 ], [ %.sroa.48.0209.i.i.i, %172 ], [ %.sroa.48.0209.i.i.i, %.loopexit.i107 ], [ %.sroa.48.0209.i.i.i, %193 ], [ %.sroa.48.0209.i.i.i, %.loopexit.i99 ], [ %.sroa.48.0209.i.i.i, %293 ], [ %.sroa.48.0209.i.i.i, %.loopexit.i91 ]
-  %.sroa.51.1.i.i.i = phi ptr [ %.sroa.51.0210.i.i.i, %137 ], [ %.sroa.51.0210.i.i.i, %134 ], [ %.sroa.51.0210.i.i.i, %181 ], [ %.sroa.51.0210.i.i.i, %214 ], [ %.sroa.51.0210.i.i.i, %211 ], [ %.sroa.51.0210.i.i.i, %224 ], [ %.sroa.51.0210.i.i.i, %221 ], [ %.sroa.51.0210.i.i.i, %235 ], [ %.sroa.51.0210.i.i.i, %231 ], [ %.sroa.51.0210.i.i.i, %251 ], [ %.sroa.51.0210.i.i.i, %248 ], [ %.sroa.51.0210.i.i.i, %205 ], [ %.sroa.51.0210.i.i.i, %242 ], [ %.sroa.51.0210.i.i.i, %255 ], [ %.sroa.51.0210.i.i.i, %261 ], [ %spec.select172.i.i.i, %267 ], [ %.sroa.51.0210.i.i.i, %273 ], [ %.sroa.51.0210.i.i.i, %280 ], [ %.sroa.51.0210.i.i.i, %172 ], [ %.sroa.51.0210.i.i.i, %.loopexit.i107 ], [ %.sroa.51.0210.i.i.i, %193 ], [ %.sroa.51.0210.i.i.i, %.loopexit.i99 ], [ %.sroa.51.0210.i.i.i, %293 ], [ %.sroa.51.0210.i.i.i, %.loopexit.i91 ]
-  %.1129.i.i.i = phi i32 [ 1, %137 ], [ %.0128211.i.i.i, %134 ], [ %.0128211.i.i.i, %181 ], [ 1, %214 ], [ %.0128211.i.i.i, %211 ], [ 1, %224 ], [ %.0128211.i.i.i, %221 ], [ 1, %235 ], [ %.0128211.i.i.i, %231 ], [ 1, %251 ], [ %.0128211.i.i.i, %248 ], [ %spec.select165.i.i.i, %205 ], [ %spec.select167.i.i.i, %242 ], [ %spec.select169.i.i.i, %255 ], [ %spec.select171.i.i.i, %261 ], [ %.0128211.i.i.i, %267 ], [ %.0128211.i.i.i, %273 ], [ %.0128211.i.i.i, %280 ], [ %.0128211.i.i.i, %172 ], [ %.0128211.i.i.i, %.loopexit.i107 ], [ %.0128211.i.i.i, %193 ], [ %.0128211.i.i.i, %.loopexit.i99 ], [ %.0128211.i.i.i, %293 ], [ %.0128211.i.i.i, %.loopexit.i91 ]
-  %.1127.i.i.i = phi i32 [ %.0126212.i.i.i, %137 ], [ %.0126212.i.i.i, %134 ], [ %.0126212.i.i.i, %181 ], [ %.0126212.i.i.i, %214 ], [ %.0126212.i.i.i, %211 ], [ %.0126212.i.i.i, %224 ], [ %.0126212.i.i.i, %221 ], [ %.0126212.i.i.i, %235 ], [ %.0126212.i.i.i, %231 ], [ %.0126212.i.i.i, %251 ], [ %.0126212.i.i.i, %248 ], [ %.0126212.i.i.i, %205 ], [ %.0126212.i.i.i, %242 ], [ %.0126212.i.i.i, %255 ], [ %.0126212.i.i.i, %261 ], [ %spec.select173.i.i.i, %267 ], [ %spec.select175.i.i.i, %273 ], [ %spec.select177.i.i.i, %280 ], [ 1, %172 ], [ 1, %.loopexit.i107 ], [ 1, %193 ], [ 1, %.loopexit.i99 ], [ %.0126212.i.i.i, %293 ], [ %.0126212.i.i.i, %.loopexit.i91 ]
-  %.1.i.i.i = phi ptr [ %.0125213.i.i.i, %137 ], [ %.0125213.i.i.i, %134 ], [ %.0125213.i.i.i, %181 ], [ %.0125213.i.i.i, %214 ], [ %.0125213.i.i.i, %211 ], [ %.0125213.i.i.i, %224 ], [ %.0125213.i.i.i, %221 ], [ %.0125213.i.i.i, %235 ], [ %.0125213.i.i.i, %231 ], [ %.0125213.i.i.i, %251 ], [ %.0125213.i.i.i, %248 ], [ %.0125213.i.i.i, %205 ], [ %.0125213.i.i.i, %242 ], [ %.0125213.i.i.i, %255 ], [ %.0125213.i.i.i, %261 ], [ %.0125213.i.i.i, %267 ], [ %.0125213.i.i.i, %273 ], [ %.0125213.i.i.i, %280 ], [ %161, %172 ], [ %161, %.loopexit.i107 ], [ %146, %193 ], [ %146, %.loopexit.i99 ], [ %.0125213.i.i.i, %293 ], [ %.0125213.i.i.i, %.loopexit.i91 ]
-  %302 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 1, ptr noundef nonnull %.0214.i.i.i) #14
+  %.sroa.29.1.i.i.i = phi ptr [ %.sroa.29.0205.i.i.i, %137 ], [ %.sroa.29.0205.i.i.i, %134 ], [ %.sroa.29.0205.i.i.i, %181 ], [ %.sroa.29.0205.i.i.i, %214 ], [ %.sroa.29.0205.i.i.i, %211 ], [ %.sroa.29.0205.i.i.i, %224 ], [ %.sroa.29.0205.i.i.i, %221 ], [ %.sroa.29.0205.i.i.i, %235 ], [ %.sroa.29.0205.i.i.i, %231 ], [ %249, %251 ], [ %.sroa.29.0205.i.i.i, %248 ], [ %.sroa.29.0205.i.i.i, %205 ], [ %.sroa.29.0205.i.i.i, %242 ], [ %spec.select168.i.i.i, %255 ], [ %.sroa.29.0205.i.i.i, %261 ], [ %.sroa.29.0205.i.i.i, %267 ], [ %.sroa.29.0205.i.i.i, %273 ], [ %.sroa.29.0205.i.i.i, %280 ], [ %.sroa.29.0205.i.i.i, %172 ], [ %.sroa.29.0205.i.i.i, %.loopexit.i107 ], [ %.sroa.29.0205.i.i.i, %193 ], [ %.sroa.29.0205.i.i.i, %.loopexit.i99 ], [ %.sroa.29.0205.i.i.i, %293 ], [ %.sroa.29.0205.i.i.i, %.loopexit.i91 ]
+  %.sroa.33.1.i.i.i = phi ptr [ %.sroa.33.0206.i.i.i, %137 ], [ %.sroa.33.0206.i.i.i, %134 ], [ %.sroa.33.0206.i.i.i, %181 ], [ %.sroa.33.0206.i.i.i, %214 ], [ %.sroa.33.0206.i.i.i, %211 ], [ %.sroa.33.0206.i.i.i, %224 ], [ %.sroa.33.0206.i.i.i, %221 ], [ %.sroa.33.0206.i.i.i, %235 ], [ %.sroa.33.0206.i.i.i, %231 ], [ %249, %251 ], [ %.sroa.33.0206.i.i.i, %248 ], [ %.sroa.33.0206.i.i.i, %205 ], [ %.sroa.33.0206.i.i.i, %242 ], [ %.sroa.33.0206.i.i.i, %255 ], [ %spec.select170.i.i.i, %261 ], [ %.sroa.33.0206.i.i.i, %267 ], [ %.sroa.33.0206.i.i.i, %273 ], [ %.sroa.33.0206.i.i.i, %280 ], [ %.sroa.33.0206.i.i.i, %172 ], [ %.sroa.33.0206.i.i.i, %.loopexit.i107 ], [ %.sroa.33.0206.i.i.i, %193 ], [ %.sroa.33.0206.i.i.i, %.loopexit.i99 ], [ %.sroa.33.0206.i.i.i, %293 ], [ %.sroa.33.0206.i.i.i, %.loopexit.i91 ]
+  %.sroa.37.1.i.i.i = phi ptr [ %.sroa.37.0207.i.i.i, %137 ], [ %.sroa.37.0207.i.i.i, %134 ], [ %.sroa.37.0207.i.i.i, %181 ], [ %.sroa.37.0207.i.i.i, %214 ], [ %.sroa.37.0207.i.i.i, %211 ], [ %.sroa.37.0207.i.i.i, %224 ], [ %.sroa.37.0207.i.i.i, %221 ], [ %.sroa.37.0207.i.i.i, %235 ], [ %.sroa.37.0207.i.i.i, %231 ], [ %.sroa.37.0207.i.i.i, %251 ], [ %.sroa.37.0207.i.i.i, %248 ], [ %spec.select164.i.i.i, %205 ], [ %.sroa.37.0207.i.i.i, %242 ], [ %.sroa.37.0207.i.i.i, %255 ], [ %.sroa.37.0207.i.i.i, %261 ], [ %.sroa.37.0207.i.i.i, %267 ], [ %.sroa.37.0207.i.i.i, %273 ], [ %.sroa.37.0207.i.i.i, %280 ], [ %.sroa.37.0207.i.i.i, %172 ], [ %.sroa.37.0207.i.i.i, %.loopexit.i107 ], [ %.sroa.37.0207.i.i.i, %193 ], [ %.sroa.37.0207.i.i.i, %.loopexit.i99 ], [ %.sroa.37.0207.i.i.i, %293 ], [ %.sroa.37.0207.i.i.i, %.loopexit.i91 ]
+  %.sroa.40.4.i.i.i = phi ptr [ %.sroa.40.3.i.i.i, %137 ], [ %.sroa.40.0208.i.i.i, %134 ], [ %.sroa.40.0208.i.i.i, %181 ], [ %.sroa.40.0208.i.i.i, %214 ], [ %.sroa.40.0208.i.i.i, %211 ], [ %.sroa.40.0208.i.i.i, %224 ], [ %.sroa.40.0208.i.i.i, %221 ], [ %.sroa.40.0208.i.i.i, %235 ], [ %.sroa.40.0208.i.i.i, %231 ], [ %.sroa.40.0208.i.i.i, %251 ], [ %.sroa.40.0208.i.i.i, %248 ], [ %.sroa.40.0208.i.i.i, %205 ], [ %.sroa.40.0208.i.i.i, %242 ], [ %.sroa.40.0208.i.i.i, %255 ], [ %.sroa.40.0208.i.i.i, %261 ], [ %.sroa.40.0208.i.i.i, %267 ], [ %.sroa.40.0208.i.i.i, %273 ], [ %.sroa.40.0208.i.i.i, %280 ], [ %.sroa.40.0208.i.i.i, %172 ], [ %.sroa.40.0208.i.i.i, %.loopexit.i107 ], [ %.sroa.40.0208.i.i.i, %193 ], [ %.sroa.40.0208.i.i.i, %.loopexit.i99 ], [ %.sroa.40.0208.i.i.i, %293 ], [ %.sroa.40.0208.i.i.i, %.loopexit.i91 ]
+  %.sroa.45.1.i.i.i = phi ptr [ %.sroa.45.0209.i.i.i, %137 ], [ %.sroa.45.0209.i.i.i, %134 ], [ %.sroa.45.0209.i.i.i, %181 ], [ %.sroa.45.0209.i.i.i, %214 ], [ %.sroa.45.0209.i.i.i, %211 ], [ %.sroa.45.0209.i.i.i, %224 ], [ %.sroa.45.0209.i.i.i, %221 ], [ %.sroa.45.0209.i.i.i, %235 ], [ %.sroa.45.0209.i.i.i, %231 ], [ %.sroa.45.0209.i.i.i, %251 ], [ %.sroa.45.0209.i.i.i, %248 ], [ %.sroa.45.0209.i.i.i, %205 ], [ %.sroa.45.0209.i.i.i, %242 ], [ %.sroa.45.0209.i.i.i, %255 ], [ %.sroa.45.0209.i.i.i, %261 ], [ %.sroa.45.0209.i.i.i, %267 ], [ %.sroa.45.0209.i.i.i, %273 ], [ %spec.select176.i.i.i, %280 ], [ %.sroa.45.0209.i.i.i, %172 ], [ %.sroa.45.0209.i.i.i, %.loopexit.i107 ], [ %.sroa.45.0209.i.i.i, %193 ], [ %.sroa.45.0209.i.i.i, %.loopexit.i99 ], [ %.sroa.45.0209.i.i.i, %293 ], [ %.sroa.45.0209.i.i.i, %.loopexit.i91 ]
+  %.sroa.48.1.i.i.i = phi ptr [ %.sroa.48.0210.i.i.i, %137 ], [ %.sroa.48.0210.i.i.i, %134 ], [ %.sroa.48.0210.i.i.i, %181 ], [ %.sroa.48.0210.i.i.i, %214 ], [ %.sroa.48.0210.i.i.i, %211 ], [ %.sroa.48.0210.i.i.i, %224 ], [ %.sroa.48.0210.i.i.i, %221 ], [ %.sroa.48.0210.i.i.i, %235 ], [ %.sroa.48.0210.i.i.i, %231 ], [ %.sroa.48.0210.i.i.i, %251 ], [ %.sroa.48.0210.i.i.i, %248 ], [ %.sroa.48.0210.i.i.i, %205 ], [ %.sroa.48.0210.i.i.i, %242 ], [ %.sroa.48.0210.i.i.i, %255 ], [ %.sroa.48.0210.i.i.i, %261 ], [ %.sroa.48.0210.i.i.i, %267 ], [ %spec.select174.i.i.i, %273 ], [ %.sroa.48.0210.i.i.i, %280 ], [ %.sroa.48.0210.i.i.i, %172 ], [ %.sroa.48.0210.i.i.i, %.loopexit.i107 ], [ %.sroa.48.0210.i.i.i, %193 ], [ %.sroa.48.0210.i.i.i, %.loopexit.i99 ], [ %.sroa.48.0210.i.i.i, %293 ], [ %.sroa.48.0210.i.i.i, %.loopexit.i91 ]
+  %.sroa.51.1.i.i.i = phi ptr [ %.sroa.51.0211.i.i.i, %137 ], [ %.sroa.51.0211.i.i.i, %134 ], [ %.sroa.51.0211.i.i.i, %181 ], [ %.sroa.51.0211.i.i.i, %214 ], [ %.sroa.51.0211.i.i.i, %211 ], [ %.sroa.51.0211.i.i.i, %224 ], [ %.sroa.51.0211.i.i.i, %221 ], [ %.sroa.51.0211.i.i.i, %235 ], [ %.sroa.51.0211.i.i.i, %231 ], [ %.sroa.51.0211.i.i.i, %251 ], [ %.sroa.51.0211.i.i.i, %248 ], [ %.sroa.51.0211.i.i.i, %205 ], [ %.sroa.51.0211.i.i.i, %242 ], [ %.sroa.51.0211.i.i.i, %255 ], [ %.sroa.51.0211.i.i.i, %261 ], [ %spec.select172.i.i.i, %267 ], [ %.sroa.51.0211.i.i.i, %273 ], [ %.sroa.51.0211.i.i.i, %280 ], [ %.sroa.51.0211.i.i.i, %172 ], [ %.sroa.51.0211.i.i.i, %.loopexit.i107 ], [ %.sroa.51.0211.i.i.i, %193 ], [ %.sroa.51.0211.i.i.i, %.loopexit.i99 ], [ %.sroa.51.0211.i.i.i, %293 ], [ %.sroa.51.0211.i.i.i, %.loopexit.i91 ]
+  %.1128.i.i.i = phi i32 [ 1, %137 ], [ %.0127212.i.i.i, %134 ], [ %.0127212.i.i.i, %181 ], [ 1, %214 ], [ %.0127212.i.i.i, %211 ], [ 1, %224 ], [ %.0127212.i.i.i, %221 ], [ 1, %235 ], [ %.0127212.i.i.i, %231 ], [ 1, %251 ], [ %.0127212.i.i.i, %248 ], [ %spec.select165.i.i.i, %205 ], [ %spec.select167.i.i.i, %242 ], [ %spec.select169.i.i.i, %255 ], [ %spec.select171.i.i.i, %261 ], [ %.0127212.i.i.i, %267 ], [ %.0127212.i.i.i, %273 ], [ %.0127212.i.i.i, %280 ], [ %.0127212.i.i.i, %172 ], [ %.0127212.i.i.i, %.loopexit.i107 ], [ %.0127212.i.i.i, %193 ], [ %.0127212.i.i.i, %.loopexit.i99 ], [ %.0127212.i.i.i, %293 ], [ %.0127212.i.i.i, %.loopexit.i91 ]
+  %.1126.i.i.i = phi i32 [ %.0125213.i.i.i, %137 ], [ %.0125213.i.i.i, %134 ], [ %.0125213.i.i.i, %181 ], [ %.0125213.i.i.i, %214 ], [ %.0125213.i.i.i, %211 ], [ %.0125213.i.i.i, %224 ], [ %.0125213.i.i.i, %221 ], [ %.0125213.i.i.i, %235 ], [ %.0125213.i.i.i, %231 ], [ %.0125213.i.i.i, %251 ], [ %.0125213.i.i.i, %248 ], [ %.0125213.i.i.i, %205 ], [ %.0125213.i.i.i, %242 ], [ %.0125213.i.i.i, %255 ], [ %.0125213.i.i.i, %261 ], [ %spec.select173.i.i.i, %267 ], [ %spec.select175.i.i.i, %273 ], [ %spec.select177.i.i.i, %280 ], [ 1, %172 ], [ 1, %.loopexit.i107 ], [ 1, %193 ], [ 1, %.loopexit.i99 ], [ %.0125213.i.i.i, %293 ], [ %.0125213.i.i.i, %.loopexit.i91 ]
+  %.1.i.i.i = phi ptr [ %.0214.i.i.i, %137 ], [ %.0214.i.i.i, %134 ], [ %.0214.i.i.i, %181 ], [ %.0214.i.i.i, %214 ], [ %.0214.i.i.i, %211 ], [ %.0214.i.i.i, %224 ], [ %.0214.i.i.i, %221 ], [ %.0214.i.i.i, %235 ], [ %.0214.i.i.i, %231 ], [ %.0214.i.i.i, %251 ], [ %.0214.i.i.i, %248 ], [ %.0214.i.i.i, %205 ], [ %.0214.i.i.i, %242 ], [ %.0214.i.i.i, %255 ], [ %.0214.i.i.i, %261 ], [ %.0214.i.i.i, %267 ], [ %.0214.i.i.i, %273 ], [ %.0214.i.i.i, %280 ], [ %161, %172 ], [ %161, %.loopexit.i107 ], [ %146, %193 ], [ %146, %.loopexit.i99 ], [ %.0214.i.i.i, %293 ], [ %.0214.i.i.i, %.loopexit.i91 ]
+  %302 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 1, ptr noundef nonnull %.0129204.i.i.i) #14
   %.not.i.i.i = icmp eq ptr %302, null
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %emitAttr.exit108
-  %.not130.i.i.i = icmp eq i32 %.1129.i.i.i, 0
+  %.not130.i.i.i = icmp eq i32 %.1128.i.i.i, 0
   br i1 %.not130.i.i.i, label %438, label %303
 
 303:                                              ; preds = %._crit_edge.i.i.i
@@ -1151,7 +1151,7 @@ emitAttr.exit52:                                  ; preds = %.loopexit.i51, %427
   br label %438
 
 438:                                              ; preds = %emitAttr.exit52, %._crit_edge.i.i.i
-  %.not141.i.i.i = icmp eq i32 %.1127.i.i.i, 0
+  %.not141.i.i.i = icmp eq i32 %.1126.i.i.i, 0
   br i1 %.not141.i.i.i, label %emitNode.exit.i, label %439
 
 439:                                              ; preds = %438
@@ -1444,47 +1444,47 @@ emitNode.exit.i:                                  ; preds = %emitAttr.exit20, %4
   br i1 %.not175.i.i.i, label %emitEdge.exit.i, label %.lr.ph.i.outer.i.i
 
 .lr.ph.i.outer.i.i:                               ; preds = %.lr.ph237.i, %.loopexit.i.i
-  %.0189.i.ph.i.i = phi ptr [ %667, %.loopexit.i.i ], [ %552, %.lr.ph237.i ]
-  %.0112188.i.ph.i.i = phi ptr [ %.1.i.i25.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
-  %.0113187.i.ph.i.i = phi i32 [ %.1114.i.i.i, %.loopexit.i.i ], [ 0, %.lr.ph237.i ]
-  %.0115186.i.ph.i.i = phi i32 [ %.1116.i.i.i, %.loopexit.i.i ], [ 0, %.lr.ph237.i ]
-  %.sroa.42.0185.i.ph.i.i = phi ptr [ %.sroa.42.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
-  %.sroa.39.0184.i.ph.i.i = phi ptr [ %.sroa.39.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
-  %.sroa.36.0183.i.ph.i.i = phi ptr [ %.sroa.36.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
-  %.sroa.33.0182.i.ph.i.i = phi ptr [ %.sroa.33.1.i.i24.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
-  %.sroa.30.0181.i.ph.i.i = phi ptr [ %.sroa.30.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
-  %.sroa.27.0180.i.ph.i.i = phi ptr [ %.sroa.27.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
-  %.sroa.21.0179.i.ph.i.i = phi ptr [ %.sroa.21.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
-  %.sroa.17.0178.i.ph.i.i = phi ptr [ %.sroa.17.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
-  %.sroa.1316.0177.i.ph.i.i = phi ptr [ %.sroa.1316.2.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.0189.i.ph.i.i = phi ptr [ %.1.i.i25.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.0112188.i.ph.i.i = phi i32 [ %.1113.i.i.i, %.loopexit.i.i ], [ 0, %.lr.ph237.i ]
+  %.0114187.i.ph.i.i = phi i32 [ %.1115.i.i.i, %.loopexit.i.i ], [ 0, %.lr.ph237.i ]
+  %.sroa.42.0186.i.ph.i.i = phi ptr [ %.sroa.42.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.39.0185.i.ph.i.i = phi ptr [ %.sroa.39.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.36.0184.i.ph.i.i = phi ptr [ %.sroa.36.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.33.0183.i.ph.i.i = phi ptr [ %.sroa.33.1.i.i24.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.30.0182.i.ph.i.i = phi ptr [ %.sroa.30.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.27.0181.i.ph.i.i = phi ptr [ %.sroa.27.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.21.0180.i.ph.i.i = phi ptr [ %.sroa.21.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.17.0179.i.ph.i.i = phi ptr [ %.sroa.17.1.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.sroa.1316.0178.i.ph.i.i = phi ptr [ %.sroa.1316.2.i.i.i, %.loopexit.i.i ], [ null, %.lr.ph237.i ]
+  %.0116177.i.ph.i.i = phi ptr [ %667, %.loopexit.i.i ], [ %552, %.lr.ph237.i ]
   %.sroa.0.0176.i.ph.i.i = phi i32 [ %.sroa.0.0176.i.i.i, %.loopexit.i.i ], [ 0, %.lr.ph237.i ]
   br label %.lr.ph.i.i23.i
 
 .lr.ph.i.i23.i:                                   ; preds = %.thread.i.i, %.lr.ph.i.outer.i.i
-  %.0189.i.i.i = phi ptr [ %670, %.thread.i.i ], [ %.0189.i.ph.i.i, %.lr.ph.i.outer.i.i ]
-  %.0115186.i.i.i = phi i32 [ 1, %.thread.i.i ], [ %.0115186.i.ph.i.i, %.lr.ph.i.outer.i.i ]
-  %.sroa.1316.0177.i.i.i = phi ptr [ %.sroa.1316.1.i.i.i, %.thread.i.i ], [ %.sroa.1316.0177.i.ph.i.i, %.lr.ph.i.outer.i.i ]
+  %.0114187.i.i.i = phi i32 [ 1, %.thread.i.i ], [ %.0114187.i.ph.i.i, %.lr.ph.i.outer.i.i ]
+  %.sroa.1316.0178.i.i.i = phi ptr [ %.sroa.1316.1.i.i.i, %.thread.i.i ], [ %.sroa.1316.0178.i.ph.i.i, %.lr.ph.i.outer.i.i ]
+  %.0116177.i.i.i = phi ptr [ %670, %.thread.i.i ], [ %.0116177.i.ph.i.i, %.lr.ph.i.outer.i.i ]
   %.sroa.0.0176.i.i.i = phi i32 [ %.sroa.0.4.i.i.i, %.thread.i.i ], [ %.sroa.0.0176.i.ph.i.i, %.lr.ph.i.outer.i.i ]
-  %553 = getelementptr inbounds i8, ptr %.0189.i.i.i, i64 16
+  %553 = getelementptr inbounds i8, ptr %.0116177.i.i.i, i64 16
   %554 = load ptr, ptr %553, align 8
   %555 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(6) @.str.22) #13
   %556 = icmp eq i32 %555, 0
   br i1 %556, label %557, label %560
 
 557:                                              ; preds = %.lr.ph.i.i23.i
-  %558 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %558 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0116177.i.i.i) #14
   %559 = load i8, ptr %558, align 1
   %.not145.i.i52.i = icmp eq i8 %559, 0
   br i1 %.not145.i.i52.i, label %.loopexit.i.i, label %.thread.i.i
 
 560:                                              ; preds = %.lr.ph.i.i23.i
-  %561 = getelementptr inbounds i8, ptr %.0189.i.i.i, i64 16
+  %561 = getelementptr inbounds i8, ptr %.0116177.i.i.i, i64 16
   %562 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(6) @.str.26) #13
   %563 = icmp eq i32 %562, 0
   br i1 %563, label %564, label %587
 
 564:                                              ; preds = %560
-  %565 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %565 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0116177.i.i.i) #14
   %566 = load i8, ptr %565, align 1
   %.not144.i.i.i = icmp eq i8 %566, 0
   br i1 %.not144.i.i.i, label %.loopexit.i.i, label %567
@@ -1548,11 +1548,11 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br i1 %589, label %590, label %593
 
 590:                                              ; preds = %587
-  %591 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %591 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0116177.i.i.i) #14
   %592 = load i8, ptr %591, align 1
   %.not143.i.i51.i = icmp eq i8 %592, 0
-  %spec.select151.i.i.i = select i1 %.not143.i.i51.i, ptr %.sroa.1316.0177.i.i.i, ptr %591
-  %spec.select152.i.i.i = select i1 %.not143.i.i51.i, i32 %.0115186.i.i.i, i32 1
+  %spec.select151.i.i.i = select i1 %.not143.i.i51.i, ptr %.sroa.1316.0178.i.i.i, ptr %591
+  %spec.select152.i.i.i = select i1 %.not143.i.i51.i, i32 %.0114187.i.i.i, i32 1
   br label %.loopexit.i.i
 
 593:                                              ; preds = %587
@@ -1561,11 +1561,11 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br i1 %595, label %596, label %599
 
 596:                                              ; preds = %593
-  %597 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %597 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0116177.i.i.i) #14
   %598 = load i8, ptr %597, align 1
   %.not142.i.i50.i = icmp eq i8 %598, 0
-  %spec.select153.i.i.i = select i1 %.not142.i.i50.i, ptr %.sroa.33.0182.i.ph.i.i, ptr %597
-  %spec.select154.i.i.i = select i1 %.not142.i.i50.i, i32 %.0115186.i.i.i, i32 1
+  %spec.select153.i.i.i = select i1 %.not142.i.i50.i, ptr %.sroa.33.0183.i.ph.i.i, ptr %597
+  %spec.select154.i.i.i = select i1 %.not142.i.i50.i, i32 %.0114187.i.i.i, i32 1
   br label %.loopexit.i.i
 
 599:                                              ; preds = %593
@@ -1574,11 +1574,11 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br i1 %601, label %602, label %605
 
 602:                                              ; preds = %599
-  %603 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %603 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0116177.i.i.i) #14
   %604 = load i8, ptr %603, align 1
   %.not141.i.i49.i = icmp eq i8 %604, 0
-  %spec.select155.i.i.i = select i1 %.not141.i.i49.i, ptr %.sroa.21.0179.i.ph.i.i, ptr %603
-  %spec.select156.i.i.i = select i1 %.not141.i.i49.i, i32 %.0115186.i.i.i, i32 1
+  %spec.select155.i.i.i = select i1 %.not141.i.i49.i, ptr %.sroa.21.0180.i.ph.i.i, ptr %603
+  %spec.select156.i.i.i = select i1 %.not141.i.i49.i, i32 %.0114187.i.i.i, i32 1
   br label %.loopexit.i.i
 
 605:                                              ; preds = %599
@@ -1587,11 +1587,11 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br i1 %607, label %608, label %611
 
 608:                                              ; preds = %605
-  %609 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %609 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0116177.i.i.i) #14
   %610 = load i8, ptr %609, align 1
   %.not140.i.i48.i = icmp eq i8 %610, 0
-  %spec.select157.i.i.i = select i1 %.not140.i.i48.i, ptr %.sroa.17.0178.i.ph.i.i, ptr %609
-  %spec.select158.i.i.i = select i1 %.not140.i.i48.i, i32 %.0115186.i.i.i, i32 1
+  %spec.select157.i.i.i = select i1 %.not140.i.i48.i, ptr %.sroa.17.0179.i.ph.i.i, ptr %609
+  %spec.select158.i.i.i = select i1 %.not140.i.i48.i, i32 %.0114187.i.i.i, i32 1
   br label %.loopexit.i.i
 
 611:                                              ; preds = %605
@@ -1600,11 +1600,11 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br i1 %613, label %614, label %617
 
 614:                                              ; preds = %611
-  %615 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %615 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0116177.i.i.i) #14
   %616 = load i8, ptr %615, align 1
   %.not139.i.i47.i = icmp eq i8 %616, 0
-  %spec.select159.i.i.i = select i1 %.not139.i.i47.i, ptr %.sroa.17.0178.i.ph.i.i, ptr %615
-  %spec.select160.i.i.i = select i1 %.not139.i.i47.i, i32 %.0115186.i.i.i, i32 1
+  %spec.select159.i.i.i = select i1 %.not139.i.i47.i, ptr %.sroa.17.0179.i.ph.i.i, ptr %615
+  %spec.select160.i.i.i = select i1 %.not139.i.i47.i, i32 %.0114187.i.i.i, i32 1
   br label %.loopexit.i.i
 
 617:                                              ; preds = %611
@@ -1613,11 +1613,11 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br i1 %619, label %620, label %623
 
 620:                                              ; preds = %617
-  %621 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %621 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0116177.i.i.i) #14
   %622 = load i8, ptr %621, align 1
   %.not138.i.i46.i = icmp eq i8 %622, 0
-  %spec.select161.i.i.i = select i1 %.not138.i.i46.i, ptr %.sroa.27.0180.i.ph.i.i, ptr %621
-  %spec.select162.i.i.i = select i1 %.not138.i.i46.i, i32 %.0115186.i.i.i, i32 1
+  %spec.select161.i.i.i = select i1 %.not138.i.i46.i, ptr %.sroa.27.0181.i.ph.i.i, ptr %621
+  %spec.select162.i.i.i = select i1 %.not138.i.i46.i, i32 %.0114187.i.i.i, i32 1
   br label %.loopexit.i.i
 
 623:                                              ; preds = %617
@@ -1626,11 +1626,11 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br i1 %625, label %626, label %629
 
 626:                                              ; preds = %623
-  %627 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %627 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0116177.i.i.i) #14
   %628 = load i8, ptr %627, align 1
   %.not137.i.i44.i = icmp eq i8 %628, 0
-  %spec.select163.i.i.i = select i1 %.not137.i.i44.i, ptr %.sroa.30.0181.i.ph.i.i, ptr %627
-  %spec.select164.i.i45.i = select i1 %.not137.i.i44.i, i32 %.0115186.i.i.i, i32 1
+  %spec.select163.i.i.i = select i1 %.not137.i.i44.i, ptr %.sroa.30.0182.i.ph.i.i, ptr %627
+  %spec.select164.i.i45.i = select i1 %.not137.i.i44.i, i32 %.0114187.i.i.i, i32 1
   br label %.loopexit.i.i
 
 629:                                              ; preds = %623
@@ -1639,11 +1639,11 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br i1 %631, label %632, label %635
 
 632:                                              ; preds = %629
-  %633 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %633 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0116177.i.i.i) #14
   %634 = load i8, ptr %633, align 1
   %.not136.i.i41.i = icmp eq i8 %634, 0
-  %spec.select165.i.i42.i = select i1 %.not136.i.i41.i, ptr %.sroa.42.0185.i.ph.i.i, ptr %633
-  %spec.select166.i.i43.i = select i1 %.not136.i.i41.i, i32 %.0113187.i.ph.i.i, i32 1
+  %spec.select165.i.i42.i = select i1 %.not136.i.i41.i, ptr %.sroa.42.0186.i.ph.i.i, ptr %633
+  %spec.select166.i.i43.i = select i1 %.not136.i.i41.i, i32 %.0112188.i.ph.i.i, i32 1
   br label %.loopexit.i.i
 
 635:                                              ; preds = %629
@@ -1652,24 +1652,24 @@ indent.exit.i143.i:                               ; preds = %.lr.ph.i.i140.i
   br i1 %637, label %638, label %641
 
 638:                                              ; preds = %635
-  %639 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %639 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0116177.i.i.i) #14
   %640 = load i8, ptr %639, align 1
   %.not135.i.i38.i = icmp eq i8 %640, 0
-  %spec.select167.i.i39.i = select i1 %.not135.i.i38.i, ptr %.sroa.39.0184.i.ph.i.i, ptr %639
-  %spec.select168.i.i40.i = select i1 %.not135.i.i38.i, i32 %.0113187.i.ph.i.i, i32 1
+  %spec.select167.i.i39.i = select i1 %.not135.i.i38.i, ptr %.sroa.39.0185.i.ph.i.i, ptr %639
+  %spec.select168.i.i40.i = select i1 %.not135.i.i38.i, i32 %.0112188.i.ph.i.i, i32 1
   br label %.loopexit.i.i
 
 641:                                              ; preds = %635
   %642 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %554, ptr noundef nonnull readonly dereferenceable(10) @.str.39) #13
   %643 = icmp eq i32 %642, 0
-  %644 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0189.i.i.i) #14
+  %644 = call ptr @agxget(ptr noundef nonnull %.0233.i, ptr noundef nonnull %.0116177.i.i.i) #14
   br i1 %643, label %645, label %647
 
 645:                                              ; preds = %641
   %646 = load i8, ptr %644, align 1
   %.not134.i.i35.i = icmp eq i8 %646, 0
-  %spec.select169.i.i36.i = select i1 %.not134.i.i35.i, ptr %.sroa.36.0183.i.ph.i.i, ptr %644
-  %spec.select170.i.i37.i = select i1 %.not134.i.i35.i, i32 %.0113187.i.ph.i.i, i32 1
+  %spec.select169.i.i36.i = select i1 %.not134.i.i35.i, ptr %.sroa.36.0184.i.ph.i.i, ptr %644
+  %spec.select170.i.i37.i = select i1 %.not134.i.i35.i, i32 %.0112188.i.ph.i.i, i32 1
   br label %.loopexit.i.i
 
 647:                                              ; preds = %641
@@ -1726,19 +1726,19 @@ indent.exit.i:                                    ; preds = %.lr.ph.i.i10
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %557, %.loopexit.i12, %658, %645, %638, %632, %626, %620, %614, %608, %602, %596, %590, %.loopexit.i146.i, %578, %564
-  %.sroa.1316.2.i.i.i = phi ptr [ %.sroa.1316.0177.i.i.i, %564 ], [ %spec.select151.i.i.i, %590 ], [ %.sroa.1316.0177.i.i.i, %596 ], [ %.sroa.1316.0177.i.i.i, %602 ], [ %.sroa.1316.0177.i.i.i, %608 ], [ %.sroa.1316.0177.i.i.i, %614 ], [ %.sroa.1316.0177.i.i.i, %620 ], [ %.sroa.1316.0177.i.i.i, %626 ], [ %.sroa.1316.0177.i.i.i, %632 ], [ %.sroa.1316.0177.i.i.i, %638 ], [ %.sroa.1316.0177.i.i.i, %645 ], [ %.sroa.1316.0177.i.i.i, %578 ], [ %.sroa.1316.0177.i.i.i, %.loopexit.i146.i ], [ %.sroa.1316.0177.i.i.i, %658 ], [ %.sroa.1316.0177.i.i.i, %.loopexit.i12 ], [ %.sroa.1316.0177.i.i.i, %557 ]
-  %.sroa.17.1.i.i.i = phi ptr [ %.sroa.17.0178.i.ph.i.i, %564 ], [ %.sroa.17.0178.i.ph.i.i, %590 ], [ %.sroa.17.0178.i.ph.i.i, %596 ], [ %.sroa.17.0178.i.ph.i.i, %602 ], [ %spec.select157.i.i.i, %608 ], [ %spec.select159.i.i.i, %614 ], [ %.sroa.17.0178.i.ph.i.i, %620 ], [ %.sroa.17.0178.i.ph.i.i, %626 ], [ %.sroa.17.0178.i.ph.i.i, %632 ], [ %.sroa.17.0178.i.ph.i.i, %638 ], [ %.sroa.17.0178.i.ph.i.i, %645 ], [ %.sroa.17.0178.i.ph.i.i, %578 ], [ %.sroa.17.0178.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.17.0178.i.ph.i.i, %658 ], [ %.sroa.17.0178.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.17.0178.i.ph.i.i, %557 ]
-  %.sroa.21.1.i.i.i = phi ptr [ %.sroa.21.0179.i.ph.i.i, %564 ], [ %.sroa.21.0179.i.ph.i.i, %590 ], [ %.sroa.21.0179.i.ph.i.i, %596 ], [ %spec.select155.i.i.i, %602 ], [ %.sroa.21.0179.i.ph.i.i, %608 ], [ %.sroa.21.0179.i.ph.i.i, %614 ], [ %.sroa.21.0179.i.ph.i.i, %620 ], [ %.sroa.21.0179.i.ph.i.i, %626 ], [ %.sroa.21.0179.i.ph.i.i, %632 ], [ %.sroa.21.0179.i.ph.i.i, %638 ], [ %.sroa.21.0179.i.ph.i.i, %645 ], [ %.sroa.21.0179.i.ph.i.i, %578 ], [ %.sroa.21.0179.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.21.0179.i.ph.i.i, %658 ], [ %.sroa.21.0179.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.21.0179.i.ph.i.i, %557 ]
-  %.sroa.27.1.i.i.i = phi ptr [ %.sroa.27.0180.i.ph.i.i, %564 ], [ %.sroa.27.0180.i.ph.i.i, %590 ], [ %.sroa.27.0180.i.ph.i.i, %596 ], [ %.sroa.27.0180.i.ph.i.i, %602 ], [ %.sroa.27.0180.i.ph.i.i, %608 ], [ %.sroa.27.0180.i.ph.i.i, %614 ], [ %spec.select161.i.i.i, %620 ], [ %.sroa.27.0180.i.ph.i.i, %626 ], [ %.sroa.27.0180.i.ph.i.i, %632 ], [ %.sroa.27.0180.i.ph.i.i, %638 ], [ %.sroa.27.0180.i.ph.i.i, %645 ], [ %.sroa.27.0180.i.ph.i.i, %578 ], [ %.sroa.27.0180.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.27.0180.i.ph.i.i, %658 ], [ %.sroa.27.0180.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.27.0180.i.ph.i.i, %557 ]
-  %.sroa.30.1.i.i.i = phi ptr [ %.sroa.30.0181.i.ph.i.i, %564 ], [ %.sroa.30.0181.i.ph.i.i, %590 ], [ %.sroa.30.0181.i.ph.i.i, %596 ], [ %.sroa.30.0181.i.ph.i.i, %602 ], [ %.sroa.30.0181.i.ph.i.i, %608 ], [ %.sroa.30.0181.i.ph.i.i, %614 ], [ %.sroa.30.0181.i.ph.i.i, %620 ], [ %spec.select163.i.i.i, %626 ], [ %.sroa.30.0181.i.ph.i.i, %632 ], [ %.sroa.30.0181.i.ph.i.i, %638 ], [ %.sroa.30.0181.i.ph.i.i, %645 ], [ %.sroa.30.0181.i.ph.i.i, %578 ], [ %.sroa.30.0181.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.30.0181.i.ph.i.i, %658 ], [ %.sroa.30.0181.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.30.0181.i.ph.i.i, %557 ]
-  %.sroa.33.1.i.i24.i = phi ptr [ %.sroa.33.0182.i.ph.i.i, %564 ], [ %.sroa.33.0182.i.ph.i.i, %590 ], [ %spec.select153.i.i.i, %596 ], [ %.sroa.33.0182.i.ph.i.i, %602 ], [ %.sroa.33.0182.i.ph.i.i, %608 ], [ %.sroa.33.0182.i.ph.i.i, %614 ], [ %.sroa.33.0182.i.ph.i.i, %620 ], [ %.sroa.33.0182.i.ph.i.i, %626 ], [ %.sroa.33.0182.i.ph.i.i, %632 ], [ %.sroa.33.0182.i.ph.i.i, %638 ], [ %.sroa.33.0182.i.ph.i.i, %645 ], [ %.sroa.33.0182.i.ph.i.i, %578 ], [ %.sroa.33.0182.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.33.0182.i.ph.i.i, %658 ], [ %.sroa.33.0182.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.33.0182.i.ph.i.i, %557 ]
-  %.sroa.36.1.i.i.i = phi ptr [ %.sroa.36.0183.i.ph.i.i, %564 ], [ %.sroa.36.0183.i.ph.i.i, %590 ], [ %.sroa.36.0183.i.ph.i.i, %596 ], [ %.sroa.36.0183.i.ph.i.i, %602 ], [ %.sroa.36.0183.i.ph.i.i, %608 ], [ %.sroa.36.0183.i.ph.i.i, %614 ], [ %.sroa.36.0183.i.ph.i.i, %620 ], [ %.sroa.36.0183.i.ph.i.i, %626 ], [ %.sroa.36.0183.i.ph.i.i, %632 ], [ %.sroa.36.0183.i.ph.i.i, %638 ], [ %spec.select169.i.i36.i, %645 ], [ %.sroa.36.0183.i.ph.i.i, %578 ], [ %.sroa.36.0183.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.36.0183.i.ph.i.i, %658 ], [ %.sroa.36.0183.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.36.0183.i.ph.i.i, %557 ]
-  %.sroa.39.1.i.i.i = phi ptr [ %.sroa.39.0184.i.ph.i.i, %564 ], [ %.sroa.39.0184.i.ph.i.i, %590 ], [ %.sroa.39.0184.i.ph.i.i, %596 ], [ %.sroa.39.0184.i.ph.i.i, %602 ], [ %.sroa.39.0184.i.ph.i.i, %608 ], [ %.sroa.39.0184.i.ph.i.i, %614 ], [ %.sroa.39.0184.i.ph.i.i, %620 ], [ %.sroa.39.0184.i.ph.i.i, %626 ], [ %.sroa.39.0184.i.ph.i.i, %632 ], [ %spec.select167.i.i39.i, %638 ], [ %.sroa.39.0184.i.ph.i.i, %645 ], [ %.sroa.39.0184.i.ph.i.i, %578 ], [ %.sroa.39.0184.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.39.0184.i.ph.i.i, %658 ], [ %.sroa.39.0184.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.39.0184.i.ph.i.i, %557 ]
-  %.sroa.42.1.i.i.i = phi ptr [ %.sroa.42.0185.i.ph.i.i, %564 ], [ %.sroa.42.0185.i.ph.i.i, %590 ], [ %.sroa.42.0185.i.ph.i.i, %596 ], [ %.sroa.42.0185.i.ph.i.i, %602 ], [ %.sroa.42.0185.i.ph.i.i, %608 ], [ %.sroa.42.0185.i.ph.i.i, %614 ], [ %.sroa.42.0185.i.ph.i.i, %620 ], [ %.sroa.42.0185.i.ph.i.i, %626 ], [ %spec.select165.i.i42.i, %632 ], [ %.sroa.42.0185.i.ph.i.i, %638 ], [ %.sroa.42.0185.i.ph.i.i, %645 ], [ %.sroa.42.0185.i.ph.i.i, %578 ], [ %.sroa.42.0185.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.42.0185.i.ph.i.i, %658 ], [ %.sroa.42.0185.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.42.0185.i.ph.i.i, %557 ]
-  %.1116.i.i.i = phi i32 [ %.0115186.i.i.i, %564 ], [ %spec.select152.i.i.i, %590 ], [ %spec.select154.i.i.i, %596 ], [ %spec.select156.i.i.i, %602 ], [ %spec.select158.i.i.i, %608 ], [ %spec.select160.i.i.i, %614 ], [ %spec.select162.i.i.i, %620 ], [ %spec.select164.i.i45.i, %626 ], [ %.0115186.i.i.i, %632 ], [ %.0115186.i.i.i, %638 ], [ %.0115186.i.i.i, %645 ], [ %.0115186.i.i.i, %578 ], [ %.0115186.i.i.i, %.loopexit.i146.i ], [ %.0115186.i.i.i, %658 ], [ %.0115186.i.i.i, %.loopexit.i12 ], [ %.0115186.i.i.i, %557 ]
-  %.1114.i.i.i = phi i32 [ %.0113187.i.ph.i.i, %564 ], [ %.0113187.i.ph.i.i, %590 ], [ %.0113187.i.ph.i.i, %596 ], [ %.0113187.i.ph.i.i, %602 ], [ %.0113187.i.ph.i.i, %608 ], [ %.0113187.i.ph.i.i, %614 ], [ %.0113187.i.ph.i.i, %620 ], [ %.0113187.i.ph.i.i, %626 ], [ %spec.select166.i.i43.i, %632 ], [ %spec.select168.i.i40.i, %638 ], [ %spec.select170.i.i37.i, %645 ], [ 1, %578 ], [ 1, %.loopexit.i146.i ], [ %.0113187.i.ph.i.i, %658 ], [ %.0113187.i.ph.i.i, %.loopexit.i12 ], [ %.0113187.i.ph.i.i, %557 ]
-  %.1.i.i25.i = phi ptr [ %.0112188.i.ph.i.i, %564 ], [ %.0112188.i.ph.i.i, %590 ], [ %.0112188.i.ph.i.i, %596 ], [ %.0112188.i.ph.i.i, %602 ], [ %.0112188.i.ph.i.i, %608 ], [ %.0112188.i.ph.i.i, %614 ], [ %.0112188.i.ph.i.i, %620 ], [ %.0112188.i.ph.i.i, %626 ], [ %.0112188.i.ph.i.i, %632 ], [ %.0112188.i.ph.i.i, %638 ], [ %.0112188.i.ph.i.i, %645 ], [ %565, %578 ], [ %565, %.loopexit.i146.i ], [ %.0112188.i.ph.i.i, %658 ], [ %.0112188.i.ph.i.i, %.loopexit.i12 ], [ %.0112188.i.ph.i.i, %557 ]
-  %667 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 2, ptr noundef nonnull %.0189.i.i.i) #14
+  %.sroa.1316.2.i.i.i = phi ptr [ %.sroa.1316.0178.i.i.i, %564 ], [ %spec.select151.i.i.i, %590 ], [ %.sroa.1316.0178.i.i.i, %596 ], [ %.sroa.1316.0178.i.i.i, %602 ], [ %.sroa.1316.0178.i.i.i, %608 ], [ %.sroa.1316.0178.i.i.i, %614 ], [ %.sroa.1316.0178.i.i.i, %620 ], [ %.sroa.1316.0178.i.i.i, %626 ], [ %.sroa.1316.0178.i.i.i, %632 ], [ %.sroa.1316.0178.i.i.i, %638 ], [ %.sroa.1316.0178.i.i.i, %645 ], [ %.sroa.1316.0178.i.i.i, %578 ], [ %.sroa.1316.0178.i.i.i, %.loopexit.i146.i ], [ %.sroa.1316.0178.i.i.i, %658 ], [ %.sroa.1316.0178.i.i.i, %.loopexit.i12 ], [ %.sroa.1316.0178.i.i.i, %557 ]
+  %.sroa.17.1.i.i.i = phi ptr [ %.sroa.17.0179.i.ph.i.i, %564 ], [ %.sroa.17.0179.i.ph.i.i, %590 ], [ %.sroa.17.0179.i.ph.i.i, %596 ], [ %.sroa.17.0179.i.ph.i.i, %602 ], [ %spec.select157.i.i.i, %608 ], [ %spec.select159.i.i.i, %614 ], [ %.sroa.17.0179.i.ph.i.i, %620 ], [ %.sroa.17.0179.i.ph.i.i, %626 ], [ %.sroa.17.0179.i.ph.i.i, %632 ], [ %.sroa.17.0179.i.ph.i.i, %638 ], [ %.sroa.17.0179.i.ph.i.i, %645 ], [ %.sroa.17.0179.i.ph.i.i, %578 ], [ %.sroa.17.0179.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.17.0179.i.ph.i.i, %658 ], [ %.sroa.17.0179.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.17.0179.i.ph.i.i, %557 ]
+  %.sroa.21.1.i.i.i = phi ptr [ %.sroa.21.0180.i.ph.i.i, %564 ], [ %.sroa.21.0180.i.ph.i.i, %590 ], [ %.sroa.21.0180.i.ph.i.i, %596 ], [ %spec.select155.i.i.i, %602 ], [ %.sroa.21.0180.i.ph.i.i, %608 ], [ %.sroa.21.0180.i.ph.i.i, %614 ], [ %.sroa.21.0180.i.ph.i.i, %620 ], [ %.sroa.21.0180.i.ph.i.i, %626 ], [ %.sroa.21.0180.i.ph.i.i, %632 ], [ %.sroa.21.0180.i.ph.i.i, %638 ], [ %.sroa.21.0180.i.ph.i.i, %645 ], [ %.sroa.21.0180.i.ph.i.i, %578 ], [ %.sroa.21.0180.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.21.0180.i.ph.i.i, %658 ], [ %.sroa.21.0180.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.21.0180.i.ph.i.i, %557 ]
+  %.sroa.27.1.i.i.i = phi ptr [ %.sroa.27.0181.i.ph.i.i, %564 ], [ %.sroa.27.0181.i.ph.i.i, %590 ], [ %.sroa.27.0181.i.ph.i.i, %596 ], [ %.sroa.27.0181.i.ph.i.i, %602 ], [ %.sroa.27.0181.i.ph.i.i, %608 ], [ %.sroa.27.0181.i.ph.i.i, %614 ], [ %spec.select161.i.i.i, %620 ], [ %.sroa.27.0181.i.ph.i.i, %626 ], [ %.sroa.27.0181.i.ph.i.i, %632 ], [ %.sroa.27.0181.i.ph.i.i, %638 ], [ %.sroa.27.0181.i.ph.i.i, %645 ], [ %.sroa.27.0181.i.ph.i.i, %578 ], [ %.sroa.27.0181.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.27.0181.i.ph.i.i, %658 ], [ %.sroa.27.0181.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.27.0181.i.ph.i.i, %557 ]
+  %.sroa.30.1.i.i.i = phi ptr [ %.sroa.30.0182.i.ph.i.i, %564 ], [ %.sroa.30.0182.i.ph.i.i, %590 ], [ %.sroa.30.0182.i.ph.i.i, %596 ], [ %.sroa.30.0182.i.ph.i.i, %602 ], [ %.sroa.30.0182.i.ph.i.i, %608 ], [ %.sroa.30.0182.i.ph.i.i, %614 ], [ %.sroa.30.0182.i.ph.i.i, %620 ], [ %spec.select163.i.i.i, %626 ], [ %.sroa.30.0182.i.ph.i.i, %632 ], [ %.sroa.30.0182.i.ph.i.i, %638 ], [ %.sroa.30.0182.i.ph.i.i, %645 ], [ %.sroa.30.0182.i.ph.i.i, %578 ], [ %.sroa.30.0182.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.30.0182.i.ph.i.i, %658 ], [ %.sroa.30.0182.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.30.0182.i.ph.i.i, %557 ]
+  %.sroa.33.1.i.i24.i = phi ptr [ %.sroa.33.0183.i.ph.i.i, %564 ], [ %.sroa.33.0183.i.ph.i.i, %590 ], [ %spec.select153.i.i.i, %596 ], [ %.sroa.33.0183.i.ph.i.i, %602 ], [ %.sroa.33.0183.i.ph.i.i, %608 ], [ %.sroa.33.0183.i.ph.i.i, %614 ], [ %.sroa.33.0183.i.ph.i.i, %620 ], [ %.sroa.33.0183.i.ph.i.i, %626 ], [ %.sroa.33.0183.i.ph.i.i, %632 ], [ %.sroa.33.0183.i.ph.i.i, %638 ], [ %.sroa.33.0183.i.ph.i.i, %645 ], [ %.sroa.33.0183.i.ph.i.i, %578 ], [ %.sroa.33.0183.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.33.0183.i.ph.i.i, %658 ], [ %.sroa.33.0183.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.33.0183.i.ph.i.i, %557 ]
+  %.sroa.36.1.i.i.i = phi ptr [ %.sroa.36.0184.i.ph.i.i, %564 ], [ %.sroa.36.0184.i.ph.i.i, %590 ], [ %.sroa.36.0184.i.ph.i.i, %596 ], [ %.sroa.36.0184.i.ph.i.i, %602 ], [ %.sroa.36.0184.i.ph.i.i, %608 ], [ %.sroa.36.0184.i.ph.i.i, %614 ], [ %.sroa.36.0184.i.ph.i.i, %620 ], [ %.sroa.36.0184.i.ph.i.i, %626 ], [ %.sroa.36.0184.i.ph.i.i, %632 ], [ %.sroa.36.0184.i.ph.i.i, %638 ], [ %spec.select169.i.i36.i, %645 ], [ %.sroa.36.0184.i.ph.i.i, %578 ], [ %.sroa.36.0184.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.36.0184.i.ph.i.i, %658 ], [ %.sroa.36.0184.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.36.0184.i.ph.i.i, %557 ]
+  %.sroa.39.1.i.i.i = phi ptr [ %.sroa.39.0185.i.ph.i.i, %564 ], [ %.sroa.39.0185.i.ph.i.i, %590 ], [ %.sroa.39.0185.i.ph.i.i, %596 ], [ %.sroa.39.0185.i.ph.i.i, %602 ], [ %.sroa.39.0185.i.ph.i.i, %608 ], [ %.sroa.39.0185.i.ph.i.i, %614 ], [ %.sroa.39.0185.i.ph.i.i, %620 ], [ %.sroa.39.0185.i.ph.i.i, %626 ], [ %.sroa.39.0185.i.ph.i.i, %632 ], [ %spec.select167.i.i39.i, %638 ], [ %.sroa.39.0185.i.ph.i.i, %645 ], [ %.sroa.39.0185.i.ph.i.i, %578 ], [ %.sroa.39.0185.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.39.0185.i.ph.i.i, %658 ], [ %.sroa.39.0185.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.39.0185.i.ph.i.i, %557 ]
+  %.sroa.42.1.i.i.i = phi ptr [ %.sroa.42.0186.i.ph.i.i, %564 ], [ %.sroa.42.0186.i.ph.i.i, %590 ], [ %.sroa.42.0186.i.ph.i.i, %596 ], [ %.sroa.42.0186.i.ph.i.i, %602 ], [ %.sroa.42.0186.i.ph.i.i, %608 ], [ %.sroa.42.0186.i.ph.i.i, %614 ], [ %.sroa.42.0186.i.ph.i.i, %620 ], [ %.sroa.42.0186.i.ph.i.i, %626 ], [ %spec.select165.i.i42.i, %632 ], [ %.sroa.42.0186.i.ph.i.i, %638 ], [ %.sroa.42.0186.i.ph.i.i, %645 ], [ %.sroa.42.0186.i.ph.i.i, %578 ], [ %.sroa.42.0186.i.ph.i.i, %.loopexit.i146.i ], [ %.sroa.42.0186.i.ph.i.i, %658 ], [ %.sroa.42.0186.i.ph.i.i, %.loopexit.i12 ], [ %.sroa.42.0186.i.ph.i.i, %557 ]
+  %.1115.i.i.i = phi i32 [ %.0114187.i.i.i, %564 ], [ %spec.select152.i.i.i, %590 ], [ %spec.select154.i.i.i, %596 ], [ %spec.select156.i.i.i, %602 ], [ %spec.select158.i.i.i, %608 ], [ %spec.select160.i.i.i, %614 ], [ %spec.select162.i.i.i, %620 ], [ %spec.select164.i.i45.i, %626 ], [ %.0114187.i.i.i, %632 ], [ %.0114187.i.i.i, %638 ], [ %.0114187.i.i.i, %645 ], [ %.0114187.i.i.i, %578 ], [ %.0114187.i.i.i, %.loopexit.i146.i ], [ %.0114187.i.i.i, %658 ], [ %.0114187.i.i.i, %.loopexit.i12 ], [ %.0114187.i.i.i, %557 ]
+  %.1113.i.i.i = phi i32 [ %.0112188.i.ph.i.i, %564 ], [ %.0112188.i.ph.i.i, %590 ], [ %.0112188.i.ph.i.i, %596 ], [ %.0112188.i.ph.i.i, %602 ], [ %.0112188.i.ph.i.i, %608 ], [ %.0112188.i.ph.i.i, %614 ], [ %.0112188.i.ph.i.i, %620 ], [ %.0112188.i.ph.i.i, %626 ], [ %spec.select166.i.i43.i, %632 ], [ %spec.select168.i.i40.i, %638 ], [ %spec.select170.i.i37.i, %645 ], [ 1, %578 ], [ 1, %.loopexit.i146.i ], [ %.0112188.i.ph.i.i, %658 ], [ %.0112188.i.ph.i.i, %.loopexit.i12 ], [ %.0112188.i.ph.i.i, %557 ]
+  %.1.i.i25.i = phi ptr [ %.0189.i.ph.i.i, %564 ], [ %.0189.i.ph.i.i, %590 ], [ %.0189.i.ph.i.i, %596 ], [ %.0189.i.ph.i.i, %602 ], [ %.0189.i.ph.i.i, %608 ], [ %.0189.i.ph.i.i, %614 ], [ %.0189.i.ph.i.i, %620 ], [ %.0189.i.ph.i.i, %626 ], [ %.0189.i.ph.i.i, %632 ], [ %.0189.i.ph.i.i, %638 ], [ %.0189.i.ph.i.i, %645 ], [ %565, %578 ], [ %565, %.loopexit.i146.i ], [ %.0189.i.ph.i.i, %658 ], [ %.0189.i.ph.i.i, %.loopexit.i12 ], [ %.0189.i.ph.i.i, %557 ]
+  %667 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 2, ptr noundef nonnull %.0116177.i.i.i) #14
   %.not.i.i26.i = icmp eq ptr %667, null
   br i1 %.not.i.i26.i, label %._crit_edge.i.i27.i, label %.lr.ph.i.outer.i.i
 
@@ -1747,28 +1747,28 @@ indent.exit.i:                                    ; preds = %.lr.ph.i.i10
   %.sroa.0.4.i.i.i = or i32 %668, %.sroa.0.0176.i.i.i
   %669 = and i32 %668, 256
   %.not150.i.i53.i = icmp eq i32 %669, 0
-  %.sroa.1316.1.i.i.i = select i1 %.not150.i.i53.i, ptr %.sroa.1316.0177.i.i.i, ptr @.str.67
-  %670 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 2, ptr noundef nonnull %.0189.i.i.i) #14
+  %.sroa.1316.1.i.i.i = select i1 %.not150.i.i53.i, ptr %.sroa.1316.0178.i.i.i, ptr @.str.67
+  %670 = call ptr @agnxtattr(ptr noundef nonnull %86, i32 noundef 2, ptr noundef nonnull %.0116177.i.i.i) #14
   %.not.i23.i.i = icmp eq ptr %670, null
   br i1 %.not.i23.i.i, label %._crit_edge.i.thread.i.i, label %.lr.ph.i.i23.i
 
 ._crit_edge.i.i27.i:                              ; preds = %.loopexit.i.i
-  %.not117.i.i.i = icmp eq i32 %.1116.i.i.i, 0
+  %.not117.i.i.i = icmp eq i32 %.1115.i.i.i, 0
   br i1 %.not117.i.i.i, label %900, label %._crit_edge.i.thread.i.i
 
 ._crit_edge.i.thread.i.i:                         ; preds = %.thread.i.i, %._crit_edge.i.i27.i
   %.sroa.0.5.i2467.i.i = phi i32 [ %.sroa.0.0176.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.0.4.i.i.i, %.thread.i.i ]
   %.sroa.1316.2.i2566.i.i = phi ptr [ %.sroa.1316.2.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.1316.1.i.i.i, %.thread.i.i ]
-  %.sroa.17.1.i2665.i.i = phi ptr [ %.sroa.17.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.17.0178.i.ph.i.i, %.thread.i.i ]
-  %.sroa.21.1.i2764.i.i = phi ptr [ %.sroa.21.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.21.0179.i.ph.i.i, %.thread.i.i ]
-  %.sroa.27.1.i2863.i.i = phi ptr [ %.sroa.27.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.27.0180.i.ph.i.i, %.thread.i.i ]
-  %.sroa.30.1.i2962.i.i = phi ptr [ %.sroa.30.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.30.0181.i.ph.i.i, %.thread.i.i ]
-  %.sroa.33.1.i3061.i.i = phi ptr [ %.sroa.33.1.i.i24.i, %._crit_edge.i.i27.i ], [ %.sroa.33.0182.i.ph.i.i, %.thread.i.i ]
-  %.sroa.36.1.i3159.i.i = phi ptr [ %.sroa.36.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.36.0183.i.ph.i.i, %.thread.i.i ]
-  %.sroa.39.1.i3257.i.i = phi ptr [ %.sroa.39.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.39.0184.i.ph.i.i, %.thread.i.i ]
-  %.sroa.42.1.i3355.i.i = phi ptr [ %.sroa.42.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.42.0185.i.ph.i.i, %.thread.i.i ]
-  %.1114.i3553.i.i = phi i32 [ %.1114.i.i.i, %._crit_edge.i.i27.i ], [ %.0113187.i.ph.i.i, %.thread.i.i ]
-  %.1.i3651.i.i = phi ptr [ %.1.i.i25.i, %._crit_edge.i.i27.i ], [ %.0112188.i.ph.i.i, %.thread.i.i ]
+  %.sroa.17.1.i2665.i.i = phi ptr [ %.sroa.17.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.17.0179.i.ph.i.i, %.thread.i.i ]
+  %.sroa.21.1.i2764.i.i = phi ptr [ %.sroa.21.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.21.0180.i.ph.i.i, %.thread.i.i ]
+  %.sroa.27.1.i2863.i.i = phi ptr [ %.sroa.27.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.27.0181.i.ph.i.i, %.thread.i.i ]
+  %.sroa.30.1.i2962.i.i = phi ptr [ %.sroa.30.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.30.0182.i.ph.i.i, %.thread.i.i ]
+  %.sroa.33.1.i3061.i.i = phi ptr [ %.sroa.33.1.i.i24.i, %._crit_edge.i.i27.i ], [ %.sroa.33.0183.i.ph.i.i, %.thread.i.i ]
+  %.sroa.36.1.i3159.i.i = phi ptr [ %.sroa.36.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.36.0184.i.ph.i.i, %.thread.i.i ]
+  %.sroa.39.1.i3257.i.i = phi ptr [ %.sroa.39.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.39.0185.i.ph.i.i, %.thread.i.i ]
+  %.sroa.42.1.i3355.i.i = phi ptr [ %.sroa.42.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.42.0186.i.ph.i.i, %.thread.i.i ]
+  %.1113.i3553.i.i = phi i32 [ %.1113.i.i.i, %._crit_edge.i.i27.i ], [ %.0112188.i.ph.i.i, %.thread.i.i ]
+  %.1.i3651.i.i = phi ptr [ %.1.i.i25.i, %._crit_edge.i.i27.i ], [ %.0189.i.ph.i.i, %.thread.i.i ]
   %671 = load ptr, ptr @outFile, align 8
   %672 = call i64 @fwrite(ptr nonnull @.str.40, i64 15, i64 1, ptr %671)
   %.not118.i.i.i = icmp eq ptr %.sroa.33.1.i3061.i.i, null
@@ -2464,9 +2464,9 @@ emitAttr.exit88.i:                                ; preds = %.loopexit.i87.i, %8
   %.sroa.36.1.i3160.i.i = phi ptr [ %.sroa.36.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.36.1.i3159.i.i, %emitAttr.exit88.i ]
   %.sroa.39.1.i3258.i.i = phi ptr [ %.sroa.39.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.39.1.i3257.i.i, %emitAttr.exit88.i ]
   %.sroa.42.1.i3356.i.i = phi ptr [ %.sroa.42.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.42.1.i3355.i.i, %emitAttr.exit88.i ]
-  %.1114.i3554.i.i = phi i32 [ %.1114.i.i.i, %._crit_edge.i.i27.i ], [ %.1114.i3553.i.i, %emitAttr.exit88.i ]
+  %.1113.i3554.i.i = phi i32 [ %.1113.i.i.i, %._crit_edge.i.i27.i ], [ %.1113.i3553.i.i, %emitAttr.exit88.i ]
   %.1.i3652.i.i = phi ptr [ %.1.i.i25.i, %._crit_edge.i.i27.i ], [ %.1.i3651.i.i, %emitAttr.exit88.i ]
-  %.not128.i.i.i = icmp eq i32 %.1114.i3554.i.i, 0
+  %.not128.i.i.i = icmp eq i32 %.1113.i3554.i.i, 0
   br i1 %.not128.i.i.i, label %emitEdge.exit.i, label %901
 
 901:                                              ; preds = %900

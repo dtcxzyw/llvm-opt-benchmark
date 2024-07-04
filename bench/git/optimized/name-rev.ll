@@ -693,16 +693,16 @@ while.body.lr.ph.i.i:                             ; preds = %if.end12.i.i
   br label %while.body.i.i
 
 while.cond.loopexit.i.i:                          ; preds = %while.body62.i.i, %while.cond60.preheader.i.i, %get_commit_rev_name.exit.i.i
-  %parents_to_queue.1.lcssa118.i.i = phi ptr [ %parents_to_queue.3.i.i, %while.cond60.preheader.i.i ], [ %parents_to_queue.0109.i.i, %get_commit_rev_name.exit.i.i ], [ %parents_to_queue.3.i.i, %while.body62.i.i ]
-  %parents_to_queue_alloc.1.lcssa117.i.i = phi i64 [ %parents_to_queue_alloc.4.i.i, %while.cond60.preheader.i.i ], [ %parents_to_queue_alloc.0108.i.i, %get_commit_rev_name.exit.i.i ], [ %parents_to_queue_alloc.4.i.i, %while.body62.i.i ]
+  %parents_to_queue_alloc.1.lcssa118.i.i = phi i64 [ %parents_to_queue_alloc.4.i.i, %while.cond60.preheader.i.i ], [ %parents_to_queue_alloc.0109.i.i, %get_commit_rev_name.exit.i.i ], [ %parents_to_queue_alloc.4.i.i, %while.body62.i.i ]
+  %parents_to_queue.1.lcssa117.i.i = phi ptr [ %parents_to_queue.3.i.i, %while.cond60.preheader.i.i ], [ %parents_to_queue.0108.i.i, %get_commit_rev_name.exit.i.i ], [ %parents_to_queue.3.i.i, %while.body62.i.i ]
   %call13.i.i = call ptr @prio_queue_get(ptr noundef nonnull %queue.i.i) #16
   %tobool14.not.i.i = icmp eq ptr %call13.i.i, null
   br i1 %tobool14.not.i.i, label %while.end64.i.i, label %while.body.i.i, !llvm.loop !8
 
 while.body.i.i:                                   ; preds = %while.cond.loopexit.i.i, %while.body.lr.ph.i.i
   %call13110.i.i = phi ptr [ %call13106.i.i, %while.body.lr.ph.i.i ], [ %call13.i.i, %while.cond.loopexit.i.i ]
-  %parents_to_queue.0109.i.i = phi ptr [ null, %while.body.lr.ph.i.i ], [ %parents_to_queue.1.lcssa118.i.i, %while.cond.loopexit.i.i ]
-  %parents_to_queue_alloc.0108.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %parents_to_queue_alloc.1.lcssa117.i.i, %while.cond.loopexit.i.i ]
+  %parents_to_queue_alloc.0109.i.i = phi i64 [ 0, %while.body.lr.ph.i.i ], [ %parents_to_queue_alloc.1.lcssa118.i.i, %while.cond.loopexit.i.i ]
+  %parents_to_queue.0108.i.i = phi ptr [ null, %while.body.lr.ph.i.i ], [ %parents_to_queue.1.lcssa117.i.i, %while.cond.loopexit.i.i ]
   %50 = getelementptr i8, ptr %call13110.i.i, i64 64
   %call13.val.i.i = load i32, ptr %50, align 8
   %div.i.i.i.i.i = udiv i32 %call13.val.i.i, 16383
@@ -749,9 +749,9 @@ while.cond60.preheader.i.i:                       ; preds = %for.inc.i.i
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 1, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %parents.0101.i.i = phi ptr [ %parents.093.i.i, %for.body.lr.ph.i.i ], [ %parents.0.i.i, %for.inc.i.i ]
-  %parents_to_queue.1100.i.i = phi ptr [ %parents_to_queue.0109.i.i, %for.body.lr.ph.i.i ], [ %parents_to_queue.3.i.i, %for.inc.i.i ]
-  %parents_to_queue_nr.099.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %parents_to_queue_nr.1.i.i, %for.inc.i.i ]
-  %parents_to_queue_alloc.195.i.i = phi i64 [ %parents_to_queue_alloc.0108.i.i, %for.body.lr.ph.i.i ], [ %parents_to_queue_alloc.4.i.i, %for.inc.i.i ]
+  %parents_to_queue_alloc.197.i.i = phi i64 [ %parents_to_queue_alloc.0109.i.i, %for.body.lr.ph.i.i ], [ %parents_to_queue_alloc.4.i.i, %for.inc.i.i ]
+  %parents_to_queue_nr.096.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %parents_to_queue_nr.1.i.i, %for.inc.i.i ]
+  %parents_to_queue.195.i.i = phi ptr [ %parents_to_queue.0108.i.i, %for.body.lr.ph.i.i ], [ %parents_to_queue.3.i.i, %for.inc.i.i ]
   %56 = load ptr, ptr %parents.0101.i.i, align 8
   %57 = load ptr, ptr @the_repository, align 8
   %call.i39.i.i = call i32 @repo_parse_commit_gently(ptr noundef %57, ptr noundef %56, i32 noundef 0) #16
@@ -1000,12 +1000,12 @@ if.else38.i.i:                                    ; preds = %create_or_update_na
 do.body.i.i:                                      ; preds = %if.else38.i.i, %get_parent_name.exit.i.i
   %storemerge36.i.i = phi ptr [ %84, %if.else38.i.i ], [ %call20.i.i.i, %get_parent_name.exit.i.i ]
   store ptr %storemerge36.i.i, ptr %arrayidx35.i.i10.i.i.i, align 8
-  %add42.i.i = add i64 %parents_to_queue_nr.099.i.i, 1
-  %cmp43.i.i = icmp ugt i64 %add42.i.i, %parents_to_queue_alloc.195.i.i
+  %add42.i.i = add i64 %parents_to_queue_nr.096.i.i, 1
+  %cmp43.i.i = icmp ugt i64 %add42.i.i, %parents_to_queue_alloc.197.i.i
   br i1 %cmp43.i.i, label %if.then44.i.i, label %do.end.i.i
 
 if.then44.i.i:                                    ; preds = %do.body.i.i
-  %85 = mul i64 %parents_to_queue_alloc.195.i.i, 3
+  %85 = mul i64 %parents_to_queue_alloc.197.i.i, 3
   %mul.i.i = add i64 %85, 48
   %div37.i.i = lshr i64 %mul.i.i, 1
   %add42.div37.i.i = call i64 @llvm.umax.i64(i64 %div37.i.i, i64 %add42.i.i)
@@ -1018,20 +1018,20 @@ if.then.i71.i.i:                                  ; preds = %if.then44.i.i
 
 st_mult.exit.i.i:                                 ; preds = %if.then44.i.i
   %mul.i.i.i = shl nuw i64 %add42.div37.i.i, 3
-  %call56.i.i = call ptr @xrealloc(ptr noundef %parents_to_queue.1100.i.i, i64 noundef %mul.i.i.i) #16
+  %call56.i.i = call ptr @xrealloc(ptr noundef %parents_to_queue.195.i.i, i64 noundef %mul.i.i.i) #16
   br label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %st_mult.exit.i.i, %do.body.i.i
-  %parents_to_queue_alloc.3.i.i = phi i64 [ %add42.div37.i.i, %st_mult.exit.i.i ], [ %parents_to_queue_alloc.195.i.i, %do.body.i.i ]
-  %parents_to_queue.2.i.i = phi ptr [ %call56.i.i, %st_mult.exit.i.i ], [ %parents_to_queue.1100.i.i, %do.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %parents_to_queue.2.i.i, i64 %parents_to_queue_nr.099.i.i
+  %parents_to_queue.2.i.i = phi ptr [ %call56.i.i, %st_mult.exit.i.i ], [ %parents_to_queue.195.i.i, %do.body.i.i ]
+  %parents_to_queue_alloc.3.i.i = phi i64 [ %add42.div37.i.i, %st_mult.exit.i.i ], [ %parents_to_queue_alloc.197.i.i, %do.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr %parents_to_queue.2.i.i, i64 %parents_to_queue_nr.096.i.i
   store ptr %56, ptr %arrayidx.i.i, align 8
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %do.end.i.i, %create_or_update_name.exit.i.i, %is_better_name.exit.i.i.i, %if.end16.i.i.i.i, %commit_is_before_cutoff.exit51.i.i, %if.end.i41.i.i
-  %parents_to_queue_alloc.4.i.i = phi i64 [ %parents_to_queue_alloc.195.i.i, %commit_is_before_cutoff.exit51.i.i ], [ %parents_to_queue_alloc.3.i.i, %do.end.i.i ], [ %parents_to_queue_alloc.195.i.i, %create_or_update_name.exit.i.i ], [ %parents_to_queue_alloc.195.i.i, %is_better_name.exit.i.i.i ], [ %parents_to_queue_alloc.195.i.i, %if.end16.i.i.i.i ], [ %parents_to_queue_alloc.195.i.i, %if.end.i41.i.i ]
-  %parents_to_queue_nr.1.i.i = phi i64 [ %parents_to_queue_nr.099.i.i, %commit_is_before_cutoff.exit51.i.i ], [ %add42.i.i, %do.end.i.i ], [ %parents_to_queue_nr.099.i.i, %create_or_update_name.exit.i.i ], [ %parents_to_queue_nr.099.i.i, %is_better_name.exit.i.i.i ], [ %parents_to_queue_nr.099.i.i, %if.end16.i.i.i.i ], [ %parents_to_queue_nr.099.i.i, %if.end.i41.i.i ]
-  %parents_to_queue.3.i.i = phi ptr [ %parents_to_queue.1100.i.i, %commit_is_before_cutoff.exit51.i.i ], [ %parents_to_queue.2.i.i, %do.end.i.i ], [ %parents_to_queue.1100.i.i, %create_or_update_name.exit.i.i ], [ %parents_to_queue.1100.i.i, %is_better_name.exit.i.i.i ], [ %parents_to_queue.1100.i.i, %if.end16.i.i.i.i ], [ %parents_to_queue.1100.i.i, %if.end.i41.i.i ]
+  %parents_to_queue.3.i.i = phi ptr [ %parents_to_queue.195.i.i, %commit_is_before_cutoff.exit51.i.i ], [ %parents_to_queue.2.i.i, %do.end.i.i ], [ %parents_to_queue.195.i.i, %create_or_update_name.exit.i.i ], [ %parents_to_queue.195.i.i, %is_better_name.exit.i.i.i ], [ %parents_to_queue.195.i.i, %if.end16.i.i.i.i ], [ %parents_to_queue.195.i.i, %if.end.i41.i.i ]
+  %parents_to_queue_nr.1.i.i = phi i64 [ %parents_to_queue_nr.096.i.i, %commit_is_before_cutoff.exit51.i.i ], [ %add42.i.i, %do.end.i.i ], [ %parents_to_queue_nr.096.i.i, %create_or_update_name.exit.i.i ], [ %parents_to_queue_nr.096.i.i, %is_better_name.exit.i.i.i ], [ %parents_to_queue_nr.096.i.i, %if.end16.i.i.i.i ], [ %parents_to_queue_nr.096.i.i, %if.end.i41.i.i ]
+  %parents_to_queue_alloc.4.i.i = phi i64 [ %parents_to_queue_alloc.197.i.i, %commit_is_before_cutoff.exit51.i.i ], [ %parents_to_queue_alloc.3.i.i, %do.end.i.i ], [ %parents_to_queue_alloc.197.i.i, %create_or_update_name.exit.i.i ], [ %parents_to_queue_alloc.197.i.i, %is_better_name.exit.i.i.i ], [ %parents_to_queue_alloc.197.i.i, %if.end16.i.i.i.i ], [ %parents_to_queue_alloc.197.i.i, %if.end.i41.i.i ]
   %next.i.i = getelementptr inbounds i8, ptr %parents.0101.i.i, i64 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %parents.0.i.i = load ptr, ptr %next.i.i, align 8
@@ -1048,7 +1048,7 @@ while.body62.i.i:                                 ; preds = %while.cond60.prehea
   br i1 %tobool61.not.i.i, label %while.cond.loopexit.i.i, label %while.body62.i.i, !llvm.loop !10
 
 while.end64.i.i:                                  ; preds = %while.cond.loopexit.i.i, %if.end12.i.i
-  %parents_to_queue.0.lcssa.i.i = phi ptr [ null, %if.end12.i.i ], [ %parents_to_queue.1.lcssa118.i.i, %while.cond.loopexit.i.i ]
+  %parents_to_queue.0.lcssa.i.i = phi ptr [ null, %if.end12.i.i ], [ %parents_to_queue.1.lcssa117.i.i, %while.cond.loopexit.i.i ]
   call void @clear_prio_queue(ptr noundef nonnull %queue.i.i) #16
   call void @free(ptr noundef %parents_to_queue.0.lcssa.i.i) #16
   br label %name_rev.exit.i
@@ -1132,9 +1132,9 @@ for.body.lr.ph.i:                                 ; preds = %strbuf_addch.exit
 
 for.body.i38:                                     ; preds = %for.inc.i40, %for.body.lr.ph.i
   %102 = phi i8 [ %101, %for.body.lr.ph.i ], [ %114, %for.inc.i40 ]
-  %p.addr.036.i = phi ptr [ %97, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i40 ]
+  %p_start.036.i = phi ptr [ %97, %for.body.lr.ph.i ], [ %p_start.1.i, %for.inc.i40 ]
   %counter.035.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %counter.1.i, %for.inc.i40 ]
-  %p_start.034.i = phi ptr [ %97, %for.body.lr.ph.i ], [ %p_start.1.i, %for.inc.i40 ]
+  %p.addr.034.i = phi ptr [ %97, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i40 ]
   %idxprom.i = zext i8 %102 to i64
   %arrayidx.i39 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
   %103 = load i8, ptr %arrayidx.i39, align 1
@@ -1151,7 +1151,7 @@ if.else.i:                                        ; preds = %for.body.i38
   br i1 %cmp10.i, label %land.lhs.true12.i, label %for.inc.i40
 
 land.lhs.true12.i:                                ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %p.addr.036.i, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %p.addr.034.i, i64 1
   %106 = load i8, ptr %add.ptr.i, align 1
   %idxprom13.i = zext i8 %106 to i64
   %arrayidx14.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom13.i
@@ -1164,14 +1164,14 @@ land.lhs.true12.i:                                ; preds = %if.else.i
   br i1 %or.cond32.i, label %for.inc.i40, label %if.then29.i
 
 if.then29.i:                                      ; preds = %land.lhs.true12.i
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %p.addr.036.i to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %p_start.034.i to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %p.addr.034.i to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %p_start.036.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %110 = trunc i64 %sub.ptr.sub.i to i32
   %conv31.i = add i32 %110, 1
   store i8 0, ptr %add.ptr.i, align 1
   %111 = load ptr, ptr @the_repository, align 8
-  %add.ptr33.i = getelementptr inbounds i8, ptr %p.addr.036.i, i64 %idx.neg.i
+  %add.ptr33.i = getelementptr inbounds i8, ptr %p.addr.034.i, i64 %idx.neg.i
   %call.i42 = call i32 @repo_get_oid(ptr noundef %111, ptr noundef nonnull %add.ptr33.i, ptr noundef nonnull %oid.i) #16
   %tobool34.not.i = icmp eq i32 %call.i42, 0
   br i1 %tobool34.not.i, label %if.then35.i, label %if.end40.thread.i
@@ -1199,17 +1199,17 @@ if.end44.i:                                       ; preds = %if.end40.i
 
 if.then46.i:                                      ; preds = %if.end44.i
   %sub47.i = sub i32 %conv31.i, %conv.i37
-  %call48.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i32 noundef %sub47.i, ptr noundef %p_start.034.i, ptr noundef nonnull %call39.i)
+  %call48.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i32 noundef %sub47.i, ptr noundef %p_start.036.i, ptr noundef nonnull %call39.i)
   br label %for.inc.i40
 
 if.else49.i:                                      ; preds = %if.end44.i
-  %call50.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i32 noundef %conv31.i, ptr noundef %p_start.034.i, ptr noundef nonnull %call39.i)
+  %call50.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i32 noundef %conv31.i, ptr noundef %p_start.036.i, ptr noundef nonnull %call39.i)
   br label %for.inc.i40
 
 for.inc.i40:                                      ; preds = %if.else49.i, %if.then46.i, %if.end40.i, %if.end40.thread.i, %land.lhs.true12.i, %if.else.i, %for.body.i38
-  %p_start.1.i = phi ptr [ %p_start.034.i, %land.lhs.true12.i ], [ %p_start.034.i, %if.end40.i ], [ %p_start.034.i, %if.else.i ], [ %add.ptr.i, %if.else49.i ], [ %add.ptr.i, %if.then46.i ], [ %p_start.034.i, %if.end40.thread.i ], [ %p_start.034.i, %for.body.i38 ]
   %counter.1.i = phi i32 [ %conv.i37, %land.lhs.true12.i ], [ 0, %if.end40.i ], [ %inc.i, %if.else.i ], [ 0, %if.else49.i ], [ 0, %if.then46.i ], [ 0, %if.end40.thread.i ], [ 0, %for.body.i38 ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.036.i, i64 1
+  %p_start.1.i = phi ptr [ %p_start.036.i, %land.lhs.true12.i ], [ %p_start.036.i, %if.end40.i ], [ %p_start.036.i, %if.else.i ], [ %add.ptr.i, %if.else49.i ], [ %add.ptr.i, %if.then46.i ], [ %p_start.036.i, %if.end40.thread.i ], [ %p_start.036.i, %for.body.i38 ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.addr.034.i, i64 1
   %114 = load i8, ptr %incdec.ptr.i, align 1
   %tobool.not.i41 = icmp eq i8 %114, 0
   br i1 %tobool.not.i41, label %for.end.i, label %for.body.i38, !llvm.loop !12

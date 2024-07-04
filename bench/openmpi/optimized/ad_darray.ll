@@ -31,15 +31,15 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0126138 = phi i32 [ %0, %.lr.ph.preheader ], [ %25, %.lr.ph ]
-  %.0127137 = phi i32 [ %1, %.lr.ph.preheader ], [ %28, %.lr.ph ]
+  %.0129137 = phi i32 [ %1, %.lr.ph.preheader ], [ %28, %.lr.ph ]
+  %.0130136 = phi i32 [ %0, %.lr.ph.preheader ], [ %25, %.lr.ph ]
   %23 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
-  %25 = sdiv i32 %.0126138, %24
-  %26 = sdiv i32 %.0127137, %25
+  %25 = sdiv i32 %.0130136, %24
+  %26 = sdiv i32 %.0129137, %25
   %27 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv
   store i32 %26, ptr %27, align 4
-  %28 = srem i32 %.0127137, %25
+  %28 = srem i32 %.0129137, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -129,11 +129,11 @@ define noundef i32 @ADIO_Type_create_darray(i32 noundef %0, i32 noundef %1, i32 
 
 .lr.ph156:                                        ; preds = %.lr.ph156.preheader, %.lr.ph156
   %indvars.iv175 = phi i64 [ 1, %.lr.ph156.preheader ], [ %indvars.iv.next176, %.lr.ph156 ]
-  %.0128154 = phi i32 [ 1, %.lr.ph156.preheader ], [ %67, %.lr.ph156 ]
+  %.0126154 = phi i32 [ 1, %.lr.ph156.preheader ], [ %67, %.lr.ph156 ]
   %65 = phi i64 [ %64, %.lr.ph156.preheader ], [ %72, %.lr.ph156 ]
   %gep151 = getelementptr i32, ptr %invariant.gep150, i64 %indvars.iv175
   %66 = load i32, ptr %gep151, align 4
-  %67 = mul nsw i32 %66, %.0128154
+  %67 = mul nsw i32 %66, %.0126154
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i64, ptr %30, i64 %indvars.iv175
   %70 = load i64, ptr %69, align 8
@@ -454,9 +454,9 @@ define internal fastcc void @MPIOI_Type_cyclic(ptr nocapture noundef readonly %0
   br label %34
 
 34:                                               ; preds = %21, %26
-  %.090 = phi i32 [ %33, %26 ], [ 0, %21 ]
-  %35 = sdiv i32 %.090, %.
-  %36 = srem i32 %.090, %.
+  %.088 = phi i32 [ %33, %26 ], [ 0, %21 ]
+  %35 = sdiv i32 %.088, %.
+  %36 = srem i32 %.088, %.
   %37 = sext i32 %3 to i64
   %38 = zext nneg i32 %. to i64
   %39 = mul i64 %37, %7
@@ -465,12 +465,12 @@ define internal fastcc void @MPIOI_Type_cyclic(ptr nocapture noundef readonly %0
   br i1 %41, label %.preheader, label %.preheader99
 
 .preheader99:                                     ; preds = %34
-  %.189101 = add nsw i32 %2, -1
-  %42 = icmp sgt i32 %.189101, %1
+  %.190101 = add nsw i32 %2, -1
+  %42 = icmp sgt i32 %.190101, %1
   br i1 %42, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader99
-  %43 = sext i32 %.189101 to i64
+  %43 = sext i32 %.190101 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %34
@@ -567,7 +567,7 @@ define internal fastcc void @MPIOI_Type_cyclic(ptr nocapture noundef readonly %0
 
 88:                                               ; preds = %85, %71
   %storemerge = phi i64 [ %87, %85 ], [ 0, %71 ]
-  %89 = icmp eq i32 %.090, 0
+  %89 = icmp eq i32 %.088, 0
   %spec.select = select i1 %89, i64 0, i64 %storemerge
   store i64 %spec.select, ptr %10, align 8
   %90 = call i32 @PMPI_Type_get_extent(ptr noundef %8, ptr noundef nonnull %17, ptr noundef nonnull %18) #3

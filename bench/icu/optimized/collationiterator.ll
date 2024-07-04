@@ -1841,8 +1841,8 @@ if.then16.i185:                                   ; preds = %if.then.i.i186, %do
   br label %return
 
 do.body:                                          ; preds = %do.body.preheader, %_ZN6icu_759Collation10ceFromCE32Ej.exit
-  %length31.0 = phi i32 [ %dec, %_ZN6icu_759Collation10ceFromCE32Ej.exit ], [ %and.i169, %do.body.preheader ]
   %ce32s.0 = phi ptr [ %incdec.ptr, %_ZN6icu_759Collation10ceFromCE32Ej.exit ], [ %add.ptr, %do.body.preheader ]
+  %length31.0 = phi i32 [ %dec, %_ZN6icu_759Collation10ceFromCE32Ej.exit ], [ %and.i169, %do.body.preheader ]
   %incdec.ptr = getelementptr inbounds i8, ptr %ce32s.0, i64 4
   %39 = load i32, ptr %ce32s.0, align 4
   %and.i204 = and i32 %39, 255
@@ -1967,8 +1967,8 @@ if.then16.i234:                                   ; preds = %if.then.i.i235, %do
   br label %return
 
 do.body51:                                        ; preds = %do.body51.preheader, %do.body51
-  %length45.0 = phi i32 [ %dec55, %do.body51 ], [ %and.i218, %do.body51.preheader ]
   %ces.0 = phi ptr [ %incdec.ptr53, %do.body51 ], [ %add.ptr44, %do.body51.preheader ]
+  %length45.0 = phi i32 [ %dec55, %do.body51 ], [ %and.i218, %do.body51.preheader ]
   %incdec.ptr53 = getelementptr inbounds i8, ptr %ces.0, i64 8
   %50 = load i64, ptr %ces.0, align 8
   %51 = load i32, ptr %ceBuffer47, align 8
@@ -4991,9 +4991,9 @@ if.end44:                                         ; preds = %if.then.i.i126, %if
   br label %for.cond46
 
 for.cond46:                                       ; preds = %_ZNK6icu_7513CollationData8getFCD16Ei.exit227, %if.end44
+  %c.addr.0 = phi i32 [ %retval.0.i301, %if.end44 ], [ %retval.0.i194310, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ]
   %fcd16.0 = phi i16 [ %call7.i.i75, %if.end44 ], [ %call7.i.i214, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ]
   %prevCC.0 = phi i8 [ %conv, %if.end44 ], [ %prevCC.1, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ]
-  %c.addr.0 = phi i32 [ %retval.0.i301, %if.end44 ], [ %retval.0.i194310, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ]
   %ce32.addr.0 = phi i32 [ %ce32, %if.end44 ], [ %ce32.addr.1, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ]
   %sinceMatch.0 = phi i32 [ 2, %if.end44 ], [ %inc68, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ]
   %58 = lshr i16 %fcd16.0, 8

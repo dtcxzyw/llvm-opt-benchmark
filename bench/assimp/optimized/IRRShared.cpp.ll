@@ -229,8 +229,8 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
-  %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %cond.i, %if.end.i ], [ %incdec.ptr.i, %do.body.i ]
+  %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
   %3 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %3 to i32
@@ -292,14 +292,14 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
   resume { ptr, i32 } %eh.lpad-body
 
 do.body.i23:                                      ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i23
-  %s2.addr.0.i24 = phi ptr [ %incdec.ptr2.i29, %do.body.i23 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %s1.addr.0.i25 = phi ptr [ %incdec.ptr.i26, %do.body.i23 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %s1.addr.0.i25, i64 1
-  %10 = load i8, ptr %s1.addr.0.i25, align 1
+  %s1.addr.0.i24 = phi ptr [ %incdec.ptr.i26, %do.body.i23 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
+  %s2.addr.0.i25 = phi ptr [ %incdec.ptr2.i29, %do.body.i23 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
+  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %s1.addr.0.i24, i64 1
+  %10 = load i8, ptr %s1.addr.0.i24, align 1
   %conv.i27 = zext i8 %10 to i32
   %call.i28 = call i32 @tolower(i32 noundef %conv.i27) #17
-  %incdec.ptr2.i29 = getelementptr inbounds i8, ptr %s2.addr.0.i24, i64 1
-  %11 = load i8, ptr %s2.addr.0.i24, align 1
+  %incdec.ptr2.i29 = getelementptr inbounds i8, ptr %s2.addr.0.i25, i64 1
+  %11 = load i8, ptr %s2.addr.0.i25, align 1
   %conv3.i30 = zext i8 %11 to i32
   %call4.i31 = call i32 @tolower(i32 noundef %conv3.i30) #17
   %12 = and i32 %call.i28, 255
@@ -423,8 +423,8 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
-  %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %cond.i, %if.end.i ], [ %incdec.ptr.i, %do.body.i ]
+  %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
   %3 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %3 to i32
@@ -486,14 +486,14 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
   resume { ptr, i32 } %eh.lpad-body
 
 do.body.i23:                                      ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i23
-  %s2.addr.0.i24 = phi ptr [ %incdec.ptr2.i29, %do.body.i23 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %s1.addr.0.i25 = phi ptr [ %incdec.ptr.i26, %do.body.i23 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %s1.addr.0.i25, i64 1
-  %10 = load i8, ptr %s1.addr.0.i25, align 1
+  %s1.addr.0.i24 = phi ptr [ %incdec.ptr.i26, %do.body.i23 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
+  %s2.addr.0.i25 = phi ptr [ %incdec.ptr2.i29, %do.body.i23 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
+  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %s1.addr.0.i24, i64 1
+  %10 = load i8, ptr %s1.addr.0.i24, align 1
   %conv.i27 = zext i8 %10 to i32
   %call.i28 = call i32 @tolower(i32 noundef %conv.i27) #17
-  %incdec.ptr2.i29 = getelementptr inbounds i8, ptr %s2.addr.0.i24, i64 1
-  %11 = load i8, ptr %s2.addr.0.i24, align 1
+  %incdec.ptr2.i29 = getelementptr inbounds i8, ptr %s2.addr.0.i25, i64 1
+  %11 = load i8, ptr %s2.addr.0.i25, align 1
   %conv3.i30 = zext i8 %11 to i32
   %call4.i31 = call i32 @tolower(i32 noundef %conv3.i30) #17
   %12 = and i32 %call.i28, 255
@@ -614,8 +614,8 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
-  %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %cond.i, %if.end.i ], [ %incdec.ptr.i, %do.body.i ]
+  %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
   %3 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %3 to i32
@@ -670,14 +670,14 @@ lpad:                                             ; preds = %call.i13.noexc, %if
   br label %eh.resume
 
 do.body.i24:                                      ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i24
-  %s2.addr.0.i25 = phi ptr [ %incdec.ptr2.i30, %do.body.i24 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %s1.addr.0.i26 = phi ptr [ %incdec.ptr.i27, %do.body.i24 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %incdec.ptr.i27 = getelementptr inbounds i8, ptr %s1.addr.0.i26, i64 1
-  %10 = load i8, ptr %s1.addr.0.i26, align 1
+  %s1.addr.0.i25 = phi ptr [ %incdec.ptr.i27, %do.body.i24 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
+  %s2.addr.0.i26 = phi ptr [ %incdec.ptr2.i30, %do.body.i24 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
+  %incdec.ptr.i27 = getelementptr inbounds i8, ptr %s1.addr.0.i25, i64 1
+  %10 = load i8, ptr %s1.addr.0.i25, align 1
   %conv.i28 = zext i8 %10 to i32
   %call.i29 = call i32 @tolower(i32 noundef %conv.i28) #17
-  %incdec.ptr2.i30 = getelementptr inbounds i8, ptr %s2.addr.0.i25, i64 1
-  %11 = load i8, ptr %s2.addr.0.i25, align 1
+  %incdec.ptr2.i30 = getelementptr inbounds i8, ptr %s2.addr.0.i26, i64 1
+  %11 = load i8, ptr %s2.addr.0.i26, align 1
   %conv3.i31 = zext i8 %11 to i32
   %call4.i32 = call i32 @tolower(i32 noundef %conv3.i31) #17
   %12 = and i32 %call.i29, 255
@@ -776,8 +776,8 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
-  %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %cond.i, %if.end.i ], [ %incdec.ptr.i, %do.body.i ]
+  %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
   %3 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %3 to i32
@@ -839,14 +839,14 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
   resume { ptr, i32 } %eh.lpad-body
 
 do.body.i23:                                      ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i23
-  %s2.addr.0.i24 = phi ptr [ %incdec.ptr2.i29, %do.body.i23 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %s1.addr.0.i25 = phi ptr [ %incdec.ptr.i26, %do.body.i23 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %s1.addr.0.i25, i64 1
-  %10 = load i8, ptr %s1.addr.0.i25, align 1
+  %s1.addr.0.i24 = phi ptr [ %incdec.ptr.i26, %do.body.i23 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
+  %s2.addr.0.i25 = phi ptr [ %incdec.ptr2.i29, %do.body.i23 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
+  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %s1.addr.0.i24, i64 1
+  %10 = load i8, ptr %s1.addr.0.i24, align 1
   %conv.i27 = zext i8 %10 to i32
   %call.i28 = call i32 @tolower(i32 noundef %conv.i27) #17
-  %incdec.ptr2.i29 = getelementptr inbounds i8, ptr %s2.addr.0.i24, i64 1
-  %11 = load i8, ptr %s2.addr.0.i24, align 1
+  %incdec.ptr2.i29 = getelementptr inbounds i8, ptr %s2.addr.0.i25, i64 1
+  %11 = load i8, ptr %s2.addr.0.i25, align 1
   %conv3.i30 = zext i8 %11 to i32
   %call4.i31 = call i32 @tolower(i32 noundef %conv3.i30) #17
   %12 = and i32 %call.i28, 255
@@ -868,14 +868,14 @@ if.end.i41:                                       ; preds = %_ZN6Assimp14ASSIMP_
   br label %do.body.i47
 
 do.body.i47:                                      ; preds = %do.body.i47, %if.end.i41
-  %s2.addr.0.i48 = phi ptr [ @.str.3, %if.end.i41 ], [ %incdec.ptr2.i53, %do.body.i47 ]
-  %s1.addr.0.i49 = phi ptr [ %cond.i44, %if.end.i41 ], [ %incdec.ptr.i50, %do.body.i47 ]
-  %incdec.ptr.i50 = getelementptr inbounds i8, ptr %s1.addr.0.i49, i64 1
-  %15 = load i8, ptr %s1.addr.0.i49, align 1
+  %s1.addr.0.i48 = phi ptr [ %cond.i44, %if.end.i41 ], [ %incdec.ptr.i50, %do.body.i47 ]
+  %s2.addr.0.i49 = phi ptr [ @.str.3, %if.end.i41 ], [ %incdec.ptr2.i53, %do.body.i47 ]
+  %incdec.ptr.i50 = getelementptr inbounds i8, ptr %s1.addr.0.i48, i64 1
+  %15 = load i8, ptr %s1.addr.0.i48, align 1
   %conv.i51 = zext i8 %15 to i32
   %call.i52 = call i32 @tolower(i32 noundef %conv.i51) #17
-  %incdec.ptr2.i53 = getelementptr inbounds i8, ptr %s2.addr.0.i48, i64 1
-  %16 = load i8, ptr %s2.addr.0.i48, align 1
+  %incdec.ptr2.i53 = getelementptr inbounds i8, ptr %s2.addr.0.i49, i64 1
+  %16 = load i8, ptr %s2.addr.0.i49, align 1
   %conv3.i54 = zext i8 %16 to i32
   %call4.i55 = call i32 @tolower(i32 noundef %conv3.i54) #17
   %17 = and i32 %call.i52, 255
@@ -930,8 +930,8 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
-  %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %cond.i, %if.end.i ], [ %incdec.ptr.i, %do.body.i ]
+  %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
   %3 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %3 to i32
@@ -993,14 +993,14 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
   resume { ptr, i32 } %eh.lpad-body
 
 do.body.i23:                                      ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i23
-  %s2.addr.0.i24 = phi ptr [ %incdec.ptr2.i29, %do.body.i23 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %s1.addr.0.i25 = phi ptr [ %incdec.ptr.i26, %do.body.i23 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %s1.addr.0.i25, i64 1
-  %10 = load i8, ptr %s1.addr.0.i25, align 1
+  %s1.addr.0.i24 = phi ptr [ %incdec.ptr.i26, %do.body.i23 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
+  %s2.addr.0.i25 = phi ptr [ %incdec.ptr2.i29, %do.body.i23 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
+  %incdec.ptr.i26 = getelementptr inbounds i8, ptr %s1.addr.0.i24, i64 1
+  %10 = load i8, ptr %s1.addr.0.i24, align 1
   %conv.i27 = zext i8 %10 to i32
   %call.i28 = call i32 @tolower(i32 noundef %conv.i27) #17
-  %incdec.ptr2.i29 = getelementptr inbounds i8, ptr %s2.addr.0.i24, i64 1
-  %11 = load i8, ptr %s2.addr.0.i24, align 1
+  %incdec.ptr2.i29 = getelementptr inbounds i8, ptr %s2.addr.0.i25, i64 1
+  %11 = load i8, ptr %s2.addr.0.i25, align 1
   %conv3.i30 = zext i8 %11 to i32
   %call4.i31 = call i32 @tolower(i32 noundef %conv3.i30) #17
   %12 = and i32 %call.i28, 255
@@ -1067,8 +1067,8 @@ if.end.i:                                         ; preds = %if.end.i.lr.ph, %fo
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %if.end.i
-  %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %cond.i, %if.end.i ], [ %incdec.ptr.i, %do.body.i ]
+  %s2.addr.0.i = phi ptr [ @.str, %if.end.i ], [ %incdec.ptr2.i, %do.body.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
   %3 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %3 to i32
@@ -1130,14 +1130,14 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
   resume { ptr, i32 } %eh.lpad-body
 
 do.body.i25:                                      ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i25
-  %s2.addr.0.i26 = phi ptr [ %incdec.ptr2.i31, %do.body.i25 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %s1.addr.0.i27 = phi ptr [ %incdec.ptr.i28, %do.body.i25 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %incdec.ptr.i28 = getelementptr inbounds i8, ptr %s1.addr.0.i27, i64 1
-  %10 = load i8, ptr %s1.addr.0.i27, align 1
+  %s1.addr.0.i26 = phi ptr [ %incdec.ptr.i28, %do.body.i25 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
+  %s2.addr.0.i27 = phi ptr [ %incdec.ptr2.i31, %do.body.i25 ], [ @.str.2, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
+  %incdec.ptr.i28 = getelementptr inbounds i8, ptr %s1.addr.0.i26, i64 1
+  %10 = load i8, ptr %s1.addr.0.i26, align 1
   %conv.i29 = zext i8 %10 to i32
   %call.i30 = call i32 @tolower(i32 noundef %conv.i29) #17
-  %incdec.ptr2.i31 = getelementptr inbounds i8, ptr %s2.addr.0.i26, i64 1
-  %11 = load i8, ptr %s2.addr.0.i26, align 1
+  %incdec.ptr2.i31 = getelementptr inbounds i8, ptr %s2.addr.0.i27, i64 1
+  %11 = load i8, ptr %s2.addr.0.i27, align 1
   %conv3.i32 = zext i8 %11 to i32
   %call4.i33 = call i32 @tolower(i32 noundef %conv3.i32) #17
   %12 = and i32 %call.i30, 255
@@ -1565,8 +1565,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %for.body
-  %s2.addr.0.i = phi ptr [ @.str.7, %for.body ], [ %incdec.ptr2.i, %do.body.i ]
   %s1.addr.0.i = phi ptr [ %cond.i, %for.body ], [ %incdec.ptr.i, %do.body.i ]
+  %s2.addr.0.i = phi ptr [ @.str.7, %for.body ], [ %incdec.ptr2.i, %do.body.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %s1.addr.0.i, i64 1
   %4 = load i8, ptr %s1.addr.0.i, align 1
   %conv.i = zext i8 %4 to i32
@@ -1671,14 +1671,14 @@ if.then28.invoke:                                 ; preds = %if.then12, %if.then
           to label %for.inc.sink.split unwind label %lpad8
 
 do.body.i132:                                     ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit, %do.body.i132
-  %s2.addr.0.i133 = phi ptr [ %incdec.ptr2.i138, %do.body.i132 ], [ @.str.14, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %s1.addr.0.i134 = phi ptr [ %incdec.ptr.i135, %do.body.i132 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
-  %incdec.ptr.i135 = getelementptr inbounds i8, ptr %s1.addr.0.i134, i64 1
-  %20 = load i8, ptr %s1.addr.0.i134, align 1
+  %s1.addr.0.i133 = phi ptr [ %incdec.ptr.i135, %do.body.i132 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
+  %s2.addr.0.i134 = phi ptr [ %incdec.ptr2.i138, %do.body.i132 ], [ @.str.14, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit ]
+  %incdec.ptr.i135 = getelementptr inbounds i8, ptr %s1.addr.0.i133, i64 1
+  %20 = load i8, ptr %s1.addr.0.i133, align 1
   %conv.i136 = zext i8 %20 to i32
   %call.i137 = call i32 @tolower(i32 noundef %conv.i136) #17
-  %incdec.ptr2.i138 = getelementptr inbounds i8, ptr %s2.addr.0.i133, i64 1
-  %21 = load i8, ptr %s2.addr.0.i133, align 1
+  %incdec.ptr2.i138 = getelementptr inbounds i8, ptr %s2.addr.0.i134, i64 1
+  %21 = load i8, ptr %s2.addr.0.i134, align 1
   %conv3.i139 = zext i8 %21 to i32
   %call4.i140 = call i32 @tolower(i32 noundef %conv3.i139) #17
   %22 = and i32 %call.i137, 255
@@ -1713,14 +1713,14 @@ lpad41:                                           ; preds = %if.then46, %if.then
   br label %eh.resume
 
 do.body.i160:                                     ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit148, %do.body.i160
-  %s2.addr.0.i161 = phi ptr [ %incdec.ptr2.i166, %do.body.i160 ], [ @.str.17, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit148 ]
-  %s1.addr.0.i162 = phi ptr [ %incdec.ptr.i163, %do.body.i160 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit148 ]
-  %incdec.ptr.i163 = getelementptr inbounds i8, ptr %s1.addr.0.i162, i64 1
-  %25 = load i8, ptr %s1.addr.0.i162, align 1
+  %s1.addr.0.i161 = phi ptr [ %incdec.ptr.i163, %do.body.i160 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit148 ]
+  %s2.addr.0.i162 = phi ptr [ %incdec.ptr2.i166, %do.body.i160 ], [ @.str.17, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit148 ]
+  %incdec.ptr.i163 = getelementptr inbounds i8, ptr %s1.addr.0.i161, i64 1
+  %25 = load i8, ptr %s1.addr.0.i161, align 1
   %conv.i164 = zext i8 %25 to i32
   %call.i165 = call i32 @tolower(i32 noundef %conv.i164) #17
-  %incdec.ptr2.i166 = getelementptr inbounds i8, ptr %s2.addr.0.i161, i64 1
-  %26 = load i8, ptr %s2.addr.0.i161, align 1
+  %incdec.ptr2.i166 = getelementptr inbounds i8, ptr %s2.addr.0.i162, i64 1
+  %26 = load i8, ptr %s2.addr.0.i162, align 1
   %conv3.i167 = zext i8 %26 to i32
   %call4.i168 = call i32 @tolower(i32 noundef %conv3.i167) #17
   %27 = and i32 %call.i165, 255
@@ -1789,14 +1789,14 @@ if.then82.invoke:                                 ; preds = %if.then62, %if.then
           to label %for.inc.sink.split unwind label %lpad57
 
 do.body.i198:                                     ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit176, %do.body.i198
-  %s2.addr.0.i199 = phi ptr [ %incdec.ptr2.i204, %do.body.i198 ], [ @.str.24, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit176 ]
-  %s1.addr.0.i200 = phi ptr [ %incdec.ptr.i201, %do.body.i198 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit176 ]
-  %incdec.ptr.i201 = getelementptr inbounds i8, ptr %s1.addr.0.i200, i64 1
-  %39 = load i8, ptr %s1.addr.0.i200, align 1
+  %s1.addr.0.i199 = phi ptr [ %incdec.ptr.i201, %do.body.i198 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit176 ]
+  %s2.addr.0.i200 = phi ptr [ %incdec.ptr2.i204, %do.body.i198 ], [ @.str.24, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit176 ]
+  %incdec.ptr.i201 = getelementptr inbounds i8, ptr %s1.addr.0.i199, i64 1
+  %39 = load i8, ptr %s1.addr.0.i199, align 1
   %conv.i202 = zext i8 %39 to i32
   %call.i203 = call i32 @tolower(i32 noundef %conv.i202) #17
-  %incdec.ptr2.i204 = getelementptr inbounds i8, ptr %s2.addr.0.i199, i64 1
-  %40 = load i8, ptr %s2.addr.0.i199, align 1
+  %incdec.ptr2.i204 = getelementptr inbounds i8, ptr %s2.addr.0.i200, i64 1
+  %40 = load i8, ptr %s2.addr.0.i200, align 1
   %conv3.i205 = zext i8 %40 to i32
   %call4.i206 = call i32 @tolower(i32 noundef %conv3.i205) #17
   %41 = and i32 %call.i203, 255
@@ -1811,14 +1811,14 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit214:        ; preds = %do.body.i198
   br i1 %cmp.i212, label %if.then99, label %do.body.i222
 
 do.body.i222:                                     ; preds = %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit214, %do.body.i222
-  %s2.addr.0.i223 = phi ptr [ %incdec.ptr2.i228, %do.body.i222 ], [ @.str.25, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit214 ]
-  %s1.addr.0.i224 = phi ptr [ %incdec.ptr.i225, %do.body.i222 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit214 ]
-  %incdec.ptr.i225 = getelementptr inbounds i8, ptr %s1.addr.0.i224, i64 1
-  %43 = load i8, ptr %s1.addr.0.i224, align 1
+  %s1.addr.0.i223 = phi ptr [ %incdec.ptr.i225, %do.body.i222 ], [ %cond.i, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit214 ]
+  %s2.addr.0.i224 = phi ptr [ %incdec.ptr2.i228, %do.body.i222 ], [ @.str.25, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit214 ]
+  %incdec.ptr.i225 = getelementptr inbounds i8, ptr %s1.addr.0.i223, i64 1
+  %43 = load i8, ptr %s1.addr.0.i223, align 1
   %conv.i226 = zext i8 %43 to i32
   %call.i227 = call i32 @tolower(i32 noundef %conv.i226) #17
-  %incdec.ptr2.i228 = getelementptr inbounds i8, ptr %s2.addr.0.i223, i64 1
-  %44 = load i8, ptr %s2.addr.0.i223, align 1
+  %incdec.ptr2.i228 = getelementptr inbounds i8, ptr %s2.addr.0.i224, i64 1
+  %44 = load i8, ptr %s2.addr.0.i224, align 1
   %conv3.i229 = zext i8 %44 to i32
   %call4.i230 = call i32 @tolower(i32 noundef %conv3.i229) #17
   %45 = and i32 %call.i227, 255
@@ -2664,16 +2664,16 @@ invoke.cont:                                      ; preds = %cond.true
   br i1 %cmp.i.not5.i.i, label %cleanup.action, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %.noexc, %for.body.i.i
-  %__first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
-  %__result.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
-  %0 = load i8, ptr %__first.sroa.0.07.i.i, align 1
+  %__result.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
+  %__first.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
+  %0 = load i8, ptr %__first.sroa.0.06.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %call.i.i.i = call i32 @isprint(i32 noundef %conv.i.i.i) #17
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i8 %placeholder, i8 %0
-  store i8 %cond.i.i.i, ptr %__result.sroa.0.06.i.i, align 1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 1
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 1
+  store i8 %cond.i.i.i, ptr %__result.sroa.0.07.i.i, align 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i, i64 1
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.07.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call2.i
   br i1 %cmp.i.not.i.i, label %cleanup.action, label %for.body.i.i, !llvm.loop !30
 

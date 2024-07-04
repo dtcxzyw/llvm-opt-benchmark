@@ -814,17 +814,17 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr nocapture noundef %0,
   br label %69
 
 ._crit_edge.split.us:                             ; preds = %.lr.ph.split.us, %52
-  %.047.lcssa = phi i64 [ %3, %52 ], [ %19, %.lr.ph.split.us ]
+  %.049.lcssa = phi i64 [ %3, %52 ], [ %19, %.lr.ph.split.us ]
   store i32 2, ptr %30, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 112
-  store i64 %.047.lcssa, ptr %64, align 8
+  store i64 %.049.lcssa, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %0, i64 104
   %66 = load i64, ptr %65, align 8
-  %67 = icmp ugt i64 %.047.lcssa, %66
+  %67 = icmp ugt i64 %.049.lcssa, %66
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %._crit_edge.split.us
-  store i64 %.047.lcssa, ptr %65, align 8
+  store i64 %.049.lcssa, ptr %65, align 8
   br label %69
 
 69:                                               ; preds = %._crit_edge.split.us, %68, %.split.us, %41, %21, %9

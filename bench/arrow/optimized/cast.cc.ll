@@ -2833,9 +2833,9 @@ do.end9:                                          ; preds = %_ZN5arrow6StatusD2E
 for.body:                                         ; preds = %do.end9, %for.inc
   %candidate_kernels.sroa.0.0135 = phi ptr [ %candidate_kernels.sroa.0.2, %for.inc ], [ null, %do.end9 ]
   %candidate_kernels.sroa.10.0134 = phi ptr [ %candidate_kernels.sroa.10.2, %for.inc ], [ null, %do.end9 ]
-  %candidate_kernels.sroa.17.0133 = phi ptr [ %candidate_kernels.sroa.17.2, %for.inc ], [ null, %do.end9 ]
-  %__begin2.sroa.0.0132 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %14, %do.end9 ]
-  %16 = load ptr, ptr %__begin2.sroa.0.0132, align 8
+  %__begin2.sroa.0.0133 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %14, %do.end9 ]
+  %candidate_kernels.sroa.17.0132 = phi ptr [ %candidate_kernels.sroa.17.2, %for.inc ], [ null, %do.end9 ]
+  %16 = load ptr, ptr %__begin2.sroa.0.0133, align 8
   %call18 = invoke noundef zeroext i1 @_ZNK5arrow7compute15KernelSignature13MatchesInputsERKSt6vectorINS_10TypeHolderESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(24) %types)
           to label %invoke.cont17 unwind label %lpad16.loopexit
 
@@ -2843,11 +2843,11 @@ invoke.cont17:                                    ; preds = %for.body
   br i1 %call18, label %if.then19, label %for.inc
 
 if.then19:                                        ; preds = %invoke.cont17
-  %cmp.not.i.i = icmp eq ptr %candidate_kernels.sroa.10.0134, %candidate_kernels.sroa.17.0133
+  %cmp.not.i.i = icmp eq ptr %candidate_kernels.sroa.10.0134, %candidate_kernels.sroa.17.0132
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then19
-  store ptr %__begin2.sroa.0.0132, ptr %candidate_kernels.sroa.10.0134, align 8
+  store ptr %__begin2.sroa.0.0133, ptr %candidate_kernels.sroa.10.0134, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %candidate_kernels.sroa.10.0134, i64 8
   br label %for.inc
 
@@ -2883,7 +2883,7 @@ cond.true.i.i.i.i:                                ; preds = %_ZNKSt6vectorIPKN5a
 _ZNSt12_Vector_baseIPKN5arrow7compute12ScalarKernelESaIS4_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond.true.i.i.i.i, %_ZNKSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   %cond.i10.i.i.i = phi ptr [ null, %_ZNKSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i48, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
-  store ptr %__begin2.sroa.0.0132, ptr %add.ptr.i.i.i, align 8
+  store ptr %__begin2.sroa.0.0133, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i47, label %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
 
@@ -2917,10 +2917,10 @@ lpad16.loopexit.split-lp:                         ; preds = %if.then25, %if.then
   br label %ehcleanup70
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %if.then.i.i, %invoke.cont17
-  %candidate_kernels.sroa.17.2 = phi ptr [ %candidate_kernels.sroa.17.0133, %invoke.cont17 ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %candidate_kernels.sroa.17.0133, %if.then.i.i ]
+  %candidate_kernels.sroa.17.2 = phi ptr [ %candidate_kernels.sroa.17.0132, %invoke.cont17 ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %candidate_kernels.sroa.17.0132, %if.then.i.i ]
   %candidate_kernels.sroa.10.2 = phi ptr [ %candidate_kernels.sroa.10.0134, %invoke.cont17 ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
   %candidate_kernels.sroa.0.2 = phi ptr [ %candidate_kernels.sroa.0.0135, %invoke.cont17 ], [ %cond.i10.i.i.i, %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %candidate_kernels.sroa.0.0135, %if.then.i.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0132, i64 96
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0133, i64 96
   %cmp.i46.not = icmp eq ptr %incdec.ptr.i, %15
   br i1 %cmp.i46.not, label %for.end, label %for.body
 

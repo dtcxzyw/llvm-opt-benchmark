@@ -8760,9 +8760,9 @@ if.end:                                           ; preds = %for.body.i, %if.the
   %23 = phi ptr [ %.pre20, %if.then ], [ %6, %for.body.i ]
   %24 = phi ptr [ %.pre19, %if.then ], [ %1, %for.body.i ]
   %retval.sroa.3.0.i15 = phi i8 [ 1, %if.then ], [ 0, %for.body.i ]
-  %retval.sroa.0.0.i14 = phi i64 [ %call38.i, %if.then ], [ %and.i.i, %for.body.i ]
-  %add.ptr.i3 = getelementptr inbounds i8, ptr %24, i64 %retval.sroa.0.0.i14
-  %add.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %23, i64 %retval.sroa.0.0.i14
+  %retval.sroa.0.0.i13 = phi i64 [ %call38.i, %if.then ], [ %and.i.i, %for.body.i ]
+  %add.ptr.i3 = getelementptr inbounds i8, ptr %24, i64 %retval.sroa.0.0.i13
+  %add.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %23, i64 %retval.sroa.0.0.i13
   store ptr %add.ptr.i3, ptr %agg.result, align 8
   %ref.tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr3.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx, align 8
@@ -9585,9 +9585,9 @@ if.end:                                           ; preds = %for.body.i, %if.the
   %23 = phi ptr [ %.pre20, %if.then ], [ %6, %for.body.i ]
   %24 = phi ptr [ %.pre19, %if.then ], [ %1, %for.body.i ]
   %retval.sroa.3.0.i15 = phi i8 [ 1, %if.then ], [ 0, %for.body.i ]
-  %retval.sroa.0.0.i14 = phi i64 [ %call38.i, %if.then ], [ %and.i.i, %for.body.i ]
-  %add.ptr.i3 = getelementptr inbounds i8, ptr %24, i64 %retval.sroa.0.0.i14
-  %add.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %23, i64 %retval.sroa.0.0.i14
+  %retval.sroa.0.0.i13 = phi i64 [ %call38.i, %if.then ], [ %and.i.i, %for.body.i ]
+  %add.ptr.i3 = getelementptr inbounds i8, ptr %24, i64 %retval.sroa.0.0.i13
+  %add.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %23, i64 %retval.sroa.0.0.i13
   store ptr %add.ptr.i3, ptr %agg.result, align 8
   %ref.tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr3.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx, align 8
@@ -10099,9 +10099,9 @@ if.end:                                           ; preds = %for.body.i, %if.the
   %23 = phi ptr [ %.pre20, %if.then ], [ %6, %for.body.i ]
   %24 = phi ptr [ %.pre19, %if.then ], [ %1, %for.body.i ]
   %retval.sroa.3.0.i15 = phi i8 [ 1, %if.then ], [ 0, %for.body.i ]
-  %retval.sroa.0.0.i14 = phi i64 [ %call38.i, %if.then ], [ %and.i.i, %for.body.i ]
-  %add.ptr.i3 = getelementptr inbounds i8, ptr %24, i64 %retval.sroa.0.0.i14
-  %add.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %23, i64 %retval.sroa.0.0.i14
+  %retval.sroa.0.0.i13 = phi i64 [ %call38.i, %if.then ], [ %and.i.i, %for.body.i ]
+  %add.ptr.i3 = getelementptr inbounds i8, ptr %24, i64 %retval.sroa.0.0.i13
+  %add.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %23, i64 %retval.sroa.0.0.i13
   store ptr %add.ptr.i3, ptr %agg.result, align 8
   %ref.tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %add.ptr3.i, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx, align 8

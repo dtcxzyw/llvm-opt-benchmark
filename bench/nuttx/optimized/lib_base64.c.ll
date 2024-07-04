@@ -140,28 +140,28 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
   br label %.outer.outer.outer
 
 .outer.outer:                                     ; preds = %.outer.outer.backedge, %.outer.outer.outer
-  %.054.ph.ph = phi ptr [ %.054.ph.ph.ph, %.outer.outer.outer ], [ null, %.outer.outer.backedge ]
-  %.050.ph.ph = phi ptr [ %.050.ph.ph.ph, %.outer.outer.outer ], [ %8, %.outer.outer.backedge ]
+  %.054.ph.ph = phi ptr [ %.054.ph.ph.ph, %.outer.outer.outer ], [ %8, %.outer.outer.backedge ]
+  %.050.ph.ph = phi ptr [ %.050.ph.ph.ph, %.outer.outer.outer ], [ null, %.outer.outer.backedge ]
   %.not72.ph = phi i1 [ %.not72.ph.ph, %.outer.outer.outer ], [ false, %.outer.outer.backedge ]
   %.044.ph.ph = phi i32 [ %.044.ph.ph.ph, %.outer.outer.outer ], [ %.044.ph.ph.be, %.outer.outer.backedge ]
-  %.not69 = icmp eq ptr %.054.ph.ph, null
+  %.not69 = icmp eq ptr %.050.ph.ph, null
   br label %.outer
 
 .outer:                                           ; preds = %.outer.outer, %16
-  %.050.ph = phi ptr [ %8, %16 ], [ %.050.ph.ph, %.outer.outer ]
+  %.054.ph = phi ptr [ %8, %16 ], [ %.054.ph.ph, %.outer.outer ]
   %.not72 = phi i1 [ false, %16 ], [ %.not72.ph, %.outer.outer ]
   %.044.ph = phi i32 [ 1, %16 ], [ %.044.ph.ph, %.outer.outer ]
   br label %4
 
 4:                                                ; preds = %.outer, %6
-  %.050 = phi ptr [ %8, %6 ], [ %.050.ph, %.outer ]
-  %5 = load i8, ptr %.050, align 1
+  %.054 = phi ptr [ %8, %6 ], [ %.054.ph, %.outer ]
+  %5 = load i8, ptr %.054, align 1
   %cond = icmp eq i8 %5, 0
   br i1 %cond, label %76, label %6
 
 6:                                                ; preds = %4
   %7 = sext i8 %5 to i32
-  %8 = getelementptr inbounds i8, ptr %.050, i64 1
+  %8 = getelementptr inbounds i8, ptr %.054, i64 1
   %9 = tail call i32 @isspace(i32 noundef %7) #4
   %.not62 = icmp eq i32 %9, 0
   br i1 %.not62, label %10, label %4, !llvm.loop !8
@@ -194,15 +194,11 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
   %18 = trunc i64 %17 to i8
   %.tr71 = sub i8 %18, ptrtoint (ptr @g_base64 to i8)
   %19 = shl i8 %.tr71, 2
-  store i8 %19, ptr %.054.ph.ph, align 1
+  store i8 %19, ptr %.050.ph.ph, align 1
   br label %.outer, !llvm.loop !8
 
 20:                                               ; preds = %13
   br i1 %.not69, label %.outer.outer.backedge, label %21
-
-.outer.outer.backedge:                            ; preds = %14, %20, %32
-  %.044.ph.ph.be = phi i32 [ 3, %32 ], [ 2, %20 ], [ 1, %14 ]
-  br label %.outer.outer, !llvm.loop !8
 
 21:                                               ; preds = %20
   %22 = add i64 %.046.ph.ph.ph, 1
@@ -213,18 +209,31 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
   %24 = ptrtoint ptr %memchr to i64
   %25 = sub i64 %24, ptrtoint (ptr @g_base64 to i64)
   %26 = lshr i64 %25, 4
-  %27 = getelementptr inbounds i8, ptr %.054.ph.ph, i64 1
-  %28 = load i8, ptr %.054.ph.ph, align 1
+  %27 = getelementptr inbounds i8, ptr %.050.ph.ph, i64 1
+  %28 = load i8, ptr %.050.ph.ph, align 1
   %29 = trunc i64 %26 to i8
   %30 = or i8 %28, %29
-  store i8 %30, ptr %.054.ph.ph, align 1
+  store i8 %30, ptr %.050.ph.ph, align 1
   %.tr68 = trunc i64 %24 to i8
   %31 = shl i8 %.tr68, 4
   store i8 %31, ptr %27, align 1
   br label %.outer.outer.outer.backedge
 
+.outer.outer.outer:                               ; preds = %.outer.outer.outer.backedge, %3
+  %.054.ph.ph.ph = phi ptr [ %0, %3 ], [ %8, %.outer.outer.outer.backedge ]
+  %.050.ph.ph.ph = phi ptr [ %1, %3 ], [ %.050.ph.ph.ph.be, %.outer.outer.outer.backedge ]
+  %.046.ph.ph.ph = phi i64 [ 0, %3 ], [ %.046.ph.ph.ph.be, %.outer.outer.outer.backedge ]
+  %.not72.ph.ph = phi i1 [ true, %3 ], [ %.not72.ph.ph.be, %.outer.outer.outer.backedge ]
+  %.044.ph.ph.ph = phi i32 [ 0, %3 ], [ %.044.ph.ph.ph.be, %.outer.outer.outer.backedge ]
+  %.not70 = icmp ult i64 %.046.ph.ph.ph, %2
+  br label %.outer.outer
+
 32:                                               ; preds = %13
   br i1 %.not69, label %.outer.outer.backedge, label %33
+
+.outer.outer.backedge:                            ; preds = %14, %32, %20
+  %.044.ph.ph.be = phi i32 [ 2, %20 ], [ 3, %32 ], [ 1, %14 ]
+  br label %.outer.outer, !llvm.loop !8
 
 33:                                               ; preds = %32
   %34 = add i64 %.046.ph.ph.ph, 1
@@ -235,52 +244,43 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
   %36 = ptrtoint ptr %memchr to i64
   %37 = sub i64 %36, ptrtoint (ptr @g_base64 to i64)
   %38 = lshr i64 %37, 2
-  %39 = getelementptr inbounds i8, ptr %.054.ph.ph, i64 1
-  %40 = load i8, ptr %.054.ph.ph, align 1
+  %39 = getelementptr inbounds i8, ptr %.050.ph.ph, i64 1
+  %40 = load i8, ptr %.050.ph.ph, align 1
   %41 = trunc i64 %38 to i8
   %42 = or i8 %40, %41
-  store i8 %42, ptr %.054.ph.ph, align 1
+  store i8 %42, ptr %.050.ph.ph, align 1
   %.tr = trunc i64 %36 to i8
   %43 = shl i8 %.tr, 6
   store i8 %43, ptr %39, align 1
   br label %.outer.outer.outer.backedge
-
-.outer.outer.outer.backedge:                      ; preds = %35, %23, %52
-  %.054.ph.ph.ph.be = phi ptr [ %.357, %52 ], [ %27, %23 ], [ %39, %35 ]
-  %.046.ph.ph.ph.be = phi i64 [ %53, %52 ], [ %22, %23 ], [ %34, %35 ]
-  %.not72.ph.ph.be = phi i1 [ true, %52 ], [ false, %23 ], [ false, %35 ]
-  %.044.ph.ph.ph.be = phi i32 [ 0, %52 ], [ 2, %23 ], [ 3, %35 ]
-  br label %.outer.outer.outer, !llvm.loop !8
-
-.outer.outer.outer:                               ; preds = %.outer.outer.outer.backedge, %3
-  %.054.ph.ph.ph = phi ptr [ %1, %3 ], [ %.054.ph.ph.ph.be, %.outer.outer.outer.backedge ]
-  %.050.ph.ph.ph = phi ptr [ %0, %3 ], [ %8, %.outer.outer.outer.backedge ]
-  %.046.ph.ph.ph = phi i64 [ 0, %3 ], [ %.046.ph.ph.ph.be, %.outer.outer.outer.backedge ]
-  %.not72.ph.ph = phi i1 [ true, %3 ], [ %.not72.ph.ph.be, %.outer.outer.outer.backedge ]
-  %.044.ph.ph.ph = phi i32 [ 0, %3 ], [ %.044.ph.ph.ph.be, %.outer.outer.outer.backedge ]
-  %.not70 = icmp ult i64 %.046.ph.ph.ph, %2
-  br label %.outer.outer
 
 44:                                               ; preds = %13
   br i1 %.not69, label %52, label %45
 
 45:                                               ; preds = %44
   %46 = ptrtoint ptr %memchr to i64
-  %47 = getelementptr inbounds i8, ptr %.054.ph.ph, i64 1
-  %48 = load i8, ptr %.054.ph.ph, align 1
+  %47 = getelementptr inbounds i8, ptr %.050.ph.ph, i64 1
+  %48 = load i8, ptr %.050.ph.ph, align 1
   %49 = trunc i64 %46 to i8
   %50 = sub i8 %49, ptrtoint (ptr @g_base64 to i8)
   %51 = or i8 %48, %50
-  store i8 %51, ptr %.054.ph.ph, align 1
+  store i8 %51, ptr %.050.ph.ph, align 1
   br label %52
 
 52:                                               ; preds = %45, %44
-  %.357 = phi ptr [ %47, %45 ], [ null, %44 ]
+  %.353 = phi ptr [ %47, %45 ], [ null, %44 ]
   %53 = add i64 %.046.ph.ph.ph, 1
   br label %.outer.outer.outer.backedge
 
+.outer.outer.outer.backedge:                      ; preds = %52, %23, %35
+  %.050.ph.ph.ph.be = phi ptr [ %39, %35 ], [ %27, %23 ], [ %.353, %52 ]
+  %.046.ph.ph.ph.be = phi i64 [ %34, %35 ], [ %22, %23 ], [ %53, %52 ]
+  %.not72.ph.ph.be = phi i1 [ false, %35 ], [ false, %23 ], [ true, %52 ]
+  %.044.ph.ph.ph.be = phi i32 [ 3, %35 ], [ 2, %23 ], [ 0, %52 ]
+  br label %.outer.outer.outer, !llvm.loop !8
+
 54:                                               ; preds = %10
-  %55 = getelementptr inbounds i8, ptr %.050, i64 2
+  %55 = getelementptr inbounds i8, ptr %.054, i64 2
   %56 = load i8, ptr %8, align 1
   %57 = sext i8 %56 to i32
   switch i32 %.044.ph, label %.unreachabledefault [
@@ -296,14 +296,14 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
 
 .lr.ph:                                           ; preds = %.preheader, %59
   %.0103 = phi i32 [ %62, %59 ], [ %57, %.preheader ]
-  %.151102 = phi ptr [ %60, %59 ], [ %55, %.preheader ]
+  %.155102 = phi ptr [ %60, %59 ], [ %55, %.preheader ]
   %58 = tail call i32 @isspace(i32 noundef %.0103) #4
   %.not74 = icmp eq i32 %58, 0
   br i1 %.not74, label %63, label %59
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds i8, ptr %.151102, i64 1
-  %61 = load i8, ptr %.151102, align 1
+  %60 = getelementptr inbounds i8, ptr %.155102, i64 1
+  %61 = load i8, ptr %.155102, align 1
   %62 = sext i8 %61 to i32
   %cond81 = icmp eq i8 %61, 0
   br i1 %cond81, label %.loopexit, label %.lr.ph, !llvm.loop !9
@@ -313,37 +313,37 @@ define i32 @b64_pton(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noun
   br i1 %.not75, label %64, label %.loopexit
 
 64:                                               ; preds = %63
-  %65 = getelementptr inbounds i8, ptr %.151102, i64 1
-  %66 = load i8, ptr %.151102, align 1
+  %65 = getelementptr inbounds i8, ptr %.155102, i64 1
+  %66 = load i8, ptr %.155102, align 1
   %67 = sext i8 %66 to i32
   br label %68
 
 68:                                               ; preds = %64, %54
-  %.252 = phi ptr [ %55, %54 ], [ %65, %64 ]
+  %.256 = phi ptr [ %55, %54 ], [ %65, %64 ]
   %.1 = phi i32 [ %57, %54 ], [ %67, %64 ]
   %.not76104 = icmp eq i32 %.1, 0
   br i1 %.not76104, label %._crit_edge, label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %68, %70
   %.2106 = phi i32 [ %73, %70 ], [ %.1, %68 ]
-  %.353105 = phi ptr [ %71, %70 ], [ %.252, %68 ]
+  %.357105 = phi ptr [ %71, %70 ], [ %.256, %68 ]
   %69 = tail call i32 @isspace(i32 noundef %.2106) #4
   %.not79 = icmp eq i32 %69, 0
   br i1 %.not79, label %.loopexit, label %70
 
 70:                                               ; preds = %.lr.ph107
-  %71 = getelementptr inbounds i8, ptr %.353105, i64 1
-  %72 = load i8, ptr %.353105, align 1
+  %71 = getelementptr inbounds i8, ptr %.357105, i64 1
+  %72 = load i8, ptr %.357105, align 1
   %73 = sext i8 %72 to i32
   %.not76 = icmp eq i8 %72, 0
   br i1 %.not76, label %._crit_edge, label %.lr.ph107, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %70, %68
-  %.not77 = icmp eq ptr %.054.ph.ph, null
+  %.not77 = icmp eq ptr %.050.ph.ph, null
   br i1 %.not77, label %77, label %74
 
 74:                                               ; preds = %._crit_edge
-  %75 = load i8, ptr %.054.ph.ph, align 1
+  %75 = load i8, ptr %.050.ph.ph, align 1
   %.not78 = icmp eq i8 %75, 0
   br i1 %.not78, label %77, label %.loopexit
 

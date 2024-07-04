@@ -43,18 +43,18 @@ define void @ssyr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %30 = mul nsw i32 %15, %29
   %31 = sub nsw i32 1, %30
   %.inv = icmp slt i32 %15, 1
-  %.0 = select i1 %.inv, i32 %31, i32 1
+  %.0180 = select i1 %.inv, i32 %31, i32 1
   %32 = mul nsw i32 %16, %29
   %33 = sub nsw i32 1, %32
   %.inv192 = icmp slt i32 %16, 1
-  %.0164 = select i1 %.inv192, i32 %33, i32 1
-  %34 = sext i32 %.0 to i64
-  %35 = sext i32 %.0164 to i64
+  %.0178 = select i1 %.inv192, i32 %33, i32 1
+  %34 = sext i32 %.0178 to i64
+  %35 = sext i32 %.0180 to i64
   br label %36
 
 36:                                               ; preds = %25, %28
-  %.1165 = phi i64 [ %35, %28 ], [ 0, %25 ]
-  %.1 = phi i64 [ %34, %28 ], [ 0, %25 ]
+  %.0171 = phi i64 [ %35, %28 ], [ 0, %25 ]
+  %.0168 = phi i64 [ %34, %28 ], [ 0, %25 ]
   %37 = icmp eq i32 %sext, 1426063360
   %38 = icmp eq i32 %15, 1
   %39 = icmp eq i32 %16, 1
@@ -67,8 +67,8 @@ define void @ssyr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 .lr.ph247:                                        ; preds = %40
   %invariant.gep237 = getelementptr i8, ptr %3, i64 -4
   %invariant.gep239 = getelementptr i8, ptr %5, i64 -4
-  %41 = sext i32 %15 to i64
-  %42 = sext i32 %16 to i64
+  %41 = sext i32 %16 to i64
+  %42 = sext i32 %15 to i64
   %43 = add nuw i32 %13, 2
   %wide.trip.count315 = zext i32 %43 to i64
   br label %66
@@ -125,15 +125,15 @@ define void @ssyr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %exitcond333.not, label %.loopexit193, label %.lr.ph251, !llvm.loop !6
 
 66:                                               ; preds = %.lr.ph247, %.loopexit194
-  %indvars.iv307 = phi i64 [ %.1165, %.lr.ph247 ], [ %indvars.iv.next308, %.loopexit194 ]
-  %indvars.iv305 = phi i64 [ %.1, %.lr.ph247 ], [ %indvars.iv.next306, %.loopexit194 ]
+  %indvars.iv307 = phi i64 [ %.0171, %.lr.ph247 ], [ %indvars.iv.next308, %.loopexit194 ]
+  %indvars.iv305 = phi i64 [ %.0168, %.lr.ph247 ], [ %indvars.iv.next306, %.loopexit194 ]
   %indvars.iv303 = phi i64 [ 2, %.lr.ph247 ], [ %indvars.iv.next304, %.loopexit194 ]
-  %.1179244 = phi i32 [ 1, %.lr.ph247 ], [ %88, %.loopexit194 ]
-  %gep238 = getelementptr float, ptr %invariant.gep237, i64 %indvars.iv305
+  %.1165246 = phi i32 [ 1, %.lr.ph247 ], [ %88, %.loopexit194 ]
+  %gep238 = getelementptr float, ptr %invariant.gep237, i64 %indvars.iv307
   %67 = load float, ptr %gep238, align 4
   %68 = tail call noundef float @llvm.fabs.f32(float %67)
   %69 = fcmp ogt float %68, 0x3810000000000000
-  %gep242.phi.trans.insert = getelementptr float, ptr %invariant.gep239, i64 %indvars.iv307
+  %gep242.phi.trans.insert = getelementptr float, ptr %invariant.gep239, i64 %indvars.iv305
   %.pre336 = load float, ptr %gep242.phi.trans.insert, align 4
   %70 = tail call float @llvm.fabs.f32(float %.pre336)
   %71 = fcmp ogt float %70, 0x3810000000000000
@@ -143,38 +143,38 @@ define void @ssyr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 ._crit_edge335:                                   ; preds = %66
   %72 = fmul float %17, %.pre336
   %73 = fmul float %17, %67
-  %74 = add nsw i32 %.1179244, -1
+  %74 = add nsw i32 %.1165246, -1
   %75 = mul nsw i32 %74, %14
   %76 = add i32 %75, -1
   br label %77
 
 77:                                               ; preds = %._crit_edge335, %77
-  %indvars.iv292 = phi i64 [ 1, %._crit_edge335 ], [ %indvars.iv.next293, %77 ]
-  %indvars.iv290 = phi i64 [ %.1165, %._crit_edge335 ], [ %indvars.iv.next291, %77 ]
-  %indvars.iv288 = phi i64 [ %.1, %._crit_edge335 ], [ %indvars.iv.next289, %77 ]
-  %gep231 = getelementptr float, ptr %invariant.gep237, i64 %indvars.iv288
+  %indvars.iv292 = phi i64 [ %.0171, %._crit_edge335 ], [ %indvars.iv.next293, %77 ]
+  %indvars.iv290 = phi i64 [ %.0168, %._crit_edge335 ], [ %indvars.iv.next291, %77 ]
+  %indvars.iv288 = phi i64 [ 1, %._crit_edge335 ], [ %indvars.iv.next289, %77 ]
+  %gep231 = getelementptr float, ptr %invariant.gep237, i64 %indvars.iv292
   %78 = load float, ptr %gep231, align 4
   %gep233 = getelementptr float, ptr %invariant.gep239, i64 %indvars.iv290
   %79 = load float, ptr %gep233, align 4
   %80 = fmul float %73, %79
   %81 = tail call float @llvm.fmuladd.f32(float %78, float %72, float %80)
-  %82 = trunc nuw nsw i64 %indvars.iv292 to i32
+  %82 = trunc nuw nsw i64 %indvars.iv288 to i32
   %83 = add i32 %76, %82
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds float, ptr %7, i64 %84
   %86 = load float, ptr %85, align 4
   %87 = fadd float %86, %81
   store float %87, ptr %85, align 4
-  %indvars.iv.next289 = add nsw i64 %indvars.iv288, %41
-  %indvars.iv.next291 = add nsw i64 %indvars.iv290, %42
-  %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
-  %exitcond302.not = icmp eq i64 %indvars.iv.next293, %indvars.iv303
+  %indvars.iv.next293 = add nsw i64 %indvars.iv292, %42
+  %indvars.iv.next291 = add nsw i64 %indvars.iv290, %41
+  %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
+  %exitcond302.not = icmp eq i64 %indvars.iv.next289, %indvars.iv303
   br i1 %exitcond302.not, label %.loopexit194, label %77, !llvm.loop !7
 
 .loopexit194:                                     ; preds = %77, %66
-  %indvars.iv.next306 = add nsw i64 %indvars.iv305, %41
   %indvars.iv.next308 = add nsw i64 %indvars.iv307, %42
-  %88 = add nuw nsw i32 %.1179244, 1
+  %indvars.iv.next306 = add nsw i64 %indvars.iv305, %41
+  %88 = add nuw nsw i32 %.1165246, 1
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %exitcond316.not = icmp eq i64 %indvars.iv.next304, %wide.trip.count315
   br i1 %exitcond316.not, label %.loopexit193, label %66, !llvm.loop !8
@@ -185,8 +185,8 @@ define void @ssyr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 .lr.ph222:                                        ; preds = %89
   %invariant.gep209 = getelementptr i8, ptr %3, i64 -4
   %invariant.gep211 = getelementptr i8, ptr %5, i64 -4
-  %90 = sext i32 %15 to i64
-  %91 = sext i32 %16 to i64
+  %90 = sext i32 %16 to i64
+  %91 = sext i32 %15 to i64
   %92 = add nuw i32 %13, 1
   %93 = add nuw i32 %13, 1
   %wide.trip.count275 = zext i32 %93 to i64
@@ -250,11 +250,11 @@ define void @ssyr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %exitcond287.not, label %.loopexit193, label %.lr.ph229, !llvm.loop !10
 
 118:                                              ; preds = %.lr.ph222, %.loopexit200
-  %indvars.iv261 = phi i64 [ 1, %.lr.ph222 ], [ %indvars.iv.next262, %.loopexit200 ]
-  %indvars.iv257 = phi i64 [ %.1165, %.lr.ph222 ], [ %indvars.iv.next258, %.loopexit200 ]
-  %indvars.iv = phi i64 [ %.1, %.lr.ph222 ], [ %indvars.iv.next, %.loopexit200 ]
-  %indvars274 = trunc i64 %indvars.iv261 to i32
-  %gep210 = getelementptr float, ptr %invariant.gep209, i64 %indvars.iv
+  %indvars.iv261 = phi i64 [ %.0171, %.lr.ph222 ], [ %indvars.iv.next262, %.loopexit200 ]
+  %indvars.iv257 = phi i64 [ %.0168, %.lr.ph222 ], [ %indvars.iv.next258, %.loopexit200 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph222 ], [ %indvars.iv.next, %.loopexit200 ]
+  %indvars270 = trunc i64 %indvars.iv to i32
+  %gep210 = getelementptr float, ptr %invariant.gep209, i64 %indvars.iv261
   %119 = load float, ptr %gep210, align 4
   %120 = tail call noundef float @llvm.fabs.f32(float %119)
   %121 = fcmp ogt float %120, 0x3810000000000000
@@ -268,11 +268,11 @@ define void @ssyr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 ._crit_edge:                                      ; preds = %118
   %124 = fmul float %17, %.pre
   %125 = fmul float %17, %119
-  %.not185205 = icmp slt i32 %13, %indvars274
+  %.not185205 = icmp slt i32 %13, %indvars270
   br i1 %.not185205, label %.loopexit200, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge
-  %126 = add nsw i32 %indvars274, -1
+  %126 = add nsw i32 %indvars270, -1
   %127 = mul nsw i32 %126, %14
   %128 = add i32 %127, -1
   br label %129
@@ -281,30 +281,30 @@ define void @ssyr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv263 = phi i64 [ %indvars.iv261, %.lr.ph ], [ %indvars.iv.next264, %129 ]
   %indvars.iv259 = phi i64 [ %indvars.iv257, %.lr.ph ], [ %indvars.iv.next260, %129 ]
   %indvars.iv255 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next256, %129 ]
-  %gep = getelementptr float, ptr %invariant.gep209, i64 %indvars.iv255
+  %gep = getelementptr float, ptr %invariant.gep209, i64 %indvars.iv263
   %130 = load float, ptr %gep, align 4
   %gep204 = getelementptr float, ptr %invariant.gep211, i64 %indvars.iv259
   %131 = load float, ptr %gep204, align 4
   %132 = fmul float %125, %131
   %133 = tail call float @llvm.fmuladd.f32(float %130, float %124, float %132)
-  %134 = trunc nuw nsw i64 %indvars.iv263 to i32
+  %134 = trunc nuw nsw i64 %indvars.iv255 to i32
   %135 = add i32 %128, %134
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds float, ptr %7, i64 %136
   %138 = load float, ptr %137, align 4
   %139 = fadd float %138, %133
   store float %139, ptr %137, align 4
-  %indvars.iv.next256 = add nsw i64 %indvars.iv255, %90
-  %indvars.iv.next260 = add nsw i64 %indvars.iv259, %91
-  %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next264, %wide.trip.count
+  %indvars.iv.next264 = add nsw i64 %indvars.iv263, %91
+  %indvars.iv.next260 = add nsw i64 %indvars.iv259, %90
+  %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next256, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit200, label %129, !llvm.loop !11
 
 .loopexit200:                                     ; preds = %129, %118, %._crit_edge
-  %indvars.iv.next = add nsw i64 %indvars.iv, %90
-  %indvars.iv.next258 = add nsw i64 %indvars.iv257, %91
-  %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
-  %exitcond276.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count275
+  %indvars.iv.next262 = add nsw i64 %indvars.iv261, %91
+  %indvars.iv.next258 = add nsw i64 %indvars.iv257, %90
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond276.not = icmp eq i64 %indvars.iv.next, %wide.trip.count275
   br i1 %exitcond276.not, label %.loopexit193, label %118, !llvm.loop !12
 
 .loopexit193:                                     ; preds = %.loopexit200, %.loopexit197, %.loopexit194, %.loopexit, %24, %9, %19

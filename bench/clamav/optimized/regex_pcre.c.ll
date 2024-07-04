@@ -346,15 +346,15 @@ define void @cli_pcre_report(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
-  %.03438 = phi i64 [ %36, %.lr.ph ], [ 0, %26 ]
-  %29 = shl nuw nsw i64 %.03438, 1
+  %.038 = phi i64 [ %36, %.lr.ph ], [ 0, %26 ]
+  %29 = shl nuw nsw i64 %.038, 1
   %30 = getelementptr inbounds i8, ptr %10, i64 %29
   %31 = sub nuw nsw i64 2057, %29
-  %32 = getelementptr inbounds i8, ptr %20, i64 %.03438
+  %32 = getelementptr inbounds i8, ptr %20, i64 %.038
   %33 = load i8, ptr %32, align 1
   %34 = sext i8 %33 to i32
   %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %30, i64 noundef %31, ptr noundef nonnull @.str.14, i32 noundef %34) #6
-  %36 = add nuw i64 %.03438, 1
+  %36 = add nuw i64 %.038, 1
   %exitcond.not = icmp eq i64 %36, %spec.select
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
@@ -399,12 +399,12 @@ define void @cli_pcre_report(ptr nocapture noundef readonly %0, ptr nocapture no
   br label %.lr.ph34.i
 
 .lr.ph34.i:                                       ; preds = %._crit_edge.i, %.lr.ph34.preheader.i
-  %.032.i = phi i32 [ %87, %._crit_edge.i ], [ 0, %.lr.ph34.preheader.i ]
-  %.02631.i = phi ptr [ %86, %._crit_edge.i ], [ %53, %.lr.ph34.preheader.i ]
-  %54 = load i8, ptr %.02631.i, align 1
+  %.032.i = phi ptr [ %86, %._crit_edge.i ], [ %53, %.lr.ph34.preheader.i ]
+  %.02831.i = phi i32 [ %87, %._crit_edge.i ], [ 0, %.lr.ph34.preheader.i ]
+  %54 = load i8, ptr %.032.i, align 1
   %55 = zext i8 %54 to i32
   %56 = shl nuw nsw i32 %55, 8
-  %57 = getelementptr inbounds i8, ptr %.02631.i, i64 1
+  %57 = getelementptr inbounds i8, ptr %.032.i, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = or disjoint i32 %56, %59
@@ -424,28 +424,28 @@ define void @cli_pcre_report(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph34.i, %.lr.ph.i
-  %.02730.i = phi i64 [ %79, %.lr.ph.i ], [ 0, %.lr.ph34.i ]
-  %72 = shl nuw nsw i64 %.02730.i, 1
+  %.02530.i = phi i64 [ %79, %.lr.ph.i ], [ 0, %.lr.ph34.i ]
+  %72 = shl nuw nsw i64 %.02530.i, 1
   %73 = getelementptr inbounds i8, ptr %9, i64 %72
   %74 = sub nuw nsw i64 2057, %72
-  %75 = getelementptr inbounds i8, ptr %65, i64 %.02730.i
+  %75 = getelementptr inbounds i8, ptr %65, i64 %.02530.i
   %76 = load i8, ptr %75, align 1
   %77 = sext i8 %76 to i32
   %78 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %73, i64 noundef %74, ptr noundef nonnull @.str.14, i32 noundef %77) #6
-  %79 = add nuw i64 %.02730.i, 1
+  %79 = add nuw i64 %.02530.i, 1
   %exitcond.not.i = icmp eq i64 %79, %spec.select.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph34.i
   %80 = load i32, ptr %7, align 4
   %81 = add nsw i32 %80, -3
-  %82 = getelementptr inbounds i8, ptr %.02631.i, i64 2
+  %82 = getelementptr inbounds i8, ptr %.032.i, i64 2
   %83 = select i1 %71, ptr @.str.17, ptr @.str.16
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23, i32 noundef %60, i32 noundef %81, ptr noundef nonnull %82, ptr noundef nonnull %9, ptr noundef nonnull %83) #6
   %84 = load i32, ptr %7, align 4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %.02631.i, i64 %85
-  %87 = add nuw nsw i32 %.032.i, 1
+  %86 = getelementptr inbounds i8, ptr %.032.i, i64 %85
+  %87 = add nuw nsw i32 %.02831.i, 1
   %88 = load i32, ptr %6, align 4
   %89 = icmp slt i32 %87, %88
   br i1 %89, label %.lr.ph34.i, label %named_substr_print.exit

@@ -11007,16 +11007,16 @@ sw.default.i47:                                   ; preds = %if.then
   br label %cleanupthread-pre-split
 
 cleanupthread-pre-split:                          ; preds = %for.cond, %if.then, %sw.bb18.i46, %sw.bb19.i45, %sw.bb20.i44, %if.then23.i42, %if.end25.i40, %sw.bb31.i38, %sw.bb32.i36, %sw.bb38.i35, %sw.bb39.i34, %sw.bb40.i33, %sw.bb41.i32, %sw.bb42.i31, %sw.bb43.i25, %sw.default.i47
-  %retval.sroa.0.0.ph = phi i64 [ 4, %if.then ], [ 6, %sw.bb18.i46 ], [ 5, %sw.bb19.i45 ], [ 5, %sw.bb20.i44 ], [ 9, %if.end25.i40 ], [ 7, %if.then23.i42 ], [ 5, %sw.bb31.i38 ], [ 7, %sw.bb32.i36 ], [ 5, %sw.bb38.i35 ], [ 7, %sw.bb39.i34 ], [ 4, %sw.bb40.i33 ], [ 3, %sw.bb41.i32 ], [ 5, %sw.bb42.i31 ], [ 11, %sw.bb43.i25 ], [ 0, %sw.default.i47 ], [ undef, %for.cond ]
   %retval.sroa.8.0.ph = phi ptr [ @.str.51, %if.then ], [ @.str.52, %sw.bb18.i46 ], [ @.str.53, %sw.bb19.i45 ], [ @.str.54, %sw.bb20.i44 ], [ %retval.sroa.16.0.copyload27.i41, %if.end25.i40 ], [ %retval.sroa.16.0.copyload26.i43, %if.then23.i42 ], [ @.str.59, %sw.bb31.i38 ], [ %retval.sroa.16.0.copyload29.i37, %sw.bb32.i36 ], [ @.str.62, %sw.bb38.i35 ], [ @.str.63, %sw.bb39.i34 ], [ @.str.64, %sw.bb40.i33 ], [ @.str.65, %sw.bb41.i32 ], [ @.str.66, %sw.bb42.i31 ], [ %retval.sroa.16.0.copyload35.i26, %sw.bb43.i25 ], [ @.str.22, %sw.default.i47 ], [ undef, %for.cond ]
+  %retval.sroa.0.0.ph = phi i64 [ 4, %if.then ], [ 6, %sw.bb18.i46 ], [ 5, %sw.bb19.i45 ], [ 5, %sw.bb20.i44 ], [ 9, %if.end25.i40 ], [ 7, %if.then23.i42 ], [ 5, %sw.bb31.i38 ], [ 7, %sw.bb32.i36 ], [ 5, %sw.bb38.i35 ], [ 7, %sw.bb39.i34 ], [ 4, %sw.bb40.i33 ], [ 3, %sw.bb41.i32 ], [ 5, %sw.bb42.i31 ], [ 11, %sw.bb43.i25 ], [ 0, %sw.default.i47 ], [ undef, %for.cond ]
   %.pr = load ptr, ptr %ref.tmp, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanupthread-pre-split, %sw.bb2
   %9 = phi ptr [ %.pr, %cleanupthread-pre-split ], [ %3, %sw.bb2 ]
   %cmp.i1699 = phi i1 [ %cmp, %cleanupthread-pre-split ], [ true, %sw.bb2 ]
-  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.ph, %cleanupthread-pre-split ], [ undef, %sw.bb2 ]
   %retval.sroa.8.0 = phi ptr [ %retval.sroa.8.0.ph, %cleanupthread-pre-split ], [ undef, %sw.bb2 ]
+  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.ph, %cleanupthread-pre-split ], [ undef, %sw.bb2 ]
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit, label %if.then.i.i.i
 
@@ -11025,8 +11025,8 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit
 
 _ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit: ; preds = %cleanup, %if.then.i.i.i
-  %spec.select = select i1 %cmp.i1699, i64 0, i64 %retval.sroa.0.0
-  %spec.select95 = select i1 %cmp.i1699, ptr @.str.22, ptr %retval.sroa.8.0
+  %spec.select = select i1 %cmp.i1699, ptr @.str.22, ptr %retval.sroa.8.0
+  %spec.select95 = select i1 %cmp.i1699, i64 0, i64 %retval.sroa.0.0
   br label %return
 
 sw.bb12:                                          ; preds = %entry
@@ -11128,16 +11128,16 @@ sw.default.i81:                                   ; preds = %if.then30
   br label %cleanup36thread-pre-split
 
 cleanup36thread-pre-split:                        ; preds = %for.cond21, %if.then30, %sw.bb18.i80, %sw.bb19.i79, %sw.bb20.i78, %if.then23.i76, %if.end25.i74, %sw.bb31.i72, %sw.bb32.i70, %sw.bb38.i69, %sw.bb39.i68, %sw.bb40.i67, %sw.bb41.i66, %sw.bb42.i65, %sw.bb43.i59, %sw.default.i81
-  %retval.sroa.0.1.ph = phi i64 [ 4, %if.then30 ], [ 6, %sw.bb18.i80 ], [ 5, %sw.bb19.i79 ], [ 5, %sw.bb20.i78 ], [ 9, %if.end25.i74 ], [ 7, %if.then23.i76 ], [ 5, %sw.bb31.i72 ], [ 7, %sw.bb32.i70 ], [ 5, %sw.bb38.i69 ], [ 7, %sw.bb39.i68 ], [ 4, %sw.bb40.i67 ], [ 3, %sw.bb41.i66 ], [ 5, %sw.bb42.i65 ], [ 11, %sw.bb43.i59 ], [ 0, %sw.default.i81 ], [ undef, %for.cond21 ]
   %retval.sroa.8.1.ph = phi ptr [ @.str.51, %if.then30 ], [ @.str.52, %sw.bb18.i80 ], [ @.str.53, %sw.bb19.i79 ], [ @.str.54, %sw.bb20.i78 ], [ %retval.sroa.16.0.copyload27.i75, %if.end25.i74 ], [ %retval.sroa.16.0.copyload26.i77, %if.then23.i76 ], [ @.str.59, %sw.bb31.i72 ], [ %retval.sroa.16.0.copyload29.i71, %sw.bb32.i70 ], [ @.str.62, %sw.bb38.i69 ], [ @.str.63, %sw.bb39.i68 ], [ @.str.64, %sw.bb40.i67 ], [ @.str.65, %sw.bb41.i66 ], [ @.str.66, %sw.bb42.i65 ], [ %retval.sroa.16.0.copyload35.i60, %sw.bb43.i59 ], [ @.str.22, %sw.default.i81 ], [ undef, %for.cond21 ]
+  %retval.sroa.0.1.ph = phi i64 [ 4, %if.then30 ], [ 6, %sw.bb18.i80 ], [ 5, %sw.bb19.i79 ], [ 5, %sw.bb20.i78 ], [ 9, %if.end25.i74 ], [ 7, %if.then23.i76 ], [ 5, %sw.bb31.i72 ], [ 7, %sw.bb32.i70 ], [ 5, %sw.bb38.i69 ], [ 7, %sw.bb39.i68 ], [ 4, %sw.bb40.i67 ], [ 3, %sw.bb41.i66 ], [ 5, %sw.bb42.i65 ], [ 11, %sw.bb43.i59 ], [ 0, %sw.default.i81 ], [ undef, %for.cond21 ]
   %.pr115 = load ptr, ptr %ref.tmp14, align 8
   br label %cleanup36
 
 cleanup36:                                        ; preds = %cleanup36thread-pre-split, %sw.bb12
   %16 = phi ptr [ %.pr115, %cleanup36thread-pre-split ], [ %10, %sw.bb12 ]
   %cmp.i50101 = phi i1 [ %cmp29, %cleanup36thread-pre-split ], [ true, %sw.bb12 ]
-  %retval.sroa.0.1 = phi i64 [ %retval.sroa.0.1.ph, %cleanup36thread-pre-split ], [ undef, %sw.bb12 ]
   %retval.sroa.8.1 = phi ptr [ %retval.sroa.8.1.ph, %cleanup36thread-pre-split ], [ undef, %sw.bb12 ]
+  %retval.sroa.0.1 = phi i64 [ %retval.sroa.0.1.ph, %cleanup36thread-pre-split ], [ undef, %sw.bb12 ]
   %tobool.not.i.i.i84 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i84, label %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit86, label %if.then.i.i.i85
 
@@ -11146,8 +11146,8 @@ if.then.i.i.i85:                                  ; preds = %cleanup36
   br label %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit86
 
 _ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit86: ; preds = %cleanup36, %if.then.i.i.i85
-  %spec.select96 = select i1 %cmp.i50101, i64 0, i64 %retval.sroa.0.1
-  %spec.select97 = select i1 %cmp.i50101, ptr @.str.22, ptr %retval.sroa.8.1
+  %spec.select96 = select i1 %cmp.i50101, ptr @.str.22, ptr %retval.sroa.8.1
+  %spec.select97 = select i1 %cmp.i50101, i64 0, i64 %retval.sroa.0.1
   br label %return
 
 sw.bb39:                                          ; preds = %entry
@@ -11157,8 +11157,8 @@ sw.bb39:                                          ; preds = %entry
   br label %return
 
 return:                                           ; preds = %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit86, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit, %entry, %sw.default.i, %sw.bb43.i, %sw.bb42.i, %sw.bb41.i, %sw.bb40.i, %sw.bb39.i, %sw.bb38.i, %sw.bb32.i, %sw.bb31.i, %if.end25.i, %if.then23.i, %sw.bb20.i, %sw.bb19.i, %sw.bb18.i, %sw.bb, %sw.bb39
-  %retval.sroa.0.2 = phi i64 [ %17, %sw.bb39 ], [ 0, %sw.default.i ], [ 11, %sw.bb43.i ], [ 5, %sw.bb42.i ], [ 3, %sw.bb41.i ], [ 4, %sw.bb40.i ], [ 7, %sw.bb39.i ], [ 5, %sw.bb38.i ], [ 7, %sw.bb32.i ], [ 5, %sw.bb31.i ], [ 7, %if.then23.i ], [ 9, %if.end25.i ], [ 5, %sw.bb20.i ], [ 5, %sw.bb19.i ], [ 6, %sw.bb18.i ], [ 4, %sw.bb ], [ %spec.select, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit ], [ %spec.select96, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit86 ], [ 0, %entry ]
-  %retval.sroa.8.2 = phi ptr [ %18, %sw.bb39 ], [ @.str.22, %sw.default.i ], [ %retval.sroa.16.0.copyload35.i, %sw.bb43.i ], [ @.str.66, %sw.bb42.i ], [ @.str.65, %sw.bb41.i ], [ @.str.64, %sw.bb40.i ], [ @.str.63, %sw.bb39.i ], [ @.str.62, %sw.bb38.i ], [ %retval.sroa.16.0.copyload29.i, %sw.bb32.i ], [ @.str.59, %sw.bb31.i ], [ %retval.sroa.16.0.copyload26.i, %if.then23.i ], [ %retval.sroa.16.0.copyload27.i, %if.end25.i ], [ @.str.54, %sw.bb20.i ], [ @.str.53, %sw.bb19.i ], [ @.str.52, %sw.bb18.i ], [ @.str.51, %sw.bb ], [ %spec.select95, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit ], [ %spec.select97, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit86 ], [ @.str.22, %entry ]
+  %retval.sroa.8.2 = phi ptr [ %18, %sw.bb39 ], [ @.str.22, %sw.default.i ], [ %retval.sroa.16.0.copyload35.i, %sw.bb43.i ], [ @.str.66, %sw.bb42.i ], [ @.str.65, %sw.bb41.i ], [ @.str.64, %sw.bb40.i ], [ @.str.63, %sw.bb39.i ], [ @.str.62, %sw.bb38.i ], [ %retval.sroa.16.0.copyload29.i, %sw.bb32.i ], [ @.str.59, %sw.bb31.i ], [ %retval.sroa.16.0.copyload26.i, %if.then23.i ], [ %retval.sroa.16.0.copyload27.i, %if.end25.i ], [ @.str.54, %sw.bb20.i ], [ @.str.53, %sw.bb19.i ], [ @.str.52, %sw.bb18.i ], [ @.str.51, %sw.bb ], [ %spec.select, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit ], [ %spec.select96, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit86 ], [ @.str.22, %entry ]
+  %retval.sroa.0.2 = phi i64 [ %17, %sw.bb39 ], [ 0, %sw.default.i ], [ 11, %sw.bb43.i ], [ 5, %sw.bb42.i ], [ 3, %sw.bb41.i ], [ 4, %sw.bb40.i ], [ 7, %sw.bb39.i ], [ 5, %sw.bb38.i ], [ 7, %sw.bb32.i ], [ 5, %sw.bb31.i ], [ 7, %if.then23.i ], [ 9, %if.end25.i ], [ 5, %sw.bb20.i ], [ 5, %sw.bb19.i ], [ 6, %sw.bb18.i ], [ 4, %sw.bb ], [ %spec.select95, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit ], [ %spec.select97, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_3SH4EEEEESaIS7_EED2Ev.exit86 ], [ 0, %entry ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.2, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.8.2, 1
   ret { i64, ptr } %.fca.1.insert
@@ -17957,35 +17957,35 @@ entry:
   br i1 %cmp19.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry, %if.end16.i
-  %__value.addr.021.i = phi i64 [ %div.i, %if.end16.i ], [ %cond, %entry ]
-  %__n.020.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
-  %cmp5.i = icmp ult i64 %__value.addr.021.i, 100
+  %__n.021.i = phi i32 [ %add17.i, %if.end16.i ], [ 1, %entry ]
+  %__value.addr.020.i = phi i64 [ %div.i, %if.end16.i ], [ %cond, %entry ]
+  %cmp5.i = icmp ult i64 %__value.addr.020.i, 100
   br i1 %cmp5.i, label %if.then6.i, label %if.end7.i
 
 if.then6.i:                                       ; preds = %if.end.i
-  %add.i = add i32 %__n.020.i, 1
+  %add.i = add i32 %__n.021.i, 1
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %cmp9.i = icmp ult i64 %__value.addr.021.i, 1000
+  %cmp9.i = icmp ult i64 %__value.addr.020.i, 1000
   br i1 %cmp9.i, label %if.then10.i, label %if.end12.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %add11.i = add i32 %__n.020.i, 2
+  %add11.i = add i32 %__n.021.i, 2
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end12.i:                                       ; preds = %if.end7.i
-  %cmp13.i = icmp ult i64 %__value.addr.021.i, 10000
+  %cmp13.i = icmp ult i64 %__value.addr.020.i, 10000
   br i1 %cmp13.i, label %if.then14.i, label %if.end16.i
 
 if.then14.i:                                      ; preds = %if.end12.i
-  %add15.i = add i32 %__n.020.i, 3
+  %add15.i = add i32 %__n.021.i, 3
   br label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
 
 if.end16.i:                                       ; preds = %if.end12.i
-  %div.i = udiv i64 %__value.addr.021.i, 10000
-  %add17.i = add i32 %__n.020.i, 4
-  %cmp.i = icmp ult i64 %__value.addr.021.i, 100000
+  %div.i = udiv i64 %__value.addr.020.i, 10000
+  %add17.i = add i32 %__n.021.i, 4
+  %cmp.i = icmp ult i64 %__value.addr.020.i, 100000
   br i1 %cmp.i, label %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit, label %if.end.i, !llvm.loop !225
 
 _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %if.end16.i, %entry, %if.then6.i, %if.then10.i, %if.then14.i

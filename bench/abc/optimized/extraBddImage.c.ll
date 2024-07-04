@@ -531,7 +531,7 @@ Extra_FindBestVariable.exit.i:                    ; preds = %217
 
 .lr.ph.i85:                                       ; preds = %265, %.lr.ph.preheader.i84
   %indvars.iv.i86 = phi i64 [ 0, %.lr.ph.preheader.i84 ], [ %indvars.iv.next.i87, %265 ]
-  %.0112136.i = phi ptr [ %244, %.lr.ph.preheader.i84 ], [ %.1113.i, %265 ]
+  %.0111138.i = phi ptr [ %244, %.lr.ph.preheader.i84 ], [ %.1112.i, %265 ]
   %246 = getelementptr inbounds ptr, ptr %calloc.i, i64 %indvars.iv.i86
   %247 = load ptr, ptr %246, align 8
   %.not121.i = icmp eq ptr %247, null
@@ -554,9 +554,9 @@ Extra_FindBestVariable.exit.i:                    ; preds = %217
   %258 = sext i32 %257 to i64
   %259 = getelementptr inbounds ptr, ptr %256, i64 %258
   %260 = load ptr, ptr %259, align 8
-  %261 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.0112136.i, ptr noundef %260) #10
+  %261 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.0111138.i, ptr noundef %260) #10
   tail call void @Cudd_Ref(ptr noundef %261) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0112136.i) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.0111138.i) #10
   %262 = load ptr, ptr %246, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 8
   %264 = load ptr, ptr %263, align 8
@@ -566,7 +566,7 @@ Extra_FindBestVariable.exit.i:                    ; preds = %217
   br label %265
 
 265:                                              ; preds = %255, %248, %.lr.ph.i85
-  %.1113.i = phi ptr [ %261, %255 ], [ %.0112136.i, %248 ], [ %.0112136.i, %.lr.ph.i85 ]
+  %.1112.i = phi ptr [ %261, %255 ], [ %.0111138.i, %248 ], [ %.0111138.i, %.lr.ph.i85 ]
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
   %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, %wide.trip.count.i.i
   br i1 %exitcond.not.i88, label %266, label %.lr.ph.i85, !llvm.loop !16
@@ -578,8 +578,8 @@ Extra_FindBestVariable.exit.i:                    ; preds = %217
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %269) #10
   tail call void @free(ptr noundef nonnull %267) #10
   store ptr null, ptr %221, align 8
-  %270 = tail call fastcc ptr @Extra_CombineTwoNodes(ptr noundef %0, ptr noundef %.1113.i, ptr noundef %236, ptr noundef %239)
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1113.i) #10
+  %270 = tail call fastcc ptr @Extra_CombineTwoNodes(ptr noundef %0, ptr noundef %.1112.i, ptr noundef %236, ptr noundef %239)
+  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.1112.i) #10
   br label %301
 
 271:                                              ; preds = %219
@@ -588,12 +588,12 @@ Extra_FindBestVariable.exit.i:                    ; preds = %217
   br i1 %.not29.i.i, label %Extra_FindBestPartitions.exit.i, label %.lr.ph.i124.i
 
 .lr.ph.i124.i:                                    ; preds = %271, %284
-  %.034.i.i = phi ptr [ %286, %284 ], [ %229, %271 ]
-  %.01933.i.i = phi i32 [ %.1.i125.i, %284 ], [ 1000000, %271 ]
-  %.02032.i.i = phi i32 [ %.121.i.i, %284 ], [ 1000000, %271 ]
-  %.02231.i.i = phi i32 [ %.123.i.i, %284 ], [ -1, %271 ]
-  %.02430.i.i = phi i32 [ %.125.i.i, %284 ], [ -1, %271 ]
-  %273 = load i32, ptr %.034.i.i, align 8
+  %.034.i.i = phi i32 [ %.1.i126.i, %284 ], [ 1000000, %271 ]
+  %.01933.i.i = phi i32 [ %.120.i.i, %284 ], [ 1000000, %271 ]
+  %.02132.i.i = phi i32 [ %.122.i125.i, %284 ], [ -1, %271 ]
+  %.02331.i.i = phi i32 [ %.124.i.i, %284 ], [ -1, %271 ]
+  %.02530.i.i = phi ptr [ %286, %284 ], [ %229, %271 ]
+  %273 = load i32, ptr %.02530.i.i, align 8
   %274 = zext i32 %273 to i64
   %275 = getelementptr inbounds ptr, ptr %126, i64 %274
   %276 = load ptr, ptr %275, align 8
@@ -601,41 +601,41 @@ Extra_FindBestVariable.exit.i:                    ; preds = %217
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds i8, ptr %278, i64 16
   %280 = load i32, ptr %279, align 8
-  %281 = icmp sgt i32 %.02032.i.i, %280
+  %281 = icmp sgt i32 %.01933.i.i, %280
   br i1 %281, label %284, label %282
 
 282:                                              ; preds = %.lr.ph.i124.i
-  %283 = icmp sgt i32 %.01933.i.i, %280
-  %spec.select.i.i = select i1 %283, i32 %273, i32 %.02231.i.i
-  %spec.select28.i.i = tail call i32 @llvm.smin.i32(i32 %.01933.i.i, i32 %280)
+  %283 = icmp sgt i32 %.034.i.i, %280
+  %spec.select.i.i = select i1 %283, i32 %273, i32 %.02132.i.i
+  %spec.select28.i.i = tail call i32 @llvm.smin.i32(i32 %.034.i.i, i32 %280)
   br label %284
 
 284:                                              ; preds = %282, %.lr.ph.i124.i
-  %.125.i.i = phi i32 [ %273, %.lr.ph.i124.i ], [ %.02430.i.i, %282 ]
-  %.123.i.i = phi i32 [ %.02430.i.i, %.lr.ph.i124.i ], [ %spec.select.i.i, %282 ]
-  %.121.i.i = phi i32 [ %280, %.lr.ph.i124.i ], [ %.02032.i.i, %282 ]
-  %.1.i125.i = phi i32 [ %.02032.i.i, %.lr.ph.i124.i ], [ %spec.select28.i.i, %282 ]
-  %285 = getelementptr inbounds i8, ptr %.034.i.i, i64 16
+  %.124.i.i = phi i32 [ %273, %.lr.ph.i124.i ], [ %.02331.i.i, %282 ]
+  %.122.i125.i = phi i32 [ %.02331.i.i, %.lr.ph.i124.i ], [ %spec.select.i.i, %282 ]
+  %.120.i.i = phi i32 [ %280, %.lr.ph.i124.i ], [ %.01933.i.i, %282 ]
+  %.1.i126.i = phi i32 [ %.01933.i.i, %.lr.ph.i124.i ], [ %spec.select28.i.i, %282 ]
+  %285 = getelementptr inbounds i8, ptr %.02530.i.i, i64 16
   %286 = load ptr, ptr %285, align 8
-  %.not.i126.i = icmp eq ptr %286, %272
-  br i1 %.not.i126.i, label %Extra_FindBestPartitions.exit.loopexit.i, label %.lr.ph.i124.i, !llvm.loop !17
+  %.not.i127.i = icmp eq ptr %286, %272
+  br i1 %.not.i127.i, label %Extra_FindBestPartitions.exit.loopexit.i, label %.lr.ph.i124.i, !llvm.loop !17
 
 Extra_FindBestPartitions.exit.loopexit.i:         ; preds = %284
-  %287 = sext i32 %.125.i.i to i64
-  %288 = sext i32 %.123.i.i to i64
+  %287 = sext i32 %.124.i.i to i64
+  %288 = sext i32 %.122.i125.i to i64
   br label %Extra_FindBestPartitions.exit.i
 
 Extra_FindBestPartitions.exit.i:                  ; preds = %Extra_FindBestPartitions.exit.loopexit.i, %271
-  %.024.lcssa.i.i = phi i64 [ -1, %271 ], [ %287, %Extra_FindBestPartitions.exit.loopexit.i ]
-  %.022.lcssa.i.i = phi i64 [ -1, %271 ], [ %288, %Extra_FindBestPartitions.exit.loopexit.i ]
-  %289 = getelementptr inbounds ptr, ptr %126, i64 %.024.lcssa.i.i
+  %.023.lcssa.i.i = phi i64 [ -1, %271 ], [ %287, %Extra_FindBestPartitions.exit.loopexit.i ]
+  %.021.lcssa.i129.i = phi i64 [ -1, %271 ], [ %288, %Extra_FindBestPartitions.exit.loopexit.i ]
+  %289 = getelementptr inbounds ptr, ptr %126, i64 %.023.lcssa.i.i
   %290 = load ptr, ptr %289, align 8
-  %291 = getelementptr inbounds ptr, ptr %126, i64 %.022.lcssa.i.i
+  %291 = getelementptr inbounds ptr, ptr %126, i64 %.021.lcssa.i129.i
   %292 = load ptr, ptr %291, align 8
   %293 = load ptr, ptr %194, align 8
-  %294 = getelementptr inbounds ptr, ptr %293, i64 %.024.lcssa.i.i
+  %294 = getelementptr inbounds ptr, ptr %293, i64 %.023.lcssa.i.i
   %295 = load ptr, ptr %294, align 8
-  %296 = getelementptr inbounds ptr, ptr %293, i64 %.022.lcssa.i.i
+  %296 = getelementptr inbounds ptr, ptr %293, i64 %.021.lcssa.i129.i
   %297 = load ptr, ptr %296, align 8
   %298 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %295, ptr noundef %297) #10
   tail call void @Cudd_Ref(ptr noundef %298) #10
@@ -645,37 +645,37 @@ Extra_FindBestPartitions.exit.i:                  ; preds = %Extra_FindBestParti
   br label %301
 
 301:                                              ; preds = %Extra_FindBestPartitions.exit.i, %266
-  %.pre-phi144.i = phi i64 [ %.022.lcssa.i.i, %Extra_FindBestPartitions.exit.i ], [ %237, %266 ]
-  %.pre-phi.i = phi i64 [ %.024.lcssa.i.i, %Extra_FindBestPartitions.exit.i ], [ %234, %266 ]
-  %.0114.i = phi ptr [ %300, %Extra_FindBestPartitions.exit.i ], [ %270, %266 ]
-  %.0110.i = phi ptr [ %292, %Extra_FindBestPartitions.exit.i ], [ %239, %266 ]
+  %.pre-phi146.i = phi i64 [ %.021.lcssa.i129.i, %Extra_FindBestPartitions.exit.i ], [ %237, %266 ]
+  %.pre-phi.i = phi i64 [ %.023.lcssa.i.i, %Extra_FindBestPartitions.exit.i ], [ %234, %266 ]
+  %.0114.i = phi ptr [ %292, %Extra_FindBestPartitions.exit.i ], [ %239, %266 ]
+  %.0113.i = phi ptr [ %300, %Extra_FindBestPartitions.exit.i ], [ %270, %266 ]
   %302 = getelementptr inbounds ptr, ptr %126, i64 %.pre-phi.i
-  store ptr %.0114.i, ptr %302, align 8
-  %303 = getelementptr inbounds ptr, ptr %126, i64 %.pre-phi144.i
+  store ptr %.0113.i, ptr %302, align 8
+  %303 = getelementptr inbounds ptr, ptr %126, i64 %.pre-phi146.i
   store ptr null, ptr %303, align 8
-  %304 = getelementptr inbounds i8, ptr %.0110.i, i64 40
+  %304 = getelementptr inbounds i8, ptr %.0114.i, i64 40
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds i8, ptr %305, i64 8
-  %.0111138.i = load ptr, ptr %306, align 8
+  %.0110140.i = load ptr, ptr %306, align 8
   %307 = load ptr, ptr %83, align 8
-  %.not120139.i = icmp eq ptr %.0111138.i, %307
-  br i1 %.not120139.i, label %Extra_BuildTreeNode.exit, label %.lr.ph142.i
+  %.not120141.i = icmp eq ptr %.0110140.i, %307
+  br i1 %.not120141.i, label %Extra_BuildTreeNode.exit, label %.lr.ph144.i
 
-.lr.ph142.i:                                      ; preds = %301, %329
+.lr.ph144.i:                                      ; preds = %301, %329
   %308 = phi ptr [ %330, %329 ], [ %307, %301 ]
-  %.0111140.i = phi ptr [ %.0111.i, %329 ], [ %.0111138.i, %301 ]
-  %309 = load i32, ptr %.0111140.i, align 8
+  %.0110142.i = phi ptr [ %.0110.i, %329 ], [ %.0110140.i, %301 ]
+  %309 = load i32, ptr %.0110142.i, align 8
   %310 = zext i32 %309 to i64
   %311 = getelementptr inbounds ptr, ptr %calloc.i, i64 %310
   %312 = load ptr, ptr %311, align 8
   %313 = icmp eq ptr %312, null
   br i1 %313, label %329, label %314
 
-314:                                              ; preds = %.lr.ph142.i
+314:                                              ; preds = %.lr.ph144.i
   %315 = getelementptr inbounds i8, ptr %312, i64 8
   %316 = load ptr, ptr %315, align 8
   %317 = load ptr, ptr %194, align 8
-  %318 = getelementptr inbounds ptr, ptr %317, i64 %.pre-phi144.i
+  %318 = getelementptr inbounds ptr, ptr %317, i64 %.pre-phi146.i
   %319 = load ptr, ptr %318, align 8
   %320 = tail call ptr @Cudd_bddExistAbstract(ptr noundef nonnull %0, ptr noundef %316, ptr noundef %319) #10
   store ptr %320, ptr %315, align 8
@@ -696,12 +696,12 @@ Extra_FindBestPartitions.exit.i:                  ; preds = %Extra_FindBestParti
   %.pre.i = load ptr, ptr %83, align 8
   br label %329
 
-329:                                              ; preds = %314, %.lr.ph142.i
-  %330 = phi ptr [ %308, %.lr.ph142.i ], [ %.pre.i, %314 ]
-  %331 = getelementptr inbounds i8, ptr %.0111140.i, i64 16
-  %.0111.i = load ptr, ptr %331, align 8
-  %.not120.i = icmp eq ptr %.0111.i, %330
-  br i1 %.not120.i, label %Extra_BuildTreeNode.exit, label %.lr.ph142.i, !llvm.loop !18
+329:                                              ; preds = %314, %.lr.ph144.i
+  %330 = phi ptr [ %308, %.lr.ph144.i ], [ %.pre.i, %314 ]
+  %331 = getelementptr inbounds i8, ptr %.0110142.i, i64 16
+  %.0110.i = load ptr, ptr %331, align 8
+  %.not120.i = icmp eq ptr %.0110.i, %330
+  br i1 %.not120.i, label %Extra_BuildTreeNode.exit, label %.lr.ph144.i, !llvm.loop !18
 
 Extra_BuildTreeNode.exit:                         ; preds = %329, %301
   %332 = load i32, ptr %79, align 8

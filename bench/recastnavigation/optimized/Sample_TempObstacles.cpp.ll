@@ -3426,13 +3426,13 @@ _ZN9rcContext11resetTimersEv.exit:                ; preds = %177, %181
   br i1 %or.cond, label %.preheader69.us, label %._crit_edge75
 
 .preheader69.us:                                  ; preds = %_ZN9rcContext11resetTimersEv.exit, %._crit_edge73.us
-  %.05574.us = phi i32 [ %214, %._crit_edge73.us ], [ 0, %_ZN9rcContext11resetTimersEv.exit ]
+  %.05774.us = phi i32 [ %214, %._crit_edge73.us ], [ 0, %_ZN9rcContext11resetTimersEv.exit ]
   br label %190
 
 190:                                              ; preds = %.preheader69.us, %._crit_edge.us
-  %.05771.us = phi i32 [ 0, %.preheader69.us ], [ %193, %._crit_edge.us ]
+  %.05671.us = phi i32 [ 0, %.preheader69.us ], [ %193, %._crit_edge.us ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %7, i8 0, i64 512, i1 false)
-  %191 = call noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiRK8rcConfigP13TileCacheDatai(ptr noundef nonnull align 8 dereferenceable(276) %0, i32 noundef %.05771.us, i32 noundef %.05574.us, ptr noundef nonnull align 4 dereferenceable(92) %4, ptr noundef nonnull %7, i32 noundef 32)
+  %191 = call noundef i32 @_ZN20Sample_TempObstacles19rasterizeTileLayersEiiRK8rcConfigP13TileCacheDatai(ptr noundef nonnull align 8 dereferenceable(276) %0, i32 noundef %.05671.us, i32 noundef %.05774.us, ptr noundef nonnull align 4 dereferenceable(92) %4, ptr noundef nonnull %7, i32 noundef 32)
   %192 = icmp sgt i32 %191, 0
   br i1 %192, label %.lr.ph.us.preheader, label %._crit_edge.us
 
@@ -3441,7 +3441,7 @@ _ZN9rcContext11resetTimersEv.exit:                ; preds = %177, %181
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %213, %190
-  %193 = add nuw nsw i32 %.05771.us, 1
+  %193 = add nuw nsw i32 %.05671.us, 1
   %exitcond86.not = icmp eq i32 %193, %34
   br i1 %exitcond86.not, label %._crit_edge73.us, label %190, !llvm.loop !23
 
@@ -3482,7 +3482,7 @@ _ZN9rcContext11resetTimersEv.exit:                ; preds = %177, %181
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !24
 
 ._crit_edge73.us:                                 ; preds = %._crit_edge.us
-  %214 = add nuw nsw i32 %.05574.us, 1
+  %214 = add nuw nsw i32 %.05774.us, 1
   %exitcond87.not = icmp eq i32 %214, %37
   br i1 %exitcond87.not, label %._crit_edge75, label %.preheader69.us, !llvm.loop !25
 

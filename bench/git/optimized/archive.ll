@@ -1419,8 +1419,8 @@ if.else19.i:                                      ; preds = %if.end14.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.else19.i, %if.then17.i
-  %archive_time.0.i = phi i64 [ %54, %if.then17.i ], [ %55, %if.else19.i ]
   %commit_oid.0.i = phi ptr [ %oid18.i, %if.then17.i ], [ null, %if.else19.i ]
+  %archive_time.0.i = phi i64 [ %54, %if.then17.i ], [ %55, %if.else19.i ]
   %56 = load ptr, ptr %mtime_option268.i, align 8
   %tobool22.not.i = icmp eq ptr %56, null
   br i1 %tobool22.not.i, label %if.end26.i, label %if.then23.i

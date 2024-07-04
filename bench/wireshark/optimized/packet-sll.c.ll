@@ -354,8 +354,8 @@ define internal fastcc i32 @dissect_sll_common(ptr noundef %0, ptr noundef %1, p
 
 7:                                                ; preds = %4, %5
   %.sink = phi i32 [ 10, %5 ], [ 0, %4 ]
-  %.066 = phi i32 [ 20, %5 ], [ 16, %4 ]
-  %.065 = phi i32 [ 2, %5 ], [ 1, %4 ]
+  %.065 = phi i32 [ 20, %5 ], [ 16, %4 ]
+  %.064 = phi i32 [ 2, %5 ], [ 1, %4 ]
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.sink) #7
   %9 = zext i16 %8 to i32
   %10 = icmp ult i16 %8, 5
@@ -410,7 +410,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %28 = tail call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @packet_type_vals, ptr noundef nonnull @.str.55) #7
   tail call void @col_add_str(ptr noundef %27, i32 noundef 25, ptr noundef %28) #7
   %29 = load i32, ptr @proto_sll, align 4
-  %30 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef %.066, ptr noundef nonnull @.str.56, i32 noundef %.065) #7
+  %30 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef %.065, ptr noundef nonnull @.str.56, i32 noundef %.064) #7
   %31 = load i32, ptr @ett_sll, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #7
   %33 = tail call ptr @wmem_file_scope() #7

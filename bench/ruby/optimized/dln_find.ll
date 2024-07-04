@@ -104,26 +104,26 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
   br label %37
 
 37:                                               ; preds = %89, %28
-  %.085 = phi ptr [ %1, %28 ], [ %92, %89 ]
-  %38 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.085, i32 noundef 58) #11
+  %.090 = phi ptr [ %1, %28 ], [ %92, %89 ]
+  %38 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.090, i32 noundef 58) #11
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %37
-  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.085) #11
-  %42 = getelementptr i8, ptr %.085, i64 %41
+  %41 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.090) #11
+  %42 = getelementptr i8, ptr %.090, i64 %41
   br label %43
 
 43:                                               ; preds = %40, %37
-  %.091 = phi ptr [ %42, %40 ], [ %38, %37 ]
-  %44 = ptrtoint ptr %.091 to i64
-  %45 = ptrtoint ptr %.085 to i64
+  %.089 = phi ptr [ %42, %40 ], [ %38, %37 ]
+  %44 = ptrtoint ptr %.089 to i64
+  %45 = ptrtoint ptr %.090 to i64
   %46 = sub i64 %44, %45
   %.not105 = icmp eq i64 %46, 0
   br i1 %.not105, label %76, label %47
 
 47:                                               ; preds = %43
-  %48 = load i8, ptr %.085, align 1
+  %48 = load i8, ptr %.090, align 1
   %49 = icmp eq i8 %48, 126
   br i1 %49, label %50, label %.thread
 
@@ -132,7 +132,7 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
   br i1 %51, label %56, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr i8, ptr %.085, i64 1
+  %53 = getelementptr i8, ptr %.090, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 47
   br i1 %55, label %56, label %.thread
@@ -154,9 +154,9 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
   br label %64
 
 64:                                               ; preds = %56, %61
-  %.087 = phi ptr [ %63, %61 ], [ %2, %56 ]
+  %.085 = phi ptr [ %63, %61 ], [ %2, %56 ]
   %.084 = phi i64 [ %62, %61 ], [ %29, %56 ]
-  %65 = getelementptr i8, ptr %.085, i64 1
+  %65 = getelementptr i8, ptr %.090, i64 1
   %66 = add i64 %46, -1
   %.not107 = icmp eq i64 %66, 0
   br i1 %.not107, label %71, label %.thread
@@ -164,38 +164,38 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
 .thread:                                          ; preds = %47, %52, %64
   %.082117 = phi i64 [ %66, %64 ], [ %46, %52 ], [ %46, %47 ]
   %.1116 = phi i64 [ %.084, %64 ], [ %29, %52 ], [ %29, %47 ]
-  %.186115 = phi ptr [ %65, %64 ], [ %.085, %52 ], [ %.085, %47 ]
-  %.188114 = phi ptr [ %.087, %64 ], [ %2, %52 ], [ %2, %47 ]
+  %.186115 = phi ptr [ %.085, %64 ], [ %2, %52 ], [ %2, %47 ]
+  %.191114 = phi ptr [ %65, %64 ], [ %.090, %52 ], [ %.090, %47 ]
   %67 = icmp ult i64 %.1116, %.082117
   br i1 %67, label %93, label %68
 
 68:                                               ; preds = %.thread
   %69 = sub i64 %.1116, %.082117
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.188114, ptr align 1 %.186115, i64 %.082117, i1 false)
-  %70 = getelementptr i8, ptr %.188114, i64 %.082117
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.186115, ptr align 1 %.191114, i64 %.082117, i1 false)
+  %70 = getelementptr i8, ptr %.186115, i64 %.082117
   br label %71
 
 71:                                               ; preds = %68, %64
-  %.289 = phi ptr [ %70, %68 ], [ %.087, %64 ]
+  %.287 = phi ptr [ %70, %68 ], [ %.085, %64 ]
   %.2 = phi i64 [ %69, %68 ], [ %.084, %64 ]
-  %72 = getelementptr i8, ptr %.091, i64 -1
+  %72 = getelementptr i8, ptr %.089, i64 -1
   %73 = load i8, ptr %72, align 1
   %.not108 = icmp eq i8 %73, 47
   br i1 %.not108, label %76, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr i8, ptr %.289, i64 1
-  store i8 47, ptr %.289, align 1
+  %75 = getelementptr i8, ptr %.287, i64 1
+  store i8 47, ptr %.287, align 1
   br label %76
 
 76:                                               ; preds = %71, %74, %43
-  %.390 = phi ptr [ %75, %74 ], [ %.289, %71 ], [ %2, %43 ]
+  %.388 = phi ptr [ %75, %74 ], [ %.287, %71 ], [ %2, %43 ]
   %.3 = phi i64 [ %.2, %74 ], [ %.2, %71 ], [ %29, %43 ]
   %77 = icmp ult i64 %.3, %8
   br i1 %77, label %93, label %78
 
 78:                                               ; preds = %76
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.390, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.388, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %30, i1 false)
   %79 = call i32 @stat(ptr noundef %2, ptr noundef nonnull %6) #10
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %89
@@ -215,13 +215,13 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
   br i1 %88, label %.loopexit, label %89
 
 89:                                               ; preds = %78, %81, %86, %93
-  %90 = load i8, ptr %.091, align 1
+  %90 = load i8, ptr %.089, align 1
   %91 = icmp eq i8 %90, 0
-  %92 = getelementptr i8, ptr %.091, i64 1
+  %92 = getelementptr i8, ptr %.089, i64 1
   br i1 %91, label %.loopexit, label %37
 
 93:                                               ; preds = %76, %.thread, %58
-  %.4 = phi ptr [ %2, %58 ], [ %.188114, %.thread ], [ %.390, %76 ]
+  %.4 = phi ptr [ %2, %58 ], [ %.186115, %.thread ], [ %.388, %76 ]
   %94 = ptrtoint ptr %.4 to i64
   %95 = sub i64 %94, %32
   %96 = icmp sgt i64 %95, 100

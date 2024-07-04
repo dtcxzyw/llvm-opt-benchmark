@@ -41,15 +41,15 @@ define hidden void @VP8SetHistogramData(ptr nocapture noundef readonly %0, ptr n
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %.018 = phi i32 [ 0, %2 ], [ %.2, %3 ]
-  %.01316 = phi i32 [ 1, %2 ], [ %.114, %3 ]
+  %.01217 = phi i32 [ 1, %2 ], [ %.1, %3 ]
+  %.01316 = phi i32 [ 0, %2 ], [ %.2, %3 ]
   %4 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %5, i32 %.018)
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %5, i32 %.01316)
+  %.2 = select i1 %6, i32 %spec.select, i32 %.01316
   %7 = trunc nuw nsw i64 %indvars.iv to i32
-  %.114 = select i1 %6, i32 %7, i32 %.01316
-  %.2 = select i1 %6, i32 %spec.select, i32 %.018
+  %.1 = select i1 %6, i32 %7, i32 %.01217
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %8, label %3, !llvm.loop !4
@@ -57,7 +57,7 @@ define hidden void @VP8SetHistogramData(ptr nocapture noundef readonly %0, ptr n
 8:                                                ; preds = %3
   store i32 %.2, ptr %1, align 4
   %9 = getelementptr inbounds i8, ptr %1, i64 4
-  store i32 %.114, ptr %9, align 4
+  store i32 %.1, ptr %9, align 4
   ret void
 }
 
@@ -638,15 +638,15 @@ define internal void @CollectHistogram_C(ptr noundef %0, ptr noundef %1, i32 nou
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %.preheader.preheader ]
-  %.018.i = phi i32 [ %.2.i, %.preheader ], [ 0, %.preheader.preheader ]
-  %.01316.i = phi i32 [ %.114.i, %.preheader ], [ 1, %.preheader.preheader ]
+  %.01217.i = phi i32 [ %.1.i, %.preheader ], [ 1, %.preheader.preheader ]
+  %.01316.i = phi i32 [ %.2.i, %.preheader ], [ 0, %.preheader.preheader ]
   %27 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %28, 0
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %28, i32 %.018.i)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %28, i32 %.01316.i)
+  %.2.i = select i1 %29, i32 %spec.select.i, i32 %.01316.i
   %30 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.114.i = select i1 %29, i32 %30, i32 %.01316.i
-  %.2.i = select i1 %29, i32 %spec.select.i, i32 %.018.i
+  %.1.i = select i1 %29, i32 %30, i32 %.01217.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
   br i1 %exitcond.not.i, label %VP8SetHistogramData.exit, label %.preheader, !llvm.loop !4
@@ -654,7 +654,7 @@ define internal void @CollectHistogram_C(ptr noundef %0, ptr noundef %1, i32 nou
 VP8SetHistogramData.exit:                         ; preds = %.preheader
   store i32 %.2.i, ptr %4, align 4
   %31 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 %.114.i, ptr %31, align 4
+  store i32 %.1.i, ptr %31, align 4
   ret void
 }
 
@@ -950,7 +950,7 @@ DC4.exit:                                         ; preds = %16
 
 25:                                               ; preds = %38, %DC4.exit
   %indvars.iv19.i = phi i64 [ 0, %DC4.exit ], [ %indvars.iv.next20.i, %38 ]
-  %.017.i = phi ptr [ %19, %DC4.exit ], [ %39, %38 ]
+  %.01416.i = phi ptr [ %19, %DC4.exit ], [ %39, %38 ]
   %26 = sub nuw nsw i64 -2, %indvars.iv19.i
   %27 = getelementptr inbounds i8, ptr %1, i64 %26
   %28 = load i8, ptr %27, align 1
@@ -965,14 +965,14 @@ DC4.exit:                                         ; preds = %16
   %34 = zext i8 %33 to i64
   %35 = getelementptr inbounds i8, ptr %30, i64 %34
   %36 = load i8, ptr %35, align 1
-  %37 = getelementptr inbounds i8, ptr %.017.i, i64 %indvars.iv.i20
+  %37 = getelementptr inbounds i8, ptr %.01416.i, i64 %indvars.iv.i20
   store i8 %36, ptr %37, align 1
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 4
   br i1 %exitcond.not.i22, label %38, label %31, !llvm.loop !22
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %.017.i, i64 32
+  %39 = getelementptr inbounds i8, ptr %.01416.i, i64 32
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next20.i, 4
   br i1 %exitcond22.not.i, label %TM4.exit, label %25, !llvm.loop !23
@@ -1734,7 +1734,7 @@ HorizontalPred.exit:                              ; preds = %.preheader38
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %43
   %indvars.iv59.i = phi i64 [ 0, %43 ], [ %indvars.iv.next60.i, %._crit_edge.us.i ]
-  %.02652.us.i = phi ptr [ %39, %43 ], [ %60, %._crit_edge.us.i ]
+  %.02751.us.i = phi ptr [ %39, %43 ], [ %60, %._crit_edge.us.i ]
   %49 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv59.i
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i64
@@ -1748,14 +1748,14 @@ HorizontalPred.exit:                              ; preds = %.preheader38
   %56 = zext i8 %55 to i64
   %57 = getelementptr inbounds i8, ptr %52, i64 %56
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %.02652.us.i, i64 %indvars.iv.i29
+  %59 = getelementptr inbounds i8, ptr %.02751.us.i, i64 %indvars.iv.i29
   store i8 %58, ptr %59, align 1
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, 16
   br i1 %exitcond.not.i31, label %._crit_edge.us.i, label %53, !llvm.loop !30
 
 ._crit_edge.us.i:                                 ; preds = %53
-  %60 = getelementptr inbounds i8, ptr %.02652.us.i, i64 32
+  %60 = getelementptr inbounds i8, ptr %.02751.us.i, i64 32
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, 16
   br i1 %exitcond63.not.i, label %TrueMotion.exit, label %.lr.ph.us.i, !llvm.loop !31
@@ -1936,7 +1936,7 @@ HorizontalPred.exit:                              ; preds = %.preheader144
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %45
   %indvars.iv59.i = phi i64 [ 0, %45 ], [ %indvars.iv.next60.i, %._crit_edge.us.i ]
-  %.02652.us.i = phi ptr [ %41, %45 ], [ %62, %._crit_edge.us.i ]
+  %.02751.us.i = phi ptr [ %41, %45 ], [ %62, %._crit_edge.us.i ]
   %51 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv59.i
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i64
@@ -1950,14 +1950,14 @@ HorizontalPred.exit:                              ; preds = %.preheader144
   %58 = zext i8 %57 to i64
   %59 = getelementptr inbounds i8, ptr %54, i64 %58
   %60 = load i8, ptr %59, align 1
-  %61 = getelementptr inbounds i8, ptr %.02652.us.i, i64 %indvars.iv.i49
+  %61 = getelementptr inbounds i8, ptr %.02751.us.i, i64 %indvars.iv.i49
   store i8 %60, ptr %61, align 1
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, 8
   br i1 %exitcond.not.i51, label %._crit_edge.us.i, label %55, !llvm.loop !30
 
 ._crit_edge.us.i:                                 ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %.02652.us.i, i64 32
+  %62 = getelementptr inbounds i8, ptr %.02751.us.i, i64 32
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, 8
   br i1 %exitcond63.not.i, label %TrueMotion.exit.thread, label %.lr.ph.us.i, !llvm.loop !31
@@ -2150,7 +2150,7 @@ HorizontalPred.exit104:                           ; preds = %.preheader.i96, %.p
 
 .lr.ph.us.i107:                                   ; preds = %._crit_edge.us.i113, %120
   %indvars.iv59.i108 = phi i64 [ 0, %120 ], [ %indvars.iv.next60.i114, %._crit_edge.us.i113 ]
-  %.02652.us.i109 = phi ptr [ %118, %120 ], [ %137, %._crit_edge.us.i113 ]
+  %.02751.us.i109 = phi ptr [ %118, %120 ], [ %137, %._crit_edge.us.i113 ]
   %126 = getelementptr inbounds i8, ptr %.025133, i64 %indvars.iv59.i108
   %127 = load i8, ptr %126, align 1
   %128 = zext i8 %127 to i64
@@ -2164,14 +2164,14 @@ HorizontalPred.exit104:                           ; preds = %.preheader.i96, %.p
   %133 = zext i8 %132 to i64
   %134 = getelementptr inbounds i8, ptr %129, i64 %133
   %135 = load i8, ptr %134, align 1
-  %136 = getelementptr inbounds i8, ptr %.02652.us.i109, i64 %indvars.iv.i110
+  %136 = getelementptr inbounds i8, ptr %.02751.us.i109, i64 %indvars.iv.i110
   store i8 %135, ptr %136, align 1
   %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i110, 1
   %exitcond.not.i112 = icmp eq i64 %indvars.iv.next.i111, 8
   br i1 %exitcond.not.i112, label %._crit_edge.us.i113, label %130, !llvm.loop !30
 
 ._crit_edge.us.i113:                              ; preds = %130
-  %137 = getelementptr inbounds i8, ptr %.02652.us.i109, i64 32
+  %137 = getelementptr inbounds i8, ptr %.02751.us.i109, i64 32
   %indvars.iv.next60.i114 = add nuw nsw i64 %indvars.iv59.i108, 1
   %exitcond63.not.i115 = icmp eq i64 %indvars.iv.next60.i114, 8
   br i1 %exitcond63.not.i115, label %TrueMotion.exit127, label %.lr.ph.us.i107, !llvm.loop !31

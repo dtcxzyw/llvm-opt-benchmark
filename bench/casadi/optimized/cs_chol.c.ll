@@ -173,7 +173,7 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
 
 .lr.ph178:                                        ; preds = %.lr.ph178.preheader, %._crit_edge173
   %indvars.iv192 = phi i64 [ %87, %.lr.ph178.preheader ], [ %indvars.iv.next193, %._crit_edge173 ]
-  %.0143176 = phi double [ %85, %.lr.ph178.preheader ], [ %118, %._crit_edge173 ]
+  %.0146175 = phi double [ %85, %.lr.ph178.preheader ], [ %118, %._crit_edge173 ]
   %88 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv192
   %89 = load i32, ptr %88, align 4
   %90 = sext i32 %89 to i64
@@ -188,9 +188,9 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
   store double 0.000000e+00, ptr %91, align 8
   %99 = load i32, ptr %93, align 4
   %100 = getelementptr inbounds i32, ptr %19, i64 %90
-  %.1169 = add nsw i32 %99, 1
+  %.1144169 = add nsw i32 %99, 1
   %101 = load i32, ptr %100, align 4
-  %102 = icmp slt i32 %.1169, %101
+  %102 = icmp slt i32 %.1144169, %101
   br i1 %102, label %.lr.ph172.preheader, label %.lr.ph178.._crit_edge173_crit_edge
 
 .lr.ph178.._crit_edge173_crit_edge:               ; preds = %.lr.ph178
@@ -224,7 +224,7 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
   %.pre-phi = phi i64 [ %.pre203, %.lr.ph178.._crit_edge173_crit_edge ], [ %115, %.lr.ph172 ]
   %.lcssa164 = phi i32 [ %101, %.lr.ph178.._crit_edge173_crit_edge ], [ %114, %.lr.ph172 ]
   %117 = fneg double %98
-  %118 = tail call double @llvm.fmuladd.f64(double %117, double %98, double %.0143176)
+  %118 = tail call double @llvm.fmuladd.f64(double %117, double %98, double %.0146175)
   %119 = add nsw i32 %.lcssa164, 1
   store i32 %119, ptr %100, align 4
   %120 = getelementptr inbounds i32, ptr %56, i64 %.pre-phi
@@ -236,8 +236,8 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
   br i1 %exitcond196.not, label %._crit_edge179, label %.lr.ph178, !llvm.loop !8
 
 ._crit_edge179:                                   ; preds = %._crit_edge173, %._crit_edge
-  %.0143.lcssa = phi double [ %85, %._crit_edge ], [ %118, %._crit_edge173 ]
-  %122 = fcmp ugt double %.0143.lcssa, 0.000000e+00
+  %.0146.lcssa = phi double [ %85, %._crit_edge ], [ %118, %._crit_edge173 ]
+  %122 = fcmp ugt double %.0146.lcssa, 0.000000e+00
   br i1 %122, label %125, label %123
 
 123:                                              ; preds = %._crit_edge179
@@ -252,7 +252,7 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
   %129 = sext i32 %127 to i64
   %130 = getelementptr inbounds i32, ptr %56, i64 %129
   store i32 %64, ptr %130, align 4
-  %131 = tail call double @sqrt(double noundef %.0143.lcssa) #4
+  %131 = tail call double @sqrt(double noundef %.0146.lcssa) #4
   %132 = getelementptr inbounds double, ptr %58, i64 %129
   store double %131, ptr %132, align 8
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
@@ -266,8 +266,8 @@ define ptr @cs_chol(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr 
   br label %136
 
 136:                                              ; preds = %2, %3, %8, %11, %._crit_edge183, %123, %50, %36
-  %.0 = phi ptr [ %124, %123 ], [ %135, %._crit_edge183 ], [ %51, %50 ], [ %37, %36 ], [ null, %11 ], [ null, %8 ], [ null, %3 ], [ null, %2 ]
-  ret ptr %.0
+  %.0147 = phi ptr [ %124, %123 ], [ %135, %._crit_edge183 ], [ %51, %50 ], [ %37, %36 ], [ null, %11 ], [ null, %8 ], [ null, %3 ], [ null, %2 ]
+  ret ptr %.0147
 }
 
 declare ptr @cs_calloc(i32 noundef, i64 noundef) local_unnamed_addr #1

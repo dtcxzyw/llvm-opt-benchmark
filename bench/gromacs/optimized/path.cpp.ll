@@ -795,33 +795,33 @@ define void @_ZN3gmx17stripSourcePrefixB5cxx11EPKc(ptr dead_on_unwind noalias wr
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %50
-  %.03052 = phi ptr [ %spec.select, %50 ], [ %1, %.preheader.preheader ]
-  %.03251 = phi i1 [ %.133, %50 ], [ false, %.preheader.preheader ]
-  %.03450 = phi ptr [ %.031, %50 ], [ %8, %.preheader.preheader ]
+  %.03152 = phi i1 [ %.1, %50 ], [ false, %.preheader.preheader ]
+  %.03251 = phi ptr [ %.030, %50 ], [ %8, %.preheader.preheader ]
+  %.03350 = phi ptr [ %spec.select, %50 ], [ %1, %.preheader.preheader ]
   br label %9
 
 9:                                                ; preds = %.preheader, %10
-  %.034.pn = phi ptr [ %.031, %10 ], [ %.03450, %.preheader ]
-  %.031 = getelementptr inbounds i8, ptr %.034.pn, i64 -1
-  %.not = icmp ult ptr %.031, %1
+  %.032.pn = phi ptr [ %.030, %10 ], [ %.03251, %.preheader ]
+  %.030 = getelementptr inbounds i8, ptr %.032.pn, i64 -1
+  %.not = icmp ult ptr %.030, %1
   br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %9
-  %11 = load i8, ptr %.031, align 1
+  %11 = load i8, ptr %.030, align 1
   %12 = sext i8 %11 to i32
   %memchr.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN12_GLOBAL__N_114cDirSeparatorsE, i32 %12, i64 3)
   %.not48 = icmp eq ptr %memchr.i, null
   br i1 %.not48, label %9, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %9, %10
-  %13 = ptrtoint ptr %.03450 to i64
-  %14 = ptrtoint ptr %.031 to i64
+  %13 = ptrtoint ptr %.03251 to i64
+  %14 = ptrtoint ptr %.030 to i64
   %15 = xor i64 %14, -1
   %16 = add i64 %15, %13
-  br i1 %.03251, label %17, label %40
+  br i1 %.03152, label %17, label %40
 
 17:                                               ; preds = %.critedge
-  %18 = tail call i32 @strncmp(ptr noundef nonnull %.034.pn, ptr noundef nonnull @.str, i64 noundef %16) #22
+  %18 = tail call i32 @strncmp(ptr noundef nonnull %.032.pn, ptr noundef nonnull @.str, i64 noundef %16) #22
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %28
 
@@ -835,9 +835,9 @@ define void @_ZN3gmx17stripSourcePrefixB5cxx11EPKc(ptr dead_on_unwind noalias wr
           to label %.noexc37 unwind label %26
 
 .noexc37:                                         ; preds = %.noexc
-  %22 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.034.pn) #20
-  %23 = getelementptr inbounds i8, ptr %.034.pn, i64 %22
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.034.pn, ptr noundef nonnull %23)
+  %22 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.032.pn) #20
+  %23 = getelementptr inbounds i8, ptr %.032.pn, i64 %22
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.032.pn, ptr noundef nonnull %23)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %24
 
 24:                                               ; preds = %.noexc37
@@ -861,7 +861,7 @@ define void @_ZN3gmx17stripSourcePrefixB5cxx11EPKc(ptr dead_on_unwind noalias wr
           to label %.noexc39 unwind label %38
 
 .noexc39:                                         ; preds = %.noexc38
-  %30 = icmp eq ptr %.03052, null
+  %30 = icmp eq ptr %.03350, null
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %.noexc39
@@ -878,9 +878,9 @@ define void @_ZN3gmx17stripSourcePrefixB5cxx11EPKc(ptr dead_on_unwind noalias wr
   br label %.body
 
 35:                                               ; preds = %.noexc39
-  %36 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03052) #20
-  %37 = getelementptr inbounds i8, ptr %.03052, i64 %36
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.03052, ptr noundef nonnull %37)
+  %36 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.03350) #20
+  %37 = getelementptr inbounds i8, ptr %.03350, i64 %36
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.03350, ptr noundef nonnull %37)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %33
 
 38:                                               ; preds = %.noexc38, %28
@@ -889,17 +889,17 @@ define void @_ZN3gmx17stripSourcePrefixB5cxx11EPKc(ptr dead_on_unwind noalias wr
   br label %.body
 
 40:                                               ; preds = %.critedge
-  %41 = tail call i32 @strncmp(ptr noundef nonnull %.034.pn, ptr noundef nonnull @.str.1, i64 noundef %16) #22
+  %41 = tail call i32 @strncmp(ptr noundef nonnull %.032.pn, ptr noundef nonnull @.str.1, i64 noundef %16) #22
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %49, label %43
 
 43:                                               ; preds = %40
-  %44 = tail call i32 @strncmp(ptr noundef nonnull %.034.pn, ptr noundef nonnull @.str.2, i64 noundef %16) #22
+  %44 = tail call i32 @strncmp(ptr noundef nonnull %.032.pn, ptr noundef nonnull @.str.2, i64 noundef %16) #22
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %49, label %46
 
 46:                                               ; preds = %43
-  %47 = tail call i32 @strncmp(ptr noundef nonnull %.034.pn, ptr noundef nonnull @.str.3, i64 noundef %16) #22
+  %47 = tail call i32 @strncmp(ptr noundef nonnull %.032.pn, ptr noundef nonnull @.str.3, i64 noundef %16) #22
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %50
 
@@ -907,14 +907,14 @@ define void @_ZN3gmx17stripSourcePrefixB5cxx11EPKc(ptr dead_on_unwind noalias wr
   br label %50
 
 50:                                               ; preds = %49, %46
-  %.133 = phi i1 [ true, %49 ], [ false, %46 ]
-  %51 = icmp eq ptr %.03052, %1
-  %spec.select = select i1 %51, ptr %.034.pn, ptr %.03052
-  %52 = icmp ugt ptr %.031, %1
+  %.1 = phi i1 [ true, %49 ], [ false, %46 ]
+  %51 = icmp eq ptr %.03350, %1
+  %spec.select = select i1 %51, ptr %.032.pn, ptr %.03350
+  %52 = icmp ugt ptr %.030, %1
   br i1 %52, label %.preheader, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %50, %2
-  %.030.lcssa = phi ptr [ %1, %2 ], [ %spec.select, %50 ]
+  %.033.lcssa = phi ptr [ %1, %2 ], [ %spec.select, %50 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
   %53 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc43 unwind label %62
@@ -924,7 +924,7 @@ define void @_ZN3gmx17stripSourcePrefixB5cxx11EPKc(ptr dead_on_unwind noalias wr
           to label %.noexc44 unwind label %62
 
 .noexc44:                                         ; preds = %.noexc43
-  %54 = icmp eq ptr %.030.lcssa, null
+  %54 = icmp eq ptr %.033.lcssa, null
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %.noexc44
@@ -941,9 +941,9 @@ define void @_ZN3gmx17stripSourcePrefixB5cxx11EPKc(ptr dead_on_unwind noalias wr
   br label %.body
 
 59:                                               ; preds = %.noexc44
-  %60 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.030.lcssa) #20
-  %61 = getelementptr inbounds i8, ptr %.030.lcssa, i64 %60
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.030.lcssa, ptr noundef nonnull %61)
+  %60 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.033.lcssa) #20
+  %61 = getelementptr inbounds i8, ptr %.033.lcssa, i64 %60
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.033.lcssa, ptr noundef nonnull %61)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %57
 
 62:                                               ; preds = %.noexc43, %._crit_edge

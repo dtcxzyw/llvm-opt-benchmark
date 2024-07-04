@@ -703,7 +703,7 @@ define internal { double, double } @_ZL13adams_forward5PJ_LPP8PJconsts(double %0
   br label %120
 
 120:                                              ; preds = %104, %85, %75, %52, %25, %3
-  %.0184.shrunk = phi i1 [ false, %3 ], [ %115, %104 ], [ %103, %85 ], [ %81, %75 ], [ %67, %52 ], [ %39, %25 ]
+  %.0186.shrunk = phi i1 [ false, %3 ], [ %115, %104 ], [ %103, %85 ], [ %81, %75 ], [ %67, %52 ], [ %39, %25 ]
   %.0183.shrunk = phi i1 [ false, %3 ], [ %114, %104 ], [ %102, %85 ], [ %80, %75 ], [ %66, %52 ], [ %38, %25 ]
   %.0182 = phi double [ 0.000000e+00, %3 ], [ %117, %104 ], [ %101, %85 ], [ %84, %75 ], [ %65, %52 ], [ %37, %25 ]
   %.0 = phi double [ 0.000000e+00, %3 ], [ %119, %104 ], [ %97, %85 ], [ %83, %75 ], [ %60, %52 ], [ %33, %25 ]
@@ -727,7 +727,7 @@ define internal { double, double } @_ZL13adams_forward5PJ_LPP8PJconsts(double %0
   %135 = tail call double @llvm.fabs.f64(double %134)
   %sqrt = tail call double @llvm.sqrt.f64(double %135)
   %136 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %130, double noundef %sqrt)
-  %cond.fr = freeze i1 %.0184.shrunk
+  %cond.fr = freeze i1 %.0186.shrunk
   %137 = fmul double %129, 0x3FE45F306DC9C883
   %138 = fmul double %137, 2.000000e+00
   %139 = tail call double @llvm.fmuladd.f64(double %138, double %137, double -1.000000e+00)
@@ -735,22 +735,22 @@ define internal { double, double } @_ZL13adams_forward5PJ_LPP8PJconsts(double %0
   br label %141
 
 141:                                              ; preds = %141, %120
-  %.022.i = phi double [ 0.000000e+00, %120 ], [ %145, %141 ]
-  %.01821.i = phi double [ 0.000000e+00, %120 ], [ %.022.i, %141 ]
-  %.019.idx20.i = phi i64 [ 0, %120 ], [ %.019.add.i, %141 ]
-  %.019.ptr.i = getelementptr inbounds i8, ptr @_ZZL9ell_int_5dE1C, i64 %.019.idx20.i
-  %142 = load double, ptr %.019.ptr.i, align 8
-  %143 = fneg double %.01821.i
-  %144 = tail call double @llvm.fmuladd.f64(double %140, double %.022.i, double %143)
+  %.0.idx22.i = phi i64 [ 0, %120 ], [ %.0.add.i, %141 ]
+  %.01821.i = phi double [ 0.000000e+00, %120 ], [ %145, %141 ]
+  %.01920.i = phi double [ 0.000000e+00, %120 ], [ %.01821.i, %141 ]
+  %.0.ptr.i = getelementptr inbounds i8, ptr @_ZZL9ell_int_5dE1C, i64 %.0.idx22.i
+  %142 = load double, ptr %.0.ptr.i, align 8
+  %143 = fneg double %.01920.i
+  %144 = tail call double @llvm.fmuladd.f64(double %140, double %.01821.i, double %143)
   %145 = fadd double %144, %142
-  %.019.add.i = add nuw nsw i64 %.019.idx20.i, 8
-  %.not.i = icmp eq i64 %.019.add.i, 56
+  %.0.add.i = add nuw nsw i64 %.0.idx22.i, 8
+  %.not.i = icmp eq i64 %.0.add.i, 56
   br i1 %.not.i, label %_ZL9ell_int_5d.exit, label %141
 
 _ZL9ell_int_5d.exit:                              ; preds = %141
   %146 = fneg double %136
   %147 = select i1 %cond.fr, double %146, double %136
-  %148 = fneg double %.022.i
+  %148 = fneg double %.01821.i
   %149 = tail call double @llvm.fmuladd.f64(double %139, double %145, double %148)
   %150 = fadd double %149, 0x3FF188B1F952BB44
   %151 = fmul double %147, 0x3FE45F306DC9C883
@@ -760,20 +760,20 @@ _ZL9ell_int_5d.exit:                              ; preds = %141
   br label %155
 
 155:                                              ; preds = %155, %_ZL9ell_int_5d.exit
-  %.022.i195 = phi double [ 0.000000e+00, %_ZL9ell_int_5d.exit ], [ %159, %155 ]
-  %.01821.i196 = phi double [ 0.000000e+00, %_ZL9ell_int_5d.exit ], [ %.022.i195, %155 ]
-  %.019.idx20.i197 = phi i64 [ 0, %_ZL9ell_int_5d.exit ], [ %.019.add.i199, %155 ]
-  %.019.ptr.i198 = getelementptr inbounds i8, ptr @_ZZL9ell_int_5dE1C, i64 %.019.idx20.i197
-  %156 = load double, ptr %.019.ptr.i198, align 8
-  %157 = fneg double %.01821.i196
-  %158 = tail call double @llvm.fmuladd.f64(double %154, double %.022.i195, double %157)
+  %.0.idx22.i195 = phi i64 [ 0, %_ZL9ell_int_5d.exit ], [ %.0.add.i199, %155 ]
+  %.01821.i196 = phi double [ 0.000000e+00, %_ZL9ell_int_5d.exit ], [ %159, %155 ]
+  %.01920.i197 = phi double [ 0.000000e+00, %_ZL9ell_int_5d.exit ], [ %.01821.i196, %155 ]
+  %.0.ptr.i198 = getelementptr inbounds i8, ptr @_ZZL9ell_int_5dE1C, i64 %.0.idx22.i195
+  %156 = load double, ptr %.0.ptr.i198, align 8
+  %157 = fneg double %.01920.i197
+  %158 = tail call double @llvm.fmuladd.f64(double %154, double %.01821.i196, double %157)
   %159 = fadd double %158, %156
-  %.019.add.i199 = add nuw nsw i64 %.019.idx20.i197, 8
-  %.not.i200 = icmp eq i64 %.019.add.i199, 56
+  %.0.add.i199 = add nuw nsw i64 %.0.idx22.i195, 8
+  %.not.i200 = icmp eq i64 %.0.add.i199, 56
   br i1 %.not.i200, label %_ZL9ell_int_5d.exit201, label %155
 
 _ZL9ell_int_5d.exit201:                           ; preds = %155
-  %160 = fneg double %.022.i195
+  %160 = fneg double %.01821.i196
   %161 = tail call double @llvm.fmuladd.f64(double %153, double %159, double %160)
   %162 = fadd double %161, 0x3FF188B1F952BB44
   %163 = insertelement <2 x double> poison, double %129, i64 0

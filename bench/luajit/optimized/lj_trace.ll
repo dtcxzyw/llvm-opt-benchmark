@@ -2426,9 +2426,9 @@ if.then:                                          ; preds = %land.lhs.true1
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.then
-  %exitno.0 = phi i32 [ %conv6, %if.then ], [ %exitno.1, %do.body ]
   %lo.0 = phi i32 [ 0, %if.then ], [ %lo.1, %do.body ]
-  %add8 = add i32 %lo.0, %exitno.0
+  %exitno.0 = phi i32 [ %conv6, %if.then ], [ %exitno.1, %do.body ]
+  %add8 = add i32 %exitno.0, %lo.0
   %shr = lshr i32 %add8, 1
   %idxprom9 = zext nneg i32 %shr to i64
   %mcofs = getelementptr inbounds %struct.SnapShot, ptr %7, i64 %idxprom9, i32 2
@@ -2436,8 +2436,8 @@ do.body:                                          ; preds = %do.body, %if.then
   %conv11 = zext i16 %9 to i64
   %cmp12 = icmp ult i64 %sub.ptr.sub, %conv11
   %add15 = add nuw i32 %shr, 1
-  %exitno.1 = select i1 %cmp12, i32 %shr, i32 %exitno.0
   %lo.1 = select i1 %cmp12, i32 %lo.0, i32 %add15
+  %exitno.1 = select i1 %cmp12, i32 %shr, i32 %exitno.0
   %cmp16 = icmp ult i32 %lo.1, %exitno.1
   br i1 %cmp16, label %do.body, label %do.end, !llvm.loop !14
 

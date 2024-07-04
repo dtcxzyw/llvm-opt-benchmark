@@ -143,11 +143,11 @@ for.cond16.preheader.i:                           ; preds = %for.body7.i
 
 for.body7.i:                                      ; preds = %do.body.i, %for.body7.i
   %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %for.body7.i ], [ 0, %do.body.i ]
-  %totsize.062.i = phi i32 [ %add.i, %for.body7.i ], [ 0, %do.body.i ]
+  %totsize.061.i = phi i32 [ %add.i, %for.body7.i ], [ 0, %do.body.i ]
   %16 = load ptr, ptr %instrs, align 8
   %arrayidx11.i = getelementptr %struct._PyCompile_Instruction, ptr %16, i64 %indvars.iv68.i
   %i_offset.i = getelementptr inbounds i8, ptr %arrayidx11.i, i64 40
-  store i32 %totsize.062.i, ptr %i_offset.i, align 4
+  store i32 %totsize.061.i, ptr %i_offset.i, align 4
   %arrayidx11.val.i = load i32, ptr %arrayidx11.i, align 4
   %17 = getelementptr i8, ptr %arrayidx11.i, i64 4
   %arrayidx11.val30.i = load i32, ptr %17, align 4
@@ -161,7 +161,7 @@ for.body7.i:                                      ; preds = %do.body.i, %for.bod
   %18 = load i8, ptr %arrayidx.i.i, align 1
   %conv6.i.i = zext i8 %18 to i32
   %add.i.i = select i1 %cmp1.i.i, i32 2, i32 1
-  %add5.i.i = add i32 %totsize.062.i, %conv.i.i
+  %add5.i.i = add i32 %totsize.061.i, %conv.i.i
   %add7.i.i = add i32 %add5.i.i, %add.i.i
   %add8.i.i = add i32 %add7.i.i, %conv4.i.i
   %add.i = add i32 %add8.i.i, %conv6.i.i
@@ -174,8 +174,8 @@ for.body7.i:                                      ; preds = %do.body.i, %for.bod
 for.body19.i:                                     ; preds = %for.cond16.preheader.i, %for.inc54.i
   %21 = phi i32 [ %28, %for.inc54.i ], [ %19, %for.cond16.preheader.i ]
   %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %for.inc54.i ], [ 0, %for.cond16.preheader.i ]
-  %extended_arg_recompile.066.i = phi i32 [ %extended_arg_recompile.1.i, %for.inc54.i ], [ 0, %for.cond16.preheader.i ]
-  %offset.064.i = phi i32 [ %add26.i, %for.inc54.i ], [ 0, %for.cond16.preheader.i ]
+  %offset.065.i = phi i32 [ %add26.i, %for.inc54.i ], [ 0, %for.cond16.preheader.i ]
+  %extended_arg_recompile.064.i = phi i32 [ %extended_arg_recompile.1.i, %for.inc54.i ], [ 0, %for.cond16.preheader.i ]
   %22 = load ptr, ptr %instrs, align 8
   %arrayidx23.i = getelementptr %struct._PyCompile_Instruction, ptr %22, i64 %indvars.iv71.i
   %arrayidx23.val.i = load i32, ptr %arrayidx23.i, align 4
@@ -193,7 +193,7 @@ for.body19.i:                                     ; preds = %for.cond16.preheade
   %add.i42.i = select i1 %cmp1.i36.i, i32 2, i32 1
   %add5.i43.i = add nuw nsw i32 %add.i42.i, %conv.i35.i
   %add7.i44.i = add nuw nsw i32 %add5.i43.i, %conv4.i38.i
-  %add8.i45.i = add i32 %offset.064.i, %conv6.i41.i
+  %add8.i45.i = add i32 %offset.065.i, %conv6.i41.i
   %add26.i = add i32 %add8.i45.i, %add7.i44.i
   %flags30.i = getelementptr [512 x %struct.opcode_metadata], ptr @_PyOpcode_opcode_metadata, i64 0, i64 %idxprom.i39.i, i32 2
   %25 = load i32, ptr %flags30.i, align 4
@@ -221,13 +221,13 @@ if.then33.i:                                      ; preds = %for.body19.i
   %add5.i55.i = add nuw nsw i32 %add.i54.i, %conv.i47.i
   %add7.i56.i = add nuw nsw i32 %add5.i55.i, %conv4.i50.i
   %cmp50.not.i = icmp eq i32 %add7.i56.i, %add7.i44.i
-  %spec.select.i = select i1 %cmp50.not.i, i32 %extended_arg_recompile.066.i, i32 1
+  %spec.select.i = select i1 %cmp50.not.i, i32 %extended_arg_recompile.064.i, i32 1
   %.pre74.i = load i32, ptr %s_used.i, align 4
   br label %for.inc54.i
 
 for.inc54.i:                                      ; preds = %if.then33.i, %for.body19.i
   %28 = phi i32 [ %21, %for.body19.i ], [ %.pre74.i, %if.then33.i ]
-  %extended_arg_recompile.1.i = phi i32 [ %extended_arg_recompile.066.i, %for.body19.i ], [ %spec.select.i, %if.then33.i ]
+  %extended_arg_recompile.1.i = phi i32 [ %extended_arg_recompile.064.i, %for.body19.i ], [ %spec.select.i, %if.then33.i ]
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %29 = sext i32 %28 to i64
   %cmp18.i = icmp slt i64 %indvars.iv.next72.i, %29
@@ -586,7 +586,7 @@ for.body.i44.i:                                   ; preds = %if.end9.i, %if.end1
   %65 = phi i32 [ %70, %if.end15.i.i ], [ %64, %if.end9.i ]
   %indvars.iv.i45.i = phi i64 [ %indvars.iv.next.i64.i, %if.end15.i.i ], [ 0, %if.end9.i ]
   %ioffset.020.i.i = phi i32 [ %add.i63.i, %if.end15.i.i ], [ 0, %if.end9.i ]
-  %start.019.i.i = phi i32 [ %start.1.i.i, %if.end15.i.i ], [ -1, %if.end9.i ]
+  %start.018.i.i = phi i32 [ %start.1.i.i, %if.end15.i.i ], [ -1, %if.end9.i ]
   %66 = load ptr, ptr %instrs, align 8
   %arrayidx.i46.i = getelementptr %struct._PyCompile_Instruction, ptr %66, i64 %indvars.iv.i45.i
   %i_except_handler_info.i.i = getelementptr inbounds i8, ptr %arrayidx.i46.i, i64 24
@@ -603,7 +603,7 @@ if.then6.i.i:                                     ; preds = %if.then.i47.i
   %idxprom9.i.i = zext nneg i32 %68 to i64
   %i_offset.i.i = getelementptr %struct._PyCompile_Instruction, ptr %66, i64 %idxprom9.i.i, i32 5
   %69 = load i32, ptr %i_offset.i.i, align 4
-  %call.i67.i = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef nonnull %a, i32 noundef %start.019.i.i, i32 noundef %ioffset.020.i.i, i32 noundef %69, ptr noundef nonnull %handler.i.i)
+  %call.i67.i = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef nonnull %a, i32 noundef %start.018.i.i, i32 noundef %ioffset.020.i.i, i32 noundef %69, ptr noundef nonnull %handler.i.i)
   %cmp11.i68.i = icmp slt i32 %call.i67.i, 0
   br i1 %cmp11.i68.i, label %assemble_exception_table.exit.thread.i, label %if.then6.if.end13_crit_edge.i.i
 
@@ -619,7 +619,7 @@ if.end13.i.i:                                     ; preds = %if.then6.if.end13_c
 if.end15.i.i:                                     ; preds = %if.end13.i.i, %for.body.i44.i
   %.pre25.i.i = phi i32 [ %.pre.i49.i, %if.end13.i.i ], [ %.pre24.i.i, %for.body.i44.i ]
   %70 = phi i32 [ %.pre.i49.i, %if.end13.i.i ], [ %65, %for.body.i44.i ]
-  %start.1.i.i = phi i32 [ %ioffset.020.i.i, %if.end13.i.i ], [ %start.019.i.i, %for.body.i44.i ]
+  %start.1.i.i = phi i32 [ %ioffset.020.i.i, %if.end13.i.i ], [ %start.018.i.i, %for.body.i44.i ]
   %arrayidx.val.i50.i = load i32, ptr %arrayidx.i46.i, align 4
   %71 = getelementptr i8, ptr %arrayidx.i46.i, i64 4
   %arrayidx.val14.i.i = load i32, ptr %71, align 4
@@ -1035,8 +1035,8 @@ if.end50.i:                                       ; preds = %if.end45.i
   br label %error.i
 
 error.i:                                          ; preds = %if.end50.i, %if.end45.i, %if.end30.i43, %compute_localsplus_info.exit.thread.i, %if.end19.i, %if.end11.i, %if.end7.i, %if.end3.i, %if.end.i
-  %localspluskinds.0.ph.i = phi ptr [ %call21.i, %compute_localsplus_info.exit.thread.i ], [ %call21.i, %if.end50.i ], [ %call21.i, %if.end45.i ], [ %call21.i, %if.end30.i43 ], [ null, %if.end19.i ], [ null, %if.end11.i ], [ null, %if.end7.i ], [ null, %if.end3.i ], [ null, %if.end.i ]
   %co.0.ph.i = phi ptr [ null, %compute_localsplus_info.exit.thread.i ], [ %call52.i, %if.end50.i ], [ null, %if.end45.i ], [ null, %if.end30.i43 ], [ null, %if.end19.i ], [ null, %if.end11.i ], [ null, %if.end7.i ], [ null, %if.end3.i ], [ null, %if.end.i ]
+  %localspluskinds.0.ph.i = phi ptr [ %call21.i, %compute_localsplus_info.exit.thread.i ], [ %call21.i, %if.end50.i ], [ %call21.i, %if.end45.i ], [ %call21.i, %if.end30.i43 ], [ null, %if.end19.i ], [ null, %if.end11.i ], [ null, %if.end7.i ], [ null, %if.end3.i ], [ null, %if.end.i ]
   %.pr.i = load ptr, ptr %names.i, align 8
   %cmp.not.i.i48 = icmp eq ptr %.pr.i, null
   br i1 %cmp.not.i.i48, label %Py_XDECREF.exit.i, label %if.then.i.i49
@@ -1058,8 +1058,8 @@ if.then1.i.i36.i:                                 ; preds = %if.end.i.i33.i
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i36.i, %if.end.i.i33.i, %if.then.i.i49, %error.i, %error.thread.i
-  %co.072.i = phi ptr [ null, %error.thread.i ], [ %co.0.ph.i, %error.i ], [ %co.0.ph.i, %if.then.i.i49 ], [ %co.0.ph.i, %if.end.i.i33.i ], [ %co.0.ph.i, %if.then1.i.i36.i ]
-  %localspluskinds.071.i = phi ptr [ null, %error.thread.i ], [ %localspluskinds.0.ph.i, %error.i ], [ %localspluskinds.0.ph.i, %if.then.i.i49 ], [ %localspluskinds.0.ph.i, %if.end.i.i33.i ], [ %localspluskinds.0.ph.i, %if.then1.i.i36.i ]
+  %localspluskinds.072.i = phi ptr [ null, %error.thread.i ], [ %localspluskinds.0.ph.i, %error.i ], [ %localspluskinds.0.ph.i, %if.then.i.i49 ], [ %localspluskinds.0.ph.i, %if.end.i.i33.i ], [ %localspluskinds.0.ph.i, %if.then1.i.i36.i ]
+  %co.071.i = phi ptr [ null, %error.thread.i ], [ %co.0.ph.i, %error.i ], [ %co.0.ph.i, %if.then.i.i49 ], [ %co.0.ph.i, %if.end.i.i33.i ], [ %co.0.ph.i, %if.then1.i.i36.i ]
   %122 = load ptr, ptr %consts.i, align 8
   %cmp.not.i37.i = icmp eq ptr %122, null
   br i1 %cmp.not.i37.i, label %Py_XDECREF.exit45.i, label %if.then.i38.i
@@ -1102,23 +1102,23 @@ if.then1.i.i53.i:                                 ; preds = %if.end.i.i50.i
   br label %Py_XDECREF.exit54.i
 
 Py_XDECREF.exit54.i:                              ; preds = %if.then1.i.i53.i, %if.end.i.i50.i, %if.then.i47.i50, %Py_XDECREF.exit45.i
-  %cmp.not.i55.i = icmp eq ptr %localspluskinds.071.i, null
+  %cmp.not.i55.i = icmp eq ptr %localspluskinds.072.i, null
   br i1 %cmp.not.i55.i, label %makecode.exit, label %if.then.i56.i
 
 if.then.i56.i:                                    ; preds = %Py_XDECREF.exit54.i
-  %128 = load i64, ptr %localspluskinds.071.i, align 8
+  %128 = load i64, ptr %localspluskinds.072.i, align 8
   %129 = and i64 %128, 2147483648
   %cmp.i2.not.i57.i = icmp eq i64 %129, 0
   br i1 %cmp.i2.not.i57.i, label %if.end.i.i59.i, label %makecode.exit
 
 if.end.i.i59.i:                                   ; preds = %if.then.i56.i
   %dec.i.i60.i = add i64 %128, -1
-  store i64 %dec.i.i60.i, ptr %localspluskinds.071.i, align 8
+  store i64 %dec.i.i60.i, ptr %localspluskinds.072.i, align 8
   %cmp.i.i61.i = icmp eq i64 %dec.i.i60.i, 0
   br i1 %cmp.i.i61.i, label %if.then1.i.i62.i, label %makecode.exit
 
 if.then1.i.i62.i:                                 ; preds = %if.end.i.i59.i
-  call void @_Py_Dealloc(ptr noundef nonnull %localspluskinds.071.i) #6
+  call void @_Py_Dealloc(ptr noundef nonnull %localspluskinds.072.i) #6
   br label %makecode.exit
 
 makecode.exit:                                    ; preds = %Py_XDECREF.exit54.i, %if.then.i56.i, %if.end.i.i59.i, %if.then1.i.i62.i
@@ -1129,7 +1129,7 @@ makecode.exit:                                    ; preds = %Py_XDECREF.exit54.i
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end.i21.i, %if.then.i.i, %assemble_emit_location.exit.i.i, %while.body.i.i.i, %while.body.i26.i.i, %assemble_emit_location.exit33.i.i, %if.then1.i.i28.i.i, %if.end.i.i25.i.i, %if.then.i23.i.i, %Py_XDECREF.exit21.i.i, %assemble_exception_table.exit.thread.i, %if.end36.i, %if.end30.i, %if.end24.i, %if.end18.i, %if.end13.i, %makecode.exit, %assemble_emit.exit
-  %co.0 = phi ptr [ %co.072.i, %makecode.exit ], [ null, %assemble_emit.exit ], [ null, %if.end13.i ], [ null, %if.end18.i ], [ null, %if.end24.i ], [ null, %if.end30.i ], [ null, %if.end36.i ], [ null, %assemble_exception_table.exit.thread.i ], [ null, %Py_XDECREF.exit21.i.i ], [ null, %if.then.i23.i.i ], [ null, %if.end.i.i25.i.i ], [ null, %if.then1.i.i28.i.i ], [ null, %assemble_emit_location.exit33.i.i ], [ null, %while.body.i26.i.i ], [ null, %while.body.i.i.i ], [ null, %assemble_emit_location.exit.i.i ], [ null, %if.then.i.i ], [ null, %if.end.i21.i ]
+  %co.0 = phi ptr [ %co.071.i, %makecode.exit ], [ null, %assemble_emit.exit ], [ null, %if.end13.i ], [ null, %if.end18.i ], [ null, %if.end24.i ], [ null, %if.end30.i ], [ null, %if.end36.i ], [ null, %assemble_exception_table.exit.thread.i ], [ null, %Py_XDECREF.exit21.i.i ], [ null, %if.then.i23.i.i ], [ null, %if.end.i.i25.i.i ], [ null, %if.then1.i.i28.i.i ], [ null, %assemble_emit_location.exit33.i.i ], [ null, %while.body.i26.i.i ], [ null, %while.body.i.i.i ], [ null, %assemble_emit_location.exit.i.i ], [ null, %if.then.i.i ], [ null, %if.end.i21.i ]
   %130 = load ptr, ptr %a, align 8
   %cmp.not.i.i52 = icmp eq ptr %130, null
   br i1 %cmp.not.i.i52, label %Py_XDECREF.exit.i55, label %if.then.i.i53

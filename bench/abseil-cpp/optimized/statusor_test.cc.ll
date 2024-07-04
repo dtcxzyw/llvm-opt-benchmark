@@ -16617,14 +16617,14 @@ ehcleanup61:                                      ; preds = %_ZN7testing7Message
 
 ehcleanup62:                                      ; preds = %ehcleanup61, %ehcleanup44, %ehcleanup26, %lpad12, %lpad7
   %.pn14 = phi { ptr, i32 } [ %12, %lpad7 ], [ %.pn11.pn, %ehcleanup61 ], [ %.pn8.pn, %ehcleanup44 ], [ %.pn.pn, %ehcleanup26 ], [ %13, %lpad12 ]
-  %exn.slot.6 = extractvalue { ptr, i32 } %.pn14, 0
   %ehselector.slot.6 = extractvalue { ptr, i32 } %.pn14, 1
+  %exn.slot.6 = extractvalue { ptr, i32 } %.pn14, 0
   invoke void @__cxa_end_catch()
           to label %catch.dispatch66 unwind label %terminate.lpad
 
 catch.dispatch66:                                 ; preds = %ehcleanup62, %lpad4, %lpad
-  %ehselector.slot.7 = phi i32 [ %ehselector.slot.6, %ehcleanup62 ], [ %8, %lpad4 ], [ %5, %lpad ]
   %exn.slot.7 = phi ptr [ %exn.slot.6, %ehcleanup62 ], [ %7, %lpad4 ], [ %4, %lpad ]
+  %ehselector.slot.7 = phi i32 [ %ehselector.slot.6, %ehcleanup62 ], [ %8, %lpad4 ], [ %5, %lpad ]
   %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches68 = icmp eq i32 %ehselector.slot.7, %35
   br i1 %matches68, label %catch109, label %catch.fallthrough

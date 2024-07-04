@@ -3112,7 +3112,7 @@ define i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 11:                                               ; preds = %9, %4
   %12 = phi i8 [ %.pre, %9 ], [ %7, %4 ]
   %13 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %.058 = phi i32 [ 3, %9 ], [ 2, %4 ]
+  %.060 = phi i32 [ 3, %9 ], [ 2, %4 ]
   %14 = add i8 %12, -97
   %or.cond = icmp ult i8 %14, 6
   br i1 %or.cond, label %69, label %15
@@ -3167,9 +3167,9 @@ define i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %39, label %.lr.ph73, label %._crit_edge74
 
 .lr.ph73:                                         ; preds = %31, %.lr.ph73
-  %.06071 = phi i32 [ %41, %.lr.ph73 ], [ 0, %31 ]
+  %.05971 = phi i32 [ %41, %.lr.ph73 ], [ 0, %31 ]
   %40 = tail call i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3)
-  %41 = tail call i32 @Ifd_ManOper(ptr noundef %0, i32 noundef %.06071, i32 noundef %40, i32 noundef 0, i32 noundef 2)
+  %41 = tail call i32 @Ifd_ManOper(ptr noundef %0, i32 noundef %.05971, i32 noundef %40, i32 noundef 0, i32 noundef 2)
   %42 = load ptr, ptr %2, align 8
   %storemerge64 = getelementptr inbounds i8, ptr %42, i64 1
   store ptr %storemerge64, ptr %2, align 8
@@ -3177,9 +3177,9 @@ define i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %43, label %.lr.ph73, label %._crit_edge74, !llvm.loop !21
 
 ._crit_edge74:                                    ; preds = %.lr.ph73, %31
-  %.060.lcssa = phi i32 [ 0, %31 ], [ %41, %.lr.ph73 ]
+  %.059.lcssa = phi i32 [ 0, %31 ], [ %41, %.lr.ph73 ]
   %44 = zext i1 %8 to i32
-  %45 = xor i32 %.060.lcssa, %44
+  %45 = xor i32 %.059.lcssa, %44
   br label %69
 
 46:                                               ; preds = %15
@@ -3196,10 +3196,10 @@ define i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br i1 %54, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %46, %.lr.ph
-  %.05969 = phi ptr [ %56, %.lr.ph ], [ %5, %46 ]
+  %.05869 = phi ptr [ %56, %.lr.ph ], [ %5, %46 ]
   %55 = tail call i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3)
-  %56 = getelementptr inbounds i8, ptr %.05969, i64 4
-  store i32 %55, ptr %.05969, align 4
+  %56 = getelementptr inbounds i8, ptr %.05869, i64 4
+  store i32 %55, ptr %.05869, align 4
   %57 = load ptr, ptr %2, align 8
   %storemerge = getelementptr inbounds i8, ptr %57, i64 1
   store ptr %storemerge, ptr %2, align 8
@@ -3234,7 +3234,7 @@ define i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %69
 
 69:                                               ; preds = %11, %15, %._crit_edge, %._crit_edge74, %._crit_edge79
-  %.0 = phi i32 [ %30, %._crit_edge79 ], [ %45, %._crit_edge74 ], [ %68, %._crit_edge ], [ 0, %15 ], [ %.058, %11 ]
+  %.0 = phi i32 [ %30, %._crit_edge79 ], [ %45, %._crit_edge74 ], [ %68, %._crit_edge ], [ 0, %15 ], [ %.060, %11 ]
   ret i32 %.0
 }
 
@@ -4479,7 +4479,7 @@ Vec_WrdStart.exit.split.us.split.us:              ; preds = %Vec_WrdStart.exit
 
 .preheader43.us.us.us:                            ; preds = %._crit_edge.us.us.us, %.preheader43.lr.ph.us.us
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %._crit_edge.us.us.us ], [ 0, %.preheader43.lr.ph.us.us ]
-  %.047.us.us.us = phi i64 [ %63, %._crit_edge.us.us.us ], [ %22, %.preheader43.lr.ph.us.us ]
+  %.03946.us.us.us = phi i64 [ %63, %._crit_edge.us.us.us ], [ %22, %.preheader43.lr.ph.us.us ]
   %25 = trunc nuw nsw i64 %indvars.iv59 to i32
   %26 = shl i32 %25, %7
   %27 = or i32 %26, %24
@@ -4487,23 +4487,23 @@ Vec_WrdStart.exit.split.us.split.us:              ; preds = %Vec_WrdStart.exit
 
 28:                                               ; preds = %28, %.preheader43.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.preheader43.us.us.us ]
-  %.145.us.us.us = phi i64 [ %45, %28 ], [ %.047.us.us.us, %.preheader43.us.us.us ]
+  %.144.us.us.us = phi i64 [ %45, %28 ], [ %.03946.us.us.us, %.preheader43.us.us.us ]
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = or i32 %27, %29
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i64, ptr %.val42.us.us.us, i64 %31
-  store i64 %.145.us.us.us, ptr %32, align 8
+  store i64 %.144.us.us.us, ptr %32, align 8
   %33 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = xor i64 %37, -1
-  %39 = and i64 %.145.us.us.us, %38
+  %39 = and i64 %.144.us.us.us, %38
   %40 = shl nuw i32 1, %34
   %41 = zext i32 %40 to i64
   %42 = shl i64 %39, %41
-  %43 = and i64 %37, %.145.us.us.us
+  %43 = and i64 %37, %.144.us.us.us
   %44 = lshr i64 %43, %41
   %45 = or i64 %42, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4583,23 +4583,23 @@ Vec_WrdStart.exit:                                ; preds = %4, %10
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.lr.ph44.split.us
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %._crit_edge.us ], [ 0, %.lr.ph44.split.us ]
-  %.043.us = phi i64 [ %55, %._crit_edge.us ], [ %0, %.lr.ph44.split.us ]
+  %.03642.us = phi i64 [ %55, %._crit_edge.us ], [ %0, %.lr.ph44.split.us ]
   %19 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv49
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds [5 x [3 x i64]], ptr @Extra_Truth6SwapAdjacent.PMasks, i64 0, i64 %21
   %23 = load i64, ptr %22, align 8
-  %24 = and i64 %23, %.043.us
+  %24 = and i64 %23, %.03642.us
   %25 = getelementptr inbounds i8, ptr %22, i64 8
   %26 = load i64, ptr %25, align 8
-  %27 = and i64 %26, %.043.us
+  %27 = and i64 %26, %.03642.us
   %28 = shl nuw i32 1, %20
   %29 = zext i32 %28 to i64
   %30 = shl i64 %27, %29
   %31 = or i64 %30, %24
   %32 = getelementptr inbounds i8, ptr %22, i64 16
   %33 = load i64, ptr %32, align 8
-  %34 = and i64 %33, %.043.us
+  %34 = and i64 %33, %.03642.us
   %35 = lshr i64 %34, %29
   %36 = or i64 %31, %35
   %37 = trunc nuw nsw i64 %indvars.iv49 to i32
@@ -4608,26 +4608,26 @@ Vec_WrdStart.exit:                                ; preds = %4, %10
 
 39:                                               ; preds = %.lr.ph.us, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %39 ]
-  %.141.us = phi i64 [ %36, %.lr.ph.us ], [ %55, %39 ]
-  %.03440.us = phi i32 [ 0, %.lr.ph.us ], [ %56, %39 ]
-  %40 = or i32 %.03440.us, %38
+  %.03341.us = phi i32 [ 0, %.lr.ph.us ], [ %56, %39 ]
+  %.139.us = phi i64 [ %36, %.lr.ph.us ], [ %55, %39 ]
+  %40 = or i32 %.03341.us, %38
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i64, ptr %.val38.us, i64 %41
-  store i64 %.141.us, ptr %42, align 8
+  store i64 %.139.us, ptr %42, align 8
   %43 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = xor i64 %47, -1
-  %49 = and i64 %.141.us, %48
+  %49 = and i64 %.139.us, %48
   %50 = shl nuw i32 1, %44
   %51 = zext i32 %50 to i64
   %52 = shl i64 %49, %51
-  %53 = and i64 %47, %.141.us
+  %53 = and i64 %47, %.139.us
   %54 = lshr i64 %53, %51
   %55 = or i64 %52, %54
-  %56 = xor i32 %50, %.03440.us
+  %56 = xor i32 %50, %.03341.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %39, !llvm.loop !44

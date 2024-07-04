@@ -3954,8 +3954,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %for.bo
   br label %if.end
 
 if.end:                                           ; preds = %for.cond.i, %entry, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  %file.sroa.0.0 = phi i64 [ %sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ 0, %entry ], [ %call.i.i, %for.cond.i ]
   %file.sroa.5.0 = phi ptr [ %add.ptr.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %registration.sroa.0.0.copyload, %entry ], [ %registration.sroa.0.0.copyload, %for.cond.i ]
+  %file.sroa.0.0 = phi i64 [ %sub.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ 0, %entry ], [ %call.i.i, %for.cond.i ]
   store i64 %file.sroa.0.0, ptr %ref.tmp9, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp9, i64 8
   store ptr %file.sroa.5.0, ptr %pc.sroa.2.0.piece_.sroa_idx.i, align 8

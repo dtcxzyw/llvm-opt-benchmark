@@ -159,9 +159,9 @@ BufferGetPage.exit104:                            ; preds = %50, %56
 
 96:                                               ; preds = %.lr.ph, %BufferGetPage.exit106
   %.0124 = phi i32 [ %47, %.lr.ph ], [ %.1, %BufferGetPage.exit106 ]
-  %.092123 = phi ptr [ %.0.i.i103, %.lr.ph ], [ %.193, %BufferGetPage.exit106 ]
-  %.094122 = phi ptr [ %65, %.lr.ph ], [ %262, %BufferGetPage.exit106 ]
-  %97 = getelementptr inbounds i8, ptr %.094122, i64 12
+  %.092123 = phi ptr [ %65, %.lr.ph ], [ %262, %BufferGetPage.exit106 ]
+  %.093122 = phi ptr [ %.0.i.i103, %.lr.ph ], [ %.194, %BufferGetPage.exit106 ]
+  %97 = getelementptr inbounds i8, ptr %.092123, i64 12
   %98 = load i16, ptr %97, align 4
   %99 = and i16 %98, 128
   %.not98 = icmp eq i16 %99, 0
@@ -403,12 +403,12 @@ BufferGetPage.exit55.i:                           ; preds = %214, %210
 _hash_vacuum_one_page.exit:                       ; preds = %BufferGetPage.exit.i, %._crit_edge.i, %218
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %221 = call i64 @PageGetFreeSpace(ptr noundef %.092123) #6
+  %221 = call i64 @PageGetFreeSpace(ptr noundef %.093122) #6
   %.not99 = icmp ult i64 %221, %14
   br i1 %.not99, label %222, label %_hash_vacuum_one_page.exit._crit_edge
 
 222:                                              ; preds = %100, %_hash_vacuum_one_page.exit, %96
-  %223 = getelementptr inbounds i8, ptr %.094122, i64 4
+  %223 = getelementptr inbounds i8, ptr %.092123, i64 4
   %224 = load i32, ptr %223, align 4
   %.not113 = icmp eq i32 %224, -1
   br i1 %.not113, label %243, label %225
@@ -470,13 +470,13 @@ _hash_vacuum_one_page.exit:                       ; preds = %BufferGetPage.exit.
   br label %BufferGetPage.exit106
 
 BufferGetPage.exit106:                            ; preds = %253, %247, %237, %231
-  %.193 = phi ptr [ %236, %231 ], [ %242, %237 ], [ %252, %247 ], [ %258, %253 ]
+  %.194 = phi ptr [ %236, %231 ], [ %242, %237 ], [ %252, %247 ], [ %258, %253 ]
   %.1 = phi i32 [ %229, %231 ], [ %229, %237 ], [ %245, %247 ], [ %245, %253 ]
-  %259 = getelementptr inbounds i8, ptr %.193, i64 16
+  %259 = getelementptr inbounds i8, ptr %.194, i64 16
   %260 = load i16, ptr %259, align 4
   %261 = zext i16 %260 to i64
-  %262 = getelementptr i8, ptr %.193, i64 %261
-  %263 = call i64 @PageGetFreeSpace(ptr noundef nonnull %.193) #6
+  %262 = getelementptr i8, ptr %.194, i64 %261
+  %263 = call i64 @PageGetFreeSpace(ptr noundef nonnull %.194) #6
   %264 = icmp ult i64 %263, %14
   br i1 %264, label %96, label %_hash_vacuum_one_page.exit._crit_edge, !llvm.loop !7
 

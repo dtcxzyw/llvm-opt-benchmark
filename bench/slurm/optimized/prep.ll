@@ -153,7 +153,7 @@ define range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not27, label %.loopexit32, label %19, !llvm.loop !6
 
 .loopexit32:                                      ; preds = %57, %15, %48
-  %.0 = phi i32 [ -1, %48 ], [ 0, %15 ], [ 0, %57 ]
+  %.019 = phi i32 [ -1, %48 ], [ 0, %15 ], [ 0, %57 ]
   call void @slurm_xfree(ptr noundef nonnull %3) #8
   %61 = load i32, ptr @g_context_cnt, align 4
   %62 = icmp sgt i32 %61, 0
@@ -192,7 +192,7 @@ define range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit32, %8, %13, %11
-  %.1 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %11 ], [ %.0, %.loopexit32 ], [ %.0, %._crit_edge ]
+  %.1 = phi i32 [ 0, %8 ], [ 0, %13 ], [ 0, %11 ], [ %.019, %.loopexit32 ], [ %.019, %._crit_edge ]
   %77 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not30 = icmp eq i32 %77, 0
   br i1 %.not30, label %80, label %78
@@ -273,7 +273,7 @@ define i32 @prep_g_fini() local_unnamed_addr #0 {
   %7 = phi i32 [ %5, %.lr.ph.preheader ], [ %14, %13 ]
   %8 = phi ptr [ %.pre22, %.lr.ph.preheader ], [ %15, %13 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %.020 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %13 ]
+  %.01119 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %13 ]
   %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not16 = icmp eq ptr %10, null
@@ -282,7 +282,7 @@ define i32 @prep_g_fini() local_unnamed_addr #0 {
 11:                                               ; preds = %.lr.ph
   %12 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %10) #8
   %.not17 = icmp eq i32 %12, 0
-  %spec.select = select i1 %.not17, i32 %.020, i32 %12
+  %spec.select = select i1 %.not17, i32 %.01119, i32 %12
   %.pre = load ptr, ptr @g_context, align 8
   %.pre23 = load i32, ptr @g_context_cnt, align 4
   br label %13
@@ -290,14 +290,14 @@ define i32 @prep_g_fini() local_unnamed_addr #0 {
 13:                                               ; preds = %11, %.lr.ph
   %14 = phi i32 [ %7, %.lr.ph ], [ %.pre23, %11 ]
   %15 = phi ptr [ %8, %.lr.ph ], [ %.pre, %11 ]
-  %.1 = phi i32 [ %.020, %.lr.ph ], [ %spec.select, %11 ]
+  %.1 = phi i32 [ %.01119, %.lr.ph ], [ %spec.select, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %14 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %13, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %13 ]
+  %.011.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %13 ]
   tail call void @slurm_xfree(ptr noundef nonnull @ops) #8
   tail call void @slurm_xfree(ptr noundef nonnull @g_context) #8
   tail call void @slurm_xfree(ptr noundef nonnull @prep_plugin_list) #8
@@ -305,7 +305,7 @@ define i32 @prep_g_fini() local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %._crit_edge, %4
-  %.2 = phi i32 [ 0, %4 ], [ %.0.lcssa, %._crit_edge ]
+  %.2 = phi i32 [ 0, %4 ], [ %.011.lcssa, %._crit_edge ]
   %19 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not18 = icmp eq i32 %19, 0
   br i1 %.not18, label %22, label %20
@@ -360,7 +360,7 @@ define i32 @prep_g_prolog(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
+  %.010.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
   %22 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not13 = icmp eq i32 %22, 0
   br i1 %.not13, label %25, label %23
@@ -374,7 +374,7 @@ define i32 @prep_g_prolog(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 25:                                               ; preds = %._crit_edge
   %26 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.prep_g_prolog, i64 noundef 0, ptr noundef nonnull %6) #8
-  ret i32 %.0.lcssa
+  ret i32 %.010.lcssa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -426,7 +426,7 @@ define i32 @prep_g_epilog(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
+  %.010.lcssa = phi i32 [ 0, %.preheader ], [ %16, %.lr.ph ]
   %22 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not13 = icmp eq i32 %22, 0
   br i1 %.not13, label %25, label %23
@@ -440,7 +440,7 @@ define i32 @prep_g_epilog(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 25:                                               ; preds = %._crit_edge
   %26 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 20, ptr noundef nonnull @__func__.prep_g_epilog, i64 noundef 0, ptr noundef nonnull %6) #8
-  ret i32 %.0.lcssa
+  ret i32 %.010.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

@@ -6115,9 +6115,9 @@ sw.epilog:                                        ; preds = %if.end101
   br i1 %tobool301.not, label %if.end310, label %if.then302
 
 if.then302:                                       ; preds = %usb_mtp_add_u32.exit.i550, %usb_mtp_add_u16.exit.i535, %sw.bb2.i530, %sw.bb5.i514, %usb_mtp_add_str.exit.i, %usb_mtp_add_u32.exit74.i, %usb_mtp_add_u32.exit51.i, %usb_mtp_add_u8.exit122.i, %usb_mtp_add_u8.exit234.i, %usb_mtp_add_u8.exit327.i, %usb_mtp_add_u8.exit443.i, %usb_mtp_add_u8.exit536.i, %usb_mtp_add_u8.exit645.i, %usb_mtp_get_device_info.exit, %usb_mtp_get_storage_ids.exit, %usb_mtp_get_storage_info.exit, %usb_mtp_get_object_info.exit, %if.end138, %if.end172, %if.end259, %sw.epilog
-  %data_in.0637 = phi ptr [ %call111, %sw.epilog ], [ %call.i.i, %usb_mtp_get_device_info.exit ], [ %call.i.i195, %usb_mtp_get_storage_ids.exit ], [ %call.i.i216, %usb_mtp_get_storage_info.exit ], [ %call.i.i290, %usb_mtp_get_object_info.exit ], [ %call139, %if.end138 ], [ %call167, %if.end172 ], [ %call.i.i433, %if.end259 ], [ %call.i.i446, %usb_mtp_add_u8.exit645.i ], [ %call.i.i446, %usb_mtp_add_u8.exit536.i ], [ %call.i.i446, %usb_mtp_add_u8.exit443.i ], [ %call.i.i446, %usb_mtp_add_u8.exit327.i ], [ %call.i.i446, %usb_mtp_add_u8.exit234.i ], [ %call.i.i446, %usb_mtp_add_u8.exit122.i ], [ %call.i.i502, %usb_mtp_add_u32.exit51.i ], [ %call.i.i502, %usb_mtp_add_u32.exit74.i ], [ %call.i.i502, %usb_mtp_add_str.exit.i ], [ %call.i.i502, %sw.bb5.i514 ], [ %call.i.i502, %sw.bb2.i530 ], [ %call.i.i502, %usb_mtp_add_u16.exit.i535 ], [ %call.i.i502, %usb_mtp_add_u32.exit.i550 ]
-  %res0.0635 = phi i32 [ 0, %sw.epilog ], [ 0, %usb_mtp_get_device_info.exit ], [ 0, %usb_mtp_get_storage_ids.exit ], [ 0, %usb_mtp_get_storage_info.exit ], [ 0, %usb_mtp_get_object_info.exit ], [ 0, %if.end138 ], [ %conv173, %if.end172 ], [ 0, %if.end259 ], [ 0, %usb_mtp_add_u8.exit645.i ], [ 0, %usb_mtp_add_u8.exit536.i ], [ 0, %usb_mtp_add_u8.exit443.i ], [ 0, %usb_mtp_add_u8.exit327.i ], [ 0, %usb_mtp_add_u8.exit234.i ], [ 0, %usb_mtp_add_u8.exit122.i ], [ 0, %usb_mtp_add_u32.exit51.i ], [ 0, %usb_mtp_add_u32.exit74.i ], [ 0, %usb_mtp_add_str.exit.i ], [ 0, %sw.bb5.i514 ], [ 0, %sw.bb2.i530 ], [ 0, %usb_mtp_add_u16.exit.i535 ], [ 0, %usb_mtp_add_u32.exit.i550 ]
-  %nres.0633 = phi i32 [ 0, %sw.epilog ], [ 0, %usb_mtp_get_device_info.exit ], [ 0, %usb_mtp_get_storage_ids.exit ], [ 0, %usb_mtp_get_storage_info.exit ], [ 0, %usb_mtp_get_object_info.exit ], [ 0, %if.end138 ], [ 1, %if.end172 ], [ 0, %if.end259 ], [ 0, %usb_mtp_add_u8.exit645.i ], [ 0, %usb_mtp_add_u8.exit536.i ], [ 0, %usb_mtp_add_u8.exit443.i ], [ 0, %usb_mtp_add_u8.exit327.i ], [ 0, %usb_mtp_add_u8.exit234.i ], [ 0, %usb_mtp_add_u8.exit122.i ], [ 0, %usb_mtp_add_u32.exit51.i ], [ 0, %usb_mtp_add_u32.exit74.i ], [ 0, %usb_mtp_add_str.exit.i ], [ 0, %sw.bb5.i514 ], [ 0, %sw.bb2.i530 ], [ 0, %usb_mtp_add_u16.exit.i535 ], [ 0, %usb_mtp_add_u32.exit.i550 ]
+  %res0.0636 = phi i32 [ 0, %sw.epilog ], [ 0, %usb_mtp_get_device_info.exit ], [ 0, %usb_mtp_get_storage_ids.exit ], [ 0, %usb_mtp_get_storage_info.exit ], [ 0, %usb_mtp_get_object_info.exit ], [ 0, %if.end138 ], [ %conv173, %if.end172 ], [ 0, %if.end259 ], [ 0, %usb_mtp_add_u8.exit645.i ], [ 0, %usb_mtp_add_u8.exit536.i ], [ 0, %usb_mtp_add_u8.exit443.i ], [ 0, %usb_mtp_add_u8.exit327.i ], [ 0, %usb_mtp_add_u8.exit234.i ], [ 0, %usb_mtp_add_u8.exit122.i ], [ 0, %usb_mtp_add_u32.exit51.i ], [ 0, %usb_mtp_add_u32.exit74.i ], [ 0, %usb_mtp_add_str.exit.i ], [ 0, %sw.bb5.i514 ], [ 0, %sw.bb2.i530 ], [ 0, %usb_mtp_add_u16.exit.i535 ], [ 0, %usb_mtp_add_u32.exit.i550 ]
+  %nres.0634 = phi i32 [ 0, %sw.epilog ], [ 0, %usb_mtp_get_device_info.exit ], [ 0, %usb_mtp_get_storage_ids.exit ], [ 0, %usb_mtp_get_storage_info.exit ], [ 0, %usb_mtp_get_object_info.exit ], [ 0, %if.end138 ], [ 1, %if.end172 ], [ 0, %if.end259 ], [ 0, %usb_mtp_add_u8.exit645.i ], [ 0, %usb_mtp_add_u8.exit536.i ], [ 0, %usb_mtp_add_u8.exit443.i ], [ 0, %usb_mtp_add_u8.exit327.i ], [ 0, %usb_mtp_add_u8.exit234.i ], [ 0, %usb_mtp_add_u8.exit122.i ], [ 0, %usb_mtp_add_u32.exit51.i ], [ 0, %usb_mtp_add_u32.exit74.i ], [ 0, %usb_mtp_add_str.exit.i ], [ 0, %sw.bb5.i514 ], [ 0, %sw.bb2.i530 ], [ 0, %usb_mtp_add_u16.exit.i535 ], [ 0, %usb_mtp_add_u32.exit.i550 ]
+  %data_in.0633 = phi ptr [ %call111, %sw.epilog ], [ %call.i.i, %usb_mtp_get_device_info.exit ], [ %call.i.i195, %usb_mtp_get_storage_ids.exit ], [ %call.i.i216, %usb_mtp_get_storage_info.exit ], [ %call.i.i290, %usb_mtp_get_object_info.exit ], [ %call139, %if.end138 ], [ %call167, %if.end172 ], [ %call.i.i433, %if.end259 ], [ %call.i.i446, %usb_mtp_add_u8.exit645.i ], [ %call.i.i446, %usb_mtp_add_u8.exit536.i ], [ %call.i.i446, %usb_mtp_add_u8.exit443.i ], [ %call.i.i446, %usb_mtp_add_u8.exit327.i ], [ %call.i.i446, %usb_mtp_add_u8.exit234.i ], [ %call.i.i446, %usb_mtp_add_u8.exit122.i ], [ %call.i.i502, %usb_mtp_add_u32.exit51.i ], [ %call.i.i502, %usb_mtp_add_u32.exit74.i ], [ %call.i.i502, %usb_mtp_add_str.exit.i ], [ %call.i.i502, %sw.bb5.i514 ], [ %call.i.i502, %sw.bb2.i530 ], [ %call.i.i502, %usb_mtp_add_u16.exit.i535 ], [ %call.i.i502, %usb_mtp_add_u32.exit.i550 ]
   %data_in303 = getelementptr inbounds i8, ptr %s, i64 5888
   %797 = load ptr, ptr %data_in303, align 8
   %cmp304 = icmp eq ptr %797, null
@@ -6128,12 +6128,12 @@ if.else307:                                       ; preds = %if.then302
   unreachable
 
 if.end308:                                        ; preds = %if.then302
-  store ptr %data_in.0637, ptr %data_in303, align 8
+  store ptr %data_in.0633, ptr %data_in303, align 8
   br label %if.end310
 
 if.end310:                                        ; preds = %do.body, %if.then24, %usb_mtp_file_monitor_cleanup.exit, %if.then106, %if.end308, %sw.epilog
-  %res0.0636 = phi i32 [ %res0.0635, %if.end308 ], [ 0, %sw.epilog ], [ 0, %do.body ], [ 0, %if.then24 ], [ 0, %usb_mtp_file_monitor_cleanup.exit ], [ %203, %if.then106 ]
-  %nres.0634 = phi i32 [ %nres.0633, %if.end308 ], [ 0, %sw.epilog ], [ 0, %do.body ], [ 0, %if.then24 ], [ 0, %usb_mtp_file_monitor_cleanup.exit ], [ 1, %if.then106 ]
+  %res0.0637 = phi i32 [ %res0.0636, %if.end308 ], [ 0, %sw.epilog ], [ 0, %do.body ], [ 0, %if.then24 ], [ 0, %usb_mtp_file_monitor_cleanup.exit ], [ %203, %if.then106 ]
+  %nres.0635 = phi i32 [ %nres.0634, %if.end308 ], [ 0, %sw.epilog ], [ 0, %do.body ], [ 0, %if.then24 ], [ 0, %usb_mtp_file_monitor_cleanup.exit ], [ 1, %if.then106 ]
   %trans311 = getelementptr inbounds i8, ptr %c, i64 4
   %798 = load i32, ptr %trans311, align 4
   %call.i590 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #17
@@ -6141,13 +6141,13 @@ if.end310:                                        ; preds = %do.body, %if.then24
   %trans2.i591 = getelementptr inbounds i8, ptr %call.i590, i64 4
   store i32 %798, ptr %trans2.i591, align 4
   %argc3.i592 = getelementptr inbounds i8, ptr %call.i590, i64 8
-  store i32 %nres.0634, ptr %argc3.i592, align 4
-  %cmp.i593.not = icmp eq i32 %nres.0634, 0
+  store i32 %nres.0635, ptr %argc3.i592, align 4
+  %cmp.i593.not = icmp eq i32 %nres.0635, 0
   br i1 %cmp.i593.not, label %if.end13.i, label %if.end.i598
 
 if.end.i598:                                      ; preds = %if.end310
   %argv.i599 = getelementptr inbounds i8, ptr %call.i590, i64 12
-  store i32 %res0.0636, ptr %argv.i599, align 4
+  store i32 %res0.0637, ptr %argv.i599, align 4
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.end.i598, %if.end310

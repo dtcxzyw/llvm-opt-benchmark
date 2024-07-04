@@ -383,15 +383,15 @@ land.lhs.true.preheader.i:                        ; preds = %while.end.i
 
 land.lhs.true.i:                                  ; preds = %while.body46.i, %land.lhs.true.preheader.i
   %6 = phi i8 [ %7, %while.body46.i ], [ %0, %land.lhs.true.preheader.i ]
-  %value.addr.045.i = phi ptr [ %arrayidx35.i, %while.body46.i ], [ %header, %land.lhs.true.preheader.i ]
-  %vlen.addr.144.i = phi i64 [ %dec47.i, %while.body46.i ], [ %vlen.addr.041.i, %land.lhs.true.preheader.i ]
+  %vlen.addr.145.i = phi i64 [ %dec47.i, %while.body46.i ], [ %vlen.addr.041.i, %land.lhs.true.preheader.i ]
+  %value.addr.044.i = phi ptr [ %arrayidx35.i, %while.body46.i ], [ %header, %land.lhs.true.preheader.i ]
   switch i8 %6, label %while.end48.i [
     i8 32, label %land.rhs34.i
     i8 9, label %land.rhs34.i
   ]
 
 land.rhs34.i:                                     ; preds = %land.lhs.true.i, %land.lhs.true.i
-  %arrayidx35.i = getelementptr inbounds i8, ptr %value.addr.045.i, i64 1
+  %arrayidx35.i = getelementptr inbounds i8, ptr %value.addr.044.i, i64 1
   %7 = load i8, ptr %arrayidx35.i, align 1
   switch i8 %7, label %while.end48.i [
     i8 32, label %while.body46.i
@@ -399,13 +399,13 @@ land.rhs34.i:                                     ; preds = %land.lhs.true.i, %l
   ]
 
 while.body46.i:                                   ; preds = %land.rhs34.i, %land.rhs34.i
-  %dec47.i = add i64 %vlen.addr.144.i, -1
+  %dec47.i = add i64 %vlen.addr.145.i, -1
   %cmp23.i = icmp ugt i64 %dec47.i, 1
   br i1 %cmp23.i, label %land.lhs.true.i, label %while.end48.i, !llvm.loop !10
 
 while.end48.i:                                    ; preds = %while.body.i, %while.body46.i, %land.rhs34.i, %land.lhs.true.i, %while.end.i, %if.then23
-  %vlen.addr.1.lcssa.i = phi i64 [ 1, %while.end.i ], [ 0, %if.then23 ], [ 1, %while.body46.i ], [ %vlen.addr.144.i, %land.lhs.true.i ], [ %vlen.addr.144.i, %land.rhs34.i ], [ 0, %while.body.i ]
-  %value.addr.0.lcssa.i = phi ptr [ %header, %while.end.i ], [ %header, %if.then23 ], [ %scevgep.i, %while.body46.i ], [ %value.addr.045.i, %land.lhs.true.i ], [ %value.addr.045.i, %land.rhs34.i ], [ %header, %while.body.i ]
+  %value.addr.0.lcssa.i = phi ptr [ %header, %while.end.i ], [ %header, %if.then23 ], [ %scevgep.i, %while.body46.i ], [ %value.addr.044.i, %land.lhs.true.i ], [ %value.addr.044.i, %land.rhs34.i ], [ %header, %while.body.i ]
+  %vlen.addr.1.lcssa.i = phi i64 [ 1, %while.end.i ], [ 0, %if.then23 ], [ 1, %while.body46.i ], [ %vlen.addr.145.i, %land.lhs.true.i ], [ %vlen.addr.145.i, %land.rhs34.i ], [ 0, %while.body.i ]
   %httphdrs.i = getelementptr inbounds i8, ptr %data, i64 4776
   tail call void @Curl_llist_remove(ptr noundef nonnull %httphdrs.i, ptr noundef nonnull %1, ptr noundef null) #4
   %add.i = add i64 %call.i, 50

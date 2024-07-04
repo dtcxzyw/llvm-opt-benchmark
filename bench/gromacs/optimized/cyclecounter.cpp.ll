@@ -77,13 +77,13 @@ define noundef double @_Z20gmx_cycles_calibrated(double noundef %0) local_unname
   %48 = uitofp i64 %47 to double
   %49 = fcmp olt double %26, 1.000000e-30
   %50 = fadd double %26, %36
-  %.018 = select i1 %49, double %50, double %36
-  %51 = fdiv double %.018, %48
+  %.017 = select i1 %49, double %50, double %36
+  %51 = fdiv double %.017, %48
   br label %52
 
 52:                                               ; preds = %38, %7
-  %.017 = phi double [ %13, %7 ], [ %51, %38 ]
-  ret double %.017
+  %.018 = phi double [ %13, %7 ], [ %51, %38 ]
+  ret double %.018
 }
 
 ; Function Attrs: nofree nounwind

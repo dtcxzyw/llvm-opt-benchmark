@@ -373,13 +373,13 @@ define internal i32 @dissect_docsis(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 18:                                               ; preds = %15, %13
   %.sink = phi i32 [ 2, %15 ], [ 3, %13 ]
-  %.0266 = phi i32 [ 6, %15 ], [ 7, %13 ]
-  %.0 = phi i16 [ %17, %15 ], [ %14, %13 ]
+  %.0268 = phi i16 [ %17, %15 ], [ %14, %13 ]
+  %.0267 = phi i32 [ 6, %15 ], [ 7, %13 ]
   %19 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.sink) #3
   %.not = icmp eq i8 %11, 0
-  %20 = zext i16 %.0 to i32
+  %20 = zext i16 %.0268 to i32
   %21 = select i1 %.not, i32 0, i32 %20
-  %.1 = add nuw nsw i32 %21, %.0266
+  %.1 = add nuw nsw i32 %21, %.0267
   %22 = and i32 %.1, 255
   %23 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %22) #3
   %24 = trunc i32 %23 to i16
@@ -395,14 +395,14 @@ define internal i32 @dissect_docsis(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 .thread280:                                       ; preds = %26
   %27 = zext i16 %19 to i32
-  %.neg283 = add nsw i32 %27, -2
-  %28 = sub nsw i32 %.neg283, %20
+  %reass.sub284 = sub nsw i32 %27, %20
+  %28 = add nsw i32 %reass.sub284, -2
   br label %.thread
 
 29:                                               ; preds = %18
   %30 = zext i16 %19 to i32
-  %.neg281 = add nsw i32 %30, -2
-  %31 = sub nsw i32 %.neg281, %20
+  %reass.sub = sub nsw i32 %30, %20
+  %31 = add nsw i32 %reass.sub, -2
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void @col_set_str(ptr noundef %33, i32 noundef 34, ptr noundef nonnull @.str.134) #3
@@ -426,7 +426,7 @@ define internal i32 @dissect_docsis(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %53
 
 .thread:                                          ; preds = %26, %26, %.thread280
-  %.0268279 = phi i32 [ %28, %.thread280 ], [ 0, %26 ], [ 0, %26 ]
+  %.0279 = phi i32 [ %28, %.thread280 ], [ 0, %26 ], [ 0, %26 ]
   %38 = getelementptr inbounds i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void @col_set_str(ptr noundef %39, i32 noundef 34, ptr noundef nonnull @.str.134) #3
@@ -461,21 +461,21 @@ define internal i32 @dissect_docsis(ptr noundef %0, ptr noundef %1, ptr noundef 
   tail call void @col_set_str(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.154) #3
   br label %53
 
-default.unreachable284:                           ; preds = %53
+default.unreachable285:                           ; preds = %53
   unreachable
 
 default.unreachable:                              ; preds = %29
   unreachable
 
 53:                                               ; preds = %41, %51, %52, %45, %37, %36, %35
-  %.0268278 = phi i32 [ %.0268279, %41 ], [ %.0268279, %51 ], [ %.0268279, %52 ], [ %.0268279, %45 ], [ %31, %37 ], [ %31, %36 ], [ %31, %35 ]
+  %.0278 = phi i32 [ %.0279, %41 ], [ %.0279, %51 ], [ %.0279, %52 ], [ %.0279, %45 ], [ %31, %37 ], [ %31, %36 ], [ %31, %35 ]
   %54 = load i32, ptr @proto_docsis, align 4
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef 0, i32 noundef %22, i32 noundef 0) #3
   %56 = load i32, ptr @ett_docsis, align 4
   %57 = tail call ptr @proto_item_add_subtree(ptr noundef %55, i32 noundef %56) #3
   %58 = load i32, ptr @hf_docsis_fctype, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  switch i8 %8, label %default.unreachable284 [
+  switch i8 %8, label %default.unreachable285 [
     i8 0, label %60
     i8 1, label %78
     i8 2, label %98
@@ -488,10 +488,10 @@ default.unreachable:                              ; preds = %29
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %61, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %63 = load i32, ptr @hf_docsis_exthdr, align 4
   %64 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %63, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i8 noundef zeroext %11, i16 noundef zeroext %.0268, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %65 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i32 noundef %22)
   %66 = icmp ne i32 %65, 0
-  %67 = icmp sgt i32 %.0268278, 0
+  %67 = icmp sgt i32 %.0278, 0
   %or.cond4 = select i1 %66, i1 %67, i1 false
   br i1 %or.cond4, label %68, label %201
 
@@ -519,7 +519,7 @@ default.unreachable:                              ; preds = %29
   %80 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %79, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %81 = load i32, ptr @hf_docsis_exthdr, align 4
   %82 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %81, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i8 noundef zeroext %11, i16 noundef zeroext %.0268, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %83 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i32 noundef %22)
   %.not276 = icmp eq i32 %83, 0
   br i1 %.not276, label %201, label %84
@@ -557,10 +557,10 @@ default.unreachable:                              ; preds = %29
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %99, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
   %101 = load i32, ptr @hf_docsis_exthdr, align 4
   %102 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %101, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i8 noundef zeroext %11, i16 noundef zeroext %.0268, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %103 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i32 noundef %22)
   %104 = icmp ne i32 %103, 0
-  %105 = icmp sgt i32 %.0268278, 0
+  %105 = icmp sgt i32 %.0278, 0
   %or.cond13 = select i1 %104, i1 %105, i1 false
   br i1 %or.cond13, label %106, label %201
 
@@ -598,7 +598,7 @@ default.unreachable:                              ; preds = %29
   ]
 
 121:                                              ; preds = %116, %116
-  call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i8 noundef zeroext %11, i16 noundef zeroext %.0268, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %122 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i32 noundef %22)
   %.not275 = icmp eq i32 %122, 0
   br i1 %.not275, label %201, label %123
@@ -634,7 +634,7 @@ default.unreachable:                              ; preds = %29
   %141 = getelementptr inbounds i8, ptr %1, i64 272
   %142 = load i32, ptr %141, align 8
   store i32 1, ptr %141, align 8
-  call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i8 noundef zeroext %11, i16 noundef zeroext %.0, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @dissect_exthdr_length_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i8 noundef zeroext %11, i16 noundef zeroext %.0268, i16 noundef zeroext %19, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %143 = call fastcc i32 @dissect_hcs_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %57, i32 noundef %22)
   %.not271 = icmp eq i32 %143, 0
   br i1 %.not271, label %201, label %144

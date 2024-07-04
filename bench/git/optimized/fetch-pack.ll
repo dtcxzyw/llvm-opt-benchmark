@@ -111,7 +111,7 @@ land.rhs:                                         ; preds = %for.inc
 
 do.body.i.preheader:                              ; preds = %land.rhs.lr.ph, %land.rhs
   %7 = phi ptr [ %5, %land.rhs ], [ %3, %land.rhs.lr.ph ]
-  %pack_lockfiles_ptr.0113187 = phi ptr [ %pack_lockfiles_ptr.1, %land.rhs ], [ null, %land.rhs.lr.ph ]
+  %pack_lockfiles_ptr.0114187 = phi ptr [ %pack_lockfiles_ptr.1, %land.rhs ], [ null, %land.rhs.lr.ph ]
   %indvars.iv186 = phi i64 [ %indvars.iv.next, %land.rhs ], [ 1, %land.rhs.lr.ph ]
   %scevgep = getelementptr i8, ptr %7, i64 14
   br label %do.body.i
@@ -516,7 +516,7 @@ if.end158:                                        ; preds = %if.end153
   unreachable
 
 for.inc:                                          ; preds = %if.then156, %if.then151, %if.then145, %if.then138, %if.then131, %if.then124, %if.then117, %if.then109, %if.then102, %if.then95, %if.then88, %if.then83, %if.then79, %if.then74, %if.then68, %if.then61, %if.then54, %if.then47, %if.then40, %if.then33, %if.then20, %if.then13, %if.then7, %if.then
-  %pack_lockfiles_ptr.1 = phi ptr [ %pack_lockfiles_ptr.0113187, %if.then ], [ %pack_lockfiles_ptr.0113187, %if.then7 ], [ %pack_lockfiles_ptr.0113187, %if.then74 ], [ %pack_lockfiles_ptr.0113187, %if.then79 ], [ %pack_lockfiles_ptr.0113187, %if.then83 ], [ %pack_lockfiles_ptr.0113187, %if.then151 ], [ %pack_lockfiles_ptr.0113187, %if.then156 ], [ %pack_lockfiles_ptr.0113187, %if.then145 ], [ %pack_lockfiles_ptr.0113187, %if.then138 ], [ %pack_lockfiles_ptr.0113187, %if.then131 ], [ %pack_lockfiles_ptr.0113187, %if.then124 ], [ %pack_lockfiles_ptr.0113187, %if.then117 ], [ %pack_lockfiles, %if.then109 ], [ %pack_lockfiles_ptr.0113187, %if.then102 ], [ %pack_lockfiles_ptr.0113187, %if.then95 ], [ %pack_lockfiles_ptr.0113187, %if.then88 ], [ %pack_lockfiles_ptr.0113187, %if.then68 ], [ %pack_lockfiles_ptr.0113187, %if.then61 ], [ %pack_lockfiles_ptr.0113187, %if.then54 ], [ %pack_lockfiles_ptr.0113187, %if.then47 ], [ %pack_lockfiles_ptr.0113187, %if.then40 ], [ %pack_lockfiles_ptr.0113187, %if.then33 ], [ %pack_lockfiles_ptr.0113187, %if.then20 ], [ %pack_lockfiles_ptr.0113187, %if.then13 ]
+  %pack_lockfiles_ptr.1 = phi ptr [ %pack_lockfiles_ptr.0114187, %if.then ], [ %pack_lockfiles_ptr.0114187, %if.then7 ], [ %pack_lockfiles_ptr.0114187, %if.then74 ], [ %pack_lockfiles_ptr.0114187, %if.then79 ], [ %pack_lockfiles_ptr.0114187, %if.then83 ], [ %pack_lockfiles_ptr.0114187, %if.then151 ], [ %pack_lockfiles_ptr.0114187, %if.then156 ], [ %pack_lockfiles_ptr.0114187, %if.then145 ], [ %pack_lockfiles_ptr.0114187, %if.then138 ], [ %pack_lockfiles_ptr.0114187, %if.then131 ], [ %pack_lockfiles_ptr.0114187, %if.then124 ], [ %pack_lockfiles_ptr.0114187, %if.then117 ], [ %pack_lockfiles, %if.then109 ], [ %pack_lockfiles_ptr.0114187, %if.then102 ], [ %pack_lockfiles_ptr.0114187, %if.then95 ], [ %pack_lockfiles_ptr.0114187, %if.then88 ], [ %pack_lockfiles_ptr.0114187, %if.then68 ], [ %pack_lockfiles_ptr.0114187, %if.then61 ], [ %pack_lockfiles_ptr.0114187, %if.then54 ], [ %pack_lockfiles_ptr.0114187, %if.then47 ], [ %pack_lockfiles_ptr.0114187, %if.then40 ], [ %pack_lockfiles_ptr.0114187, %if.then33 ], [ %pack_lockfiles_ptr.0114187, %if.then20 ], [ %pack_lockfiles_ptr.0114187, %if.then13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv186, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond154.not, label %for.end.loopexit, label %land.rhs, !llvm.loop !5
@@ -528,7 +528,7 @@ for.end.split.loop.exit.loopexit:                 ; preds = %land.rhs
 for.end.split.loop.exit:                          ; preds = %for.end.split.loop.exit.loopexit, %land.rhs.lr.ph
   %indvars.iv.lcssa = phi i64 [ 1, %land.rhs.lr.ph ], [ %indvars.iv.next, %for.end.split.loop.exit.loopexit ]
   %cmp115.lcssa = phi i1 [ true, %land.rhs.lr.ph ], [ %cmp.le, %for.end.split.loop.exit.loopexit ]
-  %pack_lockfiles_ptr.0113.lcssa = phi ptr [ null, %land.rhs.lr.ph ], [ %pack_lockfiles_ptr.1, %for.end.split.loop.exit.loopexit ]
+  %pack_lockfiles_ptr.0114.lcssa = phi ptr [ null, %land.rhs.lr.ph ], [ %pack_lockfiles_ptr.1, %for.end.split.loop.exit.loopexit ]
   %48 = trunc nuw nsw i64 %indvars.iv.lcssa to i32
   br label %for.end
 
@@ -537,8 +537,8 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.end.split.loop.exit
-  %pack_lockfiles_ptr.0.lcssa.ph = phi ptr [ %pack_lockfiles_ptr.0113.lcssa, %for.end.split.loop.exit ], [ %pack_lockfiles_ptr.1, %for.end.loopexit ]
   %i.0.lcssa.ph = phi i32 [ %48, %for.end.split.loop.exit ], [ %argc, %for.end.loopexit ]
+  %pack_lockfiles_ptr.0.lcssa.ph = phi ptr [ %pack_lockfiles_ptr.0114.lcssa, %for.end.split.loop.exit ], [ %pack_lockfiles_ptr.1, %for.end.loopexit ]
   %cmp.lcssa.ph = phi i1 [ %cmp115.lcssa, %for.end.split.loop.exit ], [ %cmp.le196, %for.end.loopexit ]
   %nr.phi.trans.insert = getelementptr inbounds i8, ptr %deepen_not, i64 8
   %.pre = load i64, ptr %nr.phi.trans.insert, align 8

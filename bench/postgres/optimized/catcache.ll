@@ -2208,7 +2208,7 @@ define internal fastcc i32 @CatalogCacheComputeTupleHashValue(ptr nocapture noun
   br label %20
 
 20:                                               ; preds = %3, %16
-  %.021 = phi i64 [ 0, %3 ], [ %19, %16 ]
+  %.0 = phi i64 [ 0, %3 ], [ %19, %16 ]
   %21 = getelementptr i8, ptr %0, i64 96
   %22 = load i32, ptr %21, align 4
   %23 = call fastcc i64 @fastgetattr(ptr noundef %2, i32 noundef %22, ptr noundef %6, ptr noundef nonnull %4)
@@ -2224,7 +2224,7 @@ define internal fastcc i32 @CatalogCacheComputeTupleHashValue(ptr nocapture noun
 30:                                               ; preds = %20
   %31 = getelementptr i8, ptr %0, i64 48
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 %32(i64 noundef %.021) #12
+  %33 = tail call i32 %32(i64 noundef %.0) #12
   %34 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 24)
   br label %35
 

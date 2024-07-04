@@ -528,8 +528,8 @@ if.end25:                                         ; preds = %if.end16.thread, %i
 
 if.end29:                                         ; preds = %if.end16.thread, %if.end25, %if.end16
   %lookahead596169 = phi ptr [ %lookahead59616874, %if.end25 ], [ %lookahead57, %if.end16 ], [ %lookahead, %if.end16.thread ]
-  %dictLength.addr.0 = phi i32 [ %12, %if.end25 ], [ %dictLength, %if.end16 ], [ %dictLength, %if.end16.thread ]
   %dictionary.addr.0 = phi ptr [ %add.ptr, %if.end25 ], [ %dictionary, %if.end16 ], [ %dictionary, %if.end16.thread ]
+  %dictLength.addr.0 = phi i32 [ %12, %if.end25 ], [ %dictLength, %if.end16 ], [ %dictLength, %if.end16.thread ]
   %avail_in = getelementptr inbounds i8, ptr %strm, i64 8
   %13 = load i32, ptr %avail_in, align 8
   %14 = load ptr, ptr %strm, align 8
@@ -734,8 +734,8 @@ if.then.i:                                        ; preds = %do.body.i
   br label %do.body15.i
 
 do.body15.i:                                      ; preds = %do.body15.i, %if.then.i
-  %p.0.i = phi ptr [ %arrayidx.i, %if.then.i ], [ %incdec.ptr.i, %do.body15.i ]
   %n.0.i = phi i32 [ %13, %if.then.i ], [ %dec.i, %do.body15.i ]
+  %p.0.i = phi ptr [ %arrayidx.i, %if.then.i ], [ %incdec.ptr.i, %do.body15.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 -2
   %15 = load i16, ptr %incdec.ptr.i, align 2
   %conv16.i = zext i16 %15 to i32
@@ -752,8 +752,8 @@ do.end.i:                                         ; preds = %do.body15.i
   br label %do.body23.i
 
 do.body23.i:                                      ; preds = %do.body23.i, %do.end.i
-  %p.1.i = phi ptr [ %arrayidx22.i, %do.end.i ], [ %incdec.ptr24.i, %do.body23.i ]
   %n.1.i = phi i32 [ %1, %do.end.i ], [ %dec35.i, %do.body23.i ]
+  %p.1.i = phi ptr [ %arrayidx22.i, %do.end.i ], [ %incdec.ptr24.i, %do.body23.i ]
   %incdec.ptr24.i = getelementptr inbounds i8, ptr %p.1.i, i64 -2
   %17 = load i16, ptr %incdec.ptr24.i, align 2
   %conv25.i = zext i16 %17 to i32
@@ -919,9 +919,9 @@ if.then19.i.i:                                    ; preds = %while.body.i.i
   br label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.then19.i.i, %if.then88.i
-  %bit.1.i.i = phi i32 [ 0, %if.then19.i.i ], [ %and.i.i, %if.then88.i ]
-  %byte.0.i.i = phi i32 [ %inc20.i.i, %if.then19.i.i ], [ %shr.i.i, %if.then88.i ]
   %len.addr.1.i.i = phi i32 [ %dec.i.i, %if.then19.i.i ], [ %spec.select.i.i, %if.then88.i ]
+  %byte.0.i.i = phi i32 [ %inc20.i.i, %if.then19.i.i ], [ %shr.i.i, %if.then88.i ]
+  %bit.1.i.i = phi i32 [ 0, %if.then19.i.i ], [ %and.i.i, %if.then88.i ]
   %cmp2330.i.i = icmp ugt i32 %len.addr.1.i.i, 7
   br i1 %cmp2330.i.i, label %while.body25.lr.ph.i.i, label %while.cond31.preheader.i.i
 
@@ -934,8 +934,8 @@ while.cond31.preheader.loopexit.i.i:              ; preds = %while.body25.i.i
   br label %while.cond31.preheader.i.i
 
 while.cond31.preheader.i.i:                       ; preds = %while.cond31.preheader.loopexit.i.i, %if.end21.i.i
-  %byte.1.lcssa.i.i = phi i32 [ %byte.0.i.i, %if.end21.i.i ], [ %50, %while.cond31.preheader.loopexit.i.i ]
   %len.addr.2.lcssa.i.i = phi i32 [ %len.addr.1.i.i, %if.end21.i.i ], [ %sub.i133.i, %while.cond31.preheader.loopexit.i.i ]
+  %byte.1.lcssa.i.i = phi i32 [ %byte.0.i.i, %if.end21.i.i ], [ %50, %while.cond31.preheader.loopexit.i.i ]
   %tobool32.not34.i.i = icmp eq i32 %len.addr.2.lcssa.i.i, 0
   br i1 %tobool32.not34.i.i, label %if.end93.i, label %while.body33.lr.ph.i.i
 
@@ -946,19 +946,19 @@ while.body33.lr.ph.i.i:                           ; preds = %while.cond31.prehea
 
 while.body25.i.i:                                 ; preds = %while.body25.i.i, %while.body25.lr.ph.i.i
   %indvars.iv40.i.i = phi i64 [ %49, %while.body25.lr.ph.i.i ], [ %indvars.iv.next41.i.i, %while.body25.i.i ]
-  %len.addr.232.i.i = phi i32 [ %len.addr.1.i.i, %while.body25.lr.ph.i.i ], [ %sub.i133.i, %while.body25.i.i ]
+  %len.addr.231.i.i = phi i32 [ %len.addr.1.i.i, %while.body25.lr.ph.i.i ], [ %sub.i133.i, %while.body25.i.i ]
   %51 = load ptr, ptr %class_bitmap.i, align 8
   %indvars.iv.next41.i.i = add nuw nsw i64 %indvars.iv40.i.i, 1
   %arrayidx29.i.i = getelementptr inbounds i8, ptr %51, i64 %indvars.iv40.i.i
   store i8 %conv.i132.i, ptr %arrayidx29.i.i, align 1
-  %sub.i133.i = add i32 %len.addr.232.i.i, -8
+  %sub.i133.i = add i32 %len.addr.231.i.i, -8
   %cmp23.i.i = icmp ugt i32 %sub.i133.i, 7
   br i1 %cmp23.i.i, label %while.body25.i.i, label %while.cond31.preheader.loopexit.i.i, !llvm.loop !13
 
 while.body33.i.i:                                 ; preds = %while.body33.i.i, %while.body33.lr.ph.i.i
-  %len.addr.336.i.i = phi i32 [ %len.addr.2.lcssa.i.i, %while.body33.lr.ph.i.i ], [ %dec52.i.i, %while.body33.i.i ]
-  %bit.235.i.i = phi i32 [ %bit.1.i.i, %while.body33.lr.ph.i.i ], [ %inc51.i.i, %while.body33.i.i ]
-  %idxprom34.i.i = zext i32 %bit.235.i.i to i64
+  %bit.236.i.i = phi i32 [ %bit.1.i.i, %while.body33.lr.ph.i.i ], [ %inc51.i.i, %while.body33.i.i ]
+  %len.addr.335.i.i = phi i32 [ %len.addr.2.lcssa.i.i, %while.body33.lr.ph.i.i ], [ %dec52.i.i, %while.body33.i.i ]
+  %idxprom34.i.i = zext i32 %bit.236.i.i to i64
   %arrayidx35.i.i = getelementptr inbounds [8 x i8], ptr @class_set.mask, i64 0, i64 %idxprom34.i.i
   %52 = load i8, ptr %arrayidx35.i.i, align 1
   %53 = load ptr, ptr %class_bitmap.i, align 8
@@ -966,15 +966,15 @@ while.body33.i.i:                                 ; preds = %while.body33.i.i, %
   %54 = load i8, ptr %arrayidx39.i.i, align 1
   %and4127.i.i = and i8 %54, %52
   store i8 %and4127.i.i, ptr %arrayidx39.i.i, align 1
-  %shl44.i.i = shl nuw i32 %conv43.i.i, %bit.235.i.i
+  %shl44.i.i = shl nuw i32 %conv43.i.i, %bit.236.i.i
   %55 = load ptr, ptr %class_bitmap.i, align 8
   %arrayidx47.i.i = getelementptr inbounds i8, ptr %55, i64 %idxprom38.i.i
   %56 = load i8, ptr %arrayidx47.i.i, align 1
   %57 = trunc i32 %shl44.i.i to i8
   %conv50.i.i = or i8 %56, %57
   store i8 %conv50.i.i, ptr %arrayidx47.i.i, align 1
-  %inc51.i.i = add i32 %bit.235.i.i, 1
-  %dec52.i.i = add nsw i32 %len.addr.336.i.i, -1
+  %inc51.i.i = add i32 %bit.236.i.i, 1
+  %dec52.i.i = add nsw i32 %len.addr.335.i.i, -1
   %tobool32.not.i.i = icmp eq i32 %dec52.i.i, 0
   br i1 %tobool32.not.i.i, label %if.end93.i, label %while.body33.i.i, !llvm.loop !14
 
@@ -5964,9 +5964,9 @@ entry:
   br i1 %tobool.not, label %do.body.us, label %do.body
 
 do.body.us:                                       ; preds = %entry, %do.cond155.us
-  %best_len.0.us = phi i32 [ %best_len.1.us, %do.cond155.us ], [ %3, %entry ]
-  %chain_length.1.us = phi i32 [ %dec.us, %do.cond155.us ], [ %chain_length.0, %entry ]
   %cur_match.addr.0.us = phi i32 [ %conv158.us, %do.cond155.us ], [ %cur_match, %entry ]
+  %chain_length.1.us = phi i32 [ %dec.us, %do.cond155.us ], [ %chain_length.0, %entry ]
+  %best_len.0.us = phi i32 [ %best_len.1.us, %do.cond155.us ], [ %3, %entry ]
   %scan_end1.0.us = phi i8 [ %scan_end1.1.us, %do.cond155.us ], [ %10, %entry ]
   %scan_end.0.us = phi i8 [ %scan_end.1.us, %do.cond155.us ], [ %11, %entry ]
   %idx.ext23.us = zext nneg i32 %cur_match.addr.0.us to i64
@@ -6001,8 +6001,8 @@ if.end52.us:                                      ; preds = %lor.lhs.false45.us
   br label %do.body58.us
 
 do.body58.us:                                     ; preds = %if.end52.us, %land.lhs.true107.us
-  %match.0.us = phi ptr [ %incdec.ptr110.us, %land.lhs.true107.us ], [ %incdec.ptr54.us, %if.end52.us ]
   %scan.1.idx.us = phi i64 [ %scan.1.add.us, %land.lhs.true107.us ], [ 2, %if.end52.us ]
+  %match.0.us = phi ptr [ %incdec.ptr110.us, %land.lhs.true107.us ], [ %incdec.ptr54.us, %if.end52.us ]
   %scan.1.ptr.us = getelementptr inbounds i8, ptr %add.ptr, i64 %scan.1.idx.us
   %incdec.ptr59.us = getelementptr inbounds i8, ptr %scan.1.ptr.us, i64 1
   %21 = load i8, ptr %incdec.ptr59.us, align 1
@@ -6143,9 +6143,9 @@ if.end135.loopexit.us:                            ; preds = %if.end135.loopexit.
   br i1 %cmp142.us, label %if.then144.us, label %do.cond155.us
 
 do.body:                                          ; preds = %entry, %do.cond155
-  %best_len.0 = phi i32 [ %best_len.1, %do.cond155 ], [ %3, %entry ]
-  %chain_length.1 = phi i32 [ %dec, %do.cond155 ], [ %chain_length.0, %entry ]
   %cur_match.addr.0 = phi i32 [ %conv158, %do.cond155 ], [ %cur_match, %entry ]
+  %chain_length.1 = phi i32 [ %dec, %do.cond155 ], [ %chain_length.0, %entry ]
+  %best_len.0 = phi i32 [ %best_len.1, %do.cond155 ], [ %3, %entry ]
   %scan_end1.0 = phi i8 [ %scan_end1.1, %do.cond155 ], [ %10, %entry ]
   %scan_end.0 = phi i8 [ %scan_end.1, %do.cond155 ], [ %11, %entry ]
   %idx.ext23 = zext nneg i32 %cur_match.addr.0 to i64
@@ -6192,8 +6192,8 @@ if.end52:                                         ; preds = %lor.lhs.false45
   br label %do.body116
 
 do.body116:                                       ; preds = %if.end52, %land.lhs.true124
-  %match.1 = phi ptr [ %incdec.ptr120, %land.lhs.true124 ], [ %incdec.ptr54, %if.end52 ]
   %scan.2.idx = phi i64 [ %scan.2.add, %land.lhs.true124 ], [ 2, %if.end52 ]
+  %match.1 = phi ptr [ %incdec.ptr120, %land.lhs.true124 ], [ %incdec.ptr54, %if.end52 ]
   %scan.2.add = add nuw nsw i64 %scan.2.idx, 1
   %incdec.ptr118.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 %scan.2.add
   %47 = load i8, ptr %incdec.ptr118.ptr, align 1

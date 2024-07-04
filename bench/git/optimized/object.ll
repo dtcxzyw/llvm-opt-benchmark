@@ -1145,14 +1145,14 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %dst.015 = phi i32 [ 0, %for.body.preheader ], [ %dst.1, %for.inc ]
+  %dst.016 = phi i32 [ 0, %for.body.preheader ], [ %dst.1, %for.inc ]
   %arrayidx = getelementptr inbounds %struct.object_array_entry, ptr %1, i64 %indvars.iv
   %call = tail call i32 %want(ptr noundef %arrayidx, ptr noundef %cb_data) #19
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %2 = zext i32 %dst.015 to i64
+  %2 = zext i32 %dst.016 to i64
   %cmp3.not = icmp eq i64 %indvars.iv, %2
   br i1 %cmp3.not, label %if.end, label %if.then4
 
@@ -1162,7 +1162,7 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %inc = add i32 %dst.015, 1
+  %inc = add i32 %dst.016, 1
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
@@ -1182,7 +1182,7 @@ object_array_release_entry.exit:                  ; preds = %if.else, %if.then.i
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %object_array_release_entry.exit
-  %dst.1 = phi i32 [ %inc, %if.end ], [ %dst.015, %object_array_release_entry.exit ]
+  %dst.1 = phi i32 [ %inc, %if.end ], [ %dst.016, %object_array_release_entry.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12

@@ -574,16 +574,16 @@ invoke.cont:                                      ; preds = %cond.true
   br i1 %cmp.i.not5.i.i, label %cleanup.action, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %.noexc, %for.body.i.i
-  %__first.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
-  %__result.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
-  %0 = load i8, ptr %__first.sroa.0.07.i.i, align 1
+  %__result.sroa.0.07.i.i = phi ptr [ %incdec.ptr.i1.i.i, %for.body.i.i ], [ %call5.i, %.noexc ]
+  %__first.sroa.0.06.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %call.i, %.noexc ]
+  %0 = load i8, ptr %__first.sroa.0.06.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %call.i.i.i = call i32 @isprint(i32 noundef %conv.i.i.i) #15
   %tobool.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   %cond.i.i.i = select i1 %tobool.not.i.i.i, i8 %placeholder, i8 %0
-  store i8 %cond.i.i.i, ptr %__result.sroa.0.06.i.i, align 1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.07.i.i, i64 1
-  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.06.i.i, i64 1
+  store i8 %cond.i.i.i, ptr %__result.sroa.0.07.i.i, align 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i, i64 1
+  %incdec.ptr.i1.i.i = getelementptr inbounds i8, ptr %__result.sroa.0.07.i.i, i64 1
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call2.i
   br i1 %cmp.i.not.i.i, label %cleanup.action, label %for.body.i.i, !llvm.loop !4
 
@@ -1216,7 +1216,7 @@ for.body.lr.ph:                                   ; preds = %if.end213
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.end
   %indvars.iv171 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next172, %for.end ]
-  %iCurrent.0169 = phi i32 [ 0, %for.body.lr.ph ], [ %inc332, %for.end ]
+  %iCurrent.0168 = phi i32 [ 0, %for.body.lr.ph ], [ %inc332, %for.end ]
   %call218 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znam(i64 noundef 12) #16
           to label %invoke.cont217 unwind label %lpad33.loopexit.split-lp.loopexit
 
@@ -1239,7 +1239,7 @@ invoke.cont217:                                   ; preds = %for.body
 
 for.body231:                                      ; preds = %invoke.cont217, %if.end323
   %indvars.iv = phi i64 [ 0, %invoke.cont217 ], [ %indvars.iv.next, %if.end323 ]
-  %iCurrent.1165 = phi i32 [ %iCurrent.0169, %invoke.cont217 ], [ %inc332, %if.end323 ]
+  %iCurrent.1164 = phi i32 [ %iCurrent.0168, %invoke.cont217 ], [ %inc332, %if.end323 ]
   %arrayidx235 = getelementptr inbounds [3 x i16], ptr %arrayidx233, i64 0, i64 %indvars.iv
   %62 = load i16, ptr %arrayidx235, align 1
   %conv236 = zext i16 %62 to i32
@@ -1267,7 +1267,7 @@ invoke.cont242:                                   ; preds = %invoke.cont240
 if.end245:                                        ; preds = %invoke.cont242, %for.body231
   %iIndex.0 = phi i32 [ %sub, %invoke.cont242 ], [ %conv236, %for.body231 ]
   %67 = load ptr, ptr %mVertices.i, align 8
-  %idxprom247 = zext i32 %iCurrent.1165 to i64
+  %idxprom247 = zext i32 %iCurrent.1164 to i64
   %arrayidx248 = getelementptr inbounds %class.aiVector3t, ptr %67, i64 %idxprom247
   %idxprom249 = zext i32 %iIndex.0 to i64
   %arrayidx250 = getelementptr inbounds %"struct.Assimp::MD2::Vertex", ptr %vertices, i64 %idxprom249
@@ -1374,9 +1374,9 @@ if.end323:                                        ; preds = %if.end306, %invoke.
   %mIndices329 = getelementptr inbounds %struct.aiFace, ptr %89, i64 %indvars.iv171, i32 1
   %90 = load ptr, ptr %mIndices329, align 8
   %arrayidx331 = getelementptr inbounds i32, ptr %90, i64 %indvars.iv
-  store i32 %iCurrent.1165, ptr %arrayidx331, align 4
+  store i32 %iCurrent.1164, ptr %arrayidx331, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %inc332 = add i32 %iCurrent.1165, 1
+  %inc332 = add i32 %iCurrent.1164, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %for.end, label %for.body231, !llvm.loop !6
 

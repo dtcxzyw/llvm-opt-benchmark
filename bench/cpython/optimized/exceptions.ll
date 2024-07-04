@@ -6658,9 +6658,9 @@ if.then1.i125:                                    ; preds = %if.end.i122
   br label %done
 
 done:                                             ; preds = %_Py_EnterRecursiveCall.exit, %if.end36, %for.end, %if.then71, %if.end.i122, %if.then1.i125, %if.then78, %do.body, %if.end.i140, %if.then1.i143, %if.then60, %if.then25, %Py_DECREF.exit163
-  %rest_list.1 = phi ptr [ %rest_list.0, %Py_DECREF.exit163 ], [ %rest_list.0, %if.then60 ], [ %rest_list.0, %if.then1.i143 ], [ %rest_list.0, %if.end.i140 ], [ %rest_list.0, %for.end ], [ %rest_list.0, %if.then78 ], [ %rest_list.0, %if.then1.i125 ], [ %rest_list.0, %if.end.i122 ], [ %rest_list.0, %do.body ], [ null, %if.then25 ], [ %rest_list.0, %if.then71 ], [ %rest_list.0, %if.end36 ], [ %rest_list.0, %_Py_EnterRecursiveCall.exit ]
   %cmp82 = phi i1 [ true, %Py_DECREF.exit163 ], [ true, %if.then60 ], [ true, %if.then1.i143 ], [ true, %if.end.i140 ], [ %cmp67, %for.end ], [ true, %if.then78 ], [ true, %if.then1.i125 ], [ true, %if.end.i122 ], [ true, %do.body ], [ true, %if.then25 ], [ false, %if.then71 ], [ true, %if.end36 ], [ true, %_Py_EnterRecursiveCall.exit ]
   %retval19.0 = phi i32 [ -1, %Py_DECREF.exit163 ], [ -1, %if.then60 ], [ -1, %if.then1.i143 ], [ -1, %if.end.i140 ], [ %call66, %for.end ], [ -1, %if.then78 ], [ -1, %if.then1.i125 ], [ -1, %if.end.i122 ], [ -1, %do.body ], [ -1, %if.then25 ], [ 0, %if.then71 ], [ -1, %if.end36 ], [ -1, %_Py_EnterRecursiveCall.exit ]
+  %rest_list.1 = phi ptr [ %rest_list.0, %Py_DECREF.exit163 ], [ %rest_list.0, %if.then60 ], [ %rest_list.0, %if.then1.i143 ], [ %rest_list.0, %if.end.i140 ], [ %rest_list.0, %for.end ], [ %rest_list.0, %if.then78 ], [ %rest_list.0, %if.then1.i125 ], [ %rest_list.0, %if.end.i122 ], [ %rest_list.0, %do.body ], [ null, %if.then25 ], [ %rest_list.0, %if.then71 ], [ %rest_list.0, %if.end36 ], [ %rest_list.0, %_Py_EnterRecursiveCall.exit ]
   %28 = load i64, ptr %call20, align 8
   %29 = and i64 %28, 2147483648
   %cmp.i184.not = icmp eq i64 %29, 0
@@ -7411,11 +7411,11 @@ if.then12:                                        ; preds = %if.end10
   br label %error
 
 for.body:                                         ; preds = %for.cond.preheader, %if.else
-  %nested_base_exceptions.038 = phi i8 [ %spec.select, %if.else ], [ 0, %for.cond.preheader ]
-  %i.037 = phi i64 [ %inc, %if.else ], [ 0, %for.cond.preheader ]
+  %i.038 = phi i64 [ %inc, %if.else ], [ 0, %for.cond.preheader ]
+  %nested_base_exceptions.037 = phi i8 [ %spec.select, %if.else ], [ 0, %for.cond.preheader ]
   %9 = load ptr, ptr %exceptions, align 8
   %ob_item = getelementptr inbounds i8, ptr %9, i64 24
-  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.037
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.038
   %10 = load ptr, ptr %arrayidx, align 8
   %tobool15.not = icmp eq ptr %10, null
   br i1 %tobool15.not, label %error, label %if.end17
@@ -7431,7 +7431,7 @@ if.end17:                                         ; preds = %for.body
 
 if.then21:                                        ; preds = %if.end17
   %14 = load ptr, ptr @PyExc_ValueError, align 8
-  %call22 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %14, ptr noundef nonnull @.str.80, i64 noundef %i.037) #10
+  %call22 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %14, ptr noundef nonnull @.str.80, i64 noundef %i.038) #10
   br label %error
 
 if.end23:                                         ; preds = %if.end17
@@ -7443,8 +7443,8 @@ if.end23:                                         ; preds = %if.end17
 
 if.else:                                          ; preds = %if.end23
   %cmp27 = icmp eq i32 %call24.fr, 0
-  %spec.select = select i1 %cmp27, i8 1, i8 %nested_base_exceptions.038
-  %inc = add nuw nsw i64 %i.037, 1
+  %spec.select = select i1 %cmp27, i8 1, i8 %nested_base_exceptions.037
+  %inc = add nuw nsw i64 %i.038, 1
   %exitcond.not = icmp eq i64 %inc, %call7.val
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
@@ -10521,35 +10521,35 @@ for.body.lr.ph.i:                                 ; preds = %PyUnicode_DATA.exit
   ]
 
 for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %for.body.us.i
-  %i.014.us.i = phi i64 [ %add.us.i, %for.body.us.i ], [ 0, %for.body.lr.ph.i ]
-  %offset.013.us.i = phi i64 [ %spec.select.us.i, %for.body.us.i ], [ 0, %for.body.lr.ph.i ]
-  %arrayidx.i.us.i = getelementptr i8, ptr %retval.0.i.i, i64 %i.014.us.i
+  %offset.014.us.i = phi i64 [ %spec.select.us.i, %for.body.us.i ], [ 0, %for.body.lr.ph.i ]
+  %i.013.us.i = phi i64 [ %add.us.i, %for.body.us.i ], [ 0, %for.body.lr.ph.i ]
+  %arrayidx.i.us.i = getelementptr i8, ptr %retval.0.i.i, i64 %i.013.us.i
   %8 = load i8, ptr %arrayidx.i.us.i, align 1
   %cmp3.us.i = icmp eq i8 %8, 47
-  %add.us.i = add nuw nsw i64 %i.014.us.i, 1
-  %spec.select.us.i = select i1 %cmp3.us.i, i64 %add.us.i, i64 %offset.013.us.i
+  %add.us.i = add nuw nsw i64 %i.013.us.i, 1
+  %spec.select.us.i = select i1 %cmp3.us.i, i64 %add.us.i, i64 %offset.014.us.i
   %exitcond29.not.i = icmp eq i64 %add.us.i, %name.val.i
   br i1 %exitcond29.not.i, label %for.end.i, label %for.body.us.i, !llvm.loop !20
 
 for.body.us16.i:                                  ; preds = %for.body.lr.ph.i, %for.body.us16.i
-  %i.014.us17.i = phi i64 [ %add.us22.i, %for.body.us16.i ], [ 0, %for.body.lr.ph.i ]
-  %offset.013.us18.i = phi i64 [ %spec.select.us23.i, %for.body.us16.i ], [ 0, %for.body.lr.ph.i ]
-  %arrayidx4.i.us.i = getelementptr i16, ptr %retval.0.i.i, i64 %i.014.us17.i
+  %offset.014.us17.i = phi i64 [ %spec.select.us23.i, %for.body.us16.i ], [ 0, %for.body.lr.ph.i ]
+  %i.013.us18.i = phi i64 [ %add.us22.i, %for.body.us16.i ], [ 0, %for.body.lr.ph.i ]
+  %arrayidx4.i.us.i = getelementptr i16, ptr %retval.0.i.i, i64 %i.013.us18.i
   %9 = load i16, ptr %arrayidx4.i.us.i, align 2
   %cmp3.us21.i = icmp eq i16 %9, 47
-  %add.us22.i = add nuw nsw i64 %i.014.us17.i, 1
-  %spec.select.us23.i = select i1 %cmp3.us21.i, i64 %add.us22.i, i64 %offset.013.us18.i
+  %add.us22.i = add nuw nsw i64 %i.013.us18.i, 1
+  %spec.select.us23.i = select i1 %cmp3.us21.i, i64 %add.us22.i, i64 %offset.014.us17.i
   %exitcond.not.i = icmp eq i64 %add.us22.i, %name.val.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.us16.i, !llvm.loop !20
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.body.i
-  %i.014.i = phi i64 [ %add.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
-  %offset.013.i = phi i64 [ %spec.select.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
-  %arrayidx7.i.i = getelementptr i32, ptr %retval.0.i.i, i64 %i.014.i
+  %offset.014.i = phi i64 [ %spec.select.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
+  %i.013.i = phi i64 [ %add.i, %for.body.i ], [ 0, %for.body.lr.ph.i ]
+  %arrayidx7.i.i = getelementptr i32, ptr %retval.0.i.i, i64 %i.013.i
   %10 = load i32, ptr %arrayidx7.i.i, align 4
   %cmp3.i = icmp eq i32 %10, 47
-  %add.i = add nuw nsw i64 %i.014.i, 1
-  %spec.select.i = select i1 %cmp3.i, i64 %add.i, i64 %offset.013.i
+  %add.i = add nuw nsw i64 %i.013.i, 1
+  %spec.select.i = select i1 %cmp3.i, i64 %add.i, i64 %offset.014.i
   %exitcond30.not.i = icmp eq i64 %add.i, %name.val.i
   br i1 %exitcond30.not.i, label %for.end.i, label %for.body.i, !llvm.loop !20
 

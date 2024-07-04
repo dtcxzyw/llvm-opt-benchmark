@@ -1355,8 +1355,8 @@ _ZN3gmx15analysismodules12_GLOBAL__N_122PairDistanceModuleData17initRefCountArra
   br label %82
 
 82:                                               ; preds = %.lr.ph150, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit
-  %.097148 = phi i64 [ 0, %.lr.ph150 ], [ %249, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit ]
-  %83 = trunc i64 %.097148 to i32
+  %.099148 = phi i64 [ 0, %.lr.ph150 ], [ %249, %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit ]
+  %83 = trunc i64 %.099148 to i32
   %84 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEi(ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %83)
           to label %85 unwind label %.loopexit138
 
@@ -1386,7 +1386,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit: ; preds = %85, %.lr.ph.i.i.i.i106.preheader, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEEfEvT_S7_RKT0_.exit
   %93 = load ptr, ptr %8, align 8
-  %94 = getelementptr inbounds %"class.gmx::Selection", ptr %93, i64 %.097148
+  %94 = getelementptr inbounds %"class.gmx::Selection", ptr %93, i64 %.099148
   invoke void @_ZNK3gmx9SelectioncvNS_29AnalysisNeighborhoodPositionsEEv(ptr dead_on_unwind nonnull writable sret(%"class.gmx::AnalysisNeighborhoodPositions") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %94)
           to label %95 unwind label %.loopexit138
 
@@ -1410,7 +1410,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
   %101 = load i32, ptr %13, align 4
   %102 = load ptr, ptr %7, align 8
   %103 = load ptr, ptr %8, align 8
-  %104 = getelementptr inbounds %"class.gmx::Selection", ptr %103, i64 %.097148
+  %104 = getelementptr inbounds %"class.gmx::Selection", ptr %103, i64 %.099148
   %105 = load i32, ptr %76, align 4
   %106 = load ptr, ptr %104, align 8
   %107 = getelementptr inbounds i8, ptr %102, i64 104
@@ -1492,7 +1492,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
 
 .preheader132:                                    ; preds = %136
   %139 = load ptr, ptr %8, align 8
-  %140 = getelementptr inbounds %"class.gmx::Selection", ptr %139, i64 %.097148
+  %140 = getelementptr inbounds %"class.gmx::Selection", ptr %139, i64 %.099148
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 112
   %143 = load i32, ptr %142, align 8
@@ -1505,25 +1505,25 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.critedge
   %145 = phi ptr [ %.pre162, %.loopexit.loopexit ], [ %151, %.critedge ]
-  %146 = getelementptr inbounds %"class.gmx::Selection", ptr %145, i64 %.097148
+  %146 = getelementptr inbounds %"class.gmx::Selection", ptr %145, i64 %.099148
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 112
   %149 = load i32, ptr %148, align 8
-  %150 = icmp slt i32 %.199.lcssa, %149
+  %150 = icmp slt i32 %.1.lcssa, %149
   br i1 %150, label %.lr.ph145, label %.loopexit133, !llvm.loop !12
 
 .lr.ph145:                                        ; preds = %.preheader132, %.loopexit
   %151 = phi ptr [ %145, %.loopexit ], [ %139, %.preheader132 ]
   %152 = phi i32 [ %149, %.loopexit ], [ %143, %.preheader132 ]
   %153 = phi ptr [ %147, %.loopexit ], [ %141, %.preheader132 ]
-  %.098144 = phi i32 [ %.199.lcssa, %.loopexit ], [ 0, %.preheader132 ]
+  %.094144 = phi i32 [ %.1.lcssa, %.loopexit ], [ 0, %.preheader132 ]
   %154 = getelementptr inbounds i8, ptr %153, i64 104
   %155 = load ptr, ptr %154, align 8
-  %156 = sext i32 %.098144 to i64
+  %156 = sext i32 %.094144 to i64
   %157 = getelementptr inbounds i32, ptr %155, i64 %156
   %158 = load i32, ptr %157, align 4
   %159 = sext i32 %152 to i64
-  %160 = add nsw i32 %.098144, 1
+  %160 = add nsw i32 %.094144, 1
   %smax = call i32 @llvm.smax.i32(i32 %152, i32 %160)
   br label %161
 
@@ -1544,8 +1544,8 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_RKT0_.exit
   br label %.critedge
 
 .critedge:                                        ; preds = %161, %.critedge.split.loop.exit164
-  %.199.lcssa = phi i32 [ %167, %.critedge.split.loop.exit164 ], [ %smax, %161 ]
-  %168 = sub nsw i32 %.199.lcssa, %.098144
+  %.1.lcssa = phi i32 [ %167, %.critedge.split.loop.exit164 ], [ %smax, %161 ]
+  %168 = sub nsw i32 %.1.lcssa, %.094144
   %169 = load i32, ptr %77, align 4
   %170 = icmp sgt i32 %169, 0
   br i1 %170, label %.lr.ph, label %.loopexit
@@ -1711,7 +1711,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit
 
 _ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit: ; preds = %._crit_edge, %231, %244, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %249 = add nuw i64 %.097148, 1
+  %249 = add nuw i64 %.099148, 1
   %250 = load ptr, ptr %72, align 8
   %251 = load ptr, ptr %8, align 8
   %252 = ptrtoint ptr %250 to i64

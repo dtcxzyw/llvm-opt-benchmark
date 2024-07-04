@@ -566,8 +566,8 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc28, %_ZNSt6ve
   %.sroa.064.0 = phi ptr [ %25, %.noexc28 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %28 = getelementptr inbounds i8, ptr %0, i64 52
   %29 = load i32, ptr %28, align 4
-  %.02473 = add i32 %29, -1
-  %30 = icmp sgt i32 %.02473, -1
+  %.02373 = add i32 %29, -1
+  %30 = icmp sgt i32 %.02373, -1
   br i1 %30, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
@@ -589,10 +589,10 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %.noexc28, %_ZNSt6ve
   br label %69
 
 37:                                               ; preds = %.lr.ph, %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit
-  %.02476 = phi i32 [ %.02473, %.lr.ph ], [ %.024, %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit ]
+  %.02376 = phi i32 [ %.02373, %.lr.ph ], [ %.023, %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit ]
   %.sroa.19.075 = phi i32 [ 4096, %.lr.ph ], [ %64, %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit ]
   %.sroa.7.074 = phi i32 [ 0, %.lr.ph ], [ %.sroa.7.1, %_ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit ]
-  %38 = shl nuw i32 1, %.02476
+  %38 = shl nuw i32 1, %.02376
   %39 = and i32 %32, %38
   %.not.i = icmp eq i32 %39, 0
   %40 = select i1 %.not.i, i8 %14, i8 %33
@@ -630,8 +630,8 @@ _ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit: ; preds = %37, %43
   %reass.mul.i = mul i32 %61, %reass.add.i
   %63 = add nuw nsw i32 %49, %62
   %64 = add i32 %63, %reass.mul.i
-  %.024 = add nsw i32 %.02476, -1
-  %65 = icmp sgt i32 %.02476, 0
+  %.023 = add nsw i32 %.02376, -1
+  %65 = icmp sgt i32 %.02376, 0
   br i1 %65, label %37, label %.preheader
 
 66:                                               ; preds = %150, %137, %_ZN5draco13EncoderBuffer6EncodeEPKvm.exit, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
@@ -657,10 +657,10 @@ _ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit: ; preds = %37, %43
   br label %72
 
 72:                                               ; preds = %69, %84
-  %.02280 = phi i32 [ 31, %69 ], [ %101, %84 ]
+  %.02180 = phi i32 [ 31, %69 ], [ %101, %84 ]
   %.sroa.19.279 = phi i32 [ %.sroa.19.183, %69 ], [ %100, %84 ]
   %.sroa.7.378 = phi i32 [ %.sroa.7.282, %69 ], [ %.sroa.7.4, %84 ]
-  %73 = shl nuw i32 1, %.02280
+  %73 = shl nuw i32 1, %.02180
   %74 = and i32 %73, %71
   %.not.i29 = icmp eq i32 %74, 0
   %75 = select i1 %.not.i29, i8 %14, i8 %35
@@ -698,8 +698,8 @@ _ZN5dracoL15rabs_desc_writeEPNS_8AnsCoderEih.exit: ; preds = %37, %43
   %reass.mul.i32 = mul i32 %97, %reass.add.i31
   %99 = add nuw nsw i32 %85, %98
   %100 = add i32 %99, %reass.mul.i32
-  %101 = add nsw i32 %.02280, -1
-  %.not89 = icmp eq i32 %.02280, 0
+  %101 = add nsw i32 %.02180, -1
+  %.not89 = icmp eq i32 %.02180, 0
   br i1 %.not89, label %.loopexit, label %72, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader

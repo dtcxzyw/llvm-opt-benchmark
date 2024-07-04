@@ -954,10 +954,10 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc47
-  %len.081 = phi i64 [ %args.val, %for.body.lr.ph ], [ %len.3, %for.inc47 ]
-  %iparam.080 = phi i64 [ 0, %for.body.lr.ph ], [ %iparam.3, %for.inc47 ]
-  %iarg.078 = phi i64 [ 0, %for.body.lr.ph ], [ %inc48, %for.inc47 ]
-  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %iarg.078
+  %iarg.080 = phi i64 [ 0, %for.body.lr.ph ], [ %inc48, %for.inc47 ]
+  %iparam.079 = phi i64 [ 0, %for.body.lr.ph ], [ %iparam.3, %for.inc47 ]
+  %len.078 = phi i64 [ %args.val, %for.body.lr.ph ], [ %len.3, %for.inc47 ]
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %iarg.080
   %1 = load ptr, ptr %arrayidx, align 8
   %2 = getelementptr i8, ptr %1, i64 8
   %.val32 = load ptr, ptr %2, align 8
@@ -996,7 +996,7 @@ if.end9:                                          ; preds = %if.end5
 if.then11:                                        ; preds = %if.end9
   %7 = load ptr, ptr %parameters, align 8
   %ob_item.i.i = getelementptr inbounds i8, ptr %7, i64 24
-  %cmp4.i.i = icmp sgt i64 %iparam.080, 0
+  %cmp4.i.i = icmp sgt i64 %iparam.079, 0
   br i1 %cmp4.i.i, label %for.body.i.i, label %if.then.i
 
 for.body.i.i:                                     ; preds = %if.then11, %for.inc.i.i
@@ -1008,7 +1008,7 @@ for.body.i.i:                                     ; preds = %if.then11, %for.inc
 
 for.inc.i.i:                                      ; preds = %for.body.i.i
   %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %iparam.080
+  %exitcond.not.i.i = icmp eq i64 %inc.i.i, %iparam.079
   br i1 %exitcond.not.i.i, label %if.then.i, label %for.body.i.i, !llvm.loop !5
 
 if.then.i:                                        ; preds = %for.inc.i.i, %if.then11
@@ -1022,13 +1022,13 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.then.i
-  %arrayidx.i5.i = getelementptr [1 x ptr], ptr %ob_item.i.i, i64 0, i64 %iparam.080
+  %arrayidx.i5.i = getelementptr [1 x ptr], ptr %ob_item.i.i, i64 0, i64 %iparam.079
   store ptr %1, ptr %arrayidx.i5.i, align 8
   br label %tuple_add.exit
 
 tuple_add.exit:                                   ; preds = %for.body.i.i, %_Py_NewRef.exit.i
   %retval.0.i = phi i64 [ 1, %_Py_NewRef.exit.i ], [ 0, %for.body.i.i ]
-  %add = add i64 %retval.0.i, %iparam.080
+  %add = add i64 %retval.0.i, %iparam.079
   br label %for.inc47
 
 if.else:                                          ; preds = %if.end9
@@ -1070,14 +1070,14 @@ land.lhs.true:                                    ; preds = %if.end17
 if.then22:                                        ; preds = %land.lhs.true
   %17 = getelementptr i8, ptr %13, i64 16
   %.val = load i64, ptr %17, align 8
-  %18 = xor i64 %iarg.078, -1
-  %sub = add i64 %iparam.080, %18
+  %18 = xor i64 %iarg.080, -1
+  %sub = add i64 %iparam.079, %18
   %sub25 = add i64 %sub, %.val
   %cmp26 = icmp sgt i64 %sub25, 0
   br i1 %cmp26, label %if.then28, label %if.end35
 
 if.then28:                                        ; preds = %if.then22
-  %add29 = add i64 %sub25, %len.081
+  %add29 = add i64 %sub25, %len.078
   %call30 = call i32 @_PyTuple_Resize(ptr noundef nonnull %parameters, i64 noundef %add29) #5
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %if.then33, label %if.end35
@@ -1117,13 +1117,13 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end35:                                         ; preds = %if.then28, %if.then22
-  %len.1 = phi i64 [ %add29, %if.then28 ], [ %len.081, %if.then22 ]
+  %len.1 = phi i64 [ %add29, %if.then28 ], [ %len.078, %if.then22 ]
   %cmp3774 = icmp sgt i64 %.val, 0
   br i1 %cmp3774, label %for.body39, label %if.end45
 
 for.body39:                                       ; preds = %if.end35, %tuple_add.exit50
   %j.076 = phi i64 [ %inc, %tuple_add.exit50 ], [ 0, %if.end35 ]
-  %iparam.175 = phi i64 [ %add44, %tuple_add.exit50 ], [ %iparam.080, %if.end35 ]
+  %iparam.175 = phi i64 [ %add44, %tuple_add.exit50 ], [ %iparam.079, %if.end35 ]
   %25 = load ptr, ptr %subparams, align 8
   %ob_item40 = getelementptr inbounds i8, ptr %25, i64 24
   %arrayidx41 = getelementptr [1 x ptr], ptr %ob_item40, i64 0, i64 %j.076
@@ -1168,8 +1168,8 @@ tuple_add.exit50:                                 ; preds = %for.body.i.i43, %_P
   br i1 %exitcond.not, label %if.end45, label %for.body39, !llvm.loop !7
 
 if.end45:                                         ; preds = %tuple_add.exit50, %if.end35, %land.lhs.true
-  %iparam.2.ph = phi i64 [ %iparam.080, %land.lhs.true ], [ %iparam.080, %if.end35 ], [ %add44, %tuple_add.exit50 ]
-  %len.2.ph = phi i64 [ %len.081, %land.lhs.true ], [ %len.1, %if.end35 ], [ %len.1, %tuple_add.exit50 ]
+  %len.2.ph = phi i64 [ %len.078, %land.lhs.true ], [ %len.1, %if.end35 ], [ %len.1, %tuple_add.exit50 ]
+  %iparam.2.ph = phi i64 [ %iparam.079, %land.lhs.true ], [ %iparam.079, %if.end35 ], [ %add44, %tuple_add.exit50 ]
   %.pr = load ptr, ptr %subparams, align 8
   %cmp.not.i = icmp eq ptr %.pr, null
   br i1 %cmp.not.i, label %for.inc47, label %if.then.i51
@@ -1191,15 +1191,15 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %for.inc47
 
 for.inc47:                                        ; preds = %if.end17, %if.then1.i.i, %if.end.i.i, %if.then.i51, %if.end45, %tuple_add.exit, %for.body
-  %iparam.3 = phi i64 [ %iparam.080, %for.body ], [ %add, %tuple_add.exit ], [ %iparam.2.ph, %if.end45 ], [ %iparam.2.ph, %if.then.i51 ], [ %iparam.2.ph, %if.end.i.i ], [ %iparam.2.ph, %if.then1.i.i ], [ %iparam.080, %if.end17 ]
-  %len.3 = phi i64 [ %len.081, %for.body ], [ %len.081, %tuple_add.exit ], [ %len.2.ph, %if.end45 ], [ %len.2.ph, %if.then.i51 ], [ %len.2.ph, %if.end.i.i ], [ %len.2.ph, %if.then1.i.i ], [ %len.081, %if.end17 ]
-  %inc48 = add nuw nsw i64 %iarg.078, 1
+  %len.3 = phi i64 [ %len.078, %for.body ], [ %len.078, %tuple_add.exit ], [ %len.2.ph, %if.end45 ], [ %len.2.ph, %if.then.i51 ], [ %len.2.ph, %if.end.i.i ], [ %len.2.ph, %if.then1.i.i ], [ %len.078, %if.end17 ]
+  %iparam.3 = phi i64 [ %iparam.079, %for.body ], [ %add, %tuple_add.exit ], [ %iparam.2.ph, %if.end45 ], [ %iparam.2.ph, %if.then.i51 ], [ %iparam.2.ph, %if.end.i.i ], [ %iparam.2.ph, %if.then1.i.i ], [ %iparam.079, %if.end17 ]
+  %inc48 = add nuw nsw i64 %iarg.080, 1
   %exitcond84.not = icmp eq i64 %inc48, %args.val
   br i1 %exitcond84.not, label %for.end49, label %for.body, !llvm.loop !8
 
 for.end49:                                        ; preds = %for.inc47, %for.cond.preheader
-  %iparam.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %iparam.3, %for.inc47 ]
   %len.0.lcssa = phi i64 [ %args.val, %for.cond.preheader ], [ %len.3, %for.inc47 ]
+  %iparam.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %iparam.3, %for.inc47 ]
   %cmp50 = icmp slt i64 %iparam.0.lcssa, %len.0.lcssa
   br i1 %cmp50, label %if.then52, label %for.end49.if.end58_crit_edge
 

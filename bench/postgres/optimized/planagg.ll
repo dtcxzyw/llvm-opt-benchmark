@@ -56,16 +56,16 @@ list_length.exit.thread:                          ; preds = %12, %list_length.ex
   br label %26
 
 26:                                               ; preds = %33, %24
-  %.0.in = phi ptr [ %25, %24 ], [ %.val, %33 ]
-  %.0 = load ptr, ptr %.0.in, align 8
-  %27 = load i32, ptr %.0, align 4
+  %.054.in = phi ptr [ %25, %24 ], [ %.val, %33 ]
+  %.054 = load ptr, ptr %.054.in, align 8
+  %27 = load i32, ptr %.054, align 4
   switch i32 %27, label %list_length.exit72.thread [
     i32 57, label %28
     i32 55, label %35
   ]
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %.0, i64 8
+  %29 = getelementptr inbounds i8, ptr %.054, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not.i71 = icmp eq ptr %30, null
   br i1 %.not.i71, label %list_length.exit72.thread, label %list_length.exit72
@@ -88,7 +88,7 @@ list_length.exit72:                               ; preds = %28
   br i1 %.not62, label %43, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %.0, i64 4
+  %39 = getelementptr inbounds i8, ptr %.054, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   %42 = getelementptr ptr, ptr %37, i64 %41
@@ -97,7 +97,7 @@ list_length.exit72:                               ; preds = %28
 43:                                               ; preds = %35
   %44 = getelementptr inbounds i8, ptr %5, i64 64
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0, i64 4
+  %46 = getelementptr inbounds i8, ptr %.054, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = add i32 %47, -1
   %49 = getelementptr i8, ptr %45, i64 16

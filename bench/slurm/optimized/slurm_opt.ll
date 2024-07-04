@@ -1858,8 +1858,8 @@ _init_state.exit:                                 ; preds = %53, %56
   br label %_find_option_idx.exit.thread
 
 _find_option_idx.exit.thread:                     ; preds = %10, %47, %50, %_init_state.exit, %23, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %23 ], [ 0, %_init_state.exit ], [ %51, %50 ], [ -1, %47 ], [ -1, %10 ]
-  ret i32 %.0
+  %.038 = phi i32 [ 0, %13 ], [ 0, %23 ], [ 0, %_init_state.exit ], [ %51, %50 ], [ -1, %47 ], [ -1, %10 ]
+  ret i32 %.038
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2699,7 +2699,7 @@ define void @slurm_option_update_tres_per_task_cpu(i32 noundef %0, ptr nocapture
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %27
-  %.0 = phi ptr [ %spec.store.select, %27 ], [ null, %17 ]
+  %.062 = phi ptr [ %spec.store.select, %27 ], [ null, %17 ]
   br i1 %.not72, label %31, label %29
 
 29:                                               ; preds = %.critedge
@@ -2711,7 +2711,7 @@ define void @slurm_option_update_tres_per_task_cpu(i32 noundef %0, ptr nocapture
 31:                                               ; preds = %29, %.critedge
   %.1 = phi ptr [ %spec.store.select1, %29 ], [ null, %.critedge ]
   %.not77 = icmp eq i32 %0, 0
-  %32 = icmp ne ptr %.0, null
+  %32 = icmp ne ptr %.062, null
   %33 = icmp ne ptr %.1, null
   %or.cond = select i1 %32, i1 %33, i1 false
   br i1 %.not77, label %34, label %39
@@ -2720,16 +2720,16 @@ define void @slurm_option_update_tres_per_task_cpu(i32 noundef %0, ptr nocapture
   br i1 %or.cond, label %.thread87, label %35
 
 .thread87:                                        ; preds = %34
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.31, ptr noundef nonnull %.0, ptr noundef nonnull %.1) #23
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.31, ptr noundef nonnull %.062, ptr noundef nonnull %.1) #23
   br label %.thread85
 
 35:                                               ; preds = %34
-  %36 = icmp eq ptr %.0, null
+  %36 = icmp eq ptr %.062, null
   %or.cond4 = select i1 %36, i1 true, i1 %33
   br i1 %or.cond4, label %37, label %.thread79
 
 .thread79:                                        ; preds = %35
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.32, ptr noundef nonnull %.0) #23
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.32, ptr noundef nonnull %.062) #23
   br label %.thread85
 
 37:                                               ; preds = %35
@@ -2744,16 +2744,16 @@ define void @slurm_option_update_tres_per_task_cpu(i32 noundef %0, ptr nocapture
   br i1 %or.cond, label %.thread91, label %40
 
 .thread91:                                        ; preds = %39
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.33, ptr noundef nonnull %.0, i32 noundef %0, ptr noundef nonnull %.1) #23
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.33, ptr noundef nonnull %.062, i32 noundef %0, ptr noundef nonnull %.1) #23
   br label %.thread85
 
 40:                                               ; preds = %39
-  %41 = icmp eq ptr %.0, null
+  %41 = icmp eq ptr %.062, null
   %or.cond10 = select i1 %41, i1 true, i1 %33
   br i1 %or.cond10, label %42, label %.thread83
 
 .thread83:                                        ; preds = %40
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef nonnull %.0, i32 noundef %0) #23
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef nonnull %.062, i32 noundef %0) #23
   br label %.thread85
 
 42:                                               ; preds = %40
@@ -6438,7 +6438,7 @@ slurm_option_isset.exit395.thread:                ; preds = %172, %_find_option_
   br label %225
 
 225:                                              ; preds = %217, %214, %208
-  %.0308 = phi i32 [ %210, %214 ], [ %210, %208 ], [ %spec.select420, %217 ]
+  %.0307 = phi i32 [ %210, %214 ], [ %210, %208 ], [ %spec.select420, %217 ]
   %226 = getelementptr inbounds i8, ptr %0, i64 336
   %227 = load i8, ptr %226, align 8
   %228 = trunc i8 %227 to i1
@@ -6474,7 +6474,7 @@ slurm_option_isset.exit395.thread:                ; preds = %172, %_find_option_
 240:                                              ; preds = %236
   %241 = getelementptr inbounds i8, ptr %0, i64 128
   %242 = load i32, ptr %241, align 8
-  %243 = mul nsw i32 %242, %.0308
+  %243 = mul nsw i32 %242, %.0307
   %244 = getelementptr inbounds i8, ptr %4, i64 740
   store i32 %243, ptr %244, align 4
   br label %258
@@ -6501,7 +6501,7 @@ slurm_option_isset.exit395.thread:                ; preds = %172, %_find_option_
 
 256:                                              ; preds = %255
   %257 = getelementptr inbounds i8, ptr %4, i64 740
-  store i32 %.0308, ptr %257, align 4
+  store i32 %.0307, ptr %257, align 4
   br label %258
 
 258:                                              ; preds = %240, %255, %256, %253, %232
@@ -7156,8 +7156,8 @@ slurm_option_isset.exit411.thread:                ; preds = %425, %_find_option_
   br label %.thread417
 
 .thread417:                                       ; preds = %582, %605, %606, %329
-  %.0307 = phi ptr [ null, %606 ], [ null, %329 ], [ %4, %605 ], [ %4, %582 ]
-  ret ptr %.0307
+  %.0309 = phi ptr [ null, %606 ], [ null, %329 ], [ %4, %605 ], [ %4, %582 ]
+  ret ptr %.0309
 }
 
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

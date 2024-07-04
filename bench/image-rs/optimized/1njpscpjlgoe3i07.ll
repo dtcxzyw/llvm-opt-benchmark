@@ -1492,8 +1492,8 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17h63768ac15d1be8d0E(p
   unreachable
 
 .loopexit:                                        ; preds = %13, %27
-  %.011 = phi ptr [ %28, %27 ], [ null, %13 ]
-  ret ptr %.011
+  %.0 = phi ptr [ %28, %27 ], [ null, %13 ]
+  ret ptr %.0
 
 19:                                               ; preds = %16
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %14, i64 %10)
@@ -1553,8 +1553,8 @@ define hidden noundef ptr @_ZN3std2io4Read14read_buf_exact17he6d9f7ddd3fa9b7dE(p
   unreachable
 
 .loopexit:                                        ; preds = %14, %28
-  %.011 = phi ptr [ %29, %28 ], [ null, %14 ]
-  ret ptr %.011
+  %.0 = phi ptr [ %29, %28 ], [ null, %14 ]
+  ret ptr %.0
 
 20:                                               ; preds = %17
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %11)
@@ -22887,11 +22887,11 @@ define hidden void @"_ZN86_$LT$image..codecs..dxt..DxtDecoder$LT$R$GT$$u20$as$u2
   br label %44
 
 44:                                               ; preds = %.lr.ph, %"_ZN5image6codecs3dxt19DxtDecoder$LT$R$GT$13read_scanline17ha888491cb43a9fc5E.exit"
-  %.sroa.6.02134 = phi i64 [ %3, %.lr.ph ], [ %46, %"_ZN5image6codecs3dxt19DxtDecoder$LT$R$GT$13read_scanline17ha888491cb43a9fc5E.exit" ]
-  %.sroa.016.033 = phi ptr [ %2, %.lr.ph ], [ %45, %"_ZN5image6codecs3dxt19DxtDecoder$LT$R$GT$13read_scanline17ha888491cb43a9fc5E.exit" ]
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.02134, i64 %.0.sroa.speculated.i)
-  %45 = getelementptr inbounds i8, ptr %.sroa.016.033, i64 %.0.sroa.speculated.i.i
-  %46 = sub i64 %.sroa.6.02134, %.0.sroa.speculated.i.i
+  %.sroa.016.034 = phi ptr [ %2, %.lr.ph ], [ %45, %"_ZN5image6codecs3dxt19DxtDecoder$LT$R$GT$13read_scanline17ha888491cb43a9fc5E.exit" ]
+  %.sroa.6.02133 = phi i64 [ %3, %.lr.ph ], [ %46, %"_ZN5image6codecs3dxt19DxtDecoder$LT$R$GT$13read_scanline17ha888491cb43a9fc5E.exit" ]
+  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %.sroa.6.02133, i64 %.0.sroa.speculated.i)
+  %45 = getelementptr inbounds i8, ptr %.sroa.016.034, i64 %.0.sroa.speculated.i.i
+  %46 = sub i64 %.sroa.6.02133, %.0.sroa.speculated.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !4592)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !4595
   store i64 %.0.sroa.speculated.i.i, ptr %37, align 8, !noalias !4595
@@ -23003,15 +23003,15 @@ default.unreachable:                              ; preds = %"_ZN82_$LT$std..io.
           to label %97 unwind label %.loopexit.split-lp
 
 82:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i"
-  invoke void @_ZN5image6codecs3dxt15decode_dxt1_row17hc239b534651561e0E(ptr noalias noundef nonnull readonly align 1 %73, i64 noundef %74, ptr noalias noundef nonnull align 1 %.sroa.016.033, i64 noundef %.0.sroa.speculated.i.i)
+  invoke void @_ZN5image6codecs3dxt15decode_dxt1_row17hc239b534651561e0E(ptr noalias noundef nonnull readonly align 1 %73, i64 noundef %74, ptr noalias noundef nonnull align 1 %.sroa.016.034, i64 noundef %.0.sroa.speculated.i.i)
           to label %85 unwind label %69, !noalias !4617
 
 83:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i"
-  invoke void @_ZN5image6codecs3dxt15decode_dxt3_row17h0a232c7083fbdec4E(ptr noalias noundef nonnull readonly align 1 %73, i64 noundef %74, ptr noalias noundef nonnull align 1 %.sroa.016.033, i64 noundef %.0.sroa.speculated.i.i)
+  invoke void @_ZN5image6codecs3dxt15decode_dxt3_row17h0a232c7083fbdec4E(ptr noalias noundef nonnull readonly align 1 %73, i64 noundef %74, ptr noalias noundef nonnull align 1 %.sroa.016.034, i64 noundef %.0.sroa.speculated.i.i)
           to label %85 unwind label %69, !noalias !4617
 
 84:                                               ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i"
-  invoke void @_ZN5image6codecs3dxt15decode_dxt5_row17h3aa59ea21dd30546E(ptr noalias noundef nonnull readonly align 1 %73, i64 noundef %74, ptr noalias noundef nonnull align 1 %.sroa.016.033, i64 noundef %.0.sroa.speculated.i.i)
+  invoke void @_ZN5image6codecs3dxt15decode_dxt5_row17h3aa59ea21dd30546E(ptr noalias noundef nonnull readonly align 1 %73, i64 noundef %74, ptr noalias noundef nonnull align 1 %.sroa.016.034, i64 noundef %.0.sroa.speculated.i.i)
           to label %85 unwind label %69, !noalias !4617
 
 85:                                               ; preds = %84, %83, %82
@@ -32223,11 +32223,11 @@ define void @_ZN5image6codecs3tga6header6Header15from_pixel_info17h34691bb002301
   br i1 %or.cond, label %10, label %8
 
 8:                                                ; preds = %21, %5
-  %.sroa.11.0 = phi i8 [ %.0, %21 ], [ 0, %5 ]
   %.sroa.14.0 = phi i8 [ %22, %21 ], [ 0, %5 ]
+  %.sroa.11.0 = phi i8 [ %.0, %21 ], [ 0, %5 ]
+  %.sroa.16.0 = phi i8 [ %23, %21 ], [ 0, %5 ]
   %.sroa.7.0 = phi i16 [ %3, %21 ], [ 0, %5 ]
   %.sroa.5.0 = phi i16 [ %2, %21 ], [ 0, %5 ]
-  %.sroa.16.0 = phi i8 [ %23, %21 ], [ 0, %5 ]
   %9 = getelementptr inbounds i8, ptr %0, i64 2
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 10
   store i64 0, ptr %9, align 2

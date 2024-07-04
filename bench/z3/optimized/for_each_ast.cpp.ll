@@ -166,7 +166,7 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %result.015 = phi i1 [ true, %for.body.preheader ], [ %result.1, %for.inc ]
+  %result.014 = phi i1 [ true, %for.body.preheader ], [ %result.1, %for.inc ]
   %arrayidx = getelementptr inbounds %class.parameter, ptr %params, i64 %indvars.iv
   %_M_index.i.i.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load i8, ptr %_M_index.i.i.i, align 8
@@ -226,7 +226,7 @@ _ZN6vectorIP3astLb0EjE9push_backEOS1_.exit:       ; preds = %lor.lhs.false.i, %i
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZNK9parameter7get_astEv.exit, %_ZN6vectorIP3astLb0EjE9push_backEOS1_.exit
-  %result.1 = phi i1 [ %result.015, %_ZNK9parameter7get_astEv.exit ], [ false, %_ZN6vectorIP3astLb0EjE9push_backEOS1_.exit ], [ %result.015, %for.body ]
+  %result.1 = phi i1 [ %result.014, %_ZNK9parameter7get_astEv.exit ], [ false, %_ZN6vectorIP3astLb0EjE9push_backEOS1_.exit ], [ %result.014, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
@@ -491,7 +491,7 @@ for.body.preheader.i:                             ; preds = %if.end49
 
 for.body.i.outer:                                 ; preds = %for.inc.i.thread, %for.body.preheader.i
   %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i279, %for.inc.i.thread ], [ 0, %for.body.preheader.i ]
-  %result.06.i.ph = phi i1 [ false, %for.inc.i.thread ], [ true, %for.body.preheader.i ]
+  %result.05.i.ph = phi i1 [ false, %for.inc.i.thread ], [ true, %for.body.preheader.i ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.outer, %for.inc.i
@@ -548,7 +548,7 @@ for.inc.i.thread:                                 ; preds = %lor.lhs.false.i.i, 
   br i1 %exitcond.not.i280, label %while.cond.backedge, label %for.body.i.outer, !llvm.loop !7
 
 invoke.cont58:                                    ; preds = %for.inc.i
-  br i1 %result.06.i.ph, label %if.end61, label %while.cond.backedge
+  br i1 %result.05.i.ph, label %if.end61, label %while.cond.backedge
 
 if.end61:                                         ; preds = %if.end49, %invoke.cont58
   %m_range.i = getelementptr inbounds i8, ptr %7, i64 40
@@ -617,7 +617,7 @@ for.body.preheader.i119:                          ; preds = %if.end98
 
 for.body.i121.outer:                              ; preds = %for.inc.i136.thread, %for.body.preheader.i119
   %indvars.iv.i122.ph = phi i64 [ %indvars.iv.next.i138284, %for.inc.i136.thread ], [ 0, %for.body.preheader.i119 ]
-  %result.06.i123.ph = phi i1 [ false, %for.inc.i136.thread ], [ true, %for.body.preheader.i119 ]
+  %result.05.i123.ph = phi i1 [ false, %for.inc.i136.thread ], [ true, %for.body.preheader.i119 ]
   br label %for.body.i121
 
 for.body.i121:                                    ; preds = %for.body.i121.outer, %for.inc.i136
@@ -674,7 +674,7 @@ for.inc.i136.thread:                              ; preds = %lor.lhs.false.i.i12
   br i1 %exitcond.not.i139285, label %while.cond.backedge, label %for.body.i121.outer, !llvm.loop !8
 
 invoke.cont107:                                   ; preds = %for.inc.i136
-  br i1 %result.06.i123.ph, label %invoke.cont24.invoke, label %while.cond.backedge
+  br i1 %result.05.i123.ph, label %invoke.cont24.invoke, label %while.cond.backedge
 
 invoke.cont125:                                   ; preds = %if.end
   %m_num_patterns.i = getelementptr inbounds i8, ptr %7, i64 72
@@ -694,7 +694,7 @@ for.body.preheader.i155:                          ; preds = %invoke.cont125
 
 for.body.i157.outer:                              ; preds = %for.inc.i172.thread, %for.body.preheader.i155
   %indvars.iv.i158.ph = phi i64 [ %indvars.iv.next.i174289, %for.inc.i172.thread ], [ 0, %for.body.preheader.i155 ]
-  %result.06.i159.ph = phi i1 [ false, %for.inc.i172.thread ], [ true, %for.body.preheader.i155 ]
+  %result.05.i159.ph = phi i1 [ false, %for.inc.i172.thread ], [ true, %for.body.preheader.i155 ]
   br label %for.body.i157
 
 for.body.i157:                                    ; preds = %for.body.i157.outer, %for.inc.i172
@@ -751,7 +751,7 @@ for.inc.i172.thread:                              ; preds = %lor.lhs.false.i.i16
   br i1 %exitcond.not.i175290, label %while.cond.backedge, label %for.body.i157.outer, !llvm.loop !8
 
 invoke.cont127:                                   ; preds = %for.inc.i172
-  br i1 %result.06.i159.ph, label %invoke.cont127.invoke.cont137_crit_edge, label %while.cond.backedge
+  br i1 %result.05.i159.ph, label %invoke.cont127.invoke.cont137_crit_edge, label %while.cond.backedge
 
 invoke.cont127.invoke.cont137_crit_edge:          ; preds = %invoke.cont127
   %.pre = load i32, ptr %m_num_decls.i.i, align 4
@@ -773,7 +773,7 @@ for.body.preheader.i191:                          ; preds = %invoke.cont137
 
 for.body.i193.outer:                              ; preds = %for.inc.i208.thread, %for.body.preheader.i191
   %indvars.iv.i194.ph = phi i64 [ %indvars.iv.next.i210294, %for.inc.i208.thread ], [ 0, %for.body.preheader.i191 ]
-  %result.06.i195.ph = phi i1 [ false, %for.inc.i208.thread ], [ true, %for.body.preheader.i191 ]
+  %result.05.i195.ph = phi i1 [ false, %for.inc.i208.thread ], [ true, %for.body.preheader.i191 ]
   br label %for.body.i193
 
 for.body.i193:                                    ; preds = %for.body.i193.outer, %for.inc.i208
@@ -830,7 +830,7 @@ for.inc.i208.thread:                              ; preds = %lor.lhs.false.i.i19
   br i1 %exitcond.not.i211295, label %while.cond.backedge, label %for.body.i193.outer, !llvm.loop !8
 
 invoke.cont139:                                   ; preds = %for.inc.i208
-  br i1 %result.06.i195.ph, label %if.end142, label %while.cond.backedge
+  br i1 %result.05.i195.ph, label %if.end142, label %while.cond.backedge
 
 if.end142:                                        ; preds = %invoke.cont137, %invoke.cont139
   %m_expr.i = getelementptr inbounds i8, ptr %7, i64 24

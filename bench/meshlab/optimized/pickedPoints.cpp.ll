@@ -1973,7 +1973,7 @@ _ZN7QStringD2Ev.exit33:                           ; preds = %44, %_ZN9QtPrivate8
   br i1 %.not, label %81, label %.thread
 
 .thread:                                          ; preds = %49, %62
-  %.01258 = phi ptr [ %63, %62 ], [ %50, %49 ]
+  %.01158 = phi ptr [ %63, %62 ], [ %50, %49 ]
   invoke void @_ZN12QDomDocument13createElementERK7QString(ptr dead_on_unwind nonnull writable sret(%class.QDomElement) align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) @_ZN12PickedPoints15userElementNameE)
           to label %64 unwind label %.loopexit.split-lp
 
@@ -1983,9 +1983,9 @@ _ZN7QStringD2Ev.exit33:                           ; preds = %44, %_ZN9QtPrivate8
 
 66:                                               ; preds = %64
   call void @_ZN8QDomNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #23
-  %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01258) #25
+  %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01158) #25
   %68 = trunc i64 %67 to i32
-  %69 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull %.01258, i32 noundef %68)
+  %69 = invoke noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull %.01158, i32 noundef %68)
           to label %70 unwind label %.loopexit.split-lp
 
 70:                                               ; preds = %66

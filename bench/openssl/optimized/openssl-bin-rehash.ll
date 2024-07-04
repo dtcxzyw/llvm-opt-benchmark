@@ -363,7 +363,7 @@ land.lhs.true65:                                  ; preds = %if.end62
 
 for.body.i:                                       ; preds = %if.end.i, %land.lhs.true65
   %indvars.iv.i = phi i64 [ 0, %land.lhs.true65 ], [ %indvars.iv.next.i, %if.end.i ]
-  %hash.023.i = phi i32 [ 0, %land.lhs.true65 ], [ %add.i, %if.end.i ]
+  %hash.022.i = phi i32 [ 0, %land.lhs.true65 ], [ %add.i, %if.end.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %call51, i64 %indvars.iv.i
   %12 = load i8, ptr %arrayidx.i, align 1
   %13 = load ptr, ptr %call.i94, align 8
@@ -375,7 +375,7 @@ for.body.i:                                       ; preds = %if.end.i, %land.lhs
   br i1 %tobool.not.i, label %handle_symlink.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %shl.i = shl i32 %hash.023.i, 4
+  %shl.i = shl i32 %hash.022.i, 4
   %call4.i = call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %12) #14
   %add.i = add i32 %call4.i, %shl.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -557,8 +557,8 @@ if.then79.i:                                      ; preds = %if.end73.i
   br label %do_file.exit
 
 do_file.exit:                                     ; preds = %for.cond.i, %if.end70, %if.then11.i, %if.end15.i, %if.then24.i, %if.then36.i, %if.else.i, %if.then48.i, %if.end55.i, %if.end73.i, %if.then79.i
-  %errs.1.i = phi i32 [ 0, %if.end70 ], [ 1, %if.then11.i ], [ 0, %if.end15.i ], [ 0, %if.then24.i ], [ %add84.i, %if.then79.i ], [ %errs.0.i, %if.end73.i ], [ 0, %if.end55.i ], [ 1, %if.then36.i ], [ 1, %if.then48.i ], [ 1, %if.else.i ], [ 0, %for.cond.i ]
   %inf.0.i = phi ptr [ null, %if.end70 ], [ null, %if.then11.i ], [ null, %if.end15.i ], [ %call16.i, %if.then24.i ], [ %call16.i, %if.then79.i ], [ %call16.i, %if.end73.i ], [ %call16.i, %if.end55.i ], [ %call16.i, %if.then36.i ], [ %call16.i, %if.then48.i ], [ %call16.i, %if.else.i ], [ null, %for.cond.i ]
+  %errs.1.i = phi i32 [ 0, %if.end70 ], [ 1, %if.then11.i ], [ 0, %if.end15.i ], [ 0, %if.then24.i ], [ %add84.i, %if.then79.i ], [ %errs.0.i, %if.end73.i ], [ 0, %if.end55.i ], [ 1, %if.then36.i ], [ 1, %if.then48.i ], [ 1, %if.else.i ], [ 0, %for.cond.i ]
   call void @OPENSSL_sk_pop_free(ptr noundef %inf.0.i, ptr noundef nonnull @X509_INFO_free) #14
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %digest.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ok.i)

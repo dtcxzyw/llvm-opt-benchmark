@@ -27,12 +27,12 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, 
   br label %._crit_edge119
 
 .lr.ph113:                                        ; preds = %.preheader108, %.lr.ph113
-  %.091112 = phi i32 [ %10, %.lr.ph113 ], [ 1, %.preheader108 ]
-  %.094111 = phi i32 [ %11, %.lr.ph113 ], [ -1, %.preheader108 ]
-  %.196110 = phi i32 [ %9, %.lr.ph113 ], [ %1, %.preheader108 ]
-  %9 = sub nsw i32 %.196110, %.091112
-  %10 = mul nuw nsw i32 %.091112, %0
-  %11 = add nsw i32 %.094111, 1
+  %.090112 = phi i32 [ %10, %.lr.ph113 ], [ 1, %.preheader108 ]
+  %.093111 = phi i32 [ %11, %.lr.ph113 ], [ -1, %.preheader108 ]
+  %.195110 = phi i32 [ %9, %.lr.ph113 ], [ %1, %.preheader108 ]
+  %9 = sub nsw i32 %.195110, %.090112
+  %10 = mul nuw nsw i32 %.090112, %0
+  %11 = add nsw i32 %.093111, 1
   %12 = icmp sgt i32 %9, -1
   br i1 %12, label %.lr.ph113, label %._crit_edge, !llvm.loop !4
 
@@ -47,59 +47,59 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, 
 
 16:                                               ; preds = %._crit_edge
   store i32 1, ptr %14, align 4
-  %17 = icmp sgt i32 %.094111, -1
+  %17 = icmp sgt i32 %.093111, -1
   br i1 %17, label %.lr.ph118, label %._crit_edge119
 
 .lr.ph118:                                        ; preds = %16, %.lr.ph118
-  %.088116 = phi i32 [ %18, %.lr.ph118 ], [ 0, %16 ]
-  %.089115 = phi i32 [ %20, %.lr.ph118 ], [ 0, %16 ]
-  %.192114 = phi i32 [ %19, %.lr.ph118 ], [ 1, %16 ]
-  %18 = add nuw nsw i32 %.088116, %.192114
-  %19 = mul nuw nsw i32 %.192114, %0
-  %20 = add nuw nsw i32 %.089115, 1
-  %exitcond.not = icmp eq i32 %.089115, %.094111
+  %.087116 = phi i32 [ %18, %.lr.ph118 ], [ 0, %16 ]
+  %.088115 = phi i32 [ %20, %.lr.ph118 ], [ 0, %16 ]
+  %.191114 = phi i32 [ %19, %.lr.ph118 ], [ 1, %16 ]
+  %18 = add nuw nsw i32 %.087116, %.191114
+  %19 = mul nuw nsw i32 %.191114, %0
+  %20 = add nuw nsw i32 %.088115, 1
+  %exitcond.not = icmp eq i32 %.088115, %.093111
   br i1 %exitcond.not, label %._crit_edge119, label %.lr.ph118, !llvm.loop !6
 
 ._crit_edge119:                                   ; preds = %.lr.ph118, %.thread, %16
-  %.094.lcssa146148 = phi i32 [ %11, %16 ], [ -1, %.thread ], [ %11, %.lr.ph118 ]
-  %.192.lcssa = phi i32 [ 1, %16 ], [ 1, %.thread ], [ %19, %.lr.ph118 ]
-  %.088.lcssa = phi i32 [ 0, %16 ], [ 0, %.thread ], [ %18, %.lr.ph118 ]
-  %21 = sub nsw i32 %1, %.088.lcssa
-  %22 = udiv i32 %.192.lcssa, %0
-  %23 = sub i32 %.088.lcssa, %22
+  %.093.lcssa146148 = phi i32 [ %11, %16 ], [ -1, %.thread ], [ %11, %.lr.ph118 ]
+  %.191.lcssa = phi i32 [ 1, %16 ], [ 1, %.thread ], [ %19, %.lr.ph118 ]
+  %.087.lcssa = phi i32 [ 0, %16 ], [ 0, %.thread ], [ %18, %.lr.ph118 ]
+  %21 = sub nsw i32 %1, %.087.lcssa
+  %22 = udiv i32 %.191.lcssa, %0
+  %23 = sub i32 %.087.lcssa, %22
   %24 = sdiv i32 %21, %0
   %25 = add nsw i32 %23, %24
   br label %26
 
 26:                                               ; preds = %._crit_edge119, %15
   %.sink = phi i32 [ %25, %._crit_edge119 ], [ -1, %15 ]
-  %.094.lcssa145 = phi i32 [ %.094.lcssa146148, %._crit_edge119 ], [ %11, %15 ]
+  %.093.lcssa145 = phi i32 [ %.093.lcssa146148, %._crit_edge119 ], [ %11, %15 ]
   %27 = phi i32 [ 1, %._crit_edge119 ], [ 0, %15 ]
-  %.087 = phi i32 [ %21, %._crit_edge119 ], [ 0, %15 ]
+  %.086 = phi i32 [ %21, %._crit_edge119 ], [ 0, %15 ]
   %28 = getelementptr inbounds i8, ptr %3, i64 20
   store i32 %.sink, ptr %28, align 4
   %29 = icmp sgt i32 %2, 0
   br i1 %29, label %.lr.ph126, label %._crit_edge127
 
 .lr.ph126:                                        ; preds = %26, %.lr.ph126
-  %.086124 = phi i32 [ %32, %.lr.ph126 ], [ 0, %26 ]
-  %.293123 = phi i32 [ %31, %.lr.ph126 ], [ 1, %26 ]
-  %.297122 = phi i32 [ %30, %.lr.ph126 ], [ %2, %26 ]
-  %30 = sub nsw i32 %.297122, %.293123
-  %31 = mul nuw nsw i32 %.293123, %0
-  %32 = add nuw nsw i32 %.086124, 1
+  %.085124 = phi i32 [ %32, %.lr.ph126 ], [ 0, %26 ]
+  %.292123 = phi i32 [ %31, %.lr.ph126 ], [ 1, %26 ]
+  %.296122 = phi i32 [ %30, %.lr.ph126 ], [ %2, %26 ]
+  %30 = sub nsw i32 %.296122, %.292123
+  %31 = mul nuw nsw i32 %.292123, %0
+  %32 = add nuw nsw i32 %.085124, 1
   %33 = icmp sgt i32 %30, 0
   br i1 %33, label %.lr.ph126, label %._crit_edge127, !llvm.loop !7
 
 ._crit_edge127:                                   ; preds = %.lr.ph126, %26
-  %.086.lcssa = phi i32 [ -1, %26 ], [ %.086124, %.lr.ph126 ]
+  %.085.lcssa = phi i32 [ -1, %26 ], [ %.085124, %.lr.ph126 ]
   %34 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr null, ptr %34, align 8
-  %35 = icmp eq i32 %.094.lcssa145, %.086.lcssa
+  %35 = icmp eq i32 %.093.lcssa145, %.085.lcssa
   br i1 %35, label %36, label %.preheader107
 
 .preheader107:                                    ; preds = %._crit_edge127
-  %.not129 = icmp slt i32 %.094.lcssa145, 0
+  %.not129 = icmp slt i32 %.093.lcssa145, 0
   br i1 %.not129, label %._crit_edge134, label %.lr.ph133
 
 36:                                               ; preds = %._crit_edge127
@@ -109,17 +109,17 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, 
 
 .lr.ph133:                                        ; preds = %.preheader107, %.lr.ph133
   %.1132 = phi i32 [ %38, %.lr.ph133 ], [ 0, %.preheader107 ]
-  %.190131 = phi i32 [ %40, %.lr.ph133 ], [ 0, %.preheader107 ]
+  %.189131 = phi i32 [ %40, %.lr.ph133 ], [ 0, %.preheader107 ]
   %.3130 = phi i32 [ %39, %.lr.ph133 ], [ 1, %.preheader107 ]
   %38 = add nuw nsw i32 %.1132, %.3130
   %39 = mul nuw nsw i32 %.3130, %0
-  %40 = add nuw i32 %.190131, 1
-  %exitcond142.not = icmp eq i32 %.190131, %.094.lcssa145
+  %40 = add nuw i32 %.189131, 1
+  %exitcond142.not = icmp eq i32 %.189131, %.093.lcssa145
   br i1 %exitcond142.not, label %._crit_edge134, label %.lr.ph133, !llvm.loop !8
 
 ._crit_edge134:                                   ; preds = %.lr.ph133, %.preheader107
   %.1.lcssa = phi i32 [ 0, %.preheader107 ], [ %38, %.lr.ph133 ]
-  %41 = mul nsw i32 %.087, %0
+  %41 = mul nsw i32 %.086, %0
   %42 = add nsw i32 %.1.lcssa, %41
   %43 = add nsw i32 %42, %0
   %spec.select.v = tail call i32 @llvm.smin.i32(i32 %43, i32 %2)
@@ -198,8 +198,8 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_tree(i32 noundef %0, 
   br label %74
 
 74:                                               ; preds = %4, %49, %65, %73, %72
-  %.085 = phi i32 [ 0, %72 ], [ 0, %73 ], [ 0, %65 ], [ -1, %49 ], [ -1, %4 ]
-  ret i32 %.085
+  %.097 = phi i32 [ 0, %72 ], [ 0, %73 ], [ 0, %65 ], [ -1, %49 ], [ -1, %4 ]
+  ret i32 %.097
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -254,12 +254,12 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noun
   br label %._crit_edge131
 
 .lr.ph125:                                        ; preds = %.preheader120, %.lr.ph125
-  %.0103124 = phi i32 [ %10, %.lr.ph125 ], [ 1, %.preheader120 ]
-  %.0106123 = phi i32 [ %11, %.lr.ph125 ], [ -1, %.preheader120 ]
-  %.1108122 = phi i32 [ %9, %.lr.ph125 ], [ %1, %.preheader120 ]
-  %9 = sub nsw i32 %.1108122, %.0103124
-  %10 = mul nuw nsw i32 %.0103124, %0
-  %11 = add nsw i32 %.0106123, 1
+  %.0102124 = phi i32 [ %10, %.lr.ph125 ], [ 1, %.preheader120 ]
+  %.0105123 = phi i32 [ %11, %.lr.ph125 ], [ -1, %.preheader120 ]
+  %.1107122 = phi i32 [ %9, %.lr.ph125 ], [ %1, %.preheader120 ]
+  %9 = sub nsw i32 %.1107122, %.0102124
+  %10 = mul nuw nsw i32 %.0102124, %0
+  %11 = add nsw i32 %.0105123, 1
   %12 = icmp sgt i32 %9, -1
   br i1 %12, label %.lr.ph125, label %._crit_edge, !llvm.loop !10
 
@@ -274,98 +274,98 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_narray_knomial_tree(i32 noun
 
 16:                                               ; preds = %._crit_edge
   store i32 1, ptr %14, align 4
-  %17 = icmp sgt i32 %.0106123, -1
+  %17 = icmp sgt i32 %.0105123, -1
   br i1 %17, label %.lr.ph130, label %._crit_edge131
 
 .lr.ph130:                                        ; preds = %16, %.lr.ph130
-  %.0100128 = phi i32 [ %18, %.lr.ph130 ], [ 0, %16 ]
-  %.0101127 = phi i32 [ %20, %.lr.ph130 ], [ 0, %16 ]
-  %.1104126 = phi i32 [ %19, %.lr.ph130 ], [ 1, %16 ]
-  %18 = add nuw nsw i32 %.0100128, %.1104126
-  %19 = mul nuw nsw i32 %.1104126, %0
-  %20 = add nuw nsw i32 %.0101127, 1
-  %exitcond.not = icmp eq i32 %.0101127, %.0106123
+  %.099128 = phi i32 [ %18, %.lr.ph130 ], [ 0, %16 ]
+  %.0100127 = phi i32 [ %20, %.lr.ph130 ], [ 0, %16 ]
+  %.1103126 = phi i32 [ %19, %.lr.ph130 ], [ 1, %16 ]
+  %18 = add nuw nsw i32 %.099128, %.1103126
+  %19 = mul nuw nsw i32 %.1103126, %0
+  %20 = add nuw nsw i32 %.0100127, 1
+  %exitcond.not = icmp eq i32 %.0100127, %.0105123
   br i1 %exitcond.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !11
 
 ._crit_edge131:                                   ; preds = %.lr.ph130, %.thread, %16
-  %.0106.lcssa162164 = phi i32 [ %11, %16 ], [ -1, %.thread ], [ %11, %.lr.ph130 ]
-  %.1104.lcssa = phi i32 [ 1, %16 ], [ 1, %.thread ], [ %19, %.lr.ph130 ]
-  %.0100.lcssa = phi i32 [ 0, %16 ], [ 0, %.thread ], [ %18, %.lr.ph130 ]
-  %21 = sub nsw i32 %1, %.0100.lcssa
+  %.0105.lcssa162164 = phi i32 [ %11, %16 ], [ -1, %.thread ], [ %11, %.lr.ph130 ]
+  %.1103.lcssa = phi i32 [ 1, %16 ], [ 1, %.thread ], [ %19, %.lr.ph130 ]
+  %.099.lcssa = phi i32 [ 0, %16 ], [ 0, %.thread ], [ %18, %.lr.ph130 ]
+  %21 = sub nsw i32 %1, %.099.lcssa
   %22 = getelementptr inbounds i8, ptr %3, i64 36
   store i32 %21, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %3, i64 32
-  store i32 %.1104.lcssa, ptr %23, align 8
+  store i32 %.1103.lcssa, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 40
-  %25 = tail call i32 @ompi_netpatterns_setup_recursive_knomial_tree_node(i32 noundef %.1104.lcssa, i32 noundef %21, i32 noundef %0, ptr noundef nonnull %24) #10
+  %25 = tail call i32 @ompi_netpatterns_setup_recursive_knomial_tree_node(i32 noundef %.1103.lcssa, i32 noundef %21, i32 noundef %0, ptr noundef nonnull %24) #10
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %26, label %81
 
 26:                                               ; preds = %._crit_edge131
-  %27 = udiv i32 %.1104.lcssa, %0
-  %28 = sub i32 %.0100.lcssa, %27
+  %27 = udiv i32 %.1103.lcssa, %0
+  %28 = sub i32 %.099.lcssa, %27
   %29 = sdiv i32 %21, %0
   %30 = add nsw i32 %28, %29
   br label %31
 
 31:                                               ; preds = %26, %15
   %.sink = phi i32 [ %30, %26 ], [ -1, %15 ]
-  %.0106.lcssa161 = phi i32 [ %.0106.lcssa162164, %26 ], [ %11, %15 ]
-  %.099 = phi i32 [ %21, %26 ], [ 0, %15 ]
+  %.0105.lcssa161 = phi i32 [ %.0105.lcssa162164, %26 ], [ %11, %15 ]
+  %.098 = phi i32 [ %21, %26 ], [ 0, %15 ]
   %32 = getelementptr inbounds i8, ptr %3, i64 20
   store i32 %.sink, ptr %32, align 4
   %33 = icmp sgt i32 %2, 0
   br i1 %33, label %.lr.ph138, label %._crit_edge139
 
 .lr.ph138:                                        ; preds = %31, %.lr.ph138
-  %.098136 = phi i32 [ %36, %.lr.ph138 ], [ 0, %31 ]
-  %.2105135 = phi i32 [ %35, %.lr.ph138 ], [ 1, %31 ]
-  %.2109134 = phi i32 [ %34, %.lr.ph138 ], [ %2, %31 ]
-  %34 = sub nsw i32 %.2109134, %.2105135
-  %35 = mul nuw nsw i32 %.2105135, %0
-  %36 = add nuw nsw i32 %.098136, 1
+  %.097136 = phi i32 [ %36, %.lr.ph138 ], [ 0, %31 ]
+  %.2104135 = phi i32 [ %35, %.lr.ph138 ], [ 1, %31 ]
+  %.2108134 = phi i32 [ %34, %.lr.ph138 ], [ %2, %31 ]
+  %34 = sub nsw i32 %.2108134, %.2104135
+  %35 = mul nuw nsw i32 %.2104135, %0
+  %36 = add nuw nsw i32 %.097136, 1
   %37 = icmp sgt i32 %34, 0
   br i1 %37, label %.lr.ph138, label %._crit_edge139, !llvm.loop !12
 
 ._crit_edge139:                                   ; preds = %.lr.ph138, %31
-  %.2109.lcssa = phi i32 [ %2, %31 ], [ %34, %.lr.ph138 ]
-  %.2105.lcssa = phi i32 [ 1, %31 ], [ %35, %.lr.ph138 ]
-  %.098.lcssa = phi i32 [ -1, %31 ], [ %.098136, %.lr.ph138 ]
-  %38 = icmp slt i32 %.2109.lcssa, 0
+  %.2108.lcssa = phi i32 [ %2, %31 ], [ %34, %.lr.ph138 ]
+  %.2104.lcssa = phi i32 [ 1, %31 ], [ %35, %.lr.ph138 ]
+  %.097.lcssa = phi i32 [ -1, %31 ], [ %.097136, %.lr.ph138 ]
+  %38 = icmp slt i32 %.2108.lcssa, 0
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %._crit_edge139
-  %40 = udiv i32 %.2105.lcssa, %0
+  %40 = udiv i32 %.2104.lcssa, %0
   br label %41
 
 41:                                               ; preds = %39, %._crit_edge139
-  %.097 = phi i32 [ %40, %39 ], [ %2, %._crit_edge139 ]
+  %.0109 = phi i32 [ %40, %39 ], [ %2, %._crit_edge139 ]
   %42 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr null, ptr %42, align 8
-  %43 = icmp eq i32 %.0106.lcssa161, %.098.lcssa
+  %43 = icmp eq i32 %.0105.lcssa161, %.097.lcssa
   br i1 %43, label %.loopexit.sink.split, label %.preheader119
 
 .preheader119:                                    ; preds = %41
-  %.not115143 = icmp slt i32 %.0106.lcssa161, 0
+  %.not115143 = icmp slt i32 %.0105.lcssa161, 0
   br i1 %.not115143, label %._crit_edge148, label %.lr.ph147
 
 .lr.ph147:                                        ; preds = %.preheader119, %.lr.ph147
   %.1146 = phi i32 [ %44, %.lr.ph147 ], [ 0, %.preheader119 ]
-  %.1102145 = phi i32 [ %46, %.lr.ph147 ], [ 0, %.preheader119 ]
+  %.1101145 = phi i32 [ %46, %.lr.ph147 ], [ 0, %.preheader119 ]
   %.3144 = phi i32 [ %45, %.lr.ph147 ], [ 1, %.preheader119 ]
   %44 = add nuw nsw i32 %.1146, %.3144
   %45 = mul nuw nsw i32 %.3144, %0
-  %46 = add nuw i32 %.1102145, 1
-  %exitcond158.not = icmp eq i32 %.1102145, %.0106.lcssa161
+  %46 = add nuw i32 %.1101145, 1
+  %exitcond158.not = icmp eq i32 %.1101145, %.0105.lcssa161
   br i1 %exitcond158.not, label %._crit_edge148, label %.lr.ph147, !llvm.loop !13
 
 ._crit_edge148:                                   ; preds = %.lr.ph147, %.preheader119
   %.1.lcssa = phi i32 [ 0, %.preheader119 ], [ %44, %.lr.ph147 ]
-  %47 = mul nsw i32 %.099, %0
+  %47 = mul nsw i32 %.098, %0
   %48 = add nsw i32 %.1.lcssa, %47
   %49 = add nsw i32 %48, %0
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %49, i32 %.097)
-  %.not117.not = icmp slt i32 %48, %.097
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %49, i32 %.0109)
+  %.not117.not = icmp slt i32 %48, %.0109
   br i1 %.not117.not, label %50, label %.loopexit.sink.split
 
 50:                                               ; preds = %._crit_edge148

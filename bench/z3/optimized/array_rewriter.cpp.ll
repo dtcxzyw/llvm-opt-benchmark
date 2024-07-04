@@ -3601,7 +3601,7 @@ ehcleanup125:                                     ; preds = %lpad.loopexit1337, 
 
 for.body131:                                      ; preds = %for.body131.lr.ph, %for.inc147
   %indvars.iv1475 = phi i64 [ 0, %for.body131.lr.ph ], [ %indvars.iv.next1476, %for.inc147 ]
-  %lam.01426 = phi ptr [ null, %for.body131.lr.ph ], [ %lam.1, %for.inc147 ]
+  %lam.01425 = phi ptr [ null, %for.body131.lr.ph ], [ %lam.1, %for.inc147 ]
   %arrayidx133 = getelementptr inbounds ptr, ptr %args, i64 %indvars.iv1475
   %121 = load ptr, ptr %arrayidx133, align 8
   %m_kind.i.i.i415 = getelementptr inbounds i8, ptr %121, i64 4
@@ -3636,7 +3636,7 @@ _ZNK17array_recognizers8is_constEP4expr.exit431:  ; preds = %land.rhs.i.i423
   br i1 %127, label %for.inc147, label %if.end205
 
 for.inc147:                                       ; preds = %_Z9is_lambdaPK3ast.exit, %_ZNK17array_recognizers8is_constEP4expr.exit431
-  %lam.1 = phi ptr [ %lam.01426, %_ZNK17array_recognizers8is_constEP4expr.exit431 ], [ %121, %_Z9is_lambdaPK3ast.exit ]
+  %lam.1 = phi ptr [ %lam.01425, %_ZNK17array_recognizers8is_constEP4expr.exit431 ], [ %121, %_Z9is_lambdaPK3ast.exit ]
   %indvars.iv.next1476 = add nuw nsw i64 %indvars.iv1475, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next1476, %wide.trip.count
   br i1 %exitcond.not, label %for.end149, label %for.body131, !llvm.loop !16
@@ -3660,7 +3660,7 @@ for.body156.preheader:                            ; preds = %if.then151
 
 for.body156:                                      ; preds = %for.body156.preheader, %for.inc183
   %indvars.iv1478 = phi i64 [ 0, %for.body156.preheader ], [ %indvars.iv.next1479, %for.inc183 ]
-  %lam.31430 = phi ptr [ %lam.1, %for.body156.preheader ], [ %lam.4, %for.inc183 ]
+  %lam.31429 = phi ptr [ %lam.1, %for.body156.preheader ], [ %lam.4, %for.inc183 ]
   %arrayidx159 = getelementptr inbounds ptr, ptr %args, i64 %indvars.iv1478
   %130 = load ptr, ptr %arrayidx159, align 8
   %131 = load i32, ptr %this, align 8
@@ -3772,7 +3772,7 @@ if.then.i.i481:                                   ; preds = %lor.lhs.false.i.i47
 
 for.inc183.sink.split.sink.split:                 ; preds = %if.then.i.i481, %if.then.i.i454
   %.sink1601.ph = phi ptr [ %137, %if.then.i.i454 ], [ %143, %if.then.i.i481 ]
-  %lam.4.ph.ph = phi ptr [ %lam.31430, %if.then.i.i454 ], [ %130, %if.then.i.i481 ]
+  %lam.4.ph.ph = phi ptr [ %lam.31429, %if.then.i.i454 ], [ %130, %if.then.i.i481 ]
   %.pre.i.i482 = load ptr, ptr %m_nodes.i.i, align 8
   %arrayidx8.phi.trans.insert.i.i483 = getelementptr inbounds i8, ptr %.pre.i.i482, i64 -4
   %.pre1.i.i484 = load i32, ptr %arrayidx8.phi.trans.insert.i.i483, align 4
@@ -3782,7 +3782,7 @@ for.inc183.sink.split:                            ; preds = %for.inc183.sink.spl
   %.sink1603 = phi i32 [ %140, %lor.lhs.false.i.i ], [ %146, %lor.lhs.false.i.i473 ], [ %.pre1.i.i484, %for.inc183.sink.split.sink.split ]
   %.sink1602 = phi ptr [ %139, %lor.lhs.false.i.i ], [ %145, %lor.lhs.false.i.i473 ], [ %.pre.i.i482, %for.inc183.sink.split.sink.split ]
   %.sink1601 = phi ptr [ %137, %lor.lhs.false.i.i ], [ %143, %lor.lhs.false.i.i473 ], [ %.sink1601.ph, %for.inc183.sink.split.sink.split ]
-  %lam.4.ph = phi ptr [ %lam.31430, %lor.lhs.false.i.i ], [ %130, %lor.lhs.false.i.i473 ], [ %lam.4.ph.ph, %for.inc183.sink.split.sink.split ]
+  %lam.4.ph = phi ptr [ %lam.31429, %lor.lhs.false.i.i ], [ %130, %lor.lhs.false.i.i473 ], [ %lam.4.ph.ph, %for.inc183.sink.split.sink.split ]
   %idx.ext.i.i477 = zext i32 %.sink1603 to i64
   %add.ptr.i.i478 = getelementptr inbounds ptr, ptr %.sink1602, i64 %idx.ext.i.i477
   store ptr %.sink1601, ptr %add.ptr.i.i478, align 8
@@ -3794,7 +3794,7 @@ for.inc183.sink.split:                            ; preds = %for.inc183.sink.spl
   br label %for.inc183
 
 for.inc183:                                       ; preds = %for.inc183.sink.split, %for.body156, %invoke.cont162, %land.rhs.i.i437, %invoke.cont172
-  %lam.4 = phi ptr [ %lam.31430, %invoke.cont172 ], [ %lam.31430, %land.rhs.i.i437 ], [ %lam.31430, %invoke.cont162 ], [ %lam.31430, %for.body156 ], [ %lam.4.ph, %for.inc183.sink.split ]
+  %lam.4 = phi ptr [ %lam.31429, %invoke.cont172 ], [ %lam.31429, %land.rhs.i.i437 ], [ %lam.31429, %invoke.cont162 ], [ %lam.31429, %for.body156 ], [ %lam.4.ph, %for.inc183.sink.split ]
   %indvars.iv.next1479 = add nuw nsw i64 %indvars.iv1478, 1
   %exitcond1482.not = icmp eq i64 %indvars.iv.next1479, %wide.trip.count1481
   br i1 %exitcond1482.not, label %invoke.cont186, label %for.body156, !llvm.loop !17
@@ -10504,26 +10504,26 @@ if.then33:                                        ; preds = %land.lhs.true.i70
   %bf.load.i.i = load i32, ptr %m_kind.i.i, align 4
   %bf.clear.i.i = and i32 %bf.load.i.i, 65535
   %cmp.i76 = icmp eq i32 %bf.clear.i.i, 1
-  %spec.select = select i1 %cmp.i76, ptr %58, ptr %59
-  %spec.select142 = select i1 %cmp.i76, ptr %59, ptr %58
-  %m_kind.i.i77 = getelementptr inbounds i8, ptr %spec.select142, i64 4
+  %spec.select = select i1 %cmp.i76, ptr %59, ptr %58
+  %spec.select142 = select i1 %cmp.i76, ptr %58, ptr %59
+  %m_kind.i.i77 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %bf.load.i.i78 = load i32, ptr %m_kind.i.i77, align 4
   %bf.clear.i.i79 = and i32 %bf.load.i.i78, 65535
   %cmp.i80 = icmp eq i32 %bf.clear.i.i79, 1
   br i1 %cmp.i80, label %land.lhs.true, label %if.then.i.i.i
 
 land.lhs.true:                                    ; preds = %if.then33
-  %m_kind.i.i.i81 = getelementptr inbounds i8, ptr %spec.select, i64 4
+  %m_kind.i.i.i81 = getelementptr inbounds i8, ptr %spec.select142, i64 4
   %bf.load.i.i.i82 = load i32, ptr %m_kind.i.i.i81, align 4
   %bf.clear.i.i.i83 = and i32 %bf.load.i.i.i82, 65535
   %cmp.i.i84 = icmp eq i32 %bf.clear.i.i.i83, 0
   br i1 %cmp.i.i84, label %invoke.cont40, label %if.then.i.i.i
 
 invoke.cont40:                                    ; preds = %land.lhs.true
-  %m_num_args.i.i.i = getelementptr inbounds i8, ptr %spec.select, i64 24
+  %m_num_args.i.i.i = getelementptr inbounds i8, ptr %spec.select142, i64 24
   %60 = load i32, ptr %m_num_args.i.i.i, align 8
   %cmp.i.i.i85 = icmp eq i32 %60, 0
-  %m_args.i.i.i = getelementptr inbounds i8, ptr %spec.select, i64 32
+  %m_args.i.i.i = getelementptr inbounds i8, ptr %spec.select142, i64 32
   %idx.ext.i.i.i = zext i32 %60 to i64
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %m_args.i.i.i, i64 %idx.ext.i.i.i
   %cond.i.i.i = select i1 %cmp.i.i.i85, ptr @_ZN3app16g_constant_flagsE, ptr %add.ptr.i.i.i
@@ -10533,7 +10533,7 @@ invoke.cont40:                                    ; preds = %land.lhs.true
   br i1 %tobool.i.i.not, label %if.then.i.i.i, label %_ZN11ast_manager7inc_refEP3ast.exit.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %invoke.cont40
-  %m_idx.i = getelementptr inbounds i8, ptr %spec.select142, i64 16
+  %m_idx.i = getelementptr inbounds i8, ptr %spec.select, i64 16
   %62 = load i32, ptr %m_idx.i, align 8
   %63 = xor i32 %62, -1
   %sub47 = add i32 %63, %num_idxs
@@ -10541,7 +10541,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %invoke.cont40
   %idxprom.i.i = zext i32 %sub47 to i64
   %arrayidx.i.i88 = getelementptr inbounds ptr, ptr %64, i64 %idxprom.i.i
   %65 = load ptr, ptr %args, align 8
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %spec.select142, i64 8
   %66 = load i32, ptr %m_ref_count.i.i.i, align 4
   %inc.i.i.i = add i32 %66, 1
   store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i, align 4
@@ -10562,7 +10562,7 @@ if.then2.i.i:                                     ; preds = %if.then.i3.i
           to label %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit unwind label %lpad.loopexit.split-lp.loopexit
 
 _ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit: ; preds = %if.then2.i.i, %_ZN11ast_manager7inc_refEP3ast.exit.i, %if.then.i3.i
-  store ptr %spec.select, ptr %arrayidx.i.i88, align 8
+  store ptr %spec.select142, ptr %arrayidx.i.i88, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i, %if.then, %_ZN10ref_vectorI4expr11ast_managerE11element_refaSEPS0_.exit

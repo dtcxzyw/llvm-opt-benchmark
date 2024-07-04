@@ -1358,8 +1358,8 @@ ompi_message_return.exit80:                       ; preds = %opal_lifo_push_atom
   br label %ompi_message_return.exit
 
 ompi_message_return.exit:                         ; preds = %opal_free_list_return_mt.exit.sink.split.i.i, %43, %35, %33, %opal_lifo_push_atomic.exit.i.i.i, %94, %ompi_message_return.exit80, %6
-  %.0 = phi i32 [ -3, %6 ], [ %82, %94 ], [ 0, %ompi_message_return.exit80 ], [ -3, %opal_lifo_push_atomic.exit.i.i.i ], [ -3, %33 ], [ -3, %35 ], [ -3, %43 ], [ -3, %opal_free_list_return_mt.exit.sink.split.i.i ]
-  ret i32 %.0
+  %.058 = phi i32 [ -3, %6 ], [ %82, %94 ], [ 0, %ompi_message_return.exit80 ], [ -3, %opal_lifo_push_atomic.exit.i.i.i ], [ -3, %33 ], [ -3, %35 ], [ -3, %43 ], [ -3, %opal_free_list_return_mt.exit.sink.split.i.i ]
+  ret i32 %.058
 }
 
 ; Function Attrs: nounwind uwtable

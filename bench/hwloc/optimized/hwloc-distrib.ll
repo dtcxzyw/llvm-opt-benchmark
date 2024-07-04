@@ -190,7 +190,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef re
   %12 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 47) #18
   %.not = icmp eq ptr %12, null
   %13 = getelementptr inbounds i8, ptr %12, i64 1
-  %.0129 = select i1 %.not, ptr %11, ptr %13
+  %.0150 = select i1 %.not, ptr %11, ptr %13
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = add nsw i32 %0, -1
   %16 = tail call i32 @hwloc_get_api_version() #17
@@ -200,7 +200,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef re
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.63, ptr noundef %.0129, i32 noundef 196608, i32 noundef %16) #19
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.63, ptr noundef %.0150, i32 noundef 196608, i32 noundef %16) #19
   tail call void @exit(i32 noundef 1) #20
   unreachable
 
@@ -234,16 +234,16 @@ sub_0.lr.ph:                                      ; preds = %27
 sub_0:                                            ; preds = %sub_0.lr.ph, %hwloc_utils_parse_input_format.exit.i
   %.0126389 = phi i32 [ %15, %sub_0.lr.ph ], [ %203, %hwloc_utils_parse_input_format.exit.i ]
   %.0127388 = phi ptr [ %14, %sub_0.lr.ph ], [ %205, %hwloc_utils_parse_input_format.exit.i ]
-  %.0128387 = phi i64 [ -1, %sub_0.lr.ph ], [ %.1, %hwloc_utils_parse_input_format.exit.i ]
-  %.0134386 = phi i64 [ 0, %sub_0.lr.ph ], [ %.1135, %hwloc_utils_parse_input_format.exit.i ]
-  %.0136385 = phi i64 [ 0, %sub_0.lr.ph ], [ %.2, %hwloc_utils_parse_input_format.exit.i ]
-  %.0138384 = phi i64 [ 8, %sub_0.lr.ph ], [ %.1139, %hwloc_utils_parse_input_format.exit.i ]
-  %.0140383 = phi ptr [ null, %sub_0.lr.ph ], [ %.1141, %hwloc_utils_parse_input_format.exit.i ]
-  %.0142382 = phi ptr [ null, %sub_0.lr.ph ], [ %.1143, %hwloc_utils_parse_input_format.exit.i ]
-  %.0144381 = phi ptr [ null, %sub_0.lr.ph ], [ %.2146, %hwloc_utils_parse_input_format.exit.i ]
-  %.0147380 = phi i32 [ 0, %sub_0.lr.ph ], [ %.1148, %hwloc_utils_parse_input_format.exit.i ]
-  %.0149379 = phi i32 [ 0, %sub_0.lr.ph ], [ %.1150, %hwloc_utils_parse_input_format.exit.i ]
-  %.0151378 = phi i32 [ 0, %sub_0.lr.ph ], [ %.1152, %hwloc_utils_parse_input_format.exit.i ]
+  %.0131387 = phi i64 [ 0, %sub_0.lr.ph ], [ %.1132, %hwloc_utils_parse_input_format.exit.i ]
+  %.0133386 = phi i64 [ 0, %sub_0.lr.ph ], [ %.2, %hwloc_utils_parse_input_format.exit.i ]
+  %.0135385 = phi i64 [ 8, %sub_0.lr.ph ], [ %.1136, %hwloc_utils_parse_input_format.exit.i ]
+  %.0137384 = phi ptr [ null, %sub_0.lr.ph ], [ %.1138, %hwloc_utils_parse_input_format.exit.i ]
+  %.0139383 = phi ptr [ null, %sub_0.lr.ph ], [ %.1140, %hwloc_utils_parse_input_format.exit.i ]
+  %.0141382 = phi ptr [ null, %sub_0.lr.ph ], [ %.2143, %hwloc_utils_parse_input_format.exit.i ]
+  %.0144381 = phi i32 [ 0, %sub_0.lr.ph ], [ %.1145, %hwloc_utils_parse_input_format.exit.i ]
+  %.0146380 = phi i32 [ 0, %sub_0.lr.ph ], [ %.1147, %hwloc_utils_parse_input_format.exit.i ]
+  %.0148379 = phi i32 [ 0, %sub_0.lr.ph ], [ %.1149, %hwloc_utils_parse_input_format.exit.i ]
+  %.0151378 = phi i64 [ -1, %sub_0.lr.ph ], [ %.1152, %hwloc_utils_parse_input_format.exit.i ]
   %.0201377 = phi ptr [ null, %sub_0.lr.ph ], [ %.3, %hwloc_utils_parse_input_format.exit.i ]
   %.0.i.i364376 = phi i32 [ 0, %sub_0.lr.ph ], [ %.0.i.i363, %hwloc_utils_parse_input_format.exit.i ]
   %30 = load ptr, ptr %.0127388, align 8
@@ -583,7 +583,7 @@ hwloc_utils_lookup_input_option.exit:             ; preds = %89
 174:                                              ; preds = %168
   %175 = getelementptr inbounds i8, ptr %170, i64 8
   %176 = call noalias ptr @strdup(ptr noundef nonnull %175) #17
-  %177 = or i64 %.0136385, 8
+  %177 = or i64 %.0133386, 8
   br label %hwloc_utils_parse_input_format.exit.i
 
 178:                                              ; preds = %162
@@ -613,7 +613,7 @@ hwloc_utils_lookup_input_option.exit:             ; preds = %89
   br i1 %.not192, label %190, label %192
 
 190:                                              ; preds = %188
-  %191 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef %.0129, ptr noundef nonnull @.str.43)
+  %191 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef %.0150, ptr noundef nonnull @.str.43)
   call void @exit(i32 noundef 0) #20
   unreachable
 
@@ -625,7 +625,7 @@ hwloc_utils_lookup_input_option.exit:             ; preds = %89
   br label %hwloc_utils_disable_input_format.exit
 
 196:                                              ; preds = %42
-  %.not174 = icmp eq i64 %.0128387, -1
+  %.not174 = icmp eq i64 %.0151378, -1
   br i1 %.not174, label %201, label %197
 
 197:                                              ; preds = %196
@@ -643,16 +643,16 @@ hwloc_utils_parse_input_format.exit.i:            ; preds = %95, %99, %101, %103
   %.0.i.i363 = phi i32 [ %.0.i.i364376, %44 ], [ %.0.i.i364376, %46 ], [ %.0.i.i364376, %.tail209 ], [ %.0.i.i364376, %56 ], [ %.0.i.i364376, %58 ], [ %.0.i.i364376, %60 ], [ %.0.i.i364376, %139 ], [ %.0.i.i364376, %148 ], [ %.0.i.i364376, %157 ], [ %.0.i.i364376, %160 ], [ %.0.i.i364376, %184 ], [ %.0.i.i364376, %201 ], [ %.0.i.i364376, %85 ], [ %.0.i.i364376, %129 ], [ %.0.i.i364376, %125 ], [ %.0.i.i364376, %174 ], [ %.0.i.i364376, %172 ], [ 6, %109 ], [ 4, %107 ], [ 3, %105 ], [ 5, %103 ], [ 2, %101 ], [ 1, %99 ], [ 0, %95 ]
   %.3 = phi ptr [ %.0201377, %44 ], [ %.0201377, %46 ], [ %.0201377, %.tail209 ], [ %.0201377, %56 ], [ %.0201377, %58 ], [ %.0201377, %60 ], [ %.0201377, %139 ], [ %.0201377, %148 ], [ %.0201377, %157 ], [ %.0201377, %160 ], [ %.0201377, %184 ], [ %.0201377, %201 ], [ %..i, %85 ], [ %.0201377, %129 ], [ %.0201377, %125 ], [ %.0201377, %174 ], [ %.0201377, %172 ], [ %.0201377, %109 ], [ %.0201377, %107 ], [ %.0201377, %105 ], [ %.0201377, %103 ], [ %.0201377, %101 ], [ %.0201377, %99 ], [ %.0201377, %95 ]
   %.1200 = phi i32 [ 1, %44 ], [ 1, %46 ], [ 1, %.tail209 ], [ 1, %56 ], [ 1, %58 ], [ 1, %60 ], [ 2, %139 ], [ 2, %148 ], [ 2, %157 ], [ 1, %160 ], [ 2, %184 ], [ 1, %201 ], [ 2, %85 ], [ 2, %129 ], [ 2, %125 ], [ 2, %174 ], [ 2, %172 ], [ 2, %109 ], [ 2, %107 ], [ 2, %105 ], [ 2, %103 ], [ 2, %101 ], [ 2, %99 ], [ 2, %95 ]
-  %.1152 = phi i32 [ %.0151378, %44 ], [ 1, %46 ], [ %.0151378, %.tail209 ], [ %.0151378, %56 ], [ %.0151378, %58 ], [ %.0151378, %60 ], [ %.0151378, %139 ], [ %.0151378, %148 ], [ %.0151378, %157 ], [ %.0151378, %160 ], [ %.0151378, %184 ], [ %.0151378, %201 ], [ %.0151378, %85 ], [ %.0151378, %129 ], [ %.0151378, %125 ], [ %.0151378, %174 ], [ %.0151378, %172 ], [ %.0151378, %109 ], [ %.0151378, %107 ], [ %.0151378, %105 ], [ %.0151378, %103 ], [ %.0151378, %101 ], [ %.0151378, %99 ], [ %.0151378, %95 ]
-  %.1150 = phi i32 [ 1, %44 ], [ %.0149379, %46 ], [ %.0149379, %.tail209 ], [ %.0149379, %56 ], [ %.0149379, %58 ], [ %.0149379, %60 ], [ %.0149379, %139 ], [ %.0149379, %148 ], [ %.0149379, %157 ], [ %.0149379, %160 ], [ %.0149379, %184 ], [ %.0149379, %201 ], [ %.0149379, %85 ], [ %.0149379, %129 ], [ %.0149379, %125 ], [ %.0149379, %174 ], [ %.0149379, %172 ], [ %.0149379, %109 ], [ %.0149379, %107 ], [ %.0149379, %105 ], [ %.0149379, %103 ], [ %.0149379, %101 ], [ %.0149379, %99 ], [ %.0149379, %95 ]
-  %.1148 = phi i32 [ %.0147380, %44 ], [ %.0147380, %46 ], [ 1, %.tail209 ], [ 1, %56 ], [ %.0147380, %58 ], [ %.0147380, %60 ], [ %.0147380, %139 ], [ %.0147380, %148 ], [ %.0147380, %157 ], [ %.0147380, %160 ], [ %.0147380, %184 ], [ %.0147380, %201 ], [ %.0147380, %85 ], [ %.0147380, %129 ], [ %.0147380, %125 ], [ %.0147380, %174 ], [ %.0147380, %172 ], [ %.0147380, %109 ], [ %.0147380, %107 ], [ %.0147380, %105 ], [ %.0147380, %103 ], [ %.0147380, %101 ], [ %.0147380, %99 ], [ %.0147380, %95 ]
-  %.2146 = phi ptr [ %.0144381, %44 ], [ %.0144381, %46 ], [ %.0144381, %.tail209 ], [ %.0144381, %56 ], [ %.0144381, %58 ], [ %.0144381, %60 ], [ %.0144381, %139 ], [ %.0144381, %148 ], [ %.0144381, %157 ], [ %.0144381, %160 ], [ %.0144381, %184 ], [ %.0144381, %201 ], [ %.0144381, %85 ], [ %.0144381, %129 ], [ %.0144381, %125 ], [ %176, %174 ], [ %173, %172 ], [ %.0144381, %109 ], [ %.0144381, %107 ], [ %.0144381, %105 ], [ %.0144381, %103 ], [ %.0144381, %101 ], [ %.0144381, %99 ], [ %.0144381, %95 ]
-  %.1143 = phi ptr [ %.0142382, %44 ], [ %.0142382, %46 ], [ %.0142382, %.tail209 ], [ %.0142382, %56 ], [ %.0142382, %58 ], [ %.0142382, %60 ], [ %141, %139 ], [ %.0142382, %148 ], [ %159, %157 ], [ %.0142382, %160 ], [ %.0142382, %184 ], [ %.0142382, %201 ], [ %.0142382, %85 ], [ %.0142382, %129 ], [ %.0142382, %125 ], [ %.0142382, %174 ], [ %.0142382, %172 ], [ %.0142382, %109 ], [ %.0142382, %107 ], [ %.0142382, %105 ], [ %.0142382, %103 ], [ %.0142382, %101 ], [ %.0142382, %99 ], [ %.0142382, %95 ]
-  %.1141 = phi ptr [ %.0140383, %44 ], [ %.0140383, %46 ], [ %.0140383, %.tail209 ], [ %.0140383, %56 ], [ %.0140383, %58 ], [ %.0140383, %60 ], [ %.0140383, %139 ], [ %150, %148 ], [ %159, %157 ], [ %.0140383, %160 ], [ %.0140383, %184 ], [ %.0140383, %201 ], [ %.0140383, %85 ], [ %.0140383, %129 ], [ %.0140383, %125 ], [ %.0140383, %174 ], [ %.0140383, %172 ], [ %.0140383, %109 ], [ %.0140383, %107 ], [ %.0140383, %105 ], [ %.0140383, %103 ], [ %.0140383, %101 ], [ %.0140383, %99 ], [ %.0140383, %95 ]
-  %.1139 = phi i64 [ %.0138384, %44 ], [ %.0138384, %46 ], [ %.0138384, %.tail209 ], [ %.0138384, %56 ], [ 9, %58 ], [ 9, %60 ], [ %.0138384, %139 ], [ %.0138384, %148 ], [ %.0138384, %157 ], [ %.0138384, %160 ], [ %.0138384, %184 ], [ %.0138384, %201 ], [ %.0138384, %85 ], [ %.0138384, %129 ], [ %.0138384, %125 ], [ %.0138384, %174 ], [ %.0138384, %172 ], [ %.0138384, %109 ], [ %.0138384, %107 ], [ %.0138384, %105 ], [ %.0138384, %103 ], [ %.0138384, %101 ], [ %.0138384, %99 ], [ %.0138384, %95 ]
-  %.2 = phi i64 [ %.0136385, %44 ], [ %.0136385, %46 ], [ %.0136385, %.tail209 ], [ %.0136385, %56 ], [ %.0136385, %58 ], [ %.0136385, %60 ], [ %.0136385, %139 ], [ %.0136385, %148 ], [ %.0136385, %157 ], [ %.0136385, %160 ], [ %187, %184 ], [ %.0136385, %201 ], [ %.0136385, %85 ], [ %.0136385, %129 ], [ %.0136385, %125 ], [ %177, %174 ], [ %.0136385, %172 ], [ %.0136385, %109 ], [ %.0136385, %107 ], [ %.0136385, %105 ], [ %.0136385, %103 ], [ %.0136385, %101 ], [ %.0136385, %99 ], [ %.0136385, %95 ]
-  %.1135 = phi i64 [ %.0134386, %44 ], [ %.0134386, %46 ], [ %.0134386, %.tail209 ], [ %.0134386, %56 ], [ %.0134386, %58 ], [ %.0134386, %60 ], [ %.0134386, %139 ], [ %.0134386, %148 ], [ %.0134386, %157 ], [ 1, %160 ], [ %.0134386, %184 ], [ %.0134386, %201 ], [ %.0134386, %85 ], [ %.0134386, %129 ], [ %.0134386, %125 ], [ %.0134386, %174 ], [ %.0134386, %172 ], [ %.0134386, %109 ], [ %.0134386, %107 ], [ %.0134386, %105 ], [ %.0134386, %103 ], [ %.0134386, %101 ], [ %.0134386, %99 ], [ %.0134386, %95 ]
-  %.1 = phi i64 [ %.0128387, %44 ], [ %.0128387, %46 ], [ %.0128387, %.tail209 ], [ %.0128387, %56 ], [ %.0128387, %58 ], [ %.0128387, %60 ], [ %.0128387, %139 ], [ %.0128387, %148 ], [ %.0128387, %157 ], [ %.0128387, %160 ], [ %.0128387, %184 ], [ %202, %201 ], [ %.0128387, %85 ], [ %.0128387, %129 ], [ %.0128387, %125 ], [ %.0128387, %174 ], [ %.0128387, %172 ], [ %.0128387, %109 ], [ %.0128387, %107 ], [ %.0128387, %105 ], [ %.0128387, %103 ], [ %.0128387, %101 ], [ %.0128387, %99 ], [ %.0128387, %95 ]
+  %.1152 = phi i64 [ %.0151378, %44 ], [ %.0151378, %46 ], [ %.0151378, %.tail209 ], [ %.0151378, %56 ], [ %.0151378, %58 ], [ %.0151378, %60 ], [ %.0151378, %139 ], [ %.0151378, %148 ], [ %.0151378, %157 ], [ %.0151378, %160 ], [ %.0151378, %184 ], [ %202, %201 ], [ %.0151378, %85 ], [ %.0151378, %129 ], [ %.0151378, %125 ], [ %.0151378, %174 ], [ %.0151378, %172 ], [ %.0151378, %109 ], [ %.0151378, %107 ], [ %.0151378, %105 ], [ %.0151378, %103 ], [ %.0151378, %101 ], [ %.0151378, %99 ], [ %.0151378, %95 ]
+  %.1149 = phi i32 [ %.0148379, %44 ], [ 1, %46 ], [ %.0148379, %.tail209 ], [ %.0148379, %56 ], [ %.0148379, %58 ], [ %.0148379, %60 ], [ %.0148379, %139 ], [ %.0148379, %148 ], [ %.0148379, %157 ], [ %.0148379, %160 ], [ %.0148379, %184 ], [ %.0148379, %201 ], [ %.0148379, %85 ], [ %.0148379, %129 ], [ %.0148379, %125 ], [ %.0148379, %174 ], [ %.0148379, %172 ], [ %.0148379, %109 ], [ %.0148379, %107 ], [ %.0148379, %105 ], [ %.0148379, %103 ], [ %.0148379, %101 ], [ %.0148379, %99 ], [ %.0148379, %95 ]
+  %.1147 = phi i32 [ 1, %44 ], [ %.0146380, %46 ], [ %.0146380, %.tail209 ], [ %.0146380, %56 ], [ %.0146380, %58 ], [ %.0146380, %60 ], [ %.0146380, %139 ], [ %.0146380, %148 ], [ %.0146380, %157 ], [ %.0146380, %160 ], [ %.0146380, %184 ], [ %.0146380, %201 ], [ %.0146380, %85 ], [ %.0146380, %129 ], [ %.0146380, %125 ], [ %.0146380, %174 ], [ %.0146380, %172 ], [ %.0146380, %109 ], [ %.0146380, %107 ], [ %.0146380, %105 ], [ %.0146380, %103 ], [ %.0146380, %101 ], [ %.0146380, %99 ], [ %.0146380, %95 ]
+  %.1145 = phi i32 [ %.0144381, %44 ], [ %.0144381, %46 ], [ 1, %.tail209 ], [ 1, %56 ], [ %.0144381, %58 ], [ %.0144381, %60 ], [ %.0144381, %139 ], [ %.0144381, %148 ], [ %.0144381, %157 ], [ %.0144381, %160 ], [ %.0144381, %184 ], [ %.0144381, %201 ], [ %.0144381, %85 ], [ %.0144381, %129 ], [ %.0144381, %125 ], [ %.0144381, %174 ], [ %.0144381, %172 ], [ %.0144381, %109 ], [ %.0144381, %107 ], [ %.0144381, %105 ], [ %.0144381, %103 ], [ %.0144381, %101 ], [ %.0144381, %99 ], [ %.0144381, %95 ]
+  %.2143 = phi ptr [ %.0141382, %44 ], [ %.0141382, %46 ], [ %.0141382, %.tail209 ], [ %.0141382, %56 ], [ %.0141382, %58 ], [ %.0141382, %60 ], [ %.0141382, %139 ], [ %.0141382, %148 ], [ %.0141382, %157 ], [ %.0141382, %160 ], [ %.0141382, %184 ], [ %.0141382, %201 ], [ %.0141382, %85 ], [ %.0141382, %129 ], [ %.0141382, %125 ], [ %176, %174 ], [ %173, %172 ], [ %.0141382, %109 ], [ %.0141382, %107 ], [ %.0141382, %105 ], [ %.0141382, %103 ], [ %.0141382, %101 ], [ %.0141382, %99 ], [ %.0141382, %95 ]
+  %.1140 = phi ptr [ %.0139383, %44 ], [ %.0139383, %46 ], [ %.0139383, %.tail209 ], [ %.0139383, %56 ], [ %.0139383, %58 ], [ %.0139383, %60 ], [ %141, %139 ], [ %.0139383, %148 ], [ %159, %157 ], [ %.0139383, %160 ], [ %.0139383, %184 ], [ %.0139383, %201 ], [ %.0139383, %85 ], [ %.0139383, %129 ], [ %.0139383, %125 ], [ %.0139383, %174 ], [ %.0139383, %172 ], [ %.0139383, %109 ], [ %.0139383, %107 ], [ %.0139383, %105 ], [ %.0139383, %103 ], [ %.0139383, %101 ], [ %.0139383, %99 ], [ %.0139383, %95 ]
+  %.1138 = phi ptr [ %.0137384, %44 ], [ %.0137384, %46 ], [ %.0137384, %.tail209 ], [ %.0137384, %56 ], [ %.0137384, %58 ], [ %.0137384, %60 ], [ %.0137384, %139 ], [ %150, %148 ], [ %159, %157 ], [ %.0137384, %160 ], [ %.0137384, %184 ], [ %.0137384, %201 ], [ %.0137384, %85 ], [ %.0137384, %129 ], [ %.0137384, %125 ], [ %.0137384, %174 ], [ %.0137384, %172 ], [ %.0137384, %109 ], [ %.0137384, %107 ], [ %.0137384, %105 ], [ %.0137384, %103 ], [ %.0137384, %101 ], [ %.0137384, %99 ], [ %.0137384, %95 ]
+  %.1136 = phi i64 [ %.0135385, %44 ], [ %.0135385, %46 ], [ %.0135385, %.tail209 ], [ %.0135385, %56 ], [ 9, %58 ], [ 9, %60 ], [ %.0135385, %139 ], [ %.0135385, %148 ], [ %.0135385, %157 ], [ %.0135385, %160 ], [ %.0135385, %184 ], [ %.0135385, %201 ], [ %.0135385, %85 ], [ %.0135385, %129 ], [ %.0135385, %125 ], [ %.0135385, %174 ], [ %.0135385, %172 ], [ %.0135385, %109 ], [ %.0135385, %107 ], [ %.0135385, %105 ], [ %.0135385, %103 ], [ %.0135385, %101 ], [ %.0135385, %99 ], [ %.0135385, %95 ]
+  %.2 = phi i64 [ %.0133386, %44 ], [ %.0133386, %46 ], [ %.0133386, %.tail209 ], [ %.0133386, %56 ], [ %.0133386, %58 ], [ %.0133386, %60 ], [ %.0133386, %139 ], [ %.0133386, %148 ], [ %.0133386, %157 ], [ %.0133386, %160 ], [ %187, %184 ], [ %.0133386, %201 ], [ %.0133386, %85 ], [ %.0133386, %129 ], [ %.0133386, %125 ], [ %177, %174 ], [ %.0133386, %172 ], [ %.0133386, %109 ], [ %.0133386, %107 ], [ %.0133386, %105 ], [ %.0133386, %103 ], [ %.0133386, %101 ], [ %.0133386, %99 ], [ %.0133386, %95 ]
+  %.1132 = phi i64 [ %.0131387, %44 ], [ %.0131387, %46 ], [ %.0131387, %.tail209 ], [ %.0131387, %56 ], [ %.0131387, %58 ], [ %.0131387, %60 ], [ %.0131387, %139 ], [ %.0131387, %148 ], [ %.0131387, %157 ], [ 1, %160 ], [ %.0131387, %184 ], [ %.0131387, %201 ], [ %.0131387, %85 ], [ %.0131387, %129 ], [ %.0131387, %125 ], [ %.0131387, %174 ], [ %.0131387, %172 ], [ %.0131387, %109 ], [ %.0131387, %107 ], [ %.0131387, %105 ], [ %.0131387, %103 ], [ %.0131387, %101 ], [ %.0131387, %99 ], [ %.0131387, %95 ]
   %203 = sub nsw i32 %.0126389, %.1200
   %204 = zext nneg i32 %.1200 to i64
   %205 = getelementptr inbounds ptr, ptr %.0127388, i64 %204
@@ -662,19 +662,19 @@ hwloc_utils_parse_input_format.exit.i:            ; preds = %95, %99, %101, %103
 .tail._crit_edge:                                 ; preds = %hwloc_utils_parse_input_format.exit.i, %.tail
   %.0.i.i364.lcssa = phi i32 [ %.0.i.i364376, %.tail ], [ %.0.i.i363, %hwloc_utils_parse_input_format.exit.i ]
   %.0201.lcssa = phi ptr [ %.0201377, %.tail ], [ %.3, %hwloc_utils_parse_input_format.exit.i ]
-  %.0151.lcssa = phi i32 [ %.0151378, %.tail ], [ %.1152, %hwloc_utils_parse_input_format.exit.i ]
-  %.0149.lcssa = phi i32 [ %.0149379, %.tail ], [ %.1150, %hwloc_utils_parse_input_format.exit.i ]
-  %.0147.lcssa = phi i32 [ %.0147380, %.tail ], [ %.1148, %hwloc_utils_parse_input_format.exit.i ]
-  %.0144.lcssa = phi ptr [ %.0144381, %.tail ], [ %.2146, %hwloc_utils_parse_input_format.exit.i ]
-  %.0142.lcssa = phi ptr [ %.0142382, %.tail ], [ %.1143, %hwloc_utils_parse_input_format.exit.i ]
-  %.0140.lcssa = phi ptr [ %.0140383, %.tail ], [ %.1141, %hwloc_utils_parse_input_format.exit.i ]
-  %.0138.lcssa = phi i64 [ %.0138384, %.tail ], [ %.1139, %hwloc_utils_parse_input_format.exit.i ]
-  %.0136.lcssa = phi i64 [ %.0136385, %.tail ], [ %.2, %hwloc_utils_parse_input_format.exit.i ]
-  %.0134.lcssa = phi i64 [ %.0134386, %.tail ], [ %.1135, %hwloc_utils_parse_input_format.exit.i ]
-  %.0128.lcssa = phi i64 [ %.0128387, %.tail ], [ %.1, %hwloc_utils_parse_input_format.exit.i ]
+  %.0151.lcssa = phi i64 [ %.0151378, %.tail ], [ %.1152, %hwloc_utils_parse_input_format.exit.i ]
+  %.0148.lcssa = phi i32 [ %.0148379, %.tail ], [ %.1149, %hwloc_utils_parse_input_format.exit.i ]
+  %.0146.lcssa = phi i32 [ %.0146380, %.tail ], [ %.1147, %hwloc_utils_parse_input_format.exit.i ]
+  %.0144.lcssa = phi i32 [ %.0144381, %.tail ], [ %.1145, %hwloc_utils_parse_input_format.exit.i ]
+  %.0141.lcssa = phi ptr [ %.0141382, %.tail ], [ %.2143, %hwloc_utils_parse_input_format.exit.i ]
+  %.0139.lcssa = phi ptr [ %.0139383, %.tail ], [ %.1140, %hwloc_utils_parse_input_format.exit.i ]
+  %.0137.lcssa = phi ptr [ %.0137384, %.tail ], [ %.1138, %hwloc_utils_parse_input_format.exit.i ]
+  %.0135.lcssa = phi i64 [ %.0135385, %.tail ], [ %.1136, %hwloc_utils_parse_input_format.exit.i ]
+  %.0133.lcssa = phi i64 [ %.0133386, %.tail ], [ %.2, %hwloc_utils_parse_input_format.exit.i ]
+  %.0131.lcssa = phi i64 [ %.0131387, %.tail ], [ %.1132, %hwloc_utils_parse_input_format.exit.i ]
   store i32 -1, ptr %.sroa.2.0..sroa_idx.i, align 4
   store i32 %.0.i.i364.lcssa, ptr %3, align 8
-  %207 = icmp eq i64 %.0128.lcssa, -1
+  %207 = icmp eq i64 %.0151.lcssa, -1
   br i1 %207, label %.thread, label %211
 
 .thread:                                          ; preds = %27, %.tail._crit_edge
@@ -685,23 +685,23 @@ hwloc_utils_parse_input_format.exit.i:            ; preds = %95, %99, %101, %103
   br label %hwloc_utils_disable_input_format.exit
 
 211:                                              ; preds = %.tail._crit_edge
-  %.not162 = icmp eq i32 %.0147.lcssa, 0
+  %.not162 = icmp eq i32 %.0144.lcssa, 0
   br i1 %.not162, label %215, label %212
 
 212:                                              ; preds = %211
   %213 = load ptr, ptr @stderr, align 8
-  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef nonnull @.str.47, i64 noundef %.0128.lcssa) #19
+  %214 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %213, ptr noundef nonnull @.str.47, i64 noundef %.0151.lcssa) #19
   br label %215
 
 215:                                              ; preds = %212, %211
-  %216 = shl i64 %.0128.lcssa, 3
+  %216 = shl i64 %.0151.lcssa, 3
   %217 = call noalias ptr @malloc(i64 noundef %216) #22
   %.not163 = icmp eq ptr %.0201.lcssa, null
   br i1 %.not163, label %222, label %218
 
 218:                                              ; preds = %215
   %219 = load ptr, ptr %4, align 8
-  %220 = call fastcc i32 @hwloc_utils_enable_input_format(ptr noundef %219, ptr noundef nonnull %.0201.lcssa, ptr noundef nonnull %3, i32 noundef %.0147.lcssa, ptr noundef %.0129)
+  %220 = call fastcc i32 @hwloc_utils_enable_input_format(ptr noundef %219, ptr noundef nonnull %.0201.lcssa, ptr noundef nonnull %3, i32 noundef %.0144.lcssa, ptr noundef %.0150)
   %.not164 = icmp eq i32 %220, 0
   br i1 %.not164, label %222, label %221
 
@@ -711,7 +711,7 @@ hwloc_utils_parse_input_format.exit.i:            ; preds = %95, %99, %101, %103
 
 222:                                              ; preds = %218, %215
   %223 = load ptr, ptr %4, align 8
-  %224 = call i32 @hwloc_topology_set_flags(ptr noundef %223, i64 noundef %.0138.lcssa) #17
+  %224 = call i32 @hwloc_topology_set_flags(ptr noundef %223, i64 noundef %.0135.lcssa) #17
   %225 = load ptr, ptr %4, align 8
   %226 = call i32 @hwloc_topology_load(ptr noundef %225) #17
   %227 = icmp slt i32 %226, 0
@@ -764,14 +764,14 @@ hwloc_utils_parse_input_format.exit.i:            ; preds = %95, %99, %101, %103
   br label %hwloc_utils_disable_input_format.exit196
 
 hwloc_utils_disable_input_format.exit196:         ; preds = %246, %239, %238
-  %.not166 = icmp eq ptr %.0144.lcssa, null
+  %.not166 = icmp eq ptr %.0141.lcssa, null
   br i1 %.not166, label %255, label %248
 
 248:                                              ; preds = %hwloc_utils_disable_input_format.exit196
   %249 = call noalias ptr @hwloc_bitmap_alloc() #17
-  %250 = call i32 @hwloc_bitmap_sscanf(ptr noundef %249, ptr noundef nonnull %.0144.lcssa) #17
+  %250 = call i32 @hwloc_bitmap_sscanf(ptr noundef %249, ptr noundef nonnull %.0141.lcssa) #17
   %251 = load ptr, ptr %4, align 8
-  %252 = call i32 @hwloc_topology_restrict(ptr noundef %251, ptr noundef %249, i64 noundef %.0136.lcssa) #17
+  %252 = call i32 @hwloc_topology_restrict(ptr noundef %251, ptr noundef %249, i64 noundef %.0133.lcssa) #17
   %.not167 = icmp eq i32 %252, 0
   br i1 %.not167, label %254, label %253
 
@@ -781,15 +781,15 @@ hwloc_utils_disable_input_format.exit196:         ; preds = %246, %239, %238
 
 254:                                              ; preds = %253, %248
   call void @hwloc_bitmap_free(ptr noundef %249) #17
-  call void @free(ptr noundef nonnull %.0144.lcssa) #17
+  call void @free(ptr noundef nonnull %.0141.lcssa) #17
   br label %255
 
 255:                                              ; preds = %254, %hwloc_utils_disable_input_format.exit196
-  %.not168 = icmp eq ptr %.0142.lcssa, null
+  %.not168 = icmp eq ptr %.0139.lcssa, null
   br i1 %.not168, label %267, label %256
 
 256:                                              ; preds = %255
-  %257 = call i32 @hwloc_type_sscanf(ptr noundef nonnull %.0142.lcssa, ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef 48) #17
+  %257 = call i32 @hwloc_type_sscanf(ptr noundef nonnull %.0139.lcssa, ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef 48) #17
   %258 = icmp slt i32 %257, 0
   br i1 %258, label %264, label %259
 
@@ -802,16 +802,16 @@ hwloc_utils_disable_input_format.exit196:         ; preds = %246, %239, %238
 
 264:                                              ; preds = %259, %256
   %265 = load ptr, ptr @stderr, align 8
-  %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %265, ptr noundef nonnull @.str.49, ptr noundef nonnull %.0142.lcssa) #19
+  %266 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %265, ptr noundef nonnull @.str.49, ptr noundef nonnull %.0139.lcssa) #19
   br label %hwloc_utils_disable_input_format.exit
 
 267:                                              ; preds = %259, %255
-  %.0131 = phi i32 [ %262, %259 ], [ 0, %255 ]
-  %.not169 = icmp eq ptr %.0140.lcssa, null
+  %.0129 = phi i32 [ %262, %259 ], [ 0, %255 ]
+  %.not169 = icmp eq ptr %.0137.lcssa, null
   br i1 %.not169, label %276, label %268
 
 268:                                              ; preds = %267
-  %269 = call i32 @hwloc_type_sscanf(ptr noundef nonnull %.0140.lcssa, ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 48) #17
+  %269 = call i32 @hwloc_type_sscanf(ptr noundef nonnull %.0137.lcssa, ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 48) #17
   %270 = icmp slt i32 %269, 0
   br i1 %270, label %hwloc_utils_disable_input_format.exit, label %271
 
@@ -823,9 +823,9 @@ hwloc_utils_disable_input_format.exit196:         ; preds = %246, %239, %238
   br i1 %275, label %hwloc_utils_disable_input_format.exit, label %276
 
 276:                                              ; preds = %271, %267
-  %.0130 = phi i32 [ %274, %271 ], [ 2147483647, %267 ]
+  %.0128 = phi i32 [ %274, %271 ], [ 2147483647, %267 ]
   %277 = load ptr, ptr %4, align 8
-  %278 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %277, i32 noundef %.0131) #18
+  %278 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef %277, i32 noundef %.0129) #18
   %279 = zext i32 %278 to i64
   %280 = shl nuw nsw i64 %279, 3
   %281 = call noalias ptr @malloc(i64 noundef %280) #22
@@ -835,7 +835,7 @@ hwloc_utils_disable_input_format.exit196:         ; preds = %246, %239, %238
 .lr.ph:                                           ; preds = %276, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %276 ]
   %282 = trunc nuw i64 %indvars.iv to i32
-  %283 = call ptr @hwloc_get_obj_by_depth(ptr noundef %277, i32 noundef %.0131, i32 noundef %282) #18
+  %283 = call ptr @hwloc_get_obj_by_depth(ptr noundef %277, i32 noundef %.0129, i32 noundef %282) #18
   %284 = getelementptr inbounds ptr, ptr %281, i64 %indvars.iv
   store ptr %283, ptr %284, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -843,16 +843,16 @@ hwloc_utils_disable_input_format.exit196:         ; preds = %246, %239, %238
   br i1 %exitcond.not, label %._crit_edge428, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge428:                                   ; preds = %.lr.ph, %276
-  %285 = trunc i64 %.0128.lcssa to i32
-  call fastcc void @hwloc_distrib(ptr noundef %281, i32 noundef %278, ptr noundef %217, i32 noundef %285, i32 noundef %.0130, i64 noundef %.0134.lcssa)
-  %286 = icmp sgt i64 %.0128.lcssa, 0
+  %285 = trunc i64 %.0151.lcssa to i32
+  call fastcc void @hwloc_distrib(ptr noundef %281, i32 noundef %278, ptr noundef %217, i32 noundef %285, i32 noundef %.0128, i64 noundef %.0131.lcssa)
+  %286 = icmp sgt i64 %.0151.lcssa, 0
   br i1 %286, label %.lr.ph431, label %._crit_edge432
 
 .lr.ph431:                                        ; preds = %._crit_edge428
-  %.not170 = icmp eq i32 %.0149.lcssa, 0
-  %287 = and i64 %.0134.lcssa, 1
+  %.not170 = icmp eq i32 %.0146.lcssa, 0
+  %287 = and i64 %.0131.lcssa, 1
   %.not171 = icmp eq i64 %287, 0
-  %.not172 = icmp eq i32 %.0151.lcssa, 0
+  %.not172 = icmp eq i32 %.0148.lcssa, 0
   br i1 %.not170, label %.lr.ph431.split.us, label %.lr.ph431.split
 
 .lr.ph431.split.us:                               ; preds = %.lr.ph431
@@ -860,7 +860,7 @@ hwloc_utils_disable_input_format.exit196:         ; preds = %246, %239, %238
 
 .lr.ph431.split.us.split.us:                      ; preds = %.lr.ph431.split.us, %.lr.ph431.split.us.split.us
   %288 = phi i64 [ %295, %.lr.ph431.split.us.split.us ], [ 0, %.lr.ph431.split.us ]
-  %.1133429.us.us = phi i32 [ %294, %.lr.ph431.split.us.split.us ], [ 0, %.lr.ph431.split.us ]
+  %.1429.us.us = phi i32 [ %294, %.lr.ph431.split.us.split.us ], [ 0, %.lr.ph431.split.us ]
   store ptr null, ptr %10, align 8
   %289 = getelementptr inbounds ptr, ptr %217, i64 %288
   %290 = load ptr, ptr %289, align 8
@@ -870,14 +870,14 @@ hwloc_utils_disable_input_format.exit196:         ; preds = %246, %239, %238
   %293 = load ptr, ptr %10, align 8
   call void @free(ptr noundef %293) #17
   call void @hwloc_bitmap_free(ptr noundef %290) #17
-  %294 = add i32 %.1133429.us.us, 1
+  %294 = add i32 %.1429.us.us, 1
   %295 = zext i32 %294 to i64
-  %296 = icmp ugt i64 %.0128.lcssa, %295
+  %296 = icmp ugt i64 %.0151.lcssa, %295
   br i1 %296, label %.lr.ph431.split.us.split.us, label %._crit_edge432, !llvm.loop !8
 
 .lr.ph431.split.us.split:                         ; preds = %.lr.ph431.split.us, %.lr.ph431.split.us.split
   %297 = phi i64 [ %304, %.lr.ph431.split.us.split ], [ 0, %.lr.ph431.split.us ]
-  %.1133429.us = phi i32 [ %303, %.lr.ph431.split.us.split ], [ 0, %.lr.ph431.split.us ]
+  %.1429.us = phi i32 [ %303, %.lr.ph431.split.us.split ], [ 0, %.lr.ph431.split.us ]
   store ptr null, ptr %10, align 8
   %298 = getelementptr inbounds ptr, ptr %217, i64 %297
   %299 = load ptr, ptr %298, align 8
@@ -887,14 +887,14 @@ hwloc_utils_disable_input_format.exit196:         ; preds = %246, %239, %238
   %302 = load ptr, ptr %10, align 8
   call void @free(ptr noundef %302) #17
   call void @hwloc_bitmap_free(ptr noundef %299) #17
-  %303 = add i32 %.1133429.us, 1
+  %303 = add i32 %.1429.us, 1
   %304 = zext i32 %303 to i64
-  %305 = icmp ugt i64 %.0128.lcssa, %304
+  %305 = icmp ugt i64 %.0151.lcssa, %304
   br i1 %305, label %.lr.ph431.split.us.split, label %._crit_edge432, !llvm.loop !8
 
 .lr.ph431.split:                                  ; preds = %.lr.ph431, %319
   %306 = phi i64 [ %323, %319 ], [ 0, %.lr.ph431 ]
-  %.1133429 = phi i32 [ %322, %319 ], [ 0, %.lr.ph431 ]
+  %.1429 = phi i32 [ %322, %319 ], [ 0, %.lr.ph431 ]
   store ptr null, ptr %10, align 8
   %307 = getelementptr inbounds ptr, ptr %217, i64 %306
   %308 = load ptr, ptr %307, align 8
@@ -926,9 +926,9 @@ hwloc_utils_disable_input_format.exit196:         ; preds = %246, %239, %238
   %321 = load ptr, ptr %10, align 8
   call void @free(ptr noundef %321) #17
   call void @hwloc_bitmap_free(ptr noundef %308) #17
-  %322 = add i32 %.1133429, 1
+  %322 = add i32 %.1429, 1
   %323 = zext i32 %322 to i64
-  %324 = icmp ugt i64 %.0128.lcssa, %323
+  %324 = icmp ugt i64 %.0151.lcssa, %323
   br i1 %324, label %.lr.ph431.split, label %._crit_edge432, !llvm.loop !8
 
 ._crit_edge432:                                   ; preds = %319, %.lr.ph431.split.us.split, %.lr.ph431.split.us.split.us, %._crit_edge428
@@ -999,13 +999,13 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
   %12 = phi i8 [ %19, %.lr.ph.i ], [ %11, %10 ]
-  %.0637.i = phi i64 [ %17, %.lr.ph.i ], [ 0, %10 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 %.0637.i
+  %.0617.i = phi i64 [ %17, %.lr.ph.i ], [ 0, %10 ]
+  %13 = getelementptr inbounds i8, ptr %0, i64 %.0617.i
   %14 = sext i8 %12 to i32
   %15 = tail call i32 @toupper(i32 noundef %14) #18
   %16 = trunc i32 %15 to i8
   store i8 %16, ptr %13, align 1
-  %17 = add i64 %.0637.i, 1
+  %17 = add i64 %.0617.i, 1
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   %19 = load i8, ptr %18, align 1
   %.not71.i = icmp eq i8 %19, 0
@@ -1017,14 +1017,14 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
   br i1 %21, label %hwloc_utils_parse_flags.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.split14.us.i
-  %.061.i = phi i64 [ %.us-phi15.i, %.split14.us.i ], [ 0, %._crit_edge.i ]
-  %.059.i = phi ptr [ %storemerge.i, %.split14.us.i ], [ %0, %._crit_edge.i ]
-  %.not72.i = icmp eq ptr %.059.i, null
+  %.063.i = phi ptr [ %storemerge.i, %.split14.us.i ], [ %0, %._crit_edge.i ]
+  %.059.i = phi i64 [ %.us-phi15.i, %.split14.us.i ], [ 0, %._crit_edge.i ]
+  %.not72.i = icmp eq ptr %.063.i, null
   br i1 %.not72.i, label %hwloc_utils_parse_flags.exit, label %22
 
 22:                                               ; preds = %.preheader.i
-  %23 = tail call i64 @strspn(ptr noundef nonnull %.059.i, ptr noundef nonnull @.str.83) #18
-  %24 = getelementptr inbounds i8, ptr %.059.i, i64 %23
+  %23 = tail call i64 @strspn(ptr noundef nonnull %.063.i, ptr noundef nonnull @.str.83) #18
+  %24 = getelementptr inbounds i8, ptr %.063.i, i64 %23
   %25 = tail call i64 @strcspn(ptr noundef nonnull %24, ptr noundef nonnull @.str.84) #18
   %.not73.i = icmp eq i64 %25, 0
   br i1 %.not73.i, label %hwloc_utils_parse_flags.exit, label %26
@@ -1055,8 +1055,8 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
 
 .split.us.i:                                      ; preds = %31, %43
   %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %43 ], [ 0, %31 ]
-  %.06010.us.i = phi i32 [ %.1.us.i, %43 ], [ 0, %31 ]
-  %.1629.us.i = phi i64 [ %.2.us.i, %43 ], [ %.061.i, %31 ]
+  %.05810.us.i = phi i32 [ %.1.us.i, %43 ], [ 0, %31 ]
+  %.1609.us.i = phi i64 [ %.2.us.i, %43 ], [ %.059.i, %31 ]
   %35 = getelementptr inbounds %struct.hwloc_utils_parsing_flag, ptr @__const.hwloc_utils_parse_restrict_flags.possible_flags, i64 %indvars.iv25.i, i32 1
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %24) #18
@@ -1064,26 +1064,26 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
   br i1 %.not76.us.i, label %43, label %38
 
 38:                                               ; preds = %.split.us.i
-  %.not78.us.i = icmp eq i32 %.06010.us.i, 0
+  %.not78.us.i = icmp eq i32 %.05810.us.i, 0
   br i1 %.not78.us.i, label %39, label %.split12.us.i
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds %struct.hwloc_utils_parsing_flag, ptr @__const.hwloc_utils_parse_restrict_flags.possible_flags, i64 %indvars.iv25.i
   %41 = load i64, ptr %40, align 16
-  %42 = or i64 %41, %.1629.us.i
+  %42 = or i64 %41, %.1609.us.i
   br label %43
 
 43:                                               ; preds = %39, %.split.us.i
-  %.2.us.i = phi i64 [ %42, %39 ], [ %.1629.us.i, %.split.us.i ]
-  %.1.us.i = phi i32 [ 1, %39 ], [ %.06010.us.i, %.split.us.i ]
+  %.2.us.i = phi i64 [ %42, %39 ], [ %.1609.us.i, %.split.us.i ]
+  %.1.us.i = phi i32 [ 1, %39 ], [ %.05810.us.i, %.split.us.i ]
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 5
   br i1 %exitcond28.not.i, label %.split14.us.i, label %.split.us.i, !llvm.loop !10
 
 44:                                               ; preds = %67, %.split.i
   %indvars.iv.i = phi i64 [ 0, %.split.i ], [ %indvars.iv.next.i, %67 ]
-  %.06010.i = phi i32 [ 0, %.split.i ], [ %.1.i, %67 ]
-  %.1629.i = phi i64 [ %.061.i, %.split.i ], [ %.2.i, %67 ]
+  %.05810.i = phi i32 [ 0, %.split.i ], [ %.1.i, %67 ]
+  %.1609.i = phi i64 [ %.059.i, %.split.i ], [ %.2.i, %67 ]
   %45 = getelementptr inbounds %struct.hwloc_utils_parsing_flag, ptr @__const.hwloc_utils_parse_restrict_flags.possible_flags, i64 %indvars.iv.i, i32 1
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #18
@@ -1094,7 +1094,7 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
   br i1 %.not77.i, label %51, label %67
 
 51:                                               ; preds = %44
-  %.not78.i = icmp eq i32 %.06010.i, 0
+  %.not78.i = icmp eq i32 %.05810.i, 0
   br i1 %.not78.i, label %63, label %.split12.us.i
 
 .split12.us.i:                                    ; preds = %51, %38
@@ -1121,19 +1121,19 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
 63:                                               ; preds = %51
   %64 = getelementptr inbounds %struct.hwloc_utils_parsing_flag, ptr @__const.hwloc_utils_parse_restrict_flags.possible_flags, i64 %indvars.iv.i
   %65 = load i64, ptr %64, align 16
-  %66 = or i64 %65, %.1629.i
+  %66 = or i64 %65, %.1609.i
   br label %67
 
 67:                                               ; preds = %63, %44
-  %.2.i = phi i64 [ %.1629.i, %44 ], [ %66, %63 ]
-  %.1.i = phi i32 [ %.06010.i, %44 ], [ 1, %63 ]
+  %.2.i = phi i64 [ %.1609.i, %44 ], [ %66, %63 ]
+  %.1.i = phi i32 [ %.05810.i, %44 ], [ 1, %63 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.not.i, label %.split14.us.i, label %44, !llvm.loop !10
 
 .split14.us.i:                                    ; preds = %67, %43
   %.us-phi15.i = phi i64 [ %.2.us.i, %43 ], [ %.2.i, %67 ]
-  %68 = icmp eq i64 %.061.i, %.us-phi15.i
+  %68 = icmp eq i64 %.059.i, %.us-phi15.i
   br i1 %68, label %69, label %.preheader.i, !llvm.loop !12
 
 69:                                               ; preds = %.split14.us.i
@@ -1143,9 +1143,9 @@ define internal fastcc i64 @hwloc_utils_parse_restrict_flags(ptr noundef %0) unn
   br label %hwloc_utils_parse_flags.exit
 
 hwloc_utils_parse_flags.exit:                     ; preds = %.preheader.i, %22, %56, %8, %._crit_edge.i, %69
-  %.058.i = phi i64 [ %9, %8 ], [ -1, %69 ], [ 0, %._crit_edge.i ], [ -1, %56 ], [ %.061.i, %22 ], [ %.061.i, %.preheader.i ]
+  %.064.i = phi i64 [ %9, %8 ], [ -1, %69 ], [ 0, %._crit_edge.i ], [ -1, %56 ], [ %.059.i, %22 ], [ %.059.i, %.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  ret i64 %.058.i
+  ret i64 %.064.i
 }
 
 ; Function Attrs: nofree nounwind
@@ -1643,24 +1643,24 @@ define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i3
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.06179 = phi i32 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
+  %.06480 = phi i32 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
   %9 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 184
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @hwloc_bitmap_weight(ptr noundef %12) #18
-  %14 = add i32 %13, %.06179
+  %14 = add i32 %13, %.06480
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader78, label %.lr.ph, !llvm.loop !14
 
 15:                                               ; preds = %.lr.ph91, %61
-  %.190 = phi i32 [ 0, %.lr.ph91 ], [ %62, %61 ]
-  %.06289 = phi ptr [ %2, %.lr.ph91 ], [ %.163, %61 ]
-  %.06488 = phi i32 [ 0, %.lr.ph91 ], [ %.165, %61 ]
-  %16 = xor i32 %.190, -1
+  %.05990 = phi ptr [ %2, %.lr.ph91 ], [ %.1, %61 ]
+  %.06089 = phi i32 [ 0, %.lr.ph91 ], [ %.161, %61 ]
+  %.16687 = phi i32 [ 0, %.lr.ph91 ], [ %62, %61 ]
+  %16 = xor i32 %.16687, -1
   %17 = add i32 %16, %1
-  %18 = select i1 %.not, i32 %.190, i32 %17
+  %18 = select i1 %.not, i32 %.16687, i32 %17
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds ptr, ptr %0, i64 %19
   %21 = load ptr, ptr %20, align 8
@@ -1672,8 +1672,8 @@ define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i3
   br i1 %.not7481, label %.lr.ph83, label %._crit_edge
 
 .lr.ph83:                                         ; preds = %15, %.lr.ph83
-  %.05982 = phi ptr [ %27, %.lr.ph83 ], [ %21, %15 ]
-  %26 = getelementptr inbounds i8, ptr %.05982, i64 72
+  %.05882 = phi ptr [ %27, %.lr.ph83 ], [ %21, %15 ]
+  %26 = getelementptr inbounds i8, ptr %.05882, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
   %29 = tail call i32 @hwloc_obj_type_is_normal(i32 noundef %28) #17
@@ -1681,21 +1681,21 @@ define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i3
   br i1 %.not74, label %.lr.ph83, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph83, %15
-  %.059.lcssa = phi ptr [ %21, %15 ], [ %27, %.lr.ph83 ]
+  %.058.lcssa = phi ptr [ %21, %15 ], [ %27, %.lr.ph83 ]
   %30 = tail call i32 @hwloc_bitmap_weight(ptr noundef %23) #18
   %.not75 = icmp eq i32 %30, 0
   br i1 %.not75, label %61, label %31
 
 31:                                               ; preds = %._crit_edge
-  %32 = add i32 %30, %.06488
+  %32 = add i32 %30, %.06089
   %33 = mul i32 %32, %3
   %34 = add i32 %8, %33
   %35 = udiv i32 %34, %14
-  %36 = mul i32 %.06488, %3
+  %36 = mul i32 %.06089, %3
   %37 = add i32 %8, %36
   %38 = udiv i32 %37, %14
   %39 = sub i32 %35, %38
-  %40 = getelementptr inbounds i8, ptr %.059.lcssa, i64 104
+  %40 = getelementptr inbounds i8, ptr %.058.lcssa, i64 104
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 0
   %43 = icmp ult i32 %39, 2
@@ -1703,7 +1703,7 @@ define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i3
   br i1 %or.cond, label %47, label %44
 
 44:                                               ; preds = %31
-  %45 = getelementptr inbounds i8, ptr %.059.lcssa, i64 48
+  %45 = getelementptr inbounds i8, ptr %.058.lcssa, i64 48
   %46 = load i32, ptr %45, align 8
   %.not76 = icmp slt i32 %46, %4
   br i1 %.not76, label %56, label %47
@@ -1719,33 +1719,33 @@ define internal fastcc void @hwloc_distrib(ptr nocapture noundef readonly %0, i3
 .lr.ph86:                                         ; preds = %.lr.ph86.preheader, %.lr.ph86
   %indvars.iv98 = phi i64 [ 0, %.lr.ph86.preheader ], [ %indvars.iv.next99, %.lr.ph86 ]
   %49 = tail call noalias ptr @hwloc_bitmap_dup(ptr noundef %23) #17
-  %50 = getelementptr inbounds ptr, ptr %.06289, i64 %indvars.iv98
+  %50 = getelementptr inbounds ptr, ptr %.05990, i64 %indvars.iv98
   store ptr %49, ptr %50, align 8
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %51 = icmp ult i64 %indvars.iv.next99, %48
   br i1 %51, label %.lr.ph86, label %.loopexit, !llvm.loop !16
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %.06289, i64 -8
+  %53 = getelementptr inbounds i8, ptr %.05990, i64 -8
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 @hwloc_bitmap_or(ptr noundef %54, ptr noundef %54, ptr noundef %23) #17
   br label %.loopexit
 
 56:                                               ; preds = %44
-  %57 = getelementptr inbounds i8, ptr %.059.lcssa, i64 112
+  %57 = getelementptr inbounds i8, ptr %.058.lcssa, i64 112
   %58 = load ptr, ptr %57, align 8
-  tail call fastcc void @hwloc_distrib(ptr noundef %58, i32 noundef %41, ptr noundef %.06289, i32 noundef %39, i32 noundef %4, i64 noundef %5)
+  tail call fastcc void @hwloc_distrib(ptr noundef %58, i32 noundef %41, ptr noundef %.05990, i32 noundef %39, i32 noundef %4, i64 noundef %5)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph86, %52, %56
   %59 = zext i32 %39 to i64
-  %60 = getelementptr inbounds ptr, ptr %.06289, i64 %59
+  %60 = getelementptr inbounds ptr, ptr %.05990, i64 %59
   br label %61
 
 61:                                               ; preds = %._crit_edge, %.loopexit
-  %.165 = phi i32 [ %32, %.loopexit ], [ %.06488, %._crit_edge ]
-  %.163 = phi ptr [ %60, %.loopexit ], [ %.06289, %._crit_edge ]
-  %62 = add nuw i32 %.190, 1
+  %.161 = phi i32 [ %32, %.loopexit ], [ %.06089, %._crit_edge ]
+  %.1 = phi ptr [ %60, %.loopexit ], [ %.05990, %._crit_edge ]
+  %62 = add nuw i32 %.16687, 1
   %exitcond101.not = icmp eq i32 %62, %1
   br i1 %exitcond101.not, label %._crit_edge92, label %15, !llvm.loop !17
 

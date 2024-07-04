@@ -548,22 +548,22 @@ define linkonce_odr hidden void @_ZN4LIEF8optimizeISt6vectorISt10unique_ptrINS_3
   br i1 %.not7.i, label %.loopexit166, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %29, %33
-  %.sroa.03.09.i = phi ptr [ %35, %33 ], [ %30, %29 ]
-  %.sroa.3.08.i = phi ptr [ %34, %33 ], [ %20, %29 ]
-  invoke void %2(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.03.09.i)
+  %.sroa.3.09.i = phi ptr [ %34, %33 ], [ %20, %29 ]
+  %.sroa.03.08.i = phi ptr [ %35, %33 ], [ %30, %29 ]
+  invoke void %2(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.03.08.i)
           to label %.noexc unwind label %.loopexit.split-lp156.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %8, ptr %6, align 8
-  %32 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE17_M_insert_unique_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr %.sroa.3.08.i, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %32 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE17_M_insert_unique_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr %.sroa.3.09.i, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %33 unwind label %36
 
 33:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %34 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %32) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
-  %35 = getelementptr inbounds i8, ptr %.sroa.03.09.i, i64 8
+  %35 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 8
   %.not.i = icmp eq ptr %35, %31
   br i1 %.not.i, label %.loopexit166, label %.lr.ph.i, !llvm.loop !6
 
@@ -1833,22 +1833,22 @@ define linkonce_odr hidden void @_ZN4LIEF8optimizeISt6vectorINSt7__cxx1112basic_
   br i1 %.not7.i, label %.loopexit166, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %29, %33
-  %.sroa.03.09.i = phi ptr [ %35, %33 ], [ %30, %29 ]
-  %.sroa.3.08.i = phi ptr [ %34, %33 ], [ %20, %29 ]
-  invoke void %2(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.09.i)
+  %.sroa.3.09.i = phi ptr [ %34, %33 ], [ %20, %29 ]
+  %.sroa.03.08.i = phi ptr [ %35, %33 ], [ %30, %29 ]
+  invoke void %2(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.03.08.i)
           to label %.noexc unwind label %.loopexit.split-lp156.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %8, ptr %6, align 8
-  %32 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE17_M_insert_unique_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr %.sroa.3.08.i, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %32 = invoke ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE17_M_insert_unique_IS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr %.sroa.3.09.i, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %33 unwind label %36
 
 33:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %34 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %32) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
-  %35 = getelementptr inbounds i8, ptr %.sroa.03.09.i, i64 32
+  %35 = getelementptr inbounds i8, ptr %.sroa.03.08.i, i64 32
   %.not.i = icmp eq ptr %35, %31
   br i1 %.not.i, label %.loopexit166, label %.lr.ph.i, !llvm.loop !16
 

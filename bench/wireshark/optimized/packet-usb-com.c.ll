@@ -1037,7 +1037,7 @@ define internal i32 @dissect_usb_com_bulk(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not53, label %34, label %100
 
 34:                                               ; preds = %31, %25
-  %.045 = phi ptr [ %24, %31 ], [ %27, %25 ]
+  %.046 = phi ptr [ %24, %31 ], [ %27, %25 ]
   %35 = getelementptr inbounds i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
   call void @col_set_str(ptr noundef %36, i32 noundef 34, ptr noundef nonnull @.str.182) #8
@@ -1046,7 +1046,7 @@ define internal i32 @dissect_usb_com_bulk(ptr noundef %0, ptr noundef %1, ptr no
   %39 = load i32, ptr @ett_usb_com, align 4
   %40 = call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39) #8
   %41 = load i32, ptr @hf_usb_com_data_stream, align 4
-  %42 = load i32, ptr %.045, align 4
+  %42 = load i32, ptr %.046, align 4
   %43 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %42) #8
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %44

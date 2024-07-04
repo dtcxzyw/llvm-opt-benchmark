@@ -545,18 +545,18 @@ define internal noundef ptr @listen_thread(ptr nocapture readnone %0) #0 {
   store i32 128, ptr %2, align 4
   %5 = load atomic i8, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1656) seq_cst, align 8
   %6 = trunc i8 %5 to i1
-  br i1 %6, label %.preheader98, label %.loopexit
+  br i1 %6, label %.preheader99, label %.loopexit
 
-.preheader98:                                     ; preds = %1, %.backedge
+.preheader99:                                     ; preds = %1, %.backedge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false)
-  %.074106 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1480), align 8
-  %.not107 = icmp eq ptr %.074106, getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1360)
-  br i1 %.not107, label %._crit_edge, label %.lr.ph
+  %.071107 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1480), align 8
+  %.not108 = icmp eq ptr %.071107, getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1360)
+  br i1 %.not108, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader98, %.lr.ph
-  %.074109 = phi ptr [ %.074, %.lr.ph ], [ %.074106, %.preheader98 ]
-  %.071108 = phi i32 [ %..071, %.lr.ph ], [ -1, %.preheader98 ]
-  %7 = getelementptr inbounds i8, ptr %.074109, i64 284
+.lr.ph:                                           ; preds = %.preheader99, %.lr.ph
+  %.071110 = phi ptr [ %.071, %.lr.ph ], [ %.071107, %.preheader99 ]
+  %.074109 = phi i32 [ %..074, %.lr.ph ], [ -1, %.preheader99 ]
+  %7 = getelementptr inbounds i8, ptr %.071110, i64 284
   %8 = load i32, ptr %7, align 4
   %9 = srem i32 %8, 64
   %10 = zext nneg i32 %9 to i64
@@ -568,14 +568,14 @@ define internal noundef ptr @listen_thread(ptr nocapture readnone %0) #0 {
   %16 = or i64 %11, %15
   store i64 %16, ptr %14, align 8
   %17 = load i32, ptr %7, align 4
-  %..071 = call i32 @llvm.smax.i32(i32 %17, i32 %.071108)
-  %18 = getelementptr inbounds i8, ptr %.074109, i64 120
-  %.074 = load ptr, ptr %18, align 8
-  %.not = icmp eq ptr %.074, getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1360)
+  %..074 = call i32 @llvm.smax.i32(i32 %17, i32 %.074109)
+  %18 = getelementptr inbounds i8, ptr %.071110, i64 120
+  %.071 = load ptr, ptr %18, align 8
+  %.not = icmp eq ptr %.071, getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1360)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader98
-  %.071.lcssa = phi i32 [ -1, %.preheader98 ], [ %..071, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader99
+  %.074.lcssa = phi i32 [ -1, %.preheader99 ], [ %..074, %.lr.ph ]
   %19 = load i32, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1680), align 8
   %20 = srem i32 %19, 64
   %21 = zext nneg i32 %20 to i64
@@ -586,7 +586,7 @@ define internal noundef ptr @listen_thread(ptr nocapture readnone %0) #0 {
   %26 = load i64, ptr %25, align 8
   %27 = or i64 %22, %26
   store i64 %27, ptr %25, align 8
-  %28 = call i32 @llvm.smax.i32(i32 %19, i32 %.071.lcssa)
+  %28 = call i32 @llvm.smax.i32(i32 %19, i32 %.074.lcssa)
   %29 = load <2 x i64>, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1664), align 8
   store <2 x i64> %29, ptr %3, align 16
   %30 = add nsw i32 %28, 1
@@ -602,7 +602,7 @@ define internal noundef ptr @listen_thread(ptr nocapture readnone %0) #0 {
 .preheader:                                       ; preds = %34
   %36 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1480), align 8
   %37 = icmp eq ptr %36, getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1360)
-  br i1 %37, label %.backedge, label %.lr.ph115
+  br i1 %37, label %.backedge, label %.lr.ph116
 
 38:                                               ; preds = %34
   %39 = tail call ptr @__errno_location() #14
@@ -616,15 +616,15 @@ define internal noundef ptr @listen_thread(ptr nocapture readnone %0) #0 {
   call void @perror(ptr noundef nonnull @.str.19) #16
   br label %.backedge
 
-.backedge:                                        ; preds = %._crit_edge116, %.preheader, %41, %38, %38
+.backedge:                                        ; preds = %._crit_edge117, %.preheader, %41, %38, %38
   %42 = load atomic i8, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1656) seq_cst, align 8
   %43 = trunc i8 %42 to i1
-  br i1 %43, label %.preheader98, label %.loopexit, !llvm.loop !9
+  br i1 %43, label %.preheader99, label %.loopexit, !llvm.loop !9
 
-.lr.ph115:                                        ; preds = %.preheader, %.lr.ph115.backedge
-  %.175113 = phi ptr [ %.175113.be, %.lr.ph115.backedge ], [ %36, %.preheader ]
-  %.072112 = phi i32 [ %.072112.be, %.lr.ph115.backedge ], [ 0, %.preheader ]
-  %44 = getelementptr inbounds i8, ptr %.175113, i64 284
+.lr.ph116:                                        ; preds = %.preheader, %.lr.ph116.backedge
+  %.1114 = phi ptr [ %.1114.be, %.lr.ph116.backedge ], [ %36, %.preheader ]
+  %.072113 = phi i32 [ %.072113.be, %.lr.ph116.backedge ], [ 0, %.preheader ]
+  %44 = getelementptr inbounds i8, ptr %.1114, i64 284
   %45 = load i32, ptr %44, align 4
   %46 = sdiv i32 %45, 64
   %47 = sext i32 %46 to i64
@@ -634,10 +634,10 @@ define internal noundef ptr @listen_thread(ptr nocapture readnone %0) #0 {
   %51 = zext nneg i32 %50 to i64
   %52 = shl nuw i64 1, %51
   %53 = and i64 %52, %49
-  %.not84 = icmp eq i64 %53, 0
-  br i1 %.not84, label %177, label %54
+  %.not85 = icmp eq i64 %53, 0
+  br i1 %.not85, label %177, label %54
 
-54:                                               ; preds = %.lr.ph115
+54:                                               ; preds = %.lr.ph116
   %55 = load i64, ptr getelementptr inbounds (i8, ptr @prte_oob_tcp_pending_connection_t_class, i64 56), align 8
   %56 = call noalias noundef ptr @malloc(i64 noundef %55) #15
   %57 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -724,14 +724,14 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %60, %6
   call void %96(ptr noundef %56) #13
   %97 = getelementptr inbounds i8, ptr %.07.i, i64 8
   %98 = load ptr, ptr %97, align 8
-  %.not.i89 = icmp eq ptr %98, null
-  br i1 %.not.i89, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !10
+  %.not.i90 = icmp eq ptr %98, null
+  br i1 %.not.i90, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !10
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %90
   %99 = getelementptr inbounds i8, ptr %56, i64 96
   %100 = load ptr, ptr %99, align 8
-  %.not86 = icmp eq ptr %100, null
-  br i1 %.not86, label %103, label %101
+  %.not87 = icmp eq ptr %100, null
+  br i1 %.not87, label %103, label %101
 
 101:                                              ; preds = %pmix_obj_run_destructors.exit
   %102 = getelementptr inbounds i8, ptr %56, i64 56
@@ -790,7 +790,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %90
   br label %133
 
 133:                                              ; preds = %126, %121, %119
-  %134 = getelementptr inbounds i8, ptr %.175113, i64 288
+  %134 = getelementptr inbounds i8, ptr %.1114, i64 288
   %135 = load i16, ptr %134, align 8
   %136 = icmp ult i16 %135, 1025
   br i1 %136, label %137, label %175
@@ -837,57 +837,57 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %90
   %164 = getelementptr inbounds i8, ptr %163, i64 48
   %165 = load ptr, ptr %164, align 8
   %166 = load ptr, ptr %165, align 8
-  %.not6.i91 = icmp eq ptr %166, null
-  br i1 %.not6.i91, label %pmix_obj_run_destructors.exit95, label %.lr.ph.i92
+  %.not6.i92 = icmp eq ptr %166, null
+  br i1 %.not6.i92, label %pmix_obj_run_destructors.exit96, label %.lr.ph.i93
 
-.lr.ph.i92:                                       ; preds = %161, %.lr.ph.i92
-  %167 = phi ptr [ %169, %.lr.ph.i92 ], [ %166, %161 ]
-  %.07.i93 = phi ptr [ %168, %.lr.ph.i92 ], [ %165, %161 ]
+.lr.ph.i93:                                       ; preds = %161, %.lr.ph.i93
+  %167 = phi ptr [ %169, %.lr.ph.i93 ], [ %166, %161 ]
+  %.07.i94 = phi ptr [ %168, %.lr.ph.i93 ], [ %165, %161 ]
   call void %167(ptr noundef %56) #13
-  %168 = getelementptr inbounds i8, ptr %.07.i93, i64 8
+  %168 = getelementptr inbounds i8, ptr %.07.i94, i64 8
   %169 = load ptr, ptr %168, align 8
-  %.not.i94 = icmp eq ptr %169, null
-  br i1 %.not.i94, label %pmix_obj_run_destructors.exit95, label %.lr.ph.i92, !llvm.loop !10
+  %.not.i95 = icmp eq ptr %169, null
+  br i1 %.not.i95, label %pmix_obj_run_destructors.exit96, label %.lr.ph.i93, !llvm.loop !10
 
-pmix_obj_run_destructors.exit95:                  ; preds = %.lr.ph.i92, %161
+pmix_obj_run_destructors.exit96:                  ; preds = %.lr.ph.i93, %161
   %170 = getelementptr inbounds i8, ptr %56, i64 96
   %171 = load ptr, ptr %170, align 8
-  %.not85 = icmp eq ptr %171, null
-  br i1 %.not85, label %174, label %172
+  %.not86 = icmp eq ptr %171, null
+  br i1 %.not86, label %174, label %172
 
-172:                                              ; preds = %pmix_obj_run_destructors.exit95
+172:                                              ; preds = %pmix_obj_run_destructors.exit96
   %173 = getelementptr inbounds i8, ptr %56, i64 56
   call void %171(ptr noundef nonnull %173, ptr noundef nonnull %56) #13
   br label %177
 
-174:                                              ; preds = %pmix_obj_run_destructors.exit95
+174:                                              ; preds = %pmix_obj_run_destructors.exit96
   call void @free(ptr noundef nonnull %56) #13
   br label %177
 
 175:                                              ; preds = %137, %133
   fence release
   call void @event_active(ptr noundef nonnull %72, i32 noundef 4, i16 noundef signext 1) #13
-  %176 = add nsw i32 %.072112, 1
+  %176 = add nsw i32 %.072113, 1
   br label %177
 
-177:                                              ; preds = %172, %174, %104, %155, %.lr.ph115, %175, %115
-  %.1 = phi i32 [ %.072112, %.lr.ph115 ], [ %.072112, %104 ], [ %.072112, %115 ], [ %.072112, %155 ], [ %176, %175 ], [ %.072112, %174 ], [ %.072112, %172 ]
-  %178 = getelementptr inbounds i8, ptr %.175113, i64 120
-  %.175 = load ptr, ptr %178, align 8
-  %.not83 = icmp eq ptr %.175, getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1360)
-  br i1 %.not83, label %._crit_edge116, label %.lr.ph115.backedge
+177:                                              ; preds = %172, %174, %104, %155, %.lr.ph116, %175, %115
+  %.173 = phi i32 [ %.072113, %.lr.ph116 ], [ %.072113, %104 ], [ %.072113, %115 ], [ %.072113, %155 ], [ %176, %175 ], [ %.072113, %174 ], [ %.072113, %172 ]
+  %178 = getelementptr inbounds i8, ptr %.1114, i64 120
+  %.1 = load ptr, ptr %178, align 8
+  %.not84 = icmp eq ptr %.1, getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1360)
+  br i1 %.not84, label %._crit_edge117, label %.lr.ph116.backedge
 
-.lr.ph115.backedge:                               ; preds = %177, %._crit_edge116
-  %.175113.be = phi ptr [ %.175, %177 ], [ %.175110.pr, %._crit_edge116 ]
-  %.072112.be = phi i32 [ %.1, %177 ], [ 0, %._crit_edge116 ]
-  br label %.lr.ph115, !llvm.loop !11
+.lr.ph116.backedge:                               ; preds = %177, %._crit_edge117
+  %.1114.be = phi ptr [ %.1, %177 ], [ %.1111.pr, %._crit_edge117 ]
+  %.072113.be = phi i32 [ %.173, %177 ], [ 0, %._crit_edge117 ]
+  br label %.lr.ph116, !llvm.loop !11
 
-._crit_edge116:                                   ; preds = %177
-  %179 = icmp slt i32 %.1, 1
-  %.175110.pr = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1480), align 8
-  %.not83111 = icmp eq ptr %.175110.pr, getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1360)
-  %or.cond134 = select i1 %179, i1 true, i1 %.not83111
-  br i1 %or.cond134, label %.backedge, label %.lr.ph115.backedge
+._crit_edge117:                                   ; preds = %177
+  %179 = icmp slt i32 %.173, 1
+  %.1111.pr = load ptr, ptr getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1480), align 8
+  %.not84112 = icmp eq ptr %.1111.pr, getelementptr inbounds (i8, ptr @prte_mca_oob_tcp_component, i64 1360)
+  %or.cond135 = select i1 %179, i1 true, i1 %.not84112
+  br i1 %or.cond135, label %.backedge, label %.lr.ph116.backedge
 
 .loopexit:                                        ; preds = %._crit_edge, %.backedge, %1, %107
   ret ptr null

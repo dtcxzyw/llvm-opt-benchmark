@@ -70,23 +70,23 @@ define hidden i32 @der_offs(ptr nocapture noundef readonly %0, ptr nocapture nou
   %9 = load i8, ptr %5, align 1
   %10 = and i8 %9, 31
   %.not20.i = icmp eq i8 %10, 31
-  br i1 %.not20.i, label %11, label %gettag.exit.thread31
+  br i1 %.not20.i, label %11, label %gettag.exit.thread30
 
 11:                                               ; preds = %8
   %.not21.i.not = icmp eq i64 %., 1
   br i1 %.not21.i.not, label %gettag.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %11, %15
-  %.028 = phi i64 [ %17, %15 ], [ 1, %11 ]
+  %.027 = phi i64 [ %17, %15 ], [ 1, %11 ]
   %.0.i = phi i32 [ %20, %15 ], [ 31, %11 ]
-  %12 = getelementptr inbounds i8, ptr %5, i64 %.028
+  %12 = getelementptr inbounds i8, ptr %5, i64 %.027
   %13 = load i8, ptr %12, align 1
   %14 = icmp slt i8 %13, 0
   br i1 %14, label %15, label %gettag.exit
 
 15:                                               ; preds = %.preheader.i
   %16 = shl i32 %.0.i, 7
-  %17 = add nuw i64 %.028, 1
+  %17 = add nuw i64 %.027, 1
   %18 = zext i8 %13 to i32
   %19 = add i32 %16, -128
   %20 = add i32 %19, %18
@@ -95,17 +95,17 @@ define hidden i32 @der_offs(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 gettag.exit:                                      ; preds = %.preheader.i
   %21 = icmp eq i32 %.0.i, -1
-  br i1 %21, label %gettag.exit.thread, label %gettag.exit.thread31
+  br i1 %21, label %gettag.exit.thread, label %gettag.exit.thread30
 
-gettag.exit.thread31:                             ; preds = %8, %gettag.exit
-  %.134 = phi i64 [ %.028, %gettag.exit ], [ 1, %8 ]
-  %.not.i22 = icmp ult i64 %.134, %.
+gettag.exit.thread30:                             ; preds = %8, %gettag.exit
+  %.133 = phi i64 [ %.027, %gettag.exit ], [ 1, %8 ]
+  %.not.i22 = icmp ult i64 %.133, %.
   br i1 %.not.i22, label %22, label %gettag.exit.thread
 
-22:                                               ; preds = %gettag.exit.thread31
-  %23 = getelementptr inbounds i8, ptr %5, i64 %.134
+22:                                               ; preds = %gettag.exit.thread30
+  %23 = getelementptr inbounds i8, ptr %5, i64 %.133
   %24 = load i8, ptr %23, align 1
-  %25 = add nuw i64 %.134, 1
+  %25 = add nuw i64 %.133, 1
   %26 = and i8 %24, 127
   %27 = zext nneg i8 %26 to i64
   %28 = add i64 %25, %27
@@ -114,29 +114,29 @@ gettag.exit.thread31:                             ; preds = %8, %gettag.exit
 
 29:                                               ; preds = %22
   %30 = icmp sgt i8 %24, -1
-  br i1 %30, label %getlength.exit.thread37, label %.preheader.i24
+  br i1 %30, label %getlength.exit.thread36, label %.preheader.i23
 
-.preheader.i24:                                   ; preds = %29
+.preheader.i23:                                   ; preds = %29
   %.not31.i = icmp eq i8 %26, 0
   br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %.preheader.i24
+.lr.ph.i.preheader:                               ; preds = %.preheader.i23
   %31 = add nsw i8 %26, -1
   %32 = zext nneg i8 %31 to i64
-  %33 = add i64 %.134, %32
+  %33 = add i64 %.133, %32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %34 = phi i64 [ %36, %.lr.ph.i ], [ %25, %.lr.ph.i.preheader ]
-  %.02330.i = phi i64 [ %40, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.02429.i = phi i8 [ %41, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %35 = shl i64 %.02330.i, 8
+  %.030.i = phi i64 [ %40, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.02329.i = phi i8 [ %41, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %35 = shl i64 %.030.i, 8
   %36 = add i64 %34, 1
   %37 = getelementptr inbounds i8, ptr %5, i64 %34
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i64
   %40 = or disjoint i64 %35, %39
-  %41 = add nuw nsw i8 %.02429.i, 1
+  %41 = add nuw nsw i8 %.02329.i, 1
   %exitcond.not.i = icmp eq i8 %41, %26
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i
 
@@ -144,36 +144,36 @@ gettag.exit.thread31:                             ; preds = %8, %gettag.exit
   %42 = add i64 %33, 2
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.preheader.i24
-  %.2 = phi i64 [ %25, %.preheader.i24 ], [ %42, %._crit_edge.i.loopexit ]
-  %.023.lcssa.i = phi i64 [ 0, %.preheader.i24 ], [ %40, %._crit_edge.i.loopexit ]
+._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.preheader.i23
+  %.2 = phi i64 [ %25, %.preheader.i23 ], [ %42, %._crit_edge.i.loopexit ]
+  %.0.lcssa.i = phi i64 [ 0, %.preheader.i23 ], [ %40, %._crit_edge.i.loopexit ]
   %43 = sub i64 4294967295, %.2
-  %44 = icmp ugt i64 %.023.lcssa.i, %43
-  %45 = add i64 %.023.lcssa.i, %.2
+  %44 = icmp ugt i64 %.0.lcssa.i, %43
+  %45 = add i64 %.0.lcssa.i, %.2
   %46 = icmp ugt i64 %45, %.
   %or.cond.i = or i1 %44, %46
-  %47 = and i64 %.023.lcssa.i, 4294967295
+  %47 = and i64 %.0.lcssa.i, 4294967295
   %48 = icmp eq i64 %47, 4294967295
   %or.cond = or i1 %48, %or.cond.i
-  br i1 %or.cond, label %gettag.exit.thread, label %getlength.exit.thread37
+  br i1 %or.cond, label %gettag.exit.thread, label %getlength.exit.thread36
 
-getlength.exit.thread37:                          ; preds = %29, %._crit_edge.i
-  %.0.i2341 = phi i64 [ %.023.lcssa.i, %._crit_edge.i ], [ %27, %29 ]
-  %.340 = phi i64 [ %.2, %._crit_edge.i ], [ %25, %29 ]
+getlength.exit.thread36:                          ; preds = %29, %._crit_edge.i
+  %.024.i40 = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %27, %29 ]
+  %.339 = phi i64 [ %.2, %._crit_edge.i ], [ %25, %29 ]
   %49 = getelementptr inbounds i8, ptr %0, i64 56
   %50 = load i32, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %1, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = add i32 %52, %50
   %54 = zext i32 %53 to i64
-  %55 = add i64 %.340, %54
+  %55 = add i64 %.339, %54
   %56 = load i16, ptr %1, align 8
   %57 = zext i16 %56 to i64
   %.not21 = icmp eq i16 %56, 0
   br i1 %.not21, label %69, label %58
 
-58:                                               ; preds = %getlength.exit.thread37
-  %59 = and i64 %.0.i2341, 4294967295
+58:                                               ; preds = %getlength.exit.thread36
+  %59 = and i64 %.024.i40, 4294967295
   %60 = add i64 %55, %59
   %61 = icmp ugt i64 %60, %2
   br i1 %61, label %gettag.exit.thread, label %62
@@ -188,12 +188,12 @@ getlength.exit.thread37:                          ; preds = %29, %._crit_edge.i
   store i32 %63, ptr %68, align 4
   br label %69
 
-69:                                               ; preds = %62, %getlength.exit.thread37
+69:                                               ; preds = %62, %getlength.exit.thread36
   %70 = trunc i64 %55 to i32
   br label %gettag.exit.thread
 
-gettag.exit.thread:                               ; preds = %15, %._crit_edge.i, %22, %gettag.exit.thread31, %11, %3, %58, %gettag.exit, %69
-  %.0 = phi i32 [ %70, %69 ], [ -1, %gettag.exit ], [ -1, %58 ], [ -1, %3 ], [ -1, %11 ], [ -1, %gettag.exit.thread31 ], [ -1, %22 ], [ -1, %._crit_edge.i ], [ -1, %15 ]
+gettag.exit.thread:                               ; preds = %15, %._crit_edge.i, %22, %gettag.exit.thread30, %11, %3, %58, %gettag.exit, %69
+  %.0 = phi i32 [ %70, %69 ], [ -1, %gettag.exit ], [ -1, %58 ], [ -1, %3 ], [ -1, %11 ], [ -1, %gettag.exit.thread30 ], [ -1, %22 ], [ -1, %._crit_edge.i ], [ -1, %15 ]
   ret i32 %.0
 }
 
@@ -212,9 +212,9 @@ define hidden range(i32 -1, 2) i32 @der_cmp(ptr noundef %0, ptr noundef %1) loca
   %10 = load i8, ptr %5, align 1
   %11 = and i8 %10, 31
   %.not20.i = icmp eq i8 %11, 31
-  br i1 %.not20.i, label %13, label %gettag.exit.thread62
+  br i1 %.not20.i, label %13, label %gettag.exit.thread60
 
-gettag.exit.thread62:                             ; preds = %9
+gettag.exit.thread60:                             ; preds = %9
   %12 = zext nneg i8 %11 to i32
   br label %24
 
@@ -223,16 +223,16 @@ gettag.exit.thread62:                             ; preds = %9
   br i1 %.not21.i.not, label %gettag.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %13, %17
-  %.058 = phi i64 [ %19, %17 ], [ 1, %13 ]
+  %.056 = phi i64 [ %19, %17 ], [ 1, %13 ]
   %.0.i = phi i32 [ %22, %17 ], [ 31, %13 ]
-  %14 = getelementptr inbounds i8, ptr %5, i64 %.058
+  %14 = getelementptr inbounds i8, ptr %5, i64 %.056
   %15 = load i8, ptr %14, align 1
   %16 = icmp slt i8 %15, 0
   br i1 %16, label %17, label %gettag.exit
 
 17:                                               ; preds = %.preheader.i
   %18 = shl i32 %.0.i, 7
-  %19 = add nuw i64 %.058, 1
+  %19 = add nuw i64 %.056, 1
   %20 = zext i8 %15 to i32
   %21 = add i32 %18, -128
   %22 = add i32 %21, %20
@@ -243,16 +243,16 @@ gettag.exit:                                      ; preds = %.preheader.i
   %23 = icmp eq i32 %.0.i, -1
   br i1 %23, label %gettag.exit.thread, label %24
 
-24:                                               ; preds = %gettag.exit.thread62, %gettag.exit
-  %.016.i66 = phi i32 [ %12, %gettag.exit.thread62 ], [ %.0.i, %gettag.exit ]
-  %.15965 = phi i64 [ 1, %gettag.exit.thread62 ], [ %.058, %gettag.exit ]
-  %.not.i48 = icmp ult i64 %.15965, %8
+24:                                               ; preds = %gettag.exit.thread60, %gettag.exit
+  %.016.i64 = phi i32 [ %12, %gettag.exit.thread60 ], [ %.0.i, %gettag.exit ]
+  %.15763 = phi i64 [ 1, %gettag.exit.thread60 ], [ %.056, %gettag.exit ]
+  %.not.i48 = icmp ult i64 %.15763, %8
   br i1 %.not.i48, label %25, label %gettag.exit.thread
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %5, i64 %.15965
+  %26 = getelementptr inbounds i8, ptr %5, i64 %.15763
   %27 = load i8, ptr %26, align 1
-  %28 = add nuw i64 %.15965, 1
+  %28 = add nuw i64 %.15763, 1
   %29 = and i8 %27, 127
   %30 = zext nneg i8 %29 to i64
   %31 = add i64 %28, %30
@@ -261,33 +261,33 @@ gettag.exit:                                      ; preds = %.preheader.i
 
 32:                                               ; preds = %25
   %33 = icmp sgt i8 %27, -1
-  br i1 %33, label %getlength.exit.thread69, label %.preheader.i50
+  br i1 %33, label %getlength.exit.thread67, label %.preheader.i49
 
-.preheader.i50:                                   ; preds = %32
+.preheader.i49:                                   ; preds = %32
   %.not31.i = icmp eq i8 %29, 0
   br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %.preheader.i50
+.lr.ph.i.preheader:                               ; preds = %.preheader.i49
   %34 = add nsw i8 %29, -1
   %35 = zext nneg i8 %34 to i64
-  %36 = add i64 %.15965, %35
+  %36 = add i64 %.15763, %35
   br label %.lr.ph.i
 
-getlength.exit.thread69:                          ; preds = %32
+getlength.exit.thread67:                          ; preds = %32
   %37 = zext nneg i8 %29 to i32
   br label %53
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %38 = phi i64 [ %40, %.lr.ph.i ], [ %28, %.lr.ph.i.preheader ]
-  %.02330.i = phi i64 [ %44, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.02429.i = phi i8 [ %45, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %39 = shl i64 %.02330.i, 8
+  %.030.i = phi i64 [ %44, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.02329.i = phi i8 [ %45, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %39 = shl i64 %.030.i, 8
   %40 = add i64 %38, 1
   %41 = getelementptr inbounds i8, ptr %5, i64 %38
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i64
   %44 = or disjoint i64 %39, %43
-  %45 = add nuw nsw i8 %.02429.i, 1
+  %45 = add nuw nsw i8 %.02329.i, 1
   %exitcond.not.i = icmp eq i8 %45, %29
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i
 
@@ -295,34 +295,34 @@ getlength.exit.thread69:                          ; preds = %32
   %46 = add i64 %36, 2
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.preheader.i50
-  %.2 = phi i64 [ %28, %.preheader.i50 ], [ %46, %._crit_edge.i.loopexit ]
-  %.023.lcssa.i = phi i64 [ 0, %.preheader.i50 ], [ %44, %._crit_edge.i.loopexit ]
+._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.preheader.i49
+  %.2 = phi i64 [ %28, %.preheader.i49 ], [ %46, %._crit_edge.i.loopexit ]
+  %.0.lcssa.i = phi i64 [ 0, %.preheader.i49 ], [ %44, %._crit_edge.i.loopexit ]
   %47 = sub i64 4294967295, %.2
-  %48 = icmp ugt i64 %.023.lcssa.i, %47
-  %49 = add i64 %.023.lcssa.i, %.2
+  %48 = icmp ugt i64 %.0.lcssa.i, %47
+  %49 = add i64 %.0.lcssa.i, %.2
   %50 = icmp ugt i64 %49, %8
   %or.cond.i = or i1 %48, %50
-  %51 = trunc i64 %.023.lcssa.i to i32
+  %51 = trunc i64 %.0.lcssa.i to i32
   %52 = icmp eq i32 %51, -1
   %or.cond = or i1 %52, %or.cond.i
   br i1 %or.cond, label %gettag.exit.thread, label %53
 
-53:                                               ; preds = %._crit_edge.i, %getlength.exit.thread69
-  %.0.i4973 = phi i32 [ %37, %getlength.exit.thread69 ], [ %51, %._crit_edge.i ]
-  %.372 = phi i64 [ %28, %getlength.exit.thread69 ], [ %.2, %._crit_edge.i ]
-  %54 = icmp ult i32 %.016.i66, 37
+53:                                               ; preds = %._crit_edge.i, %getlength.exit.thread67
+  %.024.i71 = phi i32 [ %37, %getlength.exit.thread67 ], [ %51, %._crit_edge.i ]
+  %.370 = phi i64 [ %28, %getlength.exit.thread67 ], [ %.2, %._crit_edge.i ]
+  %54 = icmp ult i32 %.016.i64, 37
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %53
-  %56 = zext nneg i32 %.016.i66 to i64
+  %56 = zext nneg i32 %.016.i64 to i64
   %57 = getelementptr inbounds [37 x ptr], ptr @der__tag, i64 0, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = call i64 @php_strlcpy(ptr noundef nonnull %3, ptr noundef %58, i64 noundef 128) #6
   br label %der_tag.exit
 
 60:                                               ; preds = %53
-  %61 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.4, i32 noundef %.016.i66) #6
+  %61 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.4, i32 noundef %.016.i64) #6
   br label %der_tag.exit
 
 der_tag.exit:                                     ; preds = %55, %60
@@ -345,21 +345,21 @@ der_tag.exit:                                     ; preds = %55, %60
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds i8, ptr %6, i64 %69
-  %73 = zext i32 %.0.i4973 to i64
+  %73 = zext i32 %.024.i71 to i64
   br label %74
 
 74:                                               ; preds = %159, %71
-  %.037 = phi ptr [ %72, %71 ], [ %147, %159 ]
-  %75 = load i8, ptr %.037, align 1
+  %.036 = phi ptr [ %72, %71 ], [ %147, %159 ]
+  %75 = load i8, ptr %.036, align 1
   switch i8 %75, label %135 [
     i8 0, label %gettag.exit.thread
     i8 61, label %76
   ]
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %.037, i64 1
-  %78 = getelementptr inbounds i8, ptr %5, i64 %.372
-  switch i32 %.016.i66, label %120 [
+  %77 = getelementptr inbounds i8, ptr %.036, i64 1
+  %78 = getelementptr inbounds i8, ptr %5, i64 %.370
+  switch i32 %.016.i64, label %120 [
     i32 19, label %79
     i32 12, label %79
     i32 22, label %79
@@ -367,11 +367,11 @@ der_tag.exit:                                     ; preds = %55, %60
   ]
 
 79:                                               ; preds = %76, %76, %76
-  %80 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.42, i32 noundef %.0.i4973, ptr noundef nonnull %78) #6
+  %80 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.42, i32 noundef %.024.i71, ptr noundef nonnull %78) #6
   br label %der_data.exit
 
 81:                                               ; preds = %76
-  %82 = icmp ult i32 %.0.i4973, 12
+  %82 = icmp ult i32 %.024.i71, 12
   br i1 %82, label %120, label %83
 
 83:                                               ; preds = %81
@@ -414,17 +414,17 @@ der_tag.exit:                                     ; preds = %55, %60
   br label %der_data.exit
 
 120:                                              ; preds = %81, %76
-  %.not.i52 = icmp eq i32 %.0.i4973, 0
-  br i1 %.not.i52, label %der_data.exit, label %.lr.ph.i53
+  %.not.i50 = icmp eq i32 %.024.i71, 0
+  br i1 %.not.i50, label %der_data.exit, label %.lr.ph.i51
 
-.lr.ph.i53:                                       ; preds = %120, %132
+.lr.ph.i51:                                       ; preds = %120, %132
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %132 ], [ 0, %120 ]
   %121 = trunc nuw i64 %indvars.iv.i to i32
   %122 = shl i32 %121, 1
   %123 = icmp ult i32 %122, 126
   br i1 %123, label %124, label %132
 
-124:                                              ; preds = %.lr.ph.i53
+124:                                              ; preds = %.lr.ph.i51
   %125 = zext nneg i32 %122 to i64
   %126 = getelementptr inbounds i8, ptr %3, i64 %125
   %127 = sub nuw nsw i64 128, %125
@@ -434,10 +434,10 @@ der_tag.exit:                                     ; preds = %55, %60
   %131 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %126, i64 noundef %127, ptr noundef nonnull @.str.44, i32 noundef %130) #6
   br label %132
 
-132:                                              ; preds = %124, %.lr.ph.i53
+132:                                              ; preds = %124, %.lr.ph.i51
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i, %73
-  br i1 %exitcond.not.i54, label %der_data.exit, label %.lr.ph.i53
+  %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i, %73
+  br i1 %exitcond.not.i52, label %der_data.exit, label %.lr.ph.i51
 
 der_data.exit:                                    ; preds = %132, %120, %79, %83
   %133 = load i32, ptr %62, align 4
@@ -457,7 +457,7 @@ der_data.exit:                                    ; preds = %132, %120, %79, %83
 
 .preheader:                                       ; preds = %135, %.preheader
   %142 = phi i8 [ %148, %.preheader ], [ %75, %135 ]
-  %.1 = phi ptr [ %147, %.preheader ], [ %.037, %135 ]
+  %.1 = phi ptr [ %147, %.preheader ], [ %.036, %135 ]
   %.0 = phi i64 [ %146, %.preheader ], [ 0, %135 ]
   %143 = mul i64 %.0, 10
   %144 = sext i8 %142 to i64
@@ -480,7 +480,7 @@ der_data.exit:                                    ; preds = %132, %120, %79, %83
 
 156:                                              ; preds = %153
   %157 = load ptr, ptr @stderr, align 8
-  %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.der_cmp, i64 noundef %146, i32 noundef %.0.i4973) #7
+  %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.der_cmp, i64 noundef %146, i32 noundef %.024.i71) #7
   br label %159
 
 159:                                              ; preds = %156, %153
@@ -501,11 +501,11 @@ sub_0:                                            ; preds = %163
   %165 = load i8, ptr %77, align 1
   %166 = zext i8 %165 to i32
   %167 = sub nsw i32 120, %166
-  %.not81 = icmp eq i8 %165, 120
-  br i1 %.not81, label %sub_1, label %.tail
+  %.not79 = icmp eq i8 %165, 120
+  br i1 %.not79, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %168 = getelementptr inbounds i8, ptr %.037, i64 2
+  %168 = getelementptr inbounds i8, ptr %.036, i64 2
   %169 = load i8, ptr %168, align 1
   %170 = zext i8 %169 to i32
   %171 = sub nsw i32 0, %170
@@ -522,8 +522,8 @@ sub_1:                                            ; preds = %sub_0
   br label %gettag.exit.thread
 
 gettag.exit.thread:                               ; preds = %17, %159, %135, %74, %._crit_edge.i, %25, %24, %13, %2, %.tail, %68, %gettag.exit, %173
-  %.036 = phi i32 [ 1, %173 ], [ -1, %gettag.exit ], [ 0, %68 ], [ 0, %.tail ], [ -1, %2 ], [ -1, %13 ], [ -1, %24 ], [ -1, %25 ], [ -1, %._crit_edge.i ], [ 0, %159 ], [ 0, %135 ], [ 1, %74 ], [ -1, %17 ]
-  ret i32 %.036
+  %.037 = phi i32 [ 1, %173 ], [ -1, %gettag.exit ], [ 0, %68 ], [ 0, %.tail ], [ -1, %2 ], [ -1, %13 ], [ -1, %24 ], [ -1, %25 ], [ -1, %._crit_edge.i ], [ 0, %159 ], [ 0, %135 ], [ 1, %74 ], [ -1, %17 ]
+  ret i32 %.037
 }
 
 ; Function Attrs: nofree nounwind

@@ -9,11 +9,11 @@ define noundef ptr @bsearch(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %11
-  %.01622 = phi i64 [ %15, %11 ], [ %2, %5 ]
-  %.01721 = phi ptr [ %.118, %11 ], [ %1, %5 ]
-  %6 = lshr i64 %.01622, 1
+  %.022 = phi i64 [ %15, %11 ], [ %2, %5 ]
+  %.01621 = phi ptr [ %.117, %11 ], [ %1, %5 ]
+  %6 = lshr i64 %.022, 1
   %7 = mul i64 %6, %3
-  %8 = getelementptr inbounds i8, ptr %.01721, i64 %7
+  %8 = getelementptr inbounds i8, ptr %.01621, i64 %7
   %9 = tail call i32 %4(ptr noundef %0, ptr noundef %8) #1
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %._crit_edge, label %11
@@ -21,16 +21,16 @@ define noundef ptr @bsearch(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 
 11:                                               ; preds = %.lr.ph
   %12 = icmp sgt i32 %9, 0
   %13 = getelementptr inbounds i8, ptr %8, i64 %3
-  %.118 = select i1 %12, ptr %13, ptr %.01721
+  %.117 = select i1 %12, ptr %13, ptr %.01621
   %14 = sext i1 %12 to i64
-  %.1 = add i64 %.01622, %14
+  %.1 = add i64 %.022, %14
   %15 = lshr i64 %.1, 1
   %.not = icmp ult i64 %.1, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %11 ], [ %8, %.lr.ph ]
-  ret ptr %.0
+  %.018 = phi ptr [ null, %5 ], [ null, %11 ], [ %8, %.lr.ph ]
+  ret ptr %.018
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

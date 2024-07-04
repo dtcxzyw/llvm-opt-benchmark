@@ -1364,10 +1364,10 @@ define void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections.
   ret void
 
 38:                                               ; preds = %39
-  br i1 %.0.ph, label %43, label %42
+  br i1 %.010.ph, label %43, label %42
 
 39:                                               ; preds = %.invoke, %19, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h660bc0854a4903b1E.exit"
-  %.0.ph = phi i1 [ false, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h660bc0854a4903b1E.exit" ], [ true, %19 ], [ true, %.invoke ]
+  %.010.ph = phi i1 [ false, %"_ZN5alloc11collections5btree4node74NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$Type$GT$12key_area_mut17h660bc0854a4903b1E.exit" ], [ true, %19 ], [ true, %.invoke ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$alloc..string..String$GT$$GT$17hdfe24ea5be47deb7E"(ptr align 8 %2) #22
@@ -4596,10 +4596,10 @@ define void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collections..
   ret void
 
 49:                                               ; preds = %50
-  br i1 %.0, label %55, label %54
+  br i1 %.04, label %55, label %54
 
 50:                                               ; preds = %4, %24
-  %.0 = phi i1 [ true, %4 ], [ false, %24 ]
+  %.04 = phi i1 [ true, %4 ], [ false, %24 ]
   %51 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..collections..btree..set..BTreeSet$LT$alloc..string..String$GT$$GT$17hdfe24ea5be47deb7E"(ptr align 8 %3) #22
@@ -7340,14 +7340,14 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br label %31
 
 31:                                               ; preds = %27, %22, %30, %28
-  %.0 = phi i64 [ 6, %28 ], [ 5, %30 ], [ 4, %22 ], [ %24, %27 ]
+  %.015 = phi i64 [ 6, %28 ], [ 5, %30 ], [ 4, %22 ], [ %24, %27 ]
   %32 = phi i1 [ false, %28 ], [ false, %30 ], [ true, %22 ], [ true, %27 ]
   %.sroa.5.0 = phi i64 [ %29, %28 ], [ 0, %30 ], [ %24, %22 ], [ %24, %27 ]
   store ptr %17, ptr %9, align 8
   %33 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %12, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %9, i64 16
-  store i64 %.0, ptr %34, align 8
+  store i64 %.015, ptr %34, align 8
   invoke void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h564c594a3135bbd3E"(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 } }, {} }, { ptr, i64, {} }, { ptr, i64, {} } }) align 8 %8, ptr nonnull align 8 %9)
           to label %35 unwind label %46
 
@@ -7531,14 +7531,14 @@ define void @"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..
   br label %34
 
 34:                                               ; preds = %30, %25, %33, %31
-  %.0 = phi i64 [ 6, %31 ], [ 5, %33 ], [ 4, %25 ], [ %27, %30 ]
+  %.018 = phi i64 [ 6, %31 ], [ 5, %33 ], [ 4, %25 ], [ %27, %30 ]
   %35 = phi i1 [ false, %31 ], [ false, %33 ], [ true, %25 ], [ true, %30 ]
   %.sroa.5.0 = phi i64 [ %32, %31 ], [ 0, %33 ], [ %27, %25 ], [ %27, %30 ]
   store ptr %20, ptr %11, align 8
   %36 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %15, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %11, i64 16
-  store i64 %.0, ptr %37, align 8
+  store i64 %.018, ptr %37, align 8
   invoke void @"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h8a9de8440e005c83E"(ptr nonnull sret({ { { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, { ptr, i64, {} }, { ptr, i64, {} } }) align 8 %10, ptr nonnull align 8 %11)
           to label %38 unwind label %49
 

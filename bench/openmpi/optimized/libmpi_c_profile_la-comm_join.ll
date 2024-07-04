@@ -128,8 +128,8 @@ opal_pointer_array_get_item.exit.i:               ; preds = %42, %36, %.lr.ph.i
   br label %ompi_errcode_get_mpi_code.exit
 
 ompi_errcode_get_mpi_code.exit:                   ; preds = %25, %22, %47
-  %.0.i = phi i32 [ %49, %47 ], [ 14, %22 ], [ 14, %25 ]
-  %50 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.0.i, ptr noundef nonnull @FUNC_NAME) #8
+  %.010.i = phi i32 [ %49, %47 ], [ 14, %22 ], [ 14, %25 ]
+  %50 = tail call i32 @ompi_errhandler_invoke(ptr noundef null, ptr noundef null, i32 noundef -1, i32 noundef %.010.i, ptr noundef nonnull @FUNC_NAME) #8
   br label %247
 
 51:                                               ; preds = %20
@@ -512,14 +512,14 @@ opal_pointer_array_get_item.exit.i60:             ; preds = %236, %230, %.lr.ph.
   br label %ompi_errcode_get_mpi_code.exit64
 
 ompi_errcode_get_mpi_code.exit64:                 ; preds = %219, %215, %.preheader.i, %241
-  %.0.i56 = phi i32 [ %.020, %215 ], [ %243, %241 ], [ 14, %.preheader.i ], [ 14, %219 ]
+  %.010.i56 = phi i32 [ %.020, %215 ], [ %243, %241 ], [ 14, %.preheader.i ], [ 14, %219 ]
   %244 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 296), align 8
   %245 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_mpi_comm_self, i64 304), align 8
-  %246 = call i32 @ompi_errhandler_invoke(ptr noundef %244, ptr noundef nonnull @ompi_mpi_comm_self, i32 noundef %245, i32 noundef %.0.i56, ptr noundef nonnull @FUNC_NAME) #8
+  %246 = call i32 @ompi_errhandler_invoke(ptr noundef %244, ptr noundef nonnull @ompi_mpi_comm_self, i32 noundef %245, i32 noundef %.010.i56, ptr noundef nonnull @FUNC_NAME) #8
   br label %247
 
 247:                                              ; preds = %212, %ompi_errcode_get_mpi_code.exit64, %108, %ompi_errcode_get_mpi_code.exit, %18
-  %.0 = phi i32 [ %19, %18 ], [ %.0.i56, %ompi_errcode_get_mpi_code.exit64 ], [ 17, %108 ], [ %50, %ompi_errcode_get_mpi_code.exit ], [ %.020, %212 ]
+  %.0 = phi i32 [ %19, %18 ], [ %.010.i56, %ompi_errcode_get_mpi_code.exit64 ], [ 17, %108 ], [ %50, %ompi_errcode_get_mpi_code.exit ], [ %.020, %212 ]
   ret i32 %.0
 }
 

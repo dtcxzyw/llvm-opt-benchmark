@@ -1401,8 +1401,8 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1906cfb87626518dE
   resume { ptr, i32 } %15
 
 "_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h5e62ca765b0c6168E.exit": ; preds = %5, %16
-  %.sroa.02.0.i = phi i64 [ %17, %16 ], [ -9223372036854775808, %5 ]
   %.sroa.5.sroa.0.0.i = phi ptr [ %18, %16 ], [ undef, %5 ]
+  %.sroa.02.0.i = phi i64 [ %17, %16 ], [ -9223372036854775808, %5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.i, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !234
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !234
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.i, i64 24, i1 false), !noalias !238
@@ -2625,9 +2625,9 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hb22e1f88f7d13cb0E
   br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h423bcf5d14cf080bE.exit"
 
 19:                                               ; preds = %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i", %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i"
-  %.sink6.i4.i = phi ptr [ %12, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i" ], [ %15, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i" ]
+  %.sink6.i5.i = phi ptr [ %12, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i" ], [ %15, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i" ]
   %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink6.i4.i, ptr %20, align 8, !alias.scope !493, !noalias !502
+  store ptr %.sink6.i5.i, ptr %20, align 8, !alias.scope !493, !noalias !502
   store i64 -9223372036854775802, ptr %0, align 8, !alias.scope !493, !noalias !502
   br label %"_ZN87_$LT$wasmtime_cli_flags..Codegen$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h423bcf5d14cf080bE.exit"
 
@@ -2708,9 +2708,9 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hbdf01ba11c63ef58E
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hea9f5fabc2eb492eE.exit"
 
 19:                                               ; preds = %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i", %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i"
-  %.sink6.i4.i = phi ptr [ %12, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i" ], [ %15, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i" ]
+  %.sink6.i5.i = phi ptr [ %12, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i" ], [ %15, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i" ]
   %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink6.i4.i, ptr %20, align 8, !alias.scope !509, !noalias !518
+  store ptr %.sink6.i5.i, ptr %20, align 8, !alias.scope !509, !noalias !518
   store i64 -9223372036854775793, ptr %0, align 8, !alias.scope !509, !noalias !518
   br label %"_ZN84_$LT$wasmtime_cli_flags..Wasi$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17hea9f5fabc2eb492eE.exit"
 
@@ -3223,9 +3223,9 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hea9fbfbb43b2a5c2E
   br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9946c123cb39dab1E.exit"
 
 19:                                               ; preds = %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i", %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i"
-  %.sink6.i4.i = phi ptr [ %12, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i" ], [ %15, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i" ]
+  %.sink6.i5.i = phi ptr [ %12, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.thread.i" ], [ %15, %"_ZN86_$LT$alloc..string..String$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOptionValue$GT$5parse17h60f0ba391444c409E.exit.i" ]
   %20 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink6.i4.i, ptr %20, align 8, !alias.scope !615, !noalias !624
+  store ptr %.sink6.i5.i, ptr %20, align 8, !alias.scope !615, !noalias !624
   store i64 -9223372036854775804, ptr %0, align 8, !alias.scope !615, !noalias !624
   br label %"_ZN85_$LT$wasmtime_cli_flags..Debug$u20$as$u20$wasmtime_cli_flags..opt..WasmtimeOption$GT$7OPTIONS28_$u7b$$u7b$closure$u7d$$u7d$17h9946c123cb39dab1E.exit"
 

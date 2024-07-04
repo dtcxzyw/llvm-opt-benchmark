@@ -1382,8 +1382,8 @@ if.end541:                                        ; preds = %if.then539, %if.end
 
 for.body:                                         ; preds = %if.end541, %if.end577
   %conv544143 = phi i64 [ %conv544, %if.end577 ], [ 0, %if.end541 ]
-  %range_i.0142 = phi i32 [ %inc580, %if.end577 ], [ 0, %if.end541 ]
-  %anchor.0141 = phi i64 [ %add579, %if.end577 ], [ 1, %if.end541 ]
+  %anchor.0142 = phi i64 [ %add579, %if.end577 ], [ 1, %if.end541 ]
+  %range_i.0141 = phi i32 [ %inc580, %if.end577 ], [ 0, %if.end541 ]
   %71 = load ptr, ptr %range_list, align 8
   %arrayidx549 = getelementptr inbounds %struct.string_list_item, ptr %71, i64 %conv544143
   %72 = load ptr, ptr %arrayidx549, align 8
@@ -1391,7 +1391,7 @@ for.body:                                         ; preds = %if.end541, %if.end5
   %74 = load ptr, ptr @the_repository, align 8
   %index = getelementptr inbounds i8, ptr %74, i64 240
   %75 = load ptr, ptr %index, align 8
-  %call551 = call i32 @parse_range_arg(ptr noundef %72, ptr noundef nonnull @nth_line_cb, ptr noundef nonnull %sb, i64 noundef %conv534, i64 noundef %anchor.0141, ptr noundef nonnull %bottom, ptr noundef nonnull %top, ptr noundef %73, ptr noundef %75) #17
+  %call551 = call i32 @parse_range_arg(ptr noundef %72, ptr noundef nonnull @nth_line_cb, ptr noundef nonnull %sb, i64 noundef %conv534, i64 noundef %anchor.0142, ptr noundef nonnull %bottom, ptr noundef nonnull %top, ptr noundef %73, ptr noundef %75) #17
   %tobool552.not = icmp eq i32 %call551, 0
   br i1 %tobool552.not, label %if.end554, label %if.then553
 
@@ -1471,7 +1471,7 @@ if.end577:                                        ; preds = %if.end570, %if.then
   call void @range_set_append_unsafe(ptr noundef nonnull %ranges, i64 noundef %dec578, i64 noundef %83) #17
   %84 = load i64, ptr %top, align 8
   %add579 = add nsw i64 %84, 1
-  %inc580 = add i32 %range_i.0142, 1
+  %inc580 = add i32 %range_i.0141, 1
   %conv544 = zext i32 %inc580 to i64
   %85 = load i64, ptr %nr537, align 8
   %cmp546 = icmp ugt i64 %85, %conv544
@@ -1497,7 +1497,7 @@ for.body585.lr.ph:                                ; preds = %for.end
 for.body585:                                      ; preds = %for.body585.lr.ph, %for.body585
   %indvars.iv = phi i64 [ %88, %for.body585.lr.ph ], [ %90, %for.body585 ]
   %ent.0147 = phi ptr [ null, %for.body585.lr.ph ], [ %call590, %for.body585 ]
-  %num_lines.0145 = phi i64 [ 0, %for.body585.lr.ph ], [ %add594.fr, %for.body585 ]
+  %num_lines.0146 = phi i64 [ 0, %for.body585.lr.ph ], [ %add594.fr, %for.body585 ]
   %89 = load ptr, ptr %ranges586, align 8
   %90 = add nsw i64 %indvars.iv, -1
   %arrayidx589 = getelementptr inbounds %struct.range, ptr %89, i64 %90
@@ -1508,7 +1508,7 @@ for.body585:                                      ; preds = %for.body585.lr.ph, 
   %call590 = call ptr @blame_entry_prepend(ptr noundef %ent.0147, i64 noundef %91, i64 noundef %92, ptr noundef %93) #17
   %94 = load i64, ptr %end, align 8
   %95 = load i64, ptr %arrayidx589, align 8
-  %sub593 = add i64 %94, %num_lines.0145
+  %sub593 = add i64 %94, %num_lines.0146
   %add594 = sub i64 %sub593, %95
   %add594.fr = freeze i64 %add594
   %cmp583.not.wide = icmp eq i64 %90, 0
@@ -2215,10 +2215,10 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %e.036 = phi ptr [ %e.030, %for.body.lr.ph ], [ %e.0, %for.inc ]
-  %longest_src_lines.035 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.inc ]
-  %auto_abbrev.034 = phi i32 [ %1, %for.body.lr.ph ], [ %auto_abbrev.1, %for.inc ]
+  %auto_abbrev.035 = phi i32 [ %1, %for.body.lr.ph ], [ %auto_abbrev.1, %for.inc ]
+  %largest_score.034 = phi i32 [ 0, %for.body.lr.ph ], [ %largest_score.1, %for.inc ]
   %longest_dst_lines.033 = phi i32 [ 0, %for.body.lr.ph ], [ %longest_dst_lines.1, %for.inc ]
-  %largest_score.032 = phi i32 [ 0, %for.body.lr.ph ], [ %largest_score.1, %for.inc ]
+  %longest_src_lines.032 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.inc ]
   %suspect1 = getelementptr inbounds i8, ptr %e.036, i64 16
   %2 = load ptr, ptr %suspect1, align 8
   br i1 %cmp, label %if.then, label %if.end
@@ -2228,14 +2228,14 @@ if.then:                                          ; preds = %for.body
   %.val = load ptr, ptr %3, align 8
   %4 = load ptr, ptr @the_repository, align 8
   %oid.i = getelementptr inbounds i8, ptr %.val, i64 4
-  %call.i = call ptr @repo_find_unique_abbrev(ptr noundef %4, ptr noundef nonnull %oid.i, i32 noundef %auto_abbrev.034) #17
+  %call.i = call ptr @repo_find_unique_abbrev(ptr noundef %4, ptr noundef nonnull %oid.i, i32 noundef %auto_abbrev.035) #17
   %call1.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i) #16
   %conv.i = trunc i64 %call1.i to i32
-  %conv.auto_abbrev.i = call i32 @llvm.smax.i32(i32 %conv.i, i32 %auto_abbrev.034)
+  %conv.auto_abbrev.i = call i32 @llvm.smax.i32(i32 %conv.i, i32 %auto_abbrev.035)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %for.body
-  %auto_abbrev.1 = phi i32 [ %conv.auto_abbrev.i, %if.then ], [ %auto_abbrev.034, %for.body ]
+  %auto_abbrev.1 = phi i32 [ %conv.auto_abbrev.i, %if.then ], [ %auto_abbrev.035, %for.body ]
   %path = getelementptr inbounds i8, ptr %2, i64 111
   %5 = load ptr, ptr %path3, align 8
   %call4 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %path, ptr noundef nonnull dereferenceable(1) %5) #16
@@ -2306,13 +2306,13 @@ if.end36:                                         ; preds = %if.end35, %if.end15
   %num_lines = getelementptr inbounds i8, ptr %e.036, i64 12
   %16 = load i32, ptr %num_lines, align 4
   %add = add nsw i32 %16, %15
-  %spec.select = call i32 @llvm.smax.i32(i32 %longest_src_lines.035, i32 %add)
+  %spec.select = call i32 @llvm.smax.i32(i32 %longest_src_lines.032, i32 %add)
   %lno = getelementptr inbounds i8, ptr %e.036, i64 8
   %17 = load i32, ptr %lno, align 8
   %add42 = add nsw i32 %17, %16
   %longest_dst_lines.1 = call i32 @llvm.smax.i32(i32 %longest_dst_lines.033, i32 %add42)
   %call47 = call i32 @blame_entry_score(ptr noundef nonnull %sb, ptr noundef nonnull %e.036) #17
-  %cmp48 = icmp ult i32 %largest_score.032, %call47
+  %cmp48 = icmp ult i32 %largest_score.034, %call47
   br i1 %cmp48, label %if.then50, label %for.inc
 
 if.then50:                                        ; preds = %if.end36
@@ -2320,7 +2320,7 @@ if.then50:                                        ; preds = %if.end36
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end36, %if.then50
-  %largest_score.1 = phi i32 [ %call51, %if.then50 ], [ %largest_score.032, %if.end36 ]
+  %largest_score.1 = phi i32 [ %call51, %if.then50 ], [ %largest_score.034, %if.end36 ]
   %e.0 = load ptr, ptr %e.036, align 8
   %tobool.not = icmp eq ptr %e.0, null
   br i1 %tobool.not, label %for.end.loopexit, label %for.body, !llvm.loop !10
@@ -2332,10 +2332,10 @@ for.end.loopexit:                                 ; preds = %for.inc
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
-  %largest_score.0.lcssa = phi i64 [ 0, %entry ], [ %20, %for.end.loopexit ]
-  %longest_dst_lines.0.lcssa = phi i64 [ 0, %entry ], [ %19, %for.end.loopexit ]
-  %auto_abbrev.0.lcssa = phi i32 [ %1, %entry ], [ %auto_abbrev.1, %for.end.loopexit ]
   %longest_src_lines.0.lcssa = phi i64 [ 0, %entry ], [ %18, %for.end.loopexit ]
+  %longest_dst_lines.0.lcssa = phi i64 [ 0, %entry ], [ %19, %for.end.loopexit ]
+  %largest_score.0.lcssa = phi i64 [ 0, %entry ], [ %20, %for.end.loopexit ]
+  %auto_abbrev.0.lcssa = phi i32 [ %1, %entry ], [ %auto_abbrev.1, %for.end.loopexit ]
   %call54 = call i32 @decimal_width(i64 noundef %longest_src_lines.0.lcssa) #17
   store i32 %call54, ptr @max_orig_digits, align 4
   %call56 = call i32 @decimal_width(i64 noundef %longest_dst_lines.0.lcssa) #17

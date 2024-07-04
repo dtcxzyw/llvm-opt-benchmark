@@ -423,13 +423,13 @@ define internal i32 @dissect_gdsdb(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %14
 
 14:                                               ; preds = %20, %10
-  %.034 = phi i32 [ 0, %10 ], [ %33, %20 ]
-  %15 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.034) #3
+  %.0 = phi i32 [ 0, %10 ], [ %33, %20 ]
+  %15 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0) #3
   %16 = icmp sgt i32 %15, 3
   br i1 %16, label %17, label %.loopexit
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.034) #3
+  %18 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0) #3
   %19 = icmp ugt i32 %18, 91
   br i1 %19, label %.loopexit, label %20
 
@@ -438,27 +438,27 @@ define internal i32 @dissect_gdsdb(ptr noundef %0, ptr noundef %1, ptr noundef %
   %22 = tail call ptr @val_to_str(i32 noundef %18, ptr noundef nonnull @gdsdb_opcode, ptr noundef nonnull @.str.279) #3
   tail call void @col_append_sep_str(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.278, ptr noundef %22) #3
   %23 = load i32, ptr @proto_gdsdb, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %.034, i32 noundef -1, i32 noundef 0) #3
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
   %25 = load i32, ptr @ett_gdsdb, align 4
   %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #3
   %27 = load i32, ptr @hf_gdsdb_opcode, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %.034, i32 noundef 4, i32 noundef 0) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef 0) #3
   %29 = zext nneg i32 %18 to i64
   %30 = getelementptr [92 x ptr], ptr @gdsdb_handle_opcode, i64 0, i64 %29
   %31 = load ptr, ptr %30, align 8
-  %32 = add nuw i32 %.034, 4
+  %32 = add nuw i32 %.0, 4
   %33 = tail call i32 %31(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %26, i32 noundef %32) #3
-  %.not = icmp sgt i32 %33, %.034
+  %.not = icmp sgt i32 %33, %.0
   br i1 %.not, label %14, label %34
 
 34:                                               ; preds = %20
   %35 = tail call ptr @expert_add_info(ptr noundef null, ptr noundef %24, ptr noundef nonnull @ei_gdsdb_invalid_length) #3
-  %36 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.034) #3
+  %36 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0) #3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %17, %7, %4, %34
-  %.0 = phi i32 [ %36, %34 ], [ 0, %4 ], [ 0, %7 ], [ %.034, %14 ], [ 0, %17 ]
-  ret i32 %.0
+  %.034 = phi i32 [ %36, %34 ], [ 0, %4 ], [ 0, %7 ], [ %.0, %14 ], [ 0, %17 ]
+  ret i32 %.034
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1174,15 +1174,15 @@ add_uint_string.exit:                             ; preds = %23, %37
   br label %add_uint_string.exit45
 
 add_uint_string.exit45:                           ; preds = %49, %40, %add_uint_string.exit
-  %.038 = phi i32 [ %.0.i, %add_uint_string.exit ], [ %51, %49 ], [ %45, %40 ]
+  %.0 = phi i32 [ %.0.i, %add_uint_string.exit ], [ %51, %49 ], [ %45, %40 ]
   %52 = load i32, ptr @hf_gdsdb_info_buffer_length, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %52, ptr noundef %0, i32 noundef %.038, i32 noundef 4, i32 noundef 0) #3
-  %54 = add i32 %.038, 4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %52, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef 0) #3
+  %54 = add i32 %.0, 4
   br label %55
 
 55:                                               ; preds = %16, %7, %4, %add_uint_string.exit45
-  %.0 = phi i32 [ %54, %add_uint_string.exit45 ], [ -1, %4 ], [ -1, %7 ], [ -1, %16 ]
-  ret i32 %.0
+  %.038 = phi i32 [ %54, %add_uint_string.exit45 ], [ -1, %4 ], [ -1, %7 ], [ -1, %16 ]
+  ret i32 %.038
 }
 
 ; Function Attrs: nounwind uwtable

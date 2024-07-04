@@ -227,8 +227,8 @@ define dso_local double @get_priority_from_factors(ptr nocapture noundef readonl
   br label %46
 
 46:                                               ; preds = %1, %._crit_edge
-  %.021 = phi double [ %.2, %._crit_edge ], [ %3, %1 ]
-  ret double %.021
+  %.022 = phi double [ %.2, %._crit_edge ], [ %3, %1 ]
+  ret double %.022
 }
 
 declare ptr @list_iterator_create(ptr noundef) local_unnamed_addr #1
@@ -1000,8 +1000,8 @@ define dso_local noundef i32 @_print_job_priority_weighted(ptr noundef %0, i32 n
   br label %get_priority_from_factors.exit
 
 get_priority_from_factors.exit:                   ; preds = %8, %._crit_edge.i
-  %.021.i = phi double [ %.2.i, %._crit_edge.i ], [ %10, %8 ]
-  %53 = fptosi double %.021.i to i64
+  %.022.i = phi double [ %.2.i, %._crit_edge.i ], [ %10, %8 ]
+  %53 = fptosi double %.022.i to i64
   %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.14, i64 noundef %53) #8
   call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
   br label %55

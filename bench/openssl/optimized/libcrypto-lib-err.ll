@@ -1561,9 +1561,9 @@ while.body.lr.ph:                                 ; preds = %if.end29
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end51
   %dec38.in = phi i32 [ %num, %while.body.lr.ph ], [ %dec38, %if.end51 ]
-  %len.037 = phi i64 [ %call30, %while.body.lr.ph ], [ %add, %if.end51 ]
-  %str.136 = phi ptr [ %str.0, %while.body.lr.ph ], [ %str.2, %if.end51 ]
-  %size.135 = phi i32 [ %size.0, %while.body.lr.ph ], [ %size.2, %if.end51 ]
+  %str.137 = phi ptr [ %str.0, %while.body.lr.ph ], [ %str.2, %if.end51 ]
+  %size.136 = phi i32 [ %size.0, %while.body.lr.ph ], [ %size.2, %if.end51 ]
+  %len.035 = phi i64 [ %call30, %while.body.lr.ph ], [ %add, %if.end51 ]
   %dec38 = add nsw i32 %dec38.in, -1
   %gp_offset = load i32, ptr %args, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -1589,32 +1589,32 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %cmp34 = icmp eq ptr %8, null
   %spec.store.select = select i1 %cmp34, ptr @.str.6, ptr %8
   %call38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #10
-  %sext = shl i64 %len.037, 32
+  %sext = shl i64 %len.035, 32
   %conv39 = ashr exact i64 %sext, 32
   %add = add i64 %call38, %conv39
   %conv40 = trunc i64 %add to i32
-  %cmp41.not = icmp sgt i32 %size.135, %conv40
+  %cmp41.not = icmp sgt i32 %size.136, %conv40
   br i1 %cmp41.not, label %vaarg.end.if.end51_crit_edge, label %if.then43
 
 vaarg.end.if.end51_crit_edge:                     ; preds = %vaarg.end
-  %.pre = sext i32 %size.135 to i64
+  %.pre = sext i32 %size.136 to i64
   br label %if.end51
 
 if.then43:                                        ; preds = %vaarg.end
   %add44 = add nsw i32 %conv40, 20
   %conv45 = sext i32 %add44 to i64
-  %call46 = tail call ptr @CRYPTO_realloc(ptr noundef %str.136, i64 noundef %conv45, ptr noundef nonnull @.str, i32 noundef 867) #8
+  %call46 = tail call ptr @CRYPTO_realloc(ptr noundef %str.137, i64 noundef %conv45, ptr noundef nonnull @.str, i32 noundef 867) #8
   %cmp47 = icmp eq ptr %call46, null
   br i1 %cmp47, label %if.then49, label %if.end51
 
 if.then49:                                        ; preds = %if.then43
-  tail call void @CRYPTO_free(ptr noundef %str.136, ptr noundef nonnull @.str, i32 noundef 869) #8
+  tail call void @CRYPTO_free(ptr noundef %str.137, ptr noundef nonnull @.str, i32 noundef 869) #8
   br label %if.end58
 
 if.end51:                                         ; preds = %vaarg.end.if.end51_crit_edge, %if.then43
   %conv52.pre-phi = phi i64 [ %.pre, %vaarg.end.if.end51_crit_edge ], [ %conv45, %if.then43 ]
-  %size.2 = phi i32 [ %size.135, %vaarg.end.if.end51_crit_edge ], [ %add44, %if.then43 ]
-  %str.2 = phi ptr [ %str.136, %vaarg.end.if.end51_crit_edge ], [ %call46, %if.then43 ]
+  %size.2 = phi i32 [ %size.136, %vaarg.end.if.end51_crit_edge ], [ %add44, %if.then43 ]
+  %str.2 = phi ptr [ %str.137, %vaarg.end.if.end51_crit_edge ], [ %call46, %if.then43 ]
   %call53 = tail call i64 @OPENSSL_strlcat(ptr noundef %str.2, ptr noundef nonnull %spec.store.select, i64 noundef %conv52.pre-phi) #8
   %cmp32 = icmp ugt i32 %dec38.in, 1
   br i1 %cmp32, label %while.body, label %while.end, !llvm.loop !11

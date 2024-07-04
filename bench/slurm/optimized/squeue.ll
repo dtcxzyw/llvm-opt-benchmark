@@ -78,7 +78,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %22
 
 22:                                               ; preds = %.preheader, %61
-  %.0 = phi i32 [ %.126, %61 ], [ 0, %.preheader ]
+  %.0 = phi i32 [ %.125, %61 ], [ 0, %.preheader ]
   %23 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 20), align 4
   %24 = trunc i8 %23 to i1
   br i1 %24, label %34, label %25
@@ -116,7 +116,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %40 = icmp sgt i32 %39, 1
   %41 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 20), align 4
   %42 = trunc i8 %41 to i1
-  %.0.i20 = select i1 %40, i1 %42, i1 false
+  %.011.i = select i1 %40, i1 %42, i1 false
   %43 = call ptr @list_iterator_create(ptr noundef nonnull %35) #13
   %44 = call ptr @list_next(ptr noundef %43) #13
   store ptr %44, ptr @working_cluster_rec, align 8
@@ -129,14 +129,14 @@ _multi_cluster.exit.thread:                       ; preds = %38
 
 .lr.ph.i:                                         ; preds = %38, %55
   %45 = phi ptr [ %57, %55 ], [ %44, %38 ]
-  %.0916.i = phi i32 [ %spec.select13.i, %55 ], [ 0, %38 ]
-  %.01015.i = phi i1 [ %.2.i, %55 ], [ true, %38 ]
+  %.016.i = phi i32 [ %spec.select13.i, %55 ], [ 0, %38 ]
+  %.0915.i = phi i1 [ %.2.i, %55 ], [ true, %38 ]
   %46 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 20), align 4
   %47 = trunc i8 %46 to i1
   br i1 %47, label %55, label %48
 
 48:                                               ; preds = %.lr.ph.i
-  br i1 %.01015.i, label %50, label %49
+  br i1 %.0915.i, label %50, label %49
 
 49:                                               ; preds = %48
   %putchar.i = call i32 @putchar(i32 10)
@@ -151,11 +151,11 @@ _multi_cluster.exit.thread:                       ; preds = %38
   br label %55
 
 55:                                               ; preds = %50, %.lr.ph.i
-  %.2.i = phi i1 [ %.01015.i, %.lr.ph.i ], [ false, %50 ]
-  %56 = call fastcc i32 @_get_info(i1 noundef zeroext true, i1 noundef zeroext %.0.i20, i32 noundef %0, ptr noundef nonnull %1)
+  %.2.i = phi i1 [ %.0915.i, %.lr.ph.i ], [ false, %50 ]
+  %56 = call fastcc i32 @_get_info(i1 noundef zeroext true, i1 noundef zeroext %.011.i, i32 noundef %0, ptr noundef nonnull %1)
   %.fr = freeze i32 %56
   %.not12.i = icmp eq i32 %.fr, 0
-  %spec.select13.i = select i1 %.not12.i, i32 %.0916.i, i32 1
+  %spec.select13.i = select i1 %.not12.i, i32 %.016.i, i32 1
   %57 = call ptr @list_next(ptr noundef %43) #13
   store ptr %57, ptr @working_cluster_rec, align 8
   %.not.i = icmp eq ptr %57, null
@@ -174,11 +174,11 @@ _multi_cluster.exit:                              ; preds = %55
 
 .thread:                                          ; preds = %_multi_cluster.exit
   %60 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 8), align 8
-  %.not1725 = icmp eq i32 %60, 0
-  br i1 %.not1725, label %.thread28, label %61
+  %.not1724 = icmp eq i32 %60, 0
+  br i1 %.not1724, label %.thread27, label %61
 
 61:                                               ; preds = %.thread, %58
-  %.126 = phi i32 [ 1, %.thread ], [ %.1, %58 ]
+  %.125 = phi i32 [ 1, %.thread ], [ %.1, %58 ]
   %putchar = call i32 @putchar(i32 10)
   %62 = load i32, ptr getelementptr inbounds (i8, ptr @params, i64 8), align 8
   %63 = call i32 @sleep(i32 noundef %62) #13
@@ -186,9 +186,9 @@ _multi_cluster.exit:                              ; preds = %55
 
 64:                                               ; preds = %58
   %.not18 = icmp eq i32 %.1, 0
-  br i1 %.not18, label %65, label %.thread28
+  br i1 %.not18, label %65, label %.thread27
 
-.thread28:                                        ; preds = %.thread, %64
+.thread27:                                        ; preds = %.thread, %64
   call void @exit(i32 noundef 1) #14
   unreachable
 
@@ -424,11 +424,11 @@ _print_job_steps.exit:                            ; preds = %.critedge45.i, %62,
   br label %100
 
 100:                                              ; preds = %99, %97, %95
-  %.037.i = phi i16 [ 1, %99 ], [ 0, %97 ], [ 0, %95 ]
+  %.036.i = phi i16 [ 1, %99 ], [ 0, %97 ], [ 0, %95 ]
   %101 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 4), align 4
   %102 = trunc i8 %101 to i1
-  %103 = or disjoint i16 %.037.i, 64
-  %spec.select.i8 = select i1 %102, i16 %103, i16 %.037.i
+  %103 = or disjoint i16 %.036.i, 64
+  %spec.select.i8 = select i1 %102, i16 %103, i16 %.036.i
   %104 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 13), align 1
   %105 = trunc i8 %104 to i1
   %106 = or disjoint i16 %spec.select.i8, 16
@@ -498,8 +498,8 @@ _print_job_steps.exit:                            ; preds = %.critedge45.i, %62,
   br label %136
 
 136:                                              ; preds = %130, %128, %124
-  %.036.i = phi i32 [ %125, %124 ], [ %129, %128 ], [ %135, %130 ]
-  %137 = icmp eq i32 %.036.i, 0
+  %.037.i = phi i32 [ %125, %124 ], [ %129, %128 ], [ %135, %130 ]
+  %137 = icmp eq i32 %.037.i, 0
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %136
@@ -663,8 +663,8 @@ _print_job_steps.exit:                            ; preds = %.critedge45.i, %62,
   br label %210
 
 210:                                              ; preds = %208, %.thread74.i.i
-  %.0.i.i = phi i32 [ %206, %.thread74.i.i ], [ %209, %208 ]
-  %.not55.i.i = icmp eq i32 %.0.i.i, 0
+  %.039.i.i = phi i32 [ %206, %.thread74.i.i ], [ %209, %208 ]
+  %.not55.i.i = icmp eq i32 %.039.i.i, 0
   br i1 %.not55.i.i, label %.thread.i.i, label %_query_job_states.exit.i
 
 .thread.i.i:                                      ; preds = %210, %207, %.thread72.i.i, %201
@@ -752,7 +752,7 @@ _populate_array_job_states.exit.i.i:              ; preds = %244, %239, %230, %2
   br label %_query_job_states.exit.i
 
 _query_job_states.exit.i:                         ; preds = %._crit_edge.i.i, %210, %187, %159
-  %.2.i.i = phi i32 [ %162, %159 ], [ %181, %187 ], [ 0, %._crit_edge.i.i ], [ %.0.i.i, %210 ]
+  %.2.i.i = phi i32 [ %162, %159 ], [ %181, %187 ], [ 0, %._crit_edge.i.i ], [ %.039.i.i, %210 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -782,8 +782,8 @@ _query_job_states.exit.i:                         ; preds = %._crit_edge.i.i, %2
   br label %266
 
 266:                                              ; preds = %264, %262, %258
-  %.1.i12 = phi i32 [ %259, %258 ], [ %263, %262 ], [ %265, %264 ]
-  %.not61.i = icmp eq i32 %.1.i12, 0
+  %.138.i = phi i32 [ %259, %258 ], [ %263, %262 ], [ %265, %264 ]
+  %.not61.i = icmp eq i32 %.138.i, 0
   br i1 %.not61.i, label %.thread.i10, label %.thread75.i
 
 .thread75.i:                                      ; preds = %266, %140

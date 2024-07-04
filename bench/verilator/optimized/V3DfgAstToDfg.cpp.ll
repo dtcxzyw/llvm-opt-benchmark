@@ -46797,11 +46797,11 @@ define linkonce_odr dso_local void @_ZSt17__merge_sort_loopIN9__gnu_cxx17__norma
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %134
   %.021.i = phi ptr [ %135, %134 ], [ %.0145, %.lr.ph.i.preheader ]
-  %.sroa.015.020.i = phi ptr [ %.sroa.015.1.i, %134 ], [ %.sroa.049.0144, %.lr.ph.i.preheader ]
-  %.sroa.011.019.i = phi ptr [ %.sroa.011.1.i, %134 ], [ %10, %.lr.ph.i.preheader ]
-  %12 = getelementptr inbounds i8, ptr %.sroa.011.019.i, i64 16
+  %.sroa.011.020.i = phi ptr [ %.sroa.011.1.i, %134 ], [ %10, %.lr.ph.i.preheader ]
+  %.sroa.015.019.i = phi ptr [ %.sroa.015.1.i, %134 ], [ %.sroa.049.0144, %.lr.ph.i.preheader ]
+  %12 = getelementptr inbounds i8, ptr %.sroa.011.020.i, i64 16
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.sroa.015.020.i, i64 16
+  %14 = getelementptr inbounds i8, ptr %.sroa.015.019.i, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i.i.i = icmp eq i32 %13, %15
   br i1 %.not.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESE_EEbT_T0_.exit.i, label %16
@@ -46811,8 +46811,8 @@ define linkonce_odr dso_local void @_ZSt17__merge_sort_loopIN9__gnu_cxx17__norma
   br i1 %17, label %_ZNK8FileLine15operatorCompareERKS_.exit, label %_ZNK8FileLine15operatorCompareERKS_.exit.thread
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESE_EEbT_T0_.exit.i: ; preds = %.lr.ph.i
-  %18 = load ptr, ptr %.sroa.011.019.i, align 8
-  %19 = load ptr, ptr %.sroa.015.020.i, align 8
+  %18 = load ptr, ptr %.sroa.011.020.i, align 8
+  %19 = load ptr, ptr %.sroa.015.019.i, align 8
   %20 = getelementptr inbounds i8, ptr %18, i64 2
   %21 = load i16, ptr %20, align 2
   %22 = getelementptr inbounds i8, ptr %19, i64 2
@@ -47041,18 +47041,18 @@ _ZNK8FileLine5msgEnEv.exit:                       ; preds = %_ZN8FileLine9single
   br i1 %exitcond.not.i, label %_ZNK8FileLine15operatorCompareERKS_.exit.thread, label %_ZNKSt6bitsetILm119EE4testEm.exit34.i, !llvm.loop !14
 
 _ZNK8FileLine15operatorCompareERKS_.exit:         ; preds = %_ZNKSt6bitsetILm119EE4testEm.exit, %53, %45, %38, %31, %24, %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.021.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.011.019.i, i64 20, i1 false)
-  %132 = getelementptr inbounds i8, ptr %.sroa.011.019.i, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.021.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.011.020.i, i64 20, i1 false)
+  %132 = getelementptr inbounds i8, ptr %.sroa.011.020.i, i64 24
   br label %134
 
 _ZNK8FileLine15operatorCompareERKS_.exit.thread:  ; preds = %_ZNK8FileLine5msgEnEv.exit, %_ZNKSt6bitsetILm119EE4testEm.exit, %53, %45, %38, %31, %24, %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.021.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.015.020.i, i64 20, i1 false)
-  %133 = getelementptr inbounds i8, ptr %.sroa.015.020.i, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.021.i, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.015.019.i, i64 20, i1 false)
+  %133 = getelementptr inbounds i8, ptr %.sroa.015.019.i, i64 24
   br label %134
 
 134:                                              ; preds = %_ZNK8FileLine15operatorCompareERKS_.exit.thread, %_ZNK8FileLine15operatorCompareERKS_.exit
-  %.sroa.011.1.i = phi ptr [ %132, %_ZNK8FileLine15operatorCompareERKS_.exit ], [ %.sroa.011.019.i, %_ZNK8FileLine15operatorCompareERKS_.exit.thread ]
-  %.sroa.015.1.i = phi ptr [ %.sroa.015.020.i, %_ZNK8FileLine15operatorCompareERKS_.exit ], [ %133, %_ZNK8FileLine15operatorCompareERKS_.exit.thread ]
+  %.sroa.015.1.i = phi ptr [ %.sroa.015.019.i, %_ZNK8FileLine15operatorCompareERKS_.exit ], [ %133, %_ZNK8FileLine15operatorCompareERKS_.exit.thread ]
+  %.sroa.011.1.i = phi ptr [ %132, %_ZNK8FileLine15operatorCompareERKS_.exit ], [ %.sroa.011.020.i, %_ZNK8FileLine15operatorCompareERKS_.exit.thread ]
   %135 = getelementptr inbounds i8, ptr %.021.i, i64 24
   %136 = icmp ne ptr %.sroa.015.1.i, %10
   %137 = icmp ne ptr %.sroa.011.1.i, %11
@@ -47102,11 +47102,11 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6
 
 .lr.ph.i24:                                       ; preds = %._crit_edge, %167
   %.021.i25 = phi ptr [ %168, %167 ], [ %.0.lcssa, %._crit_edge ]
-  %.sroa.015.020.i26 = phi ptr [ %.sroa.015.1.i30, %167 ], [ %.sroa.049.0.lcssa, %._crit_edge ]
-  %.sroa.011.019.i27 = phi ptr [ %.sroa.011.1.i29, %167 ], [ %150, %._crit_edge ]
-  %153 = getelementptr inbounds i8, ptr %.sroa.011.019.i27, i64 16
+  %.sroa.011.020.i26 = phi ptr [ %.sroa.011.1.i30, %167 ], [ %150, %._crit_edge ]
+  %.sroa.015.019.i27 = phi ptr [ %.sroa.015.1.i29, %167 ], [ %.sroa.049.0.lcssa, %._crit_edge ]
+  %153 = getelementptr inbounds i8, ptr %.sroa.011.020.i26, i64 16
   %154 = load i32, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %.sroa.015.020.i26, i64 16
+  %155 = getelementptr inbounds i8, ptr %.sroa.015.019.i27, i64 16
   %156 = load i32, ptr %155, align 8
   %.not.i.i.i28 = icmp eq i32 %154, %156
   br i1 %.not.i.i.i28, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESE_EEbT_T0_.exit.i32, label %157
@@ -47116,54 +47116,54 @@ _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6
   br i1 %158, label %163, label %165
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESE_EEbT_T0_.exit.i32: ; preds = %.lr.ph.i24
-  %159 = load ptr, ptr %.sroa.011.019.i27, align 8
-  %160 = load ptr, ptr %.sroa.015.020.i26, align 8
+  %159 = load ptr, ptr %.sroa.011.020.i26, align 8
+  %160 = load ptr, ptr %.sroa.015.019.i27, align 8
   %161 = tail call noundef i32 @_ZNK8FileLine15operatorCompareERKS_(ptr noundef nonnull align 8 dereferenceable(40) %159, ptr noundef nonnull align 8 dereferenceable(40) %160)
   %162 = icmp slt i32 %161, 0
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESE_EEbT_T0_.exit.i32, %157
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.021.i25, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.011.019.i27, i64 20, i1 false)
-  %164 = getelementptr inbounds i8, ptr %.sroa.011.019.i27, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.021.i25, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.011.020.i26, i64 20, i1 false)
+  %164 = getelementptr inbounds i8, ptr %.sroa.011.020.i26, i64 24
   br label %167
 
 165:                                              ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN15AstToDfgVisitor18canonicalizePackedEvEUlRKNS2_6DriverES5_E_EclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESE_EEbT_T0_.exit.i32, %157
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.021.i25, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.015.020.i26, i64 20, i1 false)
-  %166 = getelementptr inbounds i8, ptr %.sroa.015.020.i26, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.021.i25, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.015.019.i27, i64 20, i1 false)
+  %166 = getelementptr inbounds i8, ptr %.sroa.015.019.i27, i64 24
   br label %167
 
 167:                                              ; preds = %165, %163
-  %.sroa.011.1.i29 = phi ptr [ %164, %163 ], [ %.sroa.011.019.i27, %165 ]
-  %.sroa.015.1.i30 = phi ptr [ %.sroa.015.020.i26, %163 ], [ %166, %165 ]
+  %.sroa.015.1.i29 = phi ptr [ %.sroa.015.019.i27, %163 ], [ %166, %165 ]
+  %.sroa.011.1.i30 = phi ptr [ %164, %163 ], [ %.sroa.011.020.i26, %165 ]
   %168 = getelementptr inbounds i8, ptr %.021.i25, i64 24
-  %169 = icmp ne ptr %.sroa.015.1.i30, %150
-  %170 = icmp ne ptr %.sroa.011.1.i29, %1
+  %169 = icmp ne ptr %.sroa.015.1.i29, %150
+  %170 = icmp ne ptr %.sroa.011.1.i30, %1
   %or.cond.i31 = select i1 %169, i1 %170, i1 false
   br i1 %or.cond.i31, label %.lr.ph.i24, label %.critedge.i17, !llvm.loop !66
 
 .critedge.i17:                                    ; preds = %167, %._crit_edge
-  %.sroa.011.0.lcssa.i18 = phi ptr [ %150, %._crit_edge ], [ %.sroa.011.1.i29, %167 ]
-  %.sroa.015.0.lcssa.i19 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %.sroa.015.1.i30, %167 ]
+  %.sroa.015.0.lcssa.i18 = phi ptr [ %.sroa.049.0.lcssa, %._crit_edge ], [ %.sroa.015.1.i29, %167 ]
+  %.sroa.011.0.lcssa.i19 = phi ptr [ %150, %._crit_edge ], [ %.sroa.011.1.i30, %167 ]
   %.0.lcssa.i20 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %168, %167 ]
   %171 = ptrtoint ptr %150 to i64
-  %172 = ptrtoint ptr %.sroa.015.0.lcssa.i19 to i64
+  %172 = ptrtoint ptr %.sroa.015.0.lcssa.i18 to i64
   %173 = sub i64 %171, %172
-  %.not.i.i.i.i.i.i21 = icmp eq ptr %.sroa.015.0.lcssa.i19, %150
+  %.not.i.i.i.i.i.i21 = icmp eq ptr %.sroa.015.0.lcssa.i18, %150
   br i1 %.not.i.i.i.i.i.i21, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i22, label %174
 
 174:                                              ; preds = %.critedge.i17
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i20, ptr align 8 %.sroa.015.0.lcssa.i19, i64 %173, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i20, ptr align 8 %.sroa.015.0.lcssa.i18, i64 %173, i1 false)
   br label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i22
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i22: ; preds = %174, %.critedge.i17
-  %.not.i.i.i.i.i9.i23 = icmp eq ptr %.sroa.011.0.lcssa.i18, %1
+  %.not.i.i.i.i.i9.i23 = icmp eq ptr %.sroa.011.0.lcssa.i19, %1
   br i1 %.not.i.i.i.i.i9.i23, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEET0_T_SG_SG_SG_SF_T1_.exit33, label %175
 
 175:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i22
-  %176 = ptrtoint ptr %.sroa.011.0.lcssa.i18 to i64
+  %176 = ptrtoint ptr %.sroa.011.0.lcssa.i19 to i64
   %177 = sub i64 %6, %176
   %178 = getelementptr inbounds i8, ptr %.0.lcssa.i20, i64 %173
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %178, ptr align 8 %.sroa.011.0.lcssa.i18, i64 %177, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %178, ptr align 8 %.sroa.011.0.lcssa.i19, i64 %177, i1 false)
   br label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEET0_T_SG_SG_SG_SF_T1_.exit33
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES4_NS0_5__ops15_Iter_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEET0_T_SG_SG_SG_SF_T1_.exit33: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES4_ET0_T_SA_S9_.exit.i22, %175

@@ -70,9 +70,9 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp1117, label %for.body, label %end
 
 for.body:                                         ; preds = %if.end7, %for.inc
-  %i.019 = phi i32 [ %inc, %for.inc ], [ 0, %if.end7 ]
-  %ret.018 = phi i32 [ %ret.1, %for.inc ], [ 0, %if.end7 ]
-  %call14 = tail call ptr @OPENSSL_sk_value(ptr noundef %call8, i32 noundef %i.019) #6
+  %ret.019 = phi i32 [ %ret.1, %for.inc ], [ 0, %if.end7 ]
+  %i.018 = phi i32 [ %inc, %for.inc ], [ 0, %if.end7 ]
+  %call14 = tail call ptr @OPENSSL_sk_value(ptr noundef %call8, i32 noundef %i.018) #6
   %call15 = tail call ptr @SSL_CIPHER_get_name(ptr noundef %call14) #6
   %call16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %call15, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #7
   %cmp17 = icmp eq i32 %call16, 0
@@ -100,8 +100,8 @@ if.end34:                                         ; preds = %if.end29
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end25, %for.body, %if.end34
-  %ret.1 = phi i32 [ 1, %if.end25 ], [ %call30, %if.end34 ], [ %ret.018, %for.body ]
-  %inc = add nuw nsw i32 %i.019, 1
+  %ret.1 = phi i32 [ 1, %if.end25 ], [ %call30, %if.end34 ], [ %ret.019, %for.body ]
+  %inc = add nuw nsw i32 %i.018, 1
   %call10 = tail call i32 @OPENSSL_sk_num(ptr noundef %call8) #6
   %cmp11 = icmp slt i32 %inc, %call10
   br i1 %cmp11, label %for.body, label %end, !llvm.loop !5

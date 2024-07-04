@@ -124,8 +124,8 @@ define ptr @cs_compress(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %64
 
 64:                                               ; preds = %1, %2, %._crit_edge57, %23
-  %.0 = phi ptr [ %63, %._crit_edge57 ], [ %24, %23 ], [ null, %2 ], [ null, %1 ]
-  ret ptr %.0
+  %.046 = phi ptr [ %63, %._crit_edge57 ], [ %24, %23 ], [ null, %2 ], [ null, %1 ]
+  ret ptr %.046
 }
 
 declare ptr @cs_spalloc(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

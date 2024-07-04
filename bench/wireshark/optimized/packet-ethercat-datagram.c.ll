@@ -1597,7 +1597,7 @@ EcSummaryFormater.exit:                           ; preds = %74, %85, %97, %115,
   br label %148
 
 148:                                              ; preds = %143, %EcSummaryFormater.exit
-  %.0289 = phi ptr [ %147, %143 ], [ null, %EcSummaryFormater.exit ]
+  %.0293 = phi ptr [ %147, %143 ], [ null, %EcSummaryFormater.exit ]
   %149 = getelementptr inbounds i8, ptr %11, i64 4
   %150 = getelementptr inbounds i8, ptr %12, i64 12
   %151 = getelementptr inbounds i8, ptr %12, i64 4
@@ -1605,36 +1605,36 @@ EcSummaryFormater.exit:                           ; preds = %74, %85, %97, %115,
   br label %153
 
 153:                                              ; preds = %proto_item_set_hidden.exit365, %148
-  %.0294 = phi i32 [ 0, %148 ], [ %480, %proto_item_set_hidden.exit365 ]
-  %.0290 = phi i32 [ 0, %148 ], [ %479, %proto_item_set_hidden.exit365 ]
-  %154 = add nuw i32 %.0290, 1
-  %155 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0290) #5
+  %.0294 = phi i32 [ 0, %148 ], [ %479, %proto_item_set_hidden.exit365 ]
+  %.0291 = phi i32 [ 0, %148 ], [ %480, %proto_item_set_hidden.exit365 ]
+  %154 = add nuw i32 %.0294, 1
+  %155 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0294) #5
   store i8 %155, ptr %9, align 4
-  %156 = add i32 %.0290, 2
+  %156 = add i32 %.0294, 2
   %157 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %154) #5
   store i8 %157, ptr %38, align 1
   %158 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %156) #5
   store i16 %158, ptr %17, align 4
-  %159 = add i32 %.0290, 4
+  %159 = add i32 %.0294, 4
   %160 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %159) #5
   store i16 %160, ptr %39, align 2
-  %161 = add i32 %.0290, 6
+  %161 = add i32 %.0294, 6
   %162 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %161) #5
   store i16 %162, ptr %18, align 4
-  %163 = add i32 %.0290, 8
+  %163 = add i32 %.0294, 8
   %164 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %163) #5
   store i16 %164, ptr %40, align 2
   %165 = and i16 %162, 2047
   %narrow.i324 = add nuw nsw i16 %165, 12
   %166 = zext nneg i16 %narrow.i324 to i32
   %167 = zext nneg i16 %165 to i32
-  %168 = add i32 %.0290, 10
+  %168 = add i32 %.0294, 10
   %169 = add i32 %168, %167
   %170 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %169) #5
   br i1 %.not, label %300, label %171
 
 171:                                              ; preds = %153
-  %172 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0290) #5
+  %172 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0294) #5
   %173 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %154) #5
   %174 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %156) #5
   %175 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %159) #5
@@ -1694,9 +1694,9 @@ EcSummaryFormater.exit:                           ; preds = %74, %85, %97, %115,
 
 EcSubFormatter.exit:                              ; preds = %182, %189, %194, %196
   %199 = load i32, ptr @ett_ecat_datagram_subtree, align 4
-  %200 = call ptr @proto_tree_add_subtree(ptr noundef %.0289, ptr noundef %0, i32 noundef %.0290, i32 noundef %166, i32 noundef %199, ptr noundef null, ptr noundef nonnull %8) #5
+  %200 = call ptr @proto_tree_add_subtree(ptr noundef %.0293, ptr noundef %0, i32 noundef %.0294, i32 noundef %166, i32 noundef %199, ptr noundef null, ptr noundef nonnull %8) #5
   %201 = load i32, ptr @ett_ecat_header, align 4
-  %202 = call ptr @proto_tree_add_subtree(ptr noundef %200, ptr noundef %0, i32 noundef %.0290, i32 noundef 10, i32 noundef %201, ptr noundef null, ptr noundef nonnull @.str.829) #5
+  %202 = call ptr @proto_tree_add_subtree(ptr noundef %200, ptr noundef %0, i32 noundef %.0294, i32 noundef 10, i32 noundef %201, ptr noundef null, ptr noundef nonnull @.str.829) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
   %203 = zext i8 %155 to i32
@@ -1716,16 +1716,16 @@ EcSubFormatter.exit:                              ; preds = %182, %189, %194, %1
 EcCmdFormatter.exit:                              ; preds = %206, %208
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %210 = load i32, ptr @hf_ecat_cmd, align 4
-  %211 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %210, ptr noundef %0, i32 noundef %.0290, i32 noundef 1, i32 noundef -2147483648) #5
+  %211 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %210, ptr noundef %0, i32 noundef %.0294, i32 noundef 1, i32 noundef -2147483648) #5
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %211, ptr noundef nonnull @.str.830, ptr noundef nonnull %8) #5
-  %212 = icmp ult i32 %.0294, 10
+  %212 = icmp ult i32 %.0291, 10
   br i1 %212, label %213, label %proto_item_set_hidden.exit
 
 213:                                              ; preds = %EcCmdFormatter.exit
-  %214 = zext nneg i32 %.0294 to i64
+  %214 = zext nneg i32 %.0291 to i64
   %215 = getelementptr [10 x i32], ptr @hf_ecat_sub_cmd, i64 0, i64 %214
   %216 = load i32, ptr %215, align 4
-  %217 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %216, ptr noundef %0, i32 noundef %.0290, i32 noundef 1, i32 noundef -2147483648) #5
+  %217 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %216, ptr noundef %0, i32 noundef %.0294, i32 noundef 1, i32 noundef -2147483648) #5
   %.not.i326 = icmp eq ptr %217, null
   br i1 %.not.i326, label %227, label %218
 
@@ -1780,7 +1780,7 @@ proto_item_set_hidden.exit329:                    ; preds = %236, %233, %227, %p
   br i1 %212, label %243, label %proto_item_set_hidden.exit332
 
 243:                                              ; preds = %240
-  %244 = zext nneg i32 %.0294 to i64
+  %244 = zext nneg i32 %.0291 to i64
   %245 = getelementptr [10 x i32], ptr @hf_ecat_sub_lad, i64 0, i64 %244
   %246 = load i32, ptr %245, align 4
   %247 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %246, ptr noundef %0, i32 noundef %156, i32 noundef 4, i32 noundef -2147483648) #5
@@ -1806,7 +1806,7 @@ proto_item_set_hidden.exit329:                    ; preds = %236, %233, %227, %p
   br i1 %212, label %258, label %proto_item_set_hidden.exit335
 
 258:                                              ; preds = %255
-  %259 = zext nneg i32 %.0294 to i64
+  %259 = zext nneg i32 %.0291 to i64
   %260 = getelementptr [10 x i32], ptr @hf_ecat_sub_adp, i64 0, i64 %259
   %261 = load i32, ptr %260, align 4
   %262 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %261, ptr noundef %0, i32 noundef %156, i32 noundef 2, i32 noundef -2147483648) #5
@@ -1874,7 +1874,7 @@ proto_item_set_hidden.exit332:                    ; preds = %281, %278, %272, %p
   br label %300
 
 300:                                              ; preds = %153, %proto_item_set_hidden.exit332
-  %.0293 = phi ptr [ %200, %proto_item_set_hidden.exit332 ], [ null, %153 ]
+  %.0290 = phi ptr [ %200, %proto_item_set_hidden.exit332 ], [ null, %153 ]
   %301 = icmp eq i8 %155, 1
   %302 = icmp eq i8 %155, 4
   %or.cond = or i1 %301, %302
@@ -1899,16 +1899,16 @@ proto_item_set_hidden.exit332:                    ; preds = %281, %278, %272, %p
 
 init_dc_measure.exit:                             ; preds = %.preheader
   %309 = load i32, ptr @ett_ecat_dc, align 4
-  %310 = call ptr @proto_tree_add_subtree(ptr noundef %.0293, ptr noundef %0, i32 noundef %168, i32 noundef %167, i32 noundef %309, ptr noundef null, ptr noundef nonnull @.str.836) #5
+  %310 = call ptr @proto_tree_add_subtree(ptr noundef %.0290, ptr noundef %0, i32 noundef %168, i32 noundef %167, i32 noundef %309, ptr noundef null, ptr noundef nonnull @.str.836) #5
   %311 = call fastcc i32 @dissect_esc_register(ptr noundef %1, ptr noundef %310, ptr noundef %0, i32 noundef %168, i32 noundef %167, ptr noundef nonnull %9, i16 noundef zeroext %170)
-  %312 = icmp ult i32 %.0294, 10
+  %312 = icmp ult i32 %.0291, 10
   br i1 %312, label %313, label %proto_item_set_hidden.exit341
 
 313:                                              ; preds = %init_dc_measure.exit
-  %314 = zext nneg i32 %.0294 to i64
+  %314 = zext nneg i32 %.0291 to i64
   %315 = getelementptr [10 x i32], ptr @hf_ecat_sub_data, i64 0, i64 %314
   %316 = load i32, ptr %315, align 4
-  %317 = call ptr @proto_tree_add_item(ptr noundef %.0293, i32 noundef %316, ptr noundef %0, i32 noundef %168, i32 noundef %167, i32 noundef 0) #5
+  %317 = call ptr @proto_tree_add_item(ptr noundef %.0290, i32 noundef %316, ptr noundef %0, i32 noundef %168, i32 noundef %167, i32 noundef 0) #5
   %.not.i339 = icmp eq ptr %317, null
   br i1 %.not.i339, label %proto_item_set_hidden.exit341, label %318
 
@@ -1938,7 +1938,7 @@ proto_item_set_hidden.exit341:                    ; preds = %321, %318, %313, %i
   br i1 %312, label %331, label %proto_item_set_hidden.exit344
 
 331:                                              ; preds = %326
-  %332 = zext nneg i32 %.0294 to i64
+  %332 = zext nneg i32 %.0291 to i64
   %333 = getelementptr [10 x i32], ptr @hf_ecat_sub_dc_diff_da, i64 0, i64 %332
   %334 = load i32, ptr %333, align 4
   %335 = call ptr @proto_tree_add_uint(ptr noundef %310, i32 noundef %334, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef %329) #5
@@ -1970,7 +1970,7 @@ proto_item_set_hidden.exit344:                    ; preds = %339, %336, %331, %3
   br i1 %312, label %348, label %proto_item_set_hidden.exit347.thread392
 
 348:                                              ; preds = %344
-  %349 = zext nneg i32 %.0294 to i64
+  %349 = zext nneg i32 %.0291 to i64
   %350 = getelementptr [10 x i32], ptr @hf_ecat_sub_dc_diff_bd, i64 0, i64 %349
   %351 = load i32, ptr %350, align 4
   %352 = call ptr @proto_tree_add_uint(ptr noundef %310, i32 noundef %351, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef %346) #5
@@ -2002,7 +2002,7 @@ proto_item_set_hidden.exit344:                    ; preds = %339, %336, %331, %3
   br i1 %312, label %366, label %proto_item_set_hidden.exit347.thread
 
 366:                                              ; preds = %362
-  %367 = zext nneg i32 %.0294 to i64
+  %367 = zext nneg i32 %.0291 to i64
   %368 = getelementptr [10 x i32], ptr @hf_ecat_sub_dc_diff_cd, i64 0, i64 %367
   %369 = load i32, ptr %368, align 4
   %370 = call ptr @proto_tree_add_uint(ptr noundef %310, i32 noundef %369, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef %364) #5
@@ -2036,7 +2036,7 @@ proto_item_set_hidden.exit347.thread392:          ; preds = %344, %348, %353, %3
   br i1 %312, label %383, label %proto_item_set_hidden.exit353
 
 383:                                              ; preds = %proto_item_set_hidden.exit347.thread392
-  %384 = zext nneg i32 %.0294 to i64
+  %384 = zext nneg i32 %.0291 to i64
   %385 = getelementptr [10 x i32], ptr @hf_ecat_sub_dc_diff_ba, i64 0, i64 %384
   %386 = load i32, ptr %385, align 4
   %387 = call ptr @proto_tree_add_uint(ptr noundef %310, i32 noundef %386, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef %381) #5
@@ -2068,7 +2068,7 @@ proto_item_set_hidden.exit353:                    ; preds = %391, %388, %383, %p
   br i1 %312, label %400, label %proto_item_set_hidden.exit356
 
 400:                                              ; preds = %396
-  %401 = zext nneg i32 %.0294 to i64
+  %401 = zext nneg i32 %.0291 to i64
   %402 = getelementptr [10 x i32], ptr @hf_ecat_sub_dc_diff_cb, i64 0, i64 %401
   %403 = load i32, ptr %402, align 4
   %404 = call ptr @proto_tree_add_uint(ptr noundef %310, i32 noundef %403, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef %398) #5
@@ -2094,7 +2094,7 @@ proto_item_set_hidden.exit347.thread:             ; preds = %362, %366, %371, %3
   br i1 %312, label %413, label %proto_item_set_hidden.exit356
 
 413:                                              ; preds = %408
-  %414 = zext nneg i32 %.0294 to i64
+  %414 = zext nneg i32 %.0291 to i64
   %415 = getelementptr [10 x i32], ptr @hf_ecat_sub_dc_diff_ca, i64 0, i64 %414
   %416 = load i32, ptr %415, align 4
   %417 = call ptr @proto_tree_add_uint(ptr noundef %310, i32 noundef %416, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef %411) #5
@@ -2108,7 +2108,7 @@ proto_item_set_hidden.exit347.thread:             ; preds = %362, %366, %371, %3
   br i1 %.not5.i358, label %proto_item_set_hidden.exit356, label %proto_item_set_hidden.exit356.sink.split
 
 421:                                              ; preds = %300
-  %422 = call fastcc i32 @dissect_esc_register(ptr noundef %1, ptr noundef %.0293, ptr noundef %0, i32 noundef %168, i32 noundef %167, ptr noundef nonnull %9, i16 noundef zeroext %170)
+  %422 = call fastcc i32 @dissect_esc_register(ptr noundef %1, ptr noundef %.0290, ptr noundef %0, i32 noundef %168, i32 noundef %167, ptr noundef nonnull %9, i16 noundef zeroext %170)
   %.not310 = icmp eq i32 %422, 0
   br i1 %.not310, label %proto_item_set_hidden.exit356, label %423
 
@@ -2155,7 +2155,7 @@ proto_item_set_hidden.exit347.thread:             ; preds = %362, %366, %371, %3
   %spec.select = zext nneg i16 %spec.select366 to i32
   %438 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %168, i32 noundef %spec.select) #5
   %439 = load ptr, ptr @ecat_mailbox_handle, align 8
-  %440 = call i32 @call_dissector_only(ptr noundef %439, ptr noundef %438, ptr noundef %1, ptr noundef %.0293, ptr noundef null) #5
+  %440 = call i32 @call_dissector_only(ptr noundef %439, ptr noundef %438, ptr noundef %1, ptr noundef %.0290, ptr noundef null) #5
   %441 = add i32 %168, %spec.select
   %442 = sub nsw i32 %167, %spec.select
   br label %443
@@ -2168,24 +2168,24 @@ proto_item_set_hidden.exit347.thread:             ; preds = %362, %366, %371, %3
 
 444:                                              ; preds = %443
   %445 = load ptr, ptr @heur_subdissector_list, align 8
-  %446 = call i32 @dissector_try_heuristic(ptr noundef %445, ptr noundef %0, ptr noundef %1, ptr noundef %.0293, ptr noundef nonnull %10, ptr noundef null) #5
+  %446 = call i32 @dissector_try_heuristic(ptr noundef %445, ptr noundef %0, ptr noundef %1, ptr noundef %.0290, ptr noundef nonnull %10, ptr noundef null) #5
   %.not312 = icmp eq i32 %446, 0
   br i1 %.not312, label %447, label %450
 
 447:                                              ; preds = %444
   %448 = load i32, ptr @hf_ecat_data, align 4
-  %449 = call ptr @proto_tree_add_item(ptr noundef %.0293, i32 noundef %448, ptr noundef %0, i32 noundef %.0288, i32 noundef %.0287, i32 noundef 0) #5
+  %449 = call ptr @proto_tree_add_item(ptr noundef %.0290, i32 noundef %448, ptr noundef %0, i32 noundef %.0288, i32 noundef %.0287, i32 noundef 0) #5
   br label %450
 
 450:                                              ; preds = %447, %444
-  %451 = icmp ult i32 %.0294, 10
+  %451 = icmp ult i32 %.0291, 10
   br i1 %451, label %452, label %proto_item_set_hidden.exit356
 
 452:                                              ; preds = %450
-  %453 = zext nneg i32 %.0294 to i64
+  %453 = zext nneg i32 %.0291 to i64
   %454 = getelementptr [10 x i32], ptr @hf_ecat_sub_data, i64 0, i64 %453
   %455 = load i32, ptr %454, align 4
-  %456 = call ptr @proto_tree_add_item(ptr noundef %.0293, i32 noundef %455, ptr noundef %0, i32 noundef %.0288, i32 noundef %.0287, i32 noundef 0) #5
+  %456 = call ptr @proto_tree_add_item(ptr noundef %.0290, i32 noundef %455, ptr noundef %0, i32 noundef %.0288, i32 noundef %.0287, i32 noundef 0) #5
   %.not.i360 = icmp eq ptr %456, null
   br i1 %.not.i360, label %proto_item_set_hidden.exit356, label %457
 
@@ -2208,15 +2208,15 @@ proto_item_set_hidden.exit356:                    ; preds = %proto_item_set_hidd
 
 463:                                              ; preds = %proto_item_set_hidden.exit356
   %464 = load i32, ptr @hf_ecat_cnt, align 4
-  %465 = call ptr @proto_tree_add_item(ptr noundef %.0293, i32 noundef %464, ptr noundef %0, i32 noundef %169, i32 noundef 2, i32 noundef -2147483648) #5
-  %466 = icmp ult i32 %.0294, 10
+  %465 = call ptr @proto_tree_add_item(ptr noundef %.0290, i32 noundef %464, ptr noundef %0, i32 noundef %169, i32 noundef 2, i32 noundef -2147483648) #5
+  %466 = icmp ult i32 %.0291, 10
   br i1 %466, label %467, label %proto_item_set_hidden.exit365
 
 467:                                              ; preds = %463
-  %468 = zext nneg i32 %.0294 to i64
+  %468 = zext nneg i32 %.0291 to i64
   %469 = getelementptr [10 x i32], ptr @hf_ecat_sub_cnt, i64 0, i64 %468
   %470 = load i32, ptr %469, align 4
-  %471 = call ptr @proto_tree_add_item(ptr noundef %.0293, i32 noundef %470, ptr noundef %0, i32 noundef %169, i32 noundef 2, i32 noundef -2147483648) #5
+  %471 = call ptr @proto_tree_add_item(ptr noundef %.0290, i32 noundef %470, ptr noundef %0, i32 noundef %169, i32 noundef 2, i32 noundef -2147483648) #5
   %.not.i363 = icmp eq ptr %471, null
   br i1 %.not.i363, label %proto_item_set_hidden.exit365, label %472
 
@@ -2234,8 +2234,8 @@ proto_item_set_hidden.exit356:                    ; preds = %proto_item_set_hidd
   br label %proto_item_set_hidden.exit365
 
 proto_item_set_hidden.exit365:                    ; preds = %475, %472, %467, %463, %proto_item_set_hidden.exit356
-  %479 = add i32 %.0290, %166
-  %480 = add i32 %.0294, 1
+  %479 = add i32 %.0294, %166
+  %480 = add i32 %.0291, 1
   %481 = icmp ult i32 %479, %13
   %482 = icmp slt i16 %162, 0
   %483 = select i1 %481, i1 %482, i1 false

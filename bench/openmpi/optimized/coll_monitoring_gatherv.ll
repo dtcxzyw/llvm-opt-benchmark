@@ -32,7 +32,7 @@ define i32 @mca_coll_monitoring_gatherv(ptr noundef %0, i32 noundef %1, ptr noun
 
 21:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
-  %.02939 = phi i64 [ 0, %.lr.ph ], [ %.1, %70 ]
+  %.040 = phi i64 [ 0, %.lr.ph ], [ %.1, %70 ]
   %22 = icmp eq i64 %indvars.iv, %20
   br i1 %22, label %70, label %23
 
@@ -117,20 +117,20 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %60
   %67 = sext i32 %25 to i64
   %68 = mul i64 %.val32, %67
   call void @mca_common_monitoring_record_coll(i32 noundef %66, i64 noundef %68) #3
-  %69 = add i64 %68, %.02939
+  %69 = add i64 %68, %.040
   br label %70
 
 70:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %64, %21
-  %.1 = phi i64 [ %.02939, %21 ], [ %69, %64 ], [ %.02939, %mca_common_monitoring_get_world_rank.exit ]
+  %.1 = phi i64 [ %.040, %21 ], [ %69, %64 ], [ %.040, %mca_common_monitoring_get_world_rank.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %70, %14
-  %.029.lcssa = phi i64 [ 0, %14 ], [ %.1, %70 ]
+  %.0.lcssa = phi i64 [ 0, %14 ], [ %.1, %70 ]
   %71 = getelementptr inbounds i8, ptr %9, i64 1704
   %72 = load ptr, ptr %71, align 8
-  call void @mca_common_monitoring_coll_a2o(i64 noundef %.029.lcssa, ptr noundef %72) #3
+  call void @mca_common_monitoring_coll_a2o(i64 noundef %.0.lcssa, ptr noundef %72) #3
   br label %73
 
 73:                                               ; preds = %._crit_edge, %10
@@ -172,7 +172,7 @@ define i32 @mca_coll_monitoring_igatherv(ptr noundef %0, i32 noundef %1, ptr nou
 
 22:                                               ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
-  %.03040 = phi i64 [ 0, %.lr.ph ], [ %.1, %71 ]
+  %.041 = phi i64 [ 0, %.lr.ph ], [ %.1, %71 ]
   %23 = icmp eq i64 %indvars.iv, %21
   br i1 %23, label %71, label %24
 
@@ -257,20 +257,20 @@ mca_common_monitoring_get_world_rank.exit:        ; preds = %61
   %68 = sext i32 %26 to i64
   %69 = mul i64 %.val33, %68
   call void @mca_common_monitoring_record_coll(i32 noundef %67, i64 noundef %69) #3
-  %70 = add i64 %69, %.03040
+  %70 = add i64 %69, %.041
   br label %71
 
 71:                                               ; preds = %mca_common_monitoring_get_world_rank.exit, %65, %22
-  %.1 = phi i64 [ %.03040, %22 ], [ %70, %65 ], [ %.03040, %mca_common_monitoring_get_world_rank.exit ]
+  %.1 = phi i64 [ %.041, %22 ], [ %70, %65 ], [ %.041, %mca_common_monitoring_get_world_rank.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %71, %15
-  %.030.lcssa = phi i64 [ 0, %15 ], [ %.1, %71 ]
+  %.0.lcssa = phi i64 [ 0, %15 ], [ %.1, %71 ]
   %72 = getelementptr inbounds i8, ptr %10, i64 1704
   %73 = load ptr, ptr %72, align 8
-  call void @mca_common_monitoring_coll_a2o(i64 noundef %.030.lcssa, ptr noundef %73) #3
+  call void @mca_common_monitoring_coll_a2o(i64 noundef %.0.lcssa, ptr noundef %73) #3
   br label %74
 
 74:                                               ; preds = %._crit_edge, %11

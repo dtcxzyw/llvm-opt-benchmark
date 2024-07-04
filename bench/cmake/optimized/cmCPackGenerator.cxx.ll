@@ -21013,9 +21013,9 @@ define linkonce_odr dso_local ptr @_ZSt16__set_differenceIN9__gnu_cxx17__normal_
 
 .lr.ph:                                           ; preds = %5, %28
   %.sroa.0.026 = phi ptr [ %.sroa.0.1, %28 ], [ %4, %5 ]
-  %.sroa.015.025 = phi ptr [ %.sroa.015.1, %28 ], [ %0, %5 ]
-  %.sroa.011.024 = phi ptr [ %.sroa.011.1, %28 ], [ %2, %5 ]
-  %8 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015.025, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.011.024)
+  %.sroa.011.025 = phi ptr [ %.sroa.011.1, %28 ], [ %2, %5 ]
+  %.sroa.015.024 = phi ptr [ %.sroa.015.1, %28 ], [ %0, %5 ]
+  %8 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015.024, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.011.025)
           to label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit unwind label %9
 
 9:                                                ; preds = %.lr.ph
@@ -21030,13 +21030,13 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112bas
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit
-  %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.026, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015.025)
-  %15 = getelementptr inbounds i8, ptr %.sroa.015.025, i64 32
+  %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.026, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015.024)
+  %15 = getelementptr inbounds i8, ptr %.sroa.015.024, i64 32
   %16 = getelementptr inbounds i8, ptr %.sroa.0.026, i64 32
   br label %28
 
 17:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit
-  %18 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.011.024, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015.025)
+  %18 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.011.025, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.015.024)
           to label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit8 unwind label %19
 
 19:                                               ; preds = %17
@@ -21051,17 +21051,17 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112bas
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit8
-  %24 = getelementptr inbounds i8, ptr %.sroa.011.024, i64 32
+  %24 = getelementptr inbounds i8, ptr %.sroa.011.025, i64 32
   br label %28
 
 25:                                               ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit8
-  %26 = getelementptr inbounds i8, ptr %.sroa.015.025, i64 32
-  %27 = getelementptr inbounds i8, ptr %.sroa.011.024, i64 32
+  %26 = getelementptr inbounds i8, ptr %.sroa.015.024, i64 32
+  %27 = getelementptr inbounds i8, ptr %.sroa.011.025, i64 32
   br label %28
 
 28:                                               ; preds = %23, %25, %13
-  %.sroa.011.1 = phi ptr [ %.sroa.011.024, %13 ], [ %24, %23 ], [ %27, %25 ]
-  %.sroa.015.1 = phi ptr [ %15, %13 ], [ %.sroa.015.025, %23 ], [ %26, %25 ]
+  %.sroa.015.1 = phi ptr [ %15, %13 ], [ %.sroa.015.024, %23 ], [ %26, %25 ]
+  %.sroa.011.1 = phi ptr [ %.sroa.011.025, %13 ], [ %24, %23 ], [ %27, %25 ]
   %.sroa.0.1 = phi ptr [ %16, %13 ], [ %.sroa.0.026, %23 ], [ %.sroa.0.026, %25 ]
   %29 = icmp ne ptr %.sroa.015.1, %1
   %30 = icmp ne ptr %.sroa.011.1, %3

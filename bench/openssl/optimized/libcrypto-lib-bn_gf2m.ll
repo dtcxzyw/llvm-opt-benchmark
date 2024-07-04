@@ -1237,13 +1237,13 @@ for.end52.i:                                      ; preds = %if.end43.i, %for.bo
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.backedge, %for.end52.i
+  %v.0.i = phi ptr [ %call3.i, %for.end52.i ], [ %v.1.i, %while.body.i.backedge ]
   %ubits.0.i = phi i32 [ %call15.i, %for.end52.i ], [ %ubits.0.i.be, %while.body.i.backedge ]
   %vbits.0.i = phi i32 [ %call16.i, %for.end52.i ], [ %vbits.1.i, %while.body.i.backedge ]
   %udp.0.i = phi ptr [ %1, %for.end52.i ], [ %udp.1.i, %while.body.i.backedge ]
   %bdp.0.i = phi ptr [ %10, %for.end52.i ], [ %bdp.1.i, %while.body.i.backedge ]
   %vdp.0.i = phi ptr [ %17, %for.end52.i ], [ %vdp.1.i, %while.body.i.backedge ]
   %cdp.0.i = phi ptr [ %14, %for.end52.i ], [ %cdp.1.i, %while.body.i.backedge ]
-  %v.0.i = phi ptr [ %call3.i, %for.end52.i ], [ %v.1.i, %while.body.i.backedge ]
   %u.0.i = phi ptr [ %call2.i, %for.end52.i ], [ %u.1.i, %while.body.i.backedge ]
   %c.0.i = phi ptr [ %call1.i, %for.end52.i ], [ %c.1.i, %while.body.i.backedge ]
   %b.0.i = phi ptr [ %call.i, %for.end52.i ], [ %b.1.i, %while.body.i.backedge ]
@@ -1332,13 +1332,13 @@ if.then111.i:                                     ; preds = %if.end109.i
   br label %if.end114.i
 
 if.end114.i:                                      ; preds = %if.then111.i, %if.end109.i
+  %v.1.i = phi ptr [ %u.0.i, %if.then111.i ], [ %v.0.i, %if.end109.i ]
   %ubits.2.i = phi i32 [ %vbits.0.i, %if.then111.i ], [ %ubits.1105.i, %if.end109.i ]
   %vbits.1.i = phi i32 [ %ubits.1105.i, %if.then111.i ], [ %vbits.0.i, %if.end109.i ]
   %udp.1.i = phi ptr [ %vdp.0.i, %if.then111.i ], [ %udp.0.i, %if.end109.i ]
   %bdp.1.i = phi ptr [ %cdp.0.i, %if.then111.i ], [ %bdp.0.i, %if.end109.i ]
   %vdp.1.i = phi ptr [ %27, %if.then111.i ], [ %vdp.0.i, %if.end109.i ]
   %cdp.1.i = phi ptr [ %28, %if.then111.i ], [ %cdp.0.i, %if.end109.i ]
-  %v.1.i = phi ptr [ %u.0.i, %if.then111.i ], [ %v.0.i, %if.end109.i ]
   %u.1.i = phi ptr [ %v.0.i, %if.then111.i ], [ %u.0.i, %if.end109.i ]
   %c.1.i = phi ptr [ %b.0.i, %if.then111.i ], [ %c.0.i, %if.end109.i ]
   %b.1.i = phi ptr [ %c.0.i, %if.then111.i ], [ %b.0.i, %if.end109.i ]

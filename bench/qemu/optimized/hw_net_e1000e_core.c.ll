@@ -779,10 +779,10 @@ if.else.i54:                                      ; preds = %land.lhs.true1.i57,
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else.i54, %if.then.i63, %e1000x_inc_reg_if_not_full.exit
-  %size.0 = phi i64 [ 60, %e1000x_inc_reg_if_not_full.exit ], [ %sub, %if.then.i63 ], [ %sub, %if.else.i54 ]
   %iovcnt.addr.0 = phi i32 [ 1, %e1000x_inc_reg_if_not_full.exit ], [ %iovcnt, %if.then.i63 ], [ %iovcnt, %if.else.i54 ]
-  %iov_ofs.1 = phi i64 [ 0, %e1000x_inc_reg_if_not_full.exit ], [ %iov_ofs.0, %if.then.i63 ], [ %iov_ofs.0, %if.else.i54 ]
   %iov.addr.0 = phi ptr [ %min_iov, %e1000x_inc_reg_if_not_full.exit ], [ %iov, %if.then.i63 ], [ %iov, %if.else.i54 ]
+  %size.0 = phi i64 [ 60, %e1000x_inc_reg_if_not_full.exit ], [ %sub, %if.then.i63 ], [ %sub, %if.else.i54 ]
+  %iov_ofs.1 = phi i64 [ 0, %e1000x_inc_reg_if_not_full.exit ], [ %iov_ofs.0, %if.then.i63 ], [ %iov_ofs.0, %if.else.i54 ]
   %call19 = call zeroext i1 @e1000x_is_oversized(ptr noundef nonnull %core, i64 noundef %size.0) #13
   br i1 %call19, label %return, label %if.end21
 
@@ -1708,8 +1708,8 @@ if.else.i141:                                     ; preds = %if.then30.i
   br label %if.end51.i
 
 if.end51.i:                                       ; preds = %e1000e_write_hdr_frag_to_rx_buffers.exit.i, %if.else.i141, %if.then19.i
-  %copy_size.2.i = phi i64 [ %spec.select76.i, %if.else.i141 ], [ %spec.select76.i, %if.then19.i ], [ %sub39.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
   %is_first.1.i = phi i1 [ false, %if.else.i141 ], [ %is_first.0.i, %if.then19.i ], [ false, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
+  %copy_size.2.i = phi i64 [ %spec.select76.i, %if.else.i141 ], [ %spec.select76.i, %if.then19.i ], [ %sub39.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
   %iov.3.i = phi ptr [ %iov.0.i, %if.else.i141 ], [ %iov.0.i, %if.then19.i ], [ %spec.select77.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
   %iov_ofs.3.i = phi i64 [ %iov_ofs.0.i, %if.else.i141 ], [ %iov_ofs.0.i, %if.then19.i ], [ %spec.select78.i, %e1000e_write_hdr_frag_to_rx_buffers.exit.i ]
   %tobool52.not260.i = icmp eq i64 %copy_size.2.i, 0

@@ -294,9 +294,9 @@ define internal { double, double } @_ZL14gnom_s_inverse5PJ_XYP8PJconsts(double %
   br label %62
 
 62:                                               ; preds = %59, %57, %54, %35, %17
-  %.sroa.0.0 = phi double [ %0, %17 ], [ %0, %59 ], [ %0, %57 ], [ %56, %54 ], [ %43, %35 ]
-  %.sroa.7.0 = phi double [ %1, %17 ], [ %61, %59 ], [ %1, %57 ], [ %55, %54 ], [ %40, %35 ]
   %.sroa.4.2 = phi double [ %7, %17 ], [ %60, %59 ], [ %58, %57 ], [ %.sroa.4.1, %54 ], [ %.sroa.4.0, %35 ]
+  %.sroa.7.0 = phi double [ %1, %17 ], [ %61, %59 ], [ %1, %57 ], [ %55, %54 ], [ %40, %35 ]
+  %.sroa.0.0 = phi double [ %0, %17 ], [ %0, %59 ], [ %0, %57 ], [ %56, %54 ], [ %43, %35 ]
   %63 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.7.0) #9
   br label %64
 

@@ -14713,8 +14713,8 @@ define hidden void @"_ZN78_$LT$sharded_slab..pool..Ref$LT$T$C$C$GT$$u20$as$u20$c
   %13 = tail call noundef i64 @"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17haefb416528a6cf0aE.llvm.11052903800730486598"(i64 noundef %12), !range !528
   %14 = icmp eq i64 %11, 1
   %15 = icmp eq i64 %13, 1
-  %.015.i = and i1 %15, %14
-  br i1 %.015.i, label %16, label %.thread
+  %.014.i = and i1 %15, %14
+  br i1 %.014.i, label %16, label %.thread
 
 16:                                               ; preds = %9
   %17 = and i64 %.0.i, -2251799813685248

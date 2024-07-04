@@ -734,7 +734,7 @@ define hidden void @_ZN8grep_cli7pattern20patterns_from_reader17hfc3a2fa92e33206
   br i1 %98, label %99, label %.loopexit93.i.i.i
 
 .loopexit93.i.i.i:                                ; preds = %96, %100
-  %.286.i.i.i = phi ptr [ %102, %100 ], [ null, %96 ]
+  %.285.i.i.i = phi ptr [ %102, %100 ], [ null, %96 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !108
   br label %.loopexit97.i.i.i
 
@@ -796,7 +796,7 @@ _ZN3std2io7BufRead10read_until17hff45a5ece3df6773E.exit.i.i.i: ; preds = %103
   br i1 %125, label %45, label %.loopexit97.i.i.i
 
 .loopexit97.i.i.i:                                ; preds = %124, %115, %60, %.loopexit93.i.i.i
-  %.185.i.i.i = phi ptr [ %.286.i.i.i, %.loopexit93.i.i.i ], [ null, %60 ], [ null, %115 ], [ null, %124 ]
+  %.184.i.i.i = phi ptr [ %.285.i.i.i, %.loopexit93.i.i.i ], [ null, %60 ], [ null, %115 ], [ null, %124 ]
   %.139.i.i.i = phi i64 [ %92, %.loopexit93.i.i.i ], [ 0, %60 ], [ 0, %115 ], [ 0, %124 ]
   %126 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !145, !noalias !144, !noundef !4
   %127 = add i64 %126, %.139.i.i.i
@@ -883,7 +883,7 @@ _ZN3std2io7BufRead10read_until17hff45a5ece3df6773E.exit.i.i.i: ; preds = %103
           to label %.body unwind label %158
 
 150:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9b11311928cb727fE.exit80.i.i.i", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9b11311928cb727fE.exit.i.i.i"
-  %.0.i.i.i = phi ptr [ %.1.i.i.i, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9b11311928cb727fE.exit80.i.i.i" ], [ %.185.i.i.i, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9b11311928cb727fE.exit.i.i.i" ]
+  %.0.i.i.i = phi ptr [ %.1.i.i.i, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9b11311928cb727fE.exit80.i.i.i" ], [ %.184.i.i.i, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9b11311928cb727fE.exit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   %151 = icmp eq ptr %.0.i.i.i, null
   br i1 %151, label %152, label %153

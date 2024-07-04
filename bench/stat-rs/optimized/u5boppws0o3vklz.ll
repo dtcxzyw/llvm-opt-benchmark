@@ -717,7 +717,7 @@ define noundef double @_ZN6statrs12distribution9empirical9Empirical13__inverse_c
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 48
   %17 = load i64, ptr %16, align 8
-  %.sroa.01.sroa.7.0.i = zext i1 %13 to i64
+  %.sroa.01.sroa.0.0.i = zext i1 %13 to i64
   %.sroa.01.sroa.6.sroa.7.0.i = select i1 %13, i64 %15, i64 undef
   %.sroa.6.0.i = select i1 %13, i64 %17, i64 0
   %.sroa.01.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
@@ -823,11 +823,11 @@ define noundef double @_ZN6statrs12distribution9empirical9Empirical13__inverse_c
 46:                                               ; preds = %.preheader55, %65
   %.sroa.08.0 = phi double [ %66, %65 ], [ -2.000000e+00, %.preheader55 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !195
-  store i64 %.sroa.01.sroa.7.0.i, ptr %5, align 8, !noalias !195
+  store i64 %.sroa.01.sroa.0.0.i, ptr %5, align 8, !noalias !195
   store ptr null, ptr %.sroa.01.sroa.6.0..sroa_idx.i, align 8, !noalias !195
   store ptr %12, ptr %.sroa.01.sroa.6.sroa.6.0..sroa.01.sroa.6.0..sroa_idx.sroa_idx.i, align 8, !noalias !195
   store i64 %.sroa.01.sroa.6.sroa.7.0.i, ptr %.sroa.01.sroa.6.sroa.7.0..sroa.01.sroa.6.0..sroa_idx.sroa_idx.i, align 8, !noalias !195
-  store i64 %.sroa.01.sroa.7.0.i, ptr %.sroa.01.sroa.7.0..sroa_idx.i, align 8, !noalias !195
+  store i64 %.sroa.01.sroa.0.0.i, ptr %.sroa.01.sroa.7.0..sroa_idx.i, align 8, !noalias !195
   store ptr null, ptr %.sroa.01.sroa.8.0..sroa_idx.i, align 8, !noalias !195
   store ptr %12, ptr %.sroa.01.sroa.8.sroa.6.0..sroa.01.sroa.8.0..sroa_idx.sroa_idx.i, align 8, !noalias !195
   store i64 %.sroa.01.sroa.6.sroa.7.0.i, ptr %.sroa.01.sroa.8.sroa.7.0..sroa.01.sroa.8.0..sroa_idx.sroa_idx.i, align 8, !noalias !195
@@ -894,11 +894,11 @@ define noundef double @_ZN6statrs12distribution9empirical9Empirical13__inverse_c
 67:                                               ; preds = %.preheader54, %86
   %.sroa.03.0 = phi double [ %87, %86 ], [ 2.000000e+00, %.preheader54 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4), !noalias !198
-  store i64 %.sroa.01.sroa.7.0.i, ptr %4, align 8, !noalias !198
+  store i64 %.sroa.01.sroa.0.0.i, ptr %4, align 8, !noalias !198
   store ptr null, ptr %.sroa.01.sroa.6.0..sroa_idx.i19, align 8, !noalias !198
   store ptr %12, ptr %.sroa.01.sroa.6.sroa.6.0..sroa.01.sroa.6.0..sroa_idx.sroa_idx.i20, align 8, !noalias !198
   store i64 %.sroa.01.sroa.6.sroa.7.0.i, ptr %.sroa.01.sroa.6.sroa.7.0..sroa.01.sroa.6.0..sroa_idx.sroa_idx.i21, align 8, !noalias !198
-  store i64 %.sroa.01.sroa.7.0.i, ptr %.sroa.01.sroa.7.0..sroa_idx.i22, align 8, !noalias !198
+  store i64 %.sroa.01.sroa.0.0.i, ptr %.sroa.01.sroa.7.0..sroa_idx.i22, align 8, !noalias !198
   store ptr null, ptr %.sroa.01.sroa.8.0..sroa_idx.i23, align 8, !noalias !198
   store ptr %12, ptr %.sroa.01.sroa.8.sroa.6.0..sroa.01.sroa.8.0..sroa_idx.sroa_idx.i24, align 8, !noalias !198
   store i64 %.sroa.01.sroa.6.sroa.7.0.i, ptr %.sroa.01.sroa.8.sroa.7.0..sroa.01.sroa.8.0..sroa_idx.sroa_idx.i25, align 8, !noalias !198
@@ -974,11 +974,11 @@ define noundef double @_ZN6statrs12distribution9empirical9Empirical13__inverse_c
   %92 = fadd double %.sroa.08.162, %.sroa.03.163
   %93 = fmul double %92, 5.000000e-01
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3), !noalias !201
-  store i64 %.sroa.01.sroa.7.0.i, ptr %3, align 8, !noalias !201
+  store i64 %.sroa.01.sroa.0.0.i, ptr %3, align 8, !noalias !201
   store ptr null, ptr %.sroa.01.sroa.6.0..sroa_idx.i38, align 8, !noalias !201
   store ptr %12, ptr %.sroa.01.sroa.6.sroa.6.0..sroa.01.sroa.6.0..sroa_idx.sroa_idx.i39, align 8, !noalias !201
   store i64 %.sroa.01.sroa.6.sroa.7.0.i, ptr %.sroa.01.sroa.6.sroa.7.0..sroa.01.sroa.6.0..sroa_idx.sroa_idx.i40, align 8, !noalias !201
-  store i64 %.sroa.01.sroa.7.0.i, ptr %.sroa.01.sroa.7.0..sroa_idx.i41, align 8, !noalias !201
+  store i64 %.sroa.01.sroa.0.0.i, ptr %.sroa.01.sroa.7.0..sroa_idx.i41, align 8, !noalias !201
   store ptr null, ptr %.sroa.01.sroa.8.0..sroa_idx.i42, align 8, !noalias !201
   store ptr %12, ptr %.sroa.01.sroa.8.sroa.6.0..sroa.01.sroa.8.0..sroa_idx.sroa_idx.i43, align 8, !noalias !201
   store i64 %.sroa.01.sroa.6.sroa.7.0.i, ptr %.sroa.01.sroa.8.sroa.7.0..sroa.01.sroa.8.0..sroa_idx.sroa_idx.i44, align 8, !noalias !201
@@ -1351,11 +1351,11 @@ define noundef double @"_ZN115_$LT$statrs..distribution..empirical..Empirical$u2
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
-  %.sroa.01.sroa.7.0 = zext i1 %6 to i64
+  %.sroa.01.sroa.0.0 = zext i1 %6 to i64
   %.sroa.01.sroa.6.sroa.7.0 = select i1 %6, i64 %8, i64 undef
   %.sroa.6.0 = select i1 %6, i64 %10, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store i64 %.sroa.01.sroa.7.0, ptr %3, align 8
+  store i64 %.sroa.01.sroa.0.0, ptr %3, align 8
   %.sroa.01.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
   %.sroa.01.sroa.6.sroa.6.0..sroa.01.sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
@@ -1363,7 +1363,7 @@ define noundef double @"_ZN115_$LT$statrs..distribution..empirical..Empirical$u2
   %.sroa.01.sroa.6.sroa.7.0..sroa.01.sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %.sroa.01.sroa.6.sroa.7.0, ptr %.sroa.01.sroa.6.sroa.7.0..sroa.01.sroa.6.0..sroa_idx.sroa_idx, align 8
   %.sroa.01.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
-  store i64 %.sroa.01.sroa.7.0, ptr %.sroa.01.sroa.7.0..sroa_idx, align 8
+  store i64 %.sroa.01.sroa.0.0, ptr %.sroa.01.sroa.7.0..sroa_idx, align 8
   %.sroa.01.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
   store ptr null, ptr %.sroa.01.sroa.8.0..sroa_idx, align 8
   %.sroa.01.sroa.8.sroa.6.0..sroa.01.sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
@@ -1431,11 +1431,11 @@ define noundef double @"_ZN115_$LT$statrs..distribution..empirical..Empirical$u2
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
-  %.sroa.01.sroa.6.0 = zext i1 %6 to i64
+  %.sroa.01.sroa.0.0 = zext i1 %6 to i64
   %.sroa.01.sroa.5.sroa.6.0 = select i1 %6, i64 %8, i64 undef
   %.sroa.5.0 = select i1 %6, i64 %10, i64 0
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
-  store i64 %.sroa.01.sroa.6.0, ptr %3, align 8
+  store i64 %.sroa.01.sroa.0.0, ptr %3, align 8
   %.sroa.02.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %.sroa.02.sroa.2.0..sroa_idx, align 8
   %.sroa.02.sroa.2.sroa.2.0..sroa.02.sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
@@ -1443,7 +1443,7 @@ define noundef double @"_ZN115_$LT$statrs..distribution..empirical..Empirical$u2
   %.sroa.02.sroa.2.sroa.3.0..sroa.02.sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %.sroa.01.sroa.5.sroa.6.0, ptr %.sroa.02.sroa.2.sroa.3.0..sroa.02.sroa.2.0..sroa_idx.sroa_idx, align 8
   %.sroa.02.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
-  store i64 %.sroa.01.sroa.6.0, ptr %.sroa.02.sroa.3.0..sroa_idx, align 8
+  store i64 %.sroa.01.sroa.0.0, ptr %.sroa.02.sroa.3.0..sroa_idx, align 8
   %.sroa.02.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
   store ptr null, ptr %.sroa.02.sroa.4.0..sroa_idx, align 8
   %.sroa.02.sroa.4.sroa.2.0..sroa.02.sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %3, i64 48

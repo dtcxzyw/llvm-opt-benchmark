@@ -688,23 +688,23 @@ if.end:                                           ; preds = %_ZNKSt17basic_strin
   br i1 %cmp.i749, label %while.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end, %while.body
-  %key.sroa.10.051 = phi ptr [ %add.ptr.i, %while.body ], [ %line.coerce1, %if.end ]
-  %key.sroa.0.050 = phi i64 [ %sub.i, %while.body ], [ %.sroa.speculated.i, %if.end ]
-  %0 = load i8, ptr %key.sroa.10.051, align 1
+  %key.sroa.0.051 = phi i64 [ %sub.i, %while.body ], [ %.sroa.speculated.i, %if.end ]
+  %key.sroa.10.050 = phi ptr [ %add.ptr.i, %while.body ], [ %line.coerce1, %if.end ]
+  %0 = load i8, ptr %key.sroa.10.050, align 1
   %conv = sext i8 %0 to i32
   %call5 = tail call i32 @isspace(i32 noundef %conv) #15
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %add.ptr.i = getelementptr inbounds i8, ptr %key.sroa.10.051, i64 1
-  %sub.i = add i64 %key.sroa.0.050, -1
+  %add.ptr.i = getelementptr inbounds i8, ptr %key.sroa.10.050, i64 1
+  %sub.i = add i64 %key.sroa.0.051, -1
   %cmp.i7 = icmp eq i64 %sub.i, 0
   br i1 %cmp.i7, label %cleanup.cont, label %land.rhs, !llvm.loop !15
 
 while.end:                                        ; preds = %land.rhs, %if.end
-  %key.sroa.0.0.lcssa = phi i64 [ %.sroa.speculated.i, %if.end ], [ %key.sroa.0.050, %land.rhs ]
-  %key.sroa.10.0.lcssa = phi ptr [ %line.coerce1, %if.end ], [ %key.sroa.10.051, %land.rhs ]
+  %key.sroa.10.0.lcssa = phi ptr [ %line.coerce1, %if.end ], [ %key.sroa.10.050, %land.rhs ]
+  %key.sroa.0.0.lcssa = phi i64 [ %.sroa.speculated.i, %if.end ], [ %key.sroa.0.051, %land.rhs ]
   %invariant.gep = getelementptr i8, ptr %key.sroa.10.0.lcssa, i64 -1
   %cmp.i1055 = icmp eq i64 %key.sroa.0.0.lcssa, 0
   br i1 %cmp.i1055, label %cleanup.cont, label %land.rhs8

@@ -2156,8 +2156,8 @@ define linkonce_odr noundef ptr @_ZN3gmx19DirectoryEnumerator4Impl4initERKNSt10f
   br label %62
 
 _ZN3gmx19DirectoryEnumerator4ImplC2ERKNSt10filesystem7__cxx114pathE.exit: ; preds = %.thread, %.thread.thread
-  %.012 = phi ptr [ null, %.thread.thread ], [ %59, %.thread ]
-  ret ptr %.012
+  %.023 = phi ptr [ null, %.thread.thread ], [ %59, %.thread ]
+  ret ptr %.023
 
 62:                                               ; preds = %43, %60, %58, %45
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn33, %58 ], [ %46, %45 ], [ %61, %60 ], [ %44, %43 ]

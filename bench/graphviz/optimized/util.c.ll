@@ -34,12 +34,12 @@ define noundef i32 @Ppolybarriers(ptr nocapture noundef readonly %0, i32 noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.03033 = phi i32 [ 0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
+  %.02834 = phi i32 [ 0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
   %6 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = add nsw i32 %9, %.03033
+  %10 = add nsw i32 %9, %.02834
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -57,8 +57,8 @@ define noundef i32 @Ppolybarriers(ptr nocapture noundef readonly %0, i32 noundef
 
 ._crit_edge.thread:                               ; preds = %4, %._crit_edge
   %15 = phi i64 [ %11, %._crit_edge ], [ 0, %4 ]
-  %.030.lcssa62 = phi i32 [ %10, %._crit_edge ], [ 0, %4 ]
-  %16 = icmp ne i32 %.030.lcssa62, 0
+  %.028.lcssa62 = phi i32 [ %10, %._crit_edge ], [ 0, %4 ]
+  %16 = icmp ne i32 %.028.lcssa62, 0
   %17 = tail call noalias ptr @calloc(i64 noundef %15, i64 noundef 32) #14
   %18 = icmp eq ptr %17, null
   %or.cond3.i = and i1 %16, %18
@@ -80,7 +80,7 @@ gv_calloc.exit.preheader:                         ; preds = %._crit_edge.thread
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %gv_calloc.exit
   %indvars.iv55 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next56, %gv_calloc.exit ]
-  %.02841 = phi i32 [ 0, %.lr.ph43.preheader ], [ %.129.lcssa, %gv_calloc.exit ]
+  %.042 = phi i32 [ 0, %.lr.ph43.preheader ], [ %.1.lcssa, %gv_calloc.exit ]
   %23 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv55
   %24 = load ptr, ptr %23, align 8
   %.sroa.0.0.copyload = load ptr, ptr %24, align 8
@@ -90,7 +90,7 @@ gv_calloc.exit.preheader:                         ; preds = %._crit_edge.thread
   br i1 %25, label %.lr.ph38.preheader, label %gv_calloc.exit
 
 .lr.ph38.preheader:                               ; preds = %.lr.ph43
-  %26 = sext i32 %.02841 to i64
+  %26 = sext i32 %.042 to i64
   %27 = zext nneg i32 %.sroa.3.0.copyload to i64
   %wide.trip.count53 = zext nneg i32 %.sroa.3.0.copyload to i64
   br label %.lr.ph38
@@ -117,14 +117,14 @@ gv_calloc.exit.loopexit:                          ; preds = %.lr.ph38
   br label %gv_calloc.exit
 
 gv_calloc.exit:                                   ; preds = %gv_calloc.exit.loopexit, %.lr.ph43
-  %.129.lcssa = phi i32 [ %.02841, %.lr.ph43 ], [ %34, %gv_calloc.exit.loopexit ]
+  %.1.lcssa = phi i32 [ %.042, %.lr.ph43 ], [ %34, %gv_calloc.exit.loopexit ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
   br i1 %exitcond59.not, label %gv_calloc.exit._crit_edge, label %.lr.ph43
 
 gv_calloc.exit._crit_edge:                        ; preds = %gv_calloc.exit, %gv_calloc.exit.preheader
   store ptr %17, ptr %2, align 8
-  store i32 %.030.lcssa62, ptr %3, align 4
+  store i32 %.028.lcssa62, ptr %3, align 4
   ret i32 1
 }
 
@@ -184,31 +184,31 @@ gv_recalloc.exit:                                 ; preds = %18, %20
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv30 = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next31, %.lr.ph ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %28 = getelementptr inbounds %struct.Pxy_t, ptr %24, i64 %indvars.iv30
+  %indvars.iv30 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next31, %.lr.ph ]
+  %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %28 = getelementptr inbounds %struct.Pxy_t, ptr %24, i64 %indvars.iv
   %29 = getelementptr inbounds i8, ptr %28, i64 32
   %30 = getelementptr inbounds i8, ptr %28, i64 16
-  %31 = getelementptr inbounds %struct.Pxy_t, ptr %0, i64 %indvars.iv
+  %31 = getelementptr inbounds %struct.Pxy_t, ptr %0, i64 %indvars.iv30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 3
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
+  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %32 = and i64 %indvars.iv.next31, 4294967295
+  %32 = and i64 %indvars.iv.next, 4294967295
   %33 = zext nneg i32 %26 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %23, %._crit_edge.loopexit
-  %.023.lcssa = phi i64 [ %32, %._crit_edge.loopexit ], [ 2, %23 ]
-  %.0.lcssa = phi i64 [ %33, %._crit_edge.loopexit ], [ 1, %23 ]
-  %34 = getelementptr inbounds %struct.Pxy_t, ptr %24, i64 %.023.lcssa
+  %.023.lcssa = phi i64 [ %33, %._crit_edge.loopexit ], [ 1, %23 ]
+  %.0.lcssa = phi i64 [ %32, %._crit_edge.loopexit ], [ 2, %23 ]
+  %34 = getelementptr inbounds %struct.Pxy_t, ptr %24, i64 %.0.lcssa
   %35 = getelementptr inbounds i8, ptr %34, i64 16
-  %36 = getelementptr inbounds %struct.Pxy_t, ptr %0, i64 %.0.lcssa
+  %36 = getelementptr inbounds %struct.Pxy_t, ptr %0, i64 %.023.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false)
   %37 = getelementptr inbounds i8, ptr %2, i64 8

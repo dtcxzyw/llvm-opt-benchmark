@@ -19,9 +19,9 @@ define hidden range(i32 0, 2) i32 @persfilepath_opt(i32 noundef %0, ptr noundef 
   br label %7
 
 7:                                                ; preds = %7, %5
-  %.pn = phi ptr [ %3, %5 ], [ %.015, %7 ]
-  %.015 = getelementptr i8, ptr %.pn, i64 1
-  %8 = load i8, ptr %.015, align 1
+  %.pn = phi ptr [ %3, %5 ], [ %.0, %7 ]
+  %.0 = getelementptr i8, ptr %.pn, i64 1
+  %8 = load i8, ptr %.0, align 1
   %9 = zext i8 %8 to i64
   %10 = getelementptr i16, ptr %6, i64 %9
   %11 = load i16, ptr %10, align 2
@@ -34,7 +34,7 @@ define hidden range(i32 0, 2) i32 @persfilepath_opt(i32 noundef %0, ptr noundef 
   br i1 %14, label %.sink.split, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @test_for_directory(ptr noundef nonnull %.015) #4
+  %16 = tail call i32 @test_for_directory(ptr noundef nonnull %.0) #4
   %.not17 = icmp eq i32 %16, 21
   br i1 %.not17, label %17, label %.sink.split
 
@@ -44,7 +44,7 @@ define hidden range(i32 0, 2) i32 @persfilepath_opt(i32 noundef %0, ptr noundef 
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %17
-  tail call void @set_persconffile_dir(ptr noundef nonnull %.015) #4
+  tail call void @set_persconffile_dir(ptr noundef nonnull %.0) #4
   br label %.sink.split
 
 21:                                               ; preds = %17
@@ -53,17 +53,17 @@ define hidden range(i32 0, 2) i32 @persfilepath_opt(i32 noundef %0, ptr noundef 
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %21
-  tail call void @set_persdatafile_dir(ptr noundef nonnull %.015) #4
+  tail call void @set_persdatafile_dir(ptr noundef nonnull %.0) #4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %20, %24, %15, %13
-  %.0.ph = phi i32 [ 0, %13 ], [ 0, %15 ], [ 1, %24 ], [ 1, %20 ]
+  %.015.ph = phi i32 [ 0, %13 ], [ 0, %15 ], [ 1, %24 ], [ 1, %20 ]
   store i8 58, ptr %3, align 1
   br label %25
 
 25:                                               ; preds = %.sink.split, %21, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %21 ], [ %.0.ph, %.sink.split ]
-  ret i32 %.0
+  %.015 = phi i32 [ 0, %2 ], [ 0, %21 ], [ %.015.ph, %.sink.split ]
+  ret i32 %.015
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

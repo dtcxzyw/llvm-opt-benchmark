@@ -10746,25 +10746,25 @@ _ZN6brotli3enc9histogram21NewBlockSplitIterator17hd20784504b11a51bE.exit62: ; pr
   %.023237 = phi i8 [ %10, %.lr.ph239 ], [ %.2, %140 ]
   %.025236 = phi i8 [ %11, %.lr.ph239 ], [ %.227, %140 ]
   %.031235 = phi i64 [ 0, %.lr.ph239 ], [ %141, %140 ]
-  %.sroa.880.0234 = phi i64 [ %.0.i61, %.lr.ph239 ], [ %.sroa.880.1, %140 ]
-  %.sroa.4.0233 = phi i64 [ 0, %.lr.ph239 ], [ %.sroa.4.1.lcssa, %140 ]
-  %.sroa.6.0232 = phi i64 [ 0, %.lr.ph239 ], [ %.sroa.6.1.lcssa, %140 ]
-  %.sroa.9.0231 = phi i64 [ %.0.i54, %.lr.ph239 ], [ %.sroa.9.1.lcssa, %140 ]
-  %.sroa.679.0230 = phi i64 [ 0, %.lr.ph239 ], [ %.sroa.679.1, %140 ]
-  %.sroa.475.0229 = phi i64 [ 0, %.lr.ph239 ], [ %.sroa.475.1, %140 ]
-  %.sroa.676.0228 = phi i64 [ 0, %.lr.ph239 ], [ %.sroa.676.1, %140 ]
-  %.sroa.8.0227 = phi i64 [ %.0.i57, %.lr.ph239 ], [ %65, %140 ]
-  %.sroa.478.0226 = phi i64 [ 0, %.lr.ph239 ], [ %.sroa.478.1, %140 ]
+  %.sroa.4.0234 = phi i64 [ 0, %.lr.ph239 ], [ %.sroa.4.1.lcssa, %140 ]
+  %.sroa.6.0233 = phi i64 [ 0, %.lr.ph239 ], [ %.sroa.6.1.lcssa, %140 ]
+  %.sroa.9.0232 = phi i64 [ %.0.i54, %.lr.ph239 ], [ %.sroa.9.1.lcssa, %140 ]
+  %.sroa.475.0231 = phi i64 [ 0, %.lr.ph239 ], [ %.sroa.475.1, %140 ]
+  %.sroa.676.0230 = phi i64 [ 0, %.lr.ph239 ], [ %.sroa.676.1, %140 ]
+  %.sroa.8.0229 = phi i64 [ %.0.i57, %.lr.ph239 ], [ %65, %140 ]
+  %.sroa.478.0228 = phi i64 [ 0, %.lr.ph239 ], [ %.sroa.478.1, %140 ]
+  %.sroa.679.0227 = phi i64 [ 0, %.lr.ph239 ], [ %.sroa.679.1, %140 ]
+  %.sroa.880.0226 = phi i64 [ %.0.i61, %.lr.ph239 ], [ %.sroa.880.1, %140 ]
   %exitcond.not = icmp eq i64 %.031235, %1
   br i1 %exitcond.not, label %67, label %47, !prof !5
 
 47:                                               ; preds = %46
   %48 = getelementptr inbounds [0 x { i32, i32, i32, i16, i16 }], ptr %0, i64 0, i64 %.031235
-  %49 = icmp eq i64 %.sroa.8.0227, 0
+  %49 = icmp eq i64 %.sroa.8.0229, 0
   br i1 %49, label %50, label %_ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit
 
 50:                                               ; preds = %47
-  %51 = add i64 %.sroa.475.0229, 1
+  %51 = add i64 %.sroa.475.0231, 1
   %52 = icmp ult i64 %51, %.val7.i
   br i1 %52, label %53, label %55, !prof !646
 
@@ -10790,9 +10790,9 @@ _ZN6brotli3enc9histogram21NewBlockSplitIterator17hd20784504b11a51bE.exit62: ; pr
   unreachable
 
 _ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit: ; preds = %47, %56
-  %.sroa.676.1 = phi i64 [ %59, %56 ], [ %.sroa.676.0228, %47 ]
-  %.sroa.475.1 = phi i64 [ %51, %56 ], [ %.sroa.475.0229, %47 ]
-  %64 = phi i64 [ %62, %56 ], [ %.sroa.8.0227, %47 ]
+  %.sroa.676.1 = phi i64 [ %59, %56 ], [ %.sroa.676.0230, %47 ]
+  %.sroa.475.1 = phi i64 [ %51, %56 ], [ %.sroa.475.0231, %47 ]
+  %64 = phi i64 [ %62, %56 ], [ %.sroa.8.0229, %47 ]
   %65 = add i64 %64, -1
   %66 = icmp ult i64 %.sroa.676.1, %17
   br i1 %66, label %68, label %117, !prof !646
@@ -10835,9 +10835,9 @@ _ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit: ; preds = %
   %.1204.us = phi i64 [ %114, %103 ], [ %.0238, %.lr.ph ]
   %.124203.us = phi i8 [ %106, %103 ], [ %.023237, %.lr.ph ]
   %.029201.us = phi i64 [ %115, %103 ], [ %83, %.lr.ph ]
-  %.sroa.4.1200.us = phi i64 [ %.sroa.4.2.us, %103 ], [ %.sroa.4.0233, %.lr.ph ]
-  %.sroa.6.1199.us = phi i64 [ %.sroa.6.2.us, %103 ], [ %.sroa.6.0232, %.lr.ph ]
-  %.sroa.9.1198.us = phi i64 [ %98, %103 ], [ %.sroa.9.0231, %.lr.ph ]
+  %.sroa.4.1200.us = phi i64 [ %.sroa.4.2.us, %103 ], [ %.sroa.4.0234, %.lr.ph ]
+  %.sroa.6.1199.us = phi i64 [ %.sroa.6.2.us, %103 ], [ %.sroa.6.0233, %.lr.ph ]
+  %.sroa.9.1198.us = phi i64 [ %98, %103 ], [ %.sroa.9.0232, %.lr.ph ]
   %84 = icmp eq i64 %.sroa.9.1198.us, 0
   br i1 %84, label %85, label %_ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit67.us
 
@@ -10895,9 +10895,9 @@ _ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit67.us: 
   unreachable
 
 ._crit_edge:                                      ; preds = %237, %103, %_ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit
-  %.sroa.9.1.lcssa = phi i64 [ %.sroa.9.0231, %_ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit ], [ %98, %103 ], [ %138, %237 ]
-  %.sroa.6.1.lcssa = phi i64 [ %.sroa.6.0232, %_ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit ], [ %.sroa.6.2.us, %103 ], [ %.sroa.6.2, %237 ]
-  %.sroa.4.1.lcssa = phi i64 [ %.sroa.4.0233, %_ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit ], [ %.sroa.4.2.us, %103 ], [ %.sroa.4.2, %237 ]
+  %.sroa.9.1.lcssa = phi i64 [ %.sroa.9.0232, %_ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit ], [ %98, %103 ], [ %138, %237 ]
+  %.sroa.6.1.lcssa = phi i64 [ %.sroa.6.0233, %_ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit ], [ %.sroa.6.2.us, %103 ], [ %.sroa.6.2, %237 ]
+  %.sroa.4.1.lcssa = phi i64 [ %.sroa.4.0234, %_ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit ], [ %.sroa.4.2.us, %103 ], [ %.sroa.4.2, %237 ]
   %.126.lcssa = phi i8 [ %.025236, %_ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit ], [ %.124203.us, %103 ], [ %.124203, %237 ]
   %.124.lcssa = phi i8 [ %.023237, %_ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit ], [ %106, %103 ], [ %240, %237 ]
   %.1.lcssa = phi i64 [ %.0238, %_ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit ], [ %114, %103 ], [ %248, %237 ]
@@ -10914,9 +10914,9 @@ _ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit67.us: 
   %.124203 = phi i8 [ %240, %237 ], [ %.023237, %.lr.ph ]
   %.126202 = phi i8 [ %.124203, %237 ], [ %.025236, %.lr.ph ]
   %.029201 = phi i64 [ %249, %237 ], [ %83, %.lr.ph ]
-  %.sroa.4.1200 = phi i64 [ %.sroa.4.2, %237 ], [ %.sroa.4.0233, %.lr.ph ]
-  %.sroa.6.1199 = phi i64 [ %.sroa.6.2, %237 ], [ %.sroa.6.0232, %.lr.ph ]
-  %.sroa.9.1198 = phi i64 [ %138, %237 ], [ %.sroa.9.0231, %.lr.ph ]
+  %.sroa.4.1200 = phi i64 [ %.sroa.4.2, %237 ], [ %.sroa.4.0234, %.lr.ph ]
+  %.sroa.6.1199 = phi i64 [ %.sroa.6.2, %237 ], [ %.sroa.6.0233, %.lr.ph ]
+  %.sroa.9.1198 = phi i64 [ %138, %237 ], [ %.sroa.9.0232, %.lr.ph ]
   %124 = icmp eq i64 %.sroa.9.1198, 0
   br i1 %124, label %125, label %_ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit67
 
@@ -10957,9 +10957,9 @@ _ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit67: ; p
   br i1 %139, label %204, label %233, !prof !646
 
 140:                                              ; preds = %153, %_ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit, %._crit_edge
-  %.sroa.478.1 = phi i64 [ %.sroa.478.0226, %._crit_edge ], [ %.sroa.478.2, %_ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit ], [ %.sroa.478.0226, %153 ]
-  %.sroa.679.1 = phi i64 [ %.sroa.679.0230, %._crit_edge ], [ %.sroa.679.2, %_ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit ], [ %.sroa.679.0230, %153 ]
-  %.sroa.880.1 = phi i64 [ %.sroa.880.0234, %._crit_edge ], [ %176, %_ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit ], [ %.sroa.880.0234, %153 ]
+  %.sroa.880.1 = phi i64 [ %.sroa.880.0226, %._crit_edge ], [ %176, %_ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit ], [ %.sroa.880.0226, %153 ]
+  %.sroa.679.1 = phi i64 [ %.sroa.679.0227, %._crit_edge ], [ %.sroa.679.2, %_ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit ], [ %.sroa.679.0227, %153 ]
+  %.sroa.478.1 = phi i64 [ %.sroa.478.0228, %._crit_edge ], [ %.sroa.478.2, %_ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit ], [ %.sroa.478.0228, %153 ]
   %.227 = phi i8 [ %.126.lcssa, %._crit_edge ], [ %148, %_ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit ], [ %148, %153 ]
   %.2 = phi i8 [ %.124.lcssa, %._crit_edge ], [ %155, %_ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit ], [ %155, %153 ]
   %141 = add nuw i64 %.031235, 1
@@ -10996,11 +10996,11 @@ _ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit67: ; p
 
 158:                                              ; preds = %153
   %159 = zext nneg i16 %70 to i32
-  %160 = icmp eq i64 %.sroa.880.0234, 0
+  %160 = icmp eq i64 %.sroa.880.0226, 0
   br i1 %160, label %161, label %_ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit72
 
 161:                                              ; preds = %158
-  %162 = add i64 %.sroa.478.0226, 1
+  %162 = add i64 %.sroa.478.0228, 1
   %163 = icmp ult i64 %162, %.val7.i68
   br i1 %163, label %164, label %166, !prof !646
 
@@ -11026,9 +11026,9 @@ _ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit67: ; p
   unreachable
 
 _ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit72: ; preds = %158, %167
-  %.sroa.478.2 = phi i64 [ %162, %167 ], [ %.sroa.478.0226, %158 ]
-  %.sroa.679.2 = phi i64 [ %170, %167 ], [ %.sroa.679.0230, %158 ]
-  %175 = phi i64 [ %173, %167 ], [ %.sroa.880.0234, %158 ]
+  %.sroa.679.2 = phi i64 [ %170, %167 ], [ %.sroa.679.0227, %158 ]
+  %.sroa.478.2 = phi i64 [ %162, %167 ], [ %.sroa.478.0228, %158 ]
+  %175 = phi i64 [ %173, %167 ], [ %.sroa.880.0226, %158 ]
   %176 = add i64 %175, -1
   %177 = shl nuw nsw i64 %.sroa.679.2, 2
   %178 = lshr i32 %159, 6

@@ -359,10 +359,10 @@ define hidden void @dissect_nmas_request(ptr noundef %0, ptr nocapture noundef r
   br label %88
 
 88:                                               ; preds = %.preheader, %97
-  %.0154 = phi i32 [ %.1, %97 ], [ 56, %.preheader ]
-  %.0 = phi i32 [ %98, %97 ], [ %84, %.preheader ]
-  %89 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0154) #2
-  %90 = add i32 %.0154, 4
+  %.0154 = phi i32 [ %98, %97 ], [ %84, %.preheader ]
+  %.0 = phi i32 [ %.1, %97 ], [ 56, %.preheader ]
+  %89 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0) #2
+  %90 = add i32 %.0, 4
   %91 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %90) #2
   switch i32 %89, label %97 [
     i32 1, label %.sink.split
@@ -389,7 +389,7 @@ define hidden void @dissect_nmas_request(ptr noundef %0, ptr nocapture noundef r
 
 97:                                               ; preds = %.sink.split, %88
   %.1 = phi i32 [ %90, %88 ], [ %96, %.sink.split ]
-  %98 = sub i32 %.0, %91
+  %98 = sub i32 %.0154, %91
   %99 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #2
   %100 = icmp sgt i32 %99, 4
   %101 = icmp ne i32 %98, 0
@@ -437,9 +437,9 @@ define internal fastcc noundef i32 @nmas_string(ptr %.408.val, ptr noundef %0, i
   br label %11
 
 11:                                               ; preds = %9, %7
-  %.061 = phi i32 [ %8, %7 ], [ %10, %9 ]
+  %.060 = phi i32 [ %8, %7 ], [ %10, %9 ]
   %12 = add i32 %3, 4
-  %13 = icmp ugt i32 %.061, 239
+  %13 = icmp ugt i32 %.060, 239
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
@@ -447,7 +447,7 @@ define internal fastcc noundef i32 @nmas_string(ptr %.408.val, ptr noundef %0, i
   br label %46
 
 16:                                               ; preds = %11
-  %17 = icmp eq i32 %.061, 0
+  %17 = icmp eq i32 %.060, 0
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %16
@@ -457,9 +457,9 @@ define internal fastcc noundef i32 @nmas_string(ptr %.408.val, ptr noundef %0, i
 .preheader:                                       ; preds = %16, %32
   %.06 = phi i32 [ %34, %32 ], [ 0, %16 ]
   %.0595 = phi i32 [ %36, %32 ], [ 0, %16 ]
-  %.1624 = phi i32 [ %.263, %32 ], [ %.061, %16 ]
-  %.0643 = phi i32 [ %33, %32 ], [ %12, %16 ]
-  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0643) #2
+  %.1614 = phi i32 [ %.262, %32 ], [ %.060, %16 ]
+  %.0633 = phi i32 [ %33, %32 ], [ %12, %16 ]
+  %20 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0633) #2
   %21 = add i8 %20, -127
   %or.cond = icmp ult i8 %21, -95
   br i1 %or.cond, label %22, label %29
@@ -476,7 +476,7 @@ define internal fastcc noundef i32 @nmas_string(ptr %.408.val, ptr noundef %0, i
 
 26:                                               ; preds = %22
   %27 = add i32 %.0595, -1
-  %28 = add i32 %.1624, -1
+  %28 = add i32 %.1614, -1
   br label %32
 
 29:                                               ; preds = %.preheader
@@ -486,13 +486,13 @@ define internal fastcc noundef i32 @nmas_string(ptr %.408.val, ptr noundef %0, i
   br label %32
 
 32:                                               ; preds = %23, %26, %29
-  %.263 = phi i32 [ %.1624, %23 ], [ %28, %26 ], [ %.1624, %29 ]
+  %.262 = phi i32 [ %.1614, %23 ], [ %28, %26 ], [ %.1614, %29 ]
   %.1 = phi i32 [ %.0595, %23 ], [ %27, %26 ], [ %.0595, %29 ]
-  %33 = add i32 %.0643, 1
+  %33 = add i32 %.0633, 1
   %34 = add i32 %.06, -1
   %35 = icmp ne i32 %34, 1
   %36 = add i32 %.1, 1
-  %37 = icmp ult i32 %36, %.263
+  %37 = icmp ult i32 %36, %.262
   %or.cond16 = select i1 %35, i1 %37, i1 false
   br i1 %or.cond16, label %.preheader, label %.loopexit, !llvm.loop !6
 
@@ -516,8 +516,8 @@ define internal fastcc noundef i32 @nmas_string(ptr %.408.val, ptr noundef %0, i
   br label %46
 
 46:                                               ; preds = %44, %18, %14
-  %.060 = phi i32 [ %12, %14 ], [ %12, %18 ], [ %33, %44 ]
-  ret i32 %.060
+  %.065 = phi i32 [ %12, %14 ], [ %12, %18 ], [ %33, %44 ]
+  ret i32 %.065
 }
 
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1

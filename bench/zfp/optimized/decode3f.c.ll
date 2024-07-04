@@ -169,16 +169,16 @@ stream_read_bits.exit.i:                          ; preds = %69, %59
   br label %85
 
 85:                                               ; preds = %85, %82
-  %.05.i.i.i = phi i32 [ 64, %82 ], [ %91, %85 ]
-  %.04.i.i.i = phi ptr [ %1, %82 ], [ %90, %85 ]
+  %.05.i.i.i = phi ptr [ %1, %82 ], [ %90, %85 ]
+  %.04.i.i.i = phi i32 [ 64, %82 ], [ %91, %85 ]
   %.0.i.i.i = phi ptr [ %5, %82 ], [ %86, %85 ]
   %86 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 4
   %87 = load i32, ptr %.0.i.i.i, align 4
   %88 = sitofp i32 %87 to float
   %89 = fmul float %84, %88
-  %90 = getelementptr inbounds i8, ptr %.04.i.i.i, i64 4
-  store float %89, ptr %.04.i.i.i, align 4
-  %91 = add nsw i32 %.05.i.i.i, -1
+  %90 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 4
+  store float %89, ptr %.05.i.i.i, align 4
+  %91 = add nsw i32 %.04.i.i.i, -1
   %.not.i.i.i = icmp eq i32 %91, 0
   br i1 %.not.i.i.i, label %rev_decode_block_float_3.exit, label %85
 
@@ -222,7 +222,7 @@ stream_skip.exit.i:                               ; preds = %110, %92
   br label %rev_decode_block_float_3.exit
 
 rev_decode_block_float_3.exit:                    ; preds = %85, %.preheader.preheader.i, %rev_inv_reinterpret_float.exit.i, %.preheader.preheader.i.i, %stream_skip.exit.i
-  %.037.i = phi i32 [ %53, %rev_inv_reinterpret_float.exit.i ], [ %116, %stream_skip.exit.i ], [ 1, %.preheader.preheader.i ], [ %81, %.preheader.preheader.i.i ], [ %81, %85 ]
+  %.036.i = phi i32 [ %53, %rev_inv_reinterpret_float.exit.i ], [ %116, %stream_skip.exit.i ], [ 1, %.preheader.preheader.i ], [ %81, %.preheader.preheader.i.i ], [ %81, %85 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   br label %313
 
@@ -518,16 +518,16 @@ decode_block_int32_3.exit.i:                      ; preds = %277
   br label %280
 
 280:                                              ; preds = %280, %decode_block_int32_3.exit.i
-  %.05.i.i = phi i32 [ 64, %decode_block_int32_3.exit.i ], [ %286, %280 ]
-  %.04.i.i = phi ptr [ %1, %decode_block_int32_3.exit.i ], [ %285, %280 ]
+  %.05.i.i = phi ptr [ %1, %decode_block_int32_3.exit.i ], [ %285, %280 ]
+  %.04.i.i = phi i32 [ 64, %decode_block_int32_3.exit.i ], [ %286, %280 ]
   %.0.i33.i = phi ptr [ %4, %decode_block_int32_3.exit.i ], [ %281, %280 ]
   %281 = getelementptr inbounds i8, ptr %.0.i33.i, i64 4
   %282 = load i32, ptr %.0.i33.i, align 4
   %283 = sitofp i32 %282 to float
   %284 = fmul float %279, %283
-  %285 = getelementptr inbounds i8, ptr %.04.i.i, i64 4
-  store float %284, ptr %.04.i.i, align 4
-  %286 = add nsw i32 %.05.i.i, -1
+  %285 = getelementptr inbounds i8, ptr %.05.i.i, i64 4
+  store float %284, ptr %.05.i.i, align 4
+  %286 = add nsw i32 %.04.i.i, -1
   %.not.i34.i = icmp eq i32 %286, 0
   br i1 %.not.i34.i, label %inv_cast_float.exit.loopexit.i, label %280
 
@@ -575,12 +575,12 @@ inv_cast_float.exit.loopexit.i:                   ; preds = %280
   br label %decode_block_float_3.exit
 
 decode_block_float_3.exit:                        ; preds = %.preheader.preheader.i18, %stream_skip.exit.i19, %inv_cast_float.exit.loopexit.i
-  %.028.i = phi i32 [ %311, %stream_skip.exit.i19 ], [ 1, %.preheader.preheader.i18 ], [ %312, %inv_cast_float.exit.loopexit.i ]
+  %.027.i = phi i32 [ %311, %stream_skip.exit.i19 ], [ 1, %.preheader.preheader.i18 ], [ %312, %inv_cast_float.exit.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
   br label %313
 
 313:                                              ; preds = %decode_block_float_3.exit, %rev_decode_block_float_3.exit
-  %314 = phi i32 [ %.037.i, %rev_decode_block_float_3.exit ], [ %.028.i, %decode_block_float_3.exit ]
+  %314 = phi i32 [ %.036.i, %rev_decode_block_float_3.exit ], [ %.027.i, %decode_block_float_3.exit ]
   %315 = zext i32 %314 to i64
   ret i64 %315
 }

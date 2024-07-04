@@ -3148,27 +3148,27 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo24(ptr noundef %0, i32 nound
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsBindInfo24, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo24_supported_extensions, align 4
-  %20 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensions(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensions(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo24_site_guid, align 4
-  %22 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
+  %22 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo24_pid, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
-  %25 = sub i32 %24, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #5
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %25 = sub i32 %24, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %25) #5
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96
@@ -3209,29 +3209,29 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo28(ptr noundef %0, i32 nound
   %or.cond = or i1 %.not44, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.042 = select i1 %or.cond, i32 %1, i32 %13
   %.not45 = icmp eq ptr %3, null
   br i1 %.not45, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.042, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsBindInfo28, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.042 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.041 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.041 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo28_supported_extensions, align 4
-  %20 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensions(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensions(ptr noundef %0, i32 noundef %.042, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo28_site_guid, align 4
-  %22 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
+  %22 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo28_pid, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo28_repl_epoch, align 4
-  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
-  %27 = sub i32 %26, %.0
-  tail call void @proto_item_set_len(ptr noundef %.042, i32 noundef %27) #5
+  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
+  %27 = sub i32 %26, %.042
+  tail call void @proto_item_set_len(ptr noundef %.041, i32 noundef %27) #5
   %28 = getelementptr inbounds i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 96
@@ -3268,31 +3268,31 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo32(ptr noundef %0, i32 nound
   %or.cond = or i1 %.not50, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.048 = select i1 %or.cond, i32 %1, i32 %13
   %.not51 = icmp eq ptr %3, null
   br i1 %.not51, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.048, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsBindInfo32, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.048 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.047 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.047 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo32_supported_extensions, align 4
-  %20 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensions(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensions(ptr noundef %0, i32 noundef %.048, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo32_site_guid, align 4
-  %22 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
+  %22 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo32_pid, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo32_repl_epoch, align 4
-  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
+  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
   %27 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo32_supported_extensions_ext, align 4
-  %28 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensionsExt(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 poison)
-  %29 = sub i32 %28, %.0
-  tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %29) #5
+  %28 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensionsExt(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 poison)
+  %29 = sub i32 %28, %.048
+  tail call void @proto_item_set_len(ptr noundef %.047, i32 noundef %29) #5
   %30 = getelementptr inbounds i8, ptr %4, i64 72
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 96
@@ -3329,33 +3329,33 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo48(ptr noundef %0, i32 nound
   %or.cond = or i1 %.not56, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.054 = select i1 %or.cond, i32 %1, i32 %13
   %.not57 = icmp eq ptr %3, null
   br i1 %.not57, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.054, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsBindInfo48, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.054 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.053 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.053 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo48_supported_extensions, align 4
-  %20 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensions(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensions(ptr noundef %0, i32 noundef %.054, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo48_site_guid, align 4
-  %22 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
+  %22 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo48_pid, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo48_repl_epoch, align 4
-  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
+  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
   %27 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo48_supported_extensions_ext, align 4
-  %28 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensionsExt(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 poison)
+  %28 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensionsExt(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 poison)
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo48_config_dn_guid, align 4
-  %30 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #5
-  %31 = sub i32 %30, %.0
-  tail call void @proto_item_set_len(ptr noundef %.054, i32 noundef %31) #5
+  %30 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #5
+  %31 = sub i32 %30, %.054
+  tail call void @proto_item_set_len(ptr noundef %.053, i32 noundef %31) #5
   %32 = getelementptr inbounds i8, ptr %4, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 96
@@ -3392,35 +3392,35 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfo52(ptr noundef %0, i32 nound
   %or.cond = or i1 %.not62, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.060 = select i1 %or.cond, i32 %1, i32 %13
   %.not63 = icmp eq ptr %3, null
   br i1 %.not63, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.060, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsBindInfo52, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.060 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.059 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.059 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo52_supported_extensions, align 4
-  %20 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensions(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %20 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensions(ptr noundef %0, i32 noundef %.060, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo52_site_guid, align 4
-  %22 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
+  %22 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo52_pid, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo52_repl_epoch, align 4
-  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
+  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
   %27 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo52_supported_extensions_ext, align 4
-  %28 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensionsExt(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 poison)
+  %28 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensionsExt(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 poison)
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo52_config_dn_guid, align 4
-  %30 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #5
+  %30 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #5
   %31 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo52_supported_capabilities_ext, align 4
-  %32 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensionsExt(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
-  %33 = sub i32 %32, %.0
-  tail call void @proto_item_set_len(ptr noundef %.060, i32 noundef %33) #5
+  %32 = tail call i32 @drsuapi_dissect_bitmap_SupportedExtensionsExt(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
+  %33 = sub i32 %32, %.060
+  tail call void @proto_item_set_len(ptr noundef %.059, i32 noundef %33) #5
   %34 = getelementptr inbounds i8, ptr %4, i64 72
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
@@ -3457,23 +3457,23 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfoFallBack(ptr noundef %0, i32
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsBindInfoFallBack, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfoFallBack_info, align 4
-  %20 = tail call i32 @dissect_ndr_datablob(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 1) #5
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
+  %20 = tail call i32 @dissect_ndr_datablob(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 1) #5
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -3517,10 +3517,10 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfoCtr(ptr noundef %0, i32 noun
   br label %17
 
 17:                                               ; preds = %13, %8
-  %.026 = phi ptr [ %16, %13 ], [ null, %8 ]
-  %.0 = phi ptr [ %14, %13 ], [ null, %8 ]
+  %.026 = phi ptr [ %14, %13 ], [ null, %8 ]
+  %.0 = phi ptr [ %16, %13 ], [ null, %8 ]
   %18 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfoCtr_length, align 4
-  %19 = tail call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef null) #5
+  %19 = tail call i32 @dissect_ndr_uint3264(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef null) #5
   %20 = getelementptr inbounds i8, ptr %4, i64 28
   %21 = load i32, ptr %20, align 4
   %.not.i = icmp eq i32 %21, 0
@@ -3531,17 +3531,17 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfoCtr(ptr noundef %0, i32 noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.026, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = load i32, ptr @ett_drsuapi_drsuapi_DsBindInfo, align 4
-  %26 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.026, ptr noundef %0, i32 noundef %19, i32 noundef -1, i32 noundef %25, ptr noundef nonnull %9, ptr noundef nonnull @.str.1431) #5
+  %26 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %19, i32 noundef -1, i32 noundef %25, ptr noundef nonnull %9, ptr noundef nonnull @.str.1431) #5
   br label %27
 
 27:                                               ; preds = %24, %22
-  %.053.i.i = phi ptr [ %26, %24 ], [ null, %22 ]
-  %28 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.053.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %10) #5
+  %.0.i.i = phi ptr [ %26, %24 ], [ null, %22 ]
+  %28 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %10) #5
   %29 = load i32, ptr %20, align 4
   %.not55.i.i = icmp ne i32 %29, 0
   %30 = and i32 %28, 3
@@ -3549,7 +3549,7 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfoCtr(ptr noundef %0, i32 noun
   %or.cond.i.i = select i1 %.not55.i.i, i1 true, i1 %.not56.i.i
   %31 = and i32 %28, -4
   %32 = add i32 %31, 4
-  %.0.i.i = select i1 %or.cond.i.i, i32 %28, i32 %32
+  %.053.i.i = select i1 %or.cond.i.i, i32 %28, i32 %32
   %33 = load i32, ptr %10, align 4
   %34 = add i32 %33, -24
   %35 = call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 30)
@@ -3563,32 +3563,32 @@ define hidden i32 @drsuapi_dissect_struct_DsBindInfoCtr(ptr noundef %0, i32 noun
 
 36:                                               ; preds = %27
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo_info24, align 4
-  %38 = call i32 @drsuapi_dissect_struct_DsBindInfo24(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.053.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 poison)
+  %38 = call i32 @drsuapi_dissect_struct_DsBindInfo24(ptr noundef %0, i32 noundef %.053.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 poison)
   br label %drsuapi_dissect_DsBindInfo.exit.i
 
 39:                                               ; preds = %27
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo_info28, align 4
-  %41 = call i32 @drsuapi_dissect_struct_DsBindInfo28(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.053.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 poison)
+  %41 = call i32 @drsuapi_dissect_struct_DsBindInfo28(ptr noundef %0, i32 noundef %.053.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 poison)
   br label %drsuapi_dissect_DsBindInfo.exit.i
 
 42:                                               ; preds = %27
   %43 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo_info32, align 4
-  %44 = call i32 @drsuapi_dissect_struct_DsBindInfo32(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.053.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 poison)
+  %44 = call i32 @drsuapi_dissect_struct_DsBindInfo32(ptr noundef %0, i32 noundef %.053.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 poison)
   br label %drsuapi_dissect_DsBindInfo.exit.i
 
 45:                                               ; preds = %27
   %46 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo_info48, align 4
-  %47 = call i32 @drsuapi_dissect_struct_DsBindInfo48(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.053.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 poison)
+  %47 = call i32 @drsuapi_dissect_struct_DsBindInfo48(ptr noundef %0, i32 noundef %.053.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 poison)
   br label %drsuapi_dissect_DsBindInfo.exit.i
 
 48:                                               ; preds = %27
   %49 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo_info52, align 4
-  %50 = call i32 @drsuapi_dissect_struct_DsBindInfo52(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.053.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 poison)
+  %50 = call i32 @drsuapi_dissect_struct_DsBindInfo52(ptr noundef %0, i32 noundef %.053.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 poison)
   br label %drsuapi_dissect_DsBindInfo.exit.i
 
 51:                                               ; preds = %27
   %52 = load i32, ptr @hf_drsuapi_drsuapi_DsBindInfo_Fallback, align 4
-  %53 = call i32 @drsuapi_dissect_struct_DsBindInfoFallBack(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.053.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 poison)
+  %53 = call i32 @drsuapi_dissect_struct_DsBindInfoFallBack(ptr noundef %0, i32 noundef %.053.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 poison)
   br label %drsuapi_dissect_DsBindInfo.exit.i
 
 drsuapi_dissect_DsBindInfo.exit.i:                ; preds = %51, %48, %45, %42, %39, %36
@@ -3603,7 +3603,7 @@ drsuapi_dissect_DsBindInfo.exit.i:                ; preds = %51, %48, %45, %42, 
 drsuapi_dissect_element_DsBindInfoCtr_info.exit:  ; preds = %17, %drsuapi_dissect_DsBindInfo.exit.i
   %.0.i = phi i32 [ %.1.i.i, %drsuapi_dissect_DsBindInfo.exit.i ], [ %19, %17 ]
   %56 = sub i32 %.0.i, %1
-  call void @proto_item_set_len(ptr noundef %.0, i32 noundef %56) #5
+  call void @proto_item_set_len(ptr noundef %.026, i32 noundef %56) #5
   store i32 %12, ptr %11, align 8
   ret i32 %.0.i
 }
@@ -3618,32 +3618,32 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier(ptr noundef 
   %or.cond = or i1 %.not56, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.054 = select i1 %or.cond, i32 %1, i32 %13
   %.not57 = icmp eq ptr %3, null
   br i1 %.not57, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.054, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaObjectIdentifier, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.054 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.053 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.053 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier___ndr_size, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.054, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier___ndr_size_sid, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier_guid, align 4
-  %24 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
+  %24 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier_sid, align 4
-  %26 = tail call i32 @dissect_ndr_nt_SID28(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25) #5
+  %26 = tail call i32 @dissect_ndr_nt_SID28(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25) #5
   %27 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier___ndr_size_dn, align 4
-  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
-  %29 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectIdentifier_dn_) #5
-  %30 = sub i32 %29, %.0
-  tail call void @proto_item_set_len(ptr noundef %.054, i32 noundef %30) #5
+  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
+  %29 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectIdentifier_dn_) #5
+  %30 = sub i32 %29, %.054
+  tail call void @proto_item_set_len(ptr noundef %.053, i32 noundef %30) #5
   %31 = getelementptr inbounds i8, ptr %4, i64 72
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 96
@@ -3706,29 +3706,29 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaSyncRequest1(ptr noundef %0, 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.050 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaSyncRequest1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.050 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.049 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.049 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaSyncRequest1_naming_context, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaSyncRequest1_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaSyncRequest1_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaSyncRequest1_source_dsa_guid, align 4
-  %35 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef null) #5
+  %35 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef null) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaSyncRequest1_source_dsa_dns, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaSyncRequest1_source_dsa_dns_, i32 noundef 2, ptr noundef nonnull @.str.1433, i32 noundef %36) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaSyncRequest1_source_dsa_dns_, i32 noundef 2, ptr noundef nonnull @.str.1433, i32 noundef %36) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaSyncRequest1_options, align 4
-  %39 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
-  %40 = sub i32 %39, %.0
-  tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #5
+  %39 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
+  %40 = sub i32 %39, %.050
+  tail call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #5
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
@@ -3765,27 +3765,27 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0,
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaHighWaterMark, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaHighWaterMark_tmp_highest_usn, align 4
-  %20 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
+  %20 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaHighWaterMark_reserved_usn, align 4
-  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
+  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaHighWaterMark_highest_usn, align 4
-  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
-  %25 = sub i32 %24, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #5
+  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
+  %25 = sub i32 %24, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %25) #5
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96
@@ -3822,25 +3822,25 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor(ptr noundef %0, i32 no
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaCursor, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor_source_dsa_invocation_id, align 4
-  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
+  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor_highest_usn, align 4
-  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
+  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #5
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -3877,30 +3877,30 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursorCtrEx(ptr noundef %0, i
   %or.cond = or i1 %.not50, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.048 = select i1 %or.cond, i32 %1, i32 %13
   %.not51 = icmp eq ptr %3, null
   br i1 %.not51, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.048, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaCursorCtrEx, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.048 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.047 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.047 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursorCtrEx_version, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.048, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursorCtrEx_reserved1, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursorCtrEx_count, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursorCtrEx_reserved2, align 4
-  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
-  %27 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursorCtrEx_cursors_) #5
-  %28 = sub i32 %27, %.0
-  tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %28) #5
+  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
+  %27 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursorCtrEx_cursors_) #5
+  %28 = sub i32 %27, %.048
+  tail call void @proto_item_set_len(ptr noundef %.047, i32 noundef %28) #5
   %29 = getelementptr inbounds i8, ptr %4, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 96
@@ -3986,44 +3986,44 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest5(ptr noundef %0,
   %or.cond = or i1 %.not80, %.not
   %13 = and i32 %1, -8
   %14 = add i32 %13, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.078 = select i1 %or.cond, i32 %1, i32 %14
   %.not81 = icmp eq ptr %3, null
   br i1 %.not81, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.078, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesRequest5, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.078 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.077 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.077 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_destination_dsa_guid, align 4
-  %21 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.077, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef null) #5
+  %21 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.078, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef null) #5
   %22 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_source_dsa_invocation_id, align 4
-  %23 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.077, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #5
+  %23 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #5
   %24 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_naming_context, align 4
-  %25 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.077, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest5_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %24) #5
+  %25 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest5_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %24) #5
   %26 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_highwatermark, align 4
-  %27 = tail call i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.077, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
+  %27 = tail call i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
   %28 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_uptodateness_vector, align 4
-  %29 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.077, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest5_uptodateness_vector_, i32 noundef 2, ptr noundef nonnull @.str.1435, i32 noundef %28) #5
+  %29 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest5_uptodateness_vector_, i32 noundef 2, ptr noundef nonnull @.str.1435, i32 noundef %28) #5
   %30 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_replica_flags, align 4
-  %31 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.077, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 poison)
+  %31 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 poison)
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_max_object_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.077, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_max_ndr_size, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.077, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_extended_op, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.077, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %9) #5
+  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest5_fsmo_info, align 4
-  %39 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.077, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef null) #5
-  %40 = sub i32 %39, %.0
-  call void @proto_item_set_len(ptr noundef %.078, i32 noundef %40) #5
+  %39 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef null) #5
+  %40 = sub i32 %39, %.078
+  call void @proto_item_set_len(ptr noundef %.077, i32 noundef %40) #5
   %41 = getelementptr inbounds i8, ptr %4, i64 72
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 96
@@ -4086,25 +4086,25 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOID(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaOID, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOID_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOID_binary_oid, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaOID_binary_oid_, i32 noundef 2, ptr noundef nonnull @.str.1436, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaOID_binary_oid_, i32 noundef 2, ptr noundef nonnull @.str.1436, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4167,25 +4167,25 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOIDMapping(ptr noundef %0, i3
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaOIDMapping, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOIDMapping_id_prefix, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOIDMapping_oid, align 4
-  %35 = tail call i32 @drsuapi_dissect_struct_DsReplicaOID(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @drsuapi_dissect_struct_DsReplicaOID(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4248,25 +4248,25 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaOIDMapping_Ctr, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOIDMapping_Ctr_num_mappings, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOIDMapping_Ctr_mappings, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaOIDMapping_Ctr_mappings_, i32 noundef 2, ptr noundef nonnull @.str.1437, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaOIDMapping_Ctr_mappings_, i32 noundef 2, ptr noundef nonnull @.str.1437, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4351,28 +4351,28 @@ define hidden i32 @drsuapi_dissect_struct_DsPartialAttributeSet(ptr noundef %0, 
   %or.cond = or i1 %.not44, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.042 = select i1 %or.cond, i32 %1, i32 %13
   %.not45 = icmp eq ptr %3, null
   br i1 %.not45, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.042, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsPartialAttributeSet, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.042 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.041 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.041 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsPartialAttributeSet_version, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.042, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsPartialAttributeSet_reserved1, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsPartialAttributeSet_num_attids, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
-  %25 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsPartialAttributeSet_attids_) #5
-  %26 = sub i32 %25, %.0
-  tail call void @proto_item_set_len(ptr noundef %.042, i32 noundef %26) #5
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %25 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsPartialAttributeSet_attids_) #5
+  %26 = sub i32 %25, %.042
+  tail call void @proto_item_set_len(ptr noundef %.041, i32 noundef %26) #5
   %27 = getelementptr inbounds i8, ptr %4, i64 72
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 96
@@ -4410,50 +4410,50 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest8(ptr noundef %0,
   %or.cond = or i1 %.not98, %.not
   %13 = and i32 %1, -8
   %14 = add i32 %13, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.096 = select i1 %or.cond, i32 %1, i32 %14
   %.not99 = icmp eq ptr %3, null
   br i1 %.not99, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.096, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesRequest8, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.096 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.095 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.095 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_destination_dsa_guid, align 4
-  %21 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.095, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef null) #5
+  %21 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.096, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef null) #5
   %22 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_source_dsa_invocation_id, align 4
-  %23 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.095, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #5
+  %23 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #5
   %24 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_naming_context, align 4
-  %25 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.095, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest8_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %24) #5
+  %25 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest8_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %24) #5
   %26 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_highwatermark, align 4
-  %27 = tail call i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.095, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
+  %27 = tail call i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
   %28 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_uptodateness_vector, align 4
-  %29 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.095, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest8_uptodateness_vector_, i32 noundef 2, ptr noundef nonnull @.str.1435, i32 noundef %28) #5
+  %29 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest8_uptodateness_vector_, i32 noundef 2, ptr noundef nonnull @.str.1435, i32 noundef %28) #5
   %30 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_replica_flags, align 4
-  %31 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.095, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 poison)
+  %31 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 poison)
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_max_object_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.095, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_max_ndr_size, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.095, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_extended_op, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.095, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %9) #5
+  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_fsmo_info, align 4
-  %39 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.095, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef null) #5
+  %39 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef null) #5
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_partial_attribute_set, align 4
-  %41 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.095, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest8_partial_attribute_set_, i32 noundef 2, ptr noundef nonnull @.str.1438, i32 noundef %40) #5
+  %41 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest8_partial_attribute_set_, i32 noundef 2, ptr noundef nonnull @.str.1438, i32 noundef %40) #5
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_partial_attribute_set_ex, align 4
-  %43 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.095, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest8_partial_attribute_set_ex_, i32 noundef 2, ptr noundef nonnull @.str.1439, i32 noundef %42) #5
+  %43 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest8_partial_attribute_set_ex_, i32 noundef 2, ptr noundef nonnull @.str.1439, i32 noundef %42) #5
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest8_mapping_ctr, align 4
-  %45 = call i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.095, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 poison)
-  %46 = sub i32 %45, %.0
-  call void @proto_item_set_len(ptr noundef %.096, i32 noundef %46) #5
+  %45 = call i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 poison)
+  %46 = sub i32 %45, %.096
+  call void @proto_item_set_len(ptr noundef %.095, i32 noundef %46) #5
   %47 = getelementptr inbounds i8, ptr %4, i64 72
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 96
@@ -4491,52 +4491,52 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesRequest10(ptr noundef %0
   %or.cond = or i1 %.not104, %.not
   %13 = and i32 %1, -8
   %14 = add i32 %13, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.0102 = select i1 %or.cond, i32 %1, i32 %14
   %.not105 = icmp eq ptr %3, null
   br i1 %.not105, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0102, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesRequest10, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.0102 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.0101 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.0101 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_destination_dsa_guid, align 4
-  %21 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef null) #5
+  %21 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0102, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef null) #5
   %22 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_source_dsa_invocation_id, align 4
-  %23 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #5
+  %23 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #5
   %24 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_naming_context, align 4
-  %25 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest10_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %24) #5
+  %25 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest10_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %24) #5
   %26 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_highwatermark, align 4
-  %27 = tail call i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
+  %27 = tail call i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
   %28 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_uptodateness_vector, align 4
-  %29 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest10_uptodateness_vector_, i32 noundef 2, ptr noundef nonnull @.str.1435, i32 noundef %28) #5
+  %29 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest10_uptodateness_vector_, i32 noundef 2, ptr noundef nonnull @.str.1435, i32 noundef %28) #5
   %30 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_replica_flags, align 4
-  %31 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 poison)
+  %31 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 poison)
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_max_object_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_max_ndr_size, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_extended_op, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %9) #5
+  %37 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_fsmo_info, align 4
-  %39 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef null) #5
+  %39 = call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef null) #5
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_partial_attribute_set, align 4
-  %41 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest10_partial_attribute_set_, i32 noundef 2, ptr noundef nonnull @.str.1438, i32 noundef %40) #5
+  %41 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest10_partial_attribute_set_, i32 noundef 2, ptr noundef nonnull @.str.1438, i32 noundef %40) #5
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_partial_attribute_set_ex, align 4
-  %43 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest10_partial_attribute_set_ex_, i32 noundef 2, ptr noundef nonnull @.str.1439, i32 noundef %42) #5
+  %43 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesRequest10_partial_attribute_set_ex_, i32 noundef 2, ptr noundef nonnull @.str.1439, i32 noundef %42) #5
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_mapping_ctr, align 4
-  %45 = call i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 poison)
+  %45 = call i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 poison)
   %46 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest10_more_flags, align 4
-  %47 = call i32 @drsuapi_dissect_bitmap_DrsMoreOptions(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0101, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 poison)
-  %48 = sub i32 %47, %.0
-  call void @proto_item_set_len(ptr noundef %.0102, i32 noundef %48) #5
+  %47 = call i32 @drsuapi_dissect_bitmap_DrsMoreOptions(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 poison)
+  %48 = sub i32 %47, %.0102
+  call void @proto_item_set_len(ptr noundef %.0101, i32 noundef %48) #5
   %49 = getelementptr inbounds i8, ptr %4, i64 72
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 96
@@ -4573,27 +4573,27 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor2(ptr noundef %0, i32 n
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaCursor2, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor2_source_dsa_invocation_id, align 4
-  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
+  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor2_highest_usn, align 4
-  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
+  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor2_last_sync_success, align 4
-  %24 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23) #5
-  %25 = sub i32 %24, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #5
+  %24 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23) #5
+  %25 = sub i32 %24, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %25) #5
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96
@@ -4630,30 +4630,30 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor2CtrEx(ptr noundef %0, 
   %or.cond = or i1 %.not50, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.048 = select i1 %or.cond, i32 %1, i32 %13
   %.not51 = icmp eq ptr %3, null
   br i1 %.not51, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.048, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaCursor2CtrEx, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.048 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.047 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.047 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor2CtrEx_version, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.048, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor2CtrEx_reserved1, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor2CtrEx_count, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor2CtrEx_reserved2, align 4
-  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
-  %27 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursor2CtrEx_cursors_) #5
-  %28 = sub i32 %27, %.0
-  tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %28) #5
+  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
+  %27 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursor2CtrEx_cursors_) #5
+  %28 = sub i32 %27, %.048
+  tail call void @proto_item_set_len(ptr noundef %.047, i32 noundef %28) #5
   %29 = getelementptr inbounds i8, ptr %4, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 96
@@ -4716,25 +4716,25 @@ define hidden i32 @drsuapi_dissect_struct_DsAttributeValue(ptr noundef %0, i32 n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsAttributeValue, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsAttributeValue___ndr_size, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsAttributeValue_blob, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAttributeValue_blob_, i32 noundef 2, ptr noundef nonnull @.str.1440, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAttributeValue_blob_, i32 noundef 2, ptr noundef nonnull @.str.1440, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4797,25 +4797,25 @@ define hidden i32 @drsuapi_dissect_struct_DsAttributeValueCtr(ptr noundef %0, i3
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsAttributeValueCtr, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsAttributeValueCtr_num_values, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsAttributeValueCtr_values, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAttributeValueCtr_values_, i32 noundef 2, ptr noundef nonnull @.str.1441, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAttributeValueCtr_values_, i32 noundef 2, ptr noundef nonnull @.str.1441, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -4878,33 +4878,33 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier3(ptr noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.062 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not68 = icmp eq ptr %3, null
   br i1 %.not68, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.062, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaObjectIdentifier3, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.062 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.061 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.061 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier3___ndr_size, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.062, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier3___ndr_size_sid, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier3_guid, align 4
-  %37 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef null) #5
+  %37 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef null) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier3_sid, align 4
-  %39 = tail call i32 @dissect_ndr_nt_SID28(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38) #5
+  %39 = tail call i32 @dissect_ndr_nt_SID28(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38) #5
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier3___ndr_size_dn, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #5
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #5
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier3_dn, align 4
-  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectIdentifier3_dn_, i32 noundef 2, ptr noundef nonnull @.str.1442, i32 noundef %42) #5
-  %44 = sub i32 %43, %.0
-  tail call void @proto_item_set_len(ptr noundef %.062, i32 noundef %44) #5
+  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectIdentifier3_dn_, i32 noundef 2, ptr noundef nonnull @.str.1442, i32 noundef %42) #5
+  %44 = sub i32 %43, %.062
+  tail call void @proto_item_set_len(ptr noundef %.061, i32 noundef %44) #5
   %45 = load ptr, ptr %9, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8
@@ -4967,37 +4967,37 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier3Binary(ptr n
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.074 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not80 = icmp eq ptr %3, null
   br i1 %.not80, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.074, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaObjectIdentifier3Binary, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.074 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.073 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.073 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier3Binary___ndr_size, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.074, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier3Binary___ndr_size_sid, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier3Binary_guid, align 4
-  %37 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef null) #5
+  %37 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef null) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier3Binary_sid, align 4
-  %39 = tail call i32 @dissect_ndr_nt_SID28(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38) #5
+  %39 = tail call i32 @dissect_ndr_nt_SID28(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38) #5
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier3Binary___ndr_size_dn, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #5
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #5
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier3Binary_dn, align 4
-  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectIdentifier3Binary_dn_, i32 noundef 2, ptr noundef nonnull @.str.1442, i32 noundef %42) #5
+  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectIdentifier3Binary_dn_, i32 noundef 2, ptr noundef nonnull @.str.1442, i32 noundef %42) #5
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier3Binary___ndr_size_binary, align 4
-  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #5
+  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #5
   %46 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier3Binary_binary, align 4
-  %47 = tail call i32 @dissect_ndr_datablob(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 1) #5
-  %48 = sub i32 %47, %.0
-  tail call void @proto_item_set_len(ptr noundef %.074, i32 noundef %48) #5
+  %47 = tail call i32 @dissect_ndr_datablob(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 1) #5
+  %48 = sub i32 %47, %.074
+  tail call void @proto_item_set_len(ptr noundef %.073, i32 noundef %48) #5
   %49 = load ptr, ptr %9, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 96
   %51 = load i32, ptr %50, align 8
@@ -5061,28 +5061,28 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttribute(ptr noundef %0, i32
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.038 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaAttribute, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.038 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.037 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.037 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttribute_attid, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
+  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttribute_value_ctr, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsAttributeValueCtr(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
-  %37 = sub i32 %36, %.0
-  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %37) #5
+  %36 = call i32 @drsuapi_dissect_struct_DsAttributeValueCtr(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %37 = sub i32 %36, %.038
+  call void @proto_item_set_len(ptr noundef %.037, i32 noundef %37) #5
   %38 = load ptr, ptr %10, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 96
   %40 = load i32, ptr %39, align 8
@@ -5145,25 +5145,25 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttributeCtr(ptr noundef %0, 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaAttributeCtr, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttributeCtr_num_attributes, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttributeCtr_attributes, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttributeCtr_attributes_, i32 noundef 2, ptr noundef nonnull @.str.1443, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttributeCtr_attributes_, i32 noundef 2, ptr noundef nonnull @.str.1443, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -5269,27 +5269,27 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObject(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaObject, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObject_identifier, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObject_identifier_, i32 noundef 2, ptr noundef nonnull @.str.1444, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObject_identifier_, i32 noundef 2, ptr noundef nonnull @.str.1444, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObject_flags, align 4
-  %35 = tail call i32 @drsuapi_dissect_bitmap_DsReplicaObjectFlags(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @drsuapi_dissect_bitmap_DsReplicaObjectFlags(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObject_attribute_ctr, align 4
-  %37 = tail call i32 @drsuapi_dissect_struct_DsReplicaAttributeCtr(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @drsuapi_dissect_struct_DsReplicaAttributeCtr(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -5326,29 +5326,29 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaMetaData(ptr noundef %0, i32 
   %or.cond = or i1 %.not44, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.042 = select i1 %or.cond, i32 %1, i32 %13
   %.not45 = icmp eq ptr %3, null
   br i1 %.not45, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.042, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaMetaData, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.042 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.041 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.041 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaMetaData_version, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.042, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaMetaData_originating_change_time, align 4
-  %22 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21) #5
+  %22 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaMetaData_originating_invocation_id, align 4
-  %24 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
+  %24 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaMetaData_originating_usn, align 4
-  %26 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
-  %27 = sub i32 %26, %.0
-  tail call void @proto_item_set_len(ptr noundef %.042, i32 noundef %27) #5
+  %26 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
+  %27 = sub i32 %26, %.042
+  tail call void @proto_item_set_len(ptr noundef %.041, i32 noundef %27) #5
   %28 = getelementptr inbounds i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 96
@@ -5385,24 +5385,24 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaMetaDataCtr(ptr noundef %0, i
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaMetaDataCtr, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaMetaDataCtr_count, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
-  %21 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaMetaDataCtr_meta_data_) #5
-  %22 = sub i32 %21, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %22) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %21 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaMetaDataCtr_meta_data_) #5
+  %22 = sub i32 %21, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %22) #5
   %23 = getelementptr inbounds i8, ptr %4, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 96
@@ -5465,31 +5465,31 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectListItemEx(ptr noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.056 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaObjectListItemEx, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.056 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.055 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.055 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectListItemEx_next_object, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectListItemEx_next_object_, i32 noundef 2, ptr noundef nonnull @.str.1445, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectListItemEx_next_object_, i32 noundef 2, ptr noundef nonnull @.str.1445, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectListItemEx_object, align 4
-  %35 = tail call i32 @drsuapi_dissect_struct_DsReplicaObject(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %35 = tail call i32 @drsuapi_dissect_struct_DsReplicaObject(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectListItemEx_is_nc_prefix, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectListItemEx_parent_object_guid, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectListItemEx_parent_object_guid_, i32 noundef 2, ptr noundef nonnull @.str.1446, i32 noundef %38) #5
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectListItemEx_parent_object_guid_, i32 noundef 2, ptr noundef nonnull @.str.1446, i32 noundef %38) #5
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectListItemEx_meta_data_ctr, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectListItemEx_meta_data_ctr_, i32 noundef 2, ptr noundef nonnull @.str.1447, i32 noundef %40) #5
-  %42 = sub i32 %41, %.0
-  tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #5
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectListItemEx_meta_data_ctr_, i32 noundef 2, ptr noundef nonnull @.str.1447, i32 noundef %40) #5
+  %42 = sub i32 %41, %.056
+  tail call void @proto_item_set_len(ptr noundef %.055, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -5527,48 +5527,48 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %0, i32
   %or.cond = or i1 %.not92, %.not
   %13 = and i32 %1, -8
   %14 = add i32 %13, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.090 = select i1 %or.cond, i32 %1, i32 %14
   %.not93 = icmp eq ptr %3, null
   br i1 %.not93, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.090, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesCtr1, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.090 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.089 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.089 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1_source_dsa_guid, align 4
-  %21 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef null) #5
+  %21 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.090, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef null) #5
   %22 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1_source_dsa_invocation_id, align 4
-  %23 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #5
+  %23 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #5
   %24 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1_naming_context, align 4
-  %25 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesCtr1_naming_context_, i32 noundef 2, ptr noundef nonnull @.str.1432, i32 noundef %24) #5
+  %25 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesCtr1_naming_context_, i32 noundef 2, ptr noundef nonnull @.str.1432, i32 noundef %24) #5
   %26 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1_old_highwatermark, align 4
-  %27 = tail call i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
+  %27 = tail call i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
   %28 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1_new_highwatermark, align 4
-  %29 = tail call i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
+  %29 = tail call i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
   %30 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1_uptodateness_vector, align 4
-  %31 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesCtr1_uptodateness_vector_, i32 noundef 2, ptr noundef nonnull @.str.1435, i32 noundef %30) #5
+  %31 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesCtr1_uptodateness_vector_, i32 noundef 2, ptr noundef nonnull @.str.1435, i32 noundef %30) #5
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1_mapping_ctr, align 4
-  %33 = tail call i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1_extended_ret, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %9) #5
+  %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1_object_count, align 4
-  %37 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %37 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1___ndr_size, align 4
-  %39 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
+  %39 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1_first_object, align 4
-  %41 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesCtr1_first_object_, i32 noundef 2, ptr noundef nonnull @.str.1448, i32 noundef %40) #5
+  %41 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesCtr1_first_object_, i32 noundef 2, ptr noundef nonnull @.str.1448, i32 noundef %40) #5
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1_more_data, align 4
-  %43 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #5
-  %44 = sub i32 %43, %.0
-  call void @proto_item_set_len(ptr noundef %.090, i32 noundef %44) #5
+  %43 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #5
+  %44 = sub i32 %43, %.090
+  call void @proto_item_set_len(ptr noundef %.089, i32 noundef %44) #5
   %45 = getelementptr inbounds i8, ptr %4, i64 72
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 96
@@ -5649,36 +5649,36 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaLinkedAttribute(ptr noundef %
   %or.cond = or i1 %.not56, %.not
   %13 = and i32 %1, -8
   %14 = add i32 %13, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.054 = select i1 %or.cond, i32 %1, i32 %14
   %.not57 = icmp eq ptr %3, null
   br i1 %.not57, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.054, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaLinkedAttribute, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.054 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.053 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.053 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaLinkedAttribute_identifier, align 4
-  %21 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaLinkedAttribute_identifier_, i32 noundef 2, ptr noundef nonnull @.str.1444, i32 noundef %20) #5
+  %21 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.054, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaLinkedAttribute_identifier_, i32 noundef 2, ptr noundef nonnull @.str.1444, i32 noundef %20) #5
   %22 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaLinkedAttribute_attid, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %9) #5
+  %23 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %24 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaLinkedAttribute_value, align 4
-  %25 = call i32 @drsuapi_dissect_struct_DsAttributeValue(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 poison)
+  %25 = call i32 @drsuapi_dissect_struct_DsAttributeValue(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, i32 poison)
   %26 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaLinkedAttribute_flags, align 4
-  %27 = call i32 @drsuapi_dissect_bitmap_DsLinkedAttributeFlags(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
+  %27 = call i32 @drsuapi_dissect_bitmap_DsLinkedAttributeFlags(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
   %28 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaLinkedAttribute_originating_add_time, align 4
-  %29 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28) #5
+  %29 = call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28) #5
   %30 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaLinkedAttribute_meta_data, align 4
-  %31 = call i32 @drsuapi_dissect_struct_DsReplicaMetaData(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 poison)
-  %32 = sub i32 %31, %.0
-  call void @proto_item_set_len(ptr noundef %.054, i32 noundef %32) #5
+  %31 = call i32 @drsuapi_dissect_struct_DsReplicaMetaData(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, i32 poison)
+  %32 = sub i32 %31, %.054
+  call void @proto_item_set_len(ptr noundef %.053, i32 noundef %32) #5
   %33 = getelementptr inbounds i8, ptr %4, i64 72
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 96
@@ -5716,58 +5716,58 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %0, i32
   %or.cond = or i1 %.not122, %.not
   %13 = and i32 %1, -8
   %14 = add i32 %13, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %14
+  %.0120 = select i1 %or.cond, i32 %1, i32 %14
   %.not123 = icmp eq ptr %3, null
   br i1 %.not123, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0120, i32 noundef -1, i32 noundef 0) #5
   %17 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesCtr6, align 4
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #5
   br label %19
 
 19:                                               ; preds = %15, %8
-  %.0120 = phi ptr [ %16, %15 ], [ null, %8 ]
-  %.0119 = phi ptr [ %18, %15 ], [ null, %8 ]
+  %.0119 = phi ptr [ %16, %15 ], [ null, %8 ]
+  %.0 = phi ptr [ %18, %15 ], [ null, %8 ]
   %20 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_source_dsa_guid, align 4
-  %21 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef null) #5
+  %21 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0120, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef null) #5
   %22 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_source_dsa_invocation_id, align 4
-  %23 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #5
+  %23 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %21, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, ptr noundef null) #5
   %24 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_naming_context, align 4
-  %25 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesCtr6_naming_context_, i32 noundef 2, ptr noundef nonnull @.str.1432, i32 noundef %24) #5
+  %25 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesCtr6_naming_context_, i32 noundef 2, ptr noundef nonnull @.str.1432, i32 noundef %24) #5
   %26 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_old_highwatermark, align 4
-  %27 = tail call i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
+  %27 = tail call i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %25, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %26, i32 poison)
   %28 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_new_highwatermark, align 4
-  %29 = tail call i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
+  %29 = tail call i32 @drsuapi_dissect_struct_DsReplicaHighWaterMark(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
   %30 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_uptodateness_vector, align 4
-  %31 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesCtr6_uptodateness_vector_, i32 noundef 2, ptr noundef nonnull @.str.1449, i32 noundef %30) #5
+  %31 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesCtr6_uptodateness_vector_, i32 noundef 2, ptr noundef nonnull @.str.1449, i32 noundef %30) #5
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_mapping_ctr, align 4
-  %33 = tail call i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @drsuapi_dissect_struct_DsReplicaOIDMapping_Ctr(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_extended_ret, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %9) #5
+  %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_object_count, align 4
-  %37 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %37 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6___ndr_size, align 4
-  %39 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
+  %39 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_first_object, align 4
-  %41 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesCtr6_first_object_, i32 noundef 2, ptr noundef nonnull @.str.1448, i32 noundef %40) #5
+  %41 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesCtr6_first_object_, i32 noundef 2, ptr noundef nonnull @.str.1448, i32 noundef %40) #5
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_more_data, align 4
-  %43 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #5
+  %43 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #5
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_nc_object_count, align 4
-  %45 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #5
+  %45 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #5
   %46 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_nc_linked_attributes_count, align 4
-  %47 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #5
+  %47 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #5
   %48 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_linked_attributes_count, align 4
-  %49 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #5
+  %49 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #5
   %50 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_linked_attributes, align 4
-  %51 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesCtr6_linked_attributes_, i32 noundef 2, ptr noundef nonnull @.str.1450, i32 noundef %50) #5
+  %51 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesCtr6_linked_attributes_, i32 noundef 2, ptr noundef nonnull @.str.1450, i32 noundef %50) #5
   %52 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6_drs_error, align 4
-  %53 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0119, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #5
-  %54 = sub i32 %53, %.0
-  call void @proto_item_set_len(ptr noundef %.0120, i32 noundef %54) #5
+  %53 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #5
+  %54 = sub i32 %53, %.0120
+  call void @proto_item_set_len(ptr noundef %.0119, i32 noundef %54) #5
   %55 = getelementptr inbounds i8, ptr %4, i64 72
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 96
@@ -5804,23 +5804,23 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1TS(ptr noundef %0, i
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesCtr1TS, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1TS_ctr1, align 4
-  %20 = tail call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
+  %20 = tail call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -5857,23 +5857,23 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6TS(ptr noundef %0, i
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesCtr6TS, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6TS_ctr6, align 4
-  %20 = tail call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
+  %20 = tail call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 poison)
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -5936,27 +5936,27 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesMSZIPCtr1(ptr noundef %0
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesMSZIPCtr1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesMSZIPCtr1_decompressed_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesMSZIPCtr1_compressed_length, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesMSZIPCtr1_ts, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesMSZIPCtr1_ts_, i32 noundef 2, ptr noundef nonnull @.str.1451, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesMSZIPCtr1_ts_, i32 noundef 2, ptr noundef nonnull @.str.1451, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -6019,27 +6019,27 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesMSZIPCtr6(ptr noundef %0
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesMSZIPCtr6, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesMSZIPCtr6_decompressed_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesMSZIPCtr6_compressed_length, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesMSZIPCtr6_ts, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesMSZIPCtr6_ts_, i32 noundef 2, ptr noundef nonnull @.str.1452, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesMSZIPCtr6_ts_, i32 noundef 2, ptr noundef nonnull @.str.1452, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -6102,27 +6102,27 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1(
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_decompressed_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_compressed_length, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_ts, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_ts_, i32 noundef 2, ptr noundef nonnull @.str.1451, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_ts_, i32 noundef 2, ptr noundef nonnull @.str.1451, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -6185,27 +6185,27 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6(
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6_decompressed_length, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6_compressed_length, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6_ts, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6_ts_, i32 noundef 2, ptr noundef nonnull @.str.1452, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6_ts_, i32 noundef 2, ptr noundef nonnull @.str.1452, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -6294,23 +6294,23 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr2(ptr noundef %0, i32
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesCtr2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr2_mszip1, align 4
-  %33 = tail call i32 @drsuapi_dissect_struct_DsGetNCChangesMSZIPCtr1(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @drsuapi_dissect_struct_DsGetNCChangesMSZIPCtr1(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -6375,34 +6375,34 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNCChangesCtr7(ptr noundef %0, i32
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.044 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %31 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesCtr7, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #5
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.044 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.043 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.043 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr7_level, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr7_type, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10)
   store i16 0, ptr %10, align 2
-  %37 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #5
+  %37 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.043, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit, label %38
 
 38:                                               ; preds = %33
   %39 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNCChangesCompressedCtr, align 4
-  %40 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.043, ptr noundef %0, i32 noundef %37, i32 noundef -1, i32 noundef %39, ptr noundef nonnull %9, ptr noundef nonnull @.str.1453) #5
+  %40 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %37, i32 noundef -1, i32 noundef %39, ptr noundef nonnull %9, ptr noundef nonnull @.str.1453) #5
   %.pre.i.i = load ptr, ptr %9, align 8
   br label %drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit
 
@@ -6410,8 +6410,8 @@ drsuapi_dissect_element_DsGetNCChangesCtr7_ctr.exit: ; preds = %33, %38
   %41 = phi ptr [ null, %33 ], [ %.pre.i.i, %38 ]
   call void @proto_item_set_len(ptr noundef %41, i32 noundef 0) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %42 = sub i32 %37, %.0
-  call void @proto_item_set_len(ptr noundef %.044, i32 noundef %42) #5
+  %42 = sub i32 %37, %.044
+  call void @proto_item_set_len(ptr noundef %.043, i32 noundef %42) #5
   %43 = load ptr, ptr %11, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -6474,29 +6474,29 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaUpdateRefsRequest1(ptr nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.050 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaUpdateRefsRequest1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.050 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.049 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.049 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaUpdateRefsRequest1_naming_context, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaUpdateRefsRequest1_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaUpdateRefsRequest1_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaUpdateRefsRequest1_dest_dsa_dns_name, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaUpdateRefsRequest1_dest_dsa_dns_name_, i32 noundef 1, ptr noundef nonnull @.str.1454, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaUpdateRefsRequest1_dest_dsa_dns_name_, i32 noundef 1, ptr noundef nonnull @.str.1454, i32 noundef %34) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaUpdateRefsRequest1_dest_dsa_guid, align 4
-  %37 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef null) #5
+  %37 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, ptr noundef null) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaUpdateRefsRequest1_options, align 4
-  %39 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
-  %40 = sub i32 %39, %.0
-  tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #5
+  %39 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
+  %40 = sub i32 %39, %.050
+  tail call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #5
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
@@ -6559,39 +6559,39 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAddRequest1(ptr noundef %0, i
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.050 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaAddRequest1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.050 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.049 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.049 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest1_naming_context, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAddRequest1_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAddRequest1_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest1_source_dsa_address, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAddRequest1_source_dsa_address_, i32 noundef 2, ptr noundef nonnull @.str.1455, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAddRequest1_source_dsa_address_, i32 noundef 2, ptr noundef nonnull @.str.1455, i32 noundef %34) #5
   br label %36
 
 36:                                               ; preds = %36, %31
   %.010.i = phi i32 [ 0, %31 ], [ %39, %36 ]
   %.089.i = phi i32 [ %35, %31 ], [ %38, %36 ]
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest1_schedule, align 4
-  %38 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.049, ptr noundef %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
+  %38 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
   %39 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %39, 84
   br i1 %exitcond.not.i, label %drsuapi_dissect_element_DsReplicaAddRequest1_schedule.exit, label %36, !llvm.loop !4
 
 drsuapi_dissect_element_DsReplicaAddRequest1_schedule.exit: ; preds = %36
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest1_options, align 4
-  %41 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.049, ptr noundef %4, ptr noundef %5, i32 noundef %40, i32 poison)
-  %42 = sub i32 %41, %.0
-  tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %42) #5
+  %41 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %40, i32 poison)
+  %42 = sub i32 %41, %.050
+  tail call void @proto_item_set_len(ptr noundef %.049, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -6654,43 +6654,43 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAddRequest2(ptr noundef %0, i
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.062 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not68 = icmp eq ptr %3, null
   br i1 %.not68, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.062, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaAddRequest2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.062 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.061 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.061 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest2_naming_context, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAddRequest2_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.062, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAddRequest2_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest2_source_dsa_dn, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAddRequest2_source_dsa_dn_, i32 noundef 2, ptr noundef nonnull @.str.1456, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAddRequest2_source_dsa_dn_, i32 noundef 2, ptr noundef nonnull @.str.1456, i32 noundef %34) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest2_transport_dn, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAddRequest2_transport_dn_, i32 noundef 2, ptr noundef nonnull @.str.1457, i32 noundef %36) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAddRequest2_transport_dn_, i32 noundef 2, ptr noundef nonnull @.str.1457, i32 noundef %36) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest2_source_dsa_address, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAddRequest2_source_dsa_address_, i32 noundef 2, ptr noundef nonnull @.str.1455, i32 noundef %38) #5
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAddRequest2_source_dsa_address_, i32 noundef 2, ptr noundef nonnull @.str.1455, i32 noundef %38) #5
   br label %40
 
 40:                                               ; preds = %40, %31
   %.010.i = phi i32 [ 0, %31 ], [ %43, %40 ]
   %.089.i = phi i32 [ %39, %31 ], [ %42, %40 ]
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest2_schedule, align 4
-  %42 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.061, ptr noundef %4, ptr noundef %5, i32 noundef %41, i32 noundef 0) #5
+  %42 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %41, i32 noundef 0) #5
   %43 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %43, 84
   br i1 %exitcond.not.i, label %drsuapi_dissect_element_DsReplicaAddRequest2_schedule.exit, label %40, !llvm.loop !6
 
 drsuapi_dissect_element_DsReplicaAddRequest2_schedule.exit: ; preds = %40
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest2_options, align 4
-  %45 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.061, ptr noundef %4, ptr noundef %5, i32 noundef %44, i32 poison)
-  %46 = sub i32 %45, %.0
-  tail call void @proto_item_set_len(ptr noundef %.062, i32 noundef %46) #5
+  %45 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %44, i32 poison)
+  %46 = sub i32 %45, %.062
+  tail call void @proto_item_set_len(ptr noundef %.061, i32 noundef %46) #5
   %47 = load ptr, ptr %9, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 96
   %49 = load i32, ptr %48, align 8
@@ -6753,27 +6753,27 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaDelRequest1(ptr noundef %0, i
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaDelRequest1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaDelRequest1_naming_context, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaDelRequest1_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaDelRequest1_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaDelRequest1_source_dsa_address, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaDelRequest1_source_dsa_address_, i32 noundef 2, ptr noundef nonnull @.str.1458, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaDelRequest1_source_dsa_address_, i32 noundef 2, ptr noundef nonnull @.str.1458, i32 noundef %34) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaDelRequest1_options, align 4
-  %37 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -6836,45 +6836,45 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaModRequest1(ptr noundef %0, i
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.068 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not74 = icmp eq ptr %3, null
   br i1 %.not74, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.068, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaModRequest1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.068 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.067 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.067 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaModRequest1_naming_context, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaModRequest1_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.068, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaModRequest1_naming_context_, i32 noundef 1, ptr noundef nonnull @.str.1432, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaModRequest1_source_dra, align 4
-  %35 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef null) #5
+  %35 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef null) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaModRequest1_source_dra_address, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaModRequest1_source_dra_address_, i32 noundef 2, ptr noundef nonnull @.str.1459, i32 noundef %36) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaModRequest1_source_dra_address_, i32 noundef 2, ptr noundef nonnull @.str.1459, i32 noundef %36) #5
   br label %38
 
 38:                                               ; preds = %38, %31
   %.010.i = phi i32 [ 0, %31 ], [ %41, %38 ]
   %.089.i = phi i32 [ %37, %31 ], [ %40, %38 ]
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaModRequest1_schedule, align 4
-  %40 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
+  %40 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
   %41 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %41, 84
   br i1 %exitcond.not.i, label %drsuapi_dissect_element_DsReplicaModRequest1_schedule.exit, label %38, !llvm.loop !7
 
 drsuapi_dissect_element_DsReplicaModRequest1_schedule.exit: ; preds = %38
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaModRequest1_replica_flags, align 4
-  %43 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %42, i32 poison)
+  %43 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %42, i32 poison)
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaModRequest1_modify_fields, align 4
-  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #5
+  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #5
   %46 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaModRequest1_options, align 4
-  %47 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.067, ptr noundef %4, ptr noundef %5, i32 noundef %46, i32 poison)
-  %48 = sub i32 %47, %.0
-  tail call void @proto_item_set_len(ptr noundef %.068, i32 noundef %48) #5
+  %47 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %46, i32 poison)
+  %48 = sub i32 %47, %.068
+  tail call void @proto_item_set_len(ptr noundef %.067, i32 noundef %48) #5
   %49 = load ptr, ptr %9, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 96
   %51 = load i32, ptr %50, align 8
@@ -6961,33 +6961,33 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMembershipsCtr1(ptr noundef %0, i
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.062 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not68 = icmp eq ptr %3, null
   br i1 %.not68, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.062, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetMembershipsCtr1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.062 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.061 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.061 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsCtr1_status, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.062, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsCtr1_num_memberships, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsCtr1_num_sids, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsCtr1_info_array, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMembershipsCtr1_info_array_, i32 noundef 2, ptr noundef nonnull @.str.1460, i32 noundef %38) #5
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMembershipsCtr1_info_array_, i32 noundef 2, ptr noundef nonnull @.str.1460, i32 noundef %38) #5
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsCtr1_group_attrs, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMembershipsCtr1_group_attrs_, i32 noundef 2, ptr noundef nonnull @.str.1461, i32 noundef %40) #5
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMembershipsCtr1_group_attrs_, i32 noundef 2, ptr noundef nonnull @.str.1461, i32 noundef %40) #5
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsCtr1_sids, align 4
-  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMembershipsCtr1_sids_, i32 noundef 2, ptr noundef nonnull @.str.1462, i32 noundef %42) #5
-  %44 = sub i32 %43, %.0
-  tail call void @proto_item_set_len(ptr noundef %.062, i32 noundef %44) #5
+  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMembershipsCtr1_sids_, i32 noundef 2, ptr noundef nonnull @.str.1462, i32 noundef %42) #5
+  %44 = sub i32 %43, %.062
+  tail call void @proto_item_set_len(ptr noundef %.061, i32 noundef %44) #5
   %45 = load ptr, ptr %9, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8
@@ -7051,34 +7051,34 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMembershipsRequest1(ptr noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.056 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_drsuapi_drsuapi_DsGetMembershipsRequest1, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.056 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.055 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.055 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsRequest1_count, align 4
-  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
+  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsRequest1_info_array, align 4
-  %36 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMembershipsRequest1_info_array_, i32 noundef 2, ptr noundef nonnull @.str.1460, i32 noundef %35) #5
+  %36 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMembershipsRequest1_info_array_, i32 noundef 2, ptr noundef nonnull @.str.1460, i32 noundef %35) #5
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsRequest1_flags, align 4
-  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
+  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsRequest1_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %40 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %9) #5
+  %40 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsRequest1_domain, align 4
-  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMembershipsRequest1_domain_, i32 noundef 2, ptr noundef nonnull @.str.1463, i32 noundef %41) #5
-  %43 = sub i32 %42, %.0
-  call void @proto_item_set_len(ptr noundef %.056, i32 noundef %43) #5
+  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMembershipsRequest1_domain_, i32 noundef 2, ptr noundef nonnull @.str.1463, i32 noundef %41) #5
+  %43 = sub i32 %42, %.056
+  call void @proto_item_set_len(ptr noundef %.055, i32 noundef %43) #5
   %44 = load ptr, ptr %10, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 96
   %46 = load i32, ptr %45, align 8
@@ -7184,29 +7184,29 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNT4ChangeLogRequest1(ptr noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.050 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNT4ChangeLogRequest1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.050 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.049 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.049 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogRequest1_flags, align 4
-  %33 = tail call i32 @drsuapi_dissect_bitmap_DsGetNT4ChangeLogFlags(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @drsuapi_dissect_bitmap_DsGetNT4ChangeLogFlags(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogRequest1_preferred_maximum_length, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogRequest1_restart_length, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogRequest1_restart_data, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNT4ChangeLogRequest1_restart_data_, i32 noundef 2, ptr noundef nonnull @.str.1464, i32 noundef %38) #5
-  %40 = sub i32 %39, %.0
-  tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #5
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNT4ChangeLogRequest1_restart_data_, i32 noundef 2, ptr noundef nonnull @.str.1464, i32 noundef %38) #5
+  %40 = sub i32 %39, %.050
+  tail call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #5
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
@@ -7243,43 +7243,43 @@ define hidden i32 @drsuapi_dissect_struct_DsGetNT4ChangeLogInfo1(ptr noundef %0,
   %or.cond = or i1 %.not86, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.084 = select i1 %or.cond, i32 %1, i32 %13
   %.not87 = icmp eq ptr %3, null
   br i1 %.not87, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.084, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsGetNT4ChangeLogInfo1, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.084 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.083 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.083 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogInfo1_restart_length, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.084, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogInfo1_log_length, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogInfo1_sam_serial_number, align 4
-  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
+  %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogInfo1_sam_creation_time, align 4
-  %26 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25) #5
+  %26 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25) #5
   %27 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogInfo1_builtin_serial_number, align 4
-  %28 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #5
+  %28 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #5
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogInfo1_builtin_creation_time, align 4
-  %30 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29) #5
+  %30 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29) #5
   %31 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogInfo1_lsa_serial_number, align 4
-  %32 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #5
+  %32 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #5
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogInfo1_lsa_creation_time, align 4
-  %34 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33) #5
+  %34 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33) #5
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogInfo1_status, align 4
-  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #5
+  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #5
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogInfo1_restart_data, align 4
-  %38 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNT4ChangeLogInfo1_restart_data_, i32 noundef 2, ptr noundef nonnull @.str.1464, i32 noundef %37) #5
+  %38 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNT4ChangeLogInfo1_restart_data_, i32 noundef 2, ptr noundef nonnull @.str.1464, i32 noundef %37) #5
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogInfo1_log_data, align 4
-  %40 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNT4ChangeLogInfo1_log_data_, i32 noundef 2, ptr noundef nonnull @.str.1465, i32 noundef %39) #5
-  %41 = sub i32 %40, %.0
-  tail call void @proto_item_set_len(ptr noundef %.084, i32 noundef %41) #5
+  %40 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetNT4ChangeLogInfo1_log_data_, i32 noundef 2, ptr noundef nonnull @.str.1465, i32 noundef %39) #5
+  %41 = sub i32 %40, %.084
+  tail call void @proto_item_set_len(ptr noundef %.083, i32 noundef %41) #5
   %42 = getelementptr inbounds i8, ptr %4, i64 72
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
@@ -7414,23 +7414,23 @@ define hidden i32 @drsuapi_dissect_struct_DsNameString(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsNameString, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsNameString_str, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsNameString_str_, i32 noundef 2, ptr noundef nonnull @.str.1466, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsNameString_str_, i32 noundef 2, ptr noundef nonnull @.str.1466, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -7496,44 +7496,44 @@ define hidden i32 @drsuapi_dissect_struct_DsNameRequest1(ptr noundef %0, i32 nou
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.068 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
   %.not74 = icmp eq ptr %3, null
   br i1 %.not74, label %34, label %30
 
 30:                                               ; preds = %29
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.068, i32 noundef -1, i32 noundef 0) #5
   %32 = load i32, ptr @ett_drsuapi_drsuapi_DsNameRequest1, align 4
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #5
   br label %34
 
 34:                                               ; preds = %30, %29
-  %.068 = phi ptr [ %31, %30 ], [ null, %29 ]
-  %.067 = phi ptr [ %33, %30 ], [ null, %29 ]
+  %.067 = phi ptr [ %31, %30 ], [ null, %29 ]
+  %.0 = phi ptr [ %33, %30 ], [ null, %29 ]
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsNameRequest1_codepage, align 4
-  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #5
+  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.068, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #5
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsNameRequest1_language, align 4
-  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
+  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsNameRequest1_format_flags, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %40 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %11) #5
+  %40 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %11) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsNameRequest1_format_offered, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store i32 0, ptr %10, align 4
-  %42 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef nonnull %10) #5
+  %42 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %43 = load i32, ptr @hf_drsuapi_drsuapi_DsNameRequest1_format_desired, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %44 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, ptr noundef nonnull %9) #5
+  %44 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %45 = load i32, ptr @hf_drsuapi_drsuapi_DsNameRequest1_count, align 4
-  %46 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 noundef 0) #5
+  %46 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 noundef 0) #5
   %47 = load i32, ptr @hf_drsuapi_drsuapi_DsNameRequest1_names, align 4
-  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsNameRequest1_names_, i32 noundef 2, ptr noundef nonnull @.str.1467, i32 noundef %47) #5
-  %49 = sub i32 %48, %.0
-  call void @proto_item_set_len(ptr noundef %.068, i32 noundef %49) #5
+  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsNameRequest1_names_, i32 noundef 2, ptr noundef nonnull @.str.1467, i32 noundef %47) #5
+  %49 = sub i32 %48, %.068
+  call void @proto_item_set_len(ptr noundef %.067, i32 noundef %49) #5
   %50 = load ptr, ptr %12, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 96
   %52 = load i32, ptr %51, align 8
@@ -7597,30 +7597,30 @@ define hidden i32 @drsuapi_dissect_struct_DsNameInfo1(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.044 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_drsuapi_drsuapi_DsNameInfo1, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.044 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.043 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.043 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsNameInfo1_status, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
+  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsNameInfo1_dns_domain_name, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsNameInfo1_dns_domain_name_, i32 noundef 2, ptr noundef nonnull @.str.1468, i32 noundef %35) #5
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsNameInfo1_dns_domain_name_, i32 noundef 2, ptr noundef nonnull @.str.1468, i32 noundef %35) #5
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsNameInfo1_result_name, align 4
-  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsNameInfo1_result_name_, i32 noundef 2, ptr noundef nonnull @.str.1469, i32 noundef %37) #5
-  %39 = sub i32 %38, %.0
-  call void @proto_item_set_len(ptr noundef %.044, i32 noundef %39) #5
+  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsNameInfo1_result_name_, i32 noundef 2, ptr noundef nonnull @.str.1469, i32 noundef %37) #5
+  %39 = sub i32 %38, %.044
+  call void @proto_item_set_len(ptr noundef %.043, i32 noundef %39) #5
   %40 = load ptr, ptr %10, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 96
   %42 = load i32, ptr %41, align 8
@@ -7683,25 +7683,25 @@ define hidden i32 @drsuapi_dissect_struct_DsNameCtr1(ptr noundef %0, i32 noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsNameCtr1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsNameCtr1_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsNameCtr1_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsNameCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1470, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsNameCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1470, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -7789,34 +7789,34 @@ define hidden i32 @drsuapi_dissect_struct_DsWriteAccountSpnRequest1(ptr noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.056 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_drsuapi_drsuapi_DsWriteAccountSpnRequest1, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.056 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.055 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.055 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpnRequest1_operation, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
+  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpnRequest1_unknown1, align 4
-  %36 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #5
+  %36 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #5
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpnRequest1_object_dn, align 4
-  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsWriteAccountSpnRequest1_object_dn_, i32 noundef 2, ptr noundef nonnull @.str.1471, i32 noundef %37) #5
+  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsWriteAccountSpnRequest1_object_dn_, i32 noundef 2, ptr noundef nonnull @.str.1471, i32 noundef %37) #5
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpnRequest1_count, align 4
-  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
+  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpnRequest1_spn_names, align 4
-  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsWriteAccountSpnRequest1_spn_names_, i32 noundef 2, ptr noundef nonnull @.str.1472, i32 noundef %41) #5
-  %43 = sub i32 %42, %.0
-  call void @proto_item_set_len(ptr noundef %.056, i32 noundef %43) #5
+  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsWriteAccountSpnRequest1_spn_names_, i32 noundef 2, ptr noundef nonnull @.str.1472, i32 noundef %41) #5
+  %43 = sub i32 %42, %.056
+  call void @proto_item_set_len(ptr noundef %.055, i32 noundef %43) #5
   %44 = load ptr, ptr %10, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 96
   %46 = load i32, ptr %45, align 8
@@ -7853,23 +7853,23 @@ define hidden i32 @drsuapi_dissect_struct_DsWriteAccountSpnResult1(ptr noundef %
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsWriteAccountSpnResult1, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpnResult1_status, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -7932,27 +7932,27 @@ define hidden i32 @drsuapi_dissect_struct_DsRemoveDSServerRequest1(ptr noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsRemoveDSServerRequest1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsRemoveDSServerRequest1_server_dn, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsRemoveDSServerRequest1_server_dn_, i32 noundef 2, ptr noundef nonnull @.str.1473, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsRemoveDSServerRequest1_server_dn_, i32 noundef 2, ptr noundef nonnull @.str.1473, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsRemoveDSServerRequest1_domain_dn, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsRemoveDSServerRequest1_domain_dn_, i32 noundef 2, ptr noundef nonnull @.str.1474, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsRemoveDSServerRequest1_domain_dn_, i32 noundef 2, ptr noundef nonnull @.str.1474, i32 noundef %34) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsRemoveDSServerRequest1_commit, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -7989,23 +7989,23 @@ define hidden i32 @drsuapi_dissect_struct_DsRemoveDSServerResult1(ptr noundef %0
   %or.cond = or i1 %.not26, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.024 = select i1 %or.cond, i32 %1, i32 %13
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.024, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsRemoveDSServerResult1, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.024 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.023 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.023 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsRemoveDSServerResult1_last_dc_in_domain, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.023, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
-  %21 = sub i32 %20, %.0
-  tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %21) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.024, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %21 = sub i32 %20, %.024
+  tail call void @proto_item_set_len(ptr noundef %.023, i32 noundef %21) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -8093,28 +8093,28 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoRequest1(ptr noundef %0, i3
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.038 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_drsuapi_drsuapi_DsGetDCInfoRequest1, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.038 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.037 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.037 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoRequest1_domain_name, align 4
-  %34 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfoRequest1_domain_name_, i32 noundef 2, ptr noundef nonnull @.str.1475, i32 noundef %33) #5
+  %34 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfoRequest1_domain_name_, i32 noundef 2, ptr noundef nonnull @.str.1475, i32 noundef %33) #5
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoRequest1_level, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #5
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %37 = sub i32 %36, %.0
-  call void @proto_item_set_len(ptr noundef %.038, i32 noundef %37) #5
+  %37 = sub i32 %36, %.038
+  call void @proto_item_set_len(ptr noundef %.037, i32 noundef %37) #5
   %38 = load ptr, ptr %10, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 96
   %40 = load i32, ptr %39, align 8
@@ -8177,35 +8177,35 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo1(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.068 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not74 = icmp eq ptr %3, null
   br i1 %.not74, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.068, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetDCInfo1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.068 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.067 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.067 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo1_netbios_name, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo1_netbios_name_, i32 noundef 2, ptr noundef nonnull @.str.1476, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.068, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo1_netbios_name_, i32 noundef 2, ptr noundef nonnull @.str.1476, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo1_dns_name, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo1_dns_name_, i32 noundef 2, ptr noundef nonnull @.str.1477, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo1_dns_name_, i32 noundef 2, ptr noundef nonnull @.str.1477, i32 noundef %34) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo1_site_name, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo1_site_name_, i32 noundef 2, ptr noundef nonnull @.str.1478, i32 noundef %36) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo1_site_name_, i32 noundef 2, ptr noundef nonnull @.str.1478, i32 noundef %36) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo1_computer_dn, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo1_computer_dn_, i32 noundef 2, ptr noundef nonnull @.str.1479, i32 noundef %38) #5
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo1_computer_dn_, i32 noundef 2, ptr noundef nonnull @.str.1479, i32 noundef %38) #5
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo1_server_dn, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo1_server_dn_, i32 noundef 2, ptr noundef nonnull @.str.1473, i32 noundef %40) #5
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo1_server_dn_, i32 noundef 2, ptr noundef nonnull @.str.1473, i32 noundef %40) #5
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo1_is_pdc, align 4
-  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #5
+  %43 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 noundef 0) #5
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo1_is_enabled, align 4
-  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #5
-  %46 = sub i32 %45, %.0
-  tail call void @proto_item_set_len(ptr noundef %.068, i32 noundef %46) #5
+  %45 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #5
+  %46 = sub i32 %45, %.068
+  tail call void @proto_item_set_len(ptr noundef %.067, i32 noundef %46) #5
   %47 = load ptr, ptr %9, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 96
   %49 = load i32, ptr %48, align 8
@@ -8268,25 +8268,25 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr1(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetDCInfoCtr1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoCtr1_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoCtr1_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfoCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1480, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfoCtr1_array_, i32 noundef 2, ptr noundef nonnull @.str.1480, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -8349,49 +8349,49 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo2(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0110 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not116 = icmp eq ptr %3, null
   br i1 %.not116, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0110, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetDCInfo2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.0110 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0109 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.0109 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_netbios_name, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0109, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo2_netbios_name_, i32 noundef 2, ptr noundef nonnull @.str.1476, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0110, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo2_netbios_name_, i32 noundef 2, ptr noundef nonnull @.str.1476, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_dns_name, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0109, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo2_dns_name_, i32 noundef 2, ptr noundef nonnull @.str.1477, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo2_dns_name_, i32 noundef 2, ptr noundef nonnull @.str.1477, i32 noundef %34) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_site_name, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0109, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo2_site_name_, i32 noundef 2, ptr noundef nonnull @.str.1478, i32 noundef %36) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo2_site_name_, i32 noundef 2, ptr noundef nonnull @.str.1478, i32 noundef %36) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_site_dn, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0109, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo2_site_dn_, i32 noundef 2, ptr noundef nonnull @.str.1481, i32 noundef %38) #5
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo2_site_dn_, i32 noundef 2, ptr noundef nonnull @.str.1481, i32 noundef %38) #5
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_computer_dn, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0109, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo2_computer_dn_, i32 noundef 2, ptr noundef nonnull @.str.1479, i32 noundef %40) #5
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo2_computer_dn_, i32 noundef 2, ptr noundef nonnull @.str.1479, i32 noundef %40) #5
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_server_dn, align 4
-  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0109, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo2_server_dn_, i32 noundef 2, ptr noundef nonnull @.str.1473, i32 noundef %42) #5
+  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo2_server_dn_, i32 noundef 2, ptr noundef nonnull @.str.1473, i32 noundef %42) #5
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_ntds_dn, align 4
-  %45 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0109, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo2_ntds_dn_, i32 noundef 2, ptr noundef nonnull @.str.1482, i32 noundef %44) #5
+  %45 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo2_ntds_dn_, i32 noundef 2, ptr noundef nonnull @.str.1482, i32 noundef %44) #5
   %46 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_is_pdc, align 4
-  %47 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0109, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #5
+  %47 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #5
   %48 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_is_enabled, align 4
-  %49 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0109, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #5
+  %49 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #5
   %50 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_is_gc, align 4
-  %51 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0109, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #5
+  %51 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #5
   %52 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_site_guid, align 4
-  %53 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0109, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, ptr noundef null) #5
+  %53 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, ptr noundef null) #5
   %54 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_computer_guid, align 4
-  %55 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0109, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef null) #5
+  %55 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef null) #5
   %56 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_server_guid, align 4
-  %57 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0109, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, ptr noundef null) #5
+  %57 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, ptr noundef null) #5
   %58 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo2_ntds_guid, align 4
-  %59 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0109, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, ptr noundef null) #5
-  %60 = sub i32 %59, %.0
-  tail call void @proto_item_set_len(ptr noundef %.0110, i32 noundef %60) #5
+  %59 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, ptr noundef null) #5
+  %60 = sub i32 %59, %.0110
+  tail call void @proto_item_set_len(ptr noundef %.0109, i32 noundef %60) #5
   %61 = load ptr, ptr %9, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 96
   %63 = load i32, ptr %62, align 8
@@ -8454,25 +8454,25 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr2(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetDCInfoCtr2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoCtr2_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoCtr2_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfoCtr2_array_, i32 noundef 2, ptr noundef nonnull @.str.1483, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfoCtr2_array_, i32 noundef 2, ptr noundef nonnull @.str.1483, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -8535,51 +8535,51 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfo3(ptr noundef %0, i32 nound
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.0116 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not122 = icmp eq ptr %3, null
   br i1 %.not122, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0116, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetDCInfo3, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.0116 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.0115 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.0115 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_netbios_name, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo3_netbios_name_, i32 noundef 2, ptr noundef nonnull @.str.1476, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0116, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo3_netbios_name_, i32 noundef 2, ptr noundef nonnull @.str.1476, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_dns_name, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo3_dns_name_, i32 noundef 2, ptr noundef nonnull @.str.1477, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo3_dns_name_, i32 noundef 2, ptr noundef nonnull @.str.1477, i32 noundef %34) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_site_name, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo3_site_name_, i32 noundef 2, ptr noundef nonnull @.str.1478, i32 noundef %36) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo3_site_name_, i32 noundef 2, ptr noundef nonnull @.str.1478, i32 noundef %36) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_site_dn, align 4
-  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo3_site_dn_, i32 noundef 2, ptr noundef nonnull @.str.1481, i32 noundef %38) #5
+  %39 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo3_site_dn_, i32 noundef 2, ptr noundef nonnull @.str.1481, i32 noundef %38) #5
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_computer_dn, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo3_computer_dn_, i32 noundef 2, ptr noundef nonnull @.str.1479, i32 noundef %40) #5
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo3_computer_dn_, i32 noundef 2, ptr noundef nonnull @.str.1479, i32 noundef %40) #5
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_server_dn, align 4
-  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo3_server_dn_, i32 noundef 2, ptr noundef nonnull @.str.1473, i32 noundef %42) #5
+  %43 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo3_server_dn_, i32 noundef 2, ptr noundef nonnull @.str.1473, i32 noundef %42) #5
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_ntds_dn, align 4
-  %45 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo3_ntds_dn_, i32 noundef 2, ptr noundef nonnull @.str.1482, i32 noundef %44) #5
+  %45 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfo3_ntds_dn_, i32 noundef 2, ptr noundef nonnull @.str.1482, i32 noundef %44) #5
   %46 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_is_pdc, align 4
-  %47 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #5
+  %47 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %46, i32 noundef 0) #5
   %48 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_is_enabled, align 4
-  %49 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #5
+  %49 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %48, i32 noundef 0) #5
   %50 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_is_gc, align 4
-  %51 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #5
+  %51 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #5
   %52 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_is_rodc, align 4
-  %53 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #5
+  %53 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, i32 noundef 0) #5
   %54 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_site_guid, align 4
-  %55 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef null) #5
+  %55 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %53, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %54, ptr noundef null) #5
   %56 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_computer_guid, align 4
-  %57 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, ptr noundef null) #5
+  %57 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %56, ptr noundef null) #5
   %58 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_server_guid, align 4
-  %59 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, ptr noundef null) #5
+  %59 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %57, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %58, ptr noundef null) #5
   %60 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfo3_ntds_guid, align 4
-  %61 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0115, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, ptr noundef null) #5
-  %62 = sub i32 %61, %.0
-  tail call void @proto_item_set_len(ptr noundef %.0116, i32 noundef %62) #5
+  %61 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %60, ptr noundef null) #5
+  %62 = sub i32 %61, %.0116
+  tail call void @proto_item_set_len(ptr noundef %.0115, i32 noundef %62) #5
   %63 = load ptr, ptr %9, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 96
   %65 = load i32, ptr %64, align 8
@@ -8642,25 +8642,25 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCInfoCtr3(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetDCInfoCtr3, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoCtr3_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoCtr3_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfoCtr3_array_, i32 noundef 2, ptr noundef nonnull @.str.1484, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCInfoCtr3_array_, i32 noundef 2, ptr noundef nonnull @.str.1484, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -8723,36 +8723,36 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCConnection01(ptr noundef %0, i3
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.068 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not74 = icmp eq ptr %3, null
   br i1 %.not74, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.068, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetDCConnection01, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.068 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.067 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.067 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCConnection01_client_ip_address, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %.067, i32 noundef %32, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef 0) #5
-  %34 = add i32 %.0, 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %32, ptr noundef %0, i32 noundef %.068, i32 noundef 4, i32 noundef 0) #5
+  %34 = add i32 %.068, 4
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCConnection01_unknown2, align 4
-  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #5
+  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #5
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCConnection01_connection_time, align 4
-  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
+  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCConnection01_unknown4, align 4
-  %40 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
+  %40 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCConnection01_unknown5, align 4
-  %42 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 noundef 0) #5
+  %42 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 noundef 0) #5
   %43 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCConnection01_unknown6, align 4
-  %44 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 noundef 0) #5
+  %44 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 noundef 0) #5
   %45 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCConnection01_client_account, align 4
-  %46 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCConnection01_client_account_, i32 noundef 2, ptr noundef nonnull @.str.1485, i32 noundef %45) #5
-  %47 = sub i32 %46, %.0
-  tail call void @proto_item_set_len(ptr noundef %.068, i32 noundef %47) #5
+  %46 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCConnection01_client_account_, i32 noundef 2, ptr noundef nonnull @.str.1485, i32 noundef %45) #5
+  %47 = sub i32 %46, %.068
+  tail call void @proto_item_set_len(ptr noundef %.067, i32 noundef %47) #5
   %48 = load ptr, ptr %9, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 96
   %50 = load i32, ptr %49, align 8
@@ -8815,25 +8815,25 @@ define hidden i32 @drsuapi_dissect_struct_DsGetDCConnectionCtr01(ptr noundef %0,
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetDCConnectionCtr01, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCConnectionCtr01_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCConnectionCtr01_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCConnectionCtr01_array_, i32 noundef 2, ptr noundef nonnull @.str.1486, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetDCConnectionCtr01_array_, i32 noundef 2, ptr noundef nonnull @.str.1486, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -8896,25 +8896,25 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectListItem(ptr noundef %0
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaObjectListItem, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectListItem_next_object, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectListItem_next_object_, i32 noundef 2, ptr noundef nonnull @.str.1487, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjectListItem_next_object_, i32 noundef 2, ptr noundef nonnull @.str.1487, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectListItem_object, align 4
-  %35 = tail call i32 @drsuapi_dissect_struct_DsReplicaObject(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @drsuapi_dissect_struct_DsReplicaObject(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -9001,23 +9001,23 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryRequest2(ptr noundef %0, i32
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsAddEntryRequest2, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryRequest2_first_object, align 4
-  %33 = tail call i32 @drsuapi_dissect_struct_DsReplicaObjectListItem(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @drsuapi_dissect_struct_DsReplicaObjectListItem(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -9105,30 +9105,30 @@ define hidden i32 @drsuapi_dissect_struct_SecBuffer(ptr noundef %0, i32 noundef 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.044 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_drsuapi_drsuapi_SecBuffer, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.044 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.043 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.043 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_drsuapi_drsuapi_SecBuffer_buf_size, align 4
-  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
+  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
   %35 = load i32, ptr @hf_drsuapi_drsuapi_SecBuffer_buf_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #5
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %37 = load i32, ptr @hf_drsuapi_drsuapi_SecBuffer_buffer, align 4
-  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_SecBuffer_buffer_, i32 noundef 2, ptr noundef nonnull @.str.1488, i32 noundef %37) #5
-  %39 = sub i32 %38, %.0
-  call void @proto_item_set_len(ptr noundef %.044, i32 noundef %39) #5
+  %38 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_SecBuffer_buffer_, i32 noundef 2, ptr noundef nonnull @.str.1488, i32 noundef %37) #5
+  %39 = sub i32 %38, %.044
+  call void @proto_item_set_len(ptr noundef %.043, i32 noundef %39) #5
   %40 = load ptr, ptr %10, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 96
   %42 = load i32, ptr %41, align 8
@@ -9191,27 +9191,27 @@ define hidden i32 @drsuapi_dissect_struct_SecBufferDesc(ptr noundef %0, i32 noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_SecBufferDesc, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_SecBufferDesc_version, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_SecBufferDesc_buff_count, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_SecBufferDesc_buffers, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_SecBufferDesc_buffers_, i32 noundef 2, ptr noundef nonnull @.str.1489, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_SecBufferDesc_buffers_, i32 noundef 2, ptr noundef nonnull @.str.1489, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -9274,25 +9274,25 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryRequest3(ptr noundef %0, i32
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsAddEntryRequest3, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryRequest3_first_object, align 4
-  %33 = tail call i32 @drsuapi_dissect_struct_DsReplicaObjectListItem(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
+  %33 = tail call i32 @drsuapi_dissect_struct_DsReplicaObjectListItem(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 poison)
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryRequest3_client_creds, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryRequest3_client_creds_, i32 noundef 2, ptr noundef nonnull @.str.1490, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryRequest3_client_creds_, i32 noundef 2, ptr noundef nonnull @.str.1490, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -9329,29 +9329,29 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i
   %or.cond = or i1 %.not44, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.042 = select i1 %or.cond, i32 %1, i32 %13
   %.not45 = icmp eq ptr %3, null
   br i1 %.not45, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.042, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsAddEntryErrorInfoX, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.042 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.041 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.041 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfoX_dsid, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.042, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfoX_extended_err, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfoX_extended_data, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfoX_problem, align 4
-  %26 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
-  %27 = sub i32 %26, %.0
-  tail call void @proto_item_set_len(ptr noundef %.042, i32 noundef %27) #5
+  %26 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
+  %27 = sub i32 %26, %.042
+  tail call void @proto_item_set_len(ptr noundef %.041, i32 noundef %27) #5
   %28 = getelementptr inbounds i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 96
@@ -9415,38 +9415,38 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_AttrErr_V1(ptr noundef %0, 
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.068 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not74 = icmp eq ptr %3, null
   br i1 %.not74, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.068, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_drsuapi_drsuapi_DsAddEntry_AttrErr_V1, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.068 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.067 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.067 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_AttrErr_V1_dsid, align 4
-  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
+  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.068, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_AttrErr_V1_extended_err, align 4
-  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #5
+  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #5
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_AttrErr_V1_extended_data, align 4
-  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
+  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_AttrErr_V1_problem, align 4
-  %40 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
+  %40 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_AttrErr_V1_attid, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %42 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef nonnull %9) #5
+  %42 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %43 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_AttrErr_V1_is_val_returned, align 4
-  %44 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 noundef 0) #5
+  %44 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 noundef 0) #5
   %45 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_AttrErr_V1_attr_val, align 4
-  %46 = call i32 @drsuapi_dissect_struct_DsAttributeValue(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 poison)
-  %47 = sub i32 %46, %.0
-  call void @proto_item_set_len(ptr noundef %.068, i32 noundef %47) #5
+  %46 = call i32 @drsuapi_dissect_struct_DsAttributeValue(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 poison)
+  %47 = sub i32 %46, %.068
+  call void @proto_item_set_len(ptr noundef %.067, i32 noundef %47) #5
   %48 = load ptr, ptr %10, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 96
   %50 = load i32, ptr %49, align 8
@@ -9509,25 +9509,25 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_AttrErrListItem_V1(ptr noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsAddEntry_AttrErrListItem_V1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_AttrErrListItem_V1_next, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntry_AttrErrListItem_V1_next_, i32 noundef 2, ptr noundef nonnull @.str.1491, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntry_AttrErrListItem_V1_next_, i32 noundef 2, ptr noundef nonnull @.str.1491, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_AttrErrListItem_V1_err_data, align 4
-  %35 = tail call i32 @drsuapi_dissect_struct_DsAddEntry_AttrErr_V1(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @drsuapi_dissect_struct_DsAddEntry_AttrErr_V1(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 poison)
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -9590,27 +9590,27 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Attr_V1(ptr nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsAddEntryErrorInfo_Attr_V1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_Attr_V1_id, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryErrorInfo_Attr_V1_id_, i32 noundef 2, ptr noundef nonnull @.str.1492, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryErrorInfo_Attr_V1_id_, i32 noundef 2, ptr noundef nonnull @.str.1492, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_Attr_V1_count, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_Attr_V1_first, align 4
-  %37 = tail call i32 @drsuapi_dissect_struct_DsAddEntry_AttrErrListItem_V1(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @drsuapi_dissect_struct_DsAddEntry_AttrErrListItem_V1(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -9673,31 +9673,31 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Name_V1(ptr nounde
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.056 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsAddEntryErrorInfo_Name_V1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.056 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.055 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.055 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_Name_V1_dsid, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_Name_V1_extended_err, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_Name_V1_extended_data, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_Name_V1_problem, align 4
-  %39 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
+  %39 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_Name_V1_id_matched, align 4
-  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryErrorInfo_Name_V1_id_matched_, i32 noundef 2, ptr noundef nonnull @.str.1493, i32 noundef %40) #5
-  %42 = sub i32 %41, %.0
-  tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #5
+  %41 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryErrorInfo_Name_V1_id_matched_, i32 noundef 2, ptr noundef nonnull @.str.1493, i32 noundef %40) #5
+  %42 = sub i32 %41, %.056
+  tail call void @proto_item_set_len(ptr noundef %.055, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -9734,27 +9734,27 @@ define hidden i32 @drsuapi_dissect_struct_NameResOp_V1(ptr noundef %0, i32 nound
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -2
   %13 = add i32 %12, 2
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_NameResOp_V1, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_NameResOp_V1_name_res, align 4
-  %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_NameResOp_V1_unused_pad, align 4
-  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_NameResOp_V1_next_rdn, align 4
-  %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
-  %25 = sub i32 %24, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #5
+  %24 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %25 = sub i32 %24, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %25) #5
   %26 = getelementptr inbounds i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 96
@@ -9867,25 +9867,25 @@ define hidden i32 @drsuapi_dissect_struct_DsaAddressListItem_V1(ptr noundef %0, 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsaAddressListItem_V1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsaAddressListItem_V1_next, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsaAddressListItem_V1_next_, i32 noundef 2, ptr noundef nonnull @.str.1494, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsaAddressListItem_V1_next_, i32 noundef 2, ptr noundef nonnull @.str.1494, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsaAddressListItem_V1_address, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsaAddressListItem_V1_address_, i32 noundef 2, ptr noundef nonnull @.str.1495, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsaAddressListItem_V1_address_, i32 noundef 2, ptr noundef nonnull @.str.1495, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -9950,47 +9950,47 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_RefErrListItem_V1(ptr nound
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.086 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not92 = icmp eq ptr %3, null
   br i1 %.not92, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.086, i32 noundef -1, i32 noundef 0) #5
   %31 = load i32, ptr @ett_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #5
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.086 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.085 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.085 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_id_target, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntry_RefErrListItem_V1_id_target_, i32 noundef 2, ptr noundef nonnull @.str.1496, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.086, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntry_RefErrListItem_V1_id_target_, i32 noundef 2, ptr noundef nonnull @.str.1496, i32 noundef %34) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_op_state, align 4
-  %37 = tail call i32 @drsuapi_dissect_struct_NameResOp_V1(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
+  %37 = tail call i32 @drsuapi_dissect_struct_NameResOp_V1(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 poison)
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_rdn_alias, align 4
-  %39 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
+  %39 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_rdn_internal, align 4
-  %41 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #5
+  %41 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #5
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_ref_type, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10)
   store i16 0, ptr %10, align 2
-  %43 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, ptr noundef nonnull %10) #5
+  %43 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %41, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, ptr noundef nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_addr_list_count, align 4
-  %45 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #5
+  %45 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 noundef 0) #5
   %46 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_addr_list, align 4
-  %47 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntry_RefErrListItem_V1_addr_list_, i32 noundef 2, ptr noundef nonnull @.str.1497, i32 noundef %46) #5
+  %47 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntry_RefErrListItem_V1_addr_list_, i32 noundef 2, ptr noundef nonnull @.str.1497, i32 noundef %46) #5
   %48 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_next, align 4
-  %49 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntry_RefErrListItem_V1_next_, i32 noundef 2, ptr noundef nonnull @.str.1498, i32 noundef %48) #5
+  %49 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %47, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntry_RefErrListItem_V1_next_, i32 noundef 2, ptr noundef nonnull @.str.1498, i32 noundef %48) #5
   %50 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_is_choice_set, align 4
-  %51 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #5
+  %51 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %49, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 noundef 0) #5
   %52 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_RefErrListItem_V1_choice, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   store i8 0, ptr %9, align 1
-  %53 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, ptr noundef nonnull %9) #5
+  %53 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %51, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %52, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  %54 = sub i32 %53, %.0
-  call void @proto_item_set_len(ptr noundef %.086, i32 noundef %54) #5
+  %54 = sub i32 %53, %.086
+  call void @proto_item_set_len(ptr noundef %.085, i32 noundef %54) #5
   %55 = load ptr, ptr %11, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 96
   %57 = load i32, ptr %56, align 8
@@ -10053,29 +10053,29 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Referr_V1(ptr noun
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.050 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsAddEntryErrorInfo_Referr_V1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.050 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.049 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.049 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_Referr_V1_dsid, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_Referr_V1_extended_err, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_Referr_V1_extended_data, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_Referr_V1_refer, align 4
-  %39 = tail call i32 @drsuapi_dissect_struct_DsAddEntry_RefErrListItem_V1(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
-  %40 = sub i32 %39, %.0
-  tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #5
+  %39 = tail call i32 @drsuapi_dissect_struct_DsAddEntry_RefErrListItem_V1(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
+  %40 = sub i32 %39, %.050
+  tail call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #5
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
@@ -10141,41 +10141,41 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_ErrData_V1(ptr noundef %0, 
   br label %29
 
 29:                                               ; preds = %24, %26, %19, %21
-  %.0 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
+  %.044 = phi i32 [ %1, %19 ], [ %23, %21 ], [ %1, %24 ], [ %28, %26 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %34, label %30
 
 30:                                               ; preds = %29
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %32 = load i32, ptr @ett_drsuapi_drsuapi_DsAddEntry_ErrData_V1, align 4
   %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #5
   br label %34
 
 34:                                               ; preds = %30, %29
-  %.044 = phi ptr [ %31, %30 ], [ null, %29 ]
-  %.043 = phi ptr [ %33, %30 ], [ null, %29 ]
+  %.043 = phi ptr [ %31, %30 ], [ null, %29 ]
+  %.0 = phi ptr [ %33, %30 ], [ null, %29 ]
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_ErrData_V1_status, align 4
-  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #5
+  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #5
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_ErrData_V1_dir_err, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %38 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %11) #5
+  %38 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %11) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_ErrData_V1_info, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.043, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %43, label %40
 
 40:                                               ; preds = %34
   %41 = load i32, ptr @ett_drsuapi_drsuapi_DsAddEntryErrorInfo, align 4
-  %42 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.043, ptr noundef %0, i32 noundef %38, i32 noundef -1, i32 noundef %41, ptr noundef nonnull %9, ptr noundef nonnull @.str.1499) #5
+  %42 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %38, i32 noundef -1, i32 noundef %41, ptr noundef nonnull %9, ptr noundef nonnull @.str.1499) #5
   br label %43
 
 43:                                               ; preds = %40, %34
-  %.063.i.i = phi ptr [ %42, %40 ], [ null, %34 ]
-  %44 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %10) #5
+  %.0.i.i = phi ptr [ %42, %40 ], [ null, %34 ]
+  %44 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %10) #5
   %45 = load ptr, ptr %12, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 8
@@ -10209,7 +10209,7 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_ErrData_V1(ptr noundef %0, 
   br label %61
 
 61:                                               ; preds = %58, %56, %53, %51
-  %.0.i.i = phi i32 [ %44, %51 ], [ %55, %53 ], [ %44, %56 ], [ %60, %58 ]
+  %.063.i.i = phi i32 [ %44, %51 ], [ %55, %53 ], [ %44, %56 ], [ %60, %58 ]
   %62 = load i32, ptr %10, align 4
   switch i32 %62, label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit [
     i32 1, label %63
@@ -10223,48 +10223,48 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntry_ErrData_V1(ptr noundef %0, 
 
 63:                                               ; preds = %61
   %64 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_attr_err, align 4
-  %65 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Attr_V1(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 poison)
+  %65 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Attr_V1(ptr noundef %0, i32 noundef %.063.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 poison)
   br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
 
 66:                                               ; preds = %61
   %67 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_name_err, align 4
-  %68 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Name_V1(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %67, i32 poison)
+  %68 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Name_V1(ptr noundef %0, i32 noundef %.063.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %67, i32 poison)
   br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
 
 69:                                               ; preds = %61
   %70 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_referral_err, align 4
-  %71 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Referr_V1(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 poison)
+  %71 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfo_Referr_V1(ptr noundef %0, i32 noundef %.063.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %70, i32 poison)
   br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
 
 72:                                               ; preds = %61
   %73 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_security_err, align 4
-  %74 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %73, i32 poison)
+  %74 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i32 noundef %.063.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %73, i32 poison)
   br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
 
 75:                                               ; preds = %61
   %76 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_service_err, align 4
-  %77 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 poison)
+  %77 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i32 noundef %.063.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %76, i32 poison)
   br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
 
 78:                                               ; preds = %61
   %79 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_update_err, align 4
-  %80 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %79, i32 poison)
+  %80 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i32 noundef %.063.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %79, i32 poison)
   br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
 
 81:                                               ; preds = %61
   %82 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryErrorInfo_system_err, align 4
-  %83 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.063.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 poison)
+  %83 = call i32 @drsuapi_dissect_struct_DsAddEntryErrorInfoX(ptr noundef %0, i32 noundef %.063.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %82, i32 poison)
   br label %drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit
 
 drsuapi_dissect_element_DsAddEntry_ErrData_V1_info.exit: ; preds = %61, %63, %66, %69, %72, %75, %78, %81
-  %.1.i.i = phi i32 [ %.0.i.i, %61 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ]
+  %.1.i.i = phi i32 [ %.063.i.i, %61 ], [ %83, %81 ], [ %80, %78 ], [ %77, %75 ], [ %74, %72 ], [ %71, %69 ], [ %68, %66 ], [ %65, %63 ]
   %84 = load ptr, ptr %9, align 8
   %85 = sub i32 %.1.i.i, %38
   call void @proto_item_set_len(ptr noundef %84, i32 noundef %85) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %86 = sub i32 %.1.i.i, %.0
-  call void @proto_item_set_len(ptr noundef %.044, i32 noundef %86) #5
+  %86 = sub i32 %.1.i.i, %.044
+  call void @proto_item_set_len(ptr noundef %.043, i32 noundef %86) #5
   %87 = load ptr, ptr %12, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 96
   %89 = load i32, ptr %88, align 8
@@ -10300,25 +10300,25 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjectIdentifier2(ptr noundef
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaObjectIdentifier2, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier2_guid, align 4
-  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
+  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjectIdentifier2_sid, align 4
-  %22 = tail call i32 @dissect_ndr_nt_SID28(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21) #5
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
+  %22 = tail call i32 @dissect_ndr_nt_SID28(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21) #5
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #5
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -10382,40 +10382,40 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryCtr2(ptr noundef %0, i32 nou
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.074 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not80 = icmp eq ptr %3, null
   br i1 %.not80, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.074, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_drsuapi_drsuapi_DsAddEntryCtr2, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.074 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.073 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.073 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr2_id, align 4
-  %34 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryCtr2_id_, i32 noundef 2, ptr noundef nonnull @.str.1492, i32 noundef %33) #5
+  %34 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.074, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryCtr2_id_, i32 noundef 2, ptr noundef nonnull @.str.1492, i32 noundef %33) #5
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr2_dir_err, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #5
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr2_dsid, align 4
-  %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
+  %38 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr2_extended_err, align 4
-  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
+  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr2_extended_data, align 4
-  %42 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 noundef 0) #5
+  %42 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 noundef 0) #5
   %43 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr2_problem, align 4
-  %44 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 noundef 0) #5
+  %44 = call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, i32 noundef 0) #5
   %45 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr2_count, align 4
-  %46 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 noundef 0) #5
+  %46 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 noundef 0) #5
   %47 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr2_objects, align 4
-  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.073, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryCtr2_objects_, i32 noundef 2, ptr noundef nonnull @.str.1500, i32 noundef %47) #5
-  %49 = sub i32 %48, %.0
-  call void @proto_item_set_len(ptr noundef %.074, i32 noundef %49) #5
+  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryCtr2_objects_, i32 noundef 2, ptr noundef nonnull @.str.1500, i32 noundef %47) #5
+  %49 = sub i32 %48, %.074
+  call void @proto_item_set_len(ptr noundef %.073, i32 noundef %49) #5
   %50 = load ptr, ptr %10, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 96
   %52 = load i32, ptr %51, align 8
@@ -10480,38 +10480,38 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryCtr3(ptr noundef %0, i32 nou
   br label %28
 
 28:                                               ; preds = %23, %25, %18, %20
-  %.0 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
+  %.056 = phi i32 [ %1, %18 ], [ %22, %20 ], [ %1, %23 ], [ %27, %25 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %33, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #5
   %31 = load i32, ptr @ett_drsuapi_drsuapi_DsAddEntryCtr3, align 4
   %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #5
   br label %33
 
 33:                                               ; preds = %29, %28
-  %.056 = phi ptr [ %30, %29 ], [ null, %28 ]
-  %.055 = phi ptr [ %32, %29 ], [ null, %28 ]
+  %.055 = phi ptr [ %30, %29 ], [ null, %28 ]
+  %.0 = phi ptr [ %32, %29 ], [ null, %28 ]
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr3_id, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryCtr3_id_, i32 noundef 2, ptr noundef nonnull @.str.1492, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryCtr3_id_, i32 noundef 2, ptr noundef nonnull @.str.1492, i32 noundef %34) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr3_err_ver, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr3_err_data, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   store ptr null, ptr %9, align 8
-  %.not.i.i = icmp eq ptr %.055, null
+  %.not.i.i = icmp eq ptr %.0, null
   br i1 %.not.i.i, label %42, label %39
 
 39:                                               ; preds = %33
   %40 = load i32, ptr @ett_drsuapi_drsuapi_DsAddEntry_ErrData, align 4
-  %41 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.055, ptr noundef %0, i32 noundef %37, i32 noundef -1, i32 noundef %40, ptr noundef nonnull %9, ptr noundef nonnull @.str.1501) #5
+  %41 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %.0, ptr noundef %0, i32 noundef %37, i32 noundef -1, i32 noundef %40, ptr noundef nonnull %9, ptr noundef nonnull @.str.1501) #5
   br label %42
 
 42:                                               ; preds = %39, %33
-  %.027.i.i = phi ptr [ %41, %39 ], [ null, %33 ]
-  %43 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef nonnull %10) #5
+  %.0.i.i = phi ptr [ %41, %39 ], [ null, %33 ]
+  %43 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, ptr noundef nonnull %10) #5
   %44 = load ptr, ptr %11, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 96
   %46 = load i32, ptr %45, align 8
@@ -10545,29 +10545,29 @@ define hidden i32 @drsuapi_dissect_struct_DsAddEntryCtr3(ptr noundef %0, i32 nou
   br label %60
 
 60:                                               ; preds = %57, %55, %52, %50
-  %.0.i.i = phi i32 [ %43, %50 ], [ %54, %52 ], [ %43, %55 ], [ %59, %57 ]
+  %.027.i.i = phi i32 [ %43, %50 ], [ %54, %52 ], [ %43, %55 ], [ %59, %57 ]
   %61 = load i32, ptr %10, align 4
   %cond.i.i = icmp eq i32 %61, 1
   br i1 %cond.i.i, label %62, label %drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit
 
 62:                                               ; preds = %60
   %63 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_ErrData_v1, align 4
-  %64 = call i32 @drsuapi_dissect_struct_DsAddEntry_ErrData_V1(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %63, i32 poison)
+  %64 = call i32 @drsuapi_dissect_struct_DsAddEntry_ErrData_V1(ptr noundef %0, i32 noundef %.027.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %63, i32 poison)
   br label %drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit
 
 drsuapi_dissect_element_DsAddEntryCtr3_err_data.exit: ; preds = %60, %62
-  %.1.i.i = phi i32 [ %64, %62 ], [ %.0.i.i, %60 ]
+  %.1.i.i = phi i32 [ %64, %62 ], [ %.027.i.i, %60 ]
   %65 = load ptr, ptr %9, align 8
   %66 = sub i32 %.1.i.i, %37
   call void @proto_item_set_len(ptr noundef %65, i32 noundef %66) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %67 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr3_count, align 4
-  %68 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.1.i.i, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %67, i32 noundef 0) #5
+  %68 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.1.i.i, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %67, i32 noundef 0) #5
   %69 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr3_objects, align 4
-  %70 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %68, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryCtr3_objects_, i32 noundef 2, ptr noundef nonnull @.str.1500, i32 noundef %69) #5
-  %71 = sub i32 %70, %.0
-  call void @proto_item_set_len(ptr noundef %.056, i32 noundef %71) #5
+  %70 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %68, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsAddEntryCtr3_objects_, i32 noundef 2, ptr noundef nonnull @.str.1500, i32 noundef %69) #5
+  %71 = sub i32 %70, %.056
+  call void @proto_item_set_len(ptr noundef %.055, i32 noundef %71) #5
   %72 = load ptr, ptr %11, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 96
   %74 = load i32, ptr %73, align 8
@@ -10646,25 +10646,25 @@ define hidden i32 @drsuapi_dissect_struct_DsExecuteKCC1(ptr noundef %0, i32 noun
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsExecuteKCC1, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsExecuteKCC1_taskID, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsExecuteKCC1_flags, align 4
-  %22 = tail call i32 @drsuapi_dissect_bitmap_DsExecuteKCCFlags(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
+  %22 = tail call i32 @drsuapi_dissect_bitmap_DsExecuteKCCFlags(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 poison)
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #5
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -10776,30 +10776,30 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest1(ptr noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.044 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaGetInfoRequest1, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.044 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.043 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.043 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest1_info_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
+  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest1_object_dn, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaGetInfoRequest1_object_dn_, i32 noundef 2, ptr noundef nonnull @.str.1471, i32 noundef %35) #5
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaGetInfoRequest1_object_dn_, i32 noundef 2, ptr noundef nonnull @.str.1471, i32 noundef %35) #5
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest1_source_dsa_guid, align 4
-  %38 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #5
-  %39 = sub i32 %38, %.0
-  call void @proto_item_set_len(ptr noundef %.044, i32 noundef %39) #5
+  %38 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #5
+  %39 = sub i32 %38, %.044
+  call void @proto_item_set_len(ptr noundef %.043, i32 noundef %39) #5
   %40 = load ptr, ptr %10, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 96
   %42 = load i32, ptr %41, align 8
@@ -10863,38 +10863,38 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest2(ptr noundef %
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.068 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not74 = icmp eq ptr %3, null
   br i1 %.not74, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.068, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaGetInfoRequest2, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.068 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.067 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.067 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest2_info_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
+  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.068, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest2_object_dn, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaGetInfoRequest2_object_dn_, i32 noundef 2, ptr noundef nonnull @.str.1471, i32 noundef %35) #5
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaGetInfoRequest2_object_dn_, i32 noundef 2, ptr noundef nonnull @.str.1471, i32 noundef %35) #5
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest2_source_dsa_guid, align 4
-  %38 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #5
+  %38 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #5
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest2_flags, align 4
-  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
+  %40 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, i32 noundef 0) #5
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest2_attribute_name, align 4
-  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaGetInfoRequest2_attribute_name_, i32 noundef 2, ptr noundef nonnull @.str.1502, i32 noundef %41) #5
+  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaGetInfoRequest2_attribute_name_, i32 noundef 2, ptr noundef nonnull @.str.1502, i32 noundef %41) #5
   %43 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest2_value_dn_str, align 4
-  %44 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaGetInfoRequest2_value_dn_str_, i32 noundef 2, ptr noundef nonnull @.str.1503, i32 noundef %43) #5
+  %44 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaGetInfoRequest2_value_dn_str_, i32 noundef 2, ptr noundef nonnull @.str.1503, i32 noundef %43) #5
   %45 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest2_enumeration_context, align 4
-  %46 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.067, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 noundef 0) #5
-  %47 = sub i32 %46, %.0
-  call void @proto_item_set_len(ptr noundef %.068, i32 noundef %47) #5
+  %46 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 noundef 0) #5
+  %47 = sub i32 %46, %.068
+  call void @proto_item_set_len(ptr noundef %.067, i32 noundef %47) #5
   %48 = load ptr, ptr %10, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 96
   %50 = load i32, ptr %49, align 8
@@ -10931,53 +10931,53 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaNeighbour(ptr noundef %0, i32
   %or.cond = or i1 %.not116, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.0114 = select i1 %or.cond, i32 %1, i32 %13
   %.not117 = icmp eq ptr %3, null
   br i1 %.not117, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0114, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaNeighbour, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.0114 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.0113 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.0113 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_naming_context_dn, align 4
-  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaNeighbour_naming_context_dn_, i32 noundef 2, ptr noundef nonnull @.str.1504, i32 noundef %19) #5
+  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0114, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaNeighbour_naming_context_dn_, i32 noundef 2, ptr noundef nonnull @.str.1504, i32 noundef %19) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_source_dsa_obj_dn, align 4
-  %22 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaNeighbour_source_dsa_obj_dn_, i32 noundef 2, ptr noundef nonnull @.str.1505, i32 noundef %21) #5
+  %22 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaNeighbour_source_dsa_obj_dn_, i32 noundef 2, ptr noundef nonnull @.str.1505, i32 noundef %21) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_source_dsa_address, align 4
-  %24 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaNeighbour_source_dsa_address_, i32 noundef 2, ptr noundef nonnull @.str.1455, i32 noundef %23) #5
+  %24 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaNeighbour_source_dsa_address_, i32 noundef 2, ptr noundef nonnull @.str.1455, i32 noundef %23) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_transport_obj_dn, align 4
-  %26 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaNeighbour_transport_obj_dn_, i32 noundef 2, ptr noundef nonnull @.str.1506, i32 noundef %25) #5
+  %26 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaNeighbour_transport_obj_dn_, i32 noundef 2, ptr noundef nonnull @.str.1506, i32 noundef %25) #5
   %27 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_replica_flags, align 4
-  %28 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 poison)
+  %28 = tail call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 poison)
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_reserved, align 4
-  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #5
+  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #5
   %31 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_naming_context_obj_guid, align 4
-  %32 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #5
+  %32 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #5
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_source_dsa_obj_guid, align 4
-  %34 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef null) #5
+  %34 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, ptr noundef null) #5
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_source_dsa_invocation_id, align 4
-  %36 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #5
+  %36 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #5
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_transport_obj_guid, align 4
-  %38 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #5
+  %38 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #5
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_tmp_highest_usn, align 4
-  %40 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #5
+  %40 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #5
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_highest_usn, align 4
-  %42 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef null) #5
+  %42 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef null) #5
   %43 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_last_success, align 4
-  %44 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43) #5
+  %44 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43) #5
   %45 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_last_attempt, align 4
-  %46 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45) #5
+  %46 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45) #5
   %47 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_result_last_attempt, align 4
-  %48 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, i32 noundef 0) #5
+  %48 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %47, i32 noundef 0) #5
   %49 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbour_consecutive_sync_failures, align 4
-  %50 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.0113, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 noundef 0) #5
-  %51 = sub i32 %50, %.0
-  tail call void @proto_item_set_len(ptr noundef %.0114, i32 noundef %51) #5
+  %50 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, i32 noundef 0) #5
+  %51 = sub i32 %50, %.0114
+  tail call void @proto_item_set_len(ptr noundef %.0113, i32 noundef %51) #5
   %52 = getelementptr inbounds i8, ptr %4, i64 72
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 96
@@ -11014,26 +11014,26 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaNeighbourCtr(ptr noundef %0, 
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaNeighbourCtr, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbourCtr_count, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaNeighbourCtr_reserved, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaNeighbourCtr_array_) #5
-  %24 = sub i32 %23, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaNeighbourCtr_array_) #5
+  %24 = sub i32 %23, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %24) #5
   %25 = getelementptr inbounds i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 96
@@ -11070,26 +11070,26 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursorCtr(ptr noundef %0, i32
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaCursorCtr, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursorCtr_count, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursorCtr_reserved, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursorCtr_array_) #5
-  %24 = sub i32 %23, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursorCtr_array_) #5
+  %24 = sub i32 %23, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %24) #5
   %25 = getelementptr inbounds i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 96
@@ -11126,33 +11126,33 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaData(ptr noundef %0, i
   %or.cond = or i1 %.not56, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.054 = select i1 %or.cond, i32 %1, i32 %13
   %.not57 = icmp eq ptr %3, null
   br i1 %.not57, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.054, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaObjMetaData, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.054 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.053 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.053 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData_attribute_name, align 4
-  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjMetaData_attribute_name_, i32 noundef 2, ptr noundef nonnull @.str.1502, i32 noundef %19) #5
+  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.054, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjMetaData_attribute_name_, i32 noundef 2, ptr noundef nonnull @.str.1502, i32 noundef %19) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData_version, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData_originating_change_time, align 4
-  %24 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23) #5
+  %24 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData_originating_invocation_id, align 4
-  %26 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
+  %26 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
   %27 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData_originating_usn, align 4
-  %28 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #5
+  %28 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #5
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData_local_usn, align 4
-  %30 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.053, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #5
-  %31 = sub i32 %30, %.0
-  tail call void @proto_item_set_len(ptr noundef %.054, i32 noundef %31) #5
+  %30 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #5
+  %31 = sub i32 %30, %.054
+  tail call void @proto_item_set_len(ptr noundef %.053, i32 noundef %31) #5
   %32 = getelementptr inbounds i8, ptr %4, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 96
@@ -11189,26 +11189,26 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaDataCtr(ptr noundef %0
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaObjMetaDataCtr, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaDataCtr_count, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaDataCtr_reserved, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjMetaDataCtr_array_) #5
-  %24 = sub i32 %23, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjMetaDataCtr_array_) #5
+  %24 = sub i32 %23, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %24) #5
   %25 = getelementptr inbounds i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 96
@@ -11271,31 +11271,31 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaKccDsaFailure(ptr noundef %0,
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.056 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not62 = icmp eq ptr %3, null
   br i1 %.not62, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.056, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaKccDsaFailure, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.056 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.055 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.055 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaKccDsaFailure_dsa_obj_dn, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaKccDsaFailure_dsa_obj_dn_, i32 noundef 2, ptr noundef nonnull @.str.1507, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.056, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaKccDsaFailure_dsa_obj_dn_, i32 noundef 2, ptr noundef nonnull @.str.1507, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaKccDsaFailure_dsa_obj_guid, align 4
-  %35 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef null) #5
+  %35 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef null) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaKccDsaFailure_first_failure, align 4
-  %37 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36) #5
+  %37 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaKccDsaFailure_num_failures, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
   %40 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaKccDsaFailure_last_result, align 4
-  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.055, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #5
-  %42 = sub i32 %41, %.0
-  tail call void @proto_item_set_len(ptr noundef %.056, i32 noundef %42) #5
+  %41 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, i32 noundef 0) #5
+  %42 = sub i32 %41, %.056
+  tail call void @proto_item_set_len(ptr noundef %.055, i32 noundef %42) #5
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
@@ -11358,26 +11358,26 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaKccDsaFailuresCtr(ptr noundef
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaKccDsaFailuresCtr, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaKccDsaFailuresCtr_count, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaKccDsaFailuresCtr_reserved, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
-  %36 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaKccDsaFailuresCtr_array_) #5
-  %37 = sub i32 %36, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %37) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %36 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaKccDsaFailuresCtr_array_) #5
+  %37 = sub i32 %36, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %37) #5
   %38 = load ptr, ptr %9, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 96
   %40 = load i32, ptr %39, align 8
@@ -11467,44 +11467,44 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOp(ptr noundef %0, i32 nounde
   br label %27
 
 27:                                               ; preds = %22, %24, %17, %19
-  %.0 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.086 = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not92 = icmp eq ptr %3, null
   br i1 %.not92, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.086, i32 noundef -1, i32 noundef 0) #5
   %30 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaOp, align 4
   %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #5
   br label %32
 
 32:                                               ; preds = %28, %27
-  %.086 = phi ptr [ %29, %28 ], [ null, %27 ]
-  %.085 = phi ptr [ %31, %28 ], [ null, %27 ]
+  %.085 = phi ptr [ %29, %28 ], [ null, %27 ]
+  %.0 = phi ptr [ %31, %28 ], [ null, %27 ]
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_operation_start, align 4
-  %34 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33) #5
+  %34 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.086, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33) #5
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_serial_num, align 4
-  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #5
+  %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #5
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_priority, align 4
-  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
+  %38 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, i32 noundef 0) #5
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_operation_type, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 0, ptr %9, align 4
-  %40 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %9) #5
+  %40 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_options, align 4
-  %42 = call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 poison)
+  %42 = call i32 @drsuapi_dissect_bitmap_DrsOptions(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 poison)
   %43 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_nc_dn, align 4
-  %44 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaOp_nc_dn_, i32 noundef 2, ptr noundef nonnull @.str.1508, i32 noundef %43) #5
+  %44 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %42, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaOp_nc_dn_, i32 noundef 2, ptr noundef nonnull @.str.1508, i32 noundef %43) #5
   %45 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_remote_dsa_obj_dn, align 4
-  %46 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaOp_remote_dsa_obj_dn_, i32 noundef 2, ptr noundef nonnull @.str.1509, i32 noundef %45) #5
+  %46 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %44, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaOp_remote_dsa_obj_dn_, i32 noundef 2, ptr noundef nonnull @.str.1509, i32 noundef %45) #5
   %47 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_remote_dsa_address, align 4
-  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaOp_remote_dsa_address_, i32 noundef 2, ptr noundef nonnull @.str.1510, i32 noundef %47) #5
+  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaOp_remote_dsa_address_, i32 noundef 2, ptr noundef nonnull @.str.1510, i32 noundef %47) #5
   %49 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_nc_obj_guid, align 4
-  %50 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, ptr noundef null) #5
+  %50 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %49, ptr noundef null) #5
   %51 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOp_remote_dsa_obj_guid, align 4
-  %52 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.085, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %51, ptr noundef null) #5
-  %53 = sub i32 %52, %.0
-  call void @proto_item_set_len(ptr noundef %.086, i32 noundef %53) #5
+  %52 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %51, ptr noundef null) #5
+  %53 = sub i32 %52, %.086
+  call void @proto_item_set_len(ptr noundef %.085, i32 noundef %53) #5
   %54 = load ptr, ptr %10, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 96
   %56 = load i32, ptr %55, align 8
@@ -11567,26 +11567,26 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaOpCtr(ptr noundef %0, i32 nou
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaOpCtr, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOpCtr_time, align 4
-  %33 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaOpCtr_count, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
-  %36 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaOpCtr_array_) #5
-  %37 = sub i32 %36, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %37) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %36 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaOpCtr_array_) #5
+  %37 = sub i32 %36, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %37) #5
   %38 = load ptr, ptr %9, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 96
   %40 = load i32, ptr %39, align 8
@@ -11623,43 +11623,43 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaData(ptr noundef %
   %or.cond = or i1 %.not86, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.084 = select i1 %or.cond, i32 %1, i32 %13
   %.not87 = icmp eq ptr %3, null
   br i1 %.not87, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.084, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaAttrValMetaData, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.084 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.083 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.083 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData_attribute_name, align 4
-  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData_attribute_name_, i32 noundef 2, ptr noundef nonnull @.str.1502, i32 noundef %19) #5
+  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.084, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData_attribute_name_, i32 noundef 2, ptr noundef nonnull @.str.1502, i32 noundef %19) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData_object_dn, align 4
-  %22 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData_object_dn_, i32 noundef 2, ptr noundef nonnull @.str.1471, i32 noundef %21) #5
+  %22 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData_object_dn_, i32 noundef 2, ptr noundef nonnull @.str.1471, i32 noundef %21) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData___ndr_size_binary, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData_binary, align 4
-  %26 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData_binary_, i32 noundef 2, ptr noundef nonnull @.str.1511, i32 noundef %25) #5
+  %26 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData_binary_, i32 noundef 2, ptr noundef nonnull @.str.1511, i32 noundef %25) #5
   %27 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData_deleted, align 4
-  %28 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27) #5
+  %28 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27) #5
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData_created, align 4
-  %30 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29) #5
+  %30 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29) #5
   %31 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData_version, align 4
-  %32 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #5
+  %32 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #5
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData_originating_change_time, align 4
-  %34 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33) #5
+  %34 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33) #5
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData_originating_invocation_id, align 4
-  %36 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #5
+  %36 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #5
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData_originating_usn, align 4
-  %38 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #5
+  %38 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #5
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData_local_usn, align 4
-  %40 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.083, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #5
-  %41 = sub i32 %40, %.0
-  tail call void @proto_item_set_len(ptr noundef %.084, i32 noundef %41) #5
+  %40 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #5
+  %41 = sub i32 %40, %.084
+  tail call void @proto_item_set_len(ptr noundef %.083, i32 noundef %41) #5
   %42 = getelementptr inbounds i8, ptr %4, i64 72
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 96
@@ -11696,26 +11696,26 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaDataCtr(ptr nounde
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaAttrValMetaDataCtr, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaDataCtr_count, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaDataCtr_enumeration_context, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaDataCtr_array_) #5
-  %24 = sub i32 %23, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaDataCtr_array_) #5
+  %24 = sub i32 %23, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %24) #5
   %25 = getelementptr inbounds i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 96
@@ -11752,26 +11752,26 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor2Ctr(ptr noundef %0, i3
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaCursor2Ctr, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor2Ctr_count, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor2Ctr_enumeration_context, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursor2Ctr_array_) #5
-  %24 = sub i32 %23, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursor2Ctr_array_) #5
+  %24 = sub i32 %23, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %24) #5
   %25 = getelementptr inbounds i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 96
@@ -11808,29 +11808,29 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor3(ptr noundef %0, i32 n
   %or.cond = or i1 %.not44, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.042 = select i1 %or.cond, i32 %1, i32 %13
   %.not45 = icmp eq ptr %3, null
   br i1 %.not45, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.042, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaCursor3, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.042 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.041 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.041 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor3_source_dsa_invocation_id, align 4
-  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
+  %20 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.042, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor3_highest_usn, align 4
-  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
+  %22 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef null) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor3_last_sync_success, align 4
-  %24 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23) #5
+  %24 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor3_source_dsa_obj_dn, align 4
-  %26 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursor3_source_dsa_obj_dn_, i32 noundef 2, ptr noundef nonnull @.str.1505, i32 noundef %25) #5
-  %27 = sub i32 %26, %.0
-  tail call void @proto_item_set_len(ptr noundef %.042, i32 noundef %27) #5
+  %26 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursor3_source_dsa_obj_dn_, i32 noundef 2, ptr noundef nonnull @.str.1505, i32 noundef %25) #5
+  %27 = sub i32 %26, %.042
+  tail call void @proto_item_set_len(ptr noundef %.041, i32 noundef %27) #5
   %28 = getelementptr inbounds i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 96
@@ -11867,26 +11867,26 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaCursor3Ctr(ptr noundef %0, i3
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaCursor3Ctr, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor3Ctr_count, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaCursor3Ctr_enumeration_context, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursor3Ctr_array_) #5
-  %24 = sub i32 %23, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaCursor3Ctr_array_) #5
+  %24 = sub i32 %23, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %24) #5
   %25 = getelementptr inbounds i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 96
@@ -11923,35 +11923,35 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaData2(ptr noundef %0, 
   %or.cond = or i1 %.not62, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.060 = select i1 %or.cond, i32 %1, i32 %13
   %.not63 = icmp eq ptr %3, null
   br i1 %.not63, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.060, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaObjMetaData2, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.060 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.059 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.059 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData2_attribute_name, align 4
-  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjMetaData2_attribute_name_, i32 noundef 2, ptr noundef nonnull @.str.1502, i32 noundef %19) #5
+  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.060, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjMetaData2_attribute_name_, i32 noundef 2, ptr noundef nonnull @.str.1502, i32 noundef %19) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData2_version, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData2_originating_change_time, align 4
-  %24 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23) #5
+  %24 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData2_originating_invocation_id, align 4
-  %26 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
+  %26 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
   %27 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData2_originating_usn, align 4
-  %28 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #5
+  %28 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef null) #5
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData2_local_usn, align 4
-  %30 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #5
+  %30 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, ptr noundef null) #5
   %31 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData2_originating_dsa_dn, align 4
-  %32 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjMetaData2_originating_dsa_dn_, i32 noundef 2, ptr noundef nonnull @.str.1512, i32 noundef %31) #5
-  %33 = sub i32 %32, %.0
-  tail call void @proto_item_set_len(ptr noundef %.060, i32 noundef %33) #5
+  %32 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjMetaData2_originating_dsa_dn_, i32 noundef 2, ptr noundef nonnull @.str.1512, i32 noundef %31) #5
+  %33 = sub i32 %32, %.060
+  tail call void @proto_item_set_len(ptr noundef %.059, i32 noundef %33) #5
   %34 = getelementptr inbounds i8, ptr %4, i64 72
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
@@ -11988,26 +11988,26 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaObjMetaData2Ctr(ptr noundef %
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaObjMetaData2Ctr, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData2Ctr_count, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaObjMetaData2Ctr_enumeration_context, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjMetaData2Ctr_array_) #5
-  %24 = sub i32 %23, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaObjMetaData2Ctr_array_) #5
+  %24 = sub i32 %23, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %24) #5
   %25 = getelementptr inbounds i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 96
@@ -12044,45 +12044,45 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaData2(ptr noundef 
   %or.cond = or i1 %.not92, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.090 = select i1 %or.cond, i32 %1, i32 %13
   %.not93 = icmp eq ptr %3, null
   br i1 %.not93, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.090, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaAttrValMetaData2, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.090 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.089 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.089 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2_attribute_name, align 4
-  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData2_attribute_name_, i32 noundef 2, ptr noundef nonnull @.str.1502, i32 noundef %19) #5
+  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.090, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData2_attribute_name_, i32 noundef 2, ptr noundef nonnull @.str.1502, i32 noundef %19) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2_object_dn, align 4
-  %22 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData2_object_dn_, i32 noundef 2, ptr noundef nonnull @.str.1471, i32 noundef %21) #5
+  %22 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData2_object_dn_, i32 noundef 2, ptr noundef nonnull @.str.1471, i32 noundef %21) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2___ndr_size_binary, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2_binary, align 4
-  %26 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData2_binary_, i32 noundef 2, ptr noundef nonnull @.str.1511, i32 noundef %25) #5
+  %26 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData2_binary_, i32 noundef 2, ptr noundef nonnull @.str.1511, i32 noundef %25) #5
   %27 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2_deleted, align 4
-  %28 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27) #5
+  %28 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27) #5
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2_created, align 4
-  %30 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29) #5
+  %30 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29) #5
   %31 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2_version, align 4
-  %32 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #5
+  %32 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 noundef 0) #5
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2_originating_change_time, align 4
-  %34 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33) #5
+  %34 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33) #5
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2_originating_invocation_id, align 4
-  %36 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #5
+  %36 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, ptr noundef null) #5
   %37 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2_originating_usn, align 4
-  %38 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #5
+  %38 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef null) #5
   %39 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2_local_usn, align 4
-  %40 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #5
+  %40 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %38, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef null) #5
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2_originating_dsa_dn, align 4
-  %42 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.089, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData2_originating_dsa_dn_, i32 noundef 2, ptr noundef nonnull @.str.1512, i32 noundef %41) #5
-  %43 = sub i32 %42, %.0
-  tail call void @proto_item_set_len(ptr noundef %.090, i32 noundef %43) #5
+  %42 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %40, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData2_originating_dsa_dn_, i32 noundef 2, ptr noundef nonnull @.str.1512, i32 noundef %41) #5
+  %43 = sub i32 %42, %.090
+  tail call void @proto_item_set_len(ptr noundef %.089, i32 noundef %43) #5
   %44 = getelementptr inbounds i8, ptr %4, i64 72
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 96
@@ -12119,26 +12119,26 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaAttrValMetaData2Ctr(ptr nound
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaAttrValMetaData2Ctr, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2Ctr_count, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAttrValMetaData2Ctr_enumeration_context, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData2Ctr_array_) #5
-  %24 = sub i32 %23, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaAttrValMetaData2Ctr_array_) #5
+  %24 = sub i32 %23, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %24) #5
   %25 = getelementptr inbounds i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 96
@@ -12175,36 +12175,36 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaConnection04(ptr noundef %0, 
   %or.cond = or i1 %.not62, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.060 = select i1 %or.cond, i32 %1, i32 %13
   %.not63 = icmp eq ptr %3, null
   br i1 %.not63, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.060, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaConnection04, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.060 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.059 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.059 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaConnection04_u1, align 4
-  %20 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
+  %20 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %.060, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, ptr noundef null) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaConnection04_u2, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaConnection04_u3, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaConnection04_bind_guid, align 4
-  %26 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
+  %26 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, ptr noundef null) #5
   %27 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaConnection04_bind_time, align 4
-  %28 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27) #5
+  %28 = tail call i32 @dissect_ndr_nt_NTTIME(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27) #5
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaConnection04_client_ip_address, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %.059, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef 0) #5
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef 4, i32 noundef 0) #5
   %31 = add i32 %28, 4
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaConnection04_u5, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.060, i32 noundef %34) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %34 = sub i32 %33, %.060
+  tail call void @proto_item_set_len(ptr noundef %.059, i32 noundef %34) #5
   %35 = getelementptr inbounds i8, ptr %4, i64 72
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 96
@@ -12241,26 +12241,26 @@ define hidden i32 @drsuapi_dissect_struct_DsReplicaConnection04Ctr(ptr noundef %
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplicaConnection04Ctr, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaConnection04Ctr_count, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaConnection04Ctr_reserved, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaConnection04Ctr_array_) #5
-  %24 = sub i32 %23, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaConnection04Ctr_array_) #5
+  %24 = sub i32 %23, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %24) #5
   %25 = getelementptr inbounds i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 96
@@ -12297,37 +12297,37 @@ define hidden i32 @drsuapi_dissect_struct_DsReplica06(ptr noundef %0, i32 nounde
   %or.cond = or i1 %.not68, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.066 = select i1 %or.cond, i32 %1, i32 %13
   %.not69 = icmp eq ptr %3, null
   br i1 %.not69, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.066, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplica06, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.066 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.065 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.065 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplica06_str1, align 4
-  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplica06_str1_, i32 noundef 2, ptr noundef nonnull @.str.1513, i32 noundef %19) #5
+  %20 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.066, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplica06_str1_, i32 noundef 2, ptr noundef nonnull @.str.1513, i32 noundef %19) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplica06_u1, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
   %23 = load i32, ptr @hf_drsuapi_drsuapi_DsReplica06_u2, align 4
-  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
+  %24 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 noundef 0) #5
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsReplica06_u3, align 4
-  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
+  %26 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
   %27 = load i32, ptr @hf_drsuapi_drsuapi_DsReplica06_u4, align 4
-  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
+  %28 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, i32 noundef 0) #5
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsReplica06_u5, align 4
-  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #5
+  %30 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %28, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 noundef 0) #5
   %31 = load i32, ptr @hf_drsuapi_drsuapi_DsReplica06_u6, align 4
-  %32 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #5
+  %32 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, ptr noundef null) #5
   %33 = load i32, ptr @hf_drsuapi_drsuapi_DsReplica06_u7, align 4
-  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.065, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
-  %35 = sub i32 %34, %.0
-  tail call void @proto_item_set_len(ptr noundef %.066, i32 noundef %35) #5
+  %34 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 noundef 0) #5
+  %35 = sub i32 %34, %.066
+  tail call void @proto_item_set_len(ptr noundef %.065, i32 noundef %35) #5
   %36 = getelementptr inbounds i8, ptr %4, i64 72
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
@@ -12364,26 +12364,26 @@ define hidden i32 @drsuapi_dissect_struct_DsReplica06Ctr(ptr noundef %0, i32 nou
   %or.cond = or i1 %.not38, %.not
   %12 = and i32 %1, -8
   %13 = add i32 %12, 8
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.036 = select i1 %or.cond, i32 %1, i32 %13
   %.not39 = icmp eq ptr %3, null
   br i1 %.not39, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.036, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsReplica06Ctr, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.036 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.035 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.035 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsReplica06Ctr_count, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.036, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsReplica06Ctr_reserved, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplica06Ctr_array_) #5
-  %24 = sub i32 %23, %.0
-  tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %24) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = tail call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplica06Ctr_array_) #5
+  %24 = sub i32 %23, %.036
+  tail call void @proto_item_set_len(ptr noundef %.035, i32 noundef %24) #5
   %25 = getelementptr inbounds i8, ptr %4, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 96
@@ -12446,25 +12446,25 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMemberships2Ctr1(ptr noundef %0, 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetMemberships2Ctr1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships2Ctr1_num_entries, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships2Ctr1_ctrl_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMemberships2Ctr1_ctrl_array_, i32 noundef 2, ptr noundef nonnull @.str.1514, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMemberships2Ctr1_ctrl_array_, i32 noundef 2, ptr noundef nonnull @.str.1514, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -12527,25 +12527,25 @@ define hidden i32 @drsuapi_dissect_struct_DsGetMemberships2Request1(ptr noundef 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.038 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.038, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_DsGetMemberships2Request1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.038 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.037 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.037 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships2Request1_num_req, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.038, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships2Request1_req_array, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.037, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMemberships2Request1_req_array_, i32 noundef 2, ptr noundef nonnull @.str.1515, i32 noundef %34) #5
-  %36 = sub i32 %35, %.0
-  tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsGetMemberships2Request1_req_array_, i32 noundef 2, ptr noundef nonnull @.str.1515, i32 noundef %34) #5
+  %36 = sub i32 %35, %.038
+  tail call void @proto_item_set_len(ptr noundef %.037, i32 noundef %36) #5
   %37 = load ptr, ptr %9, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
@@ -12582,25 +12582,25 @@ define hidden i32 @drsuapi_dissect_struct_DsSiteCostInfo(ptr noundef %0, i32 nou
   %or.cond = or i1 %.not32, %.not
   %12 = and i32 %1, -4
   %13 = add i32 %12, 4
-  %.0 = select i1 %or.cond, i32 %1, i32 %13
+  %.030 = select i1 %or.cond, i32 %1, i32 %13
   %.not33 = icmp eq ptr %3, null
   br i1 %.not33, label %18, label %14
 
 14:                                               ; preds = %8
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.030, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_drsuapi_drsuapi_DsSiteCostInfo, align 4
   %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
   br label %18
 
 18:                                               ; preds = %14, %8
-  %.030 = phi ptr [ %15, %14 ], [ null, %8 ]
-  %.029 = phi ptr [ %17, %14 ], [ null, %8 ]
+  %.029 = phi ptr [ %15, %14 ], [ null, %8 ]
+  %.0 = phi ptr [ %17, %14 ], [ null, %8 ]
   %19 = load i32, ptr @hf_drsuapi_drsuapi_DsSiteCostInfo_error_code, align 4
-  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
+  %20 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.030, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %19, i32 noundef 0) #5
   %21 = load i32, ptr @hf_drsuapi_drsuapi_DsSiteCostInfo_site_cost, align 4
-  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
-  %23 = sub i32 %22, %.0
-  tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #5
+  %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #5
+  %23 = sub i32 %22, %.030
+  tail call void @proto_item_set_len(ptr noundef %.029, i32 noundef %23) #5
   %24 = getelementptr inbounds i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 96
@@ -12663,27 +12663,27 @@ define hidden i32 @drsuapi_dissect_struct_QuerySitesByCostCtr1(ptr noundef %0, i
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_QuerySitesByCostCtr1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCostCtr1_num_info, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCostCtr1_info, align 4
-  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_QuerySitesByCostCtr1_info_, i32 noundef 2, ptr noundef nonnull @.str.1516, i32 noundef %34) #5
+  %35 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_QuerySitesByCostCtr1_info_, i32 noundef 2, ptr noundef nonnull @.str.1516, i32 noundef %34) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCostCtr1_flags_reserved, align 4
-  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %36, i32 noundef 0) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -12746,29 +12746,29 @@ define hidden i32 @drsuapi_dissect_struct_QuerySitesByCostRequest1(ptr noundef %
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.050 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.050, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_QuerySitesByCostRequest1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.050 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.049 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.049 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCostRequest1_site_from, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_QuerySitesByCostRequest1_site_from_, i32 noundef 2, ptr noundef nonnull @.str.1517, i32 noundef %32) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.050, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_QuerySitesByCostRequest1_site_from_, i32 noundef 2, ptr noundef nonnull @.str.1517, i32 noundef %32) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCostRequest1_num_req, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCostRequest1_site_to, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_QuerySitesByCostRequest1_site_to_, i32 noundef 2, ptr noundef nonnull @.str.1518, i32 noundef %36) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_QuerySitesByCostRequest1_site_to_, i32 noundef 2, ptr noundef nonnull @.str.1518, i32 noundef %36) #5
   %38 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCostRequest1_flags, align 4
-  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.049, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
-  %40 = sub i32 %39, %.0
-  tail call void @proto_item_set_len(ptr noundef %.050, i32 noundef %40) #5
+  %39 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 noundef 0) #5
+  %40 = sub i32 %39, %.050
+  tail call void @proto_item_set_len(ptr noundef %.049, i32 noundef %40) #5
   %41 = load ptr, ptr %9, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 96
   %43 = load i32, ptr %42, align 8
@@ -12831,23 +12831,23 @@ define hidden i32 @drsuapi_dissect_struct_ReadNgcKeyReqV1(ptr noundef %0, i32 no
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.032 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.032, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_ReadNgcKeyReqV1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.032 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.031 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.031 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_ReadNgcKeyReqV1_pwszAccount, align 4
-  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.031, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_ReadNgcKeyReqV1_pwszAccount_, i32 noundef 2, ptr noundef nonnull @.str.1519, i32 noundef %32) #5
-  %34 = sub i32 %33, %.0
-  tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #5
+  %33 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.032, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_ReadNgcKeyReqV1_pwszAccount_, i32 noundef 2, ptr noundef nonnull @.str.1519, i32 noundef %32) #5
+  %34 = sub i32 %33, %.032
+  tail call void @proto_item_set_len(ptr noundef %.031, i32 noundef %34) #5
   %35 = load ptr, ptr %9, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
@@ -12910,27 +12910,27 @@ define hidden i32 @drsuapi_dissect_struct_ReadNgcKeyReplyV1(ptr noundef %0, i32 
   br label %26
 
 26:                                               ; preds = %21, %23, %16, %18
-  %.0 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
+  %.044 = phi i32 [ %1, %16 ], [ %20, %18 ], [ %1, %21 ], [ %25, %23 ]
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %31, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #5
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %6, ptr noundef %0, i32 noundef %.044, i32 noundef -1, i32 noundef 0) #5
   %29 = load i32, ptr @ett_drsuapi_drsuapi_ReadNgcKeyReplyV1, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #5
   br label %31
 
 31:                                               ; preds = %27, %26
-  %.044 = phi ptr [ %28, %27 ], [ null, %26 ]
-  %.043 = phi ptr [ %30, %27 ], [ null, %26 ]
+  %.043 = phi ptr [ %28, %27 ], [ null, %26 ]
+  %.0 = phi ptr [ %30, %27 ], [ null, %26 ]
   %32 = load i32, ptr @hf_drsuapi_drsuapi_ReadNgcKeyReplyV1_retVal, align 4
-  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
+  %33 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.044, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, i32 noundef 0) #5
   %34 = load i32, ptr @hf_drsuapi_drsuapi_ReadNgcKeyReplyV1_cNgcKey, align 4
-  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
+  %35 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, i32 noundef 0) #5
   %36 = load i32, ptr @hf_drsuapi_drsuapi_ReadNgcKeyReplyV1_pNgcKey, align 4
-  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.043, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_ReadNgcKeyReplyV1_pNgcKey_, i32 noundef 2, ptr noundef nonnull @.str.1520, i32 noundef %36) #5
-  %38 = sub i32 %37, %.0
-  tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #5
+  %37 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.0, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_ReadNgcKeyReplyV1_pNgcKey_, i32 noundef 2, ptr noundef nonnull @.str.1520, i32 noundef %36) #5
+  %38 = sub i32 %37, %.044
+  tail call void @proto_item_set_len(ptr noundef %.043, i32 noundef %38) #5
   %39 = load ptr, ptr %9, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
@@ -13346,11 +13346,11 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChangesMSZIPCtr1_ts_(ptr nou
   br label %drsuapi_dissect_element_DsGetNCChangesMSZIPCtr1_ts__.exit
 
 drsuapi_dissect_element_DsGetNCChangesMSZIPCtr1_ts__.exit: ; preds = %24, %10
-  %.024.i.i = phi ptr [ %26, %24 ], [ null, %10 ]
-  %.023.i.i = phi ptr [ %28, %24 ], [ null, %10 ]
+  %.023.i.i = phi ptr [ %26, %24 ], [ null, %10 ]
+  %.0.i.i = phi ptr [ %28, %24 ], [ null, %10 ]
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1TS_ctr1, align 4
-  %30 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %23, i32 noundef 0, ptr noundef %2, ptr noundef %.023.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
-  call void @proto_item_set_len(ptr noundef %.024.i.i, i32 noundef %30) #5
+  %30 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %23, i32 noundef 0, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
+  call void @proto_item_set_len(ptr noundef %.023.i.i, i32 noundef %30) #5
   %31 = load ptr, ptr %11, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 96
   %33 = load i64, ptr %7, align 8
@@ -13400,11 +13400,11 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChangesMSZIPCtr6_ts_(ptr nou
   br label %drsuapi_dissect_element_DsGetNCChangesMSZIPCtr6_ts__.exit
 
 drsuapi_dissect_element_DsGetNCChangesMSZIPCtr6_ts__.exit: ; preds = %24, %10
-  %.024.i.i = phi ptr [ %26, %24 ], [ null, %10 ]
-  %.023.i.i = phi ptr [ %28, %24 ], [ null, %10 ]
+  %.023.i.i = phi ptr [ %26, %24 ], [ null, %10 ]
+  %.0.i.i = phi ptr [ %28, %24 ], [ null, %10 ]
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6TS_ctr6, align 4
-  %30 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %23, i32 noundef 0, ptr noundef %2, ptr noundef %.023.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
-  call void @proto_item_set_len(ptr noundef %.024.i.i, i32 noundef %30) #5
+  %30 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %23, i32 noundef 0, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
+  call void @proto_item_set_len(ptr noundef %.023.i.i, i32 noundef %30) #5
   %31 = load ptr, ptr %11, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 96
   %33 = load i64, ptr %7, align 8
@@ -13452,11 +13452,11 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ct
   br label %drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_ts__.exit
 
 drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr1_ts__.exit: ; preds = %24, %10
-  %.024.i.i = phi ptr [ %26, %24 ], [ null, %10 ]
-  %.023.i.i = phi ptr [ %28, %24 ], [ null, %10 ]
+  %.023.i.i = phi ptr [ %26, %24 ], [ null, %10 ]
+  %.0.i.i = phi ptr [ %28, %24 ], [ null, %10 ]
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr1TS_ctr1, align 4
-  %30 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %23, i32 noundef 0, ptr noundef %2, ptr noundef %.023.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
-  call void @proto_item_set_len(ptr noundef %.024.i.i, i32 noundef %30) #5
+  %30 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %23, i32 noundef 0, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
+  call void @proto_item_set_len(ptr noundef %.023.i.i, i32 noundef %30) #5
   %31 = load ptr, ptr %11, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 96
   %33 = load i64, ptr %7, align 8
@@ -13504,11 +13504,11 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ct
   br label %drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6_ts__.exit
 
 drsuapi_dissect_element_DsGetNCChangesWIN2K3_LZ77_DIRECT2Ctr6_ts__.exit: ; preds = %24, %10
-  %.024.i.i = phi ptr [ %26, %24 ], [ null, %10 ]
-  %.023.i.i = phi ptr [ %28, %24 ], [ null, %10 ]
+  %.023.i.i = phi ptr [ %26, %24 ], [ null, %10 ]
+  %.0.i.i = phi ptr [ %28, %24 ], [ null, %10 ]
   %29 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr6TS_ctr6, align 4
-  %30 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %23, i32 noundef 0, ptr noundef %2, ptr noundef %.023.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
-  call void @proto_item_set_len(ptr noundef %.024.i.i, i32 noundef %30) #5
+  %30 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %23, i32 noundef 0, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %29, i32 poison)
+  call void @proto_item_set_len(ptr noundef %.023.i.i, i32 noundef %30) #5
   %31 = load ptr, ptr %11, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 96
   %33 = load i64, ptr %7, align 8
@@ -14863,8 +14863,8 @@ define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_request(ptr noundef %0,
   br label %20
 
 20:                                               ; preds = %17, %6
-  %.027.i.i = phi ptr [ %19, %17 ], [ null, %6 ]
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #5
+  %.0.i.i = phi ptr [ %19, %17 ], [ null, %6 ]
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -14899,18 +14899,18 @@ define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_request(ptr noundef %0,
   br label %39
 
 39:                                               ; preds = %36, %34, %31, %29
-  %.0.i.i = phi i32 [ %21, %29 ], [ %33, %31 ], [ %21, %34 ], [ %38, %36 ]
+  %.027.i.i = phi i32 [ %21, %29 ], [ %33, %31 ], [ %21, %34 ], [ %38, %36 ]
   %40 = load i32, ptr %8, align 4
   %cond.i.i = icmp eq i32 %40, 1
   br i1 %cond.i.i, label %41, label %drsuapi_dissect_element_DsReplicaUpdateRefs_req.exit
 
 41:                                               ; preds = %39
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaUpdateRefsRequest_req1, align 4
-  %43 = call i32 @drsuapi_dissect_struct_DsReplicaUpdateRefsRequest1(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 poison)
+  %43 = call i32 @drsuapi_dissect_struct_DsReplicaUpdateRefsRequest1(ptr noundef %0, i32 noundef %.027.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 poison)
   br label %drsuapi_dissect_element_DsReplicaUpdateRefs_req.exit
 
 drsuapi_dissect_element_DsReplicaUpdateRefs_req.exit: ; preds = %39, %41
-  %.1.i.i = phi i32 [ %43, %41 ], [ %.0.i.i, %39 ]
+  %.1.i.i = phi i32 [ %43, %41 ], [ %.027.i.i, %39 ]
   %44 = load ptr, ptr %7, align 8
   %45 = sub i32 %.1.i.i, %15
   call void @proto_item_set_len(ptr noundef %44, i32 noundef %45) #5
@@ -14967,8 +14967,8 @@ define internal i32 @drsuapi_dissect_DsReplicaAdd_request(ptr noundef %0, i32 no
   br label %20
 
 20:                                               ; preds = %17, %6
-  %.033.i.i = phi ptr [ %19, %17 ], [ null, %6 ]
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #5
+  %.0.i.i = phi ptr [ %19, %17 ], [ null, %6 ]
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -15003,7 +15003,7 @@ define internal i32 @drsuapi_dissect_DsReplicaAdd_request(ptr noundef %0, i32 no
   br label %39
 
 39:                                               ; preds = %36, %34, %31, %29
-  %.0.i.i = phi i32 [ %21, %29 ], [ %33, %31 ], [ %21, %34 ], [ %38, %36 ]
+  %.033.i.i = phi i32 [ %21, %29 ], [ %33, %31 ], [ %21, %34 ], [ %38, %36 ]
   %40 = load i32, ptr %8, align 4
   switch i32 %40, label %drsuapi_dissect_element_DsReplicaAdd_req.exit [
     i32 1, label %41
@@ -15012,16 +15012,16 @@ define internal i32 @drsuapi_dissect_DsReplicaAdd_request(ptr noundef %0, i32 no
 
 41:                                               ; preds = %39
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest_req1, align 4
-  %43 = call i32 @drsuapi_dissect_struct_DsReplicaAddRequest1(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 poison)
+  %43 = call i32 @drsuapi_dissect_struct_DsReplicaAddRequest1(ptr noundef %0, i32 noundef %.033.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 poison)
   br label %drsuapi_dissect_element_DsReplicaAdd_req.exit
 
 44:                                               ; preds = %39
   %45 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaAddRequest_req2, align 4
-  %46 = call i32 @drsuapi_dissect_struct_DsReplicaAddRequest2(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 poison)
+  %46 = call i32 @drsuapi_dissect_struct_DsReplicaAddRequest2(ptr noundef %0, i32 noundef %.033.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %45, i32 poison)
   br label %drsuapi_dissect_element_DsReplicaAdd_req.exit
 
 drsuapi_dissect_element_DsReplicaAdd_req.exit:    ; preds = %39, %41, %44
-  %.1.i.i = phi i32 [ %.0.i.i, %39 ], [ %46, %44 ], [ %43, %41 ]
+  %.1.i.i = phi i32 [ %.033.i.i, %39 ], [ %46, %44 ], [ %43, %41 ]
   %47 = load ptr, ptr %7, align 8
   %48 = sub i32 %.1.i.i, %15
   call void @proto_item_set_len(ptr noundef %47, i32 noundef %48) #5
@@ -15078,8 +15078,8 @@ define internal i32 @drsuapi_dissect_DsReplicaDel_request(ptr noundef %0, i32 no
   br label %20
 
 20:                                               ; preds = %17, %6
-  %.027.i.i = phi ptr [ %19, %17 ], [ null, %6 ]
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #5
+  %.0.i.i = phi ptr [ %19, %17 ], [ null, %6 ]
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -15114,18 +15114,18 @@ define internal i32 @drsuapi_dissect_DsReplicaDel_request(ptr noundef %0, i32 no
   br label %39
 
 39:                                               ; preds = %36, %34, %31, %29
-  %.0.i.i = phi i32 [ %21, %29 ], [ %33, %31 ], [ %21, %34 ], [ %38, %36 ]
+  %.027.i.i = phi i32 [ %21, %29 ], [ %33, %31 ], [ %21, %34 ], [ %38, %36 ]
   %40 = load i32, ptr %8, align 4
   %cond.i.i = icmp eq i32 %40, 1
   br i1 %cond.i.i, label %41, label %drsuapi_dissect_element_DsReplicaDel_req.exit
 
 41:                                               ; preds = %39
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaDelRequest_req1, align 4
-  %43 = call i32 @drsuapi_dissect_struct_DsReplicaDelRequest1(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 poison)
+  %43 = call i32 @drsuapi_dissect_struct_DsReplicaDelRequest1(ptr noundef %0, i32 noundef %.027.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 poison)
   br label %drsuapi_dissect_element_DsReplicaDel_req.exit
 
 drsuapi_dissect_element_DsReplicaDel_req.exit:    ; preds = %39, %41
-  %.1.i.i = phi i32 [ %43, %41 ], [ %.0.i.i, %39 ]
+  %.1.i.i = phi i32 [ %43, %41 ], [ %.027.i.i, %39 ]
   %44 = load ptr, ptr %7, align 8
   %45 = sub i32 %.1.i.i, %15
   call void @proto_item_set_len(ptr noundef %44, i32 noundef %45) #5
@@ -15182,8 +15182,8 @@ define internal i32 @drsuapi_dissect_DsReplicaMod_request(ptr noundef %0, i32 no
   br label %20
 
 20:                                               ; preds = %17, %6
-  %.027.i.i = phi ptr [ %19, %17 ], [ null, %6 ]
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #5
+  %.0.i.i = phi ptr [ %19, %17 ], [ null, %6 ]
+  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #5
   %22 = getelementptr inbounds i8, ptr %4, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 96
@@ -15218,18 +15218,18 @@ define internal i32 @drsuapi_dissect_DsReplicaMod_request(ptr noundef %0, i32 no
   br label %39
 
 39:                                               ; preds = %36, %34, %31, %29
-  %.0.i.i = phi i32 [ %21, %29 ], [ %33, %31 ], [ %21, %34 ], [ %38, %36 ]
+  %.027.i.i = phi i32 [ %21, %29 ], [ %33, %31 ], [ %21, %34 ], [ %38, %36 ]
   %40 = load i32, ptr %8, align 4
   %cond.i.i = icmp eq i32 %40, 1
   br i1 %cond.i.i, label %41, label %drsuapi_dissect_element_DsReplicaMod_req.exit
 
 41:                                               ; preds = %39
   %42 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaModRequest_req1, align 4
-  %43 = call i32 @drsuapi_dissect_struct_DsReplicaModRequest1(ptr noundef %0, i32 noundef %.0.i.i, ptr noundef %2, ptr noundef %.027.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 poison)
+  %43 = call i32 @drsuapi_dissect_struct_DsReplicaModRequest1(ptr noundef %0, i32 noundef %.027.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %42, i32 poison)
   br label %drsuapi_dissect_element_DsReplicaMod_req.exit
 
 drsuapi_dissect_element_DsReplicaMod_req.exit:    ; preds = %39, %41
-  %.1.i.i = phi i32 [ %43, %41 ], [ %.0.i.i, %39 ]
+  %.1.i.i = phi i32 [ %43, %41 ], [ %.027.i.i, %39 ]
   %44 = load ptr, ptr %7, align 8
   %45 = sub i32 %.1.i.i, %15
   call void @proto_item_set_len(ptr noundef %44, i32 noundef %45) #5
@@ -16168,8 +16168,8 @@ define internal i32 @drsuapi_dissect_element_DsReplicaSync_req_(ptr noundef %0, 
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -16204,18 +16204,18 @@ define internal i32 @drsuapi_dissect_element_DsReplicaSync_req_(ptr noundef %0, 
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.027.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %33, 1
   br i1 %cond.i, label %34, label %drsuapi_dissect_DsReplicaSyncRequest.exit
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaSyncRequest_req1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsReplicaSyncRequest1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_DsReplicaSyncRequest1(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_DsReplicaSyncRequest.exit
 
 drsuapi_dissect_DsReplicaSyncRequest.exit:        ; preds = %32, %34
-  %.1.i = phi i32 [ %36, %34 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ %36, %34 ], [ %.027.i, %32 ]
   %37 = load ptr, ptr %7, align 8
   %38 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #5
@@ -16248,8 +16248,8 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChanges_req_(ptr noundef %0,
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.035.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.035.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not37.i = icmp ne i32 %16, 0
@@ -16258,7 +16258,7 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChanges_req_(ptr noundef %0,
   %or.cond.i = select i1 %.not37.i, i1 true, i1 %.not38.i
   %18 = and i32 %14, -8
   %19 = add i32 %18, 8
-  %.0.i = select i1 %or.cond.i, i32 %14, i32 %19
+  %.035.i = select i1 %or.cond.i, i32 %14, i32 %19
   %20 = load i32, ptr %8, align 4
   switch i32 %20, label %drsuapi_dissect_DsGetNCChangesRequest.exit [
     i32 5, label %21
@@ -16268,21 +16268,21 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChanges_req_(ptr noundef %0,
 
 21:                                               ; preds = %13
   %22 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest_req5, align 4
-  %23 = call i32 @drsuapi_dissect_struct_DsGetNCChangesRequest5(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.035.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = call i32 @drsuapi_dissect_struct_DsGetNCChangesRequest5(ptr noundef %0, i32 noundef %.035.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   br label %drsuapi_dissect_DsGetNCChangesRequest.exit
 
 24:                                               ; preds = %13
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest_req8, align 4
-  %26 = call i32 @drsuapi_dissect_struct_DsGetNCChangesRequest8(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.035.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
+  %26 = call i32 @drsuapi_dissect_struct_DsGetNCChangesRequest8(ptr noundef %0, i32 noundef %.035.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
   br label %drsuapi_dissect_DsGetNCChangesRequest.exit
 
 27:                                               ; preds = %13
   %28 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesRequest_req10, align 4
-  %29 = call i32 @drsuapi_dissect_struct_DsGetNCChangesRequest10(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.035.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
+  %29 = call i32 @drsuapi_dissect_struct_DsGetNCChangesRequest10(ptr noundef %0, i32 noundef %.035.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
   br label %drsuapi_dissect_DsGetNCChangesRequest.exit
 
 drsuapi_dissect_DsGetNCChangesRequest.exit:       ; preds = %13, %21, %24, %27
-  %.1.i = phi i32 [ %.0.i, %13 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.1.i = phi i32 [ %.035.i, %13 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
   %30 = load ptr, ptr %7, align 8
   %31 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %30, i32 noundef %31) #5
@@ -16315,8 +16315,8 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChanges_ctr_(ptr noundef %0,
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.041.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.041.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not43.i = icmp ne i32 %16, 0
@@ -16325,7 +16325,7 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChanges_ctr_(ptr noundef %0,
   %or.cond.i = select i1 %.not43.i, i1 true, i1 %.not44.i
   %18 = and i32 %14, -8
   %19 = add i32 %18, 8
-  %.0.i = select i1 %or.cond.i, i32 %14, i32 %19
+  %.041.i = select i1 %or.cond.i, i32 %14, i32 %19
   %20 = load i32, ptr %8, align 4
   switch i32 %20, label %drsuapi_dissect_DsGetNCChangesCtr.exit [
     i32 1, label %21
@@ -16336,26 +16336,26 @@ define internal i32 @drsuapi_dissect_element_DsGetNCChanges_ctr_(ptr noundef %0,
 
 21:                                               ; preds = %13
   %22 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr_ctr1, align 4
-  %23 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.041.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr1(ptr noundef %0, i32 noundef %.041.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   br label %drsuapi_dissect_DsGetNCChangesCtr.exit
 
 24:                                               ; preds = %13
   %25 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr_ctr2, align 4
-  %26 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr2(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.041.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
+  %26 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr2(ptr noundef %0, i32 noundef %.041.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 poison)
   br label %drsuapi_dissect_DsGetNCChangesCtr.exit
 
 27:                                               ; preds = %13
   %28 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr_ctr6, align 4
-  %29 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.041.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
+  %29 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr6(ptr noundef %0, i32 noundef %.041.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %28, i32 poison)
   br label %drsuapi_dissect_DsGetNCChangesCtr.exit
 
 30:                                               ; preds = %13
   %31 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChangesCtr_ctr7, align 4
-  %32 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr7(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.041.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
+  %32 = call i32 @drsuapi_dissect_struct_DsGetNCChangesCtr7(ptr noundef %0, i32 noundef %.041.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %31, i32 poison)
   br label %drsuapi_dissect_DsGetNCChangesCtr.exit
 
 drsuapi_dissect_DsGetNCChangesCtr.exit:           ; preds = %13, %21, %24, %27, %30
-  %.1.i = phi i32 [ %.0.i, %13 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+  %.1.i = phi i32 [ %.041.i, %13 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
   %33 = load ptr, ptr %7, align 8
   %34 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %33, i32 noundef %34) #5
@@ -16416,8 +16416,8 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships_req_(ptr noundef %
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -16452,18 +16452,18 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships_req_(ptr noundef %
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.027.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %33, 1
   br i1 %cond.i, label %34, label %drsuapi_dissect_DsGetMembershipsRequest.exit
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsRequest_req1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsGetMembershipsRequest1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_DsGetMembershipsRequest1(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_DsGetMembershipsRequest.exit
 
 drsuapi_dissect_DsGetMembershipsRequest.exit:     ; preds = %32, %34
-  %.1.i = phi i32 [ %36, %34 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ %36, %34 ], [ %.027.i, %32 ]
   %37 = load ptr, ptr %7, align 8
   %38 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #5
@@ -16496,8 +16496,8 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships_ctr_(ptr noundef %
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -16532,18 +16532,18 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships_ctr_(ptr noundef %
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.027.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %33, 1
   br i1 %cond.i, label %34, label %drsuapi_dissect_DsGetMembershipsCtr.exit
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMembershipsCtr_ctr1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsGetMembershipsCtr1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_DsGetMembershipsCtr1(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_DsGetMembershipsCtr.exit
 
 drsuapi_dissect_DsGetMembershipsCtr.exit:         ; preds = %32, %34
-  %.1.i = phi i32 [ %36, %34 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ %36, %34 ], [ %.027.i, %32 ]
   %37 = load ptr, ptr %7, align 8
   %38 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #5
@@ -16576,8 +16576,8 @@ define internal i32 @drsuapi_dissect_element_DsGetNT4ChangeLog_req_(ptr noundef 
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -16612,18 +16612,18 @@ define internal i32 @drsuapi_dissect_element_DsGetNT4ChangeLog_req_(ptr noundef 
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.027.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %33, 1
   br i1 %cond.i, label %34, label %drsuapi_dissect_DsGetNT4ChangeLogRequest.exit
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogRequest_req1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsGetNT4ChangeLogRequest1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_DsGetNT4ChangeLogRequest1(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_DsGetNT4ChangeLogRequest.exit
 
 drsuapi_dissect_DsGetNT4ChangeLogRequest.exit:    ; preds = %32, %34
-  %.1.i = phi i32 [ %36, %34 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ %36, %34 ], [ %.027.i, %32 ]
   %37 = load ptr, ptr %7, align 8
   %38 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #5
@@ -16656,8 +16656,8 @@ define internal i32 @drsuapi_dissect_element_DsGetNT4ChangeLog_info_(ptr noundef
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.023.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not25.i = icmp ne i32 %16, 0
@@ -16666,18 +16666,18 @@ define internal i32 @drsuapi_dissect_element_DsGetNT4ChangeLog_info_(ptr noundef
   %or.cond.i = select i1 %.not25.i, i1 true, i1 %.not26.i
   %18 = and i32 %14, -8
   %19 = add i32 %18, 8
-  %.0.i = select i1 %or.cond.i, i32 %14, i32 %19
+  %.023.i = select i1 %or.cond.i, i32 %14, i32 %19
   %20 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %20, 1
   br i1 %cond.i, label %21, label %drsuapi_dissect_DsGetNT4ChangeLogInfo.exit
 
 21:                                               ; preds = %13
   %22 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLogInfo_info1, align 4
-  %23 = call i32 @drsuapi_dissect_struct_DsGetNT4ChangeLogInfo1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.023.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = call i32 @drsuapi_dissect_struct_DsGetNT4ChangeLogInfo1(ptr noundef %0, i32 noundef %.023.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   br label %drsuapi_dissect_DsGetNT4ChangeLogInfo.exit
 
 drsuapi_dissect_DsGetNT4ChangeLogInfo.exit:       ; preds = %13, %21
-  %.1.i = phi i32 [ %23, %21 ], [ %.0.i, %13 ]
+  %.1.i = phi i32 [ %23, %21 ], [ %.023.i, %13 ]
   %24 = load ptr, ptr %7, align 8
   %25 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %24, i32 noundef %25) #5
@@ -16710,8 +16710,8 @@ define internal i32 @drsuapi_dissect_element_DsCrackNames_req_(ptr noundef %0, i
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -16746,18 +16746,18 @@ define internal i32 @drsuapi_dissect_element_DsCrackNames_req_(ptr noundef %0, i
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.027.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %33, 1
   br i1 %cond.i, label %34, label %drsuapi_dissect_DsNameRequest.exit
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsNameRequest_req1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsNameRequest1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_DsNameRequest1(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_DsNameRequest.exit
 
 drsuapi_dissect_DsNameRequest.exit:               ; preds = %32, %34
-  %.1.i = phi i32 [ %36, %34 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ %36, %34 ], [ %.027.i, %32 ]
   %37 = load ptr, ptr %7, align 8
   %38 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #5
@@ -16825,8 +16825,8 @@ define internal i32 @drsuapi_dissect_element_DsCrackNames_ctr_(ptr noundef %0, i
   br label %31
 
 31:                                               ; preds = %28, %26
-  %.027.i = phi ptr [ %30, %28 ], [ null, %26 ]
-  %32 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %30, %28 ], [ null, %26 ]
+  %32 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %27, ptr noundef nonnull %8) #5
   %33 = load ptr, ptr %9, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 96
   %35 = load i32, ptr %34, align 8
@@ -16860,18 +16860,18 @@ define internal i32 @drsuapi_dissect_element_DsCrackNames_ctr_(ptr noundef %0, i
   br label %49
 
 49:                                               ; preds = %46, %44, %41, %39
-  %.0.i = phi i32 [ %32, %39 ], [ %43, %41 ], [ %32, %44 ], [ %48, %46 ]
+  %.027.i = phi i32 [ %32, %39 ], [ %43, %41 ], [ %32, %44 ], [ %48, %46 ]
   %50 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %50, 1
   br i1 %cond.i, label %51, label %drsuapi_dissect_DsNameCtr.exit
 
 51:                                               ; preds = %49
   %52 = load i32, ptr @hf_drsuapi_drsuapi_DsNameCtr_ctr1, align 4
-  %53 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsNameCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1756, i32 noundef %52) #5
+  %53 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsNameCtr_ctr1_, i32 noundef 2, ptr noundef nonnull @.str.1756, i32 noundef %52) #5
   br label %drsuapi_dissect_DsNameCtr.exit
 
 drsuapi_dissect_DsNameCtr.exit:                   ; preds = %49, %51
-  %.1.i = phi i32 [ %53, %51 ], [ %.0.i, %49 ]
+  %.1.i = phi i32 [ %53, %51 ], [ %.027.i, %49 ]
   %54 = load ptr, ptr %7, align 8
   %55 = sub i32 %.1.i, %.0
   call void @proto_item_set_len(ptr noundef %54, i32 noundef %55) #5
@@ -16911,8 +16911,8 @@ define internal i32 @drsuapi_dissect_element_DsWriteAccountSpn_req_(ptr noundef 
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -16947,18 +16947,18 @@ define internal i32 @drsuapi_dissect_element_DsWriteAccountSpn_req_(ptr noundef 
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.027.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %33, 1
   br i1 %cond.i, label %34, label %drsuapi_dissect_DsWriteAccountSpnRequest.exit
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpnRequest_req1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsWriteAccountSpnRequest1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_DsWriteAccountSpnRequest1(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_DsWriteAccountSpnRequest.exit
 
 drsuapi_dissect_DsWriteAccountSpnRequest.exit:    ; preds = %32, %34
-  %.1.i = phi i32 [ %36, %34 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ %36, %34 ], [ %.027.i, %32 ]
   %37 = load ptr, ptr %7, align 8
   %38 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #5
@@ -16991,8 +16991,8 @@ define internal i32 @drsuapi_dissect_element_DsWriteAccountSpn_res_(ptr noundef 
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.023.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not25.i = icmp ne i32 %16, 0
@@ -17001,18 +17001,18 @@ define internal i32 @drsuapi_dissect_element_DsWriteAccountSpn_res_(ptr noundef 
   %or.cond.i = select i1 %.not25.i, i1 true, i1 %.not26.i
   %18 = and i32 %14, -4
   %19 = add i32 %18, 4
-  %.0.i = select i1 %or.cond.i, i32 %14, i32 %19
+  %.023.i = select i1 %or.cond.i, i32 %14, i32 %19
   %20 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %20, 1
   br i1 %cond.i, label %21, label %drsuapi_dissect_DsWriteAccountSpnResult.exit
 
 21:                                               ; preds = %13
   %22 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpnResult_res1, align 4
-  %23 = call i32 @drsuapi_dissect_struct_DsWriteAccountSpnResult1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.023.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = call i32 @drsuapi_dissect_struct_DsWriteAccountSpnResult1(ptr noundef %0, i32 noundef %.023.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   br label %drsuapi_dissect_DsWriteAccountSpnResult.exit
 
 drsuapi_dissect_DsWriteAccountSpnResult.exit:     ; preds = %13, %21
-  %.1.i = phi i32 [ %23, %21 ], [ %.0.i, %13 ]
+  %.1.i = phi i32 [ %23, %21 ], [ %.023.i, %13 ]
   %24 = load ptr, ptr %7, align 8
   %25 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %24, i32 noundef %25) #5
@@ -17045,8 +17045,8 @@ define internal i32 @drsuapi_dissect_element_DsRemoveDSServer_req_(ptr noundef %
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -17081,18 +17081,18 @@ define internal i32 @drsuapi_dissect_element_DsRemoveDSServer_req_(ptr noundef %
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.027.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %33, 1
   br i1 %cond.i, label %34, label %drsuapi_dissect_DsRemoveDSServerRequest.exit
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsRemoveDSServerRequest_req1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsRemoveDSServerRequest1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_DsRemoveDSServerRequest1(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_DsRemoveDSServerRequest.exit
 
 drsuapi_dissect_DsRemoveDSServerRequest.exit:     ; preds = %32, %34
-  %.1.i = phi i32 [ %36, %34 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ %36, %34 ], [ %.027.i, %32 ]
   %37 = load ptr, ptr %7, align 8
   %38 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #5
@@ -17125,8 +17125,8 @@ define internal i32 @drsuapi_dissect_element_DsRemoveDSServer_res_(ptr noundef %
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.023.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not25.i = icmp ne i32 %16, 0
@@ -17135,18 +17135,18 @@ define internal i32 @drsuapi_dissect_element_DsRemoveDSServer_res_(ptr noundef %
   %or.cond.i = select i1 %.not25.i, i1 true, i1 %.not26.i
   %18 = and i32 %14, -4
   %19 = add i32 %18, 4
-  %.0.i = select i1 %or.cond.i, i32 %14, i32 %19
+  %.023.i = select i1 %or.cond.i, i32 %14, i32 %19
   %20 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %20, 1
   br i1 %cond.i, label %21, label %drsuapi_dissect_DsRemoveDSServerResult.exit
 
 21:                                               ; preds = %13
   %22 = load i32, ptr @hf_drsuapi_drsuapi_DsRemoveDSServerResult_res1, align 4
-  %23 = call i32 @drsuapi_dissect_struct_DsRemoveDSServerResult1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.023.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = call i32 @drsuapi_dissect_struct_DsRemoveDSServerResult1(ptr noundef %0, i32 noundef %.023.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   br label %drsuapi_dissect_DsRemoveDSServerResult.exit
 
 drsuapi_dissect_DsRemoveDSServerResult.exit:      ; preds = %13, %21
-  %.1.i = phi i32 [ %23, %21 ], [ %.0.i, %13 ]
+  %.1.i = phi i32 [ %23, %21 ], [ %.023.i, %13 ]
   %24 = load ptr, ptr %7, align 8
   %25 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %24, i32 noundef %25) #5
@@ -17179,8 +17179,8 @@ define internal i32 @drsuapi_dissect_element_DsGetDomainControllerInfo_req_(ptr 
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -17215,18 +17215,18 @@ define internal i32 @drsuapi_dissect_element_DsGetDomainControllerInfo_req_(ptr 
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.027.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %33, 1
   br i1 %cond.i, label %34, label %drsuapi_dissect_DsGetDCInfoRequest.exit
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoRequest_req1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsGetDCInfoRequest1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_DsGetDCInfoRequest1(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_DsGetDCInfoRequest.exit
 
 drsuapi_dissect_DsGetDCInfoRequest.exit:          ; preds = %32, %34
-  %.1.i = phi i32 [ %36, %34 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ %36, %34 ], [ %.027.i, %32 ]
   %37 = load ptr, ptr %7, align 8
   %38 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #5
@@ -17263,8 +17263,8 @@ define internal i32 @drsuapi_dissect_element_DsGetDomainControllerInfo_ctr_(ptr 
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.045.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.045.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -17299,7 +17299,7 @@ define internal i32 @drsuapi_dissect_element_DsGetDomainControllerInfo_ctr_(ptr 
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.045.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   switch i32 %33, label %drsuapi_dissect_DsGetDCInfoCtr.exit [
     i32 1, label %34
@@ -17310,26 +17310,26 @@ define internal i32 @drsuapi_dissect_element_DsGetDomainControllerInfo_ctr_(ptr 
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoCtr_ctr1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsGetDCInfoCtr1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.045.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_DsGetDCInfoCtr1(ptr noundef %0, i32 noundef %.045.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_DsGetDCInfoCtr.exit
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoCtr_ctr2, align 4
-  %39 = call i32 @drsuapi_dissect_struct_DsGetDCInfoCtr2(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.045.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
+  %39 = call i32 @drsuapi_dissect_struct_DsGetDCInfoCtr2(ptr noundef %0, i32 noundef %.045.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
   br label %drsuapi_dissect_DsGetDCInfoCtr.exit
 
 40:                                               ; preds = %32
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoCtr_ctr3, align 4
-  %42 = call i32 @drsuapi_dissect_struct_DsGetDCInfoCtr3(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.045.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 poison)
+  %42 = call i32 @drsuapi_dissect_struct_DsGetDCInfoCtr3(ptr noundef %0, i32 noundef %.045.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, i32 poison)
   br label %drsuapi_dissect_DsGetDCInfoCtr.exit
 
 43:                                               ; preds = %32
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDCInfoCtr_ctr01, align 4
-  %45 = call i32 @drsuapi_dissect_struct_DsGetDCConnectionCtr01(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.045.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 poison)
+  %45 = call i32 @drsuapi_dissect_struct_DsGetDCConnectionCtr01(ptr noundef %0, i32 noundef %.045.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %44, i32 poison)
   br label %drsuapi_dissect_DsGetDCInfoCtr.exit
 
 drsuapi_dissect_DsGetDCInfoCtr.exit:              ; preds = %32, %34, %37, %40, %43
-  %.1.i = phi i32 [ %.0.i, %32 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.1.i = phi i32 [ %.045.i, %32 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
   %46 = load ptr, ptr %7, align 8
   %47 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %46, i32 noundef %47) #5
@@ -17362,8 +17362,8 @@ define internal i32 @drsuapi_dissect_element_DsAddEntry_req_(ptr noundef %0, i32
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.033.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.033.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -17398,7 +17398,7 @@ define internal i32 @drsuapi_dissect_element_DsAddEntry_req_(ptr noundef %0, i32
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.033.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   switch i32 %33, label %drsuapi_dissect_DsAddEntryRequest.exit [
     i32 2, label %34
@@ -17407,16 +17407,16 @@ define internal i32 @drsuapi_dissect_element_DsAddEntry_req_(ptr noundef %0, i32
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryRequest_req2, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsAddEntryRequest2(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.033.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_DsAddEntryRequest2(ptr noundef %0, i32 noundef %.033.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_DsAddEntryRequest.exit
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryRequest_req3, align 4
-  %39 = call i32 @drsuapi_dissect_struct_DsAddEntryRequest3(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.033.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
+  %39 = call i32 @drsuapi_dissect_struct_DsAddEntryRequest3(ptr noundef %0, i32 noundef %.033.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
   br label %drsuapi_dissect_DsAddEntryRequest.exit
 
 drsuapi_dissect_DsAddEntryRequest.exit:           ; preds = %32, %34, %37
-  %.1.i = phi i32 [ %.0.i, %32 ], [ %39, %37 ], [ %36, %34 ]
+  %.1.i = phi i32 [ %.033.i, %32 ], [ %39, %37 ], [ %36, %34 ]
   %40 = load ptr, ptr %7, align 8
   %41 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %40, i32 noundef %41) #5
@@ -17449,8 +17449,8 @@ define internal i32 @drsuapi_dissect_element_DsAddEntry_ctr_(ptr noundef %0, i32
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.033.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.033.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -17485,7 +17485,7 @@ define internal i32 @drsuapi_dissect_element_DsAddEntry_ctr_(ptr noundef %0, i32
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.033.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   switch i32 %33, label %drsuapi_dissect_DsAddEntryCtr.exit [
     i32 2, label %34
@@ -17494,16 +17494,16 @@ define internal i32 @drsuapi_dissect_element_DsAddEntry_ctr_(ptr noundef %0, i32
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr_ctr2, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsAddEntryCtr2(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.033.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_DsAddEntryCtr2(ptr noundef %0, i32 noundef %.033.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_DsAddEntryCtr.exit
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntryCtr_ctr3, align 4
-  %39 = call i32 @drsuapi_dissect_struct_DsAddEntryCtr3(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.033.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
+  %39 = call i32 @drsuapi_dissect_struct_DsAddEntryCtr3(ptr noundef %0, i32 noundef %.033.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
   br label %drsuapi_dissect_DsAddEntryCtr.exit
 
 drsuapi_dissect_DsAddEntryCtr.exit:               ; preds = %32, %34, %37
-  %.1.i = phi i32 [ %.0.i, %32 ], [ %39, %37 ], [ %36, %34 ]
+  %.1.i = phi i32 [ %.033.i, %32 ], [ %39, %37 ], [ %36, %34 ]
   %40 = load ptr, ptr %7, align 8
   %41 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %40, i32 noundef %41) #5
@@ -17536,8 +17536,8 @@ define internal i32 @drsuapi_dissect_element_DsExecuteKCC_req_(ptr noundef %0, i
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.023.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.023.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not25.i = icmp ne i32 %16, 0
@@ -17546,18 +17546,18 @@ define internal i32 @drsuapi_dissect_element_DsExecuteKCC_req_(ptr noundef %0, i
   %or.cond.i = select i1 %.not25.i, i1 true, i1 %.not26.i
   %18 = and i32 %14, -4
   %19 = add i32 %18, 4
-  %.0.i = select i1 %or.cond.i, i32 %14, i32 %19
+  %.023.i = select i1 %or.cond.i, i32 %14, i32 %19
   %20 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %20, 1
   br i1 %cond.i, label %21, label %drsuapi_dissect_DsExecuteKCCRequest.exit
 
 21:                                               ; preds = %13
   %22 = load i32, ptr @hf_drsuapi_drsuapi_DsExecuteKCCRequest_ctr1, align 4
-  %23 = call i32 @drsuapi_dissect_struct_DsExecuteKCC1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.023.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
+  %23 = call i32 @drsuapi_dissect_struct_DsExecuteKCC1(ptr noundef %0, i32 noundef %.023.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %22, i32 poison)
   br label %drsuapi_dissect_DsExecuteKCCRequest.exit
 
 drsuapi_dissect_DsExecuteKCCRequest.exit:         ; preds = %13, %21
-  %.1.i = phi i32 [ %23, %21 ], [ %.0.i, %13 ]
+  %.1.i = phi i32 [ %23, %21 ], [ %.023.i, %13 ]
   %24 = load ptr, ptr %7, align 8
   %25 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %24, i32 noundef %25) #5
@@ -17590,8 +17590,8 @@ define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_req_(ptr noundef %
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.033.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.033.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -17626,7 +17626,7 @@ define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_req_(ptr noundef %
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.033.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   switch i32 %33, label %drsuapi_dissect_DsReplicaGetInfoRequest.exit [
     i32 1, label %34
@@ -17635,16 +17635,16 @@ define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_req_(ptr noundef %
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest_req1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.033.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest1(ptr noundef %0, i32 noundef %.033.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_DsReplicaGetInfoRequest.exit
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaGetInfoRequest_req2, align 4
-  %39 = call i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest2(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.033.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
+  %39 = call i32 @drsuapi_dissect_struct_DsReplicaGetInfoRequest2(ptr noundef %0, i32 noundef %.033.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %38, i32 poison)
   br label %drsuapi_dissect_DsReplicaGetInfoRequest.exit
 
 drsuapi_dissect_DsReplicaGetInfoRequest.exit:     ; preds = %32, %34, %37
-  %.1.i = phi i32 [ %.0.i, %32 ], [ %39, %37 ], [ %36, %34 ]
+  %.1.i = phi i32 [ %.033.i, %32 ], [ %39, %37 ], [ %36, %34 ]
   %40 = load ptr, ptr %7, align 8
   %41 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %40, i32 noundef %41) #5
@@ -17681,8 +17681,8 @@ define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_info_(ptr noundef 
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.0111.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0111.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -17717,7 +17717,7 @@ define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_info_(ptr noundef 
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.0111.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   switch i32 %33, label %drsuapi_dissect_DsReplicaInfo.exit [
     i32 0, label %34
@@ -17739,81 +17739,81 @@ define internal i32 @drsuapi_dissect_element_DsReplicaGetInfo_info_(ptr noundef 
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_neighbours, align 4
-  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_neighbours_, i32 noundef 2, ptr noundef nonnull @.str.1781, i32 noundef %35) #5
+  %36 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_neighbours_, i32 noundef 2, ptr noundef nonnull @.str.1781, i32 noundef %35) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 37:                                               ; preds = %32
   %38 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_cursors, align 4
-  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_cursors_, i32 noundef 2, ptr noundef nonnull @.str.1782, i32 noundef %38) #5
+  %39 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_cursors_, i32 noundef 2, ptr noundef nonnull @.str.1782, i32 noundef %38) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 40:                                               ; preds = %32
   %41 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_objmetadata, align 4
-  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_objmetadata_, i32 noundef 2, ptr noundef nonnull @.str.1783, i32 noundef %41) #5
+  %42 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_objmetadata_, i32 noundef 2, ptr noundef nonnull @.str.1783, i32 noundef %41) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 43:                                               ; preds = %32
   %44 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_connectfailures, align 4
-  %45 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_connectfailures_, i32 noundef 2, ptr noundef nonnull @.str.1784, i32 noundef %44) #5
+  %45 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_connectfailures_, i32 noundef 2, ptr noundef nonnull @.str.1784, i32 noundef %44) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 46:                                               ; preds = %32
   %47 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_linkfailures, align 4
-  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_linkfailures_, i32 noundef 2, ptr noundef nonnull @.str.1785, i32 noundef %47) #5
+  %48 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_linkfailures_, i32 noundef 2, ptr noundef nonnull @.str.1785, i32 noundef %47) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 49:                                               ; preds = %32
   %50 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_pendingops, align 4
-  %51 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_pendingops_, i32 noundef 2, ptr noundef nonnull @.str.1786, i32 noundef %50) #5
+  %51 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_pendingops_, i32 noundef 2, ptr noundef nonnull @.str.1786, i32 noundef %50) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 52:                                               ; preds = %32
   %53 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_attrvalmetadata, align 4
-  %54 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_attrvalmetadata_, i32 noundef 2, ptr noundef nonnull @.str.1787, i32 noundef %53) #5
+  %54 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_attrvalmetadata_, i32 noundef 2, ptr noundef nonnull @.str.1787, i32 noundef %53) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 55:                                               ; preds = %32
   %56 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_cursors2, align 4
-  %57 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_cursors2_, i32 noundef 2, ptr noundef nonnull @.str.1788, i32 noundef %56) #5
+  %57 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_cursors2_, i32 noundef 2, ptr noundef nonnull @.str.1788, i32 noundef %56) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 58:                                               ; preds = %32
   %59 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_cursors3, align 4
-  %60 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_cursors3_, i32 noundef 2, ptr noundef nonnull @.str.1789, i32 noundef %59) #5
+  %60 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_cursors3_, i32 noundef 2, ptr noundef nonnull @.str.1789, i32 noundef %59) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 61:                                               ; preds = %32
   %62 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_objmetadata2, align 4
-  %63 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_objmetadata2_, i32 noundef 2, ptr noundef nonnull @.str.1790, i32 noundef %62) #5
+  %63 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_objmetadata2_, i32 noundef 2, ptr noundef nonnull @.str.1790, i32 noundef %62) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 64:                                               ; preds = %32
   %65 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_attrvalmetadata2, align 4
-  %66 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_attrvalmetadata2_, i32 noundef 2, ptr noundef nonnull @.str.1791, i32 noundef %65) #5
+  %66 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_attrvalmetadata2_, i32 noundef 2, ptr noundef nonnull @.str.1791, i32 noundef %65) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 67:                                               ; preds = %32
   %68 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_repsto, align 4
-  %69 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_repsto_, i32 noundef 2, ptr noundef nonnull @.str.1792, i32 noundef %68) #5
+  %69 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_repsto_, i32 noundef 2, ptr noundef nonnull @.str.1792, i32 noundef %68) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 70:                                               ; preds = %32
   %71 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_clientctx, align 4
-  %72 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_clientctx_, i32 noundef 2, ptr noundef nonnull @.str.1793, i32 noundef %71) #5
+  %72 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_clientctx_, i32 noundef 2, ptr noundef nonnull @.str.1793, i32 noundef %71) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 73:                                               ; preds = %32
   %74 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_udv1, align 4
-  %75 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_udv1_, i32 noundef 2, ptr noundef nonnull @.str.1794, i32 noundef %74) #5
+  %75 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_udv1_, i32 noundef 2, ptr noundef nonnull @.str.1794, i32 noundef %74) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 76:                                               ; preds = %32
   %77 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaInfo_srvoutgoingcalls, align 4
-  %78 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.0111.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_srvoutgoingcalls_, i32 noundef 2, ptr noundef nonnull @.str.1795, i32 noundef %77) #5
+  %78 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %.0111.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @drsuapi_dissect_element_DsReplicaInfo_srvoutgoingcalls_, i32 noundef 2, ptr noundef nonnull @.str.1795, i32 noundef %77) #5
   br label %drsuapi_dissect_DsReplicaInfo.exit
 
 drsuapi_dissect_DsReplicaInfo.exit:               ; preds = %32, %34, %37, %40, %43, %46, %49, %52, %55, %58, %61, %64, %67, %70, %73, %76
-  %.1.i = phi i32 [ %.0.i, %32 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
+  %.1.i = phi i32 [ %.0111.i, %32 ], [ %78, %76 ], [ %75, %73 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ %57, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ]
   %79 = load ptr, ptr %7, align 8
   %80 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %79, i32 noundef %80) #5
@@ -17951,8 +17951,8 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships2_req_(ptr noundef 
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -17987,18 +17987,18 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships2_req_(ptr noundef 
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.027.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %33, 1
   br i1 %cond.i, label %34, label %drsuapi_dissect_DsGetMemberships2Request.exit
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships2Request_req1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsGetMemberships2Request1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_DsGetMemberships2Request1(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_DsGetMemberships2Request.exit
 
 drsuapi_dissect_DsGetMemberships2Request.exit:    ; preds = %32, %34
-  %.1.i = phi i32 [ %36, %34 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ %36, %34 ], [ %.027.i, %32 ]
   %37 = load ptr, ptr %7, align 8
   %38 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #5
@@ -18031,8 +18031,8 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships2_ctr_(ptr noundef 
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -18067,18 +18067,18 @@ define internal i32 @drsuapi_dissect_element_DsGetMemberships2_ctr_(ptr noundef 
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.027.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %33, 1
   br i1 %cond.i, label %34, label %drsuapi_dissect_DsGetMemberships2Ctr.exit
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships2Ctr_ctr1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_DsGetMembershipsCtr1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_DsGetMembershipsCtr1(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_DsGetMemberships2Ctr.exit
 
 drsuapi_dissect_DsGetMemberships2Ctr.exit:        ; preds = %32, %34
-  %.1.i = phi i32 [ %36, %34 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ %36, %34 ], [ %.027.i, %32 ]
   %37 = load ptr, ptr %7, align 8
   %38 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #5
@@ -18111,8 +18111,8 @@ define internal i32 @drsuapi_dissect_element_QuerySitesByCost_req_(ptr noundef %
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -18147,18 +18147,18 @@ define internal i32 @drsuapi_dissect_element_QuerySitesByCost_req_(ptr noundef %
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.027.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %33, 1
   br i1 %cond.i, label %34, label %drsuapi_dissect_QuerySitesByCostRequest.exit
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCostRequest_req1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_QuerySitesByCostRequest1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_QuerySitesByCostRequest1(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_QuerySitesByCostRequest.exit
 
 drsuapi_dissect_QuerySitesByCostRequest.exit:     ; preds = %32, %34
-  %.1.i = phi i32 [ %36, %34 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ %36, %34 ], [ %.027.i, %32 ]
   %37 = load ptr, ptr %7, align 8
   %38 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #5
@@ -18191,8 +18191,8 @@ define internal i32 @drsuapi_dissect_element_QuerySitesByCost_ctr_(ptr noundef %
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -18227,18 +18227,18 @@ define internal i32 @drsuapi_dissect_element_QuerySitesByCost_ctr_(ptr noundef %
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.027.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %33, 1
   br i1 %cond.i, label %34, label %drsuapi_dissect_QuerySitesByCostCtr.exit
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCostCtr_ctr1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_QuerySitesByCostCtr1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_QuerySitesByCostCtr1(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_QuerySitesByCostCtr.exit
 
 drsuapi_dissect_QuerySitesByCostCtr.exit:         ; preds = %32, %34
-  %.1.i = phi i32 [ %36, %34 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ %36, %34 ], [ %.027.i, %32 ]
   %37 = load ptr, ptr %7, align 8
   %38 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #5
@@ -18271,8 +18271,8 @@ define internal i32 @drsuapi_dissect_element_ReadNgcKey_ngcReq_(ptr noundef %0, 
   br label %13
 
 13:                                               ; preds = %10, %6
-  %.027.i = phi ptr [ %12, %10 ], [ null, %6 ]
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.027.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %12, %10 ], [ null, %6 ]
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %15 = getelementptr inbounds i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 96
@@ -18307,18 +18307,18 @@ define internal i32 @drsuapi_dissect_element_ReadNgcKey_ngcReq_(ptr noundef %0, 
   br label %32
 
 32:                                               ; preds = %29, %27, %24, %22
-  %.0.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
+  %.027.i = phi i32 [ %14, %22 ], [ %26, %24 ], [ %14, %27 ], [ %31, %29 ]
   %33 = load i32, ptr %8, align 4
   %cond.i = icmp eq i32 %33, 1
   br i1 %cond.i, label %34, label %drsuapi_dissect_ReadNgcKeyReq.exit
 
 34:                                               ; preds = %32
   %35 = load i32, ptr @hf_drsuapi_drsuapi_ReadNgcKeyReq_V1, align 4
-  %36 = call i32 @drsuapi_dissect_struct_ReadNgcKeyReqV1(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.027.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
+  %36 = call i32 @drsuapi_dissect_struct_ReadNgcKeyReqV1(ptr noundef %0, i32 noundef %.027.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 poison)
   br label %drsuapi_dissect_ReadNgcKeyReq.exit
 
 drsuapi_dissect_ReadNgcKeyReq.exit:               ; preds = %32, %34
-  %.1.i = phi i32 [ %36, %34 ], [ %.0.i, %32 ]
+  %.1.i = phi i32 [ %36, %34 ], [ %.027.i, %32 ]
   %37 = load ptr, ptr %7, align 8
   %38 = sub i32 %.1.i, %1
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %38) #5
@@ -18376,18 +18376,18 @@ define internal i32 @drsuapi_dissect_element_ReadNgcKey_ngcReply_(ptr noundef %0
   br label %27
 
 27:                                               ; preds = %24, %22, %19, %17
-  %.0.i = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
+  %.034.i = phi i32 [ %1, %17 ], [ %21, %19 ], [ %1, %22 ], [ %26, %24 ]
   %.not40.i = icmp eq ptr %3, null
   br i1 %.not40.i, label %31, label %28
 
 28:                                               ; preds = %27
   %29 = load i32, ptr @ett_drsuapi_drsuapi_ReadNgcKeyReply, align 4
-  %30 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %.0.i, i32 noundef -1, i32 noundef %29, ptr noundef nonnull %7, ptr noundef nonnull @.str.1809) #5
+  %30 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %.034.i, i32 noundef -1, i32 noundef %29, ptr noundef nonnull %7, ptr noundef nonnull @.str.1809) #5
   br label %31
 
 31:                                               ; preds = %28, %27
-  %.034.i = phi ptr [ %30, %28 ], [ null, %27 ]
-  %32 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.0.i, ptr noundef %2, ptr noundef %.034.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
+  %.0.i = phi ptr [ %30, %28 ], [ null, %27 ]
+  %32 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.034.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %8) #5
   %33 = load ptr, ptr %10, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 96
   %35 = load i32, ptr %34, align 8
@@ -18427,13 +18427,13 @@ define internal i32 @drsuapi_dissect_element_ReadNgcKey_ngcReply_(ptr noundef %0
 
 50:                                               ; preds = %48
   %51 = load i32, ptr @hf_drsuapi_drsuapi_ReadNgcKeyReply_V1, align 4
-  %52 = call i32 @drsuapi_dissect_struct_ReadNgcKeyReplyV1(ptr noundef %0, i32 noundef %.1.i, ptr noundef %2, ptr noundef %.034.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %51, i32 poison)
+  %52 = call i32 @drsuapi_dissect_struct_ReadNgcKeyReplyV1(ptr noundef %0, i32 noundef %.1.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %51, i32 poison)
   br label %drsuapi_dissect_ReadNgcKeyReply.exit
 
 drsuapi_dissect_ReadNgcKeyReply.exit:             ; preds = %48, %50
   %.2.i = phi i32 [ %52, %50 ], [ %.1.i, %48 ]
   %53 = load ptr, ptr %7, align 8
-  %54 = sub i32 %.2.i, %.0.i
+  %54 = sub i32 %.2.i, %.034.i
   call void @proto_item_set_len(ptr noundef %53, i32 noundef %54) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)

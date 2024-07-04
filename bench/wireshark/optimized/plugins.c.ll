@@ -321,13 +321,13 @@ define void @plugins_get_descriptions(ptr nocapture noundef readonly %0, ptr nou
   %3 = alloca %struct._GHashTableIter, align 8
   %4 = alloca ptr, align 8
   %5 = tail call ptr @g_ptr_array_new() #11
-  %.023 = load ptr, ptr @plugins_module_list, align 8
-  %.not24 = icmp eq ptr %.023, null
+  %.02023 = load ptr, ptr @plugins_module_list, align 8
+  %.not24 = icmp eq ptr %.02023, null
   br i1 %.not24, label %._crit_edge28, label %.lr.ph27
 
 .lr.ph27:                                         ; preds = %2, %._crit_edge
-  %.025 = phi ptr [ %.0, %._crit_edge ], [ %.023, %2 ]
-  %6 = load ptr, ptr %.025, align 8
+  %.02025 = phi ptr [ %.020, %._crit_edge ], [ %.02023, %2 ]
+  %6 = load ptr, ptr %.02025, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %3, ptr noundef %6) #11
   %7 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %4) #11
   %.not2122 = icmp eq i32 %7, 0
@@ -341,9 +341,9 @@ define void @plugins_get_descriptions(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph27
-  %10 = getelementptr inbounds i8, ptr %.025, i64 8
-  %.0 = load ptr, ptr %10, align 8
-  %.not = icmp eq ptr %.0, null
+  %10 = getelementptr inbounds i8, ptr %.02025, i64 8
+  %.020 = load ptr, ptr %10, align 8
+  %.not = icmp eq ptr %.020, null
   br i1 %.not, label %._crit_edge28, label %.lr.ph27, !llvm.loop !7
 
 ._crit_edge28:                                    ; preds = %._crit_edge, %2

@@ -3413,7 +3413,7 @@ Saig_StrSimSetInitMatching.exit75:                ; preds = %97, %.critedge48, %
   br label %115
 
 115:                                              ; preds = %190, %Saig_StrSimSetInitMatching.exit75
-  %.036113 = phi i32 [ 0, %Saig_StrSimSetInitMatching.exit75 ], [ %192, %190 ]
+  %.037113 = phi i32 [ 0, %Saig_StrSimSetInitMatching.exit75 ], [ %192, %190 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %116 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #17
   %117 = icmp slt i32 %116, 0
@@ -3554,7 +3554,7 @@ Saig_StrSimCountMatchedNodes.exit:                ; preds = %167, %Saig_StrSimCo
   %176 = add nsw i32 %.val55, %.val54
   %177 = sitofp i32 %176 to double
   %178 = fdiv double %173, %177
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, i32 noundef %.036113, i32 noundef %125, i32 noundef %.0.lcssa.i, double noundef %171, i32 noundef %.0.lcssa.i83, double noundef %178)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, i32 noundef %.037113, i32 noundef %125, i32 noundef %.0.lcssa.i, double noundef %171, i32 noundef %.0.lcssa.i83, double noundef %178)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %179 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #17
@@ -3579,8 +3579,8 @@ Abc_Clock.exit93:                                 ; preds = %Saig_StrSimCountMat
   br label %190
 
 190:                                              ; preds = %Abc_Clock.exit93, %Abc_Clock.exit77
-  %191 = icmp ne i32 %.036113, 20
-  %192 = add nuw nsw i32 %.036113, 1
+  %191 = icmp ne i32 %.037113, 20
+  %192 = add nuw nsw i32 %.037113, 1
   %193 = icmp sgt i32 %125, 0
   %or.cond = select i1 %191, i1 %193, i1 false
   br i1 %or.cond, label %115, label %194, !llvm.loop !44

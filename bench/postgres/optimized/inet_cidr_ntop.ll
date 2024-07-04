@@ -50,26 +50,26 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
   %.064.i = phi i32 [ %35, %30 ], [ %18, %.lr.ph.preheader.i ]
-  %.04563.i = phi ptr [ %21, %30 ], [ %1, %.lr.ph.preheader.i ]
-  %.162.i = phi i64 [ %34, %30 ], [ %4, %.lr.ph.preheader.i ]
-  %.14861.i = phi ptr [ %31, %30 ], [ %3, %.lr.ph.preheader.i ]
-  %19 = icmp ult i64 %.162.i, 6
+  %.163.i = phi i64 [ %34, %30 ], [ %4, %.lr.ph.preheader.i ]
+  %.14762.i = phi ptr [ %31, %30 ], [ %3, %.lr.ph.preheader.i ]
+  %.04961.i = phi ptr [ %21, %30 ], [ %1, %.lr.ph.preheader.i ]
+  %19 = icmp ult i64 %.163.i, 6
   br i1 %19, label %.loopexit.i, label %20
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = getelementptr i8, ptr %.04563.i, i64 1
-  %22 = load i8, ptr %.04563.i, align 1
+  %21 = getelementptr i8, ptr %.04961.i, i64 1
+  %22 = load i8, ptr %.04961.i, align 1
   %23 = zext i8 %22 to i32
-  %24 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.14861.i, ptr noundef nonnull @.str, i32 noundef %23) #9
+  %24 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.14762.i, ptr noundef nonnull @.str, i32 noundef %23) #9
   %25 = sext i32 %24 to i64
-  %26 = getelementptr i8, ptr %.14861.i, i64 %25
+  %26 = getelementptr i8, ptr %.14762.i, i64 %25
   %.not54.i = icmp eq i32 %.064.i, 1
   br i1 %.not54.i, label %.thread72.i, label %30
 
 .thread72.i:                                      ; preds = %20
   %27 = ptrtoint ptr %26 to i64
-  %28 = ptrtoint ptr %.14861.i to i64
-  %.neg5574.i = add i64 %.162.i, %28
+  %28 = ptrtoint ptr %.14762.i to i64
+  %.neg5574.i = add i64 %.163.i, %28
   %29 = sub i64 %.neg5574.i, %27
   br label %._crit_edge.i
 
@@ -78,17 +78,17 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   store i8 46, ptr %26, align 1
   store i8 0, ptr %31, align 1
   %32 = ptrtoint ptr %31 to i64
-  %33 = ptrtoint ptr %.14861.i to i64
-  %.neg55.i = add i64 %.162.i, %33
+  %33 = ptrtoint ptr %.14762.i to i64
+  %.neg55.i = add i64 %.163.i, %33
   %34 = sub i64 %.neg55.i, %32
   %35 = add nsw i32 %.064.i, -1
   %36 = icmp sgt i32 %.064.i, 1
   br i1 %36, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %30, %.thread72.i, %17
-  %.148.lcssa.i = phi ptr [ %3, %17 ], [ %26, %.thread72.i ], [ %31, %30 ]
+  %.049.lcssa.i = phi ptr [ %1, %17 ], [ %21, %.thread72.i ], [ %21, %30 ]
+  %.147.lcssa.i = phi ptr [ %3, %17 ], [ %26, %.thread72.i ], [ %31, %30 ]
   %.1.lcssa.i = phi i64 [ %4, %17 ], [ %29, %.thread72.i ], [ %34, %30 ]
-  %.045.lcssa.i = phi ptr [ %1, %17 ], [ %21, %.thread72.i ], [ %21, %30 ]
   %37 = and i32 %2, 7
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %56, label %38
@@ -98,34 +98,34 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   br i1 %39, label %.loopexit.i, label %40
 
 40:                                               ; preds = %38
-  %.not53.i = icmp eq ptr %.148.lcssa.i, %3
+  %.not53.i = icmp eq ptr %.147.lcssa.i, %3
   br i1 %.not53.i, label %43, label %41
 
 41:                                               ; preds = %40
-  %42 = getelementptr i8, ptr %.148.lcssa.i, i64 1
-  store i8 46, ptr %.148.lcssa.i, align 1
+  %42 = getelementptr i8, ptr %.147.lcssa.i, i64 1
+  store i8 46, ptr %.147.lcssa.i, align 1
   br label %43
 
 43:                                               ; preds = %41, %40
-  %.3.i = phi ptr [ %42, %41 ], [ %.148.lcssa.i, %40 ]
+  %.3.i = phi ptr [ %42, %41 ], [ %.147.lcssa.i, %40 ]
   %notmask.i = shl nsw i32 -1, %37
   %44 = xor i32 %notmask.i, -1
   %45 = sub nuw nsw i32 8, %37
   %46 = shl nuw nsw i32 %44, %45
-  %47 = load i8, ptr %.045.lcssa.i, align 1
+  %47 = load i8, ptr %.049.lcssa.i, align 1
   %48 = zext i8 %47 to i32
   %49 = and i32 %46, %48
   %50 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.3.i, ptr noundef nonnull @.str, i32 noundef %49) #9
   %51 = sext i32 %50 to i64
   %52 = getelementptr i8, ptr %.3.i, i64 %51
   %53 = ptrtoint ptr %52 to i64
-  %54 = ptrtoint ptr %.148.lcssa.i to i64
+  %54 = ptrtoint ptr %.147.lcssa.i to i64
   %.neg.i = add i64 %.1.lcssa.i, %54
   %55 = sub i64 %.neg.i, %53
   br label %56
 
 56:                                               ; preds = %43, %._crit_edge.i, %._crit_edge.thread.i
-  %.4.i = phi ptr [ %52, %43 ], [ %.148.lcssa.i, %._crit_edge.i ], [ %15, %._crit_edge.thread.i ]
+  %.4.i = phi ptr [ %52, %43 ], [ %.147.lcssa.i, %._crit_edge.i ], [ %15, %._crit_edge.thread.i ]
   %.2.i = phi i64 [ %55, %43 ], [ %.1.lcssa.i, %._crit_edge.i ], [ %16, %._crit_edge.thread.i ]
   %57 = icmp ult i64 %.2.i, 5
   br i1 %57, label %.loopexit.i, label %58

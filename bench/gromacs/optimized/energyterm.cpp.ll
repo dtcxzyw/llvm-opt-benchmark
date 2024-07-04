@@ -592,8 +592,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit18:                  ; preds = %52, %55
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit20
 
 _ZNSt6vectorIfSaIfEED2Ev.exit20:                  ; preds = %1, %57, %_ZNSt6vectorIfSaIfEED2Ev.exit18
-  %.sroa.024.0 = phi float [ %53, %_ZNSt6vectorIfSaIfEED2Ev.exit18 ], [ %53, %57 ], [ undef, %1 ]
   %.sroa.2.0 = phi i64 [ 4294967296, %_ZNSt6vectorIfSaIfEED2Ev.exit18 ], [ 4294967296, %57 ], [ 0, %1 ]
+  %.sroa.024.0 = phi float [ %53, %_ZNSt6vectorIfSaIfEED2Ev.exit18 ], [ %53, %57 ], [ undef, %1 ]
   %58 = bitcast float %.sroa.024.0 to i32
   %.sroa.024.0.insert.ext = zext i32 %58 to i64
   %.sroa.024.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.024.0.insert.ext

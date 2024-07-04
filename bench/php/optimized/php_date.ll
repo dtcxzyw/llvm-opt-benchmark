@@ -3074,8 +3074,8 @@ define internal fastcc ptr @php_date_parse_tzfile(ptr noundef %0, ptr noundef %1
   br label %24
 
 24:                                               ; preds = %12, %14, %21, %16
-  %.024 = phi ptr [ %13, %12 ], [ %15, %16 ], [ %15, %21 ], [ null, %14 ]
-  ret ptr %.024
+  %.0 = phi ptr [ %13, %12 ], [ %15, %16 ], [ %15, %21 ], [ null, %14 ]
+  ret ptr %.0
 }
 
 declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
@@ -4235,11 +4235,11 @@ define internal fastcc void @php_date(ptr noundef %0, ptr nocapture noundef writ
   br label %.thread157
 
 .thread140:                                       ; preds = %25, %17, %10
-  %.096150 = phi i32 [ 9, %17 ], [ 1, %10 ], [ 9, %25 ]
-  %.097149 = phi i32 [ 1, %17 ], [ 0, %10 ], [ 2, %25 ]
-  %.098148 = phi i32 [ 4, %17 ], [ 0, %10 ], [ 1, %25 ]
-  %.099147 = phi ptr [ %12, %17 ], [ null, %10 ], [ %22, %25 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.096150, i32 noundef %.097149, ptr noundef null, i32 noundef %.098148, ptr noundef %.099147) #25
+  %.095150 = phi i32 [ 9, %17 ], [ 1, %10 ], [ 9, %25 ]
+  %.096149 = phi i32 [ 4, %17 ], [ 0, %10 ], [ 1, %25 ]
+  %.097148 = phi ptr [ %12, %17 ], [ null, %10 ], [ %22, %25 ]
+  %.098147 = phi i32 [ 1, %17 ], [ 0, %10 ], [ 2, %25 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.095150, i32 noundef %.098147, ptr noundef null, i32 noundef %.096149, ptr noundef %.097148) #25
   br label %51
 
 27:                                               ; preds = %21
@@ -4373,10 +4373,10 @@ define hidden void @zif_idate(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 .thread141:                                       ; preds = %26, %16, %9
   %.095151 = phi i32 [ 9, %16 ], [ 1, %9 ], [ 9, %26 ]
-  %.097150 = phi i32 [ 1, %16 ], [ 0, %9 ], [ 2, %26 ]
-  %.098149 = phi i32 [ 4, %16 ], [ 0, %9 ], [ 1, %26 ]
-  %.099148 = phi ptr [ %11, %16 ], [ null, %9 ], [ %21, %26 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.095151, i32 noundef %.097150, ptr noundef null, i32 noundef %.098149, ptr noundef %.099148) #25
+  %.096150 = phi i32 [ 4, %16 ], [ 0, %9 ], [ 1, %26 ]
+  %.097149 = phi ptr [ %11, %16 ], [ null, %9 ], [ %21, %26 ]
+  %.098148 = phi i32 [ 1, %16 ], [ 0, %9 ], [ 2, %26 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.095151, i32 noundef %.098148, ptr noundef null, i32 noundef %.096150, ptr noundef %.097149) #25
   br label %56
 
 .thread131:                                       ; preds = %.thread124, %18
@@ -4606,10 +4606,10 @@ define hidden void @zif_strtotime(ptr noundef %0, ptr nocapture noundef writeonl
 
 .thread160:                                       ; preds = %28, %18, %11
   %.0110170 = phi i32 [ 9, %18 ], [ 1, %11 ], [ 9, %28 ]
-  %.0112169 = phi i32 [ 1, %18 ], [ 0, %11 ], [ 2, %28 ]
-  %.0113168 = phi i32 [ 4, %18 ], [ 0, %11 ], [ 1, %28 ]
-  %.0114167 = phi ptr [ %13, %18 ], [ null, %11 ], [ %23, %28 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0110170, i32 noundef %.0112169, ptr noundef null, i32 noundef %.0113168, ptr noundef %.0114167) #25
+  %.0111169 = phi i32 [ 4, %18 ], [ 0, %11 ], [ 1, %28 ]
+  %.0112168 = phi ptr [ %13, %18 ], [ null, %11 ], [ %23, %28 ]
+  %.0113167 = phi i32 [ 1, %18 ], [ 0, %11 ], [ 2, %28 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0110170, i32 noundef %.0113167, ptr noundef null, i32 noundef %.0111169, ptr noundef %.0112168) #25
   br label %73
 
 .thread150:                                       ; preds = %28, %.thread143, %20
@@ -4899,10 +4899,10 @@ define void @php_mktime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 n
 
 .thread389:                                       ; preds = %72, %63, %53, %43, %33, %23, %16
   %.0274403 = phi i32 [ 9, %63 ], [ 9, %53 ], [ 9, %43 ], [ 9, %33 ], [ 9, %23 ], [ 1, %16 ], [ 9, %72 ]
-  %.0276402 = phi i32 [ 1, %63 ], [ 1, %53 ], [ 1, %43 ], [ 1, %33 ], [ 0, %23 ], [ 0, %16 ], [ 1, %72 ]
-  %.0277401 = phi ptr [ %58, %63 ], [ %48, %53 ], [ %38, %43 ], [ %28, %33 ], [ %18, %23 ], [ null, %16 ], [ %67, %72 ]
-  %.0278400 = phi i32 [ 5, %63 ], [ 4, %53 ], [ 3, %43 ], [ 2, %33 ], [ 1, %23 ], [ 0, %16 ], [ 6, %72 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0274403, i32 noundef %.0278400, ptr noundef null, i32 noundef %.0276402, ptr noundef %.0277401) #25
+  %.0275402 = phi i32 [ 1, %63 ], [ 1, %53 ], [ 1, %43 ], [ 1, %33 ], [ 0, %23 ], [ 0, %16 ], [ 1, %72 ]
+  %.0276401 = phi ptr [ %58, %63 ], [ %48, %53 ], [ %38, %43 ], [ %28, %33 ], [ %18, %23 ], [ null, %16 ], [ %67, %72 ]
+  %.0277400 = phi i32 [ 5, %63 ], [ 4, %53 ], [ 3, %43 ], [ 2, %33 ], [ 1, %23 ], [ 0, %16 ], [ 6, %72 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0274403, i32 noundef %.0277400, ptr noundef null, i32 noundef %.0275402, ptr noundef %.0276401) #25
   br label %126
 
 .thread367:                                       ; preds = %72, %.thread360, %65, %55, %45, %35, %25
@@ -4964,7 +4964,7 @@ php_time.exit327:                                 ; preds = %87, %89
   br label %91
 
 91:                                               ; preds = %php_time.exit327, %php_time.exit
-  %..0283 = phi ptr [ null, %php_time.exit ], [ %82, %php_time.exit327 ]
+  %..0278 = phi ptr [ null, %php_time.exit ], [ %82, %php_time.exit327 ]
   %92 = load i64, ptr %6, align 8
   %93 = getelementptr inbounds i8, ptr %74, i64 24
   store i64 %92, ptr %93, align 8
@@ -5032,7 +5032,7 @@ php_time.exit327:                                 ; preds = %87, %89
   br label %120
 
 120:                                              ; preds = %118, %109
-  call void @timelib_update_ts(ptr noundef nonnull %74, ptr noundef %..0283) #25
+  call void @timelib_update_ts(ptr noundef nonnull %74, ptr noundef %..0278) #25
   %121 = call i64 @timelib_date_to_int(ptr noundef nonnull %74, ptr noundef nonnull %12) #25
   %122 = load i32, ptr %12, align 4
   %.not321 = icmp eq i32 %122, 0
@@ -5135,9 +5135,9 @@ define hidden void @zif_checkdate(ptr noundef %0, ptr nocapture noundef writeonl
 
 .thread158:                                       ; preds = %23, %15, %8, %31
   %.0165 = phi i32 [ 9, %31 ], [ 9, %23 ], [ 9, %15 ], [ 1, %8 ]
-  %.0136164 = phi ptr [ %26, %31 ], [ %18, %23 ], [ %10, %15 ], [ null, %8 ]
-  %.0137163 = phi i32 [ 3, %31 ], [ 2, %23 ], [ 1, %15 ], [ 0, %8 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0165, i32 noundef %.0137163, ptr noundef null, i32 noundef 0, ptr noundef %.0136164) #25
+  %.0135164 = phi ptr [ %26, %31 ], [ %18, %23 ], [ %10, %15 ], [ null, %8 ]
+  %.0136163 = phi i32 [ 3, %31 ], [ 2, %23 ], [ 1, %15 ], [ 0, %8 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0165, i32 noundef %.0136163, ptr noundef null, i32 noundef 0, ptr noundef %.0135164) #25
   br label %43
 
 .thread172:                                       ; preds = %..thread172_crit_edge, %.thread154
@@ -5230,11 +5230,11 @@ define void @php_strftime(ptr noundef %0, ptr nocapture noundef writeonly %1, i1
   br i1 %cond.fr368, label %.thread396.thread, label %.thread385
 
 .thread385:                                       ; preds = %28, %18, %11
-  %.0335395 = phi i32 [ 9, %18 ], [ 1, %11 ], [ 9, %28 ]
-  %.0337394 = phi i32 [ 4, %18 ], [ 0, %11 ], [ 1, %28 ]
-  %.0338393 = phi ptr [ %13, %18 ], [ null, %11 ], [ %23, %28 ]
-  %.0339392 = phi i32 [ 1, %18 ], [ 0, %11 ], [ 2, %28 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0335395, i32 noundef %.0339392, ptr noundef null, i32 noundef %.0337394, ptr noundef %.0338393) #25
+  %.0334395 = phi i32 [ 9, %18 ], [ 1, %11 ], [ 9, %28 ]
+  %.0335394 = phi i32 [ 4, %18 ], [ 0, %11 ], [ 1, %28 ]
+  %.0336393 = phi ptr [ %13, %18 ], [ null, %11 ], [ %23, %28 ]
+  %.0337392 = phi i32 [ 1, %18 ], [ 0, %11 ], [ 2, %28 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0334395, i32 noundef %.0337392, ptr noundef null, i32 noundef %.0335394, ptr noundef %.0336393) #25
   br label %188
 
 .thread396:                                       ; preds = %.thread404, %20
@@ -5304,7 +5304,7 @@ php_time.exit:                                    ; preds = %43, %45
   br label %56
 
 56:                                               ; preds = %52, %48
-  %.0346 = phi ptr [ null, %48 ], [ %51, %52 ]
+  %.0341 = phi ptr [ null, %48 ], [ %51, %52 ]
   %57 = getelementptr inbounds i8, ptr %47, i64 16
   %58 = load <4 x i64>, ptr %57, align 8
   %59 = trunc <4 x i64> %58 to <4 x i32>
@@ -5346,7 +5346,7 @@ php_time.exit:                                    ; preds = %43, %45
 
 85:                                               ; preds = %56
   %86 = load i64, ptr %6, align 8
-  %87 = call ptr @timelib_get_time_zone_info(i64 noundef %86, ptr noundef %.0346) #25
+  %87 = call ptr @timelib_get_time_zone_info(i64 noundef %86, ptr noundef %.0341) #25
   %88 = getelementptr inbounds i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %7, i64 32
@@ -5361,7 +5361,7 @@ php_time.exit:                                    ; preds = %43, %45
 
 96:                                               ; preds = %82, %85
   %.sink = phi ptr [ @.str.17, %82 ], [ %95, %85 ]
-  %.0345 = phi ptr [ null, %82 ], [ %87, %85 ]
+  %.0340 = phi ptr [ null, %82 ], [ %87, %85 ]
   %97 = getelementptr inbounds i8, ptr %7, i64 48
   store ptr %.sink, ptr %97, align 16
   %98 = call noalias ptr @_emalloc_320() #25
@@ -5375,10 +5375,10 @@ php_time.exit:                                    ; preds = %43, %45
   br label %102
 
 102:                                              ; preds = %144, %96
-  %.0343 = phi ptr [ %98, %96 ], [ %.0340, %144 ]
+  %.0344 = phi i32 [ 5, %96 ], [ %145, %144 ]
   %.0342 = phi i64 [ 256, %96 ], [ %111, %144 ]
-  %.0341 = phi i32 [ 5, %96 ], [ %145, %144 ]
-  %103 = getelementptr inbounds i8, ptr %.0343, i64 24
+  %.0339 = phi ptr [ %98, %96 ], [ %.0346, %144 ]
+  %103 = getelementptr inbounds i8, ptr %.0339, i64 24
   %104 = load ptr, ptr %5, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 24
   %106 = call i64 @strftime(ptr noundef nonnull %103, i64 noundef %.0342, ptr noundef nonnull %105, ptr noundef nonnull %7) #25
@@ -5389,24 +5389,24 @@ php_time.exit:                                    ; preds = %43, %45
 
 110:                                              ; preds = %102
   %111 = shl i64 %.0342, 1
-  %112 = getelementptr inbounds i8, ptr %.0343, i64 16
+  %112 = getelementptr inbounds i8, ptr %.0339, i64 16
   %113 = load i64, ptr %112, align 8
   %114 = icmp uge i64 %111, %113
   call void @llvm.assume(i1 %114)
-  %115 = getelementptr inbounds i8, ptr %.0343, i64 4
+  %115 = getelementptr inbounds i8, ptr %.0339, i64 4
   %116 = load i32, ptr %115, align 4
   %117 = and i32 %116, 64
   %.not358 = icmp eq i32 %117, 0
   br i1 %.not358, label %118, label %129
 
 118:                                              ; preds = %110
-  %119 = load i32, ptr %.0343, align 4
+  %119 = load i32, ptr %.0339, align 4
   %120 = icmp eq i32 %119, 1
   br i1 %120, label %121, label %129
 
 121:                                              ; preds = %118
   %122 = or disjoint i64 %111, 32
-  %123 = call ptr @_erealloc(ptr noundef nonnull %.0343, i64 noundef %122) #28
+  %123 = call ptr @_erealloc(ptr noundef nonnull %.0339, i64 noundef %122) #28
   %124 = getelementptr inbounds i8, ptr %123, i64 16
   store i64 %111, ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %123, i64 8
@@ -5437,55 +5437,55 @@ php_time.exit:                                    ; preds = %43, %45
   br i1 %.not359, label %140, label %144
 
 140:                                              ; preds = %129
-  %141 = load i32, ptr %.0343, align 4
+  %141 = load i32, ptr %.0339, align 4
   %142 = icmp ne i32 %141, 0
   call void @llvm.assume(i1 %142)
   %143 = add i32 %141, -1
-  store i32 %143, ptr %.0343, align 4
+  store i32 %143, ptr %.0339, align 4
   br label %144
 
 144:                                              ; preds = %129, %140, %121
-  %.0340 = phi ptr [ %123, %121 ], [ %131, %140 ], [ %131, %129 ]
-  %145 = add nsw i32 %.0341, -1
+  %.0346 = phi ptr [ %123, %121 ], [ %131, %140 ], [ %131, %129 ]
+  %145 = add nsw i32 %.0344, -1
   %.not360 = icmp eq i32 %145, 0
   br i1 %.not360, label %146, label %102
 
 146:                                              ; preds = %144, %102
   %.lcssa = phi i1 [ %108, %144 ], [ false, %102 ]
-  %.1344 = phi ptr [ %.0340, %144 ], [ %.0343, %102 ]
-  %.1 = phi i64 [ %111, %144 ], [ %.0342, %102 ]
+  %.1343 = phi i64 [ %111, %144 ], [ %.0342, %102 ]
+  %.1 = phi ptr [ %.0346, %144 ], [ %.0339, %102 ]
   call void @timelib_time_dtor(ptr noundef nonnull %47) #25
   br i1 %2, label %148, label %147
 
 147:                                              ; preds = %146
-  call void @timelib_time_offset_dtor(ptr noundef %.0345) #25
+  call void @timelib_time_offset_dtor(ptr noundef %.0340) #25
   br label %148
 
 148:                                              ; preds = %147, %146
-  %.not362 = icmp eq i64 %106, %.1
+  %.not362 = icmp eq i64 %106, %.1343
   %or.cond367 = or i1 %.lcssa, %.not362
   br i1 %or.cond367, label %186, label %149
 
 149:                                              ; preds = %148
-  %150 = getelementptr inbounds i8, ptr %.1344, i64 16
+  %150 = getelementptr inbounds i8, ptr %.1, i64 16
   %151 = load i64, ptr %150, align 8
   %152 = icmp ule i64 %106, %151
   call void @llvm.assume(i1 %152)
-  %153 = getelementptr inbounds i8, ptr %.1344, i64 4
+  %153 = getelementptr inbounds i8, ptr %.1, i64 4
   %154 = load i32, ptr %153, align 4
   %155 = and i32 %154, 64
   %.not363 = icmp eq i32 %155, 0
   br i1 %.not363, label %156, label %168
 
 156:                                              ; preds = %149
-  %157 = load i32, ptr %.1344, align 4
+  %157 = load i32, ptr %.1, align 4
   %158 = icmp eq i32 %157, 1
   br i1 %158, label %159, label %168
 
 159:                                              ; preds = %156
   %160 = and i64 %106, -8
   %161 = add i64 %160, 32
-  %162 = call ptr @_erealloc(ptr noundef nonnull %.1344, i64 noundef %161) #28
+  %162 = call ptr @_erealloc(ptr noundef nonnull %.1, i64 noundef %161) #28
   %163 = getelementptr inbounds i8, ptr %162, i64 16
   store i64 %106, ptr %163, align 8
   %164 = getelementptr inbounds i8, ptr %162, i64 8
@@ -5508,7 +5508,7 @@ php_time.exit:                                    ; preds = %43, %45
   %174 = getelementptr inbounds i8, ptr %171, i64 16
   store i64 %106, ptr %174, align 8
   %175 = getelementptr inbounds i8, ptr %171, i64 24
-  %176 = getelementptr inbounds i8, ptr %.1344, i64 24
+  %176 = getelementptr inbounds i8, ptr %.1, i64 24
   %177 = add i64 %106, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %175, ptr nonnull align 8 %176, i64 %177, i1 false)
   %178 = load i32, ptr %153, align 4
@@ -5517,22 +5517,22 @@ php_time.exit:                                    ; preds = %43, %45
   br i1 %.not364, label %180, label %184
 
 180:                                              ; preds = %168
-  %181 = load i32, ptr %.1344, align 4
+  %181 = load i32, ptr %.1, align 4
   %182 = icmp ne i32 %181, 0
   call void @llvm.assume(i1 %182)
   %183 = add i32 %181, -1
-  store i32 %183, ptr %.1344, align 4
+  store i32 %183, ptr %.1, align 4
   br label %184
 
 184:                                              ; preds = %168, %180, %159
-  %.0336 = phi ptr [ %162, %159 ], [ %171, %180 ], [ %171, %168 ]
-  store ptr %.0336, ptr %1, align 8
+  %.0345 = phi ptr [ %162, %159 ], [ %171, %180 ], [ %171, %168 ]
+  store ptr %.0345, ptr %1, align 8
   %185 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 262, ptr %185, align 8
   br label %188
 
 186:                                              ; preds = %148
-  call void @_efree(ptr noundef nonnull %.1344) #25
+  call void @_efree(ptr noundef nonnull %.1) #25
   %187 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %187, align 8
   br label %188
@@ -5666,10 +5666,10 @@ define hidden void @zif_localtime(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.fr, label %.thread218, label %.thread228
 
 .thread228:                                       ; preds = %25, %18, %9
-  %.0185238 = phi i32 [ 9, %18 ], [ 1, %9 ], [ 9, %25 ]
-  %.0186237 = phi i32 [ 1, %18 ], [ 0, %9 ], [ 2, %25 ]
-  %.0188235 = phi ptr [ %13, %18 ], [ null, %9 ], [ %26, %25 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0185238, i32 noundef %.0186237, ptr noundef null, i32 noundef %.0186237, ptr noundef %.0188235) #25
+  %.0184238 = phi i32 [ 9, %18 ], [ 1, %9 ], [ 9, %25 ]
+  %.0185237 = phi i32 [ 1, %18 ], [ 0, %9 ], [ 2, %25 ]
+  %.0186236 = phi ptr [ %13, %18 ], [ null, %9 ], [ %26, %25 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0184238, i32 noundef %.0185237, ptr noundef null, i32 noundef %.0185237, ptr noundef %.0186236) #25
   br label %101
 
 .thread218:                                       ; preds = %25, %.thread214, %20
@@ -5832,10 +5832,10 @@ define hidden void @zif_getdate(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.fr, label %.thread193, label %.thread176
 
 .thread176:                                       ; preds = %15, %8
-  %.0131186 = phi i32 [ 0, %8 ], [ 1, %15 ]
-  %.0132185 = phi i32 [ 1, %8 ], [ 9, %15 ]
+  %.0131186 = phi i32 [ 1, %8 ], [ 9, %15 ]
+  %.0132185 = phi i32 [ 0, %8 ], [ 1, %15 ]
   %.0133184 = phi ptr [ null, %8 ], [ %12, %15 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0132185, i32 noundef %.0131186, ptr noundef null, i32 noundef %.0131186, ptr noundef %.0133184) #25
+  call void @zend_wrong_parameter_error(i32 noundef %.0131186, i32 noundef %.0132185, ptr noundef null, i32 noundef %.0132185, ptr noundef %.0133184) #25
   br label %67
 
 17:                                               ; preds = %11
@@ -6133,9 +6133,9 @@ thread-pre-split.thread124:                       ; preds = %30, %39, %thread-pr
 
 84:                                               ; preds = %58, %69
   %85 = phi i32 [ %61, %58 ], [ %.pr109, %69 ]
-  %.066 = phi i32 [ 0, %58 ], [ %73, %69 ]
-  %.064 = phi ptr [ null, %58 ], [ %76, %69 ]
-  %.063 = phi i32 [ 0, %58 ], [ %77, %69 ]
+  %.065 = phi i32 [ 0, %58 ], [ %73, %69 ]
+  %.063 = phi ptr [ null, %58 ], [ %76, %69 ]
+  %.062 = phi i32 [ 0, %58 ], [ %77, %69 ]
   %86 = call ptr @timelib_time_ctor() #25
   %87 = getelementptr inbounds i8, ptr %86, i64 232
   store i32 %85, ptr %87, align 8
@@ -6146,7 +6146,7 @@ thread-pre-split.thread124:                       ; preds = %30, %39, %thread-pr
   ]
 
 .sink.split:                                      ; preds = %78, %82, %.thread110
-  %.170107.ph = phi ptr [ %63, %.thread110 ], [ %81, %78 ], [ %83, %82 ]
+  %.169107.ph = phi ptr [ %63, %.thread110 ], [ %81, %78 ], [ %83, %82 ]
   %88 = call ptr @timelib_time_ctor() #25
   %89 = getelementptr inbounds i8, ptr %88, i64 232
   store i32 3, ptr %89, align 8
@@ -6154,30 +6154,30 @@ thread-pre-split.thread124:                       ; preds = %30, %39, %thread-pr
 
 90:                                               ; preds = %.sink.split, %84
   %91 = phi ptr [ %86, %84 ], [ %88, %.sink.split ]
-  %.170107 = phi ptr [ null, %84 ], [ %.170107.ph, %.sink.split ]
+  %.169107 = phi ptr [ null, %84 ], [ %.169107.ph, %.sink.split ]
   %92 = getelementptr inbounds i8, ptr %91, i64 72
-  store ptr %.170107, ptr %92, align 8
+  store ptr %.169107, ptr %92, align 8
   br label %101
 
 93:                                               ; preds = %.thread115, %84
   %94 = phi ptr [ %67, %.thread115 ], [ %86, %84 ]
-  %95 = phi i32 [ %66, %.thread115 ], [ %.063, %84 ]
+  %95 = phi i32 [ %66, %.thread115 ], [ %.062, %84 ]
   %96 = getelementptr inbounds i8, ptr %94, i64 56
   store i32 %95, ptr %96, align 8
   br label %101
 
 97:                                               ; preds = %84
   %98 = getelementptr inbounds i8, ptr %86, i64 56
-  store i32 %.063, ptr %98, align 8
+  store i32 %.062, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %86, i64 80
-  store i32 %.066, ptr %99, align 8
+  store i32 %.065, ptr %99, align 8
   %100 = getelementptr inbounds i8, ptr %86, i64 64
-  store ptr %.064, ptr %100, align 8
+  store ptr %.063, ptr %100, align 8
   br label %101
 
 101:                                              ; preds = %97, %93, %90, %84
   %102 = phi ptr [ %86, %97 ], [ %94, %93 ], [ %91, %90 ], [ %86, %84 ]
-  %.170108 = phi ptr [ null, %97 ], [ null, %93 ], [ %.170107, %90 ], [ null, %84 ]
+  %.169108 = phi ptr [ null, %97 ], [ null, %93 ], [ %.169107, %90 ], [ null, %84 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %103 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #25
@@ -6212,7 +6212,7 @@ thread-pre-split.thread124:                       ; preds = %30, %39, %thread-pr
   %116 = load ptr, ptr %0, align 8
   call void @timelib_fill_holes(ptr noundef %116, ptr noundef nonnull %102, i32 noundef %spec.select100) #25
   %117 = load ptr, ptr %0, align 8
-  call void @timelib_update_ts(ptr noundef %117, ptr noundef %.170108) #25
+  call void @timelib_update_ts(ptr noundef %117, ptr noundef %.169108) #25
   %118 = load ptr, ptr %0, align 8
   call void @timelib_update_from_sse(ptr noundef %118) #25
   %119 = load ptr, ptr %0, align 8
@@ -6222,8 +6222,8 @@ thread-pre-split.thread124:                       ; preds = %30, %39, %thread-pr
   br label %121
 
 121:                                              ; preds = %82, %114, %112, %56
-  %.0 = phi i1 [ false, %56 ], [ true, %112 ], [ true, %114 ], [ false, %82 ]
-  ret i1 %.0
+  %.070 = phi i1 [ false, %56 ], [ true, %112 ], [ true, %114 ], [ false, %82 ]
+  ret i1 %.070
 }
 
 declare ptr @timelib_parse_from_format(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -6406,12 +6406,12 @@ define hidden void @zif_date_create(ptr noundef %0, ptr noundef %1) #0 {
   br label %44
 
 44:                                               ; preds = %7, %40, %38, %16
-  %.096 = phi i32 [ 0, %7 ], [ 2, %40 ], [ 2, %38 ], [ 1, %16 ]
-  %.095 = phi ptr [ null, %7 ], [ %24, %40 ], [ %24, %38 ], [ %11, %16 ]
-  %.094 = phi i32 [ 0, %7 ], [ 0, %40 ], [ 19, %38 ], [ 4, %16 ]
-  %.093 = phi ptr [ null, %7 ], [ %43, %40 ], [ null, %38 ], [ null, %16 ]
+  %.095 = phi i32 [ 0, %7 ], [ 2, %40 ], [ 2, %38 ], [ 1, %16 ]
+  %.094 = phi ptr [ null, %7 ], [ %24, %40 ], [ %24, %38 ], [ %11, %16 ]
+  %.093 = phi i32 [ 0, %7 ], [ 0, %40 ], [ 19, %38 ], [ 4, %16 ]
+  %.092 = phi ptr [ null, %7 ], [ %43, %40 ], [ null, %38 ], [ null, %16 ]
   %.0 = phi i32 [ 1, %7 ], [ 4, %40 ], [ 9, %38 ], [ 9, %16 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.096, ptr noundef %.093, i32 noundef %.094, ptr noundef %.095) #25
+  call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.095, ptr noundef %.092, i32 noundef %.093, ptr noundef %.094) #25
   br label %52
 
 .critedge.thread:                                 ; preds = %30, %35, %29, %8, %18, %.critedge
@@ -6525,12 +6525,12 @@ define hidden void @zif_date_create_immutable(ptr noundef %0, ptr noundef %1) #0
   br label %44
 
 44:                                               ; preds = %7, %40, %38, %16
-  %.096 = phi i32 [ 0, %7 ], [ 2, %40 ], [ 2, %38 ], [ 1, %16 ]
-  %.095 = phi ptr [ null, %7 ], [ %24, %40 ], [ %24, %38 ], [ %11, %16 ]
-  %.094 = phi i32 [ 0, %7 ], [ 0, %40 ], [ 19, %38 ], [ 4, %16 ]
-  %.093 = phi ptr [ null, %7 ], [ %43, %40 ], [ null, %38 ], [ null, %16 ]
+  %.095 = phi i32 [ 0, %7 ], [ 2, %40 ], [ 2, %38 ], [ 1, %16 ]
+  %.094 = phi ptr [ null, %7 ], [ %24, %40 ], [ %24, %38 ], [ %11, %16 ]
+  %.093 = phi i32 [ 0, %7 ], [ 0, %40 ], [ 19, %38 ], [ 4, %16 ]
+  %.092 = phi ptr [ null, %7 ], [ %43, %40 ], [ null, %38 ], [ null, %16 ]
   %.0 = phi i32 [ 1, %7 ], [ 4, %40 ], [ 9, %38 ], [ 9, %16 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.096, ptr noundef %.093, i32 noundef %.094, ptr noundef %.095) #25
+  call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.095, ptr noundef %.092, i32 noundef %.093, ptr noundef %.094) #25
   br label %52
 
 .critedge.thread:                                 ; preds = %30, %35, %29, %8, %18, %.critedge
@@ -6675,12 +6675,12 @@ thread-pre-split:                                 ; preds = %25
   br label %59
 
 59:                                               ; preds = %9, %55, %53, %16, %29, %25
-  %.0151.ph = phi i32 [ 2, %25 ], [ 2, %29 ], [ 1, %16 ], [ 3, %53 ], [ 3, %55 ], [ 0, %9 ]
-  %.0150.ph = phi ptr [ %20, %25 ], [ %20, %29 ], [ %11, %16 ], [ %39, %53 ], [ %39, %55 ], [ null, %9 ]
-  %.0149.ph = phi i32 [ 16, %25 ], [ 16, %29 ], [ 4, %16 ], [ 19, %53 ], [ 0, %55 ], [ 0, %9 ]
-  %.0148.ph = phi ptr [ null, %25 ], [ null, %29 ], [ null, %16 ], [ null, %53 ], [ %58, %55 ], [ null, %9 ]
+  %.0150.ph = phi i32 [ 2, %25 ], [ 2, %29 ], [ 1, %16 ], [ 3, %53 ], [ 3, %55 ], [ 0, %9 ]
+  %.0149.ph = phi ptr [ %20, %25 ], [ %20, %29 ], [ %11, %16 ], [ %39, %53 ], [ %39, %55 ], [ null, %9 ]
+  %.0148.ph = phi i32 [ 16, %25 ], [ 16, %29 ], [ 4, %16 ], [ 19, %53 ], [ 0, %55 ], [ 0, %9 ]
+  %.0147.ph = phi ptr [ null, %25 ], [ null, %29 ], [ null, %16 ], [ null, %53 ], [ %58, %55 ], [ null, %9 ]
   %.0.ph = phi i32 [ 9, %25 ], [ 9, %29 ], [ 9, %16 ], [ 9, %53 ], [ 4, %55 ], [ 1, %9 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0151.ph, ptr noundef %.0148.ph, i32 noundef %.0149.ph, ptr noundef %.0150.ph) #25
+  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0150.ph, ptr noundef %.0147.ph, i32 noundef %.0148.ph, ptr noundef %.0149.ph) #25
   br label %69
 
 .critedge.thread:                                 ; preds = %45, %50, %44, %34, %.critedge
@@ -6826,12 +6826,12 @@ thread-pre-split:                                 ; preds = %25
   br label %59
 
 59:                                               ; preds = %9, %55, %53, %16, %29, %25
-  %.0151.ph = phi i32 [ 2, %25 ], [ 2, %29 ], [ 1, %16 ], [ 3, %53 ], [ 3, %55 ], [ 0, %9 ]
-  %.0150.ph = phi ptr [ %20, %25 ], [ %20, %29 ], [ %11, %16 ], [ %39, %53 ], [ %39, %55 ], [ null, %9 ]
-  %.0149.ph = phi i32 [ 16, %25 ], [ 16, %29 ], [ 4, %16 ], [ 19, %53 ], [ 0, %55 ], [ 0, %9 ]
-  %.0148.ph = phi ptr [ null, %25 ], [ null, %29 ], [ null, %16 ], [ null, %53 ], [ %58, %55 ], [ null, %9 ]
+  %.0150.ph = phi i32 [ 2, %25 ], [ 2, %29 ], [ 1, %16 ], [ 3, %53 ], [ 3, %55 ], [ 0, %9 ]
+  %.0149.ph = phi ptr [ %20, %25 ], [ %20, %29 ], [ %11, %16 ], [ %39, %53 ], [ %39, %55 ], [ null, %9 ]
+  %.0148.ph = phi i32 [ 16, %25 ], [ 16, %29 ], [ 4, %16 ], [ 19, %53 ], [ 0, %55 ], [ 0, %9 ]
+  %.0147.ph = phi ptr [ null, %25 ], [ null, %29 ], [ null, %16 ], [ null, %53 ], [ %58, %55 ], [ null, %9 ]
   %.0.ph = phi i32 [ 9, %25 ], [ 9, %29 ], [ 9, %16 ], [ 9, %53 ], [ 4, %55 ], [ 1, %9 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0151.ph, ptr noundef %.0148.ph, i32 noundef %.0149.ph, ptr noundef %.0150.ph) #25
+  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0150.ph, ptr noundef %.0147.ph, i32 noundef %.0148.ph, ptr noundef %.0149.ph) #25
   br label %69
 
 .critedge.thread:                                 ; preds = %45, %50, %44, %34, %.critedge
@@ -6945,12 +6945,12 @@ define hidden void @zim_DateTime___construct(ptr noundef %0, ptr nocapture readn
   br label %45
 
 45:                                               ; preds = %8, %41, %39, %17
-  %.093 = phi i32 [ 0, %8 ], [ 2, %41 ], [ 2, %39 ], [ 1, %17 ]
-  %.092 = phi ptr [ null, %8 ], [ %25, %41 ], [ %25, %39 ], [ %12, %17 ]
-  %.091 = phi i32 [ 0, %8 ], [ 0, %41 ], [ 19, %39 ], [ 4, %17 ]
-  %.090 = phi ptr [ null, %8 ], [ %44, %41 ], [ null, %39 ], [ null, %17 ]
+  %.092 = phi i32 [ 0, %8 ], [ 2, %41 ], [ 2, %39 ], [ 1, %17 ]
+  %.091 = phi ptr [ null, %8 ], [ %25, %41 ], [ %25, %39 ], [ %12, %17 ]
+  %.090 = phi i32 [ 0, %8 ], [ 0, %41 ], [ 19, %39 ], [ 4, %17 ]
+  %.089 = phi ptr [ null, %8 ], [ %44, %41 ], [ null, %39 ], [ null, %17 ]
   %.0 = phi i32 [ 1, %8 ], [ 4, %41 ], [ 9, %39 ], [ 9, %17 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.093, ptr noundef %.090, i32 noundef %.091, ptr noundef %.092) #25
+  call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.092, ptr noundef %.089, i32 noundef %.090, ptr noundef %.091) #25
   br label %49
 
 .critedge.thread:                                 ; preds = %31, %36, %30, %9, %19, %.critedge
@@ -7055,12 +7055,12 @@ define hidden void @zim_DateTimeImmutable___construct(ptr noundef %0, ptr nocapt
   br label %45
 
 45:                                               ; preds = %8, %41, %39, %17
-  %.093 = phi i32 [ 0, %8 ], [ 2, %41 ], [ 2, %39 ], [ 1, %17 ]
-  %.092 = phi ptr [ null, %8 ], [ %25, %41 ], [ %25, %39 ], [ %12, %17 ]
-  %.091 = phi i32 [ 0, %8 ], [ 0, %41 ], [ 19, %39 ], [ 4, %17 ]
-  %.090 = phi ptr [ null, %8 ], [ %44, %41 ], [ null, %39 ], [ null, %17 ]
+  %.092 = phi i32 [ 0, %8 ], [ 2, %41 ], [ 2, %39 ], [ 1, %17 ]
+  %.091 = phi ptr [ null, %8 ], [ %25, %41 ], [ %25, %39 ], [ %12, %17 ]
+  %.090 = phi i32 [ 0, %8 ], [ 0, %41 ], [ 19, %39 ], [ 4, %17 ]
+  %.089 = phi ptr [ null, %8 ], [ %44, %41 ], [ null, %39 ], [ null, %17 ]
   %.0 = phi i32 [ 1, %8 ], [ 4, %41 ], [ 9, %39 ], [ 9, %17 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.093, ptr noundef %.090, i32 noundef %.091, ptr noundef %.092) #25
+  call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.092, ptr noundef %.089, i32 noundef %.090, ptr noundef %.091) #25
   br label %49
 
 .critedge.thread:                                 ; preds = %31, %36, %30, %9, %19, %.critedge
@@ -7131,12 +7131,12 @@ thread-pre-split:                                 ; preds = %18
   br label %26
 
 26:                                               ; preds = %6, %22, %20
-  %.056 = phi i32 [ 0, %6 ], [ 1, %22 ], [ 1, %20 ]
-  %.055 = phi ptr [ null, %6 ], [ %8, %22 ], [ %8, %20 ]
-  %.054 = phi i32 [ 0, %6 ], [ 0, %22 ], [ 18, %20 ]
-  %.053 = phi ptr [ null, %6 ], [ %25, %22 ], [ null, %20 ]
+  %.055 = phi i32 [ 0, %6 ], [ 1, %22 ], [ 1, %20 ]
+  %.054 = phi ptr [ null, %6 ], [ %8, %22 ], [ %8, %20 ]
+  %.053 = phi i32 [ 0, %6 ], [ 0, %22 ], [ 18, %20 ]
+  %.052 = phi ptr [ null, %6 ], [ %25, %22 ], [ null, %20 ]
   %.0 = phi i32 [ 1, %6 ], [ 3, %22 ], [ 9, %20 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.056, ptr noundef %.053, i32 noundef %.054, ptr noundef %.055) #25
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.055, ptr noundef %.052, i32 noundef %.053, ptr noundef %.054) #25
   br label %68
 
 27:                                               ; preds = %._crit_edge, %14, %13
@@ -7274,12 +7274,12 @@ thread-pre-split:                                 ; preds = %18
   br label %26
 
 26:                                               ; preds = %6, %22, %20
-  %.056 = phi i32 [ 0, %6 ], [ 1, %22 ], [ 1, %20 ]
-  %.055 = phi ptr [ null, %6 ], [ %8, %22 ], [ %8, %20 ]
-  %.054 = phi i32 [ 0, %6 ], [ 0, %22 ], [ 18, %20 ]
-  %.053 = phi ptr [ null, %6 ], [ %25, %22 ], [ null, %20 ]
+  %.055 = phi i32 [ 0, %6 ], [ 1, %22 ], [ 1, %20 ]
+  %.054 = phi ptr [ null, %6 ], [ %8, %22 ], [ %8, %20 ]
+  %.053 = phi i32 [ 0, %6 ], [ 0, %22 ], [ 18, %20 ]
+  %.052 = phi ptr [ null, %6 ], [ %25, %22 ], [ null, %20 ]
   %.0 = phi i32 [ 1, %6 ], [ 3, %22 ], [ 9, %20 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.056, ptr noundef %.053, i32 noundef %.054, ptr noundef %.055) #25
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.055, ptr noundef %.052, i32 noundef %.053, ptr noundef %.054) #25
   br label %68
 
 27:                                               ; preds = %._crit_edge, %14, %13
@@ -7393,10 +7393,10 @@ define hidden void @zim_DateTime_createFromTimestamp(ptr noundef %0, ptr nocaptu
 
 .thread87:                                        ; preds = %14, %8
   %.05296 = phi i32 [ 1, %8 ], [ 9, %14 ]
-  %.05395 = phi i32 [ 0, %8 ], [ 1, %14 ]
+  %.05395 = phi i32 [ 0, %8 ], [ 22, %14 ]
   %.05494 = phi ptr [ null, %8 ], [ %10, %14 ]
-  %.05593 = phi i32 [ 0, %8 ], [ 22, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05296, i32 noundef %.05395, ptr noundef null, i32 noundef %.05593, ptr noundef %.05494) #25
+  %.05593 = phi i32 [ 0, %8 ], [ 1, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05296, i32 noundef %.05593, ptr noundef null, i32 noundef %.05395, ptr noundef %.05494) #25
   br label %42
 
 .thread80:                                        ; preds = %14, %.thread76
@@ -7506,12 +7506,12 @@ thread-pre-split:                                 ; preds = %18
   br label %26
 
 26:                                               ; preds = %6, %22, %20
-  %.056 = phi i32 [ 0, %6 ], [ 1, %22 ], [ 1, %20 ]
-  %.055 = phi ptr [ null, %6 ], [ %8, %22 ], [ %8, %20 ]
-  %.054 = phi i32 [ 0, %6 ], [ 0, %22 ], [ 18, %20 ]
-  %.053 = phi ptr [ null, %6 ], [ %25, %22 ], [ null, %20 ]
+  %.055 = phi i32 [ 0, %6 ], [ 1, %22 ], [ 1, %20 ]
+  %.054 = phi ptr [ null, %6 ], [ %8, %22 ], [ %8, %20 ]
+  %.053 = phi i32 [ 0, %6 ], [ 0, %22 ], [ 18, %20 ]
+  %.052 = phi ptr [ null, %6 ], [ %25, %22 ], [ null, %20 ]
   %.0 = phi i32 [ 1, %6 ], [ 3, %22 ], [ 9, %20 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.056, ptr noundef %.053, i32 noundef %.054, ptr noundef %.055) #25
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.055, ptr noundef %.052, i32 noundef %.053, ptr noundef %.054) #25
   br label %68
 
 27:                                               ; preds = %._crit_edge, %14, %13
@@ -7647,12 +7647,12 @@ thread-pre-split:                                 ; preds = %18
   br label %26
 
 26:                                               ; preds = %6, %22, %20
-  %.056 = phi i32 [ 0, %6 ], [ 1, %22 ], [ 1, %20 ]
-  %.055 = phi ptr [ null, %6 ], [ %8, %22 ], [ %8, %20 ]
-  %.054 = phi i32 [ 0, %6 ], [ 0, %22 ], [ 18, %20 ]
-  %.053 = phi ptr [ null, %6 ], [ %25, %22 ], [ null, %20 ]
+  %.055 = phi i32 [ 0, %6 ], [ 1, %22 ], [ 1, %20 ]
+  %.054 = phi ptr [ null, %6 ], [ %8, %22 ], [ %8, %20 ]
+  %.053 = phi i32 [ 0, %6 ], [ 0, %22 ], [ 18, %20 ]
+  %.052 = phi ptr [ null, %6 ], [ %25, %22 ], [ null, %20 ]
   %.0 = phi i32 [ 1, %6 ], [ 3, %22 ], [ 9, %20 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.056, ptr noundef %.053, i32 noundef %.054, ptr noundef %.055) #25
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.055, ptr noundef %.052, i32 noundef %.053, ptr noundef %.054) #25
   br label %68
 
 27:                                               ; preds = %._crit_edge, %14, %13
@@ -7766,10 +7766,10 @@ define hidden void @zim_DateTimeImmutable_createFromTimestamp(ptr noundef %0, pt
 
 .thread87:                                        ; preds = %14, %8
   %.05296 = phi i32 [ 1, %8 ], [ 9, %14 ]
-  %.05395 = phi i32 [ 0, %8 ], [ 1, %14 ]
+  %.05395 = phi i32 [ 0, %8 ], [ 22, %14 ]
   %.05494 = phi ptr [ null, %8 ], [ %10, %14 ]
-  %.05593 = phi i32 [ 0, %8 ], [ 22, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05296, i32 noundef %.05395, ptr noundef null, i32 noundef %.05593, ptr noundef %.05494) #25
+  %.05593 = phi i32 [ 0, %8 ], [ 1, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05296, i32 noundef %.05593, ptr noundef null, i32 noundef %.05395, ptr noundef %.05494) #25
   br label %42
 
 .thread80:                                        ; preds = %14, %.thread76
@@ -7844,11 +7844,11 @@ define hidden void @zim_DateTime___set_state(ptr noundef %0, ptr noundef %1) #0 
   br i1 %.not51, label %12, label %11
 
 11:                                               ; preds = %6, %7
-  %.047.ph = phi ptr [ %8, %7 ], [ null, %6 ]
-  %.046.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
-  %.045.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
+  %.047.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
+  %.046.ph = phi ptr [ %8, %7 ], [ null, %6 ]
+  %.045.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
   %.0.ph = phi i32 [ 9, %7 ], [ 1, %6 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.045.ph, ptr noundef null, i32 noundef %.046.ph, ptr noundef %.047.ph) #25
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.047.ph, ptr noundef null, i32 noundef %.045.ph, ptr noundef %.046.ph) #25
   br label %22
 
 12:                                               ; preds = %7
@@ -8019,11 +8019,11 @@ define hidden void @zim_DateTimeImmutable___set_state(ptr noundef %0, ptr nounde
   br i1 %.not51, label %12, label %11
 
 11:                                               ; preds = %6, %7
-  %.047.ph = phi ptr [ %8, %7 ], [ null, %6 ]
-  %.046.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
-  %.045.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
+  %.047.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
+  %.046.ph = phi ptr [ %8, %7 ], [ null, %6 ]
+  %.045.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
   %.0.ph = phi i32 [ 9, %7 ], [ 1, %6 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.045.ph, ptr noundef null, i32 noundef %.046.ph, ptr noundef %.047.ph) #25
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.047.ph, ptr noundef null, i32 noundef %.045.ph, ptr noundef %.046.ph) #25
   br label %22
 
 12:                                               ; preds = %7
@@ -8471,11 +8471,11 @@ define hidden void @zim_DateTime___unserialize(ptr noundef %0, ptr nocapture rea
   br i1 %.not53, label %13, label %12
 
 12:                                               ; preds = %7, %8
-  %.049.ph = phi ptr [ %9, %8 ], [ null, %7 ]
-  %.048.ph = phi i32 [ 6, %8 ], [ 0, %7 ]
-  %.047.ph = phi i32 [ 1, %8 ], [ 0, %7 ]
+  %.049.ph = phi i32 [ 1, %8 ], [ 0, %7 ]
+  %.048.ph = phi ptr [ %9, %8 ], [ null, %7 ]
+  %.047.ph = phi i32 [ 6, %8 ], [ 0, %7 ]
   %.0.ph = phi i32 [ 9, %8 ], [ 1, %7 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.047.ph, ptr noundef null, i32 noundef %.048.ph, ptr noundef %.049.ph) #25
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.049.ph, ptr noundef null, i32 noundef %.047.ph, ptr noundef %.048.ph) #25
   br label %22
 
 13:                                               ; preds = %8
@@ -8594,11 +8594,11 @@ define hidden void @zim_DateTimeImmutable___unserialize(ptr noundef %0, ptr noca
   br i1 %.not53, label %13, label %12
 
 12:                                               ; preds = %7, %8
-  %.049.ph = phi ptr [ %9, %8 ], [ null, %7 ]
-  %.048.ph = phi i32 [ 6, %8 ], [ 0, %7 ]
-  %.047.ph = phi i32 [ 1, %8 ], [ 0, %7 ]
+  %.049.ph = phi i32 [ 1, %8 ], [ 0, %7 ]
+  %.048.ph = phi ptr [ %9, %8 ], [ null, %7 ]
+  %.047.ph = phi i32 [ 6, %8 ], [ 0, %7 ]
   %.0.ph = phi i32 [ 9, %8 ], [ 1, %7 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.047.ph, ptr noundef null, i32 noundef %.048.ph, ptr noundef %.049.ph) #25
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.049.ph, ptr noundef null, i32 noundef %.047.ph, ptr noundef %.048.ph) #25
   br label %22
 
 13:                                               ; preds = %8
@@ -8829,10 +8829,10 @@ define hidden void @zif_date_parse(ptr noundef %0, ptr noundef %1) #0 {
 
 .thread86:                                        ; preds = %14, %7
   %.095 = phi i32 [ 1, %7 ], [ 9, %14 ]
-  %.05494 = phi i32 [ 0, %7 ], [ 1, %14 ]
-  %.05593 = phi i32 [ 0, %7 ], [ 4, %14 ]
-  %.05692 = phi ptr [ null, %7 ], [ %9, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.095, i32 noundef %.05494, ptr noundef null, i32 noundef %.05593, ptr noundef %.05692) #25
+  %.05494 = phi i32 [ 0, %7 ], [ 4, %14 ]
+  %.05593 = phi ptr [ null, %7 ], [ %9, %14 ]
+  %.05692 = phi i32 [ 0, %7 ], [ 1, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.095, i32 noundef %.05692, ptr noundef null, i32 noundef %.05494, ptr noundef %.05593) #25
   br label %27
 
 .thread79:                                        ; preds = %..thread79_crit_edge, %.thread75
@@ -9215,11 +9215,11 @@ thread-pre-split:                                 ; preds = %23
   br i1 %.not109, label %33, label %32
 
 32:                                               ; preds = %23, %27, %8, %15
-  %.0102.ph = phi i32 [ 1, %15 ], [ 0, %8 ], [ 2, %27 ], [ 2, %23 ]
-  %.0101.ph = phi ptr [ %10, %15 ], [ null, %8 ], [ %18, %27 ], [ %18, %23 ]
-  %.0100.ph = phi i32 [ 4, %15 ], [ 0, %8 ], [ 16, %27 ], [ 16, %23 ]
+  %.0100.ph = phi i32 [ 1, %15 ], [ 0, %8 ], [ 2, %27 ], [ 2, %23 ]
+  %.099.ph = phi ptr [ %10, %15 ], [ null, %8 ], [ %18, %27 ], [ %18, %23 ]
+  %.098.ph = phi i32 [ 4, %15 ], [ 0, %8 ], [ 16, %27 ], [ 16, %23 ]
   %.0.ph = phi i32 [ 9, %15 ], [ 1, %8 ], [ 9, %27 ], [ 9, %23 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0102.ph, ptr noundef null, i32 noundef %.0100.ph, ptr noundef %.0101.ph) #25
+  call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.0100.ph, ptr noundef null, i32 noundef %.098.ph, ptr noundef %.099.ph) #25
   br label %45
 
 33:                                               ; preds = %._crit_edge, %27
@@ -12090,11 +12090,11 @@ thread-pre-split:                                 ; preds = %14
   br i1 %.not73, label %24, label %23
 
 23:                                               ; preds = %14, %18, %7
-  %.068 = phi ptr [ null, %7 ], [ %9, %18 ], [ %9, %14 ]
-  %.067 = phi i32 [ 0, %7 ], [ 16, %18 ], [ 16, %14 ]
-  %.066 = phi i32 [ 0, %7 ], [ 1, %18 ], [ 1, %14 ]
+  %.067 = phi i32 [ 0, %7 ], [ 1, %18 ], [ 1, %14 ]
+  %.066 = phi ptr [ null, %7 ], [ %9, %18 ], [ %9, %14 ]
+  %.065 = phi i32 [ 0, %7 ], [ 16, %18 ], [ 16, %14 ]
   %.0 = phi i32 [ 1, %7 ], [ 9, %18 ], [ 9, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.066, ptr noundef null, i32 noundef %.067, ptr noundef %.068) #25
+  call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.067, ptr noundef null, i32 noundef %.065, ptr noundef %.066) #25
   br label %38
 
 24:                                               ; preds = %16, %18
@@ -12343,11 +12343,11 @@ thread-pre-split:                                 ; preds = %15
   br i1 %.not71, label %25, label %24
 
 24:                                               ; preds = %15, %19, %8
-  %.066 = phi ptr [ null, %8 ], [ %10, %19 ], [ %10, %15 ]
-  %.065 = phi i32 [ 0, %8 ], [ 16, %19 ], [ 16, %15 ]
-  %.064 = phi i32 [ 0, %8 ], [ 1, %19 ], [ 1, %15 ]
+  %.065 = phi i32 [ 0, %8 ], [ 1, %19 ], [ 1, %15 ]
+  %.064 = phi ptr [ null, %8 ], [ %10, %19 ], [ %10, %15 ]
+  %.063 = phi i32 [ 0, %8 ], [ 16, %19 ], [ 16, %15 ]
   %.0 = phi i32 [ 1, %8 ], [ 9, %19 ], [ 9, %15 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.064, ptr noundef null, i32 noundef %.065, ptr noundef %.066) #25
+  call void @zend_wrong_parameter_error(i32 noundef %.0, i32 noundef %.065, ptr noundef null, i32 noundef %.063, ptr noundef %.064) #25
   br label %36
 
 25:                                               ; preds = %._crit_edge, %19
@@ -12389,11 +12389,11 @@ define hidden void @zim_DateTimeZone___set_state(ptr noundef %0, ptr noundef %1)
   br i1 %.not49, label %11, label %10
 
 10:                                               ; preds = %5, %6
-  %.045.ph = phi ptr [ %7, %6 ], [ null, %5 ]
-  %.044.ph = phi i32 [ 6, %6 ], [ 0, %5 ]
-  %.043.ph = phi i32 [ 1, %6 ], [ 0, %5 ]
+  %.045.ph = phi i32 [ 1, %6 ], [ 0, %5 ]
+  %.044.ph = phi ptr [ %7, %6 ], [ null, %5 ]
+  %.043.ph = phi i32 [ 6, %6 ], [ 0, %5 ]
   %.0.ph = phi i32 [ 9, %6 ], [ 1, %5 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.043.ph, ptr noundef null, i32 noundef %.044.ph, ptr noundef %.045.ph) #25
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.045.ph, ptr noundef null, i32 noundef %.043.ph, ptr noundef %.044.ph) #25
   br label %36
 
 11:                                               ; preds = %6
@@ -12681,11 +12681,11 @@ define hidden void @zim_DateTimeZone___unserialize(ptr noundef %0, ptr nocapture
   br i1 %.not51, label %12, label %11
 
 11:                                               ; preds = %6, %7
-  %.047.ph = phi ptr [ %8, %7 ], [ null, %6 ]
-  %.046.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
-  %.045.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
+  %.047.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
+  %.046.ph = phi ptr [ %8, %7 ], [ null, %6 ]
+  %.045.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
   %.0.ph = phi i32 [ 9, %7 ], [ 1, %6 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.045.ph, ptr noundef null, i32 noundef %.046.ph, ptr noundef %.047.ph) #25
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.047.ph, ptr noundef null, i32 noundef %.045.ph, ptr noundef %.046.ph) #25
   br label %restore_custom_datetimezone_properties.exit
 
 12:                                               ; preds = %7
@@ -12923,8 +12923,8 @@ define internal fastcc void @php_timezone_to_string(ptr nocapture noundef readon
   %21 = srem i64 %20, 60
   %22 = trunc nsw i64 %21 to i32
   %23 = icmp eq i64 %21, 0
-  %.str.232..str.407 = select i1 %23, ptr @.str.232, ptr @.str.407
   %. = select i1 %23, i64 7, i64 10
+  %.str.232..str.407 = select i1 %23, ptr @.str.232, ptr @.str.407
   %24 = add nsw i64 %., -1
   %25 = add nuw nsw i64 %., 31
   %26 = and i64 %25, 40
@@ -13058,11 +13058,11 @@ define hidden void @zif_timezone_name_from_abbr(ptr noundef %0, ptr nocapture no
   br i1 %36, label %.thread210, label %.thread217
 
 .thread217:                                       ; preds = %35, %26, %16, %9
-  %.0191226 = phi i32 [ 9, %26 ], [ 9, %16 ], [ 1, %9 ], [ 9, %35 ]
-  %.0192225 = phi i32 [ 2, %26 ], [ 1, %16 ], [ 0, %9 ], [ 3, %35 ]
-  %.0193224 = phi i32 [ 0, %26 ], [ 4, %16 ], [ 0, %9 ], [ 0, %35 ]
-  %.0194223 = phi ptr [ %21, %26 ], [ %11, %16 ], [ null, %9 ], [ %30, %35 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0191226, i32 noundef %.0192225, ptr noundef null, i32 noundef %.0193224, ptr noundef %.0194223) #25
+  %.0189226 = phi i32 [ 9, %26 ], [ 9, %16 ], [ 1, %9 ], [ 9, %35 ]
+  %.0190225 = phi i32 [ 0, %26 ], [ 4, %16 ], [ 0, %9 ], [ 0, %35 ]
+  %.0191224 = phi ptr [ %21, %26 ], [ %11, %16 ], [ null, %9 ], [ %30, %35 ]
+  %.0192223 = phi i32 [ 2, %26 ], [ 1, %16 ], [ 0, %9 ], [ 3, %35 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0189226, i32 noundef %.0192223, ptr noundef null, i32 noundef %.0190225, ptr noundef %.0191224) #25
   br label %56
 
 .thread210:                                       ; preds = %35, %.thread, %28, %18
@@ -13726,7 +13726,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
 286:                                              ; preds = %.lr.ph, %295
   %287 = phi ptr [ %177, %.lr.ph ], [ %349, %295 ]
   %288 = phi i64 [ %176, %.lr.ph ], [ %348, %295 ]
-  %.0311339 = phi i32 [ %.1, %.lr.ph ], [ %347, %295 ]
+  %.0313339 = phi i32 [ %.1, %.lr.ph ], [ %347, %295 ]
   %289 = getelementptr inbounds i8, ptr %287, i64 80
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds i64, ptr %290, i64 %288
@@ -13796,7 +13796,7 @@ date_throw_uninitialized_error.exit:              ; preds = %36, %49
   call void @add_assoc_string_ex(ptr noundef nonnull %4, ptr noundef nonnull @.str.66, i64 noundef 4, ptr noundef %344) #25
   %345 = load ptr, ptr %1, align 8
   %346 = call ptr @zend_hash_next_index_insert(ptr noundef %345, ptr noundef nonnull %4) #25
-  %347 = add i32 %.0311339, 1
+  %347 = add i32 %.0313339, 1
   %348 = zext i32 %347 to i64
   %349 = load ptr, ptr %175, align 8
   %350 = getelementptr inbounds i8, ptr %349, i64 56
@@ -14098,10 +14098,10 @@ define hidden void @zim_DateInterval___construct(ptr noundef %0, ptr nocapture r
 
 .thread86:                                        ; preds = %19, %12
   %.05495 = phi i32 [ 1, %12 ], [ 9, %19 ]
-  %.05594 = phi i32 [ 0, %12 ], [ 1, %19 ]
+  %.05594 = phi i32 [ 0, %12 ], [ 4, %19 ]
   %.05693 = phi ptr [ null, %12 ], [ %14, %19 ]
-  %.05792 = phi i32 [ 0, %12 ], [ 4, %19 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.05495, i32 noundef %.05594, ptr noundef null, i32 noundef %.05792, ptr noundef %.05693) #25
+  %.05792 = phi i32 [ 0, %12 ], [ 1, %19 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.05495, i32 noundef %.05792, ptr noundef null, i32 noundef %.05594, ptr noundef %.05693) #25
   br label %60
 
 .thread79:                                        ; preds = %..thread79_crit_edge, %.thread75
@@ -14219,11 +14219,11 @@ define hidden void @zim_DateInterval___set_state(ptr noundef %0, ptr noundef %1)
   br i1 %.not49, label %12, label %11
 
 11:                                               ; preds = %6, %7
-  %.045.ph = phi ptr [ %8, %7 ], [ null, %6 ]
-  %.044.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
-  %.043.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
+  %.045.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
+  %.044.ph = phi ptr [ %8, %7 ], [ null, %6 ]
+  %.043.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
   %.0.ph = phi i32 [ 9, %7 ], [ 1, %6 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.043.ph, ptr noundef null, i32 noundef %.044.ph, ptr noundef %.045.ph) #25
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.045.ph, ptr noundef null, i32 noundef %.043.ph, ptr noundef %.044.ph) #25
   br label %18
 
 12:                                               ; preds = %7
@@ -15250,11 +15250,11 @@ define hidden void @zim_DateInterval___unserialize(ptr noundef %0, ptr nocapture
   br i1 %.not51, label %13, label %12
 
 12:                                               ; preds = %7, %8
-  %.047.ph = phi ptr [ %9, %8 ], [ null, %7 ]
-  %.046.ph = phi i32 [ 6, %8 ], [ 0, %7 ]
-  %.045.ph = phi i32 [ 1, %8 ], [ 0, %7 ]
+  %.047.ph = phi i32 [ 1, %8 ], [ 0, %7 ]
+  %.046.ph = phi ptr [ %9, %8 ], [ null, %7 ]
+  %.045.ph = phi i32 [ 6, %8 ], [ 0, %7 ]
   %.0.ph = phi i32 [ 9, %8 ], [ 1, %7 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.045.ph, ptr noundef null, i32 noundef %.046.ph, ptr noundef %.047.ph) #25
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.047.ph, ptr noundef null, i32 noundef %.045.ph, ptr noundef %.046.ph) #25
   br label %restore_custom_dateinterval_properties.exit
 
 13:                                               ; preds = %8
@@ -15419,10 +15419,10 @@ define hidden void @zif_date_interval_create_from_date_string(ptr noundef %0, pt
 
 .thread96:                                        ; preds = %14, %7
   %.0105 = phi i32 [ 1, %7 ], [ 9, %14 ]
-  %.059104 = phi i32 [ 0, %7 ], [ 1, %14 ]
-  %.060103 = phi i32 [ 0, %7 ], [ 4, %14 ]
-  %.061102 = phi ptr [ null, %7 ], [ %9, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0105, i32 noundef %.059104, ptr noundef null, i32 noundef %.060103, ptr noundef %.061102) #25
+  %.059104 = phi i32 [ 0, %7 ], [ 4, %14 ]
+  %.060103 = phi ptr [ null, %7 ], [ %9, %14 ]
+  %.061102 = phi i32 [ 0, %7 ], [ 1, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0105, i32 noundef %.061102, ptr noundef null, i32 noundef %.059104, ptr noundef %.060103) #25
   br label %58
 
 .thread89:                                        ; preds = %..thread89_crit_edge, %.thread85
@@ -15577,10 +15577,10 @@ define hidden void @zim_DateInterval_createFromDateString(ptr noundef %0, ptr no
 
 .thread94:                                        ; preds = %14, %7
   %.0103 = phi i32 [ 1, %7 ], [ 9, %14 ]
-  %.057102 = phi i32 [ 0, %7 ], [ 1, %14 ]
-  %.058101 = phi i32 [ 0, %7 ], [ 4, %14 ]
-  %.059100 = phi ptr [ null, %7 ], [ %9, %14 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0103, i32 noundef %.057102, ptr noundef null, i32 noundef %.058101, ptr noundef %.059100) #25
+  %.057102 = phi i32 [ 0, %7 ], [ 4, %14 ]
+  %.058101 = phi ptr [ null, %7 ], [ %9, %14 ]
+  %.059100 = phi i32 [ 0, %7 ], [ 1, %14 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0103, i32 noundef %.059100, ptr noundef null, i32 noundef %.057102, ptr noundef %.058101) #25
   br label %58
 
 .thread87:                                        ; preds = %..thread87_crit_edge, %.thread83
@@ -15943,8 +15943,8 @@ date_throw_uninitialized_error.exit:              ; preds = %32, %45
   br i1 %.not101.i, label %157, label %156
 
 156:                                              ; preds = %151, %148
-  %.082.i = phi i64 [ %149, %148 ], [ %154, %151 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.082.i) #25
+  %.083.i = phi i64 [ %149, %148 ], [ %154, %151 ]
+  call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.083.i) #25
   %.pre.i = load ptr, ptr %3, align 8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 16
   %.pre104.i = load i64, ptr %.phi.trans.insert.i, align 8
@@ -15953,7 +15953,7 @@ date_throw_uninitialized_error.exit:              ; preds = %32, %45
 157:                                              ; preds = %156, %151
   %158 = phi i64 [ %.pre104.i, %156 ], [ %153, %151 ]
   %159 = phi ptr [ %.pre.i, %156 ], [ %150, %151 ]
-  %.183.i = phi i64 [ %.082.i, %156 ], [ %154, %151 ]
+  %.184.i = phi i64 [ %.083.i, %156 ], [ %154, %151 ]
   %160 = getelementptr inbounds i8, ptr %159, i64 24
   %161 = getelementptr inbounds i8, ptr %160, i64 %158
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %161, ptr nonnull align 16 %4, i64 %149, i1 false)
@@ -15991,10 +15991,10 @@ date_throw_uninitialized_error.exit:              ; preds = %32, %45
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %171, %157
-  %.183.sink.i = phi i64 [ %.183.i, %157 ], [ %.181.i, %171 ]
+  %.184.sink.i = phi i64 [ %.184.i, %157 ], [ %.181.i, %171 ]
   %.sink107.i = load ptr, ptr %3, align 8
   %176 = getelementptr inbounds i8, ptr %.sink107.i, i64 16
-  store i64 %.183.sink.i, ptr %176, align 8
+  store i64 %.184.sink.i, ptr %176, align 8
   br label %177
 
 177:                                              ; preds = %.sink.split.i, %162
@@ -16025,11 +16025,11 @@ date_throw_uninitialized_error.exit:              ; preds = %32, %45
   br label %date_interval_format.exit
 
 date_interval_format.exit:                        ; preds = %71, %186
-  %.084.i = phi ptr [ %72, %71 ], [ %spec.select.i, %186 ]
+  %.082.i = phi ptr [ %72, %71 ], [ %spec.select.i, %186 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4)
-  store ptr %.084.i, ptr %1, align 8
-  %190 = getelementptr inbounds i8, ptr %.084.i, i64 4
+  store ptr %.082.i, ptr %1, align 8
+  %190 = getelementptr inbounds i8, ptr %.082.i, i64 4
   %191 = load i32, ptr %190, align 4
   %192 = and i32 %191, 64
   %.not = icmp eq i32 %192, 0
@@ -16983,9 +16983,9 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
 
 30:                                               ; preds = %29, %27
   %31 = phi ptr [ %storemerge, %29 ], [ %.pre, %27 ]
-  %.0122 = phi i1 [ true, %29 ], [ %28, %27 ]
+  %.0127 = phi i1 [ true, %29 ], [ %28, %27 ]
   %.not139 = icmp ne ptr %31, null
-  %or.cond145.not = select i1 %.0122, i1 %.not139, i1 false
+  %or.cond145.not = select i1 %.0127, i1 %.not139, i1 false
   br i1 %or.cond145.not, label %32, label %36
 
 32:                                               ; preds = %30
@@ -16997,14 +16997,14 @@ define hidden void @zif_timezone_identifiers_list(ptr noundef %0, ptr noundef %1
 36:                                               ; preds = %30, %32
   %.1132 = phi i64 [ 0, %30 ], [ %35, %32 ]
   %.1 = phi ptr [ null, %30 ], [ %33, %32 ]
-  br i1 %.0122, label %.thread, label %.thread156
+  br i1 %.0127, label %.thread, label %.thread156
 
 .thread156:                                       ; preds = %18, %9, %36
-  %.0123167 = phi i32 [ 9, %36 ], [ 9, %18 ], [ 1, %9 ]
-  %.0125166 = phi i32 [ 5, %36 ], [ 0, %18 ], [ 0, %9 ]
-  %.0126165 = phi ptr [ %22, %36 ], [ %13, %18 ], [ null, %9 ]
-  %.0127164 = phi i32 [ 2, %36 ], [ 1, %18 ], [ 0, %9 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0123167, i32 noundef %.0127164, ptr noundef null, i32 noundef %.0125166, ptr noundef %.0126165) #25
+  %.0122167 = phi i32 [ 9, %36 ], [ 9, %18 ], [ 1, %9 ]
+  %.0123166 = phi i32 [ 5, %36 ], [ 0, %18 ], [ 0, %9 ]
+  %.0124165 = phi ptr [ %22, %36 ], [ %13, %18 ], [ null, %9 ]
+  %.0125164 = phi i32 [ 2, %36 ], [ 1, %18 ], [ 0, %9 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0122167, i32 noundef %.0125164, ptr noundef null, i32 noundef %.0123166, ptr noundef %.0124165) #25
   br label %.loopexit
 
 .thread:                                          ; preds = %20, %10, %36
@@ -17416,10 +17416,10 @@ define hidden void @zif_date_default_timezone_set(ptr noundef %0, ptr nocapture 
 
 14:                                               ; preds = %12, %.thread85
   %.096 = phi i32 [ 1, %.thread85 ], [ 9, %12 ]
-  %.06395 = phi i32 [ 0, %.thread85 ], [ 1, %12 ]
-  %.06494 = phi i32 [ 0, %.thread85 ], [ 4, %12 ]
-  %.06593 = phi ptr [ null, %.thread85 ], [ %7, %12 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.096, i32 noundef %.06395, ptr noundef null, i32 noundef %.06494, ptr noundef %.06593) #25
+  %.06295 = phi i32 [ 0, %.thread85 ], [ 4, %12 ]
+  %.06394 = phi ptr [ null, %.thread85 ], [ %7, %12 ]
+  %.06493 = phi i32 [ 0, %.thread85 ], [ 1, %12 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.096, i32 noundef %.06493, ptr noundef null, i32 noundef %.06295, ptr noundef %.06394) #25
   br label %34
 
 15:                                               ; preds = %._crit_edge, %.thread
@@ -17699,11 +17699,11 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
   br i1 %.fr, label %.thread326, label %.thread345
 
 .thread345:                                       ; preds = %74, %65, %55, %45, %35, %25, %18
-  %.0249358 = phi i32 [ 9, %65 ], [ 9, %55 ], [ 9, %45 ], [ 9, %35 ], [ 9, %25 ], [ 1, %18 ], [ 9, %74 ]
-  %.0251357 = phi i32 [ 21, %65 ], [ 21, %55 ], [ 21, %45 ], [ 0, %35 ], [ 0, %25 ], [ 0, %18 ], [ 21, %74 ]
-  %.0252356 = phi ptr [ %60, %65 ], [ %50, %55 ], [ %40, %45 ], [ %30, %35 ], [ %20, %25 ], [ null, %18 ], [ %69, %74 ]
-  %.0253355 = phi i32 [ 5, %65 ], [ 4, %55 ], [ 3, %45 ], [ 2, %35 ], [ 1, %25 ], [ 0, %18 ], [ 6, %74 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0249358, i32 noundef %.0253355, ptr noundef null, i32 noundef %.0251357, ptr noundef %.0252356) #25
+  %.0246358 = phi i32 [ 9, %65 ], [ 9, %55 ], [ 9, %45 ], [ 9, %35 ], [ 9, %25 ], [ 1, %18 ], [ 9, %74 ]
+  %.0247357 = phi i32 [ 21, %65 ], [ 21, %55 ], [ 21, %45 ], [ 0, %35 ], [ 0, %25 ], [ 0, %18 ], [ 21, %74 ]
+  %.0248356 = phi ptr [ %60, %65 ], [ %50, %55 ], [ %40, %45 ], [ %30, %35 ], [ %20, %25 ], [ null, %18 ], [ %69, %74 ]
+  %.0249355 = phi i32 [ 5, %65 ], [ 4, %55 ], [ 3, %45 ], [ 2, %35 ], [ 1, %25 ], [ 0, %18 ], [ 6, %74 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0246358, i32 noundef %.0249355, ptr noundef null, i32 noundef %.0247357, ptr noundef %.0248356) #25
   br label %147
 
 .thread326:                                       ; preds = %74, %.thread319, %67, %57, %47
@@ -17838,16 +17838,16 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
   br label %136
 
 136:                                              ; preds = %123, %131
-  %.0255 = phi double [ %135, %131 ], [ %128, %123 ]
+  %.0251 = phi double [ %135, %131 ], [ %128, %123 ]
   switch i64 %116, label %147 [
     i64 1, label %137
     i64 2, label %145
   ]
 
 137:                                              ; preds = %136
-  %138 = fptosi double %.0255 to i32
+  %138 = fptosi double %.0251 to i32
   %139 = sitofp i32 %138 to double
-  %140 = fsub double %.0255, %139
+  %140 = fsub double %.0251, %139
   %141 = fmul double %140, 6.000000e+01
   %142 = fptosi double %141 to i32
   %143 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.440, i32 noundef %138, i32 noundef %142) #25
@@ -17857,7 +17857,7 @@ define internal fastcc void @php_do_date_sunrise_sunset(ptr noundef %0, ptr noca
   br label %147
 
 145:                                              ; preds = %136
-  store double %.0255, ptr %1, align 8
+  store double %.0251, ptr %1, align 8
   %146 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 5, ptr %146, align 8
   br label %147
@@ -17941,11 +17941,11 @@ define hidden void @zif_date_sun_info(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.fr, label %.thread318, label %.thread306
 
 .thread306:                                       ; preds = %36, %28, %20, %13
-  %.0275315 = phi i32 [ 9, %28 ], [ 9, %20 ], [ 1, %13 ], [ 9, %36 ]
-  %.0277314 = phi i32 [ 20, %28 ], [ 0, %20 ], [ 0, %13 ], [ 20, %36 ]
-  %.0278313 = phi ptr [ %23, %28 ], [ %15, %20 ], [ null, %13 ], [ %31, %36 ]
-  %.0279312 = phi i32 [ 2, %28 ], [ 1, %20 ], [ 0, %13 ], [ 3, %36 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0275315, i32 noundef %.0279312, ptr noundef null, i32 noundef %.0277314, ptr noundef %.0278313) #25
+  %.0274315 = phi i32 [ 9, %28 ], [ 9, %20 ], [ 1, %13 ], [ 9, %36 ]
+  %.0275314 = phi i32 [ 20, %28 ], [ 0, %20 ], [ 0, %13 ], [ 20, %36 ]
+  %.0276313 = phi ptr [ %23, %28 ], [ %15, %20 ], [ null, %13 ], [ %31, %36 ]
+  %.0277312 = phi i32 [ 2, %28 ], [ 1, %20 ], [ 0, %13 ], [ 3, %36 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0274315, i32 noundef %.0277312, ptr noundef null, i32 noundef %.0275314, ptr noundef %.0276313) #25
   br label %98
 
 .thread318:                                       ; preds = %36, %.thread302
@@ -18127,11 +18127,11 @@ define hidden void @zim_DatePeriod___set_state(ptr noundef %0, ptr noundef %1) #
   br i1 %.not52, label %11, label %10
 
 10:                                               ; preds = %5, %6
-  %.048.ph = phi ptr [ %7, %6 ], [ null, %5 ]
-  %.047.ph = phi i32 [ 6, %6 ], [ 0, %5 ]
-  %.046.ph = phi i32 [ 1, %6 ], [ 0, %5 ]
+  %.048.ph = phi i32 [ 1, %6 ], [ 0, %5 ]
+  %.047.ph = phi ptr [ %7, %6 ], [ null, %5 ]
+  %.046.ph = phi i32 [ 6, %6 ], [ 0, %5 ]
   %.0.ph = phi i32 [ 9, %6 ], [ 1, %5 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.046.ph, ptr noundef null, i32 noundef %.047.ph, ptr noundef %.048.ph) #25
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.048.ph, ptr noundef null, i32 noundef %.046.ph, ptr noundef %.047.ph) #25
   br label %19
 
 11:                                               ; preds = %6
@@ -18706,11 +18706,11 @@ define hidden void @zim_DatePeriod___unserialize(ptr noundef %0, ptr nocapture r
   br i1 %.not54, label %12, label %11
 
 11:                                               ; preds = %6, %7
-  %.050.ph = phi ptr [ %8, %7 ], [ null, %6 ]
-  %.049.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
-  %.048.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
+  %.050.ph = phi i32 [ 1, %7 ], [ 0, %6 ]
+  %.049.ph = phi ptr [ %8, %7 ], [ null, %6 ]
+  %.048.ph = phi i32 [ 6, %7 ], [ 0, %6 ]
   %.0.ph = phi i32 [ 9, %7 ], [ 1, %6 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.048.ph, ptr noundef null, i32 noundef %.049.ph, ptr noundef %.050.ph) #25
+  tail call void @zend_wrong_parameter_error(i32 noundef %.0.ph, i32 noundef %.050.ph, ptr noundef null, i32 noundef %.048.ph, ptr noundef %.049.ph) #25
   br label %restore_custom_dateperiod_properties.exit
 
 12:                                               ; preds = %7
@@ -19738,13 +19738,13 @@ define internal ptr @date_interval_read_property(ptr noundef %0, ptr noundef %1,
   br label %67
 
 63:                                               ; preds = %17, %20, %24, %28, %32, %36, %42, %49
-  %.0107.ph = phi i64 [ %52, %49 ], [ %46, %42 ], [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %17 ]
-  %.not123 = icmp eq i64 %.0107.ph, -9999999
+  %.0106.ph = phi i64 [ %52, %49 ], [ %46, %42 ], [ %39, %36 ], [ %35, %32 ], [ %31, %28 ], [ %27, %24 ], [ %23, %20 ], [ %19, %17 ]
+  %.not123 = icmp eq i64 %.0106.ph, -9999999
   br i1 %.not123, label %65, label %.thread127
 
 .thread127:                                       ; preds = %54, %63
-  %.0107126130 = phi i64 [ %.0107.ph, %63 ], [ -1, %54 ]
-  store i64 %.0107126130, ptr %4, align 8
+  %.0106126130 = phi i64 [ %.0106.ph, %63 ], [ -1, %54 ]
+  store i64 %.0106126130, ptr %4, align 8
   %64 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 4, ptr %64, align 8
   br label %67
@@ -19755,8 +19755,8 @@ define internal ptr @date_interval_read_property(ptr noundef %0, ptr noundef %1,
   br label %67
 
 67:                                               ; preds = %61, %65, %.thread127, %.critedge16, %10
-  %.0 = phi ptr [ %53, %.critedge16 ], [ %11, %10 ], [ %4, %.thread127 ], [ %4, %65 ], [ %4, %61 ]
-  ret ptr %.0
+  %.0107 = phi ptr [ %53, %.critedge16 ], [ %11, %10 ], [ %4, %.thread127 ], [ %4, %65 ], [ %4, %61 ]
+  ret ptr %.0107
 }
 
 ; Function Attrs: nounwind uwtable
@@ -19953,10 +19953,10 @@ define internal ptr @date_interval_write_property(ptr noundef %0, ptr noundef %1
   br label %107
 
 107:                                              ; preds = %95, %105, %103
-  %.0 = phi i64 [ %104, %103 ], [ %106, %105 ], [ 0, %95 ]
+  %.0129 = phi i64 [ %104, %103 ], [ %106, %105 ], [ 0, %95 ]
   %108 = load ptr, ptr %5, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 48
-  store i64 %.0, ptr %109, align 8
+  store i64 %.0129, ptr %109, align 8
   br label %126
 
 110:                                              ; preds = %11
@@ -19992,8 +19992,8 @@ define internal ptr @date_interval_write_property(ptr noundef %0, ptr noundef %1
   br label %126
 
 126:                                              ; preds = %24, %35, %47, %59, %71, %83, %107, %120, %.critedge15, %9
-  %.0129 = phi ptr [ %10, %9 ], [ %2, %24 ], [ %2, %35 ], [ %2, %47 ], [ %2, %59 ], [ %2, %71 ], [ %2, %83 ], [ %2, %107 ], [ %2, %120 ], [ %125, %.critedge15 ]
-  ret ptr %.0129
+  %.0130 = phi ptr [ %10, %9 ], [ %2, %24 ], [ %2, %35 ], [ %2, %47 ], [ %2, %59 ], [ %2, %71 ], [ %2, %83 ], [ %2, %107 ], [ %2, %120 ], [ %125, %.critedge15 ]
+  ret ptr %.0130
 }
 
 ; Function Attrs: nounwind uwtable

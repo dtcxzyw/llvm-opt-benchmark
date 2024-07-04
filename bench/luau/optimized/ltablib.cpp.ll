@@ -293,7 +293,7 @@ define internal noundef i32 @_ZL4maxnP9lua_State(ptr noundef %0) #0 {
   br label %16
 
 .preheader:                                       ; preds = %16, %1
-  %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %16 ]
+  %.021.lcssa = phi double [ 0.000000e+00, %1 ], [ %.1, %16 ]
   %10 = getelementptr inbounds i8, ptr %4, i64 6
   %11 = load i8, ptr %10, align 2
   %.not = icmp eq i8 %11, 31
@@ -310,20 +310,20 @@ define internal noundef i32 @_ZL4maxnP9lua_State(ptr noundef %0) #0 {
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %.024 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %16 ]
+  %.02123 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %16 ]
   %17 = getelementptr inbounds %struct.lua_TValue, ptr %9, i64 %indvars.iv, i32 2
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = trunc nuw nsw i64 %indvars.iv.next to i32
   %21 = uitofp nneg i32 %20 to double
-  %.1 = select i1 %19, double %.024, double %21
+  %.1 = select i1 %19, double %.02123, double %21
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %16, !llvm.loop !11
 
 22:                                               ; preds = %.lr.ph27, %37
   %indvars.iv30 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next31, %37 ]
-  %.226 = phi double [ %.0.lcssa, %.lr.ph27 ], [ %.3, %37 ]
+  %.225 = phi double [ %.021.lcssa, %.lr.ph27 ], [ %.3, %37 ]
   %23 = getelementptr inbounds %struct.LuaNode, ptr %15, i64 %indvars.iv30
   %24 = getelementptr inbounds i8, ptr %23, i64 12
   %25 = load i32, ptr %24, align 4
@@ -340,20 +340,20 @@ define internal noundef i32 @_ZL4maxnP9lua_State(ptr noundef %0) #0 {
 32:                                               ; preds = %27
   %33 = getelementptr inbounds i8, ptr %23, i64 16
   %34 = load double, ptr %33, align 8
-  %35 = fcmp ogt double %34, %.226
+  %35 = fcmp ogt double %34, %.225
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %32
   br label %37
 
 37:                                               ; preds = %22, %27, %36, %32
-  %.3 = phi double [ %.226, %22 ], [ %34, %36 ], [ %.226, %32 ], [ %.226, %27 ]
+  %.3 = phi double [ %.225, %22 ], [ %34, %36 ], [ %.225, %32 ], [ %.225, %27 ]
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
   br i1 %exitcond34.not, label %._crit_edge, label %22, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %37, %.preheader
-  %.2.lcssa = phi double [ %.0.lcssa, %.preheader ], [ %.3, %37 ]
+  %.2.lcssa = phi double [ %.021.lcssa, %.preheader ], [ %.3, %37 ]
   tail call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %.2.lcssa)
   ret i32 1
 }
@@ -1085,13 +1085,13 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TVal
 
 17:                                               ; preds = %.lr.ph, %129
   %.096160 = phi i32 [ %2, %.lr.ph ], [ %.197, %129 ]
-  %.098159 = phi i32 [ %3, %.lr.ph ], [ %.199, %129 ]
-  %.0100158 = phi i32 [ %4, %.lr.ph ], [ %121, %129 ]
-  %18 = icmp eq i32 %.0100158, 0
+  %.098159 = phi i32 [ %4, %.lr.ph ], [ %121, %129 ]
+  %.099158 = phi i32 [ %3, %.lr.ph ], [ %.1100, %129 ]
+  %18 = icmp eq i32 %.098159, 0
   br i1 %18, label %19, label %35
 
 19:                                               ; preds = %17
-  %20 = sub nsw i32 %.098159, %.096160
+  %20 = sub nsw i32 %.099158, %.096160
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph.preheader.i, label %_ZL9sort_heapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit
 
@@ -1108,7 +1108,7 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TVal
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.024.in25.i = phi i32 [ %.024.i, %.lr.ph.i ], [ %23, %.lr.ph.preheader.i ]
   %.024.i = add nsw i32 %.024.in25.i, -1
-  tail call fastcc void @_ZL13sort_siftheapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %.096160, i32 noundef %.098159, ptr noundef readonly %5, i32 noundef %.024.i)
+  tail call fastcc void @_ZL13sort_siftheapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %.096160, i32 noundef %.099158, ptr noundef readonly %5, i32 noundef %.024.i)
   %26 = icmp ugt i32 %.024.in25.i, 1
   br i1 %26, label %.lr.ph.i, label %.lr.ph27.i, !llvm.loop !20
 
@@ -1133,7 +1133,7 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TVal
 35:                                               ; preds = %17
   %36 = load ptr, ptr %15, align 8
   %37 = load i32, ptr %16, align 8
-  %38 = sext i32 %.098159 to i64
+  %38 = sext i32 %.099158 to i64
   %39 = getelementptr inbounds %struct.lua_TValue, ptr %36, i64 %38
   %40 = sext i32 %.096160 to i64
   %41 = getelementptr inbounds %struct.lua_TValue, ptr %36, i64 %40
@@ -1162,7 +1162,7 @@ _Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit: ; preds = %35
   br label %49
 
 49:                                               ; preds = %45, %_Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit
-  %50 = sub nsw i32 %.098159, %.096160
+  %50 = sub nsw i32 %.099158, %.096160
   %51 = icmp eq i32 %50, 1
   br i1 %51, label %_ZL9sort_heapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit, label %52
 
@@ -1231,7 +1231,7 @@ _Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit116: ; preds = %67
   br i1 %79, label %_ZL9sort_heapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit, label %80
 
 80:                                               ; preds = %78
-  %81 = add nsw i32 %.098159, -1
+  %81 = add nsw i32 %.099158, -1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %82 = load ptr, ptr %15, align 8
   %83 = getelementptr inbounds %struct.lua_TValue, ptr %82, i64 %57
@@ -1335,11 +1335,11 @@ _Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit120: ; preds = %99
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %118, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %118, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %119 = lshr i32 %.0100158, 1
-  %120 = lshr i32 %.0100158, 2
+  %119 = lshr i32 %.098159, 1
+  %120 = lshr i32 %.098159, 2
   %121 = add nuw nsw i32 %119, %120
   %122 = sub nsw i32 %95, %.096160
-  %123 = sub nsw i32 %.098159, %95
+  %123 = sub nsw i32 %.099158, %95
   %124 = icmp slt i32 %122, %123
   br i1 %124, label %125, label %127
 
@@ -1350,13 +1350,13 @@ _Z9sort_lessP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit120: ; preds = %99
 
 127:                                              ; preds = %114
   %128 = add nsw i32 %115, 2
-  tail call fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TValueS5_E(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %128, i32 noundef %.098159, i32 noundef %121, ptr noundef %5)
+  tail call fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TValueS5_E(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %128, i32 noundef %.099158, i32 noundef %121, ptr noundef %5)
   br label %129
 
 129:                                              ; preds = %127, %125
-  %.199 = phi i32 [ %.098159, %125 ], [ %115, %127 ]
+  %.1100 = phi i32 [ %.099158, %125 ], [ %115, %127 ]
   %.197 = phi i32 [ %126, %125 ], [ %.096160, %127 ]
-  %130 = icmp slt i32 %.197, %.199
+  %130 = icmp slt i32 %.197, %.1100
   br i1 %130, label %17, label %_ZL9sort_heapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit, !llvm.loop !25
 
 _ZL9sort_heapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_E.exit: ; preds = %129, %49, %78, %27, %6, %19

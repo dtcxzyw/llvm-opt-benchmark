@@ -203,7 +203,7 @@ define dso_local i32 @CreateEventTrigger(ptr nocapture noundef readonly %0) loca
 
 42:                                               ; preds = %.lr.ph82, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next, %53 ]
-  %.0467080 = phi ptr [ null, %.lr.ph82 ], [ %55, %53 ]
+  %.06981 = phi ptr [ null, %.lr.ph82 ], [ %55, %53 ]
   %43 = getelementptr %union.ListCell, ptr %41, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 16
@@ -213,7 +213,7 @@ define dso_local i32 @CreateEventTrigger(ptr nocapture noundef readonly %0) loca
   br i1 %48, label %49, label %.split74
 
 49:                                               ; preds = %42
-  %.not57 = icmp eq ptr %.0467080, null
+  %.not57 = icmp eq ptr %.06981, null
   br i1 %.not57, label %53, label %.split77
 
 .split77:                                         ; preds = %49
@@ -242,7 +242,7 @@ define dso_local i32 @CreateEventTrigger(ptr nocapture noundef readonly %0) loca
   unreachable
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph, %34
-  %.046.lcssa = phi ptr [ null, %34 ], [ null, %.lr.ph ], [ %55, %53 ]
+  %.0.lcssa = phi ptr [ null, %34 ], [ null, %.lr.ph ], [ %55, %53 ]
   br i1 %.not, label %68, label %61
 
 61:                                               ; preds = %._crit_edge
@@ -253,29 +253,29 @@ define dso_local i32 @CreateEventTrigger(ptr nocapture noundef readonly %0) loca
 64:                                               ; preds = %61
   %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(9) @.str.5) #15
   %66 = icmp eq i32 %65, 0
-  %67 = icmp ne ptr %.046.lcssa, null
+  %67 = icmp ne ptr %.0.lcssa, null
   %or.cond = select i1 %66, i1 %67, i1 false
   br i1 %or.cond, label %validate_table_rewrite_tags.exit.sink.split, label %69
 
 68:                                               ; preds = %61, %._crit_edge
-  %.old1.not = icmp eq ptr %.046.lcssa, null
+  %.old1.not = icmp eq ptr %.0.lcssa, null
   br i1 %.old1.not, label %69, label %validate_table_rewrite_tags.exit.sink.split
 
 69:                                               ; preds = %68, %64
   %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(14) @.str.7) #15
   %71 = icmp eq i32 %70, 0
-  %72 = icmp ne ptr %.046.lcssa, null
+  %72 = icmp ne ptr %.0.lcssa, null
   %or.cond4 = select i1 %71, i1 %72, i1 false
   br i1 %or.cond4, label %73, label %92
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %.046.lcssa, i64 4
+  %74 = getelementptr inbounds i8, ptr %.0.lcssa, i64 4
   %75 = load i32, ptr %74, align 4
   %.not3.i = icmp sgt i32 %75, 0
   br i1 %.not3.i, label %.lr.ph.i, label %validate_table_rewrite_tags.exit
 
 .lr.ph.i:                                         ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %.046.lcssa, i64 16
+  %76 = getelementptr inbounds i8, ptr %.0.lcssa, i64 16
   br label %80
 
 77:                                               ; preds = %80
@@ -319,7 +319,7 @@ define dso_local i32 @CreateEventTrigger(ptr nocapture noundef readonly %0) loca
   unreachable
 
 validate_table_rewrite_tags.exit.sink.split:      ; preds = %68, %64
-  tail call fastcc void @validate_ddl_tags(ptr noundef nonnull %.046.lcssa)
+  tail call fastcc void @validate_ddl_tags(ptr noundef nonnull %.0.lcssa)
   br label %validate_table_rewrite_tags.exit
 
 validate_table_rewrite_tags.exit:                 ; preds = %77, %validate_table_rewrite_tags.exit.sink.split, %73, %92
@@ -387,7 +387,7 @@ validate_table_rewrite_tags.exit:                 ; preds = %77, %validate_table
   store i64 %131, ptr %132, align 16
   %133 = getelementptr inbounds i8, ptr %2, i64 40
   store i64 79, ptr %133, align 8
-  %134 = icmp eq ptr %.046.lcssa, null
+  %134 = icmp eq ptr %.0.lcssa, null
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %119
@@ -396,7 +396,7 @@ validate_table_rewrite_tags.exit:                 ; preds = %77, %validate_table
   br label %164
 
 137:                                              ; preds = %119
-  %138 = getelementptr i8, ptr %.046.lcssa, i64 4
+  %138 = getelementptr i8, ptr %.0.lcssa, i64 4
   %.val.i.i = load i32, ptr %138, align 4
   %139 = sext i32 %.val.i.i to i64
   %140 = shl nsw i64 %139, 3
@@ -406,7 +406,7 @@ validate_table_rewrite_tags.exit:                 ; preds = %77, %validate_table
   br i1 %.not28.i.i, label %.lr.ph32.i.i, label %filter_list_to_array.exit.i
 
 .lr.ph32.i.i:                                     ; preds = %137
-  %143 = getelementptr inbounds i8, ptr %.046.lcssa, i64 16
+  %143 = getelementptr inbounds i8, ptr %.0.lcssa, i64 16
   br label %144
 
 144:                                              ; preds = %._crit_edge.i.i, %.lr.ph32.i.i
@@ -879,7 +879,7 @@ define dso_local void @EventTriggerDDLCommandStart(ptr noundef %0) local_unnamed
 
 .lr.ph.split.i:                                   ; preds = %filter_event_trigger.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.02532.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
+  %.032.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr %union.ListCell, ptr %16, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
@@ -909,11 +909,11 @@ define dso_local void @EventTriggerDDLCommandStart(ptr noundef %0) local_unnamed
 
 filter_event_trigger.exit.i:                      ; preds = %31, %27
   %33 = load i32, ptr %18, align 8
-  %34 = tail call ptr @lappend_oid(ptr noundef %.02532.i, i32 noundef %33) #13
+  %34 = tail call ptr @lappend_oid(ptr noundef %.032.i, i32 noundef %33) #13
   br label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %31, %25, %23
-  %.1.i = phi ptr [ %34, %filter_event_trigger.exit.i ], [ %.02532.i, %23 ], [ %.02532.i, %25 ], [ %.02532.i, %31 ]
+  %.1.i = phi ptr [ %34, %filter_event_trigger.exit.i ], [ %.032.i, %23 ], [ %.032.i, %25 ], [ %.032.i, %31 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = load i32, ptr %13, align 4
   %36 = sext i32 %35 to i64
@@ -967,7 +967,7 @@ define internal fastcc void @EventTriggerInvoke(ptr nocapture noundef readonly %
 
 17:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.02228 = phi i1 [ true, %.lr.ph ], [ false, %26 ]
+  %.02227 = phi i1 [ true, %.lr.ph ], [ false, %26 ]
   %18 = load ptr, ptr %11, align 8
   %19 = getelementptr %union.ListCell, ptr %18, i64 %indvars.iv
   %20 = load i32, ptr %19, align 8
@@ -980,7 +980,7 @@ define internal fastcc void @EventTriggerInvoke(ptr nocapture noundef readonly %
   br label %24
 
 24:                                               ; preds = %17, %22
-  br i1 %.02228, label %26, label %25
+  br i1 %.02227, label %26, label %25
 
 25:                                               ; preds = %24
   call void @CommandCounterIncrement() #13
@@ -1049,7 +1049,7 @@ define dso_local void @EventTriggerDDLCommandEnd(ptr noundef %0) local_unnamed_a
 
 .lr.ph.split.i:                                   ; preds = %filter_event_trigger.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.02532.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
+  %.032.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr %union.ListCell, ptr %18, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
@@ -1079,11 +1079,11 @@ define dso_local void @EventTriggerDDLCommandEnd(ptr noundef %0) local_unnamed_a
 
 filter_event_trigger.exit.i:                      ; preds = %33, %29
   %35 = load i32, ptr %20, align 8
-  %36 = tail call ptr @lappend_oid(ptr noundef %.02532.i, i32 noundef %35) #13
+  %36 = tail call ptr @lappend_oid(ptr noundef %.032.i, i32 noundef %35) #13
   br label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %33, %27, %25
-  %.1.i = phi ptr [ %36, %filter_event_trigger.exit.i ], [ %.02532.i, %25 ], [ %.02532.i, %27 ], [ %.02532.i, %33 ]
+  %.1.i = phi ptr [ %36, %filter_event_trigger.exit.i ], [ %.032.i, %25 ], [ %.032.i, %27 ], [ %.032.i, %33 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %37 = load i32, ptr %15, align 4
   %38 = sext i32 %37 to i64
@@ -1151,7 +1151,7 @@ define dso_local void @EventTriggerSQLDrop(ptr noundef %0) local_unnamed_addr #0
 
 .lr.ph.split.i:                                   ; preds = %filter_event_trigger.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.02532.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
+  %.032.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr %union.ListCell, ptr %22, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8
@@ -1181,11 +1181,11 @@ define dso_local void @EventTriggerSQLDrop(ptr noundef %0) local_unnamed_addr #0
 
 filter_event_trigger.exit.i:                      ; preds = %37, %33
   %39 = load i32, ptr %24, align 8
-  %40 = call ptr @lappend_oid(ptr noundef %.02532.i, i32 noundef %39) #13
+  %40 = call ptr @lappend_oid(ptr noundef %.032.i, i32 noundef %39) #13
   br label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %37, %31, %29
-  %.1.i = phi ptr [ %40, %filter_event_trigger.exit.i ], [ %.02532.i, %29 ], [ %.02532.i, %31 ], [ %.02532.i, %37 ]
+  %.1.i = phi ptr [ %40, %filter_event_trigger.exit.i ], [ %.032.i, %29 ], [ %.032.i, %31 ], [ %.032.i, %37 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %41 = load i32, ptr %19, align 4
   %42 = sext i32 %41 to i64
@@ -1283,7 +1283,7 @@ define dso_local void @EventTriggerOnLogin() local_unnamed_addr #0 {
 
 .lr.ph.split.i:                                   ; preds = %filter_event_trigger.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.02532.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
+  %.032.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr %union.ListCell, ptr %20, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
@@ -1313,11 +1313,11 @@ define dso_local void @EventTriggerOnLogin() local_unnamed_addr #0 {
 
 filter_event_trigger.exit.i:                      ; preds = %35, %31
   %37 = load i32, ptr %22, align 8
-  %38 = tail call ptr @lappend_oid(ptr noundef %.02532.i, i32 noundef %37) #13
+  %38 = tail call ptr @lappend_oid(ptr noundef %.032.i, i32 noundef %37) #13
   br label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %35, %29, %27
-  %.1.i = phi ptr [ %38, %filter_event_trigger.exit.i ], [ %.02532.i, %27 ], [ %.02532.i, %29 ], [ %.02532.i, %35 ]
+  %.1.i = phi ptr [ %38, %filter_event_trigger.exit.i ], [ %.032.i, %27 ], [ %.032.i, %29 ], [ %.032.i, %35 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %39 = load i32, ptr %17, align 4
   %40 = sext i32 %39 to i64
@@ -1365,12 +1365,12 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
 
 filter_event_trigger.exit.us.i:                   ; preds = %filter_event_trigger.exit.us.i, %.lr.ph.i24
   %indvars.iv36.i = phi i64 [ %indvars.iv.next37.i, %filter_event_trigger.exit.us.i ], [ 0, %.lr.ph.i24 ]
-  %.02532.us.i = phi ptr [ %61, %filter_event_trigger.exit.us.i ], [ null, %.lr.ph.i24 ]
+  %.032.us.i = phi ptr [ %61, %filter_event_trigger.exit.us.i ], [ null, %.lr.ph.i24 ]
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr %union.ListCell, ptr %57, i64 %indvars.iv36.i
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %59, align 8
-  %61 = tail call ptr @lappend_oid(ptr noundef %.02532.us.i, i32 noundef %60) #13
+  %61 = tail call ptr @lappend_oid(ptr noundef %.032.us.i, i32 noundef %60) #13
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %62 = load i32, ptr %54, align 4
   %63 = sext i32 %62 to i64
@@ -1502,7 +1502,7 @@ define dso_local void @EventTriggerTableRewrite(ptr noundef %0, i32 noundef %1, 
 
 .lr.ph.split.i:                                   ; preds = %filter_event_trigger.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
-  %.02532.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
+  %.032.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr %union.ListCell, ptr %21, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
@@ -1532,11 +1532,11 @@ define dso_local void @EventTriggerTableRewrite(ptr noundef %0, i32 noundef %1, 
 
 filter_event_trigger.exit.i:                      ; preds = %36, %32
   %38 = load i32, ptr %23, align 8
-  %39 = call ptr @lappend_oid(ptr noundef %.02532.i, i32 noundef %38) #13
+  %39 = call ptr @lappend_oid(ptr noundef %.032.i, i32 noundef %38) #13
   br label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %36, %30, %28
-  %.1.i = phi ptr [ %39, %filter_event_trigger.exit.i ], [ %.02532.i, %28 ], [ %.02532.i, %30 ], [ %.02532.i, %36 ]
+  %.1.i = phi ptr [ %39, %filter_event_trigger.exit.i ], [ %.032.i, %28 ], [ %.032.i, %30 ], [ %.032.i, %36 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %40 = load i32, ptr %18, align 4
   %41 = sext i32 %40 to i64
@@ -2960,7 +2960,7 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   br label %92
 
 92:                                               ; preds = %61, %89, %57
-  %.075 = phi ptr [ %91, %89 ], [ null, %61 ], [ null, %57 ]
+  %.0 = phi ptr [ %91, %89 ], [ null, %61 ], [ null, %57 ]
   %93 = load <2 x i32>, ptr %4, align 8
   %94 = zext <2 x i32> %93 to <2 x i64>
   store <2 x i64> %94, ptr %2, align 16
@@ -2977,7 +2977,7 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   %103 = call ptr @cstring_to_text(ptr noundef %58) #13
   %104 = ptrtoint ptr %103 to i64
   store i64 %104, ptr %24, align 16
-  %105 = icmp eq ptr %.075, null
+  %105 = icmp eq ptr %.0, null
   br i1 %105, label %106, label %107
 
 106:                                              ; preds = %92
@@ -2985,7 +2985,7 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   br label %110
 
 107:                                              ; preds = %92
-  %108 = call ptr @cstring_to_text(ptr noundef nonnull %.075) #13
+  %108 = call ptr @cstring_to_text(ptr noundef nonnull %.0) #13
   %109 = ptrtoint ptr %108 to i64
   store i64 %109, ptr %30, align 8
   br label %110

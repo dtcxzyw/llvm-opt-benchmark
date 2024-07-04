@@ -1256,9 +1256,9 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %7 = ptrtoint ptr %6 to i64
   %.not.i.i.i.i = icmp sgt ptr %6, inttoptr (i64 -4096 to ptr)
   %8 = icmp slt ptr %6, null
-  %.014.i.i.i.i = and i1 %.not.i.i.i.i, %8
+  %.0.i.i.i.i = and i1 %.not.i.i.i.i, %8
   %.tr = trunc i64 %7 to i32
-  br i1 %.014.i.i.i.i, label %19, label %9
+  br i1 %.0.i.i.i.i, label %19, label %9
 
 9:                                                ; preds = %2
   %10 = lshr i32 %.tr, 10
@@ -1309,9 +1309,9 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %8 = ptrtoint ptr %7 to i64
   %.not.i.i.i.i = icmp sgt ptr %7, inttoptr (i64 -4096 to ptr)
   %9 = icmp slt ptr %7, null
-  %.014.i.i.i.i = and i1 %.not.i.i.i.i, %9
+  %.0.i.i.i.i = and i1 %.not.i.i.i.i, %9
   %.tr = trunc i64 %8 to i32
-  br i1 %.014.i.i.i.i, label %20, label %10
+  br i1 %.0.i.i.i.i, label %20, label %10
 
 10:                                               ; preds = %2
   %11 = lshr i32 %.tr, 10
@@ -1362,9 +1362,9 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %8 = ptrtoint ptr %7 to i64
   %.not.i.i.i.i = icmp sgt ptr %7, inttoptr (i64 -4096 to ptr)
   %9 = icmp slt ptr %7, null
-  %.014.i.i.i.i = and i1 %.not.i.i.i.i, %9
+  %.0.i.i.i.i = and i1 %.not.i.i.i.i, %9
   %.tr = trunc i64 %8 to i32
-  br i1 %.014.i.i.i.i, label %20, label %10
+  br i1 %.0.i.i.i.i, label %20, label %10
 
 10:                                               ; preds = %2
   %11 = lshr i32 %.tr, 10
@@ -1415,9 +1415,9 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %8 = ptrtoint ptr %7 to i64
   %.not.i.i.i.i = icmp sgt ptr %7, inttoptr (i64 -4096 to ptr)
   %9 = icmp slt ptr %7, null
-  %.014.i.i.i.i = and i1 %.not.i.i.i.i, %9
+  %.0.i.i.i.i = and i1 %.not.i.i.i.i, %9
   %.tr = trunc i64 %8 to i32
-  br i1 %.014.i.i.i.i, label %20, label %10
+  br i1 %.0.i.i.i.i, label %20, label %10
 
 10:                                               ; preds = %2
   %11 = lshr i32 %.tr, 10
@@ -1468,9 +1468,9 @@ define hidden void @"_ZN67_$LT$T$u20$as$u20$system_interface..fs..fd_flags..GetS
   %8 = ptrtoint ptr %7 to i64
   %.not.i.i.i.i = icmp sgt ptr %7, inttoptr (i64 -4096 to ptr)
   %9 = icmp slt ptr %7, null
-  %.014.i.i.i.i = and i1 %.not.i.i.i.i, %9
+  %.0.i.i.i.i = and i1 %.not.i.i.i.i, %9
   %.tr = trunc i64 %8 to i32
-  br i1 %.014.i.i.i.i, label %20, label %10
+  br i1 %.0.i.i.i.i, label %20, label %10
 
 10:                                               ; preds = %2
   %11 = lshr i32 %.tr, 10
@@ -3538,8 +3538,8 @@ default.unreachable151:                           ; preds = %3
   unreachable
 
 10:                                               ; preds = %66, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i53", %78
-  %.sroa.1073.sroa.15.0135 = phi i64 [ undef, %78 ], [ %.sroa.1073.sroa.15.0.copyload, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i53" ], [ %.sroa.1073.sroa.15.0.copyload, %66 ]
-  %.sroa.1073.sroa.12.0128 = phi i64 [ undef, %78 ], [ %.sroa.1073.sroa.12.0.copyload, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i53" ], [ %.sroa.1073.sroa.12.0.copyload, %66 ]
+  %.sroa.1073.sroa.12.0134 = phi i64 [ undef, %78 ], [ %.sroa.1073.sroa.12.0.copyload, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i53" ], [ %.sroa.1073.sroa.12.0.copyload, %66 ]
+  %.sroa.1073.sroa.15.0128 = phi i64 [ undef, %78 ], [ %.sroa.1073.sroa.15.0.copyload, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i53" ], [ %.sroa.1073.sroa.15.0.copyload, %66 ]
   %.sroa.0103.0 = phi i64 [ %79, %78 ], [ %.16.val.sink.i139, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i53" ], [ %.16.val.sink.i139, %66 ]
   %.sroa.3.0 = phi i32 [ 1000000001, %78 ], [ %.sroa.3.0.i, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i53" ], [ %.sroa.3.0.i, %66 ]
   %.sroa.5105.0 = phi i64 [ undef, %78 ], [ %.0.val.sink.i144, %"_ZN4core3ptr122drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$std..time..SystemTime$GT$$C$std..io..error..Error$GT$$GT$17h03b93c172cb3d03aE.exit.i53" ], [ %.0.val.sink.i144, %66 ]
@@ -3561,9 +3561,9 @@ default.unreachable151:                           ; preds = %3
   %.sroa.9111.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store <2 x i64> %11, ptr %.sroa.9111.0..sroa_idx, align 8
   %.sroa.11113.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %.sroa.1073.sroa.15.0135, ptr %.sroa.11113.0..sroa_idx, align 8
+  store i64 %.sroa.1073.sroa.15.0128, ptr %.sroa.11113.0..sroa_idx, align 8
   %.sroa.12114.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
-  store i64 %.sroa.1073.sroa.12.0128, ptr %.sroa.12114.0..sroa_idx, align 8
+  store i64 %.sroa.1073.sroa.12.0134, ptr %.sroa.12114.0..sroa_idx, align 8
   %.sroa.13115.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
   store i8 %.sroa.13115.0, ptr %.sroa.13115.0..sroa_idx, align 8
   store i8 1, ptr %8, align 8
@@ -4256,8 +4256,8 @@ default.unreachable16:                            ; preds = %3
   %24 = ptrtoint ptr %23 to i64
   %.not.i.i.i.i.i = icmp sgt ptr %23, inttoptr (i64 -4096 to ptr)
   %25 = icmp slt ptr %23, null
-  %.014.i.i.i.i.i = and i1 %.not.i.i.i.i.i, %25
-  br i1 %.014.i.i.i.i.i, label %28, label %6
+  %.0.i.i.i.i.i = and i1 %.not.i.i.i.i.i, %25
+  br i1 %.0.i.i.i.i.i, label %28, label %6
 
 26:                                               ; preds = %7
   %27 = landingpad { ptr, i32 }
@@ -4491,8 +4491,8 @@ _ZN4core4iter6traits8iterator8Iterator3sum17h998cd3cdd4c7dcb3E.exit: ; preds = %
   %32 = ptrtoint ptr %31 to i64
   %.not.i.i.i.i.i = icmp sgt ptr %31, inttoptr (i64 -4096 to ptr)
   %33 = icmp slt ptr %31, null
-  %.014.i.i.i.i.i = and i1 %.not.i.i.i.i.i, %33
-  br i1 %.014.i.i.i.i.i, label %36, label %6
+  %.0.i.i.i.i.i = and i1 %.not.i.i.i.i.i, %33
+  br i1 %.0.i.i.i.i.i, label %36, label %6
 
 34:                                               ; preds = %20
   %35 = landingpad { ptr, i32 }
@@ -4680,8 +4680,8 @@ default.unreachable18:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.thread.i.thread23, %51, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.thread.i
-  %.sroa.015.0 = phi i64 [ 0, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.thread.i ], [ 1, %51 ], [ 0, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.thread.i.thread23 ]
   %.sroa.3.0.in = phi ptr [ %.sroa.7.0, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.thread.i ], [ %52, %51 ], [ %.sroa.7.0.copyload.pre, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.thread.i.thread23 ]
+  %.sroa.015.0 = phi i64 [ 0, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.thread.i ], [ 1, %51 ], [ 0, %_ZN3std2io5error14repr_bitpacked11decode_repr17h068937df7005a051E.exit.thread.i.thread23 ]
   %.sroa.3.0 = ptrtoint ptr %.sroa.3.0.in to i64
   store i64 %.sroa.015.0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

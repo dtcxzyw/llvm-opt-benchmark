@@ -11,8 +11,8 @@ target triple = "x86_64-pc-linux-gnu"
 define zeroext i8 @linear2alaw(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp sgt i32 %0, -1
   %3 = sub nsw i32 -8, %0
-  %.017 = select i1 %2, i32 %0, i32 %3
-  %.016 = select i1 %2, i8 -43, i8 85
+  %.016 = select i1 %2, i32 %0, i32 %3
+  %.015 = select i1 %2, i8 -43, i8 85
   br label %4
 
 4:                                                ; preds = %7, %1
@@ -20,7 +20,7 @@ define zeroext i8 @linear2alaw(i32 noundef %0) local_unnamed_addr #0 {
   %.081.i = phi ptr [ @seg_end, %1 ], [ %8, %7 ]
   %5 = load i16, ptr %.081.i, align 2
   %6 = sext i16 %5 to i32
-  %.not.i = icmp sgt i32 %.017, %6
+  %.not.i = icmp sgt i32 %.016, %6
   br i1 %.not.i, label %7, label %search.exit
 
 7:                                                ; preds = %4
@@ -34,27 +34,27 @@ search.exit:                                      ; preds = %4
   br i1 %10, label %search.exit.thread, label %12
 
 search.exit.thread:                               ; preds = %7, %search.exit
-  %11 = xor i8 %.016, 127
+  %11 = xor i8 %.015, 127
   br label %22
 
 12:                                               ; preds = %search.exit
   %.tr = trunc nuw i32 %.02.i to i8
   %13 = shl nuw nsw i8 %.tr, 4
   %14 = icmp ult i32 %.02.i, 2
-  %15 = trunc i32 %.017 to i8
+  %15 = trunc i32 %.016 to i8
   %16 = lshr i8 %15, 4
   %17 = add nuw nsw i32 %.02.i, 3
-  %18 = ashr i32 %.017, %17
+  %18 = ashr i32 %.016, %17
   %19 = trunc i32 %18 to i8
   %20 = and i8 %19, 15
   %.pn = select i1 %14, i8 %16, i8 %20
   %.0 = or disjoint i8 %.pn, %13
-  %21 = xor i8 %.0, %.016
+  %21 = xor i8 %.0, %.015
   br label %22
 
 22:                                               ; preds = %12, %search.exit.thread
-  %.015 = phi i8 [ %11, %search.exit.thread ], [ %21, %12 ]
-  ret i8 %.015
+  %.017 = phi i8 [ %11, %search.exit.thread ], [ %21, %12 ]
+  ret i8 %.017
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -95,9 +95,9 @@ define i32 @alaw2linear(i8 noundef zeroext %0) local_unnamed_addr #1 {
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define zeroext i8 @linear2ulaw(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp slt i32 %0, 0
-  %.013 = select i1 %2, i32 127, i32 255
-  %.012.p = tail call i32 @llvm.abs.i32(i32 %0, i1 false)
-  %.012 = add nuw i32 %.012.p, 132
+  %.013.p = tail call i32 @llvm.abs.i32(i32 %0, i1 false)
+  %.013 = add nuw i32 %.013.p, 132
+  %.012 = select i1 %2, i32 127, i32 255
   br label %3
 
 3:                                                ; preds = %6, %1
@@ -105,7 +105,7 @@ define zeroext i8 @linear2ulaw(i32 noundef %0) local_unnamed_addr #0 {
   %.081.i = phi ptr [ @seg_end, %1 ], [ %7, %6 ]
   %4 = load i16, ptr %.081.i, align 2
   %5 = sext i16 %4 to i32
-  %.not.i = icmp sgt i32 %.012, %5
+  %.not.i = icmp sgt i32 %.013, %5
   br i1 %.not.i, label %6, label %search.exit
 
 6:                                                ; preds = %3
@@ -119,17 +119,17 @@ search.exit:                                      ; preds = %3
   br i1 %9, label %search.exit.thread, label %12
 
 search.exit.thread:                               ; preds = %6, %search.exit
-  %10 = trunc nuw i32 %.013 to i8
+  %10 = trunc nuw i32 %.012 to i8
   %11 = and i8 %10, -128
   br label %20
 
 12:                                               ; preds = %search.exit
   %13 = shl nuw nsw i32 %.02.i, 4
   %14 = add nuw nsw i32 %.02.i, 3
-  %15 = ashr i32 %.012, %14
+  %15 = ashr i32 %.013, %14
   %16 = and i32 %15, 15
   %17 = or disjoint i32 %16, %13
-  %18 = xor i32 %17, %.013
+  %18 = xor i32 %17, %.012
   %19 = trunc nuw i32 %18 to i8
   br label %20
 

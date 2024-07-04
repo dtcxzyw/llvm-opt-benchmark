@@ -1918,8 +1918,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %195, %197
   br label %common.resume
 
 198:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %.thread70, %66, %60, %2
-  %.0 = phi ptr [ null, %2 ], [ %49, %.thread70 ], [ %49, %66 ], [ %49, %60 ], [ %.032, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
-  ret ptr %.0
+  %.031 = phi ptr [ null, %2 ], [ %49, %.thread70 ], [ %49, %66 ], [ %49, %60 ], [ %.032, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
+  ret ptr %.031
 }
 
 ; Function Attrs: nofree nounwind

@@ -194,7 +194,7 @@ for.body.preheader.i:                             ; preds = %for.cond.preheader.
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ %16, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %add_bytes.023.i = phi i64 [ 0, %for.body.preheader.i ], [ %add_bytes.1.i, %for.inc.i ]
+  %add_bytes.022.i = phi i64 [ 0, %for.body.preheader.i ], [ %add_bytes.1.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv.i
   %18 = load ptr, ptr %arrayidx.i, align 8
   %bf.load5.i = load i32, ptr %18, align 8
@@ -250,11 +250,11 @@ sw.bb13.i.i:                                      ; preds = %if.end.i12
 
 sdslen.exit.i:                                    ; preds = %sw.bb13.i.i, %sw.bb9.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb.i.i, %if.end.i12
   %retval.0.i.i = phi i64 [ %24, %sw.bb13.i.i ], [ %conv12.i.i, %sw.bb9.i.i ], [ %conv8.i.i, %sw.bb5.i.i ], [ %conv4.i.i, %sw.bb3.i.i ], [ %conv2.i.i, %sw.bb.i.i ], [ 0, %if.end.i12 ]
-  %add.i = add i64 %retval.0.i.i, %add_bytes.023.i
+  %add.i = add i64 %retval.0.i.i, %add_bytes.022.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sdslen.exit.i, %for.body.i
-  %add_bytes.1.i = phi i64 [ %add.i, %sdslen.exit.i ], [ %add_bytes.023.i, %for.body.i ]
+  %add_bytes.1.i = phi i64 [ %add.i, %sdslen.exit.i ], [ %add_bytes.022.i, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %17, %lftr.wideiv.i
@@ -268,8 +268,8 @@ for.end.i:                                        ; preds = %for.inc.i, %for.con
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %for.end.i, %cond.end.i11
-  %add_length.0.i = phi i64 [ %conv2125.i, %for.end.i ], [ 0, %cond.end.i11 ]
   %add_bytes.2.i = phi i64 [ %add_bytes.0.lcssa.i, %for.end.i ], [ 0, %cond.end.i11 ]
+  %add_length.0.i = phi i64 [ %conv2125.i, %for.end.i ], [ 0, %cond.end.i11 ]
   %25 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5064), align 8
   %ptr23.i = getelementptr inbounds i8, ptr %o, i64 8
   %26 = load ptr, ptr %ptr23.i, align 8

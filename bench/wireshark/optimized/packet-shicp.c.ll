@@ -336,12 +336,12 @@ define internal i32 @dissect_shicp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not235, label %.loopexit, label %.lr.ph234
 
 .lr.ph234:                                        ; preds = %.preheader, %131
-  %.0233 = phi i32 [ %132, %131 ], [ 17, %.preheader ]
-  %76 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0233) #3
-  %77 = add nuw nsw i32 %.0233, 1
+  %.0224233 = phi i32 [ %132, %131 ], [ 17, %.preheader ]
+  %76 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0224233) #3
+  %77 = add nuw nsw i32 %.0224233, 1
   %78 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %77) #3
   %79 = zext i8 %78 to i32
-  %80 = add i32 %.0233, 2
+  %80 = add i32 %.0224233, 2
   switch i8 %76, label %131 [
     i8 0, label %81
     i8 1, label %84
@@ -379,17 +379,17 @@ define internal i32 @dissect_shicp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %93 = zext i8 %92 to i32
   %94 = call ptr @val_to_str(i32 noundef %93, ptr noundef nonnull @message_types, ptr noundef nonnull @.str.81) #3
   call void @wmem_strbuf_append(ptr noundef %11, ptr noundef %94) #3
-  %95 = add nuw nsw i32 %.0233, 3
+  %95 = add nuw nsw i32 %.0224233, 3
   %96 = icmp ult i32 %95, %91
   br i1 %96, label %.lr.ph232, label %._crit_edge
 
 .lr.ph232:                                        ; preds = %90, %.lr.ph232
-  %.0224231 = phi i32 [ %100, %.lr.ph232 ], [ %95, %90 ]
-  %97 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0224231) #3
+  %.0231 = phi i32 [ %100, %.lr.ph232 ], [ %95, %90 ]
+  %97 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0231) #3
   %98 = zext i8 %97 to i32
   %99 = call ptr @val_to_str(i32 noundef %98, ptr noundef nonnull @message_types, ptr noundef nonnull @.str.81) #3
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %11, ptr noundef nonnull @.str.84, ptr noundef %99) #3
-  %100 = add nuw i32 %.0224231, 1
+  %100 = add nuw i32 %.0231, 1
   %exitcond.not = icmp eq i32 %100, %91
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph232, !llvm.loop !4
 

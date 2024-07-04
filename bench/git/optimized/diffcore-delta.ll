@@ -168,44 +168,44 @@ entry:
   store i32 341, ptr %free, align 4
   %data5 = getelementptr inbounds i8, ptr %call3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %data5, i8 0, i64 4096, i1 false)
+  br label %while.cond.outer.outer.outer
+
+while.cond.outer.outer.outer:                     ; preds = %spanhash_rehash.exit.i, %entry
+  %hash.0.ph.ph.ph = phi ptr [ %call3.i.i, %spanhash_rehash.exit.i ], [ %call3, %entry ]
+  %buf.0.ph.ph.ph = phi ptr [ %.us-phi48, %spanhash_rehash.exit.i ], [ %0, %entry ]
+  %sz.0.ph.ph.ph = phi i32 [ %.us-phi49, %spanhash_rehash.exit.i ], [ %conv, %entry ]
+  %data.i = getelementptr inbounds i8, ptr %hash.0.ph.ph.ph, i64 8
+  %free.i = getelementptr inbounds i8, ptr %hash.0.ph.ph.ph, i64 4
   br label %while.cond.outer.outer
 
-while.cond.outer.outer:                           ; preds = %spanhash_rehash.exit.i, %entry
-  %hash.0.ph.ph = phi ptr [ %call3.i.i, %spanhash_rehash.exit.i ], [ %call3, %entry ]
-  %buf.0.ph.ph = phi ptr [ %.us-phi51, %spanhash_rehash.exit.i ], [ %0, %entry ]
-  %sz.0.ph.ph = phi i32 [ %.us-phi52, %spanhash_rehash.exit.i ], [ %conv, %entry ]
-  %data.i = getelementptr inbounds i8, ptr %hash.0.ph.ph, i64 8
-  %free.i = getelementptr inbounds i8, ptr %hash.0.ph.ph, i64 4
-  br label %while.cond.outer
+while.cond.outer.outer:                           ; preds = %while.cond.outer.outer.backedge, %while.cond.outer.outer.outer
+  %buf.0.ph.ph = phi ptr [ %buf.0.ph.ph.ph, %while.cond.outer.outer.outer ], [ %.us-phi48, %while.cond.outer.outer.backedge ]
+  %sz.0.ph.ph = phi i32 [ %sz.0.ph.ph.ph, %while.cond.outer.outer.outer ], [ %.us-phi49, %while.cond.outer.outer.backedge ]
+  br i1 %tobool.not, label %while.cond.outer.us, label %while.cond.outer
 
-while.cond.outer:                                 ; preds = %while.cond.outer.backedge, %while.cond.outer.outer
-  %buf.0.ph = phi ptr [ %buf.0.ph.ph, %while.cond.outer.outer ], [ %.us-phi51, %while.cond.outer.backedge ]
-  %sz.0.ph = phi i32 [ %sz.0.ph.ph, %while.cond.outer.outer ], [ %.us-phi52, %while.cond.outer.backedge ]
-  br i1 %tobool.not, label %while.cond.outer29.us, label %while.cond.outer29
-
-while.cond.outer29.us:                            ; preds = %while.cond.outer, %if.end.split.us
-  %buf.0.ph30.us = phi ptr [ %incdec.ptr.us42, %if.end.split.us ], [ %buf.0.ph, %while.cond.outer ]
-  %sz.0.ph31.us = phi i32 [ %dec.us43, %if.end.split.us ], [ %sz.0.ph, %while.cond.outer ]
-  %accum2.0.ph.us = phi i32 [ %xor22.us, %if.end.split.us ], [ 0, %while.cond.outer ]
-  %accum1.0.ph.us = phi i32 [ %add.us, %if.end.split.us ], [ 0, %while.cond.outer ]
-  %n.0.ph.us = phi i32 [ %inc.us, %if.end.split.us ], [ 0, %while.cond.outer ]
+while.cond.outer.us:                              ; preds = %while.cond.outer.outer, %if.end.split.us
+  %accum1.0.ph.us = phi i32 [ %add.us, %if.end.split.us ], [ 0, %while.cond.outer.outer ]
+  %accum2.0.ph.us = phi i32 [ %xor22.us, %if.end.split.us ], [ 0, %while.cond.outer.outer ]
+  %n.0.ph.us = phi i32 [ %inc.us, %if.end.split.us ], [ 0, %while.cond.outer.outer ]
+  %buf.0.ph.us = phi ptr [ %incdec.ptr.us39, %if.end.split.us ], [ %buf.0.ph.ph, %while.cond.outer.outer ]
+  %sz.0.ph.us = phi i32 [ %dec.us40, %if.end.split.us ], [ %sz.0.ph.ph, %while.cond.outer.outer ]
   br label %while.cond.us
 
-while.body.us41:                                  ; preds = %while.cond.us
-  %incdec.ptr.us42 = getelementptr inbounds i8, ptr %buf.0.us, i64 1
+while.body.us38:                                  ; preds = %while.cond.us
+  %incdec.ptr.us39 = getelementptr inbounds i8, ptr %buf.0.us, i64 1
   %2 = load i8, ptr %buf.0.us, align 1
-  %dec.us43 = add i32 %sz.0.us, -1
+  %dec.us40 = add i32 %sz.0.us, -1
   %cmp.us = icmp eq i8 %2, 13
-  %tobool14.us = icmp ne i32 %dec.us43, 0
+  %tobool14.us = icmp ne i32 %dec.us40, 0
   %or.cond1.us = and i1 %tobool14.us, %cmp.us
   br i1 %or.cond1.us, label %land.lhs.true15.us, label %if.end.split.us
 
-land.lhs.true15.us:                               ; preds = %while.body.us41
-  %3 = load i8, ptr %incdec.ptr.us42, align 1
+land.lhs.true15.us:                               ; preds = %while.body.us38
+  %3 = load i8, ptr %incdec.ptr.us39, align 1
   %cmp17.us = icmp eq i8 %3, 10
   br i1 %cmp17.us, label %while.cond.us, label %if.end.split.us, !llvm.loop !8
 
-if.end.split.us:                                  ; preds = %land.lhs.true15.us, %while.body.us41
+if.end.split.us:                                  ; preds = %land.lhs.true15.us, %while.body.us38
   %conv10.le.us = zext i8 %2 to i32
   %xor.us = tail call i32 @llvm.fshl.i32(i32 %accum1.0.ph.us, i32 %accum2.0.ph.us, i32 7)
   %xor22.us = tail call i32 @llvm.fshl.i32(i32 %accum2.0.ph.us, i32 %accum1.0.ph.us, i32 7)
@@ -214,27 +214,27 @@ if.end.split.us:                                  ; preds = %land.lhs.true15.us,
   %cmp23.us = icmp ult i32 %n.0.ph.us, 63
   %cmp26.us = icmp ne i8 %2, 10
   %or.cond2.us = and i1 %cmp23.us, %cmp26.us
-  br i1 %or.cond2.us, label %while.cond.outer29.us, label %if.end29, !llvm.loop !8
+  br i1 %or.cond2.us, label %while.cond.outer.us, label %if.end29, !llvm.loop !8
 
-while.cond.us:                                    ; preds = %while.cond.outer29.us, %land.lhs.true15.us
-  %buf.0.us = phi ptr [ %incdec.ptr.us42, %land.lhs.true15.us ], [ %buf.0.ph30.us, %while.cond.outer29.us ]
-  %sz.0.us = phi i32 [ %dec.us43, %land.lhs.true15.us ], [ %sz.0.ph31.us, %while.cond.outer29.us ]
-  %tobool9.not.us44 = icmp eq i32 %sz.0.us, 0
-  br i1 %tobool9.not.us44, label %while.end, label %while.body.us41
+while.cond.us:                                    ; preds = %while.cond.outer.us, %land.lhs.true15.us
+  %buf.0.us = phi ptr [ %incdec.ptr.us39, %land.lhs.true15.us ], [ %buf.0.ph.us, %while.cond.outer.us ]
+  %sz.0.us = phi i32 [ %dec.us40, %land.lhs.true15.us ], [ %sz.0.ph.us, %while.cond.outer.us ]
+  %tobool9.not.us41 = icmp eq i32 %sz.0.us, 0
+  br i1 %tobool9.not.us41, label %while.end, label %while.body.us38
 
-while.cond.outer29:                               ; preds = %while.cond.outer, %while.body.us
-  %buf.0.ph30 = phi ptr [ %incdec.ptr.us, %while.body.us ], [ %buf.0.ph, %while.cond.outer ]
-  %sz.0.ph31 = phi i32 [ %dec.us, %while.body.us ], [ %sz.0.ph, %while.cond.outer ]
-  %accum2.0.ph = phi i32 [ %xor22, %while.body.us ], [ 0, %while.cond.outer ]
-  %accum1.0.ph = phi i32 [ %add, %while.body.us ], [ 0, %while.cond.outer ]
-  %n.0.ph = phi i32 [ %inc, %while.body.us ], [ 0, %while.cond.outer ]
-  %tobool9.not.us = icmp eq i32 %sz.0.ph31, 0
+while.cond.outer:                                 ; preds = %while.cond.outer.outer, %while.body.us
+  %accum1.0.ph = phi i32 [ %add, %while.body.us ], [ 0, %while.cond.outer.outer ]
+  %accum2.0.ph = phi i32 [ %xor22, %while.body.us ], [ 0, %while.cond.outer.outer ]
+  %n.0.ph = phi i32 [ %inc, %while.body.us ], [ 0, %while.cond.outer.outer ]
+  %buf.0.ph = phi ptr [ %incdec.ptr.us, %while.body.us ], [ %buf.0.ph.ph, %while.cond.outer.outer ]
+  %sz.0.ph = phi i32 [ %dec.us, %while.body.us ], [ %sz.0.ph.ph, %while.cond.outer.outer ]
+  %tobool9.not.us = icmp eq i32 %sz.0.ph, 0
   br i1 %tobool9.not.us, label %while.end, label %while.body.us
 
-while.body.us:                                    ; preds = %while.cond.outer29
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %buf.0.ph30, i64 1
-  %4 = load i8, ptr %buf.0.ph30, align 1
-  %dec.us = add i32 %sz.0.ph31, -1
+while.body.us:                                    ; preds = %while.cond.outer
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %buf.0.ph, i64 1
+  %4 = load i8, ptr %buf.0.ph, align 1
+  %dec.us = add i32 %sz.0.ph, -1
   %conv10.le = zext i8 %4 to i32
   %xor = tail call i32 @llvm.fshl.i32(i32 %accum1.0.ph, i32 %accum2.0.ph, i32 7)
   %xor22 = tail call i32 @llvm.fshl.i32(i32 %accum2.0.ph, i32 %accum1.0.ph, i32 7)
@@ -243,18 +243,18 @@ while.body.us:                                    ; preds = %while.cond.outer29
   %cmp23 = icmp ult i32 %n.0.ph, 63
   %cmp26 = icmp ne i8 %4, 10
   %or.cond2 = select i1 %cmp23, i1 %cmp26, i1 false
-  br i1 %or.cond2, label %while.cond.outer29, label %if.end29, !llvm.loop !8
+  br i1 %or.cond2, label %while.cond.outer, label %if.end29, !llvm.loop !8
 
 if.end29:                                         ; preds = %while.body.us, %if.end.split.us
-  %.us-phi48 = phi i32 [ %xor22.us, %if.end.split.us ], [ %xor22, %while.body.us ]
-  %.us-phi49 = phi i32 [ %add.us, %if.end.split.us ], [ %add, %while.body.us ]
-  %.us-phi50 = phi i32 [ %inc.us, %if.end.split.us ], [ %inc, %while.body.us ]
-  %.us-phi51 = phi ptr [ %incdec.ptr.us42, %if.end.split.us ], [ %incdec.ptr.us, %while.body.us ]
-  %.us-phi52 = phi i32 [ %dec.us43, %if.end.split.us ], [ %dec.us, %while.body.us ]
-  %mul30 = mul i32 %.us-phi48, 97
-  %add31 = add i32 %.us-phi49, %mul30
+  %.us-phi45 = phi i32 [ %xor22.us, %if.end.split.us ], [ %xor22, %while.body.us ]
+  %.us-phi46 = phi i32 [ %add.us, %if.end.split.us ], [ %add, %while.body.us ]
+  %.us-phi47 = phi i32 [ %inc.us, %if.end.split.us ], [ %inc, %while.body.us ]
+  %.us-phi48 = phi ptr [ %incdec.ptr.us39, %if.end.split.us ], [ %incdec.ptr.us, %while.body.us ]
+  %.us-phi49 = phi i32 [ %dec.us40, %if.end.split.us ], [ %dec.us, %while.body.us ]
+  %mul30 = mul i32 %.us-phi45, 97
+  %add31 = add i32 %.us-phi46, %mul30
   %rem = urem i32 %add31, 107927
-  %5 = load i32, ptr %hash.0.ph.ph, align 4
+  %5 = load i32, ptr %hash.0.ph.ph.ph, align 4
   %shl.i = shl nuw i32 1, %5
   %sub.i = add nuw i32 %shl.i, 131071
   %and.i = and i32 %sub.i, %rem
@@ -267,25 +267,25 @@ if.end29:                                         ; preds = %while.body.us, %if.
 
 if.end6.i.preheader:                              ; preds = %if.end29
   %7 = load i32, ptr %arrayidx25.i, align 4
-  %cmp8.i53 = icmp eq i32 %7, %rem
-  br i1 %cmp8.i53, label %if.then9.i, label %if.end11.i
+  %cmp8.i50 = icmp eq i32 %7, %rem
+  br i1 %cmp8.i50, label %if.then9.i, label %if.end11.i
 
 if.then.i:                                        ; preds = %if.end11.i, %if.end29
   %arrayidx.lcssa22.i = phi ptr [ %arrayidx25.i, %if.end29 ], [ %arrayidx.i, %if.end11.i ]
   %cnt1.le21.i = getelementptr inbounds i8, ptr %arrayidx.lcssa22.i, i64 4
   store i32 %rem, ptr %arrayidx.lcssa22.i, align 4
-  store i32 %.us-phi50, ptr %cnt1.le21.i, align 4
+  store i32 %.us-phi47, ptr %cnt1.le21.i, align 4
   %8 = load i32, ptr %free.i, align 4
   %dec.i = add nsw i32 %8, -1
   store i32 %dec.i, ptr %free.i, align 4
   %cmp.i = icmp slt i32 %8, 1
-  br i1 %cmp.i, label %if.then5.i, label %while.cond.outer.backedge
+  br i1 %cmp.i, label %if.then5.i, label %while.cond.outer.outer.backedge
 
-while.cond.outer.backedge:                        ; preds = %if.then.i, %if.then9.i
-  br label %while.cond.outer, !llvm.loop !8
+while.cond.outer.outer.backedge:                  ; preds = %if.then.i, %if.then9.i
+  br label %while.cond.outer.outer, !llvm.loop !8
 
 if.then5.i:                                       ; preds = %if.then.i
-  %9 = load i32, ptr %hash.0.ph.ph, align 4
+  %9 = load i32, ptr %hash.0.ph.ph.ph, align 4
   %shl.i.i = shl nuw i32 1, %9
   %shl1.i.i = shl i32 2, %9
   %conv.i.i = sext i32 %shl1.i.i to i64
@@ -300,7 +300,7 @@ st_mult.exit.i.i:                                 ; preds = %if.then5.i
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i, 3
   %add.i.i.i = or disjoint i64 %mul.i.i.i, 8
   %call3.i.i = tail call ptr @xmalloc(i64 noundef %add.i.i.i) #8
-  %10 = load i32, ptr %hash.0.ph.ph, align 4
+  %10 = load i32, ptr %hash.0.ph.ph.ph, align 4
   %add.i.i = add nsw i32 %10, 1
   store i32 %add.i.i, ptr %call3.i.i, align 4
   %sub.i.i = add nsw i32 %10, -2
@@ -366,8 +366,8 @@ for.inc.i.i:                                      ; preds = %if.then20.i.i, %for
   br i1 %exitcond.not.i.i, label %spanhash_rehash.exit.i, label %for.body.i.i, !llvm.loop !9
 
 spanhash_rehash.exit.i:                           ; preds = %for.inc.i.i, %st_mult.exit.i.i
-  tail call void @free(ptr noundef nonnull %hash.0.ph.ph) #8
-  br label %while.cond.outer.outer, !llvm.loop !8
+  tail call void @free(ptr noundef nonnull %hash.0.ph.ph.ph) #8
+  br label %while.cond.outer.outer.outer, !llvm.loop !8
 
 if.end6.i:                                        ; preds = %if.end11.i
   %17 = load i32, ptr %arrayidx.i, align 4
@@ -375,16 +375,16 @@ if.end6.i:                                        ; preds = %if.end11.i
   br i1 %cmp8.i, label %if.then9.i, label %if.end11.i
 
 if.then9.i:                                       ; preds = %if.end6.i, %if.end6.i.preheader
-  %.lcssa33 = phi i32 [ %6, %if.end6.i.preheader ], [ %19, %if.end6.i ]
+  %.lcssa30 = phi i32 [ %6, %if.end6.i.preheader ], [ %19, %if.end6.i ]
   %18 = phi i64 [ %idxprom24.i, %if.end6.i.preheader ], [ %idxprom.i, %if.end6.i ]
   %cnt1.le.i = getelementptr inbounds [0 x %struct.spanhash], ptr %data.i, i64 0, i64 %18, i32 1
-  %add.i = add i32 %.lcssa33, %.us-phi50
+  %add.i = add i32 %.lcssa30, %.us-phi47
   store i32 %add.i, ptr %cnt1.le.i, align 4
-  br label %while.cond.outer.backedge
+  br label %while.cond.outer.outer.backedge
 
 if.end11.i:                                       ; preds = %if.end6.i.preheader, %if.end6.i
-  %inc28.in.i54 = phi i32 [ %spec.store.select.i, %if.end6.i ], [ %and.i, %if.end6.i.preheader ]
-  %inc28.i = add nsw i32 %inc28.in.i54, 1
+  %inc28.in.i51 = phi i32 [ %spec.store.select.i, %if.end6.i ], [ %and.i, %if.end6.i.preheader ]
+  %inc28.i = add nsw i32 %inc28.in.i51, 1
   %cmp12.not.i = icmp sgt i32 %shl.i, %inc28.i
   %spec.store.select.i = select i1 %cmp12.not.i, i32 %inc28.i, i32 0
   %idxprom.i = sext i32 %spec.store.select.i to i64
@@ -394,20 +394,20 @@ if.end11.i:                                       ; preds = %if.end6.i.preheader
   %tobool.not.i = icmp eq i32 %19, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end6.i
 
-while.end:                                        ; preds = %while.cond.outer29, %while.cond.us
-  %20 = load i32, ptr %hash.0.ph.ph, align 4
+while.end:                                        ; preds = %while.cond.outer, %while.cond.us
+  %20 = load i32, ptr %hash.0.ph.ph.ph, align 4
   %cmp.i27.not = icmp eq i32 %20, 0
   br i1 %cmp.i27.not, label %sane_qsort.exit, label %if.then.i28
 
 if.then.i28:                                      ; preds = %while.end
   %sh_prom36 = zext nneg i32 %20 to i64
   %shl37 = shl nuw i64 1, %sh_prom36
-  %data33 = getelementptr inbounds i8, ptr %hash.0.ph.ph, i64 8
+  %data33 = getelementptr inbounds i8, ptr %hash.0.ph.ph.ph, i64 8
   tail call void @qsort(ptr noundef nonnull %data33, i64 noundef %shl37, i64 noundef 8, ptr noundef nonnull @spanhash_cmp) #8
   br label %sane_qsort.exit
 
 sane_qsort.exit:                                  ; preds = %while.end, %if.then.i28
-  ret ptr %hash.0.ph.ph
+  ret ptr %hash.0.ph.ph.ph
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

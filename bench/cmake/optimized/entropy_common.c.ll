@@ -87,18 +87,18 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   br label %32
 
 32:                                               ; preds = %108, %22
-  %.0154.i = phi i32 [ 0, %22 ], [ %85, %108 ]
-  %.0153.i = phi i1 [ true, %22 ], [ %88, %108 ]
-  %.0146.i = phi i32 [ 4, %22 ], [ %.6152.i, %108 ]
-  %.0142.i = phi i32 [ %24, %22 ], [ %109, %108 ]
-  %.0138.i = phi i32 [ %25, %22 ], [ %.1139.i, %108 ]
-  %.0135.i = phi i32 [ %26, %22 ], [ %.1136.i, %108 ]
-  %.0133.i = phi i32 [ %27, %22 ], [ %.1134.i, %108 ]
+  %.0156.i = phi i32 [ %27, %22 ], [ %.1157.i, %108 ]
+  %.0153.i = phi i32 [ %26, %22 ], [ %.1154.i, %108 ]
+  %.0151.i = phi i32 [ %25, %22 ], [ %.1152.i, %108 ]
+  %.0148.i = phi i32 [ %24, %22 ], [ %109, %108 ]
+  %.0141.i = phi i32 [ 4, %22 ], [ %.6147.i, %108 ]
+  %.0137.i = phi i32 [ 0, %22 ], [ %85, %108 ]
+  %.0136.i = phi i1 [ true, %22 ], [ %88, %108 ]
   %.0132.i = phi ptr [ %3, %22 ], [ %.5.i, %108 ]
-  br i1 %.0153.i, label %68, label %33
+  br i1 %.0136.i, label %68, label %33
 
 33:                                               ; preds = %32
-  %34 = xor i32 %.0142.i, -1
+  %34 = xor i32 %.0148.i, -1
   %35 = or i32 %34, -2147483648
   %36 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %35, i1 true)
   %37 = icmp ugt i32 %36, 23
@@ -106,21 +106,21 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
   %.1.i6 = phi ptr [ %.2.i, %.lr.ph ], [ %.0132.i, %33 ]
-  %.1147.i5 = phi i32 [ %.2148.i, %.lr.ph ], [ %.0146.i, %33 ]
-  %.1155.i4 = phi i32 [ %38, %.lr.ph ], [ %.0154.i, %33 ]
-  %38 = add i32 %.1155.i4, 36
+  %.1138.i5 = phi i32 [ %38, %.lr.ph ], [ %.0137.i, %33 ]
+  %.1142.i4 = phi i32 [ %.2143.i, %.lr.ph ], [ %.0141.i, %33 ]
+  %38 = add i32 %.1138.i5, 36
   %.not185.i = icmp ugt ptr %.1.i6, %28
   %39 = getelementptr inbounds i8, ptr %.1.i6, i64 3
   %40 = ptrtoint ptr %.1.i6 to i64
   %.neg186.i = sub i64 %40, %29
   %.tr.neg187.i = trunc i64 %.neg186.i to i32
   %.neg188.i = shl i32 %.tr.neg187.i, 3
-  %41 = add i32 %.neg188.i, %.1147.i5
+  %41 = add i32 %.neg188.i, %.1142.i4
   %42 = and i32 %41, 31
-  %.2148.i = select i1 %.not185.i, i32 %42, i32 %.1147.i5
+  %.2143.i = select i1 %.not185.i, i32 %42, i32 %.1142.i4
   %.2.i = select i1 %.not185.i, ptr %30, ptr %39
   %.2.val.i = load i32, ptr %.2.i, align 1
-  %43 = lshr i32 %.2.val.i, %.2148.i
+  %43 = lshr i32 %.2.val.i, %.2143.i
   %44 = xor i32 %43, -1
   %45 = or i32 %44, -2147483648
   %46 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %45, i1 true)
@@ -128,19 +128,19 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33
-  %.1155.i.lcssa = phi i32 [ %.0154.i, %33 ], [ %38, %.lr.ph ]
-  %.1147.i.lcssa = phi i32 [ %.0146.i, %33 ], [ %.2148.i, %.lr.ph ]
-  %.0145.in.i.lcssa = phi i32 [ %36, %33 ], [ %46, %.lr.ph ]
-  %.1143.i.lcssa = phi i32 [ %.0142.i, %33 ], [ %43, %.lr.ph ]
+  %.1149.i.lcssa = phi i32 [ %.0148.i, %33 ], [ %43, %.lr.ph ]
+  %.1142.i.lcssa = phi i32 [ %.0141.i, %33 ], [ %.2143.i, %.lr.ph ]
+  %.1138.i.lcssa = phi i32 [ %.0137.i, %33 ], [ %38, %.lr.ph ]
+  %.0135.in.i.lcssa = phi i32 [ %36, %33 ], [ %46, %.lr.ph ]
   %.1.i.lcssa = phi ptr [ %.0132.i, %33 ], [ %.2.i, %.lr.ph ]
-  %.0145.i = lshr i32 %.0145.in.i.lcssa, 1
-  %48 = mul nuw nsw i32 %.0145.i, 3
-  %49 = add i32 %48, %.1155.i.lcssa
-  %50 = and i32 %.0145.in.i.lcssa, 30
-  %51 = lshr i32 %.1143.i.lcssa, %50
+  %.0135.i = lshr i32 %.0135.in.i.lcssa, 1
+  %48 = mul nuw nsw i32 %.0135.i, 3
+  %49 = add i32 %48, %.1138.i.lcssa
+  %50 = and i32 %.0135.in.i.lcssa, 30
+  %51 = lshr i32 %.1149.i.lcssa, %50
   %52 = and i32 %51, 3
   %53 = add i32 %49, %52
-  %54 = add nuw nsw i32 %.1147.i.lcssa, 2
+  %54 = add nuw nsw i32 %.1142.i.lcssa, 2
   %55 = add nuw nsw i32 %54, %50
   %.not.i = icmp ult i32 %53, %10
   br i1 %.not.i, label %56, label %110
@@ -169,74 +169,74 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   br label %66
 
 66:                                               ; preds = %62, %._crit_edge13
-  %.3149.i = phi i32 [ %61, %._crit_edge13 ], [ %65, %62 ]
+  %.3144.i = phi i32 [ %61, %._crit_edge13 ], [ %65, %62 ]
   %.3.i = phi ptr [ %60, %._crit_edge13 ], [ %30, %62 ]
   %.3.val.i = load i32, ptr %.3.i, align 1
-  %67 = lshr i32 %.3.val.i, %.3149.i
+  %67 = lshr i32 %.3.val.i, %.3144.i
   br label %68
 
 68:                                               ; preds = %66, %32
-  %.2156.i = phi i32 [ %53, %66 ], [ %.0154.i, %32 ]
-  %.4150.i = phi i32 [ %.3149.i, %66 ], [ %.0146.i, %32 ]
-  %.2144.i = phi i32 [ %67, %66 ], [ %.0142.i, %32 ]
+  %.2150.i = phi i32 [ %67, %66 ], [ %.0148.i, %32 ]
+  %.4145.i = phi i32 [ %.3144.i, %66 ], [ %.0141.i, %32 ]
+  %.2139.i = phi i32 [ %53, %66 ], [ %.0137.i, %32 ]
   %.4.i = phi ptr [ %.3.i, %66 ], [ %.0132.i, %32 ]
-  %69 = shl nsw i32 %.0138.i, 1
+  %69 = shl nsw i32 %.0151.i, 1
   %70 = add nsw i32 %69, -1
-  %71 = sub nsw i32 %70, %.0135.i
-  %72 = add nsw i32 %.0138.i, -1
-  %73 = and i32 %.2144.i, %72
+  %71 = sub nsw i32 %70, %.0153.i
+  %72 = add nsw i32 %.0151.i, -1
+  %73 = and i32 %.2150.i, %72
   %74 = icmp ult i32 %73, %71
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %68
-  %76 = add nsw i32 %.0133.i, -1
+  %76 = add nsw i32 %.0156.i, -1
   br label %80
 
 77:                                               ; preds = %68
-  %78 = and i32 %.2144.i, %70
-  %.not177.i = icmp slt i32 %78, %.0138.i
+  %78 = and i32 %.2150.i, %70
+  %.not177.i = icmp slt i32 %78, %.0151.i
   %79 = select i1 %.not177.i, i32 0, i32 %71
   %spec.select.i = sub nsw i32 %78, %79
   br label %80
 
 80:                                               ; preds = %77, %75
-  %.pn.i = phi i32 [ %76, %75 ], [ %.0133.i, %77 ]
-  %.1141.i = phi i32 [ %73, %75 ], [ %spec.select.i, %77 ]
-  %.5151.i = add nsw i32 %.pn.i, %.4150.i
-  %81 = add nsw i32 %.1141.i, -1
-  %82 = icmp sgt i32 %.1141.i, 0
-  %83 = sub i32 1, %.1141.i
-  %.1136.i.p = select i1 %82, i32 %83, i32 %81
-  %.1136.i = add i32 %.1136.i.p, %.0135.i
+  %.pn.i = phi i32 [ %76, %75 ], [ %.0156.i, %77 ]
+  %.1134.i = phi i32 [ %73, %75 ], [ %spec.select.i, %77 ]
+  %.5146.i = add nsw i32 %.pn.i, %.4145.i
+  %81 = add nsw i32 %.1134.i, -1
+  %82 = icmp sgt i32 %.1134.i, 0
+  %83 = sub i32 1, %.1134.i
+  %.1154.i.p = select i1 %82, i32 %83, i32 %81
+  %.1154.i = add i32 %.1154.i.p, %.0153.i
   %84 = trunc i32 %81 to i16
-  %85 = add nuw i32 %.2156.i, 1
-  %86 = zext i32 %.2156.i to i64
+  %85 = add nuw i32 %.2139.i, 1
+  %86 = zext i32 %.2139.i to i64
   %87 = getelementptr inbounds i16, ptr %0, i64 %86
   store i16 %84, ptr %87, align 2
   %88 = icmp ne i32 %81, 0
-  %89 = icmp slt i32 %.1136.i, %.0138.i
+  %89 = icmp slt i32 %.1154.i, %.0151.i
   br i1 %89, label %90, label %97
 
 90:                                               ; preds = %80
-  %91 = icmp slt i32 %.1136.i, 2
+  %91 = icmp slt i32 %.1154.i, 2
   br i1 %91, label %110, label %92
 
 92:                                               ; preds = %90
-  %93 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.1136.i, i1 true)
+  %93 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.1154.i, i1 true)
   %94 = xor i32 %93, 31
   %95 = sub nuw nsw i32 32, %93
   %96 = shl nuw nsw i32 1, %94
   br label %97
 
 97:                                               ; preds = %92, %80
-  %.1139.i = phi i32 [ %96, %92 ], [ %.0138.i, %80 ]
-  %.1134.i = phi i32 [ %95, %92 ], [ %.0133.i, %80 ]
+  %.1157.i = phi i32 [ %95, %92 ], [ %.0156.i, %80 ]
+  %.1152.i = phi i32 [ %96, %92 ], [ %.0151.i, %80 ]
   %.not178.i = icmp ult i32 %85, %10
   br i1 %.not178.i, label %98, label %110
 
 98:                                               ; preds = %97
   %.not179.i = icmp ugt ptr %.4.i, %28
-  %99 = ashr i32 %.5151.i, 3
+  %99 = ashr i32 %.5146.i, 3
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i8, ptr %.4.i, i64 %100
   %.not180.i = icmp ugt ptr %101, %30
@@ -245,7 +245,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
 
 ._crit_edge14:                                    ; preds = %98
   %102 = getelementptr inbounds i8, ptr %.4.i, i64 %100
-  %103 = and i32 %.5151.i, 7
+  %103 = and i32 %.5146.i, 7
   br label %108
 
 104:                                              ; preds = %98
@@ -253,27 +253,27 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   %.neg181.i = sub i64 %105, %31
   %.tr.neg182.i = trunc i64 %.neg181.i to i32
   %.neg183.i = shl i32 %.tr.neg182.i, 3
-  %106 = add i32 %.5151.i, %.neg183.i
+  %106 = add i32 %.5146.i, %.neg183.i
   %107 = and i32 %106, 31
   br label %108
 
 108:                                              ; preds = %104, %._crit_edge14
-  %.6152.i = phi i32 [ %103, %._crit_edge14 ], [ %107, %104 ]
+  %.6147.i = phi i32 [ %103, %._crit_edge14 ], [ %107, %104 ]
   %.5.i = phi ptr [ %102, %._crit_edge14 ], [ %30, %104 ]
   %.5.val.i = load i32, ptr %.5.i, align 1
-  %109 = lshr i32 %.5.val.i, %.6152.i
+  %109 = lshr i32 %.5.val.i, %.6147.i
   br label %32
 
 110:                                              ; preds = %97, %90, %._crit_edge
-  %.3157.i = phi i32 [ %53, %._crit_edge ], [ %85, %90 ], [ %85, %97 ]
-  %.7.i = phi i32 [ %55, %._crit_edge ], [ %.5151.i, %90 ], [ %.5151.i, %97 ]
-  %.2137.i = phi i32 [ %.0135.i, %._crit_edge ], [ %.1136.i, %90 ], [ %.1136.i, %97 ]
+  %.2155.i = phi i32 [ %.0153.i, %._crit_edge ], [ %.1154.i, %90 ], [ %.1154.i, %97 ]
+  %.7.i = phi i32 [ %55, %._crit_edge ], [ %.5146.i, %90 ], [ %.5146.i, %97 ]
+  %.3140.i = phi i32 [ %53, %._crit_edge ], [ %85, %90 ], [ %85, %97 ]
   %.6.i = phi ptr [ %.1.i.lcssa, %._crit_edge ], [ %.4.i, %90 ], [ %.4.i, %97 ]
-  %.not184.i = icmp eq i32 %.2137.i, 1
+  %.not184.i = icmp eq i32 %.2155.i, 1
   br i1 %.not184.i, label %111, label %FSE_readNCount_body_default.exit
 
 111:                                              ; preds = %110
-  %112 = icmp ugt i32 %.3157.i, %10
+  %112 = icmp ugt i32 %.3140.i, %10
   br i1 %112, label %FSE_readNCount_body_default.exit, label %113
 
 113:                                              ; preds = %111
@@ -281,7 +281,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr nocapture noundef writeonly %0, pt
   br i1 %114, label %FSE_readNCount_body_default.exit, label %115
 
 115:                                              ; preds = %113
-  %116 = add i32 %.3157.i, -1
+  %116 = add i32 %.3140.i, -1
   store i32 %116, ptr %1, align 4
   %117 = add nsw i32 %.7.i, 7
   %118 = ashr i32 %117, 3

@@ -4430,7 +4430,7 @@ _ZN5Yosys5RTLIL6Module4wireERKNS0_8IdStringE.exit806.thread: ; preds = %1532, %1
   br label %.body954
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit810:             ; preds = %1569, %1562, %1557, %_ZN5Yosys5RTLIL6Module4wireERKNS0_8IdStringE.exit806
-  %.0313 = phi ptr [ %1537, %_ZN5Yosys5RTLIL6Module4wireERKNS0_8IdStringE.exit806 ], [ %1556, %1557 ], [ %1556, %1562 ], [ %1556, %1569 ]
+  %.0315 = phi ptr [ %1537, %_ZN5Yosys5RTLIL6Module4wireERKNS0_8IdStringE.exit806 ], [ %1556, %1557 ], [ %1556, %1562 ], [ %1556, %1569 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %120) #19
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %119, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %120)
           to label %1575 unwind label %1611
@@ -4505,7 +4505,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_
   %1606 = getelementptr inbounds i8, ptr %1602, i64 40
   %1607 = load i64, ptr %1606, align 8
   %1608 = icmp ne i64 %1607, 0
-  %1609 = getelementptr inbounds i8, ptr %.0313, i64 90
+  %1609 = getelementptr inbounds i8, ptr %.0315, i64 90
   %1610 = zext i1 %1608 to i8
   store i8 %1610, ptr %1609, align 2
   br label %1621
@@ -4617,7 +4617,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_
   %1653 = getelementptr inbounds i8, ptr %1649, i64 40
   %1654 = load i64, ptr %1653, align 8
   %1655 = trunc i64 %1654 to i32
-  %1656 = getelementptr inbounds i8, ptr %.0313, i64 80
+  %1656 = getelementptr inbounds i8, ptr %.0315, i64 80
   store i32 %1655, ptr %1656, align 8
   br label %1667
 
@@ -4684,7 +4684,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_
 1682:                                             ; preds = %.lr.ph2119
   %1683 = getelementptr inbounds ptr, ptr %1679, i64 %indvars.iv2560
   %1684 = load ptr, ptr %1683, align 8
-  store ptr %.0313, ptr %127, align 8
+  store ptr %.0315, ptr %127, align 8
   %1685 = trunc nuw nsw i64 %indvars.iv2560 to i32
   store i32 %1685, ptr %1374, align 8
   %1686 = load i8, ptr %1684, align 8
@@ -6063,7 +6063,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_
 
 2238:                                             ; preds = %2236
   %2239 = load ptr, ptr %2237, align 8
-  invoke void @_ZN5Yosys21json_parse_attr_paramERNS_7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEEEPNS_8JsonNodeE(ptr noundef nonnull align 8 dereferenceable(49) %.0313, ptr noundef %2239)
+  invoke void @_ZN5Yosys21json_parse_attr_paramERNS_7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEEEPNS_8JsonNodeE(ptr noundef nonnull align 8 dereferenceable(49) %.0315, ptr noundef %2239)
           to label %2240 unwind label %2248
 
 2240:                                             ; preds = %2238
@@ -10714,14 +10714,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
+  %30 = getelementptr inbounds i8, ptr %.073, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -11168,8 +11168,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.0
+  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress uwtable

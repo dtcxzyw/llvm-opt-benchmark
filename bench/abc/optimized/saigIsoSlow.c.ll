@@ -1912,7 +1912,7 @@ define void @Iso_ManPrintClasses(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %.not3657, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %Iso_ManObj.exit
-  %.058 = phi ptr [ %83, %Iso_ManObj.exit ], [ %25, %21 ]
+  %.03458 = phi ptr [ %83, %Iso_ManObj.exit ], [ %25, %21 ]
   %.val51 = load ptr, ptr %0, align 8
   %.val52 = load ptr, ptr %20, align 8
   %28 = getelementptr i8, ptr %.val51, i64 32
@@ -1921,7 +1921,7 @@ define void @Iso_ManPrintClasses(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %.not.i.i, label %Iso_AigObj.exit, label %29
 
 29:                                               ; preds = %.lr.ph
-  %30 = ptrtoint ptr %.058 to i64
+  %30 = ptrtoint ptr %.03458 to i64
   %31 = ptrtoint ptr %.val52 to i64
   %32 = sub i64 %30, %31
   %33 = sdiv exact i64 %32, 24
@@ -1941,7 +1941,7 @@ Iso_AigObj.exit:                                  ; preds = %.lr.ph, %29
   %41 = and i32 %40, 7
   %42 = add nsw i32 %41, -7
   %narrow.i = icmp ult i32 %42, -2
-  %43 = ptrtoint ptr %.058 to i64
+  %43 = ptrtoint ptr %.03458 to i64
   %44 = ptrtoint ptr %.val52 to i64
   %45 = sub i64 %43, %44
   %46 = sdiv exact i64 %45, 24
@@ -1987,10 +1987,10 @@ Aig_ObjFaninId0.exit:                             ; preds = %Iso_AigObj.exit
   br label %75
 
 75:                                               ; preds = %Aig_ObjFaninId0.exit, %73
-  %76 = load i32, ptr %.058, align 4
+  %76 = load i32, ptr %.03458, align 4
   %77 = and i32 %76, 1073741823
   %78 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %77)
-  %79 = getelementptr inbounds i8, ptr %.058, i64 16
+  %79 = getelementptr inbounds i8, ptr %.03458, i64 16
   %80 = load i32, ptr %79, align 4
   %.not.i56 = icmp eq i32 %80, 0
   br i1 %.not.i56, label %._crit_edge, label %Iso_ManObj.exit

@@ -38,7 +38,7 @@ define i32 @FT_Get_BDF_Charset_ID(ptr noundef %0, ptr noundef writeonly %1, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %6, %12, %14, %16
-  %.016 = phi i32 [ %17, %16 ], [ 6, %14 ], [ 6, %12 ], [ 6, %6 ]
+  %.015 = phi i32 [ %17, %16 ], [ 6, %14 ], [ 6, %12 ], [ 6, %6 ]
   %.not25 = icmp eq ptr %1, null
   br i1 %.not25, label %20, label %18
 
@@ -57,8 +57,8 @@ define i32 @FT_Get_BDF_Charset_ID(ptr noundef %0, ptr noundef writeonly %1, ptr 
   br label %23
 
 23:                                               ; preds = %20, %21, %3
-  %.015 = phi i32 [ 35, %3 ], [ %.016, %21 ], [ %.016, %20 ]
-  ret i32 %.015
+  %.016 = phi i32 [ 35, %3 ], [ %.015, %21 ], [ %.015, %20 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: nounwind uwtable
@@ -96,8 +96,8 @@ define i32 @FT_Get_BDF_Property(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %.thread
 
 .thread:                                          ; preds = %5, %16, %13, %11, %4, %3
-  %.015 = phi i32 [ 35, %3 ], [ 6, %4 ], [ %17, %16 ], [ 6, %13 ], [ 6, %11 ], [ 6, %5 ]
-  ret i32 %.015
+  %.016 = phi i32 [ 35, %3 ], [ 6, %4 ], [ %17, %16 ], [ 6, %13 ], [ 6, %11 ], [ 6, %5 ]
+  ret i32 %.016
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

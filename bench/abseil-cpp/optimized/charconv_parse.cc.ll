@@ -164,8 +164,8 @@ if.else:                                          ; preds = %_ZN4absl12_GLOBAL__
   %cmp11 = icmp sgt i32 %conv30.i, 19
   %sub = add nsw i32 %conv30.i, -19
   %sub16 = sub nsw i32 19, %conv30.i
-  %digits_left.0 = select i1 %cmp11, i32 0, i32 %sub16
   %exponent_adjustment.0 = select i1 %cmp11, i32 %sub, i32 0
+  %digits_left.0 = select i1 %cmp11, i32 0, i32 %sub16
   %cmp19 = icmp ult ptr %add.ptr, %end
   br i1 %cmp19, label %land.lhs.true, label %if.end56
 
@@ -816,8 +816,8 @@ if.else:                                          ; preds = %_ZN4absl12_GLOBAL__
   %cmp11 = icmp sgt i32 %conv30.i, 15
   %sub = add nsw i32 %conv30.i, -15
   %sub16 = sub nsw i32 15, %conv30.i
-  %digits_left.0 = select i1 %cmp11, i32 0, i32 %sub16
   %exponent_adjustment.0 = select i1 %cmp11, i32 %sub, i32 0
+  %digits_left.0 = select i1 %cmp11, i32 0, i32 %sub16
   %cmp19 = icmp ult ptr %add.ptr, %end
   br i1 %cmp19, label %land.lhs.true, label %if.end56
 

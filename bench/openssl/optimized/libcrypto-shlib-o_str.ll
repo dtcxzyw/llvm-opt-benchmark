@@ -470,27 +470,27 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br i1 %cmp.not, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
-  %p.019.us = phi ptr [ %incdec.ptr25.us, %for.body.us ], [ %buf, %for.body.lr.ph ]
-  %i.018.us = phi i64 [ %inc.us, %for.body.us ], [ 0, %for.body.lr.ph ]
-  %q.017.us = phi ptr [ %incdec.ptr23.us, %for.body.us ], [ %str, %for.body.lr.ph ]
-  %0 = load i8, ptr %p.019.us, align 1
+  %i.019.us = phi i64 [ %inc.us, %for.body.us ], [ 0, %for.body.lr.ph ]
+  %q.018.us = phi ptr [ %incdec.ptr23.us, %for.body.us ], [ %str, %for.body.lr.ph ]
+  %p.017.us = phi ptr [ %incdec.ptr25.us, %for.body.us ], [ %buf, %for.body.lr.ph ]
+  %0 = load i8, ptr %p.017.us, align 1
   %1 = lshr i8 %0, 4
   %idxprom.us = zext nneg i8 %1 to i64
   %arrayidx.us = getelementptr inbounds [17 x i8], ptr @buf2hexstr_sep.hexdig, i64 0, i64 %idxprom.us
   %2 = load i8, ptr %arrayidx.us, align 1
-  %incdec.ptr.us = getelementptr inbounds i8, ptr %q.017.us, i64 1
-  store i8 %2, ptr %q.017.us, align 1
-  %3 = load i8, ptr %p.019.us, align 1
+  %incdec.ptr.us = getelementptr inbounds i8, ptr %q.018.us, i64 1
+  store i8 %2, ptr %q.018.us, align 1
+  %3 = load i8, ptr %p.017.us, align 1
   %4 = and i8 %3, 15
   %idxprom18.us = zext nneg i8 %4 to i64
   %arrayidx19.us = getelementptr inbounds [17 x i8], ptr @buf2hexstr_sep.hexdig, i64 0, i64 %idxprom18.us
   %5 = load i8, ptr %arrayidx19.us, align 1
-  %incdec.ptr20.us = getelementptr inbounds i8, ptr %q.017.us, i64 2
+  %incdec.ptr20.us = getelementptr inbounds i8, ptr %q.018.us, i64 2
   store i8 %5, ptr %incdec.ptr.us, align 1
-  %incdec.ptr23.us = getelementptr inbounds i8, ptr %q.017.us, i64 3
+  %incdec.ptr23.us = getelementptr inbounds i8, ptr %q.018.us, i64 3
   store i8 %sep, ptr %incdec.ptr20.us, align 1
-  %inc.us = add nuw i64 %i.018.us, 1
-  %incdec.ptr25.us = getelementptr inbounds i8, ptr %p.019.us, i64 1
+  %inc.us = add nuw i64 %i.019.us, 1
+  %incdec.ptr25.us = getelementptr inbounds i8, ptr %p.017.us, i64 1
   %exitcond21.not = icmp eq i64 %inc.us, %buflen
   br i1 %exitcond21.not, label %for.end, label %for.body.us, !llvm.loop !9
 
@@ -501,25 +501,25 @@ if.then11:                                        ; preds = %if.end8
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %p.019 = phi ptr [ %incdec.ptr25, %for.body ], [ %buf, %for.body.lr.ph ]
-  %i.018 = phi i64 [ %inc, %for.body ], [ 0, %for.body.lr.ph ]
-  %q.017 = phi ptr [ %incdec.ptr20, %for.body ], [ %str, %for.body.lr.ph ]
-  %6 = load i8, ptr %p.019, align 1
+  %i.019 = phi i64 [ %inc, %for.body ], [ 0, %for.body.lr.ph ]
+  %q.018 = phi ptr [ %incdec.ptr20, %for.body ], [ %str, %for.body.lr.ph ]
+  %p.017 = phi ptr [ %incdec.ptr25, %for.body ], [ %buf, %for.body.lr.ph ]
+  %6 = load i8, ptr %p.017, align 1
   %7 = lshr i8 %6, 4
   %idxprom = zext nneg i8 %7 to i64
   %arrayidx = getelementptr inbounds [17 x i8], ptr @buf2hexstr_sep.hexdig, i64 0, i64 %idxprom
   %8 = load i8, ptr %arrayidx, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %q.017, i64 1
-  store i8 %8, ptr %q.017, align 1
-  %9 = load i8, ptr %p.019, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %q.018, i64 1
+  store i8 %8, ptr %q.018, align 1
+  %9 = load i8, ptr %p.017, align 1
   %10 = and i8 %9, 15
   %idxprom18 = zext nneg i8 %10 to i64
   %arrayidx19 = getelementptr inbounds [17 x i8], ptr @buf2hexstr_sep.hexdig, i64 0, i64 %idxprom18
   %11 = load i8, ptr %arrayidx19, align 1
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %q.017, i64 2
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %q.018, i64 2
   store i8 %11, ptr %incdec.ptr, align 1
-  %inc = add nuw i64 %i.018, 1
-  %incdec.ptr25 = getelementptr inbounds i8, ptr %p.019, i64 1
+  %inc = add nuw i64 %i.019, 1
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %p.017, i64 1
   %exitcond.not = icmp eq i64 %inc, %buflen
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
@@ -588,31 +588,31 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp5.i, label %ossl_buf2hexstr_sep.exit, label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %if.end.i, %for.body.us.i
-  %p.019.us.i = phi ptr [ %incdec.ptr25.us.i, %for.body.us.i ], [ %buf, %if.end.i ]
-  %i.018.us.i = phi i64 [ %inc.us.i, %for.body.us.i ], [ 0, %if.end.i ]
-  %q.017.us.i = phi ptr [ %incdec.ptr23.us.i, %for.body.us.i ], [ %call4.i, %if.end.i ]
-  %0 = load i8, ptr %p.019.us.i, align 1
+  %i.019.us.i = phi i64 [ %inc.us.i, %for.body.us.i ], [ 0, %if.end.i ]
+  %q.018.us.i = phi ptr [ %incdec.ptr23.us.i, %for.body.us.i ], [ %call4.i, %if.end.i ]
+  %p.017.us.i = phi ptr [ %incdec.ptr25.us.i, %for.body.us.i ], [ %buf, %if.end.i ]
+  %0 = load i8, ptr %p.017.us.i, align 1
   %1 = lshr i8 %0, 4
   %idxprom.us.i = zext nneg i8 %1 to i64
   %arrayidx.us.i = getelementptr inbounds [17 x i8], ptr @buf2hexstr_sep.hexdig, i64 0, i64 %idxprom.us.i
   %2 = load i8, ptr %arrayidx.us.i, align 1
-  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %q.017.us.i, i64 1
-  store i8 %2, ptr %q.017.us.i, align 1
+  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %q.018.us.i, i64 1
+  store i8 %2, ptr %q.018.us.i, align 1
   %3 = and i8 %0, 15
   %idxprom18.us.i = zext nneg i8 %3 to i64
   %arrayidx19.us.i = getelementptr inbounds [17 x i8], ptr @buf2hexstr_sep.hexdig, i64 0, i64 %idxprom18.us.i
   %4 = load i8, ptr %arrayidx19.us.i, align 1
-  %incdec.ptr20.us.i = getelementptr inbounds i8, ptr %q.017.us.i, i64 2
+  %incdec.ptr20.us.i = getelementptr inbounds i8, ptr %q.018.us.i, i64 2
   store i8 %4, ptr %incdec.ptr.us.i, align 1
-  %incdec.ptr23.us.i = getelementptr inbounds i8, ptr %q.017.us.i, i64 3
+  %incdec.ptr23.us.i = getelementptr inbounds i8, ptr %q.018.us.i, i64 3
   store i8 58, ptr %incdec.ptr20.us.i, align 1
-  %inc.us.i = add nuw i64 %i.018.us.i, 1
-  %incdec.ptr25.us.i = getelementptr inbounds i8, ptr %p.019.us.i, i64 1
+  %inc.us.i = add nuw i64 %i.019.us.i, 1
+  %incdec.ptr25.us.i = getelementptr inbounds i8, ptr %p.017.us.i, i64 1
   %exitcond21.not.i = icmp eq i64 %inc.us.i, %buflen
   br i1 %exitcond21.not.i, label %buf2hexstr_sep.exit, label %for.body.us.i, !llvm.loop !9
 
 buf2hexstr_sep.exit:                              ; preds = %for.body.us.i
-  %incdec.ptr20.us.i.le = getelementptr inbounds i8, ptr %q.017.us.i, i64 2
+  %incdec.ptr20.us.i.le = getelementptr inbounds i8, ptr %q.018.us.i, i64 2
   store i8 0, ptr %incdec.ptr20.us.i.le, align 1
   br label %ossl_buf2hexstr_sep.exit
 

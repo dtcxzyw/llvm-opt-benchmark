@@ -1454,7 +1454,7 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
 
 483:                                              ; preds = %.lr.ph1066, %504
   %.77881065 = phi i64 [ %461, %.lr.ph1066 ], [ %484, %504 ]
-  %.08151064 = phi i64 [ %461, %.lr.ph1066 ], [ %.1816, %504 ]
+  %.08131064 = phi i64 [ %461, %.lr.ph1066 ], [ %.1814, %504 ]
   %484 = add nsw i64 %.77881065, 1
   %485 = sub nsw i64 %484, %461
   %486 = getelementptr inbounds i32, ptr %24, i64 %485
@@ -1471,24 +1471,24 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
   %495 = mul nsw i64 %494, %493
   %496 = add nsw i64 %495, %2
   %497 = load ptr, ptr %480, align 8
-  %498 = getelementptr inbounds i64, ptr %497, i64 %.08151064
+  %498 = getelementptr inbounds i64, ptr %497, i64 %.08131064
   store i64 %496, ptr %498, align 8
   %499 = load i64, ptr %16, align 8
   %500 = mul nsw i64 %499, %490
   %501 = load ptr, ptr %481, align 8
-  %502 = getelementptr inbounds i64, ptr %501, i64 %.08151064
+  %502 = getelementptr inbounds i64, ptr %501, i64 %.08131064
   store i64 %500, ptr %502, align 8
-  %503 = add nsw i64 %.08151064, 1
+  %503 = add nsw i64 %.08131064, 1
   br label %504
 
 504:                                              ; preds = %483, %489
-  %.1816 = phi i64 [ %503, %489 ], [ %.08151064, %483 ]
+  %.1814 = phi i64 [ %503, %489 ], [ %.08131064, %483 ]
   %505 = icmp slt i64 %484, %476
   br i1 %505, label %483, label %._crit_edge1067, !llvm.loop !20
 
 ._crit_edge1067:                                  ; preds = %504, %.preheader938
-  %.0815.lcssa = phi i64 [ %461, %.preheader938 ], [ %.1816, %504 ]
-  store i64 %.0815.lcssa, ptr %3, align 8
+  %.0813.lcssa = phi i64 [ %461, %.preheader938 ], [ %.1814, %504 ]
+  store i64 %.0813.lcssa, ptr %3, align 8
   br label %.loopexit941
 
 506:                                              ; preds = %466
@@ -1527,7 +1527,7 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
 .lr.ph1033:                                       ; preds = %.preheader942, %539
   %.87891032 = phi i64 [ %540, %539 ], [ 0, %.preheader942 ]
   %.118061031 = phi i64 [ %.12807, %539 ], [ %.108051036, %.preheader942 ]
-  %.28171030 = phi i64 [ %.3818, %539 ], [ %.108051036, %.preheader942 ]
+  %.28151030 = phi i64 [ %.3816, %539 ], [ %.108051036, %.preheader942 ]
   %520 = load ptr, ptr %512, align 8
   %521 = sub nsw i64 %.118061031, %507
   %522 = getelementptr inbounds i64, ptr %520, i64 %521
@@ -1537,24 +1537,24 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
 
 525:                                              ; preds = %.lr.ph1033
   %526 = load ptr, ptr %513, align 8
-  %527 = sub nsw i64 %.28171030, %507
+  %527 = sub nsw i64 %.28151030, %507
   %528 = getelementptr inbounds i64, ptr %526, i64 %527
   %529 = load i64, ptr %528, align 8
   %530 = load i64, ptr %16, align 8
   %531 = add nsw i64 %530, %529
-  %532 = getelementptr inbounds i64, ptr %526, i64 %.28171030
+  %532 = getelementptr inbounds i64, ptr %526, i64 %.28151030
   store i64 %531, ptr %532, align 8
   %533 = load ptr, ptr %512, align 8
   %534 = getelementptr inbounds i64, ptr %533, i64 %527
   %535 = load i64, ptr %534, align 8
-  %536 = getelementptr inbounds i64, ptr %533, i64 %.28171030
+  %536 = getelementptr inbounds i64, ptr %533, i64 %.28151030
   store i64 %535, ptr %536, align 8
   %537 = add nsw i64 %.118061031, 1
-  %538 = add nsw i64 %.28171030, 1
+  %538 = add nsw i64 %.28151030, 1
   br label %539
 
 539:                                              ; preds = %.lr.ph1033, %525
-  %.3818 = phi i64 [ %538, %525 ], [ %.28171030, %.lr.ph1033 ]
+  %.3816 = phi i64 [ %538, %525 ], [ %.28151030, %.lr.ph1033 ]
   %.12807 = phi i64 [ %537, %525 ], [ %.118061031, %.lr.ph1033 ]
   %540 = add nuw nsw i64 %.87891032, 1
   %exitcond1181.not = icmp eq i64 %540, %507
@@ -1581,8 +1581,8 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
 545:                                              ; preds = %.lr.ph1063, %.loopexit
   %.97901062 = phi i64 [ 1, %.lr.ph1063 ], [ %544, %.loopexit ]
   %.138081061 = phi i64 [ %.10805.lcssa, %.lr.ph1063 ], [ %.16811.lcssa, %.loopexit ]
-  %.08131060 = phi i64 [ %461, %.lr.ph1063 ], [ %.138081061, %.loopexit ]
-  %.neg871 = sub i64 %.08131060, %.138081061
+  %.08291060 = phi i64 [ %461, %.lr.ph1063 ], [ %.138081061, %.loopexit ]
+  %.neg871 = sub i64 %.08291060, %.138081061
   br i1 %516, label %._crit_edge1044.thread, label %.lr.ph1043
 
 .lr.ph1043:                                       ; preds = %545
@@ -1593,7 +1593,7 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
 547:                                              ; preds = %.lr.ph1043, %571
   %indvars.iv1182 = phi i64 [ 0, %.lr.ph1043 ], [ %indvars.iv.next1183, %571 ]
   %.148091040 = phi i64 [ %.138081061, %.lr.ph1043 ], [ %.15810, %571 ]
-  %.48191039 = phi i64 [ %.138081061, %.lr.ph1043 ], [ %.5820, %571 ]
+  %.48171039 = phi i64 [ %.138081061, %.lr.ph1043 ], [ %.5818, %571 ]
   %548 = load ptr, ptr %517, align 8
   %549 = add i64 %.148091040, %.neg871
   %550 = getelementptr inbounds i64, ptr %548, i64 %549
@@ -1612,19 +1612,19 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
   %561 = load i64, ptr %16, align 8
   %562 = mul nsw i64 %561, %557
   %563 = add nsw i64 %562, %560
-  %564 = getelementptr inbounds i64, ptr %558, i64 %.48191039
+  %564 = getelementptr inbounds i64, ptr %558, i64 %.48171039
   store i64 %563, ptr %564, align 8
   %565 = load ptr, ptr %517, align 8
   %566 = getelementptr inbounds i64, ptr %565, i64 %549
   %567 = load i64, ptr %566, align 8
-  %568 = getelementptr inbounds i64, ptr %565, i64 %.48191039
+  %568 = getelementptr inbounds i64, ptr %565, i64 %.48171039
   store i64 %567, ptr %568, align 8
   %569 = add nsw i64 %.148091040, 1
-  %570 = add nsw i64 %.48191039, 1
+  %570 = add nsw i64 %.48171039, 1
   br label %571
 
 571:                                              ; preds = %547, %553
-  %.5820 = phi i64 [ %570, %553 ], [ %.48191039, %547 ]
+  %.5818 = phi i64 [ %570, %553 ], [ %.48171039, %547 ]
   %.15810 = phi i64 [ %569, %553 ], [ %.148091040, %547 ]
   %indvars.iv.next1183 = add nuw nsw i64 %indvars.iv1182, 1
   %exitcond1185.not = icmp eq i64 %indvars.iv.next1183, %507
@@ -1651,7 +1651,7 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
 577:                                              ; preds = %.preheader939.us, %596
   %indvars.iv1186 = phi i64 [ 0, %.preheader939.us ], [ %indvars.iv.next1187, %596 ]
   %.178121047.us = phi i64 [ %.168111052.us, %.preheader939.us ], [ %.18.us, %596 ]
-  %.68211046.us = phi i64 [ %.168111052.us, %.preheader939.us ], [ %.7822.us, %596 ]
+  %.68191046.us = phi i64 [ %.168111052.us, %.preheader939.us ], [ %.7820.us, %596 ]
   %578 = load ptr, ptr %517, align 8
   %579 = sub nsw i64 %.178121047.us, %507
   %580 = getelementptr inbounds i64, ptr %578, i64 %579
@@ -1665,19 +1665,19 @@ flatlist_node_grow.exit888.us:                    ; preds = %.flatlist_node_grow
   %586 = load i64, ptr %585, align 8
   %587 = load i64, ptr %16, align 8
   %588 = add nsw i64 %587, %586
-  %589 = getelementptr inbounds i64, ptr %584, i64 %.68211046.us
+  %589 = getelementptr inbounds i64, ptr %584, i64 %.68191046.us
   store i64 %588, ptr %589, align 8
   %590 = load ptr, ptr %517, align 8
   %591 = getelementptr inbounds i64, ptr %590, i64 %579
   %592 = load i64, ptr %591, align 8
-  %593 = getelementptr inbounds i64, ptr %590, i64 %.68211046.us
+  %593 = getelementptr inbounds i64, ptr %590, i64 %.68191046.us
   store i64 %592, ptr %593, align 8
   %594 = add nsw i64 %.178121047.us, 1
-  %595 = add nsw i64 %.68211046.us, 1
+  %595 = add nsw i64 %.68191046.us, 1
   br label %596
 
 596:                                              ; preds = %583, %577
-  %.7822.us = phi i64 [ %595, %583 ], [ %.68211046.us, %577 ]
+  %.7820.us = phi i64 [ %595, %583 ], [ %.68191046.us, %577 ]
   %.18.us = phi i64 [ %594, %583 ], [ %.178121047.us, %577 ]
   %indvars.iv.next1187 = add nuw nsw i64 %indvars.iv1186, 1
   %exitcond1189.not = icmp eq i64 %indvars.iv.next1187, %507
@@ -2196,7 +2196,7 @@ flatlist_node_grow.exit900.us:                    ; preds = %.flatlist_node_grow
 
 854:                                              ; preds = %.lr.ph996, %893
   %.13794994 = phi i64 [ %837, %.lr.ph996 ], [ %855, %893 ]
-  %.8823993 = phi i64 [ %837, %.lr.ph996 ], [ %.9824, %893 ]
+  %.8821993 = phi i64 [ %837, %.lr.ph996 ], [ %.9822, %893 ]
   %855 = add nsw i64 %.13794994, 1
   %856 = sub nsw i64 %855, %837
   %857 = getelementptr inbounds i32, ptr %24, i64 %856
@@ -2206,7 +2206,7 @@ flatlist_node_grow.exit900.us:                    ; preds = %.flatlist_node_grow
 
 860:                                              ; preds = %854
   %861 = zext nneg i32 %858 to i64
-  %sext918 = shl i64 %.8823993, 32
+  %sext918 = shl i64 %.8821993, 32
   %862 = ashr exact i64 %sext918, 32
   %863 = load i64, ptr %851, align 8
   %.not.i904 = icmp sgt i64 %863, %862
@@ -2253,24 +2253,24 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
   %884 = getelementptr inbounds i64, ptr %29, i64 %883
   %885 = load i64, ptr %884, align 8
   %886 = add nsw i64 %885, %2
-  %887 = getelementptr inbounds i64, ptr %882, i64 %.8823993
+  %887 = getelementptr inbounds i64, ptr %882, i64 %.8821993
   store i64 %886, ptr %887, align 8
   %888 = load i64, ptr %14, align 8
   %889 = mul nsw i64 %888, %861
   %890 = load ptr, ptr %852, align 8
-  %891 = getelementptr inbounds i64, ptr %890, i64 %.8823993
+  %891 = getelementptr inbounds i64, ptr %890, i64 %.8821993
   store i64 %889, ptr %891, align 8
-  %892 = add nsw i64 %.8823993, 1
+  %892 = add nsw i64 %.8821993, 1
   br label %893
 
 893:                                              ; preds = %854, %flatlist_node_grow.exit906
-  %.9824 = phi i64 [ %892, %flatlist_node_grow.exit906 ], [ %.8823993, %854 ]
+  %.9822 = phi i64 [ %892, %flatlist_node_grow.exit906 ], [ %.8821993, %854 ]
   %894 = icmp slt i64 %855, %849
   br i1 %894, label %854, label %._crit_edge997, !llvm.loop !32
 
 ._crit_edge997:                                   ; preds = %893, %.thread1244
-  %.8823.lcssa = phi i64 [ %837, %.thread1244 ], [ %.9824, %893 ]
-  store i64 %.8823.lcssa, ptr %3, align 8
+  %.8821.lcssa = phi i64 [ %837, %.thread1244 ], [ %.9822, %893 ]
+  store i64 %.8821.lcssa, ptr %3, align 8
   br label %.loopexit941
 
 895:                                              ; preds = %842
@@ -2296,7 +2296,7 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
 905:                                              ; preds = %.preheader950.us, %924
   %.14965.us = phi i64 [ 0, %.preheader950.us ], [ %925, %924 ]
   %.24964.us = phi i64 [ %.23967.us, %.preheader950.us ], [ %.25.us, %924 ]
-  %.10825963.us = phi i64 [ %.23967.us, %.preheader950.us ], [ %.11826.us, %924 ]
+  %.10823963.us = phi i64 [ %.23967.us, %.preheader950.us ], [ %.11824.us, %924 ]
   %906 = load ptr, ptr %903, align 8
   %907 = sub nsw i64 %.24964.us, %896
   %908 = getelementptr inbounds i64, ptr %906, i64 %907
@@ -2310,19 +2310,19 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
   %914 = load i64, ptr %913, align 8
   %915 = load i64, ptr %16, align 8
   %916 = add nsw i64 %915, %914
-  %917 = getelementptr inbounds i64, ptr %912, i64 %.10825963.us
+  %917 = getelementptr inbounds i64, ptr %912, i64 %.10823963.us
   store i64 %916, ptr %917, align 8
   %918 = load ptr, ptr %903, align 8
   %919 = getelementptr inbounds i64, ptr %918, i64 %907
   %920 = load i64, ptr %919, align 8
-  %921 = getelementptr inbounds i64, ptr %918, i64 %.10825963.us
+  %921 = getelementptr inbounds i64, ptr %918, i64 %.10823963.us
   store i64 %920, ptr %921, align 8
   %922 = add nsw i64 %.24964.us, 1
-  %923 = add nsw i64 %.10825963.us, 1
+  %923 = add nsw i64 %.10823963.us, 1
   br label %924
 
 924:                                              ; preds = %911, %905
-  %.11826.us = phi i64 [ %923, %911 ], [ %.10825963.us, %905 ]
+  %.11824.us = phi i64 [ %923, %911 ], [ %.10823963.us, %905 ]
   %.25.us = phi i64 [ %922, %911 ], [ %.24964.us, %905 ]
   %925 = add nuw nsw i64 %.14965.us, 1
   %exitcond1160.not = icmp eq i64 %925, %896
@@ -2356,8 +2356,8 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
 934:                                              ; preds = %.lr.ph992, %.loopexit947
   %.15991 = phi i64 [ 1, %.lr.ph992 ], [ %933, %.loopexit947 ]
   %.26990 = phi i64 [ %.23.lcssa, %.lr.ph992 ], [ %.29.lcssa, %.loopexit947 ]
-  %.1814989 = phi i64 [ %837, %.lr.ph992 ], [ %.26990, %.loopexit947 ]
-  %.neg = sub i64 %.1814989, %.26990
+  %.1830989 = phi i64 [ %837, %.lr.ph992 ], [ %.26990, %.loopexit947 ]
+  %.neg = sub i64 %.1830989, %.26990
   br i1 %930, label %._crit_edge.thread, label %.lr.ph976
 
 .lr.ph976:                                        ; preds = %934
@@ -2368,7 +2368,7 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
 937:                                              ; preds = %.lr.ph976, %958
   %indvars.iv1161 = phi i64 [ 0, %.lr.ph976 ], [ %indvars.iv.next1162, %958 ]
   %.27974 = phi i64 [ %.26990, %.lr.ph976 ], [ %.28, %958 ]
-  %.12827973 = phi i64 [ %.26990, %.lr.ph976 ], [ %.13828, %958 ]
+  %.12825973 = phi i64 [ %.26990, %.lr.ph976 ], [ %.13826, %958 ]
   %938 = load ptr, ptr %931, align 8
   %939 = add i64 %.27974, %.neg
   %940 = getelementptr inbounds i64, ptr %938, i64 %939
@@ -2384,19 +2384,19 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
   %948 = add nsw i64 %947, %946
   %949 = load i64, ptr %936, align 8
   %950 = sub i64 %948, %949
-  %951 = getelementptr inbounds i64, ptr %944, i64 %.12827973
+  %951 = getelementptr inbounds i64, ptr %944, i64 %.12825973
   store i64 %950, ptr %951, align 8
   %952 = load ptr, ptr %931, align 8
   %953 = getelementptr inbounds i64, ptr %952, i64 %939
   %954 = load i64, ptr %953, align 8
-  %955 = getelementptr inbounds i64, ptr %952, i64 %.12827973
+  %955 = getelementptr inbounds i64, ptr %952, i64 %.12825973
   store i64 %954, ptr %955, align 8
   %956 = add nsw i64 %.27974, 1
-  %957 = add nsw i64 %.12827973, 1
+  %957 = add nsw i64 %.12825973, 1
   br label %958
 
 958:                                              ; preds = %937, %943
-  %.13828 = phi i64 [ %957, %943 ], [ %.12827973, %937 ]
+  %.13826 = phi i64 [ %957, %943 ], [ %.12825973, %937 ]
   %.28 = phi i64 [ %956, %943 ], [ %.27974, %937 ]
   %indvars.iv.next1162 = add nuw nsw i64 %indvars.iv1161, 1
   %exitcond1164.not = icmp eq i64 %indvars.iv.next1162, %896
@@ -2423,7 +2423,7 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
 964:                                              ; preds = %.preheader946.us, %983
   %indvars.iv1165 = phi i64 [ 0, %.preheader946.us ], [ %indvars.iv.next1166, %983 ]
   %.30978.us = phi i64 [ %.29983.us, %.preheader946.us ], [ %.31.us, %983 ]
-  %.14829977.us = phi i64 [ %.29983.us, %.preheader946.us ], [ %.15830.us, %983 ]
+  %.14827977.us = phi i64 [ %.29983.us, %.preheader946.us ], [ %.15828.us, %983 ]
   %965 = load ptr, ptr %931, align 8
   %966 = sub nsw i64 %.30978.us, %896
   %967 = getelementptr inbounds i64, ptr %965, i64 %966
@@ -2437,19 +2437,19 @@ flatlist_node_grow.exit906:                       ; preds = %.flatlist_node_grow
   %973 = load i64, ptr %972, align 8
   %974 = load i64, ptr %16, align 8
   %975 = add nsw i64 %974, %973
-  %976 = getelementptr inbounds i64, ptr %971, i64 %.14829977.us
+  %976 = getelementptr inbounds i64, ptr %971, i64 %.14827977.us
   store i64 %975, ptr %976, align 8
   %977 = load ptr, ptr %931, align 8
   %978 = getelementptr inbounds i64, ptr %977, i64 %966
   %979 = load i64, ptr %978, align 8
-  %980 = getelementptr inbounds i64, ptr %977, i64 %.14829977.us
+  %980 = getelementptr inbounds i64, ptr %977, i64 %.14827977.us
   store i64 %979, ptr %980, align 8
   %981 = add nsw i64 %.30978.us, 1
-  %982 = add nsw i64 %.14829977.us, 1
+  %982 = add nsw i64 %.14827977.us, 1
   br label %983
 
 983:                                              ; preds = %970, %964
-  %.15830.us = phi i64 [ %982, %970 ], [ %.14829977.us, %964 ]
+  %.15828.us = phi i64 [ %982, %970 ], [ %.14827977.us, %964 ]
   %.31.us = phi i64 [ %981, %970 ], [ %.30978.us, %964 ]
   %indvars.iv.next1166 = add nuw nsw i64 %indvars.iv1165, 1
   %exitcond1168.not = icmp eq i64 %indvars.iv.next1166, %896
@@ -2916,8 +2916,8 @@ define void @ADIOI_Optimize_flattened(ptr nocapture noundef %0) local_unnamed_ad
 
 10:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
+  %.084 = phi i32 [ 1, %.lr.ph ], [ %.1, %59 ]
   %.07183 = phi i32 [ -1, %.lr.ph ], [ %.172, %59 ]
-  %.07382 = phi i32 [ 1, %.lr.ph ], [ %.174, %59 ]
   %11 = icmp ugt i64 %5, %indvars.iv
   br i1 %11, label %12, label %._crit_edge95
 
@@ -2937,12 +2937,12 @@ define void @ADIOI_Optimize_flattened(ptr nocapture noundef %0) local_unnamed_ad
   %20 = load i64, ptr %19, align 8
   %.not = icmp ne i64 %18, %20
   %21 = zext i1 %.not to i32
-  %spec.select = add nsw i32 %.07382, %21
+  %spec.select = add nsw i32 %.084, %21
   br label %22
 
 22:                                               ; preds = %._crit_edge95, %12
   %23 = phi i64 [ %.pre, %._crit_edge95 ], [ %17, %12 ]
-  %.174 = phi i32 [ %.07382, %._crit_edge95 ], [ %spec.select, %12 ]
+  %.1 = phi i32 [ %.084, %._crit_edge95 ], [ %spec.select, %12 ]
   %24 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv
   %25 = icmp sgt i64 %23, 0
   br i1 %25, label %26, label %thread-pre-split
@@ -3011,13 +3011,13 @@ thread-pre-split.thread:                          ; preds = %26, %thread-pre-spl
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %59, %1
-  %.073.lcssa = phi i32 [ 1, %1 ], [ %.174, %59 ]
-  %60 = sext i32 %.073.lcssa to i64
+  %.0.lcssa = phi i32 [ 1, %1 ], [ %.1, %59 ]
+  %60 = sext i32 %.0.lcssa to i64
   %61 = icmp eq i64 %3, %60
   br i1 %61, label %105, label %62
 
 62:                                               ; preds = %._crit_edge
-  %63 = shl nsw i32 %.073.lcssa, 1
+  %63 = shl nsw i32 %.0.lcssa, 1
   %64 = sext i32 %63 to i64
   %65 = tail call ptr @ADIOI_Calloc_fn(i64 noundef %64, i64 noundef 8, i32 noundef 1206, ptr noundef nonnull @.str) #6
   %66 = getelementptr inbounds i64, ptr %65, i64 %60
@@ -3035,7 +3035,7 @@ thread-pre-split.thread:                          ; preds = %26, %thread-pre-spl
 
 .lr.ph89:                                         ; preds = %62, %100
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %100 ], [ 0, %62 ]
-  %.286 = phi i32 [ %.3, %100 ], [ 0, %62 ]
+  %.287 = phi i32 [ %.3, %100 ], [ 0, %62 ]
   %75 = load ptr, ptr %70, align 8
   %76 = getelementptr inbounds i64, ptr %75, i64 %indvars.iv92
   %77 = load i64, ptr %76, align 8
@@ -3052,7 +3052,7 @@ thread-pre-split.thread:                          ; preds = %26, %thread-pre-spl
 85:                                               ; preds = %.lr.ph89
   %86 = getelementptr inbounds i64, ptr %78, i64 %indvars.iv.next93
   %87 = load i64, ptr %86, align 8
-  %88 = sext i32 %.286 to i64
+  %88 = sext i32 %.287 to i64
   %89 = getelementptr inbounds i64, ptr %65, i64 %88
   %90 = load i64, ptr %89, align 8
   %91 = add nsw i64 %90, %87
@@ -3060,7 +3060,7 @@ thread-pre-split.thread:                          ; preds = %26, %thread-pre-spl
   br label %100
 
 92:                                               ; preds = %.lr.ph89
-  %93 = add nsw i32 %.286, 1
+  %93 = add nsw i32 %.287, 1
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds i64, ptr %66, i64 %94
   store i64 %83, ptr %95, align 8
@@ -3072,7 +3072,7 @@ thread-pre-split.thread:                          ; preds = %26, %thread-pre-spl
   br label %100
 
 100:                                              ; preds = %85, %92
-  %.3 = phi i32 [ %.286, %85 ], [ %93, %92 ]
+  %.3 = phi i32 [ %.287, %85 ], [ %93, %92 ]
   %101 = load i64, ptr %2, align 8
   %102 = add nsw i64 %101, -1
   %103 = icmp sgt i64 %102, %indvars.iv.next93

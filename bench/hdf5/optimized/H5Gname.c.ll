@@ -1289,17 +1289,17 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__name_move_path(ptr nocapture n
   br i1 %9, label %.preheader43, label %41
 
 .preheader43:                                     ; preds = %4, %.preheader43
-  %.036 = phi i64 [ %15, %.preheader43 ], [ 0, %4 ]
-  %10 = getelementptr inbounds i8, ptr %2, i64 %.036
+  %.0 = phi i64 [ %15, %.preheader43 ], [ 0, %4 ]
+  %10 = getelementptr inbounds i8, ptr %2, i64 %.0
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %3, i64 %.036
+  %12 = getelementptr inbounds i8, ptr %3, i64 %.0
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %11, %13
-  %15 = add i64 %.036, 1
+  %15 = add i64 %.0, 1
   br i1 %14, label %.preheader43, label %.preheader
 
 .preheader:                                       ; preds = %.preheader43, %.preheader
-  %.1 = phi i64 [ %18, %.preheader ], [ %.036, %.preheader43 ]
+  %.1 = phi i64 [ %18, %.preheader ], [ %.0, %.preheader43 ]
   %16 = getelementptr inbounds i8, ptr %2, i64 %.1
   %17 = load i8, ptr %16, align 1
   %.not = icmp eq i8 %17, 47
@@ -1346,8 +1346,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__name_move_path(ptr nocapture n
   br label %41
 
 41:                                               ; preds = %4, %38, %27
-  %.0 = phi i32 [ -1, %27 ], [ 0, %38 ], [ 0, %4 ]
-  ret i32 %.0
+  %.036 = phi i32 [ -1, %27 ], [ 0, %38 ], [ 0, %4 ]
+  ret i32 %.036
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

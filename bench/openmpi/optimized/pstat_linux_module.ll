@@ -2080,13 +2080,13 @@ local_getline.exit:                               ; preds = %1114
   br i1 %1123, label %local_stripper.exit.backedge, label %.preheader.i740
 
 .preheader.i740:                                  ; preds = %local_getline.exit, %1124
-  %.pn26.i = phi ptr [ %.021.i, %1124 ], [ %1122, %local_getline.exit ]
-  %.021.i = getelementptr inbounds i8, ptr %.pn26.i, i64 -1
-  %.not.i741 = icmp eq ptr %.021.i, %.0.i
-  br i1 %.not.i741, label %.critedge.i, label %1124
+  %.pn26.i = phi ptr [ %.0.i741, %1124 ], [ %1122, %local_getline.exit ]
+  %.0.i741 = getelementptr inbounds i8, ptr %.pn26.i, i64 -1
+  %.not.i742 = icmp eq ptr %.0.i741, %.0.i
+  br i1 %.not.i742, label %.critedge.i, label %1124
 
 1124:                                             ; preds = %.preheader.i740
-  %1125 = load i8, ptr %.021.i, align 1
+  %1125 = load i8, ptr %.0.i741, align 1
   %1126 = sext i8 %1125 to i64
   %1127 = getelementptr inbounds i16, ptr %1113, i64 %1126
   %1128 = load i16, ptr %1127, align 2
@@ -2254,13 +2254,13 @@ local_getline.exit757:                            ; preds = %1188
   br i1 %1197, label %local_stripper.exit770.backedge, label %.preheader.i758
 
 .preheader.i758:                                  ; preds = %local_getline.exit757, %1198
-  %.pn26.i759 = phi ptr [ %.021.i760, %1198 ], [ %1196, %local_getline.exit757 ]
-  %.021.i760 = getelementptr inbounds i8, ptr %.pn26.i759, i64 -1
-  %.not.i761 = icmp eq ptr %.021.i760, %.0.i754
+  %.pn26.i759 = phi ptr [ %.0.i760, %1198 ], [ %1196, %local_getline.exit757 ]
+  %.0.i760 = getelementptr inbounds i8, ptr %.pn26.i759, i64 -1
+  %.not.i761 = icmp eq ptr %.0.i760, %.0.i754
   br i1 %.not.i761, label %.critedge.i763, label %1198
 
 1198:                                             ; preds = %.preheader.i758
-  %1199 = load i8, ptr %.021.i760, align 1
+  %1199 = load i8, ptr %.0.i760, align 1
   %1200 = sext i8 %1199 to i64
   %1201 = getelementptr inbounds i16, ptr %1187, i64 %1200
   %1202 = load i16, ptr %1201, align 2
@@ -2430,13 +2430,13 @@ local_getline.exit779:                            ; preds = %1276
   br i1 %1285, label %local_stripper.exit792.backedge, label %.preheader.i780
 
 .preheader.i780:                                  ; preds = %local_getline.exit779, %1286
-  %.pn26.i781 = phi ptr [ %.021.i782, %1286 ], [ %1284, %local_getline.exit779 ]
-  %.021.i782 = getelementptr inbounds i8, ptr %.pn26.i781, i64 -1
-  %.not.i783 = icmp eq ptr %.021.i782, %.0.i776
+  %.pn26.i781 = phi ptr [ %.0.i782, %1286 ], [ %1284, %local_getline.exit779 ]
+  %.0.i782 = getelementptr inbounds i8, ptr %.pn26.i781, i64 -1
+  %.not.i783 = icmp eq ptr %.0.i782, %.0.i776
   br i1 %.not.i783, label %.critedge.i785, label %1286
 
 1286:                                             ; preds = %.preheader.i780
-  %1287 = load i8, ptr %.021.i782, align 1
+  %1287 = load i8, ptr %.0.i782, align 1
   %1288 = sext i8 %1287 to i64
   %1289 = getelementptr inbounds i16, ptr %1275, i64 %1288
   %1290 = load i16, ptr %1289, align 2
@@ -3365,8 +3365,8 @@ pmix_obj_run_destructors.exit873:                 ; preds = %.lr.ph.i870, %1719
   br i1 %.not.i878, label %pmix_obj_run_destructors.exit879, label %.lr.ph.i876, !llvm.loop !16
 
 pmix_obj_run_destructors.exit879:                 ; preds = %.lr.ph.i876, %40, %29, %._crit_edge1074, %pmix_obj_run_destructors.exit839, %.thread, %1178, %local_stripper.exit._crit_edge, %1102, %next_field.exit738, %51, %45, %37, %32
-  %.0202 = phi i32 [ -1, %32 ], [ -1, %37 ], [ -27, %45 ], [ -27, %51 ], [ -1, %next_field.exit738 ], [ 0, %1102 ], [ -1, %local_stripper.exit._crit_edge ], [ 0, %1178 ], [ 0, %.thread ], [ 0, %pmix_obj_run_destructors.exit839 ], [ 0, %._crit_edge1074 ], [ 0, %29 ], [ -1, %40 ], [ 0, %.lr.ph.i876 ]
-  ret i32 %.0202
+  %.0203 = phi i32 [ -1, %32 ], [ -1, %37 ], [ -27, %45 ], [ -27, %51 ], [ -1, %next_field.exit738 ], [ 0, %1102 ], [ -1, %local_stripper.exit._crit_edge ], [ 0, %1178 ], [ 0, %.thread ], [ 0, %pmix_obj_run_destructors.exit839 ], [ 0, %._crit_edge1074 ], [ 0, %29 ], [ -1, %40 ], [ 0, %.lr.ph.i876 ]
+  ret i32 %.0203
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

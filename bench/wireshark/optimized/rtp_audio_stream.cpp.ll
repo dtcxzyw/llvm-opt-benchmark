@@ -1354,17 +1354,17 @@ define void @_ZN14RtpAudioStream11decodeAudioE12QAudioDevice(ptr noundef nonnull
 55:                                               ; preds = %.lr.ph, %_ZN7QStringD2Ev.exit
   %56 = phi i64 [ 0, %.lr.ph ], [ %318, %_ZN7QStringD2Ev.exit ]
   %.081223 = phi ptr [ %20, %.lr.ph ], [ %.2, %_ZN7QStringD2Ev.exit ]
-  %.087222 = phi i32 [ 0, %.lr.ph ], [ %.289, %_ZN7QStringD2Ev.exit ]
-  %.090221 = phi i32 [ 0, %.lr.ph ], [ %317, %_ZN7QStringD2Ev.exit ]
-  %.091220 = phi ptr [ null, %.lr.ph ], [ %.4, %_ZN7QStringD2Ev.exit ]
-  %.094219 = phi i32 [ 0, %.lr.ph ], [ %.498, %_ZN7QStringD2Ev.exit ]
-  %.099218 = phi i64 [ 0, %.lr.ph ], [ %.2101, %_ZN7QStringD2Ev.exit ]
-  %.0102217 = phi i64 [ 0, %.lr.ph ], [ %.3105, %_ZN7QStringD2Ev.exit ]
-  %.0110216 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2112, %_ZN7QStringD2Ev.exit ]
-  %.0113215 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2115, %_ZN7QStringD2Ev.exit ]
-  %.0116214 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2118, %_ZN7QStringD2Ev.exit ]
-  %.0119213 = phi double [ 0.000000e+00, %.lr.ph ], [ %.3122, %_ZN7QStringD2Ev.exit ]
-  %.0123212 = phi i32 [ 0, %.lr.ph ], [ %.2125, %_ZN7QStringD2Ev.exit ]
+  %.085222 = phi i32 [ 0, %.lr.ph ], [ %317, %_ZN7QStringD2Ev.exit ]
+  %.086221 = phi ptr [ null, %.lr.ph ], [ %.4, %_ZN7QStringD2Ev.exit ]
+  %.089220 = phi i32 [ 0, %.lr.ph ], [ %.493, %_ZN7QStringD2Ev.exit ]
+  %.094219 = phi i64 [ 0, %.lr.ph ], [ %.296, %_ZN7QStringD2Ev.exit ]
+  %.097218 = phi i64 [ 0, %.lr.ph ], [ %.3100, %_ZN7QStringD2Ev.exit ]
+  %.0105217 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2107, %_ZN7QStringD2Ev.exit ]
+  %.0108216 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2110, %_ZN7QStringD2Ev.exit ]
+  %.0111215 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2113, %_ZN7QStringD2Ev.exit ]
+  %.0114214 = phi double [ 0.000000e+00, %.lr.ph ], [ %.3117, %_ZN7QStringD2Ev.exit ]
+  %.0118213 = phi i32 [ 0, %.lr.ph ], [ %.2120, %_ZN7QStringD2Ev.exit ]
+  %.0121212 = phi i32 [ 0, %.lr.ph ], [ %.2123, %_ZN7QStringD2Ev.exit ]
   %.0189211 = phi i32 [ 4096, %.lr.ph ], [ %.3192, %_ZN7QStringD2Ev.exit ]
   store ptr null, ptr %16, align 8
   %57 = load ptr, ptr %21, align 8
@@ -1513,7 +1513,7 @@ _ZN4QSetI7QStringElsERKS0_.exit:                  ; preds = %95, %_ZN17QArrayDat
   br label %106
 
 106:                                              ; preds = %_ZN4QSetI7QStringElsERKS0_.exit, %87
-  %107 = icmp slt i32 %.090221, 1
+  %107 = icmp slt i32 %.085222, 1
   br i1 %107, label %108, label %115
 
 108:                                              ; preds = %106
@@ -1526,9 +1526,9 @@ _ZN4QSetI7QStringElsERKS0_.exit:                  ; preds = %95, %_ZN17QArrayDat
   br label %115
 
 115:                                              ; preds = %108, %106
-  %.1120 = phi double [ 0.000000e+00, %108 ], [ %.0119213, %106 ]
-  %.1103 = phi i64 [ %111, %108 ], [ %.0102217, %106 ]
-  %.188 = phi i32 [ %114, %108 ], [ %.087222, %106 ]
+  %.1122 = phi i32 [ %114, %108 ], [ %.0121212, %106 ]
+  %.1115 = phi double [ 0.000000e+00, %108 ], [ %.0114214, %106 ]
+  %.198 = phi i64 [ %111, %108 ], [ %.097218, %106 ]
   %116 = load ptr, ptr %32, align 8
   %117 = extractelement <2 x ptr> %88, i64 0
   %118 = invoke i64 @decode_rtp_packet(ptr noundef nonnull %65, ptr noundef nonnull %16, ptr noundef %116, ptr noundef nonnull %14, ptr noundef nonnull %15)
@@ -1658,7 +1658,7 @@ _ZN4QSetI7QStringElsERKS0_.exit:                  ; preds = %95, %_ZN17QArrayDat
   %173 = load ptr, ptr %70, align 8
   %174 = getelementptr inbounds i8, ptr %173, i64 24
   %175 = load i32, ptr %174, align 8
-  %176 = add i32 %.188, 1
+  %176 = add i32 %.1122, 1
   %.not135 = icmp eq i32 %175, %176
   br i1 %.not135, label %180, label %177
 
@@ -1682,7 +1682,7 @@ _ZN5QListIdE6appendEd.exit:                       ; preds = %177
   %182 = phi ptr [ %.pre, %_ZN5QListIdE6appendEd.exit ], [ %173, %172 ]
   %183 = getelementptr inbounds i8, ptr %182, i64 32
   %184 = load i64, ptr %183, align 8
-  %185 = sub i64 %184, %.1103
+  %185 = sub i64 %184, %.198
   %186 = uitofp i64 %185 to double
   %187 = uitofp i32 %spec.store.select to double
   %188 = fdiv double %186, %187
@@ -1692,7 +1692,7 @@ _ZN5QListIdE6appendEd.exit:                       ; preds = %177
 
 191:                                              ; preds = %180
   %192 = load double, ptr %67, align 8
-  %193 = fsub double %192, %.0110216
+  %193 = fsub double %192, %.0105217
   br label %194
 
 194:                                              ; preds = %180, %191
@@ -1719,16 +1719,16 @@ _ZN5QListIdE6appendEd.exit:                       ; preds = %177
 
 206:                                              ; preds = %203
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %207 = fsub double %188, %.1120
-  %208 = fmul double %.0113215, 2.000000e+00
+  %207 = fsub double %188, %.1115
+  %208 = fmul double %.0108216, 2.000000e+00
   %209 = fcmp ogt double %207, %208
   %.pre230 = load i32, ptr %15, align 4
   br i1 %209, label %210, label %270
 
 210:                                              ; preds = %206
-  %211 = fsub double %.082, %.0116214
+  %211 = fsub double %.082, %.0111215
   %212 = uitofp i32 %.pre230 to double
-  %213 = lshr i64 %.099218, 1
+  %213 = lshr i64 %.094219, 1
   %214 = uitofp nneg i64 %213 to double
   %215 = fneg double %214
   %216 = call double @llvm.fmuladd.f64(double %211, double %212, double %215)
@@ -1771,10 +1771,10 @@ _ZN5QListIdE6appendEd.exit:                       ; preds = %177
   br i1 %.not136, label %.thread196, label %237
 
 237:                                              ; preds = %236
-  %238 = fsub double %188, %.1120
+  %238 = fsub double %188, %.1115
   %239 = load i32, ptr %15, align 4
   %240 = uitofp i32 %239 to double
-  %241 = lshr i64 %.099218, 1
+  %241 = lshr i64 %.094219, 1
   %242 = uitofp nneg i64 %241 to double
   %243 = fneg double %242
   %244 = call double @llvm.fmuladd.f64(double %238, double %240, double %243)
@@ -1831,12 +1831,12 @@ _ZN5QListIdE6appendEd.exit:                       ; preds = %177
 
 270:                                              ; preds = %206, %231, %.thread196
   %271 = phi i32 [ %.pre229, %231 ], [ %.pre230, %206 ], [ %267, %.thread196 ]
-  %.2121 = phi double [ 0.000000e+00, %231 ], [ %.1120, %206 ], [ %188, %.thread196 ]
-  %.1117 = phi double [ %.0116214, %231 ], [ %.0116214, %206 ], [ %.082, %.thread196 ]
-  %.1114 = phi double [ %.0113215, %231 ], [ %.0113215, %206 ], [ %269, %.thread196 ]
-  %.1111 = phi double [ %235, %231 ], [ %.0110216, %206 ], [ %.0110216, %.thread196 ]
-  %.2104 = phi i64 [ %234, %231 ], [ %.1103, %206 ], [ %.1103, %.thread196 ]
-  %.1100 = phi i64 [ 0, %231 ], [ %.099218, %206 ], [ %118, %.thread196 ]
+  %.2116 = phi double [ 0.000000e+00, %231 ], [ %.1115, %206 ], [ %188, %.thread196 ]
+  %.1112 = phi double [ %.0111215, %231 ], [ %.0111215, %206 ], [ %.082, %.thread196 ]
+  %.1109 = phi double [ %.0108216, %231 ], [ %.0108216, %206 ], [ %269, %.thread196 ]
+  %.1106 = phi double [ %235, %231 ], [ %.0105217, %206 ], [ %.0105217, %.thread196 ]
+  %.299 = phi i64 [ %234, %231 ], [ %.198, %206 ], [ %.198, %.thread196 ]
+  %.195 = phi i64 [ 0, %231 ], [ %.094219, %206 ], [ %118, %.thread196 ]
   %272 = load ptr, ptr %16, align 8
   %273 = load i32, ptr %33, align 8
   %.not140 = icmp eq i32 %273, %271
@@ -1878,15 +1878,15 @@ _ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit: ; preds = %._ZN14RtpAudioS
   %.pre233 = phi i32 [ %271, %274 ], [ %.pre233.pre, %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge ]
   %.1190 = phi i32 [ %.0189211, %274 ], [ %288, %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge ]
   %.0.i170 = phi ptr [ %.081223, %274 ], [ %292, %._ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit_crit_edge ]
-  %.not141 = icmp eq ptr %.091220, null
+  %.not141 = icmp eq ptr %.086221, null
   br i1 %.not141, label %295, label %293
 
 293:                                              ; preds = %_ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit
-  %.not142 = icmp eq i32 %.pre233, %.094219
+  %.not142 = icmp eq i32 %.pre233, %.089220
   br i1 %.not142, label %299, label %294
 
 294:                                              ; preds = %293
-  invoke void @speex_resampler_destroy(ptr noundef nonnull %.091220)
+  invoke void @speex_resampler_destroy(ptr noundef nonnull %.086221)
           to label %._crit_edge231 unwind label %77
 
 ._crit_edge231:                                   ; preds = %294
@@ -1900,10 +1900,10 @@ _ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit: ; preds = %._ZN14RtpAudioS
           to label %299 unwind label %77
 
 299:                                              ; preds = %293, %295
-  %.296 = phi i32 [ %296, %295 ], [ %.094219, %293 ]
-  %.293 = phi ptr [ %298, %295 ], [ %.091220, %293 ]
+  %.291 = phi i32 [ %296, %295 ], [ %.089220, %293 ]
+  %.288 = phi ptr [ %298, %295 ], [ %.086221, %293 ]
   %300 = load ptr, ptr %16, align 8
-  %301 = invoke i32 @speex_resampler_process_int(ptr noundef %.293, i32 noundef 0, ptr noundef %300, ptr noundef nonnull %18, ptr noundef %.0.i170, ptr noundef nonnull %19)
+  %301 = invoke i32 @speex_resampler_process_int(ptr noundef %.288, i32 noundef 0, ptr noundef %300, ptr noundef nonnull %18, ptr noundef %.0.i170, ptr noundef nonnull %19)
           to label %302 unwind label %77
 
 302:                                              ; preds = %299
@@ -1914,38 +1914,38 @@ _ZN14RtpAudioStream20resizeBufferIfNeededEPsPix.exit: ; preds = %._ZN14RtpAudioS
 
 306:                                              ; preds = %302, %270
   %.2191 = phi i32 [ %.0189211, %270 ], [ %.1190, %302 ]
-  %.397 = phi i32 [ %.094219, %270 ], [ %.296, %302 ]
-  %.3 = phi ptr [ %.091220, %270 ], [ %.293, %302 ]
-  %.084 = phi i64 [ %118, %270 ], [ %305, %302 ]
-  %.083 = phi ptr [ %272, %270 ], [ %.0.i170, %302 ]
+  %.0125 = phi ptr [ %272, %270 ], [ %.0.i170, %302 ]
+  %.0124 = phi i64 [ %118, %270 ], [ %305, %302 ]
+  %.392 = phi i32 [ %.089220, %270 ], [ %.291, %302 ]
+  %.3 = phi ptr [ %.086221, %270 ], [ %.288, %302 ]
   %.1 = phi ptr [ %.081223, %270 ], [ %.0.i170, %302 ]
-  %307 = icmp ult i32 %.0123212, %181
+  %307 = icmp ult i32 %.0118213, %181
   br i1 %307, label %308, label %312
 
 308:                                              ; preds = %306
   %309 = load ptr, ptr %44, align 8
   %310 = load i32, ptr %65, align 8
-  %311 = invoke noundef i64 @_ZN12RtpAudioFile17frameWriteSamplesEjPKcx(ptr noundef nonnull align 8 dereferenceable(96) %309, i32 noundef %310, ptr noundef %.083, i64 noundef %.084)
+  %311 = invoke noundef i64 @_ZN12RtpAudioFile17frameWriteSamplesEjPKcx(ptr noundef nonnull align 8 dereferenceable(96) %309, i32 noundef %310, ptr noundef %.0125, i64 noundef %.0124)
           to label %312 unwind label %77
 
 312:                                              ; preds = %308, %306
-  %.1124 = phi i32 [ %.0123212, %306 ], [ %181, %308 ]
+  %.1119 = phi i32 [ %.0118213, %306 ], [ %181, %308 ]
   %313 = load ptr, ptr %16, align 8
   invoke void @g_free(ptr noundef %313)
           to label %314 unwind label %77
 
 314:                                              ; preds = %312, %133
   %.3192 = phi i32 [ %.0189211, %133 ], [ %.2191, %312 ]
-  %.2125 = phi i32 [ %.0123212, %133 ], [ %.1124, %312 ]
-  %.3122 = phi double [ %.1120, %133 ], [ %.2121, %312 ]
-  %.2118 = phi double [ %.0116214, %133 ], [ %.1117, %312 ]
-  %.2115 = phi double [ %.0113215, %133 ], [ %.1114, %312 ]
-  %.2112 = phi double [ %.0110216, %133 ], [ %.1111, %312 ]
-  %.3105 = phi i64 [ %.1103, %133 ], [ %.2104, %312 ]
-  %.2101 = phi i64 [ %.099218, %133 ], [ %.1100, %312 ]
-  %.498 = phi i32 [ %.094219, %133 ], [ %.397, %312 ]
-  %.4 = phi ptr [ %.091220, %133 ], [ %.3, %312 ]
-  %.289 = phi i32 [ %135, %133 ], [ %181, %312 ]
+  %.2123 = phi i32 [ %135, %133 ], [ %181, %312 ]
+  %.2120 = phi i32 [ %.0118213, %133 ], [ %.1119, %312 ]
+  %.3117 = phi double [ %.1115, %133 ], [ %.2116, %312 ]
+  %.2113 = phi double [ %.0111215, %133 ], [ %.1112, %312 ]
+  %.2110 = phi double [ %.0108216, %133 ], [ %.1109, %312 ]
+  %.2107 = phi double [ %.0105217, %133 ], [ %.1106, %312 ]
+  %.3100 = phi i64 [ %.198, %133 ], [ %.299, %312 ]
+  %.296 = phi i64 [ %.094219, %133 ], [ %.195, %312 ]
+  %.493 = phi i32 [ %.089220, %133 ], [ %.392, %312 ]
+  %.4 = phi ptr [ %.086221, %133 ], [ %.3, %312 ]
   %.2 = phi ptr [ %.081223, %133 ], [ %.1, %312 ]
   %.not.i.i.i172 = icmp eq ptr %117, null
   br i1 %.not.i.i.i172, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
@@ -1960,7 +1960,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %314
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %314, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %316
-  %317 = add i32 %.090221, 1
+  %317 = add i32 %.085222, 1
   %318 = sext i32 %317 to i64
   %319 = load i64, ptr %22, align 8
   %320 = icmp sgt i64 %319, %318
@@ -6670,14 +6670,14 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE8freeDataEv.exit
-  %.02234 = phi i64 [ 0, %.lr.ph ], [ %144, %_ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE8freeDataEv.exit ]
-  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02234
+  %.02334 = phi i64 [ 0, %.lr.ph ], [ %144, %_ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE8freeDataEv.exit ]
+  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02334
   %42 = getelementptr inbounds i8, ptr %41, i64 128
   br label %43
 
 43:                                               ; preds = %40, %125
-  %.02333 = phi i64 [ 0, %40 ], [ %126, %125 ]
-  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02333
+  %.02233 = phi i64 [ 0, %40 ], [ %126, %125 ]
+  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02233
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, -1
   br i1 %.not, label %125, label %46
@@ -6828,7 +6828,7 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE6insertEm.exit: ; pr
   br label %125
 
 125:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE6insertEm.exit
-  %126 = add nuw nsw i64 %.02333, 1
+  %126 = add nuw nsw i64 %.02233, 1
   %exitcond.not = icmp eq i64 %126, 128
   br i1 %exitcond.not, label %127, label %43, !llvm.loop !70
 
@@ -6880,7 +6880,7 @@ _ZN12QHashPrivate4NodeI7QString15QHashDummyValueED2Ev.exit.i: ; preds = %136, %_
   br label %_ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE8freeDataEv.exit
 
 _ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE8freeDataEv.exit: ; preds = %127, %143
-  %144 = add nuw nsw i64 %.02234, 1
+  %144 = add nuw nsw i64 %.02334, 1
   %exitcond36.not = icmp eq i64 %144, %38
   br i1 %exitcond36.not, label %._crit_edge.thread, label %40, !llvm.loop !71
 
@@ -7245,16 +7245,16 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br label %49
 
 49:                                               ; preds = %.lr.ph, %145
-  %.033 = phi i64 [ 0, %.lr.ph ], [ %146, %145 ]
+  %.02333 = phi i64 [ 0, %.lr.ph ], [ %146, %145 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.033
+  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.02333
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  %53 = shl nuw i64 %.033, 7
+  %53 = shl nuw i64 %.02333, 7
   br label %54
 
 54:                                               ; preds = %49, %_ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit
-  %.02331 = phi i64 [ 0, %49 ], [ %144, %_ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit ]
-  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.02331
+  %.031 = phi i64 [ 0, %49 ], [ %144, %_ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit ]
+  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.031
   %56 = load i8, ptr %55, align 1
   %.not30 = icmp eq i8 %56, -1
   br i1 %.not30, label %_ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit, label %57
@@ -7317,7 +7317,7 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QS
   br i1 %98, label %_ZNK12QHashPrivate4DataINS_4NodeI7QString15QHashDummyValueEEE4findERKS2_.exit, label %.lr.ph.i, !llvm.loop !68
 
 99:                                               ; preds = %57
-  %100 = add nuw nsw i64 %.02331, %53
+  %100 = add nuw nsw i64 %.031, %53
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeI7QString15QHashDummyValueEEE4findERKS2_.exit
 
@@ -7411,12 +7411,12 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE6insertEm.exit: ; pr
   br label %_ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit
 
 _ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit: ; preds = %142, %_ZN12QHashPrivate4SpanINS_4NodeI7QString15QHashDummyValueEEE6insertEm.exit, %54
-  %144 = add nuw nsw i64 %.02331, 1
+  %144 = add nuw nsw i64 %.031, 1
   %exitcond.not = icmp eq i64 %144, 128
   br i1 %exitcond.not, label %145, label %54, !llvm.loop !72
 
 145:                                              ; preds = %_ZN12QHashPrivate4NodeI7QString15QHashDummyValueEC2ERKS3_.exit
-  %146 = add nuw nsw i64 %.033, 1
+  %146 = add nuw nsw i64 %.02333, 1
   %exitcond35.not = icmp eq i64 %146, %47
   br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !73
 

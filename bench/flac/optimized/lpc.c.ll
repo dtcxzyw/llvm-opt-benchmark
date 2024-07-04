@@ -672,13 +672,13 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %cmax.051 = phi double [ 0.000000e+00, %for.body.preheader ], [ %cmax.1, %for.body ]
+  %cmax.052 = phi double [ 0.000000e+00, %for.body.preheader ], [ %cmax.1, %for.body ]
   %arrayidx = getelementptr inbounds float, ptr %lp_coeff, i64 %indvars.iv
   %0 = load float, ptr %arrayidx, align 4
   %1 = tail call reassoc nsz arcp float @llvm.fabs.f32(float %0)
   %2 = fpext float %1 to double
-  %cmp2 = fcmp reassoc nsz arcp olt double %cmax.051, %2
-  %cmax.1 = select nsz i1 %cmp2, double %2, double %cmax.051
+  %cmp2 = fcmp reassoc nsz arcp olt double %cmax.052, %2
+  %cmax.1 = select nsz i1 %cmp2, double %2, double %cmax.052
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !31
@@ -6454,9 +6454,9 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit ]
-  %order.012 = phi i32 [ 1, %for.body.lr.ph ], [ %inc7, %FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit ]
-  %best_bits.011 = phi double [ 0x41EFFFFFFFE00000, %for.body.lr.ph ], [ %best_bits.1, %FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit ]
-  %best_index.09 = phi i32 [ 0, %for.body.lr.ph ], [ %best_index.1, %FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit ]
+  %best_bits.012 = phi double [ 0x41EFFFFFFFE00000, %for.body.lr.ph ], [ %best_bits.1, %FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit ]
+  %best_index.011 = phi i32 [ 0, %for.body.lr.ph ], [ %best_index.1, %FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit ]
+  %order.09 = phi i32 [ 1, %for.body.lr.ph ], [ %inc7, %FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit ]
   %arrayidx = getelementptr inbounds double, ptr %lpc_error, i64 %indvars.iv
   %1 = load double, ptr %arrayidx, align 8
   %cmp.i = fcmp reassoc nsz arcp ogt double %1, 0.000000e+00
@@ -6478,17 +6478,17 @@ if.else4.i:                                       ; preds = %for.body
 
 FLAC__lpc_compute_expected_bits_per_residual_sample_with_error_scale.exit: ; preds = %if.then.i, %if.else4.i
   %retval.0.i = phi nsz double [ %.div.i, %if.then.i ], [ %..i, %if.else4.i ]
-  %sub = sub i32 %total_samples, %order.012
+  %sub = sub i32 %total_samples, %order.09
   %conv2 = uitofp i32 %sub to double
-  %mul3 = mul i32 %order.012, %overhead_bits_per_order
+  %mul3 = mul i32 %order.09, %overhead_bits_per_order
   %conv4 = uitofp i32 %mul3 to double
   %4 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %retval.0.i, double %conv2, double %conv4)
-  %cmp5 = fcmp reassoc nsz arcp olt double %4, %best_bits.011
+  %cmp5 = fcmp reassoc nsz arcp olt double %4, %best_bits.012
   %5 = trunc nuw i64 %indvars.iv to i32
-  %best_index.1 = select i1 %cmp5, i32 %5, i32 %best_index.09
-  %best_bits.1 = select nsz i1 %cmp5, double %4, double %best_bits.011
+  %best_index.1 = select i1 %cmp5, i32 %5, i32 %best_index.011
+  %best_bits.1 = select nsz i1 %cmp5, double %4, double %best_bits.012
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %inc7 = add i32 %order.012, 1
+  %inc7 = add i32 %order.09, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !93
 

@@ -137,14 +137,14 @@ define internal noundef i32 @protocolinfo_packet(ptr nocapture noundef readonly 
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %12, i32 noundef %14) #6
-  %.not16 = icmp eq ptr %15, null
-  br i1 %.not16, label %.loopexit, label %.preheader
+  %.not17 = icmp eq ptr %15, null
+  br i1 %.not17, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %10
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
-  %.not19 = icmp eq i32 %17, 0
-  br i1 %.not19, label %.loopexit, label %.lr.ph
+  %.not20 = icmp eq i32 %17, 0
+  br i1 %.not20, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.preheader ]
@@ -152,8 +152,8 @@ define internal noundef i32 @protocolinfo_packet(ptr nocapture noundef readonly 
   %19 = getelementptr ptr, ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @proto_construct_match_selected_string(ptr noundef %20, ptr noundef null) #6
-  %.not17 = icmp eq ptr %21, null
-  br i1 %.not17, label %24, label %22
+  %.not18 = icmp eq ptr %21, null
+  br i1 %.not18, label %24, label %22
 
 22:                                               ; preds = %.lr.ph
   %23 = load ptr, ptr %6, align 8

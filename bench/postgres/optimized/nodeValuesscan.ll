@@ -241,13 +241,13 @@ define internal ptr @ValuesNext(ptr nocapture noundef %0) #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32, %46
-  %.072 = phi ptr [ %47, %46 ], [ %41, %32 ]
+  %.05272 = phi ptr [ %47, %46 ], [ %41, %32 ]
   %.in74 = getelementptr inbounds i8, ptr %7, i64 24
   %48 = load ptr, ptr %.in74, align 8
   %.in = getelementptr inbounds i8, ptr %7, i64 32
   %49 = load ptr, ptr %.in, align 8
-  %50 = getelementptr inbounds i8, ptr %.072, i64 4
-  %51 = getelementptr inbounds i8, ptr %.072, i64 16
+  %50 = getelementptr inbounds i8, ptr %.05272, i64 4
+  %51 = getelementptr inbounds i8, ptr %.05272, i64 16
   %52 = getelementptr inbounds i8, ptr %7, i64 16
   %53 = load i32, ptr %50, align 4
   %54 = icmp sgt i32 %53, 0

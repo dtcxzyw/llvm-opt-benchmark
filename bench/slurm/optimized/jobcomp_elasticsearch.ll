@@ -388,13 +388,13 @@ _index_job.exit.thread:                           ; preds = %42
   br label %107
 
 107:                                              ; preds = %104, %100
-  %.032.i = phi ptr [ %106, %104 ], [ %101, %100 ]
-  %108 = call i32 @slurm_xstrcmp(ptr noundef %.032.i, ptr noundef nonnull @.str.29) #9
+  %.0.i = phi ptr [ %106, %104 ], [ %101, %100 ]
+  %108 = call i32 @slurm_xstrcmp(ptr noundef %.0.i, ptr noundef nonnull @.str.29) #9
   %.not50.i = icmp eq i32 %108, 0
   br i1 %.not50.i, label %127, label %109
 
 109:                                              ; preds = %107
-  %110 = call i32 @slurm_xstrcmp(ptr noundef %.032.i, ptr noundef nonnull @.str.30) #9
+  %110 = call i32 @slurm_xstrcmp(ptr noundef %.0.i, ptr noundef nonnull @.str.30) #9
   %.not51.i = icmp eq i32 %110, 0
   br i1 %.not51.i, label %127, label %111
 
@@ -411,7 +411,7 @@ _index_job.exit.thread:                           ; preds = %42
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr @log_url, align 8
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._index_job, ptr noundef %.032.i, ptr noundef %118) #9
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._index_job, ptr noundef %.0.i, ptr noundef %118) #9
   br label %119
 
 119:                                              ; preds = %117, %114, %111
@@ -449,13 +449,13 @@ _index_job.exit.thread:                           ; preds = %42
   br label %137
 
 137:                                              ; preds = %136, %133, %127, %125, %122, %119, %97, %90, %87, %84, %80
-  %.033.i = phi i32 [ -1, %80 ], [ -1, %97 ], [ 0, %136 ], [ 0, %133 ], [ 0, %127 ], [ -1, %84 ], [ -1, %87 ], [ -1, %90 ], [ -1, %119 ], [ -1, %122 ], [ -1, %125 ]
+  %.032.i = phi i32 [ -1, %80 ], [ -1, %97 ], [ 0, %136 ], [ 0, %133 ], [ 0, %127 ], [ -1, %84 ], [ -1, %87 ], [ -1, %90 ], [ -1, %119 ], [ -1, %122 ], [ -1, %125 ]
   call void @curl_slist_free_all(ptr noundef nonnull %57) #9
   call void @slurm_xfree(ptr noundef nonnull %2) #9
   br label %138
 
 138:                                              ; preds = %137, %59, %54
-  %.1.i = phi i32 [ -1, %54 ], [ -1, %59 ], [ %.033.i, %137 ]
+  %.1.i = phi i32 [ -1, %54 ], [ -1, %59 ], [ %.032.i, %137 ]
   call void @curl_easy_cleanup(ptr noundef %52) #9
   br label %139
 

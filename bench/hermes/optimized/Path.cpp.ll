@@ -1780,8 +1780,8 @@ entry:
   %call = tail call fastcc noundef i64 @_ZN12_GLOBAL__N_115parent_path_endEN4llvh9StringRefENS0_3sys4path5StyleE(ptr %path.coerce0, i64 %path.coerce1, i32 noundef %style)
   %cmp = icmp eq i64 %call, -1
   %.sroa.speculated16 = tail call i64 @llvm.umin.i64(i64 %call, i64 %path.coerce1)
-  %retval.sroa.4.0 = select i1 %cmp, i64 0, i64 %.sroa.speculated16
   %retval.sroa.0.0 = select i1 %cmp, ptr null, ptr %path.coerce0
+  %retval.sroa.4.0 = select i1 %cmp, i64 0, i64 %.sroa.speculated16
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -3024,8 +3024,8 @@ if.else14:                                        ; preds = %if.else, %land.lhs.
   br label %return
 
 return:                                           ; preds = %while.cond.i.i, %land.lhs.true, %land.lhs.true9, %if.else14
-  %retval.sroa.6.0 = phi i64 [ %sub.i, %if.else14 ], [ 0, %land.lhs.true9 ], [ 0, %land.lhs.true ], [ 0, %while.cond.i.i ]
   %retval.sroa.0.0 = phi ptr [ %arrayidx.i.i.le, %if.else14 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true ], [ null, %while.cond.i.i ]
+  %retval.sroa.6.0 = phi i64 [ %sub.i, %if.else14 ], [ 0, %land.lhs.true9 ], [ 0, %land.lhs.true ], [ 0, %while.cond.i.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -4793,8 +4793,8 @@ if.then.i.i.i114:                                 ; preds = %_ZN4llvh3sys4path9r
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i114, %_ZN4llvh3sys4path9root_nameENS_9StringRefENS1_5StyleE.exit83, %if.else
-  %retval.sroa.0.0 = phi i32 [ %6, %if.else ], [ 0, %_ZN4llvh3sys4path9root_nameENS_9StringRefENS1_5StyleE.exit83 ], [ 0, %if.then.i.i.i114 ]
   %retval.sroa.7.0 = phi ptr [ %7, %if.else ], [ %call.i111, %_ZN4llvh3sys4path9root_nameENS_9StringRefENS1_5StyleE.exit83 ], [ %call.i111, %if.then.i.i.i114 ]
+  %retval.sroa.0.0 = phi i32 [ %6, %if.else ], [ 0, %_ZN4llvh3sys4path9root_nameENS_9StringRefENS1_5StyleE.exit83 ], [ 0, %if.then.i.i.i114 ]
   %27 = load ptr, ptr %current_dir, align 8
   %cmp.i.i.i.i117 = icmp eq ptr %27, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i117, label %return, label %if.then.i.i.i118
@@ -4804,8 +4804,8 @@ if.then.i.i.i118:                                 ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i118, %cleanup, %if.then
-  %retval.sroa.0.1 = phi i32 [ 0, %if.then ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %if.then.i.i.i118 ]
   %retval.sroa.7.1 = phi ptr [ %call.i23, %if.then ], [ %retval.sroa.7.0, %cleanup ], [ %retval.sroa.7.0, %if.then.i.i.i118 ]
+  %retval.sroa.0.1 = phi i32 [ 0, %if.then ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %if.then.i.i.i118 ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.1, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.7.1, 1
   ret { i32, ptr } %.fca.1.insert
@@ -4904,8 +4904,8 @@ if.end:                                           ; preds = %_ZN4llvh3sys2fs16cr
   %call.i19 = call fastcc noundef i64 @_ZN12_GLOBAL__N_115parent_path_endEN4llvh9StringRefENS0_3sys4path5StyleE(ptr %agg.tmp.sroa.0.0.copyload, i64 %agg.tmp.sroa.2.0.copyload, i32 noundef 2)
   %cmp.i20 = icmp eq i64 %call.i19, -1
   %.sroa.speculated16.i = call i64 @llvm.umin.i64(i64 %call.i19, i64 %agg.tmp.sroa.2.0.copyload)
-  %retval.sroa.4.0.i = select i1 %cmp.i20, i64 0, i64 %.sroa.speculated16.i
   %retval.sroa.0.0.i21 = select i1 %cmp.i20, ptr null, ptr %agg.tmp.sroa.0.0.copyload
+  %retval.sroa.4.0.i = select i1 %cmp.i20, i64 0, i64 %.sroa.speculated16.i
   store ptr %retval.sroa.0.0.i21, ptr %Parent, align 8
   %6 = getelementptr inbounds i8, ptr %Parent, i64 8
   store i64 %retval.sroa.4.0.i, ptr %6, align 8
@@ -5802,8 +5802,8 @@ entry:
   %call.i2 = tail call fastcc noundef i64 @_ZN12_GLOBAL__N_115parent_path_endEN4llvh9StringRefENS0_3sys4path5StyleE(ptr %call.i, i64 %call2.i, i32 noundef 2)
   %cmp.i = icmp eq i64 %call.i2, -1
   %.sroa.speculated16.i = tail call i64 @llvm.umin.i64(i64 %call.i2, i64 %call2.i)
-  %retval.sroa.4.0.i = select i1 %cmp.i, i64 0, i64 %.sroa.speculated16.i
   %retval.sroa.0.0.i = select i1 %cmp.i, ptr null, ptr %call.i
+  %retval.sroa.4.0.i = select i1 %cmp.i, i64 0, i64 %.sroa.speculated16.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStr, i64 16
   store ptr %add.ptr.i.i.i.i.i.i, ptr %PathStr, align 8
   %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %PathStr, i64 8
@@ -7914,11 +7914,11 @@ _ZN4llvh3sys2fsL11typeForModeEj.exit.i:           ; preds = %if.end6.i, %switch.
   br label %_ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit
 
 _ZN4llvh3sys2fsL10fillStatusEiRK4statRNS1_11file_statusE.exit: ; preds = %if.then.i, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i
+  %s.sroa.0.0 = phi i64 [ %8, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ 0, %if.then.i ]
+  %s.sroa.5.0 = phi ptr [ %12, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ null, %if.then.i ]
   %s.sroa.8.0 = phi i64 [ %11, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ 0, %if.then.i ]
   %s.sroa.9.0 = phi i32 [ %retval.0.i.i, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ %spec.select, %if.then.i ]
   %s.sroa.11.0 = phi i32 [ %and.i.i, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ 65535, %if.then.i ]
-  %s.sroa.5.0 = phi ptr [ %12, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ null, %if.then.i ]
-  %s.sroa.0.0 = phi i64 [ %8, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ 0, %if.then.i ]
   %retval.sroa.0.0.i = phi i32 [ 0, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ %2, %if.then.i ]
   %retval.sroa.4.0.i = phi ptr [ %call.i.i, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ %call1.i, %if.then.i ]
   %13 = phi <2 x i32> [ %10, %_ZN4llvh3sys2fsL11typeForModeEj.exit.i ], [ zeroinitializer, %if.then.i ]

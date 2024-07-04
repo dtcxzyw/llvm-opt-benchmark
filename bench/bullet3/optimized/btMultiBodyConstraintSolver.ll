@@ -659,12 +659,12 @@ for.body.lr.ph:                                   ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %deltaVelADotn.0217 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %14, %for.body ]
+  %deltaVelADotn.0216 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %14, %for.body ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
   %12 = load float, ptr %gep, align 4
   %gep243 = getelementptr float, ptr %invariant.gep242, i64 %indvars.iv
   %13 = load float, ptr %gep243, align 4
-  %14 = tail call float @llvm.fmuladd.f32(float %12, float %13, float %deltaVelADotn.0217)
+  %14 = tail call float @llvm.fmuladd.f32(float %12, float %13, float %deltaVelADotn.0216)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end18, label %for.body, !llvm.loop !14
@@ -726,9 +726,9 @@ if.then9:                                         ; preds = %if.else
   br label %if.end18
 
 if.end18:                                         ; preds = %for.body, %if.then, %if.else, %if.then9
+  %deltaVelADotn.1 = phi float [ %add17, %if.then9 ], [ 0.000000e+00, %if.else ], [ 0.000000e+00, %if.then ], [ %14, %for.body ]
   %bodyA.0 = phi ptr [ %arrayidx.i89, %if.then9 ], [ null, %if.else ], [ null, %if.then ], [ null, %for.body ]
   %ndofA.0 = phi i32 [ 0, %if.then9 ], [ 0, %if.else ], [ %add, %if.then ], [ %add, %for.body ]
-  %deltaVelADotn.1 = phi float [ %add17, %if.then9 ], [ 0.000000e+00, %if.else ], [ 0.000000e+00, %if.then ], [ %14, %for.body ]
   %m_multiBodyB = getelementptr inbounds i8, ptr %c, i64 192
   %45 = load ptr, ptr %m_multiBodyB, align 8
   %tobool19.not = icmp eq ptr %45, null
@@ -3953,12 +3953,12 @@ for.body408.preheader:                            ; preds = %if.then390
 
 for.body408:                                      ; preds = %for.body408.preheader, %for.body408
   %indvars.iv1300 = phi i64 [ 0, %for.body408.preheader ], [ %indvars.iv.next1301, %for.body408 ]
-  %denom1.01286 = phi float [ 0.000000e+00, %for.body408.preheader ], [ %297, %for.body408 ]
+  %denom1.01285 = phi float [ 0.000000e+00, %for.body408.preheader ], [ %297, %for.body408 ]
   %arrayidx411 = getelementptr inbounds float, ptr %arrayidx.i789, i64 %indvars.iv1300
   %295 = load float, ptr %arrayidx411, align 4
   %arrayidx414 = getelementptr inbounds float, ptr %arrayidx.i792, i64 %indvars.iv1300
   %296 = load float, ptr %arrayidx414, align 4
-  %297 = call float @llvm.fmuladd.f32(float %295, float %296, float %denom1.01286)
+  %297 = call float @llvm.fmuladd.f32(float %295, float %296, float %denom1.01285)
   %indvars.iv.next1301 = add nuw nsw i64 %indvars.iv1300, 1
   %exitcond1305.not = icmp eq i64 %indvars.iv.next1301, %wide.trip.count1304
   br i1 %exitcond1305.not, label %if.end437, label %for.body408, !llvm.loop !27
@@ -6766,7 +6766,7 @@ for.body.lr.ph:                                   ; preds = %cond.end24
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %rollingFriction.0149 = phi i32 [ 4, %for.body.lr.ph ], [ %rollingFriction.2, %for.inc ]
+  %rollingFriction.0148 = phi i32 [ 4, %for.body.lr.ph ], [ %rollingFriction.2, %for.inc ]
   %arrayidx.i = getelementptr inbounds [4 x %class.btManifoldPoint], ptr %m_pointCache.i, i64 0, i64 %indvars.iv
   %m_distance1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 80
   %9 = load float, ptr %m_distance1.i, align 8
@@ -6967,7 +6967,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %if.then.i138, %if.e
   store <2 x float> %57, ptr %m_lateralFrictionDir2, align 4
   %mul7.i.i.i146 = fmul float %mul83.sink.i, %div.i.i143
   store float %mul7.i.i.i146, ptr %48, align 4
-  %cmp47 = icmp sgt i32 %rollingFriction.0149, 0
+  %cmp47 = icmp sgt i32 %rollingFriction.0148, 0
   br i1 %cmp47, label %if.then48, label %if.end68
 
 if.then48:                                        ; preds = %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
@@ -7000,11 +7000,11 @@ if.then56:                                        ; preds = %if.end54
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then56, %if.end54
-  %dec = add nsw i32 %rollingFriction.0149, -1
+  %dec = add nsw i32 %rollingFriction.0148, -1
   br label %if.end68
 
 if.end68:                                         ; preds = %if.end67, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit
-  %rollingFriction.1 = phi i32 [ %dec, %if.end67 ], [ %rollingFriction.0149, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit ]
+  %rollingFriction.1 = phi i32 [ %dec, %if.end67 ], [ %rollingFriction.0148, %_Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit ]
   %64 = load i32, ptr %m_solverMode, align 4
   %and = and i32 %64, 32
   %tobool69.not = icmp eq i32 %and, 0
@@ -7074,7 +7074,7 @@ if.else109:                                       ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else109, %if.end85, %if.then92, %if.end106
-  %rollingFriction.2 = phi i32 [ %rollingFriction.1, %if.end106 ], [ %rollingFriction.1, %if.then92 ], [ %rollingFriction.1, %if.end85 ], [ %rollingFriction.0149, %if.else109 ]
+  %rollingFriction.2 = phi i32 [ %rollingFriction.1, %if.end106 ], [ %rollingFriction.1, %if.then92 ], [ %rollingFriction.1, %if.end85 ], [ %rollingFriction.0148, %if.else109 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load i32, ptr %m_cachedPoints.i, align 8
   %73 = sext i32 %72 to i64

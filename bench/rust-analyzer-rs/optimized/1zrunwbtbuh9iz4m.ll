@@ -5098,7 +5098,7 @@ _ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit.thread: ; preds = %14,
   br label %33
 
 33:                                               ; preds = %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit, %32, %31
-  %.010 = phi i16 [ 9, %32 ], [ 7, %31 ], [ 5, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit ]
+  %.0 = phi i16 [ 9, %32 ], [ 7, %31 ], [ 5, %_ZN6parser6parser6Parser7current17h253e83d9718dc8dbE.exit ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !921)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !924)
@@ -5216,7 +5216,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit: ; preds = %_ZN6parser6pars
   br i1 %69, label %126, label %70
 
 70:                                               ; preds = %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit
-  %71 = invoke noundef zeroext i1 @_ZN6parser6parser6Parser6nth_at17h20e46c565405313aE(ptr noundef nonnull align 8 %0, i64 noundef 0, i16 noundef %.010)
+  %71 = invoke noundef zeroext i1 @_ZN6parser6parser6Parser6nth_at17h20e46c565405313aE(ptr noundef nonnull align 8 %0, i64 noundef 0, i16 noundef %.0)
           to label %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit15 unwind label %.body.thread35.loopexit
 
 _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit15: ; preds = %70
@@ -5410,7 +5410,7 @@ _ZN6parser6parser6Parser12err_and_bump17hae2917ad28dca2bdE.exit: ; preds = %102
   ret void
 
 126:                                              ; preds = %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit15, %_ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit
-  %127 = invoke noundef zeroext i1 @_ZN6parser6parser6Parser6expect17h1094570d9e783b68E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef %.010)
+  %127 = invoke noundef zeroext i1 @_ZN6parser6parser6Parser6expect17h1094570d9e783b68E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i16 noundef %.0)
           to label %128 unwind label %.body.thread35.loopexit.split-lp
 
 128:                                              ; preds = %126

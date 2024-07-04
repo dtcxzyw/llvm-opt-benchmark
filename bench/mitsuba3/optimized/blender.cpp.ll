@@ -471,13 +471,13 @@ _ZNSt3__116allocator_traitsINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcE
   br label %100
 
 88:                                               ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit763, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit762, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit761, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit760, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit759, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit758, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit757, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit
-  %.0682 = phi ptr [ %49, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit ], [ %50, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit757 ], [ %51, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit758 ], [ %52, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit759 ], [ %53, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit760 ], [ %54, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit761 ], [ %55, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit762 ], [ %56, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit763 ]
+  %.0689 = phi ptr [ %49, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit ], [ %50, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit757 ], [ %51, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit758 ], [ %52, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit759 ], [ %53, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit760 ], [ %54, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit761 ], [ %55, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit762 ], [ %56, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit763 ]
   %89 = landingpad { ptr, i32 }
           cleanup
   br label %90
 
 90:                                               ; preds = %88, %90
-  %91 = phi ptr [ %.0682, %88 ], [ %92, %90 ]
+  %91 = phi ptr [ %.0689, %88 ], [ %92, %90 ]
   %92 = getelementptr inbounds i8, ptr %91, i64 -24
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %92) #19
   %93 = icmp eq ptr %92, %15
@@ -671,7 +671,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 ._crit_edge1508:                                  ; preds = %._crit_edge1508.loopexit, %145
   %152 = phi ptr [ %146, %145 ], [ %.pre, %._crit_edge1508.loopexit ]
-  %.0691.lcssa = phi i1 [ false, %145 ], [ %.1692, %._crit_edge1508.loopexit ]
+  %.0711.lcssa = phi i1 [ false, %145 ], [ %.1712, %._crit_edge1508.loopexit ]
   %.not.i.i = icmp eq ptr %152, null
   br i1 %.not.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev.exit, label %153
 
@@ -779,7 +779,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   br label %_ZNSt3__16vectorINS_5arrayIfLm3EEENS_9allocatorIS2_EEED2B8ne190000Ev.exit982
 
 183:                                              ; preds = %.lr.ph1507, %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5rfindB8ne190000EPKcm.exit.thread
-  %.06911505 = phi i1 [ false, %.lr.ph1507 ], [ %.1692, %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5rfindB8ne190000EPKcm.exit.thread ]
+  %.07111505 = phi i1 [ false, %.lr.ph1507 ], [ %.1712, %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5rfindB8ne190000EPKcm.exit.thread ]
   %.sroa.01099.01504 = phi ptr [ %146, %.lr.ph1507 ], [ %234, %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5rfindB8ne190000EPKcm.exit.thread ]
   %184 = load i8, ptr %.sroa.01099.01504, align 8
   %185 = and i8 %184, 1
@@ -893,7 +893,7 @@ _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5rfindB8ne190000
   br label %235
 
 _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5rfindB8ne190000EPKcm.exit.thread: ; preds = %183, %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5rfindB8ne190000EPKcm.exit, %229
-  %.1692 = phi i1 [ true, %229 ], [ %.06911505, %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5rfindB8ne190000EPKcm.exit ], [ %.06911505, %183 ]
+  %.1712 = phi i1 [ true, %229 ], [ %.07111505, %_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5rfindB8ne190000EPKcm.exit ], [ %.07111505, %183 ]
   %234 = getelementptr inbounds i8, ptr %.sroa.01099.01504, i64 24
   %.not1368 = icmp eq ptr %234, %148
   br i1 %.not1368, label %._crit_edge1508.loopexit, label %183
@@ -970,12 +970,12 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 .sink.split:                                      ; preds = %257, %240
   %.sink = phi ptr [ %37, %240 ], [ %12, %257 ]
-  %.0693.ph = phi ptr [ %241, %240 ], [ null, %257 ]
+  %.0700.ph = phi ptr [ %241, %240 ], [ null, %257 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #19
   br label %260
 
 260:                                              ; preds = %.sink.split, %252, %251
-  %.0693 = phi ptr [ null, %252 ], [ null, %251 ], [ %.0693.ph, %.sink.split ]
+  %.0700 = phi ptr [ null, %252 ], [ null, %251 ], [ %.0700.ph, %.sink.split ]
   %261 = getelementptr inbounds i8, ptr %0, i64 704
   store i8 1, ptr %261, align 16
   %262 = getelementptr inbounds i8, ptr %17, i64 4
@@ -1009,13 +1009,13 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit786.preheader: ; preds = %267, %.thread116
   br i1 %.not1542, label %.loopexit1421, label %.lr.ph1510
 
 271:                                              ; preds = %.lr.ph1510
-  %272 = add nuw i64 %.06941509, 1
+  %272 = add nuw i64 %.06991509, 1
   %exitcond.not = icmp eq i64 %272, %123
   br i1 %exitcond.not, label %.loopexit1421, label %.lr.ph1510, !llvm.loop !13
 
 .lr.ph1510:                                       ; preds = %.preheader1422, %271
-  %.06941509 = phi i64 [ %272, %271 ], [ 0, %.preheader1422 ]
-  %273 = getelementptr inbounds i32, ptr %132, i64 %.06941509
+  %.06991509 = phi i64 [ %272, %271 ], [ 0, %.preheader1422 ]
+  %273 = getelementptr inbounds i32, ptr %132, i64 %.06991509
   %274 = load i32, ptr %273, align 4
   %275 = sext i32 %274 to i64
   %276 = getelementptr inbounds i8, ptr %138, i64 %275
@@ -1024,13 +1024,13 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit786.preheader: ; preds = %267, %.thread116
   br i1 %278, label %271, label %.loopexit1421.sink.split
 
 _ZNK7mitsuba4util7VersiongeERKS1_.exit786:        ; preds = %.lr.ph1512
-  %279 = add nuw i64 %.06951511, 1
+  %279 = add nuw i64 %.06981511, 1
   %exitcond1597.not = icmp eq i64 %279, %123
   br i1 %exitcond1597.not, label %.loopexit1421, label %.lr.ph1512, !llvm.loop !14
 
 .lr.ph1512:                                       ; preds = %_ZNK7mitsuba4util7VersiongeERKS1_.exit786.preheader, %_ZNK7mitsuba4util7VersiongeERKS1_.exit786
-  %.06951511 = phi i64 [ %279, %_ZNK7mitsuba4util7VersiongeERKS1_.exit786 ], [ 0, %_ZNK7mitsuba4util7VersiongeERKS1_.exit786.preheader ]
-  %280 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.06951511, i32 1
+  %.06981511 = phi i64 [ %279, %_ZNK7mitsuba4util7VersiongeERKS1_.exit786 ], [ 0, %_ZNK7mitsuba4util7VersiongeERKS1_.exit786.preheader ]
+  %280 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.06981511, i32 1
   %281 = load i32, ptr %280, align 4
   %282 = zext i32 %281 to i64
   %283 = getelementptr inbounds %"struct.blender::MPoly", ptr %132, i64 %282, i32 3
@@ -1154,7 +1154,7 @@ _ZNSt3__114__split_bufferIN7mitsuba6VectorIfLm2EEERNS_9allocatorIS3_EEE5clearB8n
   br label %_ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEE7reserveEm.exit
 
 _ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEE7reserveEm.exit: ; preds = %.noexc804, %309, %_ZNSt3__16vectorINS_5arrayIjLm3EEENS_9allocatorIS2_EEE7reserveEm.exit
-  br i1 %.0691.lcssa, label %315, label %.loopexit1416
+  br i1 %.0711.lcssa, label %315, label %.loopexit1416
 
 315:                                              ; preds = %_ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEE7reserveEm.exit
   %316 = getelementptr inbounds i8, ptr %33, i64 8
@@ -1184,7 +1184,7 @@ _ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEE7reserveEm.exit: ; 
   br label %332
 
 332:                                              ; preds = %.lr.ph1514, %_ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit
-  %.06991513 = phi i64 [ 0, %.lr.ph1514 ], [ %369, %_ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit ]
+  %.06971513 = phi i64 [ 0, %.lr.ph1514 ], [ %369, %_ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
   %333 = load ptr, ptr %325, align 8
   %334 = load ptr, ptr %326, align 8
@@ -1223,7 +1223,7 @@ _ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEE7reserveEm.exit: ; 
 
 _ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit: ; preds = %.thread1624, %344, %345
   %346 = load ptr, ptr %41, align 8
-  %347 = getelementptr inbounds %"class.std::__1::vector.113", ptr %346, i64 %.06991513
+  %347 = getelementptr inbounds %"class.std::__1::vector.113", ptr %346, i64 %.06971513
   %348 = getelementptr inbounds i8, ptr %347, i64 16
   %349 = load ptr, ptr %348, align 8
   %350 = load ptr, ptr %347, align 8
@@ -1270,7 +1270,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i: ; pre
   br label %_ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit
 
 _ZNSt3__16vectorIfNS_9allocatorIfEEE7reserveEm.exit: ; preds = %368, %.noexc810, %_ZNSt3__16vectorIfNS_9allocatorIfEEED2B8ne190000Ev.exit
-  %369 = add nuw i64 %.06991513, 1
+  %369 = add nuw i64 %.06971513, 1
   %370 = load ptr, ptr %316, align 8
   %371 = load ptr, ptr %33, align 8
   %372 = ptrtoint ptr %370 to i64
@@ -1369,8 +1369,8 @@ _ZNSt3__16vectorIZN7mitsuba11BlenderMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm
   br label %413
 
 413:                                              ; preds = %.lr.ph1535, %1023
-  %.07001534 = phi i32 [ 0, %.lr.ph1535 ], [ %.3703, %1023 ]
-  %.07081528 = phi i64 [ 0, %.lr.ph1535 ], [ %1024, %1023 ]
+  %.06941529 = phi i64 [ 0, %.lr.ph1535 ], [ %1024, %1023 ]
+  %.06951528 = phi i32 [ 0, %.lr.ph1535 ], [ %.3, %1023 ]
   %414 = load i32, ptr %17, align 4
   %415 = icmp ult i32 %414, 3
   br i1 %415, label %_ZNK7mitsuba4util7VersionltERKS1_.exit, label %416
@@ -1380,10 +1380,10 @@ _ZNSt3__16vectorIZN7mitsuba11BlenderMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm
   %417 = load i32, ptr %262, align 4
   %418 = icmp ult i32 %417, 6
   %or.cond1394 = select i1 %.not1377, i1 %418, i1 false
-  %419 = getelementptr inbounds i32, ptr %132, i64 %.07081528
-  %420 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.07081528, i32 1
-  %.07091173.in = select i1 %or.cond1394, ptr %420, ptr %419
-  %.07091173 = load i32, ptr %.07091173.in, align 4
+  %419 = getelementptr inbounds i32, ptr %132, i64 %.06941529
+  %420 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.06941529, i32 1
+  %.06931173.in = select i1 %or.cond1394, ptr %420, ptr %419
+  %.06931173 = load i32, ptr %.06931173.in, align 4
   br i1 %.not1377, label %421, label %_ZNK7mitsuba4util7VersiongeERKS1_.exit819
 
 421:                                              ; preds = %416
@@ -1420,14 +1420,14 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit819:        ; preds = %416
   br i1 %.not1381.old, label %.thread1207, label %.thread1628
 
 423:                                              ; preds = %421
-  %424 = sext i32 %.07091173 to i64
+  %424 = sext i32 %.06931173 to i64
   %425 = getelementptr inbounds i32, ptr %135, i64 %424
   %426 = load i32, ptr %425, align 4
   %.not743 = icmp eq i32 %426, %397
   br i1 %.not743, label %.thread1193, label %1023
 
 .thread1628:                                      ; preds = %_ZNK7mitsuba4util7VersiongeERKS1_.exit819
-  %427 = sext i32 %.07091173 to i64
+  %427 = sext i32 %.06931173 to i64
   %428 = getelementptr inbounds i32, ptr %135, i64 %427
   %429 = load i32, ptr %428, align 4
   %.not7431629 = icmp eq i32 %429, %397
@@ -1438,9 +1438,9 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit819:        ; preds = %416
   br i1 %430, label %_ZNK7mitsuba4util7VersionltERKS1_.exit.thread1197, label %.thread1193
 
 _ZNK7mitsuba4util7VersionltERKS1_.exit:           ; preds = %413
-  %431 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.07081528, i32 1
-  %.07091180 = load i32, ptr %431, align 4
-  %432 = sext i32 %.07091180 to i64
+  %431 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.06941529, i32 1
+  %.06931180 = load i32, ptr %431, align 4
+  %432 = sext i32 %.06931180 to i64
   %433 = getelementptr inbounds %"struct.blender::MPoly", ptr %132, i64 %432, i32 2
   %434 = load i16, ptr %433, align 4
   %435 = sext i16 %434 to i32
@@ -1448,7 +1448,7 @@ _ZNK7mitsuba4util7VersionltERKS1_.exit:           ; preds = %413
   br i1 %.not745, label %.thread1193.thread, label %1023
 
 _ZNK7mitsuba4util7VersionltERKS1_.exit.thread1197: ; preds = %.critedge
-  %436 = sext i32 %.07091173 to i64
+  %436 = sext i32 %.06931173 to i64
   %437 = getelementptr inbounds %"struct.blender::MPoly", ptr %132, i64 %436, i32 2
   %438 = load i16, ptr %437, align 4
   %439 = sext i16 %438 to i32
@@ -1459,8 +1459,8 @@ _ZNK7mitsuba4util7VersionltERKS1_.exit.thread1197: ; preds = %.critedge
   br i1 %418, label %.thread1193.thread, label %.thread1207
 
 .thread1193.thread:                               ; preds = %_ZNK7mitsuba4util7VersionltERKS1_.exit.thread1197, %.thread1193, %_ZNK7mitsuba4util7VersionltERKS1_.exit
-  %.070911741184118711921196 = phi i32 [ %.07091180, %_ZNK7mitsuba4util7VersionltERKS1_.exit ], [ %.07091173, %.thread1193 ], [ %.07091173, %_ZNK7mitsuba4util7VersionltERKS1_.exit.thread1197 ]
-  %440 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.07081528
+  %.069311741184118711921196 = phi i32 [ %.06931180, %_ZNK7mitsuba4util7VersionltERKS1_.exit ], [ %.06931173, %.thread1193 ], [ %.06931173, %_ZNK7mitsuba4util7VersionltERKS1_.exit.thread1197 ]
+  %440 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.06941529
   %441 = load i32, ptr %440, align 4
   %442 = zext i32 %441 to i64
   %443 = getelementptr inbounds %"struct.blender::MLoop", ptr %126, i64 %442
@@ -1472,9 +1472,9 @@ _ZNK7mitsuba4util7VersionltERKS1_.exit.thread1197: ; preds = %.critedge
   %449 = load i32, ptr %448, align 4
   %450 = zext i32 %449 to i64
   %451 = getelementptr inbounds %"struct.blender::MLoop", ptr %126, i64 %450
-  %.0710 = load i32, ptr %451, align 4
-  %.0711 = load i32, ptr %447, align 4
-  %.0712 = load i32, ptr %443, align 4
+  %.0690 = load i32, ptr %451, align 4
+  %.0691 = load i32, ptr %447, align 4
+  %.0692 = load i32, ptr %443, align 4
   br i1 %415, label %_ZNK7mitsuba4util7VersionleERKS1_.exit.thread1242, label %..thread1223_crit_edge
 
 ..thread1223_crit_edge:                           ; preds = %.thread1193.thread
@@ -1482,7 +1482,7 @@ _ZNK7mitsuba4util7VersionltERKS1_.exit.thread1197: ; preds = %.critedge
   br label %.thread1223
 
 .thread1207:                                      ; preds = %.thread1628, %_ZNK7mitsuba4util7VersiongeERKS1_.exit819, %.thread1193
-  %452 = getelementptr inbounds [3 x i32], ptr %129, i64 %.07081528
+  %452 = getelementptr inbounds [3 x i32], ptr %129, i64 %.06941529
   %453 = load i32, ptr %452, align 4
   %454 = zext i32 %453 to i64
   %455 = getelementptr inbounds i32, ptr %126, i64 %454
@@ -1494,17 +1494,17 @@ _ZNK7mitsuba4util7VersionltERKS1_.exit.thread1197: ; preds = %.critedge
   %461 = load i32, ptr %460, align 4
   %462 = zext i32 %461 to i64
   %463 = getelementptr inbounds i32, ptr %126, i64 %462
-  %.07101212 = load i32, ptr %463, align 4
-  %.07111213 = load i32, ptr %459, align 4
-  %.07121214 = load i32, ptr %455, align 4
+  %.06901212 = load i32, ptr %463, align 4
+  %.06911213 = load i32, ptr %459, align 4
+  %.06921214 = load i32, ptr %455, align 4
   br i1 %.not1377, label %.thread1223, label %.critedge3
 
 .thread1223:                                      ; preds = %..thread1223_crit_edge, %.thread1207
   %464 = phi i32 [ %.pre1619, %..thread1223_crit_edge ], [ %417, %.thread1207 ]
-  %.070911741184118711921196120512151231 = phi i32 [ %.070911741184118711921196, %..thread1223_crit_edge ], [ %.07091173, %.thread1207 ]
-  %.071012171230 = phi i32 [ %.0710, %..thread1223_crit_edge ], [ %.07101212, %.thread1207 ]
-  %.071112191229 = phi i32 [ %.0711, %..thread1223_crit_edge ], [ %.07111213, %.thread1207 ]
-  %.071212211228 = phi i32 [ %.0712, %..thread1223_crit_edge ], [ %.07121214, %.thread1207 ]
+  %.069311741184118711921196120512151231 = phi i32 [ %.069311741184118711921196, %..thread1223_crit_edge ], [ %.06931173, %.thread1207 ]
+  %.069012171230 = phi i32 [ %.0690, %..thread1223_crit_edge ], [ %.06901212, %.thread1207 ]
+  %.069112191229 = phi i32 [ %.0691, %..thread1223_crit_edge ], [ %.06911213, %.thread1207 ]
+  %.069212211228 = phi i32 [ %.0692, %..thread1223_crit_edge ], [ %.06921214, %.thread1207 ]
   %.not1387 = icmp eq i32 %464, 0
   br i1 %.not1387, label %_ZNK7mitsuba4util7VersionleERKS1_.exit, label %.thread1272
 
@@ -1514,15 +1514,15 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit:           ; preds = %.thread1223
   br i1 %466, label %_ZNK7mitsuba4util7VersionleERKS1_.exit.thread1242, label %.critedge3
 
 _ZNK7mitsuba4util7VersionleERKS1_.exit.thread1242: ; preds = %.thread1193.thread, %_ZNK7mitsuba4util7VersionleERKS1_.exit
-  %.070911741184118711921196120512161251 = phi i32 [ %.070911741184118711921196120512151231, %_ZNK7mitsuba4util7VersionleERKS1_.exit ], [ %.070911741184118711921196, %.thread1193.thread ]
-  %.071012181250 = phi i32 [ %.071012171230, %_ZNK7mitsuba4util7VersionleERKS1_.exit ], [ %.0710, %.thread1193.thread ]
-  %.071112201249 = phi i32 [ %.071112191229, %_ZNK7mitsuba4util7VersionleERKS1_.exit ], [ %.0711, %.thread1193.thread ]
-  %.071212221248 = phi i32 [ %.071212211228, %_ZNK7mitsuba4util7VersionleERKS1_.exit ], [ %.0712, %.thread1193.thread ]
-  %467 = sext i32 %.071212221248 to i64
+  %.069311741184118711921196120512161251 = phi i32 [ %.069311741184118711921196120512151231, %_ZNK7mitsuba4util7VersionleERKS1_.exit ], [ %.069311741184118711921196, %.thread1193.thread ]
+  %.069012181250 = phi i32 [ %.069012171230, %_ZNK7mitsuba4util7VersionleERKS1_.exit ], [ %.0690, %.thread1193.thread ]
+  %.069112201249 = phi i32 [ %.069112191229, %_ZNK7mitsuba4util7VersionleERKS1_.exit ], [ %.0691, %.thread1193.thread ]
+  %.069212221248 = phi i32 [ %.069212211228, %_ZNK7mitsuba4util7VersionleERKS1_.exit ], [ %.0692, %.thread1193.thread ]
+  %467 = sext i32 %.069212221248 to i64
   %468 = getelementptr inbounds %"struct.blender::MVertBlender2", ptr %141, i64 %467
-  %469 = sext i32 %.071112201249 to i64
+  %469 = sext i32 %.069112201249 to i64
   %470 = getelementptr inbounds %"struct.blender::MVertBlender2", ptr %141, i64 %469
-  %471 = sext i32 %.071012181250 to i64
+  %471 = sext i32 %.069012181250 to i64
   %472 = getelementptr inbounds %"struct.blender::MVertBlender2", ptr %141, i64 %471
   br label %491
 
@@ -1538,50 +1538,50 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit.thread1242: ; preds = %.thread1193.thread
   br i1 %or.cond1350, label %_ZNK7mitsuba4util7VersionleERKS1_.exit826.thread1317, label %.critedge3
 
 _ZNK7mitsuba4util7VersionleERKS1_.exit826.thread1317: ; preds = %474
-  %478 = sext i32 %.071212211228 to i64
+  %478 = sext i32 %.069212211228 to i64
   %479 = getelementptr inbounds %"struct.blender::MVertBlender3", ptr %141, i64 %478
-  %480 = sext i32 %.071112191229 to i64
+  %480 = sext i32 %.069112191229 to i64
   %481 = getelementptr inbounds %"struct.blender::MVertBlender3", ptr %141, i64 %480
-  %482 = sext i32 %.071012171230 to i64
+  %482 = sext i32 %.069012171230 to i64
   %483 = getelementptr inbounds %"struct.blender::MVertBlender3", ptr %141, i64 %482
   br label %491
 
 .critedge3:                                       ; preds = %_ZNK7mitsuba4util7VersionleERKS1_.exit, %474, %.thread1207, %.thread1272
-  %.07091174118411871192119612051216124112581293 = phi i32 [ %.07091173, %.thread1207 ], [ %.070911741184118711921196120512151231, %.thread1272 ], [ %.070911741184118711921196120512151231, %474 ], [ %.070911741184118711921196120512151231, %_ZNK7mitsuba4util7VersionleERKS1_.exit ]
-  %.07101218123912601290 = phi i32 [ %.07101212, %.thread1207 ], [ %.071012171230, %.thread1272 ], [ %.071012171230, %474 ], [ %.071012171230, %_ZNK7mitsuba4util7VersionleERKS1_.exit ]
-  %.07111220123812621288 = phi i32 [ %.07111213, %.thread1207 ], [ %.071112191229, %.thread1272 ], [ %.071112191229, %474 ], [ %.071112191229, %_ZNK7mitsuba4util7VersionleERKS1_.exit ]
-  %.07121222123712641286 = phi i32 [ %.07121214, %.thread1207 ], [ %.071212211228, %.thread1272 ], [ %.071212211228, %474 ], [ %.071212211228, %_ZNK7mitsuba4util7VersionleERKS1_.exit ]
+  %.06931174118411871192119612051216124112581293 = phi i32 [ %.06931173, %.thread1207 ], [ %.069311741184118711921196120512151231, %.thread1272 ], [ %.069311741184118711921196120512151231, %474 ], [ %.069311741184118711921196120512151231, %_ZNK7mitsuba4util7VersionleERKS1_.exit ]
+  %.06901218123912601290 = phi i32 [ %.06901212, %.thread1207 ], [ %.069012171230, %.thread1272 ], [ %.069012171230, %474 ], [ %.069012171230, %_ZNK7mitsuba4util7VersionleERKS1_.exit ]
+  %.06911220123812621288 = phi i32 [ %.06911213, %.thread1207 ], [ %.069112191229, %.thread1272 ], [ %.069112191229, %474 ], [ %.069112191229, %_ZNK7mitsuba4util7VersionleERKS1_.exit ]
+  %.06921222123712641286 = phi i32 [ %.06921214, %.thread1207 ], [ %.069212211228, %.thread1272 ], [ %.069212211228, %474 ], [ %.069212211228, %_ZNK7mitsuba4util7VersionleERKS1_.exit ]
   %484 = phi i1 [ true, %.thread1207 ], [ false, %.thread1272 ], [ false, %474 ], [ false, %_ZNK7mitsuba4util7VersionleERKS1_.exit ]
-  %485 = sext i32 %.07121222123712641286 to i64
+  %485 = sext i32 %.06921222123712641286 to i64
   %486 = getelementptr inbounds [3 x float], ptr %141, i64 %485
-  %487 = sext i32 %.07111220123812621288 to i64
+  %487 = sext i32 %.06911220123812621288 to i64
   %488 = getelementptr inbounds [3 x float], ptr %141, i64 %487
-  %489 = sext i32 %.07101218123912601290 to i64
+  %489 = sext i32 %.06901218123912601290 to i64
   %490 = getelementptr inbounds [3 x float], ptr %141, i64 %489
   br label %491
 
 491:                                              ; preds = %_ZNK7mitsuba4util7VersionleERKS1_.exit826.thread1317, %.critedge3, %_ZNK7mitsuba4util7VersionleERKS1_.exit.thread1242
-  %.070911741184118711921196120512161240 = phi i32 [ %.070911741184118711921196120512161251, %_ZNK7mitsuba4util7VersionleERKS1_.exit.thread1242 ], [ %.070911741184118711921196120512151231, %_ZNK7mitsuba4util7VersionleERKS1_.exit826.thread1317 ], [ %.07091174118411871192119612051216124112581293, %.critedge3 ]
+  %.069311741184118711921196120512161240 = phi i32 [ %.069311741184118711921196120512161251, %_ZNK7mitsuba4util7VersionleERKS1_.exit.thread1242 ], [ %.069311741184118711921196120512151231, %_ZNK7mitsuba4util7VersionleERKS1_.exit826.thread1317 ], [ %.06931174118411871192119612051216124112581293, %.critedge3 ]
   %492 = phi i1 [ false, %_ZNK7mitsuba4util7VersionleERKS1_.exit.thread1242 ], [ false, %_ZNK7mitsuba4util7VersionleERKS1_.exit826.thread1317 ], [ %484, %.critedge3 ]
-  %.0707 = phi ptr [ %468, %_ZNK7mitsuba4util7VersionleERKS1_.exit.thread1242 ], [ %479, %_ZNK7mitsuba4util7VersionleERKS1_.exit826.thread1317 ], [ %486, %.critedge3 ]
-  %.0706 = phi ptr [ %470, %_ZNK7mitsuba4util7VersionleERKS1_.exit.thread1242 ], [ %481, %_ZNK7mitsuba4util7VersionleERKS1_.exit826.thread1317 ], [ %488, %.critedge3 ]
-  %.0705 = phi ptr [ %472, %_ZNK7mitsuba4util7VersionleERKS1_.exit.thread1242 ], [ %483, %_ZNK7mitsuba4util7VersionleERKS1_.exit826.thread1317 ], [ %490, %.critedge3 ]
-  %493 = load float, ptr %.0707, align 4
-  %494 = getelementptr inbounds i8, ptr %.0707, i64 4
+  %.0688 = phi ptr [ %468, %_ZNK7mitsuba4util7VersionleERKS1_.exit.thread1242 ], [ %479, %_ZNK7mitsuba4util7VersionleERKS1_.exit826.thread1317 ], [ %486, %.critedge3 ]
+  %.0687 = phi ptr [ %470, %_ZNK7mitsuba4util7VersionleERKS1_.exit.thread1242 ], [ %481, %_ZNK7mitsuba4util7VersionleERKS1_.exit826.thread1317 ], [ %488, %.critedge3 ]
+  %.0686 = phi ptr [ %472, %_ZNK7mitsuba4util7VersionleERKS1_.exit.thread1242 ], [ %483, %_ZNK7mitsuba4util7VersionleERKS1_.exit826.thread1317 ], [ %490, %.critedge3 ]
+  %493 = load float, ptr %.0688, align 4
+  %494 = getelementptr inbounds i8, ptr %.0688, i64 4
   %495 = load <2 x float>, ptr %494, align 4
   %496 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %493, i64 0
   %497 = shufflevector <2 x float> %495, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %498 = shufflevector <4 x float> %496, <4 x float> %497, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
   store <4 x float> %498, ptr %47, align 16
-  %499 = load float, ptr %.0706, align 4
-  %500 = getelementptr inbounds i8, ptr %.0706, i64 4
+  %499 = load float, ptr %.0687, align 4
+  %500 = getelementptr inbounds i8, ptr %.0687, i64 4
   %501 = load <2 x float>, ptr %500, align 4
   %502 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %499, i64 0
   %503 = shufflevector <2 x float> %501, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %504 = shufflevector <4 x float> %502, <4 x float> %503, <4 x i32> <i32 0, i32 4, i32 5, i32 3>
   store <4 x float> %504, ptr %398, align 16
-  %505 = load float, ptr %.0705, align 4
-  %506 = getelementptr inbounds i8, ptr %.0705, i64 4
+  %505 = load float, ptr %.0686, align 4
+  %506 = getelementptr inbounds i8, ptr %.0686, i64 4
   %507 = load <2 x float>, ptr %506, align 4
   %508 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %505, i64 0
   %509 = shufflevector <2 x float> %507, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -1599,21 +1599,21 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit826.thread1317: ; preds = %474
   br i1 %287, label %.thread1330, label %515
 
 515:                                              ; preds = %514
-  %516 = sext i32 %.070911741184118711921196120512161240 to i64
+  %516 = sext i32 %.069311741184118711921196120512161240 to i64
   %517 = getelementptr inbounds i8, ptr %138, i64 %516
   %518 = load i8, ptr %517, align 1
   %519 = xor i8 %518, 1
   br label %523
 
 _ZNK7mitsuba4util7VersiongeERKS1_.exit828:        ; preds = %511, %491
-  %520 = sext i32 %.070911741184118711921196120512161240 to i64
+  %520 = sext i32 %.069311741184118711921196120512161240 to i64
   %521 = getelementptr inbounds %"struct.blender::MPoly", ptr %132, i64 %520, i32 3
   %522 = load i8, ptr %521, align 2
   br label %523
 
 523:                                              ; preds = %515, %_ZNK7mitsuba4util7VersiongeERKS1_.exit828
-  %.0704.in = phi i8 [ %522, %_ZNK7mitsuba4util7VersiongeERKS1_.exit828 ], [ %519, %515 ]
-  %524 = trunc i8 %.0704.in to i1
+  %.0685.in = phi i8 [ %522, %_ZNK7mitsuba4util7VersiongeERKS1_.exit828 ], [ %519, %515 ]
+  %524 = trunc i8 %.0685.in to i1
   br i1 %524, label %.thread1330, label %525
 
 525:                                              ; preds = %523
@@ -1664,14 +1664,14 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit828:        ; preds = %511, %491
 .thread1330:                                      ; preds = %514, %551, %525, %523
   %561 = phi i1 [ true, %523 ], [ false, %525 ], [ false, %551 ], [ true, %514 ]
   %.sroa.01062.0 = phi <4 x float> [ zeroinitializer, %523 ], [ zeroinitializer, %525 ], [ %560, %551 ], [ zeroinitializer, %514 ]
-  %562 = getelementptr inbounds [3 x i32], ptr %129, i64 %.07081528
-  %563 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.07081528
-  %564 = sext i32 %.070911741184118711921196120512161240 to i64
+  %562 = getelementptr inbounds [3 x i32], ptr %129, i64 %.06941529
+  %563 = getelementptr inbounds %"struct.blender::MLoopTri", ptr %129, i64 %.06941529
+  %564 = sext i32 %.069311741184118711921196120512161240 to i64
   br label %565
 
 565:                                              ; preds = %.thread1330, %1021
   %indvars.iv = phi i64 [ 0, %.thread1330 ], [ %indvars.iv.next, %1021 ]
-  %.17011526 = phi i32 [ %.07001534, %.thread1330 ], [ %.2702, %1021 ]
+  %.16961526 = phi i32 [ %.06951528, %.thread1330 ], [ %.2, %1021 ]
   %.sroa.01062.11525 = phi <4 x float> [ %.sroa.01062.0, %.thread1330 ], [ %.sroa.01062.2, %1021 ]
   %566 = load i32, ptr %17, align 4
   %567 = icmp ult i32 %566, 3
@@ -1703,9 +1703,9 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit830:        ; preds = %568, %565
   br label %584
 
 584:                                              ; preds = %_ZNK7mitsuba4util7VersiongeERKS1_.exit830, %571
-  %.0697 = phi i64 [ %574, %571 ], [ %580, %_ZNK7mitsuba4util7VersiongeERKS1_.exit830 ]
-  %.0696 = phi i64 [ %577, %571 ], [ %583, %_ZNK7mitsuba4util7VersiongeERKS1_.exit830 ]
-  %.not746 = icmp ult i64 %.0696, %120
+  %.0682 = phi i64 [ %574, %571 ], [ %580, %_ZNK7mitsuba4util7VersiongeERKS1_.exit830 ]
+  %.0681 = phi i64 [ %577, %571 ], [ %583, %_ZNK7mitsuba4util7VersiongeERKS1_.exit830 ]
+  %.not746 = icmp ult i64 %.0681, %120
   br i1 %.not746, label %607, label %585
 
 585:                                              ; preds = %584
@@ -1713,7 +1713,7 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit830:        ; preds = %568, %565
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  store i64 %.0696, ptr %6, align 8
+  store i64 %.0681, ptr %6, align 8
   %586 = load ptr, ptr %13, align 8
   %587 = load ptr, ptr @_ZN7mitsuba11BlenderMeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull @.str.17, i64 noundef 31)
@@ -1794,7 +1794,7 @@ _ZNK7mitsuba4util7VersiongeERKS1_.exit830:        ; preds = %568, %565
   br i1 %or.cond1352, label %_ZNK7mitsuba4util7VersionleERKS1_.exit836.thread1338, label %_ZNK7mitsuba4util7VersionleERKS1_.exit836.thread
 
 _ZNK7mitsuba4util7VersionleERKS1_.exit836.thread1338: ; preds = %614, %613
-  %619 = getelementptr inbounds %"struct.blender::MVertBlender2", ptr %141, i64 %.0696, i32 1
+  %619 = getelementptr inbounds %"struct.blender::MVertBlender2", ptr %141, i64 %.0681, i32 1
   %620 = load i16, ptr %619, align 2
   %621 = sitofp i16 %620 to float
   %622 = getelementptr inbounds i8, ptr %619, i64 2
@@ -1803,7 +1803,7 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit836.thread1338: ; preds = %614, %613
   br label %.loopexit1408
 
 _ZNK7mitsuba4util7VersionleERKS1_.exit836.thread: ; preds = %614, %611
-  %625 = getelementptr inbounds [3 x float], ptr %144, i64 %.0696
+  %625 = getelementptr inbounds [3 x float], ptr %144, i64 %.0681
   %626 = load float, ptr %625, align 4
   %627 = getelementptr inbounds i8, ptr %625, i64 4
   %628 = load <2 x float>, ptr %627, align 4
@@ -1904,8 +1904,8 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit836.thread: ; preds = %614, %611
   br label %676
 
 676:                                              ; preds = %608, %666
-  %.sroa.2.0 = phi i8 [ 1, %666 ], [ 0, %608 ]
   %.sroa.51609.2 = phi i64 [ 0, %666 ], [ %564, %608 ]
+  %.sroa.2.0 = phi i8 [ 1, %666 ], [ 0, %608 ]
   %.sroa.01062.2 = phi <4 x float> [ %675, %666 ], [ %.sroa.01062.11525, %608 ]
   br i1 %236, label %677, label %693
 
@@ -1929,11 +1929,11 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit836.thread: ; preds = %614, %611
   br i1 %or.cond1354, label %_ZNK7mitsuba4util7VersionleERKS1_.exit844.thread, label %_ZNK7mitsuba4util7VersionleERKS1_.exit844.thread1342
 
 _ZNK7mitsuba4util7VersionleERKS1_.exit844.thread: ; preds = %683, %679
-  %687 = getelementptr inbounds %"struct.blender::MLoopUV", ptr %.0693, i64 %.0697
+  %687 = getelementptr inbounds %"struct.blender::MLoopUV", ptr %.0700, i64 %.0682
   br label %.sink.split1695
 
 _ZNK7mitsuba4util7VersionleERKS1_.exit844.thread1342: ; preds = %683, %680, %677
-  %688 = getelementptr inbounds [2 x float], ptr %.0693, i64 %.0697
+  %688 = getelementptr inbounds [2 x float], ptr %.0700, i64 %.0682
   br label %.sink.split1695
 
 .sink.split1695:                                  ; preds = %_ZNK7mitsuba4util7VersionleERKS1_.exit844.thread1342, %_ZNK7mitsuba4util7VersionleERKS1_.exit844.thread
@@ -1945,19 +1945,19 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit844.thread1342: ; preds = %683, %680, %677
   br label %693
 
 693:                                              ; preds = %.sink.split1695, %676
-  %.sroa.15.2 = phi float [ 0.000000e+00, %676 ], [ %691, %.sink.split1695 ]
   %.sroa.9.2 = phi float [ 0.000000e+00, %676 ], [ %692, %.sink.split1695 ]
+  %.sroa.15.2 = phi float [ 0.000000e+00, %676 ], [ %691, %.sink.split1695 ]
   %694 = load ptr, ptr %44, align 8
-  %695 = getelementptr inbounds %struct.VertexBinding, ptr %694, i64 %.0696
+  %695 = getelementptr inbounds %struct.VertexBinding, ptr %694, i64 %.0681
   %696 = trunc nuw i8 %.sroa.2.0 to i1
   br label %697
 
 697:                                              ; preds = %.thread1345, %693
-  %.0679 = phi ptr [ %695, %693 ], [ %714, %.thread1345 ]
+  %.0677 = phi ptr [ %695, %693 ], [ %714, %.thread1345 ]
   br i1 %696, label %698, label %704
 
 698:                                              ; preds = %697
-  %699 = load <4 x float>, ptr %.0679, align 16
+  %699 = load <4 x float>, ptr %.0677, align 16
   %700 = fcmp contract une <4 x float> %.sroa.01062.2, %699
   %701 = shufflevector <4 x i1> %700, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %702 = bitcast <8 x i1> %701 to i8
@@ -1966,41 +1966,41 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit844.thread1342: ; preds = %683, %680, %677
   br i1 %.not55.i, label %.critedge1356, label %.thread1345
 
 704:                                              ; preds = %697
-  %705 = getelementptr inbounds i8, ptr %.0679, i64 24
+  %705 = getelementptr inbounds i8, ptr %.0677, i64 24
   %706 = load i64, ptr %705, align 8
   %.not.i845 = icmp eq i64 %.sroa.51609.2, %706
   br i1 %.not.i845, label %.critedge1356, label %.thread1345
 
 .critedge1356:                                    ; preds = %704, %698
-  %707 = getelementptr inbounds i8, ptr %.0679, i64 32
+  %707 = getelementptr inbounds i8, ptr %.0677, i64 32
   %708 = load float, ptr %707, align 4
   %709 = fcmp contract une float %.sroa.9.2, %708
-  %710 = getelementptr inbounds i8, ptr %.0679, i64 36
+  %710 = getelementptr inbounds i8, ptr %.0677, i64 36
   %711 = load float, ptr %710, align 4
   %712 = fcmp contract une float %.sroa.15.2, %711
   %.016.lcssa.i.i.i = or i1 %709, %712
   br i1 %.016.lcssa.i.i.i, label %.thread1345, label %.critedge5
 
 .thread1345:                                      ; preds = %698, %704, %.critedge1356
-  %713 = getelementptr inbounds i8, ptr %.0679, i64 56
+  %713 = getelementptr inbounds i8, ptr %.0677, i64 56
   %714 = load ptr, ptr %713, align 8
   %.not747 = icmp eq ptr %714, null
   br i1 %.not747, label %.critedge5, label %697, !llvm.loop !22
 
 .critedge5:                                       ; preds = %.critedge1356, %.thread1345
-  %715 = getelementptr inbounds i8, ptr %.0679, i64 64
+  %715 = getelementptr inbounds i8, ptr %.0677, i64 64
   %716 = load i8, ptr %715, align 16
   %717 = trunc i8 %716 to i1
   br i1 %717, label %718, label %.thread1347
 
 718:                                              ; preds = %.critedge5
-  %719 = getelementptr inbounds i8, ptr %.0679, i64 16
+  %719 = getelementptr inbounds i8, ptr %.0677, i64 16
   %720 = load i8, ptr %719, align 16
   %721 = trunc i8 %720 to i1
   br i1 %721, label %722, label %729
 
 722:                                              ; preds = %718
-  %723 = load <4 x float>, ptr %.0679, align 16
+  %723 = load <4 x float>, ptr %.0677, align 16
   %724 = fcmp contract oeq <4 x float> %723, %.sroa.01062.2
   %725 = shufflevector <4 x i1> %724, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %726 = bitcast <8 x i1> %725 to i8
@@ -2009,23 +2009,23 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit844.thread1342: ; preds = %683, %680, %677
   br i1 %728, label %.critedge1358, label %745
 
 729:                                              ; preds = %718
-  %730 = getelementptr inbounds i8, ptr %.0679, i64 24
+  %730 = getelementptr inbounds i8, ptr %.0677, i64 24
   %731 = load i64, ptr %730, align 8
   %732 = icmp eq i64 %731, %.sroa.51609.2
   br i1 %732, label %.critedge1358, label %745
 
 .critedge1358:                                    ; preds = %729, %722
-  %733 = getelementptr inbounds i8, ptr %.0679, i64 32
+  %733 = getelementptr inbounds i8, ptr %.0677, i64 32
   %734 = load float, ptr %733, align 4
   %735 = fcmp contract oeq float %734, %.sroa.9.2
-  %736 = getelementptr inbounds i8, ptr %.0679, i64 36
+  %736 = getelementptr inbounds i8, ptr %.0677, i64 36
   %737 = load float, ptr %736, align 4
   %738 = fcmp contract oeq float %737, %.sroa.15.2
   %.016.lcssa.i.i.i847 = and i1 %735, %738
   br i1 %.016.lcssa.i.i.i847, label %739, label %745
 
 739:                                              ; preds = %.critedge1358
-  %740 = getelementptr inbounds i8, ptr %.0679, i64 48
+  %740 = getelementptr inbounds i8, ptr %.0677, i64 48
   %741 = load i32, ptr %740, align 16
   %742 = getelementptr inbounds [3 x i32], ptr %46, i64 0, i64 %indvars.iv
   store i32 %741, ptr %742, align 4
@@ -2039,13 +2039,13 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit844.thread1342: ; preds = %683, %680, %677
           to label %747 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 747:                                              ; preds = %745
-  %748 = getelementptr inbounds i8, ptr %.0679, i64 56
+  %748 = getelementptr inbounds i8, ptr %.0677, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %746, i8 0, i64 80, i1 false)
   store ptr %746, ptr %748, align 8
   br label %.thread1347
 
 .thread1347:                                      ; preds = %.critedge5, %747
-  %.1 = phi ptr [ %746, %747 ], [ %.0679, %.critedge5 ]
+  %.1 = phi ptr [ %746, %747 ], [ %.0677, %.critedge5 ]
   store <4 x float> %.sroa.01062.2, ptr %.1, align 16
   %.sroa.2.0..1.sroa_idx = getelementptr inbounds i8, ptr %.1, i64 16
   store i8 %.sroa.2.0, ptr %.sroa.2.0..1.sroa_idx, align 16
@@ -2056,7 +2056,7 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit844.thread1342: ; preds = %683, %680, %677
   %.sroa.15.0..1.sroa_idx = getelementptr inbounds i8, ptr %.1, i64 36
   store float %.sroa.15.2, ptr %.sroa.15.0..1.sroa_idx, align 4
   %749 = getelementptr inbounds i8, ptr %.1, i64 48
-  store i32 %.17011526, ptr %749, align 16
+  store i32 %.16961526, ptr %749, align 16
   %750 = getelementptr inbounds i8, ptr %.1, i64 64
   store i8 1, ptr %750, align 16
   %751 = getelementptr inbounds [3 x %"struct.mitsuba::Point"], ptr %47, i64 0, i64 %indvars.iv
@@ -2078,7 +2078,7 @@ _ZNK7mitsuba4util7VersionleERKS1_.exit844.thread1342: ; preds = %683, %680, %677
   %766 = shufflevector <4 x float> %765, <4 x float> poison, <4 x i32> zeroinitializer
   %767 = load <4 x float>, ptr %412, align 16
   %768 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %767, <4 x float> %766, <4 x float> %762)
-  %769 = add i32 %.17011526, 1
+  %769 = add i32 %.16961526, 1
   %.sroa.0727.8.vec.extract = extractelement <4 x float> %768, i64 2
   %770 = load ptr, ptr %403, align 8
   %771 = load ptr, ptr %288, align 8
@@ -2311,7 +2311,7 @@ _ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEE9push_backB8ne19000
   br label %861
 
 861:                                              ; preds = %_ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEE9push_backB8ne190000ERKS3_.exit, %833
-  br i1 %.0691.lcssa, label %.preheader1403, label %.loopexit1404
+  br i1 %.0711.lcssa, label %.preheader1403, label %.loopexit1404
 
 .preheader1403:                                   ; preds = %861
   %862 = load ptr, ptr %408, align 8
@@ -2321,12 +2321,12 @@ _ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEE9push_backB8ne19000
 
 .lr.ph1524:                                       ; preds = %.preheader1403, %1011
   %864 = phi ptr [ %1014, %1011 ], [ %863, %.preheader1403 ]
-  %.06771523 = phi i64 [ %1012, %1011 ], [ 0, %.preheader1403 ]
-  %865 = getelementptr inbounds %"struct.std::__1::pair", ptr %864, i64 %.06771523, i32 1
+  %.06761523 = phi i64 [ %1012, %1011 ], [ 0, %.preheader1403 ]
+  %865 = getelementptr inbounds %"struct.std::__1::pair", ptr %864, i64 %.06761523, i32 1
   %866 = load ptr, ptr %865, align 8
-  %867 = getelementptr inbounds %"struct.blender::MLoopCol", ptr %866, i64 %.0697
+  %867 = getelementptr inbounds %"struct.blender::MLoopCol", ptr %866, i64 %.0682
   %868 = load ptr, ptr %41, align 8
-  %869 = getelementptr inbounds %"class.std::__1::vector.113", ptr %868, i64 %.06771523
+  %869 = getelementptr inbounds %"class.std::__1::vector.113", ptr %868, i64 %.06761523
   %870 = load i8, ptr %867, align 1
   %871 = uitofp i8 %870 to float
   %872 = fmul contract float %871, 0x3F70101020000000
@@ -2412,7 +2412,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i: ; p
   %.0.i884 = phi ptr [ %893, %892 ], [ %912, %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i ], [ %912, %913 ]
   store ptr %.0.i884, ptr %887, align 8
   %915 = load ptr, ptr %41, align 8
-  %916 = getelementptr inbounds %"class.std::__1::vector.113", ptr %915, i64 %.06771523
+  %916 = getelementptr inbounds %"class.std::__1::vector.113", ptr %915, i64 %.06761523
   %917 = getelementptr inbounds i8, ptr %867, i64 1
   %918 = load i8, ptr %917, align 1
   %919 = uitofp i8 %918 to float
@@ -2499,7 +2499,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i896: 
   %.0.i899 = phi ptr [ %941, %940 ], [ %960, %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i896 ], [ %960, %961 ]
   store ptr %.0.i899, ptr %935, align 8
   %963 = load ptr, ptr %41, align 8
-  %964 = getelementptr inbounds %"class.std::__1::vector.113", ptr %963, i64 %.06771523
+  %964 = getelementptr inbounds %"class.std::__1::vector.113", ptr %963, i64 %.06761523
   %965 = getelementptr inbounds i8, ptr %867, i64 2
   %966 = load i8, ptr %965, align 1
   %967 = uitofp i8 %966 to float
@@ -2600,7 +2600,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i912: 
 1011:                                             ; preds = %1010, %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i912, %988
   %.0.i915 = phi ptr [ %989, %988 ], [ %1009, %_ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i912 ], [ %1009, %1010 ]
   store ptr %.0.i915, ptr %983, align 8
-  %1012 = add nuw i64 %.06771523, 1
+  %1012 = add nuw i64 %.06761523, 1
   %1013 = load ptr, ptr %408, align 8
   %1014 = load ptr, ptr %33, align 8
   %1015 = ptrtoint ptr %1013 to i64
@@ -2612,11 +2612,11 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i912: 
 
 .loopexit1404:                                    ; preds = %1011, %.preheader1403, %861
   %1020 = getelementptr inbounds [3 x i32], ptr %46, i64 0, i64 %indvars.iv
-  store i32 %.17011526, ptr %1020, align 4
+  store i32 %.16961526, ptr %1020, align 4
   br label %1021
 
 1021:                                             ; preds = %739, %.loopexit1404
-  %.2702 = phi i32 [ %.17011526, %739 ], [ %769, %.loopexit1404 ]
+  %.2 = phi i32 [ %.16961526, %739 ], [ %769, %.loopexit1404 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond1602.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond1602.not, label %1022, label %565, !llvm.loop !24
@@ -2626,13 +2626,13 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i912: 
           to label %1023 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1023:                                             ; preds = %.thread1628, %_ZNK7mitsuba4util7VersionltERKS1_.exit.thread1197, %1022, %528, %_ZNK7mitsuba4util7VersionltERKS1_.exit, %423
-  %.3703 = phi i32 [ %.07001534, %423 ], [ %.07001534, %_ZNK7mitsuba4util7VersionltERKS1_.exit ], [ %.2702, %1022 ], [ %.07001534, %528 ], [ %.07001534, %_ZNK7mitsuba4util7VersionltERKS1_.exit.thread1197 ], [ %.07001534, %.thread1628 ]
-  %1024 = add nuw i64 %.07081528, 1
+  %.3 = phi i32 [ %.06951528, %423 ], [ %.06951528, %_ZNK7mitsuba4util7VersionltERKS1_.exit ], [ %.2, %1022 ], [ %.06951528, %528 ], [ %.06951528, %_ZNK7mitsuba4util7VersionltERKS1_.exit.thread1197 ], [ %.06951528, %.thread1628 ]
+  %1024 = add nuw i64 %.06941529, 1
   %exitcond1603.not = icmp eq i64 %1024, %123
   br i1 %exitcond1603.not, label %._crit_edge1536, label %413, !llvm.loop !25
 
 ._crit_edge1536:                                  ; preds = %1023, %_ZNSt3__16vectorIZN7mitsuba11BlenderMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEEC2Em.exit
-  %.0700.lcssa = phi i32 [ 0, %_ZNSt3__16vectorIZN7mitsuba11BlenderMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEEC2Em.exit ], [ %.3703, %1023 ]
+  %.0695.lcssa = phi i32 [ 0, %_ZNSt3__16vectorIZN7mitsuba11BlenderMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEEC2Em.exit ], [ %.3, %1023 ]
   %1025 = load ptr, ptr @_ZN7mitsuba11BlenderMeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7m_classE, align 8
   %1026 = invoke noundef ptr @_ZN7mitsuba6Thread6threadEv()
           to label %1027 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -2670,7 +2670,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i912: 
   br label %.body833
 
 1039:                                             ; preds = %1029, %1030, %1036
-  %1040 = icmp eq i32 %.0700.lcssa, 0
+  %1040 = icmp eq i32 %.0695.lcssa, 0
   br i1 %1040, label %1132, label %1041
 
 1041:                                             ; preds = %1039
@@ -2717,9 +2717,9 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i912: 
 
 .noexc.i922:                                      ; preds = %1064, %1056
   %1065 = getelementptr inbounds i8, ptr %0, i64 464
-  store i32 %.0700.lcssa, ptr %1065, align 16
+  store i32 %.0695.lcssa, ptr %1065, align 16
   %1066 = load ptr, ptr %38, align 8
-  %1067 = mul i32 %.0700.lcssa, 3
+  %1067 = mul i32 %.0695.lcssa, 3
   %1068 = zext i32 %1067 to i64
   %1069 = shl nuw nsw i64 %1068, 2
   %1070 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %1069) #18
@@ -2821,7 +2821,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit929:           ; preds = %1098, %1090, %_ZN5d
   br label %_ZN5drjit12DynamicArrayIfED2Ev.exit934
 
 _ZN5drjit12DynamicArrayIfED2Ev.exit934:           ; preds = %1115, %1107, %_ZN5drjit12DynamicArrayIfED2Ev.exit929
-  br i1 %.0691.lcssa, label %.preheader, label %.loopexit
+  br i1 %.0711.lcssa, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit934
   %1116 = getelementptr inbounds i8, ptr %33, i64 8
@@ -6121,20 +6121,20 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
   %36 = ashr exact i64 %35, 5
   %37 = sub nsw i64 0, %36
   %38 = getelementptr inbounds %"struct.std::__1::pair", ptr %25, i64 %37
-  %.not29.i.i = icmp eq ptr %32, %31
-  br i1 %.not29.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPKN7blender8MLoopColEEERNS5_ISC_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
+  %.not28.i.i = icmp eq ptr %32, %31
+  br i1 %.not28.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPKN7blender8MLoopColEEERNS5_ISC_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %24, %.lr.ph.i.i
-  %.031.i.i = phi ptr [ %42, %.lr.ph.i.i ], [ %32, %24 ]
-  %.02830.i.i = phi ptr [ %43, %.lr.ph.i.i ], [ %38, %24 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.02830.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.031.i.i, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.031.i.i, i8 0, i64 24, i1 false)
-  %39 = getelementptr inbounds i8, ptr %.02830.i.i, i64 24
-  %40 = getelementptr inbounds i8, ptr %.031.i.i, i64 24
+  %.030.i.i = phi ptr [ %42, %.lr.ph.i.i ], [ %32, %24 ]
+  %.02729.i.i = phi ptr [ %43, %.lr.ph.i.i ], [ %38, %24 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.02729.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.030.i.i, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.030.i.i, i8 0, i64 24, i1 false)
+  %39 = getelementptr inbounds i8, ptr %.02729.i.i, i64 24
+  %40 = getelementptr inbounds i8, ptr %.030.i.i, i64 24
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %.031.i.i, i64 32
-  %43 = getelementptr inbounds i8, ptr %.02830.i.i, i64 32
+  %42 = getelementptr inbounds i8, ptr %.030.i.i, i64 32
+  %43 = getelementptr inbounds i8, ptr %.02729.i.i, i64 32
   %.not.i.i = icmp eq ptr %42, %31
   br i1 %.not.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i, !llvm.loop !65
 

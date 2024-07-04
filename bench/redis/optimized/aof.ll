@@ -4357,15 +4357,15 @@ if.end89:                                         ; preds = %if.end85, %if.else7
   br label %while.body.outer
 
 while.body.outer:                                 ; preds = %while.body.outer.backedge, %if.end89
-  %last_progress_report_size.1.ph = phi i64 [ %last_progress_report_size.0, %if.end89 ], [ %last_progress_report_size.2, %while.body.outer.backedge ]
-  %valid_before_multi.0.ph = phi i64 [ 0, %if.end89 ], [ %spec.select, %while.body.outer.backedge ]
-  %valid_up_to.0.ph = phi i64 [ 0, %if.end89 ], [ %valid_up_to.1, %while.body.outer.backedge ]
   %loops.0.ph = phi i64 [ 0, %if.end89 ], [ %inc, %while.body.outer.backedge ]
+  %valid_up_to.0.ph = phi i64 [ 0, %if.end89 ], [ %valid_up_to.1, %while.body.outer.backedge ]
+  %valid_before_multi.0.ph = phi i64 [ 0, %if.end89 ], [ %spec.select, %while.body.outer.backedge ]
+  %last_progress_report_size.1.ph = phi i64 [ %last_progress_report_size.0, %if.end89 ], [ %last_progress_report_size.2, %while.body.outer.backedge ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.outer, %if.end102
-  %last_progress_report_size.1 = phi i64 [ %last_progress_report_size.2, %if.end102 ], [ %last_progress_report_size.1.ph, %while.body.outer ]
   %loops.0 = phi i64 [ %inc, %if.end102 ], [ %loops.0.ph, %while.body.outer ]
+  %last_progress_report_size.1 = phi i64 [ %last_progress_report_size.2, %if.end102 ], [ %last_progress_report_size.1.ph, %while.body.outer ]
   %inc = add nsw i64 %loops.0, 1
   %12 = and i64 %loops.0, 1023
   %tobool90.not = icmp eq i64 %12, 0
@@ -4579,8 +4579,8 @@ if.end241:                                        ; preds = %do.body237
   br label %uxeof
 
 loaded_ok:                                        ; preds = %if.end319, %do.body315, %while.end
-  %ret.0 = phi i32 [ 0, %while.end ], [ 5, %do.body315 ], [ 5, %if.end319 ]
   %last_progress_report_size.3 = phi i64 [ %last_progress_report_size.2, %while.end ], [ %last_progress_report_size.5, %do.body315 ], [ %last_progress_report_size.5, %if.end319 ]
+  %ret.0 = phi i32 [ 0, %while.end ], [ 5, %do.body315 ], [ 5, %if.end319 ]
   %call244 = call i64 @ftello64(ptr noundef nonnull %call1)
   %sub245 = sub nsw i64 %call244, %last_progress_report_size.3
   call void @loadingIncrProgress(i64 noundef %sub245) #19
@@ -4594,8 +4594,8 @@ readerr.sink.split:                               ; preds = %if.then161, %if.the
   br label %readerr
 
 readerr:                                          ; preds = %if.end112, %readerr.sink.split, %if.then145, %if.then97, %if.end55, %if.then34
-  %last_progress_report_size.4 = phi i64 [ 0, %if.then34 ], [ %last_progress_report_size.2, %if.then97 ], [ %last_progress_report_size.2, %if.then145 ], [ 0, %if.end55 ], [ %last_progress_report_size.2, %readerr.sink.split ], [ %last_progress_report_size.2, %if.end112 ]
   %valid_up_to.2 = phi i64 [ 0, %if.then34 ], [ %valid_up_to.0.ph, %if.then97 ], [ %valid_up_to.0.ph, %if.then145 ], [ 0, %if.end55 ], [ %valid_up_to.0.ph, %readerr.sink.split ], [ %valid_up_to.0.ph, %if.end112 ]
+  %last_progress_report_size.4 = phi i64 [ 0, %if.then34 ], [ %last_progress_report_size.2, %if.then97 ], [ %last_progress_report_size.2, %if.then145 ], [ 0, %if.end55 ], [ %last_progress_report_size.2, %readerr.sink.split ], [ %last_progress_report_size.2, %if.end112 ]
   %call246 = call i32 @feof(ptr noundef nonnull %call1) #19
   %tobool247.not = icmp eq i32 %call246, 0
   br i1 %tobool247.not, label %do.body249, label %uxeof
@@ -4613,8 +4613,8 @@ if.end253:                                        ; preds = %do.body249
   br label %if.then337
 
 uxeof:                                            ; preds = %if.end241, %do.body237, %readerr
-  %last_progress_report_size.5 = phi i64 [ %last_progress_report_size.4, %readerr ], [ %last_progress_report_size.2, %do.body237 ], [ %last_progress_report_size.2, %if.end241 ]
   %valid_up_to.3 = phi i64 [ %valid_up_to.2, %readerr ], [ %valid_before_multi.0.ph, %do.body237 ], [ %valid_before_multi.0.ph, %if.end241 ]
+  %last_progress_report_size.5 = phi i64 [ %last_progress_report_size.4, %readerr ], [ %last_progress_report_size.2, %do.body237 ], [ %last_progress_report_size.2, %if.end241 ]
   %36 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4072), align 8
   %tobool258.not = icmp eq i32 %36, 0
   br i1 %tobool258.not, label %do.body324, label %do.body260
@@ -4976,9 +4976,9 @@ if.end111:                                        ; preds = %if.end99
   br i1 %or.cond2, label %cleanup, label %if.end119
 
 if.end119:                                        ; preds = %if.end111, %if.end61
+  %ret.1 = phi i32 [ %call83, %if.end111 ], [ 0, %if.end61 ]
   %base_size.0 = phi i64 [ %call79, %if.end111 ], [ 0, %if.end61 ]
   %aof_num.0 = phi i32 [ 1, %if.end111 ], [ 0, %if.end61 ]
-  %ret.1 = phi i32 [ %call83, %if.end111 ], [ 0, %if.end61 ]
   %20 = load ptr, ptr %incr_aof_list.i76, align 8
   %len121 = getelementptr inbounds i8, ptr %20, i64 40
   %21 = load i64, ptr %len121, align 8
@@ -5270,13 +5270,13 @@ entry:
   br i1 %tobool.not15, label %return, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end26
-  %count.017 = phi i64 [ %spec.store.select, %if.end26 ], [ 0, %entry ]
-  %items.016 = phi i64 [ %dec, %if.end26 ], [ %call, %entry ]
-  %cmp = icmp eq i64 %count.017, 0
+  %items.017 = phi i64 [ %dec, %if.end26 ], [ %call, %entry ]
+  %count.016 = phi i64 [ %spec.store.select, %if.end26 ], [ 0, %entry ]
+  %cmp = icmp eq i64 %count.016, 0
   br i1 %cmp, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %while.body
-  %cond = call i64 @llvm.smin.i64(i64 %items.016, i64 64)
+  %cond = call i64 @llvm.smin.i64(i64 %items.017, i64 64)
   %add = shl i64 %cond, 32
   %sext = add i64 %add, 8589934592
   %conv5 = ashr exact i64 %sext, 32
@@ -5312,10 +5312,10 @@ if.else:                                          ; preds = %if.end14
   br i1 %tobool23.not, label %return, label %if.end26
 
 if.end26:                                         ; preds = %if.else, %if.then17
-  %inc = add nsw i64 %count.017, 1
+  %inc = add nsw i64 %count.016, 1
   %cmp27 = icmp eq i64 %inc, 64
   %spec.store.select = select i1 %cmp27, i64 0, i64 %inc
-  %dec = add nsw i64 %items.016, -1
+  %dec = add nsw i64 %items.017, -1
   %call3 = call i32 @listTypeNext(ptr noundef %call1, ptr noundef nonnull %entry2) #19
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %return, label %while.body, !llvm.loop !18
@@ -6940,9 +6940,9 @@ for.body.lr.ph:                                   ; preds = %rewriteFunctions.ex
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
+  %dbit.0206 = phi ptr [ null, %for.body.lr.ph ], [ %dbit.1, %for.inc ]
+  %updated_time.0205 = phi i64 [ 0, %for.body.lr.ph ], [ %updated_time.3, %for.inc ]
   %key_count.0204 = phi i64 [ 0, %for.body.lr.ph ], [ %key_count.2, %for.inc ]
-  %updated_time.0203 = phi i64 [ 0, %for.body.lr.ph ], [ %updated_time.3, %for.inc ]
-  %dbit.0202 = phi ptr [ null, %for.body.lr.ph ], [ %dbit.1, %for.inc ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %selectcmd, ptr noundef nonnull align 16 dereferenceable(17) @__const.rewriteAppendOnlyFileRio.selectcmd, i64 17, i1 false)
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 64), align 8
   %add.ptr = getelementptr inbounds %struct.redisDb, ptr %39, i64 %indvars.iv
@@ -7003,8 +7003,8 @@ while.body.preheader:                             ; preds = %if.end22
 
 while.body:                                       ; preds = %while.body.preheader, %if.end164
   %call24199 = phi ptr [ %call24, %if.end164 ], [ %call24195, %while.body.preheader ]
-  %key_count.1198 = phi i64 [ %inc, %if.end164 ], [ %key_count.0204, %while.body.preheader ]
-  %updated_time.1197 = phi i64 [ %updated_time.2, %if.end164 ], [ %updated_time.0203, %while.body.preheader ]
+  %updated_time.1198 = phi i64 [ %updated_time.2, %if.end164 ], [ %updated_time.0205, %while.body.preheader ]
+  %key_count.1197 = phi i64 [ %inc, %if.end164 ], [ %key_count.0204, %while.body.preheader ]
   %47 = load i64, ptr %processed_bytes.i.i, align 8
   %call27 = call ptr @dictGetKey(ptr noundef nonnull %call24199) #19
   %call28 = call ptr @dictGetVal(ptr noundef nonnull %call24199) #19
@@ -7200,14 +7200,14 @@ if.end145:                                        ; preds = %if.end140
   br i1 %cmp147, label %werr, label %if.end151
 
 if.end151:                                        ; preds = %if.end145, %if.end130
-  %inc = add nsw i64 %key_count.1198, 1
-  %and = and i64 %key_count.1198, 1023
+  %inc = add nsw i64 %key_count.1197, 1
+  %and = and i64 %key_count.1197, 1023
   %cmp152 = icmp eq i64 %and, 0
   br i1 %cmp152, label %if.then154, label %if.end161
 
 if.then154:                                       ; preds = %if.end151
   %call155 = call i64 @mstime() #19
-  %sub156 = sub nsw i64 %call155, %updated_time.1197
+  %sub156 = sub nsw i64 %call155, %updated_time.1198
   %cmp157 = icmp sgt i64 %sub156, 999
   br i1 %cmp157, label %if.then159, label %if.end161
 
@@ -7216,7 +7216,7 @@ if.then159:                                       ; preds = %if.then154
   br label %if.end161
 
 if.end161:                                        ; preds = %if.then154, %if.then159, %if.end151
-  %updated_time.2 = phi i64 [ %call155, %if.then159 ], [ %updated_time.1197, %if.then154 ], [ %updated_time.1197, %if.end151 ]
+  %updated_time.2 = phi i64 [ %call155, %if.then159 ], [ %updated_time.1198, %if.then154 ], [ %updated_time.1198, %if.end151 ]
   %69 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4260), align 4
   %tobool162.not = icmp eq i32 %69, 0
   br i1 %tobool162.not, label %if.end164, label %if.then163
@@ -7231,15 +7231,15 @@ if.end164:                                        ; preds = %if.then163, %if.end
   br i1 %cmp25.not, label %while.end, label %while.body, !llvm.loop !30
 
 while.end:                                        ; preds = %if.end164, %if.end22
-  %updated_time.1.lcssa = phi i64 [ %updated_time.0203, %if.end22 ], [ %updated_time.2, %if.end164 ]
   %key_count.1.lcssa = phi i64 [ %key_count.0204, %if.end22 ], [ %inc, %if.end164 ]
+  %updated_time.1.lcssa = phi i64 [ %updated_time.0205, %if.end22 ], [ %updated_time.2, %if.end164 ]
   call void @dbReleaseIterator(ptr noundef %call23) #19
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %while.end
-  %dbit.1 = phi ptr [ %dbit.0202, %for.body ], [ %call23, %while.end ]
-  %updated_time.3 = phi i64 [ %updated_time.0203, %for.body ], [ %updated_time.1.lcssa, %while.end ]
   %key_count.2 = phi i64 [ %key_count.0204, %for.body ], [ %key_count.1.lcssa, %while.end ]
+  %updated_time.3 = phi i64 [ %updated_time.0205, %for.body ], [ %updated_time.1.lcssa, %while.end ]
+  %dbit.1 = phi ptr [ %dbit.0206, %for.body ], [ %call23, %while.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 3776), align 8
   %71 = sext i32 %70 to i64
@@ -7247,14 +7247,14 @@ for.inc:                                          ; preds = %for.body, %while.en
   br i1 %cmp9, label %for.body, label %return, !llvm.loop !31
 
 werr.sink.split:                                  ; preds = %if.end8.i85, %if.end8.i113, %if.end8.i144
-  %dbit.2.ph = phi ptr [ %call23, %if.end8.i144 ], [ %call23, %if.end8.i113 ], [ %dbit.0202, %if.end8.i85 ]
+  %dbit.2.ph = phi ptr [ %call23, %if.end8.i144 ], [ %call23, %if.end8.i113 ], [ %dbit.0206, %if.end8.i85 ]
   %72 = load i64, ptr %flags.i.i, align 8
   %or.i153 = or i64 %72, 2
   store i64 %or.i153, ptr %flags.i.i, align 8
   br label %werr
 
 werr:                                             ; preds = %if.end13, %if.end17, %if.then133, %if.then37, %if.end145, %if.end140, %rewriteModuleObject.exit, %if.then102, %if.then91, %if.then80, %if.then69, %if.then58, %if.end48, %if.end43, %werr.sink.split
-  %dbit.2 = phi ptr [ %dbit.2.ph, %werr.sink.split ], [ %call23, %if.end43 ], [ %call23, %if.end48 ], [ %call23, %if.then58 ], [ %call23, %if.then69 ], [ %call23, %if.then80 ], [ %call23, %if.then91 ], [ %call23, %if.then102 ], [ %call23, %rewriteModuleObject.exit ], [ %call23, %if.end140 ], [ %call23, %if.end145 ], [ %call23, %if.then37 ], [ %call23, %if.then133 ], [ %dbit.0202, %if.end17 ], [ %dbit.0202, %if.end13 ]
+  %dbit.2 = phi ptr [ %dbit.2.ph, %werr.sink.split ], [ %call23, %if.end43 ], [ %call23, %if.end48 ], [ %call23, %if.then58 ], [ %call23, %if.then69 ], [ %call23, %if.then80 ], [ %call23, %if.then91 ], [ %call23, %if.then102 ], [ %call23, %rewriteModuleObject.exit ], [ %call23, %if.end140 ], [ %call23, %if.end145 ], [ %call23, %if.then37 ], [ %call23, %if.then133 ], [ %dbit.0206, %if.end17 ], [ %dbit.0206, %if.end13 ]
   %tobool166.not = icmp eq ptr %dbit.2, null
   br i1 %tobool166.not, label %return, label %if.then167
 

@@ -363,16 +363,16 @@ define internal i32 @dissect_xfr_call(ptr noundef %0, ptr nocapture readnone %1,
   br label %11
 
 11:                                               ; preds = %5, %8, %4
-  %.034 = phi ptr [ %10, %8 ], [ null, %5 ], [ null, %4 ]
-  %.0 = phi ptr [ %7, %8 ], [ null, %5 ], [ null, %4 ]
+  %.034 = phi ptr [ %7, %8 ], [ null, %5 ], [ null, %4 ]
+  %.0 = phi ptr [ %10, %8 ], [ null, %5 ], [ null, %4 ]
   %12 = load i32, ptr @hf_ypserv_domain, align 4
-  %13 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %.034, i32 noundef %12, i32 noundef 0, ptr noundef null) #2
+  %13 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %.0, i32 noundef %12, i32 noundef 0, ptr noundef null) #2
   %14 = load i32, ptr @hf_ypserv_map, align 4
-  %15 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %.034, i32 noundef %14, i32 noundef %13, ptr noundef null) #2
+  %15 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %.0, i32 noundef %14, i32 noundef %13, ptr noundef null) #2
   %16 = load i32, ptr @hf_ypserv_ordernum, align 4
-  %17 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %.034, i32 noundef %16, i32 noundef %15) #2
+  %17 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %.0, i32 noundef %16, i32 noundef %15) #2
   %18 = load i32, ptr @hf_ypserv_peer, align 4
-  %19 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %.034, i32 noundef %18, i32 noundef %17, ptr noundef null) #2
+  %19 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %.0, i32 noundef %18, i32 noundef %17, ptr noundef null) #2
   %20 = load i32, ptr @hf_ypserv_transid, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef 0) #2
   %22 = add i32 %19, 4
@@ -380,11 +380,11 @@ define internal i32 @dissect_xfr_call(ptr noundef %0, ptr nocapture readnone %1,
   %24 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %23, i32 noundef %22) #2
   %25 = load i32, ptr @hf_ypserv_port, align 4
   %26 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %25, i32 noundef %24) #2
-  %.not38 = icmp eq ptr %.0, null
+  %.not38 = icmp eq ptr %.034, null
   br i1 %.not38, label %28, label %27
 
 27:                                               ; preds = %11
-  tail call void @proto_item_set_len(ptr noundef nonnull %.0, i32 noundef %26) #2
+  tail call void @proto_item_set_len(ptr noundef nonnull %.034, i32 noundef %26) #2
   br label %28
 
 28:                                               ; preds = %27, %11

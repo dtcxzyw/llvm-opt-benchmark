@@ -43,7 +43,7 @@ define void @ompi_type_get_contents_f(ptr nocapture noundef readonly %0, ptr noc
   br label %55
 
 20:                                               ; preds = %12, %8
-  %.042 = phi ptr [ %15, %12 ], [ null, %8 ]
+  %.041 = phi ptr [ %15, %12 ], [ null, %8 ]
   %21 = load i32, ptr %2, align 4
   %.not49 = icmp eq i32 %21, 0
   br i1 %.not49, label %32, label %22
@@ -56,11 +56,11 @@ define void @ompi_type_get_contents_f(ptr nocapture noundef readonly %0, ptr noc
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %22
-  %.not51 = icmp eq ptr %.042, null
+  %.not51 = icmp eq ptr %.041, null
   br i1 %.not51, label %29, label %28
 
 28:                                               ; preds = %27
-  tail call void @free(ptr noundef nonnull %.042) #4
+  tail call void @free(ptr noundef nonnull %.041) #4
   br label %29
 
 29:                                               ; preds = %28, %27
@@ -73,9 +73,9 @@ define void @ompi_type_get_contents_f(ptr nocapture noundef readonly %0, ptr noc
   br label %55
 
 32:                                               ; preds = %22, %20
-  %.041 = phi ptr [ %25, %22 ], [ null, %20 ]
+  %.042 = phi ptr [ %25, %22 ], [ null, %20 ]
   %33 = load i32, ptr %1, align 4
-  %34 = tail call i32 @PMPI_Type_get_contents(ptr noundef %10, i32 noundef %33, i32 noundef %21, i32 noundef %11, ptr noundef %4, ptr noundef %.041, ptr noundef %.042) #4
+  %34 = tail call i32 @PMPI_Type_get_contents(ptr noundef %10, i32 noundef %33, i32 noundef %21, i32 noundef %11, ptr noundef %4, ptr noundef %.042, ptr noundef %.041) #4
   %.not50 = icmp eq ptr %7, null
   br i1 %.not50, label %36, label %35
 
@@ -99,7 +99,7 @@ define void @ompi_type_get_contents_f(ptr nocapture noundef readonly %0, ptr noc
 
 .lr.ph:                                           ; preds = %.preheader54, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader54 ]
-  %42 = getelementptr inbounds i64, ptr %.041, i64 %indvars.iv
+  %42 = getelementptr inbounds i64, ptr %.042, i64 %indvars.iv
   %43 = load i64, ptr %42, align 8
   %44 = getelementptr inbounds i64, ptr %5, i64 %indvars.iv
   store i64 %43, ptr %44, align 8
@@ -111,7 +111,7 @@ define void @ompi_type_get_contents_f(ptr nocapture noundef readonly %0, ptr noc
 
 .lr.ph57:                                         ; preds = %.preheader, %.lr.ph57
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.lr.ph57 ], [ 0, %.preheader ]
-  %48 = getelementptr inbounds ptr, ptr %.042, i64 %indvars.iv59
+  %48 = getelementptr inbounds ptr, ptr %.041, i64 %indvars.iv59
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @PMPI_Type_c2f(ptr noundef %49) #4
   %51 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv59
@@ -123,8 +123,8 @@ define void @ompi_type_get_contents_f(ptr nocapture noundef readonly %0, ptr noc
   br i1 %54, label %.lr.ph57, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph57, %.preheader, %36
-  tail call void @free(ptr noundef %.041) #4
   tail call void @free(ptr noundef %.042) #4
+  tail call void @free(ptr noundef %.041) #4
   br label %55
 
 55:                                               ; preds = %29, %31, %17, %19, %.loopexit

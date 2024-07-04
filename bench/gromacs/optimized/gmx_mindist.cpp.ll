@@ -764,7 +764,7 @@ _ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.exit._crit_edge: ; preds = %_ZL15gmx_srene
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %326 ]
   %.035.i = phi i1 [ false, %.lr.ph.i ], [ true, %326 ]
   %.02234.i = phi i32 [ 0, %.lr.ph.i ], [ %.123.i, %326 ]
-  %.02532.i = phi i32 [ 0, %.lr.ph.i ], [ %.126.i, %326 ]
+  %.02433.i = phi i32 [ 0, %.lr.ph.i ], [ %.125.i, %326 ]
   %315 = load ptr, ptr %313, align 8
   %316 = getelementptr inbounds i32, ptr %306, i64 %indvars.iv.i
   %317 = load i32, ptr %316, align 4
@@ -776,22 +776,22 @@ _ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.exit._crit_edge: ; preds = %_ZL15gmx_srene
   br i1 %or.cond.i, label %326, label %321
 
 321:                                              ; preds = %314
-  %322 = sext i32 %.02532.i to i64
+  %322 = sext i32 %.02433.i to i64
   %323 = getelementptr inbounds i32, ptr %311, i64 %322
   %324 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %324, ptr %323, align 4
-  %325 = add nsw i32 %.02532.i, 1
+  %325 = add nsw i32 %.02433.i, 1
   br label %326
 
 326:                                              ; preds = %321, %314
-  %.126.i = phi i32 [ %325, %321 ], [ %.02532.i, %314 ]
+  %.125.i = phi i32 [ %325, %321 ], [ %.02433.i, %314 ]
   %.123.i = phi i32 [ %320, %321 ], [ %.02234.i, %314 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %314, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %326, %.noexc57
-  %.025.lcssa.i = phi i32 [ 0, %.noexc57 ], [ %.126.i, %326 ]
+  %.024.lcssa.i = phi i32 [ 0, %.noexc57 ], [ %.125.i, %326 ]
   %327 = load ptr, ptr @debug, align 8
   %.not.i = icmp eq ptr %327, null
   br i1 %.not.i, label %332, label %328
@@ -799,17 +799,17 @@ _ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.exit._crit_edge: ; preds = %_ZL15gmx_srene
 328:                                              ; preds = %._crit_edge.i
   %329 = load i32, ptr %307, align 8
   %330 = load i32, ptr %260, align 8
-  %331 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef %.025.lcssa.i, i32 noundef %329, i32 noundef %330, i32 noundef %305)
+  %331 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.67, i32 noundef %.024.lcssa.i, i32 noundef %329, i32 noundef %330, i32 noundef %305)
   br label %332
 
 332:                                              ; preds = %328, %._crit_edge.i
-  %333 = add nsw i32 %.025.lcssa.i, 1
+  %333 = add nsw i32 %.024.lcssa.i, 1
   %334 = sext i32 %333 to i64
   %335 = invoke noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.49, i32 noundef 730, ptr noundef %311, i64 noundef %334, i64 noundef 4)
           to label %336 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 336:                                              ; preds = %332
-  %337 = sext i32 %.025.lcssa.i to i64
+  %337 = sext i32 %.024.lcssa.i to i64
   %338 = getelementptr inbounds i32, ptr %335, i64 %337
   store i32 %305, ptr %338, align 4
   %339 = load ptr, ptr @debug, align 8
@@ -818,11 +818,11 @@ _ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.exit._crit_edge: ; preds = %_ZL15gmx_srene
 
 340:                                              ; preds = %336
   %341 = load ptr, ptr %.0182, align 8
-  %342 = icmp sgt i32 %.025.lcssa.i, 1
+  %342 = icmp sgt i32 %.024.lcssa.i, 1
   br i1 %342, label %.lr.ph23.preheader.i, label %_ZL8dump_resP8_IO_FILEiPiS1_.exit
 
 .lr.ph23.preheader.i:                             ; preds = %340
-  %343 = add nsw i32 %.025.lcssa.i, -1
+  %343 = add nsw i32 %.024.lcssa.i, -1
   %wide.trip.count.i59 = zext nneg i32 %343 to i64
   br label %.lr.ph23.i
 
@@ -891,7 +891,7 @@ _ZL15gmx_srenew_implIPcEvPKcS2_iRPT_m.exit._crit_edge: ; preds = %_ZL15gmx_srene
 
 _ZL8dump_resP8_IO_FILEiPiS1_.exit:                ; preds = %._crit_edge.i60, %340, %365, %336
   %.0181 = phi ptr [ %335, %336 ], [ null, %365 ], [ %335, %340 ], [ %335, %._crit_edge.i60 ]
-  %.047 = phi i32 [ %.025.lcssa.i, %336 ], [ 0, %365 ], [ %.025.lcssa.i, %340 ], [ %.025.lcssa.i, %._crit_edge.i60 ]
+  %.047 = phi i32 [ %.024.lcssa.i, %336 ], [ 0, %365 ], [ %.024.lcssa.i, %340 ], [ %.024.lcssa.i, %._crit_edge.i60 ]
   %373 = load i8, ptr %86, align 1
   %374 = trunc i8 %373 to i1
   br i1 %374, label %375, label %710
@@ -4127,12 +4127,12 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %.thread ], [ 0, %.lr.ph108.split.us ]
   %.073107.us.us = phi float [ %.174.lcssa.us.us192197, %.thread ], [ 0xC26D1A94A0000000, %.lr.ph108.split.us ]
   %.075106.us.us = phi float [ %.176.lcssa.us.us191198, %.thread ], [ 0x426D1A94A0000000, %.lr.ph108.split.us ]
-  %.182104.us.us = phi i32 [ %spec.select.us.us, %.thread ], [ 0, %.lr.ph108.split.us ]
+  %.183104.us.us = phi i32 [ %spec.select.us.us, %.thread ], [ 0, %.lr.ph108.split.us ]
   %27 = getelementptr inbounds i32, ptr %.92, i64 %indvars.iv182
   %28 = load i32, ptr %27, align 4
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %29 = trunc nuw nsw i64 %indvars.iv.next183 to i32
-  %spec.select.us.us = select i1 %.not, i32 %29, i32 %.182104.us.us
+  %spec.select.us.us = select i1 %.not, i32 %29, i32 %.183104.us.us
   %30 = icmp slt i32 %spec.select.us.us, %5
   br i1 %30, label %.lr.ph.us.us, label %.thread
 
@@ -4234,12 +4234,12 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %._crit_edge.split.us.us ], [ 0, %.lr.ph108.split.us ]
   %.073107.us = phi float [ %.174.lcssa.us, %._crit_edge.split.us.us ], [ 0xC26D1A94A0000000, %.lr.ph108.split.us ]
   %.075106.us = phi float [ %.176.lcssa.us, %._crit_edge.split.us.us ], [ 0x426D1A94A0000000, %.lr.ph108.split.us ]
-  %.182104.us = phi i32 [ %spec.select.us, %._crit_edge.split.us.us ], [ 0, %.lr.ph108.split.us ]
+  %.183104.us = phi i32 [ %spec.select.us, %._crit_edge.split.us.us ], [ 0, %.lr.ph108.split.us ]
   %67 = getelementptr inbounds i32, ptr %.92, i64 %indvars.iv172
   %68 = load i32, ptr %67, align 4
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %69 = trunc nuw nsw i64 %indvars.iv.next173 to i32
-  %spec.select.us = select i1 %.not, i32 %69, i32 %.182104.us
+  %spec.select.us = select i1 %.not, i32 %69, i32 %.183104.us
   %70 = icmp slt i32 %spec.select.us, %5
   br i1 %70, label %.lr.ph.us, label %._crit_edge.split.us.us
 
@@ -4337,13 +4337,13 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %103 = phi float [ %118, %.thread206 ], [ %.promoted116, %.lr.ph108.split ]
   %.073107.us121 = phi float [ %.174.lcssa.us127204210, %.thread206 ], [ 0xC26D1A94A0000000, %.lr.ph108.split ]
   %.075106.us122 = phi float [ %.176.lcssa.us126203211, %.thread206 ], [ 0x426D1A94A0000000, %.lr.ph108.split ]
-  %.182104.us124 = phi i32 [ %spec.select.us125, %.thread206 ], [ 0, %.lr.ph108.split ]
+  %.183104.us124 = phi i32 [ %spec.select.us125, %.thread206 ], [ 0, %.lr.ph108.split ]
   %104 = phi <2 x float> [ %119, %.thread206 ], [ %102, %.lr.ph108.split ]
   %105 = getelementptr inbounds i32, ptr %.92, i64 %indvars.iv163
   %106 = load i32, ptr %105, align 4
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %107 = trunc nuw nsw i64 %indvars.iv.next164 to i32
-  %spec.select.us125 = select i1 %.not, i32 %107, i32 %.182104.us124
+  %spec.select.us125 = select i1 %.not, i32 %107, i32 %.183104.us124
   %108 = icmp slt i32 %spec.select.us125, %5
   br i1 %108, label %.lr.ph.us130, label %.thread206
 
@@ -4461,13 +4461,13 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %159 = phi float [ %203, %._crit_edge.split ], [ %.promoted116, %.lr.ph108.split ]
   %.073107 = phi float [ %.174.lcssa, %._crit_edge.split ], [ 0xC26D1A94A0000000, %.lr.ph108.split ]
   %.075106 = phi float [ %.176.lcssa, %._crit_edge.split ], [ 0x426D1A94A0000000, %.lr.ph108.split ]
-  %.182104 = phi i32 [ %spec.select, %._crit_edge.split ], [ 0, %.lr.ph108.split ]
+  %.183104 = phi i32 [ %spec.select, %._crit_edge.split ], [ 0, %.lr.ph108.split ]
   %160 = phi <2 x float> [ %204, %._crit_edge.split ], [ %102, %.lr.ph108.split ]
   %161 = getelementptr inbounds i32, ptr %.92, i64 %indvars.iv153
   %162 = load i32, ptr %161, align 4
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %163 = trunc nuw nsw i64 %indvars.iv.next154 to i32
-  %spec.select = select i1 %.not, i32 %163, i32 %.182104
+  %spec.select = select i1 %.not, i32 %163, i32 %.183104
   %164 = icmp slt i32 %spec.select, %5
   br i1 %164, label %.lr.ph, label %._crit_edge.split
 

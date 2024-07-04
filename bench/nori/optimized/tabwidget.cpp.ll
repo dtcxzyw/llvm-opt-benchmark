@@ -438,9 +438,9 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit13:              ; preds = %_ZNSt6vectorIiSaIiE
   br label %26
 
 26:                                               ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
-  %.033 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.sroa.023.032 = phi ptr [ %19, %.lr.ph ], [ %69, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %27 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023.032) #18
+  %.sroa.023.033 = phi ptr [ %19, %.lr.ph ], [ %69, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.032 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %27 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023.033) #18
   %28 = call float @nvgTextBounds(ptr noundef %1, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %27, ptr noundef null, ptr noundef nonnull %3)
   %29 = fptosi float %28 to i32
   %30 = load ptr, ptr %7, align 8
@@ -449,7 +449,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit13:              ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i, label %35, label %32
 
 32:                                               ; preds = %26
-  store i32 %.033, ptr %30, align 4
+  store i32 %.032, ptr %30, align 4
   %33 = load ptr, ptr %7, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 4
   store ptr %34, ptr %7, align 8
@@ -485,7 +485,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %35
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %47, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %50 = phi ptr [ %49, %47 ], [ null, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i ]
   %51 = getelementptr inbounds i32, ptr %50, i64 %42
-  store i32 %.033, ptr %51, align 4
+  store i32 %.032, ptr %51, align 4
   %52 = icmp sgt i64 %39, 0
   br i1 %52, label %53, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
 
@@ -520,10 +520,10 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %32, %_ZNSt6vectorIi
   %64 = trunc i8 %63 to i1
   %65 = load i32, ptr %25, align 8
   %66 = select i1 %64, i32 %65, i32 0
-  %67 = add i32 %.033, %29
+  %67 = add i32 %.032, %29
   %68 = add i32 %67, %62
   %.1 = add nsw i32 %68, %66
-  %69 = getelementptr inbounds i8, ptr %.sroa.023.032, i64 32
+  %69 = getelementptr inbounds i8, ptr %.sroa.023.033, i64 32
   %.not = icmp eq ptr %69, %21
   br i1 %.not, label %._crit_edge, label %26
 

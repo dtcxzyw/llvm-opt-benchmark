@@ -166,8 +166,8 @@ blake2s_init_param.exit:                          ; preds = %20
   br i1 %48, label %.lr.ph.i, label %blake2s_update.exit
 
 .lr.ph.i:                                         ; preds = %37, %.lr.ph.i
-  %.034.i = phi i64 [ %56, %.lr.ph.i ], [ %34, %37 ]
-  %.02933.i = phi ptr [ %55, %.lr.ph.i ], [ %47, %37 ]
+  %.034.i = phi ptr [ %55, %.lr.ph.i ], [ %47, %37 ]
+  %.02933.i = phi i64 [ %56, %.lr.ph.i ], [ %34, %37 ]
   %49 = load i32, ptr %19, align 8
   %50 = add i32 %49, 64
   store i32 %50, ptr %19, align 8
@@ -176,21 +176,21 @@ blake2s_init_param.exit:                          ; preds = %20
   %53 = load i32, ptr %44, align 4
   %54 = add i32 %53, %52
   store i32 %54, ptr %44, align 4
-  call fastcc void @blake2s_compress(ptr noundef nonnull %0, ptr noundef nonnull %.02933.i)
-  %55 = getelementptr inbounds i8, ptr %.02933.i, i64 64
-  %56 = add i64 %.034.i, -64
+  call fastcc void @blake2s_compress(ptr noundef nonnull %0, ptr noundef nonnull %.034.i)
+  %55 = getelementptr inbounds i8, ptr %.034.i, i64 64
+  %56 = add i64 %.02933.i, -64
   %57 = icmp ugt i64 %56, 64
   br i1 %57, label %.lr.ph.i, label %blake2s_update.exit, !llvm.loop !7
 
 blake2s_update.exit:                              ; preds = %.lr.ph.i, %blake2s_init_param.exit, %37
-  %.130.i = phi ptr [ %6, %blake2s_init_param.exit ], [ %47, %37 ], [ %55, %.lr.ph.i ]
-  %.1.i = phi i64 [ 64, %blake2s_init_param.exit ], [ %34, %37 ], [ %56, %.lr.ph.i ]
+  %.130.i = phi i64 [ 64, %blake2s_init_param.exit ], [ %34, %37 ], [ %56, %.lr.ph.i ]
+  %.1.i = phi ptr [ %6, %blake2s_init_param.exit ], [ %47, %37 ], [ %55, %.lr.ph.i ]
   %58 = getelementptr inbounds i8, ptr %0, i64 48
   %59 = load i64, ptr %33, align 8
   %60 = getelementptr inbounds i8, ptr %58, i64 %59
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull align 1 %.130.i, i64 %.1.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr nonnull align 1 %.1.i, i64 %.130.i, i1 false)
   %61 = load i64, ptr %33, align 8
-  %62 = add i64 %61, %.1.i
+  %62 = add i64 %61, %.130.i
   store i64 %62, ptr %33, align 8
   %63 = load volatile ptr, ptr @secure_zero_memory.memset_v, align 8
   %64 = call ptr %63(ptr noundef nonnull %6, i32 noundef 0, i64 noundef 64) #8
@@ -238,8 +238,8 @@ define dso_local noundef i32 @blake2s_update(ptr nocapture noundef %0, ptr nocap
   br i1 %22, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
-  %.034 = phi i64 [ %30, %.lr.ph ], [ %21, %9 ]
-  %.02933 = phi ptr [ %29, %.lr.ph ], [ %20, %9 ]
+  %.034 = phi ptr [ %29, %.lr.ph ], [ %20, %9 ]
+  %.02933 = phi i64 [ %30, %.lr.ph ], [ %21, %9 ]
   %23 = load i32, ptr %12, align 8
   %24 = add i32 %23, 64
   store i32 %24, ptr %12, align 8
@@ -248,21 +248,21 @@ define dso_local noundef i32 @blake2s_update(ptr nocapture noundef %0, ptr nocap
   %27 = load i32, ptr %17, align 4
   %28 = add i32 %27, %26
   store i32 %28, ptr %17, align 4
-  tail call fastcc void @blake2s_compress(ptr noundef nonnull %0, ptr noundef %.02933)
-  %29 = getelementptr inbounds i8, ptr %.02933, i64 64
-  %30 = add i64 %.034, -64
+  tail call fastcc void @blake2s_compress(ptr noundef nonnull %0, ptr noundef %.034)
+  %29 = getelementptr inbounds i8, ptr %.034, i64 64
+  %30 = add i64 %.02933, -64
   %31 = icmp ugt i64 %30, 64
   br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %4
-  %.130 = phi ptr [ %1, %4 ], [ %20, %9 ], [ %29, %.lr.ph ]
-  %.1 = phi i64 [ %2, %4 ], [ %21, %9 ], [ %30, %.lr.ph ]
+  %.130 = phi i64 [ %2, %4 ], [ %21, %9 ], [ %30, %.lr.ph ]
+  %.1 = phi ptr [ %1, %4 ], [ %20, %9 ], [ %29, %.lr.ph ]
   %32 = getelementptr inbounds i8, ptr %0, i64 48
   %33 = load i64, ptr %5, align 8
   %34 = getelementptr inbounds i8, ptr %32, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.130, i64 %.1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %.1, i64 %.130, i1 false)
   %35 = load i64, ptr %5, align 8
-  %36 = add i64 %35, %.1
+  %36 = add i64 %35, %.130
   store i64 %36, ptr %5, align 8
   br label %37
 
@@ -1778,8 +1778,8 @@ blake2s_init.exit:                                ; preds = %29
   br i1 %57, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %44, %.lr.ph.i
-  %.034.i = phi i64 [ %65, %.lr.ph.i ], [ %56, %44 ]
-  %.02933.i = phi ptr [ %64, %.lr.ph.i ], [ %55, %44 ]
+  %.034.i = phi ptr [ %64, %.lr.ph.i ], [ %55, %44 ]
+  %.02933.i = phi i64 [ %65, %.lr.ph.i ], [ %56, %44 ]
   %58 = load i32, ptr %47, align 16
   %59 = add i32 %58, 64
   store i32 %59, ptr %47, align 16
@@ -1788,21 +1788,21 @@ blake2s_init.exit:                                ; preds = %29
   %62 = load i32, ptr %52, align 4
   %63 = add i32 %62, %61
   store i32 %63, ptr %52, align 4
-  call fastcc void @blake2s_compress(ptr noundef nonnull %9, ptr noundef %.02933.i)
-  %64 = getelementptr inbounds i8, ptr %.02933.i, i64 64
-  %65 = add i64 %.034.i, -64
+  call fastcc void @blake2s_compress(ptr noundef nonnull %9, ptr noundef %.034.i)
+  %64 = getelementptr inbounds i8, ptr %.034.i, i64 64
+  %65 = add i64 %.02933.i, -64
   %66 = icmp ugt i64 %65, 64
   br i1 %66, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %44, %39
-  %.130.i = phi ptr [ %2, %39 ], [ %55, %44 ], [ %64, %.lr.ph.i ]
-  %.1.i = phi i64 [ %3, %39 ], [ %56, %44 ], [ %65, %.lr.ph.i ]
+  %.130.i = phi i64 [ %3, %39 ], [ %56, %44 ], [ %65, %.lr.ph.i ]
+  %.1.i = phi ptr [ %2, %39 ], [ %55, %44 ], [ %64, %.lr.ph.i ]
   %67 = getelementptr inbounds i8, ptr %9, i64 48
   %68 = load i64, ptr %40, align 16
   %69 = getelementptr inbounds i8, ptr %67, i64 %68
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr align 1 %.130.i, i64 %.1.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %69, ptr align 1 %.1.i, i64 %.130.i, i1 false)
   %70 = load i64, ptr %40, align 16
-  %71 = add i64 %70, %.1.i
+  %71 = add i64 %70, %.130.i
   store i64 %71, ptr %40, align 16
   br label %72
 

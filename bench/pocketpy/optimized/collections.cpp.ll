@@ -1965,33 +1965,33 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN4pkpy7PyDeque9findIndexEPNS_2V
   br label %46
 
 46:                                               ; preds = %14, %5
-  %.024 = phi i32 [ %spec.store.select, %14 ], [ %3, %5 ]
+  %.035 = phi i32 [ %spec.store.select, %14 ], [ %3, %5 ]
   %47 = icmp slt i32 %4, 0
-  br i1 %47, label %48, label %._crit_edge75
+  br i1 %47, label %48, label %._crit_edge76
 
-._crit_edge75:                                    ; preds = %46
+._crit_edge76:                                    ; preds = %46
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 72
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert76 = getelementptr inbounds i8, ptr %0, i64 40
-  %.pre77 = load ptr, ptr %.phi.trans.insert76, align 8
-  %.phi.trans.insert78 = getelementptr inbounds i8, ptr %0, i64 48
-  %.pre79 = load ptr, ptr %.phi.trans.insert78, align 8
-  %.phi.trans.insert80 = getelementptr inbounds i8, ptr %0, i64 56
-  %.pre81 = load ptr, ptr %.phi.trans.insert80, align 8
-  %.phi.trans.insert82 = getelementptr inbounds i8, ptr %0, i64 32
-  %.pre83 = load ptr, ptr %.phi.trans.insert82, align 8
-  %.phi.trans.insert84 = getelementptr inbounds i8, ptr %0, i64 16
-  %.pre85 = load ptr, ptr %.phi.trans.insert84, align 8
-  %.pre86 = ptrtoint ptr %.pre to i64
-  %.pre87 = ptrtoint ptr %.pre77 to i64
-  %.pre89 = sub i64 %.pre86, %.pre87
-  %.pre91 = ashr exact i64 %.pre89, 3
-  %.pre93 = ptrtoint ptr %.pre79 to i64
-  %.pre95 = ptrtoint ptr %.pre81 to i64
-  %.pre97 = sub i64 %.pre93, %.pre95
-  %.pre99 = ptrtoint ptr %.pre83 to i64
-  %.pre101 = ptrtoint ptr %.pre85 to i64
-  %.pre103 = sub i64 %.pre99, %.pre101
+  %.phi.trans.insert77 = getelementptr inbounds i8, ptr %0, i64 40
+  %.pre78 = load ptr, ptr %.phi.trans.insert77, align 8
+  %.phi.trans.insert79 = getelementptr inbounds i8, ptr %0, i64 48
+  %.pre80 = load ptr, ptr %.phi.trans.insert79, align 8
+  %.phi.trans.insert81 = getelementptr inbounds i8, ptr %0, i64 56
+  %.pre82 = load ptr, ptr %.phi.trans.insert81, align 8
+  %.phi.trans.insert83 = getelementptr inbounds i8, ptr %0, i64 32
+  %.pre84 = load ptr, ptr %.phi.trans.insert83, align 8
+  %.phi.trans.insert85 = getelementptr inbounds i8, ptr %0, i64 16
+  %.pre86 = load ptr, ptr %.phi.trans.insert85, align 8
+  %.pre87 = ptrtoint ptr %.pre to i64
+  %.pre88 = ptrtoint ptr %.pre78 to i64
+  %.pre90 = sub i64 %.pre87, %.pre88
+  %.pre92 = ashr exact i64 %.pre90, 3
+  %.pre94 = ptrtoint ptr %.pre80 to i64
+  %.pre96 = ptrtoint ptr %.pre82 to i64
+  %.pre98 = sub i64 %.pre94, %.pre96
+  %.pre100 = ptrtoint ptr %.pre84 to i64
+  %.pre102 = ptrtoint ptr %.pre86 to i64
+  %.pre104 = sub i64 %.pre100, %.pre102
   br label %80
 
 48:                                               ; preds = %46
@@ -2030,12 +2030,12 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN4pkpy7PyDeque9findIndexEPNS_2V
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
   br label %80
 
-80:                                               ; preds = %._crit_edge75, %48
-  %.pre-phi104 = phi i64 [ %.pre103, %._crit_edge75 ], [ %75, %48 ]
-  %.pre-phi98 = phi i64 [ %.pre97, %._crit_edge75 ], [ %67, %48 ]
-  %.pre-phi92 = phi i64 [ %.pre91, %._crit_edge75 ], [ %58, %48 ]
-  %81 = phi ptr [ %.pre, %._crit_edge75 ], [ %52, %48 ]
-  %.068 = phi i32 [ %4, %._crit_edge75 ], [ %spec.store.select1, %48 ]
+80:                                               ; preds = %._crit_edge76, %48
+  %.pre-phi105 = phi i64 [ %.pre104, %._crit_edge76 ], [ %75, %48 ]
+  %.pre-phi99 = phi i64 [ %.pre98, %._crit_edge76 ], [ %67, %48 ]
+  %.pre-phi93 = phi i64 [ %.pre92, %._crit_edge76 ], [ %58, %48 ]
+  %81 = phi ptr [ %.pre, %._crit_edge76 ], [ %52, %48 ]
+  %.068 = phi i32 [ %4, %._crit_edge76 ], [ %spec.store.select1, %48 ]
   %82 = zext nneg i32 %.068 to i64
   %83 = getelementptr inbounds i8, ptr %0, i64 48
   %84 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2043,21 +2043,21 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN4pkpy7PyDeque9findIndexEPNS_2V
   %86 = getelementptr inbounds i8, ptr %0, i64 40
   %87 = icmp ne ptr %81, null
   %.neg.i.i51 = sext i1 %87 to i64
-  %88 = add nsw i64 %.pre-phi92, %.neg.i.i51
+  %88 = add nsw i64 %.pre-phi93, %.neg.i.i51
   %89 = shl nsw i64 %88, 6
   %90 = getelementptr inbounds i8, ptr %0, i64 56
-  %91 = ashr exact i64 %.pre-phi98, 3
+  %91 = ashr exact i64 %.pre-phi99, 3
   %92 = add nsw i64 %89, %91
   %93 = getelementptr inbounds i8, ptr %0, i64 32
-  %94 = ashr exact i64 %.pre-phi104, 3
+  %94 = ashr exact i64 %.pre-phi105, 3
   %95 = add nsw i64 %92, %94
   %96 = icmp ult i64 %95, %82
   %97 = trunc i64 %95 to i32
-  %spec.select72 = select i1 %96, i32 %97, i32 %.068
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %.024, i32 %spec.select72)
+  %spec.select73 = select i1 %96, i32 %97, i32 %.068
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %.035, i32 %spec.select73)
   %98 = zext nneg i32 %spec.select to i64
   %99 = icmp ult i64 %95, %98
-  %100 = zext nneg i32 %spec.select72 to i64
+  %100 = zext nneg i32 %spec.select73 to i64
   %.not = icmp ult i64 %95, %100
   %or.cond = select i1 %99, i1 true, i1 %.not
   br i1 %or.cond, label %101, label %123
@@ -2113,7 +2113,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN4pkpy7PyDeque9findIndexEPNS_2V
   br label %119
 
 117:                                              ; preds = %109, %108
-  %.025 = phi i1 [ false, %109 ], [ true, %108 ]
+  %.024 = phi i1 [ false, %109 ], [ true, %108 ]
   %118 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
@@ -2121,13 +2121,13 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN4pkpy7PyDeque9findIndexEPNS_2V
 
 119:                                              ; preds = %117, %115
   %.pn = phi { ptr, i32 } [ %118, %117 ], [ %116, %115 ]
-  %.126 = phi i1 [ %.025, %117 ], [ true, %115 ]
+  %.1 = phi i1 [ %.024, %117 ], [ true, %115 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   br label %120
 
 120:                                              ; preds = %119, %113
   %.pn.pn = phi { ptr, i32 } [ %.pn, %119 ], [ %114, %113 ]
-  %.2 = phi i1 [ %.126, %119 ], [ true, %113 ]
+  %.2 = phi i1 [ %.1, %119 ], [ true, %113 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   br label %121
@@ -2140,12 +2140,12 @@ define noundef range(i32 -1, -2147483648) i32 @_ZN4pkpy7PyDeque9findIndexEPNS_2V
   br i1 %.3, label %122, label %186
 
 122:                                              ; preds = %.thread, %121
-  %.pn.pn.pn.pn71 = phi { ptr, i32 } [ %110, %.thread ], [ %.pn.pn.pn, %121 ]
+  %.pn.pn.pn.pn72 = phi { ptr, i32 } [ %110, %.thread ], [ %.pn.pn.pn, %121 ]
   call void @__cxa_free_exception(ptr %102) #23
   br label %186
 
 123:                                              ; preds = %80
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %spec.select72, i32 %97)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %spec.select73, i32 %97)
   %124 = icmp slt i32 %spec.select, %.sroa.speculated
   br i1 %124, label %.lr.ph, label %._crit_edge
 
@@ -2197,7 +2197,7 @@ _ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit:   ; preds = %139, %145
   %storemerge.i.i.i.i = phi ptr [ %151, %145 ], [ %140, %139 ]
   %152 = load ptr, ptr %storemerge.i.i.i.i, align 8
   %153 = call noundef zeroext i1 @_ZN4pkpy2VM5py_eqEPNS_8PyObjectES2_(ptr noundef nonnull align 8 dereferenceable(264913) %1, ptr noundef %152, ptr noundef %2)
-  br i1 %153, label %._crit_edge.loopexit.split.loop.exit105, label %154
+  br i1 %153, label %._crit_edge.loopexit.split.loop.exit106, label %154
 
 154:                                              ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit
   %155 = load ptr, ptr %85, align 8
@@ -2252,16 +2252,16 @@ _ZN4pkpy2VM12RuntimeErrorERKNS_3StrE.exit:        ; preds = %.noexc
   %184 = icmp sgt i32 %.sroa.speculated, %183
   br i1 %184, label %127, label %._crit_edge, !llvm.loop !22
 
-._crit_edge.loopexit.split.loop.exit105:          ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit
+._crit_edge.loopexit.split.loop.exit106:          ; preds = %_ZNSt5dequeIPN4pkpy8PyObjectESaIS2_EEixEm.exit
   %185 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %182, %._crit_edge.loopexit.split.loop.exit105, %123
-  %.023 = phi i32 [ -1, %123 ], [ %185, %._crit_edge.loopexit.split.loop.exit105 ], [ -1, %182 ]
+._crit_edge:                                      ; preds = %182, %._crit_edge.loopexit.split.loop.exit106, %123
+  %.023 = phi i32 [ -1, %123 ], [ %185, %._crit_edge.loopexit.split.loop.exit106 ], [ -1, %182 ]
   ret i32 %.023
 
 186:                                              ; preds = %121, %122, %180
-  %.pn47 = phi { ptr, i32 } [ %181, %180 ], [ %.pn.pn.pn.pn71, %122 ], [ %.pn.pn.pn, %121 ]
+  %.pn47 = phi { ptr, i32 } [ %181, %180 ], [ %.pn.pn.pn.pn72, %122 ], [ %.pn.pn.pn, %121 ]
   resume { ptr, i32 } %.pn47
 
 187:                                              ; preds = %109
@@ -2339,41 +2339,41 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   br i1 %5, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.02230.i = phi i32 [ %18, %17 ], [ %4, %2 ]
-  %.02329.i = phi i32 [ %19, %17 ], [ 1, %2 ]
-  %6 = icmp ult i32 %.02230.i, 100
+  %.030.i = phi i32 [ %19, %17 ], [ 1, %2 ]
+  %.02329.i = phi i32 [ %18, %17 ], [ %4, %2 ]
+  %6 = icmp ult i32 %.02329.i, 100
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = add i32 %.02329.i, 1
+  %8 = add i32 %.030.i, 1
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = icmp ult i32 %.02230.i, 1000
+  %10 = icmp ult i32 %.02329.i, 1000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = add i32 %.02329.i, 2
+  %12 = add i32 %.030.i, 2
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 13:                                               ; preds = %9
-  %14 = icmp ult i32 %.02230.i, 10000
+  %14 = icmp ult i32 %.02329.i, 10000
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add i32 %.02329.i, 3
+  %16 = add i32 %.030.i, 3
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
 
 17:                                               ; preds = %13
-  %18 = udiv i32 %.02230.i, 10000
-  %19 = add i32 %.02329.i, 4
-  %20 = icmp ult i32 %.02230.i, 100000
+  %18 = udiv i32 %.02329.i, 10000
+  %19 = add i32 %.030.i, 4
+  %20 = icmp ult i32 %.02329.i, 100000
   br i1 %20, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !23
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %15
-  %.0.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
+  %.022.i = phi i32 [ %8, %7 ], [ %12, %11 ], [ %16, %15 ], [ 1, %2 ], [ %19, %17 ]
   %.lobit = lshr i32 %1, 31
-  %21 = add i32 %.0.i, %.lobit
+  %21 = add i32 %.022.i, %.lobit
   %22 = zext i32 %21 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #23
   %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -2404,7 +2404,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br i1 %29, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %28
-  %30 = add i32 %.0.i, -1
+  %30 = add i32 %.022.i, -1
   br label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i

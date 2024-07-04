@@ -3698,8 +3698,8 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @"_ZZN3sat10aig_finder8find_ifsER10ptr_vectorINS_6clauseEEENK3$_3clENS_7literalES6_S6_PS2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 %x.coerce, i32 %y.coerce, i32 %z.coerce, ptr noundef %c) unnamed_addr #3 align 2 {
 entry:
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %x.coerce, i32 %y.coerce)
-  %spec.select9 = tail call i32 @llvm.umax.i32(i32 %x.coerce, i32 %y.coerce)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %x.coerce, i32 %y.coerce)
+  %spec.select9 = tail call i32 @llvm.umin.i32(i32 %x.coerce, i32 %y.coerce)
   %0 = load ptr, ptr %this, align 8
   %m_size.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i32, ptr %m_size.i.i.i, align 4
@@ -3841,9 +3841,9 @@ if.end.i.i.i:                                     ; preds = %_ZN14core_hashtable
   %dec46.i.i.i = phi i32 [ %4, %entry.if.end_crit_edge.i.i.i ], [ -1, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE12expand_tableEv.exit.i.i.i ]
   %12 = phi ptr [ %.pre.i.i.i, %entry.if.end_crit_edge.i.i.i ], [ %call.i.i.i.i.i.i, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE12expand_tableEv.exit.i.i.i ]
   %13 = phi i32 [ %3, %entry.if.end_crit_edge.i.i.i ], [ %shl.i.i.i.i, %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE12expand_tableEv.exit.i.i.i ]
-  %.neg.i.i.i.i.i = add i32 %spec.select, -3
-  %sub1.i.i.i.i.i.i = sub i32 %.neg.i.i.i.i.i, %spec.select9
-  %.neg1.i.i.i.i.i = add i32 %spec.select9, -3
+  %.neg.i.i.i.i.i = add i32 %spec.select9, -3
+  %sub1.i.i.i.i.i.i = sub i32 %.neg.i.i.i.i.i, %spec.select
+  %.neg1.i.i.i.i.i = add i32 %spec.select, -3
   %sub3.i.i.i.i.i.i = sub i32 %.neg1.i.i.i.i.i, %sub1.i.i.i.i.i.i
   %shl.i.i.i.i.i.i = shl i32 %sub1.i.i.i.i.i.i, 8
   %xor4.i.i.i.i.i.i = xor i32 %sub3.i.i.i.i.i.i, %shl.i.i.i.i.i.i
@@ -3907,8 +3907,8 @@ land.lhs.true.i.i.i:                              ; preds = %if.then9.i.i.i
   %call12.val.i.i.i = load i32, ptr %m_data.i.i.i.i, align 4
   %22 = getelementptr i8, ptr %curr.078.i.i.i, i64 12
   %call12.val42.i.i.i = load i32, ptr %22, align 4
-  %cmp.i.i.i48.i.i.i = icmp eq i32 %call12.val.i.i.i, %spec.select
-  %cmp.i3.i.i.i.i.i = icmp eq i32 %call12.val42.i.i.i, %spec.select9
+  %cmp.i.i.i48.i.i.i = icmp eq i32 %call12.val.i.i.i, %spec.select9
+  %cmp.i3.i.i.i.i.i = icmp eq i32 %call12.val42.i.i.i, %spec.select
   %spec.select.i.i.i.i.i = select i1 %cmp.i.i.i48.i.i.i, i1 %cmp.i3.i.i.i.i.i, i1 false
   br i1 %spec.select.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE20insert_if_not_there2ERKS7_.exit, label %for.inc.i.i.i
 
@@ -3942,8 +3942,8 @@ land.lhs.true34.i.i.i:                            ; preds = %if.then31.i.i.i
   %call35.val.i.i.i = load i32, ptr %m_data.i52.i.i.i, align 4
   %24 = getelementptr i8, ptr %curr.181.i.i.i, i64 12
   %call35.val45.i.i.i = load i32, ptr %24, align 4
-  %cmp.i.i.i53.i.i.i = icmp eq i32 %call35.val.i.i.i, %spec.select
-  %cmp.i3.i.i54.i.i.i = icmp eq i32 %call35.val45.i.i.i, %spec.select9
+  %cmp.i.i.i53.i.i.i = icmp eq i32 %call35.val.i.i.i, %spec.select9
+  %cmp.i3.i.i54.i.i.i = icmp eq i32 %call35.val45.i.i.i, %spec.select
   %spec.select.i.i55.i.i.i = select i1 %cmp.i.i.i53.i.i.i, i1 %cmp.i3.i.i54.i.i.i, i1 false
   br i1 %spec.select.i.i55.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIZN3sat10aig_finder8find_ifsER10ptr_vectorINS1_6clauseEEE6binaryEZNS2_8find_ifsES6_ENS7_4hashEZNS2_8find_ifsES6_ENS7_2eqEE20insert_if_not_there2ERKS7_.exit, label %for.inc54.i.i.i
 
@@ -3970,9 +3970,9 @@ return.sink.split.sink.split.i.i.i:               ; preds = %if.then41.i.i.i, %i
 return.sink.split.i.i.i:                          ; preds = %return.sink.split.sink.split.i.i.i, %if.then41.i.i.i, %if.then17.i.i.i
   %new_entry42.0.sink111.i.i.i = phi ptr [ %curr.078.i.i.i, %if.then17.i.i.i ], [ %curr.181.i.i.i, %if.then41.i.i.i ], [ %new_entry42.0.sink111.ph.i.i.i, %return.sink.split.sink.split.i.i.i ]
   %m_data.i57.i.i.i = getelementptr inbounds i8, ptr %new_entry42.0.sink111.i.i.i, i64 8
-  store i32 %spec.select, ptr %m_data.i57.i.i.i, align 8
+  store i32 %spec.select9, ptr %m_data.i57.i.i.i, align 8
   %temp.sroa.3.0.m_data.i57.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %new_entry42.0.sink111.i.i.i, i64 12
-  store i32 %spec.select9, ptr %temp.sroa.3.0.m_data.i57.i.sroa_idx.i.i, align 4
+  store i32 %spec.select, ptr %temp.sroa.3.0.m_data.i57.i.sroa_idx.i.i, align 4
   %temp.sroa.4.0.m_data.i57.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %new_entry42.0.sink111.i.i.i, i64 16
   store ptr null, ptr %temp.sroa.4.0.m_data.i57.i.sroa_idx.i.i, align 8
   %m_state.i58.i.i.i = getelementptr inbounds i8, ptr %new_entry42.0.sink111.i.i.i, i64 4
@@ -5079,10 +5079,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #16
+declare i32 @llvm.umax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -180,15 +180,15 @@ define void @_ZN6colvar12alpha_angles10calc_valueEv(ptr nocapture noundef nonnul
 
 18:                                               ; preds = %.lr.ph, %18
   %19 = phi ptr [ %6, %.lr.ph ], [ %25, %18 ]
-  %.02289 = phi i64 [ 0, %.lr.ph ], [ %47, %18 ]
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %.02289
+  %.04189 = phi i64 [ 0, %.lr.ph ], [ %47, %18 ]
+  %20 = getelementptr inbounds ptr, ptr %19, i64 %.04189
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 120
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(1785) %21)
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %.02289
+  %26 = getelementptr inbounds ptr, ptr %25, i64 %.04189
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 640
   %29 = load double, ptr %28, align 8
@@ -210,7 +210,7 @@ define void @_ZN6colvar12alpha_angles10calc_valueEv(ptr nocapture noundef nonnul
   %45 = load double, ptr %2, align 8
   %46 = tail call double @llvm.fmuladd.f64(double %15, double %44, double %45)
   store double %46, ptr %2, align 8
-  %47 = add nuw i64 %.02289, 1
+  %47 = add nuw i64 %.04189, 1
   %48 = load ptr, ptr %4, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = ptrtoint ptr %25 to i64
@@ -441,8 +441,8 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i
   %74 = phi ptr [ %125, %._crit_edge ], [ %42, %.lr.ph91.preheader ]
   %75 = phi ptr [ %126, %._crit_edge ], [ %42, %.lr.ph91.preheader ]
   %76 = phi ptr [ %133, %._crit_edge ], [ %71, %.lr.ph91.preheader ]
-  %.06489 = phi i64 [ %127, %._crit_edge ], [ 0, %.lr.ph91.preheader ]
-  %77 = getelementptr inbounds ptr, ptr %76, i64 %.06489
+  %.06789 = phi i64 [ %127, %._crit_edge ], [ 0, %.lr.ph91.preheader ]
+  %77 = getelementptr inbounds ptr, ptr %76, i64 %.06789
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 504
   %80 = getelementptr inbounds i8, ptr %78, i64 512
@@ -453,10 +453,10 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i
 
 .lr.ph:                                           ; preds = %.lr.ph91, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
   %83 = phi ptr [ %119, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit ], [ %82, %.lr.ph91 ]
-  %.06588 = phi i64 [ %117, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit ], [ 0, %.lr.ph91 ]
+  %.06888 = phi i64 [ %117, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit ], [ 0, %.lr.ph91 ]
   %84 = load ptr, ptr %1, align 8
   %85 = load ptr, ptr %40, align 8
-  %86 = getelementptr inbounds %"class.colvarmodule::atom", ptr %83, i64 %.06588
+  %86 = getelementptr inbounds %"class.colvarmodule::atom", ptr %83, i64 %.06888
   %87 = ptrtoint ptr %85 to i64
   %88 = ptrtoint ptr %84 to i64
   %89 = sub i64 %87, %88
@@ -507,7 +507,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %115 = load double, ptr %114, align 8
   %116 = fadd double %107, %115
   store double %116, ptr %114, align 8
-  %117 = add nuw i64 %.06588, 1
+  %117 = add nuw i64 %.06888, 1
   %118 = load ptr, ptr %80, align 8
   %119 = load ptr, ptr %79, align 8
   %120 = ptrtoint ptr %118 to i64
@@ -524,7 +524,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph91
   %125 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %74, %.lr.ph91 ]
   %126 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %75, %.lr.ph91 ]
-  %127 = add nuw i64 %.06489, 1
+  %127 = add nuw i64 %.06789, 1
   %128 = getelementptr inbounds ptr, ptr %126, i64 %.093
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 576
@@ -580,8 +580,8 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
 164:                                              ; preds = %.lr.ph106, %._crit_edge103
   %165 = phi ptr [ %150, %.lr.ph106 ], [ %238, %._crit_edge103 ]
   %166 = phi ptr [ %149, %.lr.ph106 ], [ %239, %._crit_edge103 ]
-  %.067104 = phi i64 [ 0, %.lr.ph106 ], [ %240, %._crit_edge103 ]
-  %167 = getelementptr inbounds ptr, ptr %165, i64 %.067104
+  %.066104 = phi i64 [ 0, %.lr.ph106 ], [ %240, %._crit_edge103 ]
+  %167 = getelementptr inbounds ptr, ptr %165, i64 %.066104
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds i8, ptr %168, i64 576
   %170 = getelementptr inbounds i8, ptr %168, i64 584
@@ -594,8 +594,8 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %173 = phi ptr [ %224, %._crit_edge99 ], [ %165, %164 ]
   %174 = phi ptr [ %225, %._crit_edge99 ], [ %165, %164 ]
   %175 = phi ptr [ %232, %._crit_edge99 ], [ %172, %164 ]
-  %.068100 = phi i64 [ %226, %._crit_edge99 ], [ 0, %164 ]
-  %176 = getelementptr inbounds ptr, ptr %175, i64 %.068100
+  %.065100 = phi i64 [ %226, %._crit_edge99 ], [ 0, %164 ]
+  %176 = getelementptr inbounds ptr, ptr %175, i64 %.065100
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 504
   %179 = getelementptr inbounds i8, ptr %177, i64 512
@@ -606,10 +606,10 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
 
 .lr.ph98:                                         ; preds = %.lr.ph102, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit79
   %182 = phi ptr [ %218, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit79 ], [ %181, %.lr.ph102 ]
-  %.06696 = phi i64 [ %216, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit79 ], [ 0, %.lr.ph102 ]
+  %.06496 = phi i64 [ %216, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit79 ], [ 0, %.lr.ph102 ]
   %183 = load ptr, ptr %1, align 8
   %184 = load ptr, ptr %161, align 8
-  %185 = getelementptr inbounds %"class.colvarmodule::atom", ptr %182, i64 %.06696
+  %185 = getelementptr inbounds %"class.colvarmodule::atom", ptr %182, i64 %.06496
   %186 = ptrtoint ptr %184 to i64
   %187 = ptrtoint ptr %183 to i64
   %188 = sub i64 %186, %187
@@ -660,7 +660,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %214 = load double, ptr %213, align 8
   %215 = fadd double %206, %214
   store double %215, ptr %213, align 8
-  %216 = add nuw i64 %.06696, 1
+  %216 = add nuw i64 %.06496, 1
   %217 = load ptr, ptr %179, align 8
   %218 = load ptr, ptr %178, align 8
   %219 = ptrtoint ptr %217 to i64
@@ -677,8 +677,8 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
 ._crit_edge99:                                    ; preds = %._crit_edge99.loopexit, %.lr.ph102
   %224 = phi ptr [ %.pre114, %._crit_edge99.loopexit ], [ %173, %.lr.ph102 ]
   %225 = phi ptr [ %.pre114, %._crit_edge99.loopexit ], [ %174, %.lr.ph102 ]
-  %226 = add nuw i64 %.068100, 1
-  %227 = getelementptr inbounds ptr, ptr %225, i64 %.067104
+  %226 = add nuw i64 %.065100, 1
+  %227 = getelementptr inbounds ptr, ptr %225, i64 %.066104
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr inbounds i8, ptr %228, i64 576
   %230 = getelementptr inbounds i8, ptr %228, i64 584
@@ -698,7 +698,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
 ._crit_edge103:                                   ; preds = %._crit_edge103.loopexit, %164
   %238 = phi ptr [ %224, %._crit_edge103.loopexit ], [ %165, %164 ]
   %239 = phi ptr [ %.pre115, %._crit_edge103.loopexit ], [ %166, %164 ]
-  %240 = add nuw i64 %.067104, 1
+  %240 = add nuw i64 %.066104, 1
   %241 = ptrtoint ptr %239 to i64
   %242 = ptrtoint ptr %238 to i64
   %243 = sub i64 %241, %242
@@ -749,8 +749,8 @@ define void @_ZN6colvar12alpha_angles11apply_forceERK11colvarvalue(ptr nocapture
 
 28:                                               ; preds = %.lr.ph, %_ZN11colvarvalueD2Ev.exit
   %29 = phi ptr [ %10, %.lr.ph ], [ %72, %_ZN11colvarvalueD2Ev.exit ]
-  %.02945 = phi i64 [ 0, %.lr.ph ], [ %70, %_ZN11colvarvalueD2Ev.exit ]
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %.02945
+  %.03145 = phi i64 [ 0, %.lr.ph ], [ %70, %_ZN11colvarvalueD2Ev.exit ]
+  %30 = getelementptr inbounds ptr, ptr %29, i64 %.03145
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 640
   %33 = load double, ptr %32, align 8
@@ -830,7 +830,7 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.i.i:            ; preds = %68, %_ZNSt6vectorIN
   br label %_ZN11colvarvalueD2Ev.exit
 
 _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.i, %69
-  %70 = add nuw i64 %.02945, 1
+  %70 = add nuw i64 %.03145, 1
   %71 = load ptr, ptr %8, align 8
   %72 = load ptr, ptr %7, align 8
   %73 = ptrtoint ptr %71 to i64
@@ -1222,8 +1222,8 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i
 .lr.ph35:                                         ; preds = %.lr.ph35.preheader, %._crit_edge
   %60 = phi ptr [ %110, %._crit_edge ], [ %51, %.lr.ph35.preheader ]
   %61 = phi ptr [ %117, %._crit_edge ], [ %57, %.lr.ph35.preheader ]
-  %.02733 = phi i64 [ %111, %._crit_edge ], [ 0, %.lr.ph35.preheader ]
-  %62 = getelementptr inbounds ptr, ptr %61, i64 %.02733
+  %.02833 = phi i64 [ %111, %._crit_edge ], [ 0, %.lr.ph35.preheader ]
+  %62 = getelementptr inbounds ptr, ptr %61, i64 %.02833
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 504
   %65 = getelementptr inbounds i8, ptr %63, i64 512
@@ -1234,10 +1234,10 @@ _ZN12colvarmodule13integer_powerERKdi.exit:       ; preds = %3, %._crit_edge.i
 
 .lr.ph:                                           ; preds = %.lr.ph35, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit
   %68 = phi ptr [ %104, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit ], [ %67, %.lr.ph35 ]
-  %.02832 = phi i64 [ %102, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit ], [ 0, %.lr.ph35 ]
+  %.02732 = phi i64 [ %102, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8_RKT0_.exit ], [ 0, %.lr.ph35 ]
   %69 = load ptr, ptr %1, align 8
   %70 = load ptr, ptr %29, align 8
-  %71 = getelementptr inbounds %"class.colvarmodule::atom", ptr %68, i64 %.02832
+  %71 = getelementptr inbounds %"class.colvarmodule::atom", ptr %68, i64 %.02732
   %72 = ptrtoint ptr %70 to i64
   %73 = ptrtoint ptr %69 to i64
   %74 = sub i64 %72, %73
@@ -1288,7 +1288,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
   %100 = load double, ptr %99, align 8
   %101 = fadd double %92, %100
   store double %101, ptr %99, align 8
-  %102 = add nuw i64 %.02832, 1
+  %102 = add nuw i64 %.02732, 1
   %103 = load ptr, ptr %65, align 8
   %104 = load ptr, ptr %64, align 8
   %105 = ptrtoint ptr %103 to i64
@@ -1304,7 +1304,7 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET_S8_S8
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph35
   %110 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %60, %.lr.ph35 ]
-  %111 = add nuw i64 %.02733, 1
+  %111 = add nuw i64 %.02833, 1
   %112 = getelementptr inbounds ptr, ptr %110, i64 %.037
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 576

@@ -361,13 +361,13 @@ define internal range(i32 -1, 1) i32 @_msg_accept(ptr nocapture noundef readonly
   br i1 %58, label %.lr.ph164, label %.outer._crit_edge
 
 .lr.ph164:                                        ; preds = %55, %.lr.ph164.backedge
-  %.056.ph227 = phi ptr [ %93, %.lr.ph164.backedge ], [ %57, %55 ]
-  %.057.ph225 = phi i32 [ %94, %.lr.ph164.backedge ], [ %.pre, %55 ]
-  %59 = zext nneg i32 %.057.ph225 to i64
-  %60 = icmp eq i32 %.057.ph225, %.pre
+  %.055.ph227 = phi ptr [ %93, %.lr.ph164.backedge ], [ %57, %55 ]
+  %.056.ph225 = phi i32 [ %94, %.lr.ph164.backedge ], [ %.pre, %55 ]
+  %59 = zext nneg i32 %.056.ph225 to i64
+  %60 = icmp eq i32 %.056.ph225, %.pre
   %.fr178 = freeze i1 %60
   %61 = load i32, ptr %0, align 8
-  %62 = call i64 @read(i32 noundef %61, ptr noundef %.056.ph227, i64 noundef %59) #11
+  %62 = call i64 @read(i32 noundef %61, ptr noundef %.055.ph227, i64 noundef %59) #11
   %63 = trunc i64 %62 to i32
   %64 = icmp eq i32 %63, 0
   br i1 %.fr178, label %.lr.ph164.split.split.us, label %.lr.ph164.split.us.split.us
@@ -396,7 +396,7 @@ define internal range(i32 -1, 1) i32 @_msg_accept(ptr nocapture noundef readonly
 
 69:                                               ; preds = %.lr.ph446, %.lr.ph446
   %70 = load i32, ptr %0, align 8
-  %71 = call i64 @read(i32 noundef %70, ptr noundef %.056.ph227, i64 noundef %59) #11
+  %71 = call i64 @read(i32 noundef %70, ptr noundef %.055.ph227, i64 noundef %59) #11
   %72 = trunc i64 %71 to i32
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %.split167.us, label %.lr.ph220
@@ -425,7 +425,7 @@ define internal range(i32 -1, 1) i32 @_msg_accept(ptr nocapture noundef readonly
 
 78:                                               ; preds = %.lr.ph449, %.lr.ph449
   %79 = load i32, ptr %0, align 8
-  %80 = call i64 @read(i32 noundef %79, ptr noundef %.056.ph227, i64 noundef %59) #11
+  %80 = call i64 @read(i32 noundef %79, ptr noundef %.055.ph227, i64 noundef %59) #11
   %81 = trunc i64 %80 to i32
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %.split180.us, label %.lr.ph202.preheader
@@ -445,7 +445,7 @@ define internal range(i32 -1, 1) i32 @_msg_accept(ptr nocapture noundef readonly
   br i1 %87, label %88, label %131
 
 88:                                               ; preds = %.split167.us
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str, i32 noundef 1025, ptr noundef nonnull @__func__._msg_accept, i32 noundef %.057.ph225, i32 noundef %.pre) #11
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str, i32 noundef 1025, ptr noundef nonnull @__func__._msg_accept, i32 noundef %.056.ph225, i32 noundef %.pre) #11
   br label %131
 
 .split175.us:                                     ; preds = %.lr.ph446, %.lr.ph449
@@ -454,15 +454,15 @@ define internal range(i32 -1, 1) i32 @_msg_accept(ptr nocapture noundef readonly
   br i1 %90, label %91, label %131
 
 91:                                               ; preds = %.split175.us
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str, i32 noundef 1025, ptr noundef nonnull @__func__._msg_accept, i32 noundef %.057.ph225, i32 noundef %.pre) #11
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str, i32 noundef 1025, ptr noundef nonnull @__func__._msg_accept, i32 noundef %.056.ph225, i32 noundef %.pre) #11
   br label %131
 
 .split171.us:                                     ; preds = %.lr.ph220, %.lr.ph202.preheader, %.lr.ph220.preheader, %.lr.ph202.preheader.preheader
   %.us-phi172 = phi i64 [ %62, %.lr.ph202.preheader.preheader ], [ %62, %.lr.ph220.preheader ], [ %80, %.lr.ph202.preheader ], [ %71, %.lr.ph220 ]
   %.us-phi173 = phi i32 [ %63, %.lr.ph202.preheader.preheader ], [ %63, %.lr.ph220.preheader ], [ %81, %.lr.ph202.preheader ], [ %72, %.lr.ph220 ]
   %92 = and i64 %.us-phi172, 2147483647
-  %93 = getelementptr inbounds i8, ptr %.056.ph227, i64 %92
-  %94 = sub nsw i32 %.057.ph225, %.us-phi173
+  %93 = getelementptr inbounds i8, ptr %.055.ph227, i64 %92
+  %94 = sub nsw i32 %.056.ph225, %.us-phi173
   %95 = icmp sgt i32 %94, 0
   br i1 %95, label %96, label %.outer._crit_edge
 
@@ -1155,8 +1155,8 @@ define dso_local void @slurmscriptd_run_prepilog(i32 noundef %0, i1 noundef zero
   %5 = alloca i64, align 8
   %6 = alloca %union.pthread_attr_t, align 8
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1287, ptr noundef nonnull @__func__.slurmscriptd_run_prepilog) #11
-  %. = select i1 %1, i32 2, i32 5
   %.str.11..str.12 = select i1 %1, ptr @.str.11, ptr @.str.12
+  %. = select i1 %1, i32 2, i32 5
   %8 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 928), align 8
   %9 = zext i16 %8 to i32
   %10 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1156, ptr noundef nonnull @__func__._init_run_script_msg) #11
@@ -2243,14 +2243,14 @@ define internal fastcc void @_wait_for_powersave_scripts() unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %6, %25
-  %.02646 = phi i64 [ %7, %6 ], [ %26, %25 ]
-  %.02745 = phi i1 [ true, %6 ], [ false, %25 ]
+  %.046 = phi i1 [ true, %6 ], [ false, %25 ]
+  %.02645 = phi i64 [ %7, %6 ], [ %26, %25 ]
   %10 = load i32, ptr @powersave_script_count, align 4
   %.not38 = icmp eq i32 %10, 0
   br i1 %.not38, label %28, label %11
 
 11:                                               ; preds = %9
-  br i1 %.02745, label %12, label %19
+  br i1 %.046, label %12, label %19
 
 12:                                               ; preds = %11
   %13 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -2268,7 +2268,7 @@ define internal fastcc void @_wait_for_powersave_scripts() unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %18, %15, %12, %11
-  %20 = add nsw i64 %.02646, 2
+  %20 = add nsw i64 %.02645, 2
   store i64 %20, ptr %1, align 8
   %21 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @powersave_script_cond, ptr noundef nonnull @powersave_script_count_mutex, ptr noundef nonnull %1) #11
   switch i32 %21, label %22 [
@@ -2607,7 +2607,7 @@ _handle_flush_job.exit.i:                         ; preds = %55, %52, %47
   br label %127
 
 127:                                              ; preds = %115, %105
-  %.044.i.i.i = phi ptr [ %125, %115 ], [ null, %105 ]
+  %.0.i.i.i = phi ptr [ %125, %115 ], [ null, %105 ]
   %128 = call i32 @pipe(ptr noundef nonnull %6) #11
   %.not48.i.i.i = icmp eq i32 %128, 0
   br i1 %.not48.i.i.i, label %132, label %129
@@ -2646,7 +2646,7 @@ _handle_flush_job.exit.i:                         ; preds = %55, %52, %47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
   %150 = call i32 @setpgid(i32 noundef 0, i32 noundef 0) #11
-  %151 = call i32 @bb_g_run_script(ptr noundef %112, i32 noundef %107, i32 noundef %110, ptr noundef %111, ptr noundef %.044.i.i.i, ptr noundef nonnull %5) #11
+  %151 = call i32 @bb_g_run_script(ptr noundef %112, i32 noundef %107, i32 noundef %110, ptr noundef %111, ptr noundef %.0.i.i.i, ptr noundef nonnull %5) #11
   %152 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %152, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i.i.i, label %153
@@ -2658,10 +2658,10 @@ _handle_flush_job.exit.i:                         ; preds = %55, %52, %47
   br i1 %156, label %.lr.ph.split.us.i.i.i.i, label %.loopexit.i.i.i.i
 
 .lr.ph.split.us.i.i.i.i:                          ; preds = %153, %.lr.ph.split.us.i.i.i.i.backedge
-  %.0.ph37.i.i.i.i = phi i32 [ %176, %.lr.ph.split.us.i.i.i.i.backedge ], [ %155, %153 ]
-  %.017.ph35.i.i.i.i = phi ptr [ %175, %.lr.ph.split.us.i.i.i.i.backedge ], [ %152, %153 ]
-  %157 = zext nneg i32 %.0.ph37.i.i.i.i to i64
-  %158 = call i64 @write(i32 noundef %149, ptr noundef %.017.ph35.i.i.i.i, i64 noundef %157) #11
+  %.0.ph37.i.i.i.i = phi ptr [ %175, %.lr.ph.split.us.i.i.i.i.backedge ], [ %152, %153 ]
+  %.017.ph35.i.i.i.i = phi i32 [ %176, %.lr.ph.split.us.i.i.i.i.backedge ], [ %155, %153 ]
+  %157 = zext nneg i32 %.017.ph35.i.i.i.i to i64
+  %158 = call i64 @write(i32 noundef %149, ptr noundef %.0.ph37.i.i.i.i, i64 noundef %157) #11
   %159 = trunc i64 %158 to i32
   %160 = icmp slt i32 %159, 0
   br i1 %160, label %.lr.ph33.i.i.i.i, label %.split.us.i.i.i.i
@@ -2678,7 +2678,7 @@ _handle_flush_job.exit.i:                         ; preds = %55, %52, %47
   ]
 
 164:                                              ; preds = %162, %162
-  %165 = call i64 @write(i32 noundef %149, ptr noundef %.017.ph35.i.i.i.i, i64 noundef %157) #11
+  %165 = call i64 @write(i32 noundef %149, ptr noundef %.0.ph37.i.i.i.i, i64 noundef %157) #11
   %166 = trunc i64 %165 to i32
   %167 = icmp slt i32 %166, 0
   br i1 %167, label %162, label %.split.us.i.i.i.i
@@ -2692,15 +2692,15 @@ _handle_flush_job.exit.i:                         ; preds = %55, %52, %47
   %171 = load ptr, ptr %5, align 8
   %172 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %171) #14
   %173 = trunc i64 %172 to i32
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str, i32 noundef 600, ptr noundef nonnull @__func__._run_bb_script_child, i32 noundef %.0.ph37.i.i.i.i, i32 noundef %173) #11
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str, i32 noundef 600, ptr noundef nonnull @__func__._run_bb_script_child, i32 noundef %.017.ph35.i.i.i.i, i32 noundef %173) #11
   br label %.loopexit.i.i.i.i
 
 .split.us.i.i.i.i:                                ; preds = %164, %.lr.ph.split.us.i.i.i.i
   %.us-phi.i.i.i.i = phi i64 [ %158, %.lr.ph.split.us.i.i.i.i ], [ %165, %164 ]
   %.us-phi26.i.i.i.i = phi i32 [ %159, %.lr.ph.split.us.i.i.i.i ], [ %166, %164 ]
   %174 = and i64 %.us-phi.i.i.i.i, 2147483647
-  %175 = getelementptr inbounds i8, ptr %.017.ph35.i.i.i.i, i64 %174
-  %176 = sub nsw i32 %.0.ph37.i.i.i.i, %.us-phi26.i.i.i.i
+  %175 = getelementptr inbounds i8, ptr %.0.ph37.i.i.i.i, i64 %174
+  %176 = sub nsw i32 %.017.ph35.i.i.i.i, %.us-phi26.i.i.i.i
   %177 = icmp sgt i32 %176, 0
   br i1 %177, label %178, label %.loopexit.i.i.i.i
 
@@ -2741,12 +2741,12 @@ _handle_flush_job.exit.i:                         ; preds = %55, %52, %47
   %198 = zext i1 %197 to i8
   store i8 %198, ptr %9, align 1
   call void @track_script_remove(i64 noundef %64) #11
-  call void @slurm_free_job_info_msg(ptr noundef %.044.i.i.i) #11
+  call void @slurm_free_job_info_msg(ptr noundef %.0.i.i.i) #11
   %199 = load i32, ptr %7, align 4
   br label %_run_bb_script.exit.i.i
 
 _run_bb_script.exit.i.i:                          ; preds = %185, %135, %129
-  %.0.i.i.i = phi i32 [ 127, %129 ], [ 127, %135 ], [ %199, %185 ]
+  %.044.i.i.i = phi i32 [ 127, %129 ], [ 127, %135 ], [ %199, %185 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %232
@@ -2807,7 +2807,7 @@ _run_bb_script.exit.i.i:                          ; preds = %185, %135, %129
   br label %232
 
 232:                                              ; preds = %230, %220, %200, %_run_bb_script.exit.i.i
-  %.0.i.i = phi i32 [ -1, %230 ], [ %229, %220 ], [ %209, %200 ], [ %.0.i.i.i, %_run_bb_script.exit.i.i ]
+  %.0.i.i = phi i32 [ -1, %230 ], [ %229, %220 ], [ %209, %200 ], [ %.044.i.i.i, %_run_bb_script.exit.i.i ]
   %233 = load ptr, ptr %14, align 8
   %234 = getelementptr inbounds i8, ptr %63, i64 36
   %235 = load i32, ptr %234, align 4
@@ -3290,15 +3290,15 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   br i1 %10, label %11, label %104
 
 11:                                               ; preds = %.split110
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str, i32 noundef 329, ptr noundef nonnull @__func__._write_msg, i32 noundef %.057.ph119, i32 noundef 4) #11
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str, i32 noundef 329, ptr noundef nonnull @__func__._write_msg, i32 noundef %.061.ph119, i32 noundef 4) #11
   br label %104
 
 .split:                                           ; preds = %27, %.lr.ph.split.us
   %.us-phi = phi i64 [ %21, %.lr.ph.split.us ], [ %28, %27 ]
   %.us-phi108 = phi i32 [ %22, %.lr.ph.split.us ], [ %29, %27 ]
   %12 = and i64 %.us-phi, 2147483647
-  %13 = getelementptr inbounds i8, ptr %.058.ph117, i64 %12
-  %14 = sub nsw i32 %.057.ph119, %.us-phi108
+  %13 = getelementptr inbounds i8, ptr %.064.ph117, i64 %12
+  %14 = sub nsw i32 %.061.ph119, %.us-phi108
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %.outer88._crit_edge
 
@@ -3315,10 +3315,10 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   br label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split.us:                                  ; preds = %3, %.lr.ph.split.us.backedge
-  %.057.ph119 = phi i32 [ %14, %.lr.ph.split.us.backedge ], [ 4, %3 ]
-  %.058.ph117 = phi ptr [ %13, %.lr.ph.split.us.backedge ], [ %4, %3 ]
-  %20 = zext nneg i32 %.057.ph119 to i64
-  %21 = call i64 @write(i32 noundef %0, ptr noundef %.058.ph117, i64 noundef %20) #11
+  %.061.ph119 = phi i32 [ %14, %.lr.ph.split.us.backedge ], [ 4, %3 ]
+  %.064.ph117 = phi ptr [ %13, %.lr.ph.split.us.backedge ], [ %4, %3 ]
+  %20 = zext nneg i32 %.061.ph119 to i64
+  %21 = call i64 @write(i32 noundef %0, ptr noundef %.064.ph117, i64 noundef %20) #11
   %22 = trunc i64 %21 to i32
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.lr.ph115, label %.split
@@ -3335,7 +3335,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   ]
 
 27:                                               ; preds = %25, %25
-  %28 = call i64 @write(i32 noundef %0, ptr noundef %.058.ph117, i64 noundef %20) #11
+  %28 = call i64 @write(i32 noundef %0, ptr noundef %.064.ph117, i64 noundef %20) #11
   %29 = trunc i64 %28 to i32
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %25, label %.split
@@ -3351,10 +3351,10 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   br label %.lr.ph121.split.us
 
 .lr.ph121.split.us:                               ; preds = %.lr.ph121.split.us.backedge, %31
-  %.061.ph138 = phi i32 [ 4, %31 ], [ %50, %.lr.ph121.split.us.backedge ]
-  %.064.ph136 = phi ptr [ %5, %31 ], [ %49, %.lr.ph121.split.us.backedge ]
-  %34 = zext nneg i32 %.061.ph138 to i64
-  %35 = call i64 @write(i32 noundef %0, ptr noundef %.064.ph136, i64 noundef %34) #11
+  %.062.ph138 = phi ptr [ %5, %31 ], [ %49, %.lr.ph121.split.us.backedge ]
+  %.063.ph136 = phi i32 [ 4, %31 ], [ %50, %.lr.ph121.split.us.backedge ]
+  %34 = zext nneg i32 %.063.ph136 to i64
+  %35 = call i64 @write(i32 noundef %0, ptr noundef %.062.ph138, i64 noundef %34) #11
   %36 = trunc i64 %35 to i32
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %.lr.ph133, label %.split124.us
@@ -3371,7 +3371,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   ]
 
 41:                                               ; preds = %39, %39
-  %42 = call i64 @write(i32 noundef %0, ptr noundef %.064.ph136, i64 noundef %34) #11
+  %42 = call i64 @write(i32 noundef %0, ptr noundef %.062.ph138, i64 noundef %34) #11
   %43 = trunc i64 %42 to i32
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %39, label %.split124.us
@@ -3382,15 +3382,15 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   br i1 %46, label %47, label %104
 
 47:                                               ; preds = %.split128.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str, i32 noundef 332, ptr noundef nonnull @__func__._write_msg, i32 noundef %.061.ph138, i32 noundef 4) #11
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str, i32 noundef 332, ptr noundef nonnull @__func__._write_msg, i32 noundef %.063.ph136, i32 noundef 4) #11
   br label %104
 
 .split124.us:                                     ; preds = %41, %.lr.ph121.split.us
   %.us-phi125 = phi i64 [ %35, %.lr.ph121.split.us ], [ %42, %41 ]
   %.us-phi126 = phi i32 [ %36, %.lr.ph121.split.us ], [ %43, %41 ]
   %48 = and i64 %.us-phi125, 2147483647
-  %49 = getelementptr inbounds i8, ptr %.064.ph136, i64 %48
-  %50 = sub nsw i32 %.061.ph138, %.us-phi126
+  %49 = getelementptr inbounds i8, ptr %.062.ph138, i64 %48
+  %50 = sub nsw i32 %.063.ph136, %.us-phi126
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %52, label %.outer86._crit_edge
 
@@ -3416,10 +3416,10 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   br label %.lr.ph140.split.us
 
 .lr.ph140.split.us:                               ; preds = %.lr.ph140.split.us.backedge, %.lr.ph140.split.us.preheader
-  %.062.ph156 = phi ptr [ %.pre, %.lr.ph140.split.us.preheader ], [ %72, %.lr.ph140.split.us.backedge ]
-  %.063.ph154 = phi i32 [ %33, %.lr.ph140.split.us.preheader ], [ %73, %.lr.ph140.split.us.backedge ]
-  %57 = zext nneg i32 %.063.ph154 to i64
-  %58 = tail call i64 @write(i32 noundef %0, ptr noundef %.062.ph156, i64 noundef %57) #11
+  %.059.ph156 = phi ptr [ %.pre, %.lr.ph140.split.us.preheader ], [ %72, %.lr.ph140.split.us.backedge ]
+  %.060.ph154 = phi i32 [ %33, %.lr.ph140.split.us.preheader ], [ %73, %.lr.ph140.split.us.backedge ]
+  %57 = zext nneg i32 %.060.ph154 to i64
+  %58 = tail call i64 @write(i32 noundef %0, ptr noundef %.059.ph156, i64 noundef %57) #11
   %59 = trunc i64 %58 to i32
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %.lr.ph151, label %.split142.us
@@ -3436,7 +3436,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   ]
 
 64:                                               ; preds = %62, %62
-  %65 = tail call i64 @write(i32 noundef %0, ptr noundef %.062.ph156, i64 noundef %57) #11
+  %65 = tail call i64 @write(i32 noundef %0, ptr noundef %.059.ph156, i64 noundef %57) #11
   %66 = trunc i64 %65 to i32
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %62, label %.split142.us
@@ -3447,15 +3447,15 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   br i1 %69, label %70, label %104
 
 70:                                               ; preds = %.split146.us
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @__func__._write_msg, i32 noundef %.063.ph154, i32 noundef %33) #11
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @__func__._write_msg, i32 noundef %.060.ph154, i32 noundef %33) #11
   br label %104
 
 .split142.us:                                     ; preds = %64, %.lr.ph140.split.us
   %.us-phi143 = phi i64 [ %58, %.lr.ph140.split.us ], [ %65, %64 ]
   %.us-phi144 = phi i32 [ %59, %.lr.ph140.split.us ], [ %66, %64 ]
   %71 = and i64 %.us-phi143, 2147483647
-  %72 = getelementptr inbounds i8, ptr %.062.ph156, i64 %71
-  %73 = sub nsw i32 %.063.ph154, %.us-phi144
+  %72 = getelementptr inbounds i8, ptr %.059.ph156, i64 %71
+  %73 = sub nsw i32 %.060.ph154, %.us-phi144
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %75, label %.loopexit
 
@@ -3477,15 +3477,15 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   br i1 %80, label %81, label %104
 
 81:                                               ; preds = %.split164
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str, i32 noundef 335, ptr noundef nonnull @__func__._write_msg, i32 noundef %.060.ph172, i32 noundef 4) #11
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str, i32 noundef 335, ptr noundef nonnull @__func__._write_msg, i32 noundef %.058.ph172, i32 noundef 4) #11
   br label %104
 
 .split160:                                        ; preds = %97, %.lr.ph158.split.us
   %.us-phi161 = phi i64 [ %91, %.lr.ph158.split.us ], [ %98, %97 ]
   %.us-phi162 = phi i32 [ %92, %.lr.ph158.split.us ], [ %99, %97 ]
   %82 = and i64 %.us-phi161, 2147483647
-  %83 = getelementptr inbounds i8, ptr %.059.ph174, i64 %82
-  %84 = sub nsw i32 %.060.ph172, %.us-phi162
+  %83 = getelementptr inbounds i8, ptr %.057.ph174, i64 %82
+  %84 = sub nsw i32 %.058.ph172, %.us-phi162
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %86, label %.loopexit
 
@@ -3502,10 +3502,10 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   br label %.lr.ph158.split.us, !llvm.loop !18
 
 .lr.ph158.split.us:                               ; preds = %.outer88._crit_edge, %.lr.ph158.split.us.backedge
-  %.059.ph174 = phi ptr [ %83, %.lr.ph158.split.us.backedge ], [ %5, %.outer88._crit_edge ]
-  %.060.ph172 = phi i32 [ %84, %.lr.ph158.split.us.backedge ], [ 4, %.outer88._crit_edge ]
-  %90 = zext nneg i32 %.060.ph172 to i64
-  %91 = call i64 @write(i32 noundef %0, ptr noundef %.059.ph174, i64 noundef %90) #11
+  %.057.ph174 = phi ptr [ %83, %.lr.ph158.split.us.backedge ], [ %5, %.outer88._crit_edge ]
+  %.058.ph172 = phi i32 [ %84, %.lr.ph158.split.us.backedge ], [ 4, %.outer88._crit_edge ]
+  %90 = zext nneg i32 %.058.ph172 to i64
+  %91 = call i64 @write(i32 noundef %0, ptr noundef %.057.ph174, i64 noundef %90) #11
   %92 = trunc i64 %91 to i32
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %.lr.ph169, label %.split160
@@ -3522,7 +3522,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   ]
 
 97:                                               ; preds = %95, %95
-  %98 = call i64 @write(i32 noundef %0, ptr noundef %.059.ph174, i64 noundef %90) #11
+  %98 = call i64 @write(i32 noundef %0, ptr noundef %.057.ph174, i64 noundef %90) #11
   %99 = trunc i64 %98 to i32
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %95, label %.split160

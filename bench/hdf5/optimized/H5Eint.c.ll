@@ -4346,10 +4346,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5E__clear_entries(ptr nocapture no
   br label %4
 
 4:                                                ; preds = %.lr.ph, %58
-  %.040 = phi i64 [ %1, %.lr.ph ], [ %63, %58 ]
-  %.02739 = phi i32 [ 0, %.lr.ph ], [ %6, %58 ]
+  %.02640 = phi i32 [ 0, %.lr.ph ], [ %6, %58 ]
+  %.02739 = phi i64 [ %1, %.lr.ph ], [ %63, %58 ]
   %5 = load i64, ptr %0, align 8
-  %6 = add i32 %.02739, 1
+  %6 = add i32 %.02640, 1
   %7 = zext i32 %6 to i64
   %8 = sub i64 %5, %7
   %9 = getelementptr inbounds [32 x %struct.H5E_entry_t], ptr %3, i64 0, i64 %8
@@ -4433,7 +4433,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5E__clear_entries(ptr nocapture no
   %61 = load ptr, ptr %60, align 8
   %62 = tail call ptr @H5MM_xfree_const(ptr noundef %61) #16
   store ptr %62, ptr %60, align 8
-  %63 = add i64 %.040, -1
+  %63 = add i64 %.02739, -1
   %.not = icmp eq i64 %63, 0
   br i1 %.not, label %._crit_edge.loopexit, label %4
 
@@ -4442,15 +4442,15 @@ define internal fastcc range(i32 -1, 1) i32 @H5E__clear_entries(ptr nocapture no
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2, %._crit_edge.loopexit
-  %.027.lcssa = phi i64 [ %64, %._crit_edge.loopexit ], [ 0, %2 ]
+  %.026.lcssa = phi i64 [ %64, %._crit_edge.loopexit ], [ 0, %2 ]
   %65 = load i64, ptr %0, align 8
-  %66 = sub i64 %65, %.027.lcssa
+  %66 = sub i64 %65, %.026.lcssa
   store i64 %66, ptr %0, align 8
   br label %67
 
 67:                                               ; preds = %._crit_edge, %44, %34, %20
-  %.026 = phi i32 [ -1, %20 ], [ -1, %34 ], [ -1, %44 ], [ 0, %._crit_edge ]
-  ret i32 %.026
+  %.0 = phi i32 [ -1, %20 ], [ -1, %34 ], [ -1, %44 ], [ 0, %._crit_edge ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

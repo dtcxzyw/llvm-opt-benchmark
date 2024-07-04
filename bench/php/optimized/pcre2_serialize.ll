@@ -173,8 +173,8 @@ define range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %63
   %indvars.iv95 = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next96, %63 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %63 ]
-  %.06580 = phi ptr [ %31, %.lr.ph.preheader ], [ %69, %63 ]
-  %32 = getelementptr inbounds i8, ptr %.06580, i64 72
+  %.06380 = phi ptr [ %31, %.lr.ph.preheader ], [ %69, %63 ]
+  %32 = getelementptr inbounds i8, ptr %.06380, i64 72
   %.0.copyload = load i64, ptr %32, align 1
   %33 = icmp ult i64 %.0.copyload, 137
   br i1 %33, label %.loopexit, label %34
@@ -210,7 +210,7 @@ define range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef %
 
 45:                                               ; preds = %34
   %46 = getelementptr inbounds i8, ptr %35, i64 24
-  %47 = getelementptr inbounds i8, ptr %.06580, i64 24
+  %47 = getelementptr inbounds i8, ptr %.06380, i64 24
   %48 = add i64 %.0.copyload, -24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull align 1 %47, i64 %48, i1 false)
   %49 = getelementptr inbounds i8, ptr %35, i64 80
@@ -247,15 +247,15 @@ define range(i32 -62, -2147483648) i32 @php_pcre2_serialize_decode(ptr noundef %
   store i32 %67, ptr %65, align 8
   %68 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
   store ptr %35, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %.06580, i64 %.0.copyload
+  %69 = getelementptr inbounds i8, ptr %.06380, i64 %.0.copyload
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %29
   %indvars.iv.next96 = add nuw nsw i32 %indvars.iv95, 1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %63, %.lr.ph85, %37, %22, %19, %16, %14, %10, %8, %4, %59
-  %.0 = phi i32 [ -62, %59 ], [ -51, %4 ], [ -29, %8 ], [ -62, %10 ], [ -31, %14 ], [ -32, %16 ], [ -32, %19 ], [ -48, %22 ], [ -48, %37 ], [ -48, %.lr.ph85 ], [ -62, %.lr.ph ], [ %spec.select, %63 ]
-  ret i32 %.0
+  %.064 = phi i32 [ -62, %59 ], [ -51, %4 ], [ -29, %8 ], [ -62, %10 ], [ -31, %14 ], [ -32, %16 ], [ -32, %19 ], [ -48, %22 ], [ -48, %37 ], [ -48, %.lr.ph85 ], [ -62, %.lr.ph ], [ %spec.select, %63 ]
+  ret i32 %.064
 }
 
 declare ptr @_pcre2_memctl_malloc_8(i64 noundef, ptr noundef) local_unnamed_addr #3

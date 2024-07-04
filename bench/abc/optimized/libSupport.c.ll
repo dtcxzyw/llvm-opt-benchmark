@@ -38,16 +38,16 @@ define void @open_libs() local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %6, %3
-  %.039 = phi ptr [ %4, %3 ], [ %9, %6 ]
+  %.038 = phi ptr [ %4, %3 ], [ %9, %6 ]
   br label %.outer
 
 .outer:                                           ; preds = %._crit_edge, %11
-  %.038.ph = phi ptr [ %54, %._crit_edge ], [ %.039, %11 ]
-  %.0.ph = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %11 ]
+  %.039.ph = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %11 ]
+  %.0.ph = phi ptr [ %54, %._crit_edge ], [ %.038, %11 ]
   br label %12
 
 12:                                               ; preds = %.outer, %15
-  %13 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.038.ph, i32 noundef 58) #11
+  %13 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0.ph, i32 noundef 58) #11
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %15, label %14
 
@@ -56,7 +56,7 @@ define void @open_libs() local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %14, %12
-  %16 = tail call ptr @opendir(ptr noundef %.038.ph)
+  %16 = tail call ptr @opendir(ptr noundef %.0.ph)
   %17 = icmp eq ptr %16, null
   br i1 %17, label %12, label %.preheader
 
@@ -67,7 +67,7 @@ define void @open_libs() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %51
   %19 = phi ptr [ %52, %51 ], [ %18, %.preheader ]
-  %.151 = phi i32 [ %.3, %51 ], [ %.0.ph, %.preheader ]
+  %.151 = phi i32 [ %.3, %51 ], [ %.039.ph, %.preheader ]
   %20 = getelementptr inbounds i8, ptr %19, i64 19
   %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.1, ptr noundef nonnull dereferenceable(1) %20, i64 noundef 7) #11
   %22 = icmp eq i32 %21, 0
@@ -90,11 +90,11 @@ define void @open_libs() local_unnamed_addr #0 {
   br label %51
 
 33:                                               ; preds = %29
-  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.038.ph) #11
+  %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.ph) #11
   %35 = add i64 %24, 2
   %36 = add i64 %35, %34
   %37 = tail call noalias ptr @malloc(i64 noundef %36) #10
-  %38 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %.038.ph) #9
+  %38 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %.0.ph) #9
   %39 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %20) #9
   %40 = tail call ptr @dlopen(ptr noundef %37, i32 noundef 2) #9
   %41 = sext i32 %.151 to i64
@@ -129,17 +129,17 @@ define void @open_libs() local_unnamed_addr #0 {
   br i1 %.not45, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %51, %.preheader
-  %.1.lcssa = phi i32 [ %.0.ph, %.preheader ], [ %.3, %51 ]
+  %.1.lcssa = phi i32 [ %.039.ph, %.preheader ], [ %.3, %51 ]
   %53 = tail call i32 @closedir(ptr noundef nonnull %16)
   %54 = getelementptr inbounds i8, ptr %13, i64 1
   br i1 %.not, label %55, label %.outer
 
 55:                                               ; preds = %._crit_edge
-  %.not46 = icmp eq ptr %.039, null
+  %.not46 = icmp eq ptr %.038, null
   br i1 %.not46, label %57, label %56
 
 56:                                               ; preds = %55
-  tail call void @free(ptr noundef nonnull %.039) #9
+  tail call void @free(ptr noundef nonnull %.038) #9
   br label %57
 
 57:                                               ; preds = %55, %56

@@ -1230,8 +1230,8 @@ opal_argv_append.exit:                            ; preds = %.preheader.i.i, %25
   br i1 %76, label %.lr.ph63, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %opal_argv_append.exit, %.lr.ph63, %opal_argv_count.exit55.thread, %._crit_edge, %9, %3, %5
-  %.0 = phi i32 [ -5, %5 ], [ -5, %3 ], [ 0, %9 ], [ 0, %._crit_edge ], [ 0, %opal_argv_count.exit55.thread ], [ 0, %.lr.ph63 ], [ 0, %opal_argv_append.exit ]
-  ret i32 %.0
+  %.042 = phi i32 [ -5, %5 ], [ -5, %3 ], [ 0, %9 ], [ 0, %._crit_edge ], [ 0, %opal_argv_count.exit55.thread ], [ 0, %.lr.ph63 ], [ 0, %opal_argv_append.exit ]
+  ret i32 %.042
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1362,8 +1362,8 @@ opal_argv_count.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %opal
   br label %opal_argv_append.exit
 
 opal_argv_append.exit:                            ; preds = %.preheader.i.i, %24, %opal_argv_count.exit.i.i, %9, %3, %5, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ -5, %5 ], [ -5, %3 ], [ 0, %9 ], [ 0, %opal_argv_count.exit.i.i ], [ 0, %24 ], [ 0, %.preheader.i.i ]
-  ret i32 %.0
+  %.027 = phi i32 [ 0, %._crit_edge ], [ -5, %5 ], [ -5, %3 ], [ 0, %9 ], [ 0, %opal_argv_count.exit.i.i ], [ 0, %24 ], [ 0, %.preheader.i.i ]
+  ret i32 %.027
 }
 
 declare void @opal_string_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9

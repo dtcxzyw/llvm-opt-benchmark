@@ -383,18 +383,18 @@ socksstate.exit:                                  ; preds = %45
   br label %134
 
 134:                                              ; preds = %132, %131, %.thread.i.i
-  %.1.i.i = phi i64 [ 4, %132 ], [ 3, %131 ], [ 3, %.thread.i.i ]
-  %135 = trunc nuw nsw i64 %.1.i.i to i8
+  %.1324.i.i = phi i64 [ 4, %132 ], [ 3, %131 ], [ 3, %.thread.i.i ]
+  %135 = trunc nuw nsw i64 %.1324.i.i to i8
   %136 = add nsw i8 %135, -2
   %137 = getelementptr inbounds i8, ptr %.0, i64 17
   store i8 %136, ptr %137, align 1
   %138 = getelementptr inbounds i8, ptr %.0, i64 616
   store ptr %96, ptr %138, align 8
   %139 = getelementptr inbounds i8, ptr %.0, i64 8
-  store i64 %.1.i.i, ptr %139, align 8
+  store i64 %.1324.i.i, ptr %139, align 8
   %.val.i.i = load ptr, ptr %31, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
-  %140 = call i64 @Curl_conn_cf_send(ptr noundef %.val.i.i, ptr noundef nonnull %1, ptr noundef nonnull %96, i64 noundef %.1.i.i, ptr noundef nonnull %16) #7
+  %140 = call i64 @Curl_conn_cf_send(ptr noundef %.val.i.i, ptr noundef nonnull %1, ptr noundef nonnull %96, i64 noundef %.1324.i.i, ptr noundef nonnull %16) #7
   %141 = icmp slt i64 %140, 1
   br i1 %141, label %142, label %147
 
@@ -671,8 +671,8 @@ socksstate.exit409.i.i:                           ; preds = %210, %207, %95
 
 244:                                              ; preds = %242, %231, %.thread445.i.i
   %245 = phi i64 [ 3, %.thread445.i.i ], [ %233, %242 ], [ %233, %231 ]
-  %.0324443449.i.i = phi i64 [ 0, %.thread445.i.i ], [ %223, %242 ], [ %223, %231 ]
-  %246 = add i64 %.0324443449.i.i, %245
+  %.0318444449.i.i = phi i64 [ 0, %.thread445.i.i ], [ %223, %242 ], [ %223, %231 ]
+  %246 = add i64 %.0318444449.i.i, %245
   %247 = load i32, ptr %.0, align 8
   %248 = icmp eq i32 %247, 7
   br i1 %248, label %socksstate.exit410.i.i, label %249
@@ -896,7 +896,7 @@ socksstate.exit418.thread462.i.i:                 ; preds = %socksstate.exit418.
   br label %socksstate.exit418.thread.i.i
 
 socksstate.exit418.thread.i.i:                    ; preds = %socksstate.exit418.thread462.i.i, %socksstate.exit418.i.i, %95
-  %.0321.i.i = phi ptr [ %330, %socksstate.exit418.thread462.i.i ], [ null, %socksstate.exit418.i.i ], [ null, %95 ]
+  %.0317.i.i = phi ptr [ %330, %socksstate.exit418.thread462.i.i ], [ null, %socksstate.exit418.i.i ], [ null, %95 ]
   %331 = getelementptr inbounds i8, ptr %1, i64 1704
   %332 = load i8, ptr %331, align 8
   %.not378.i.i = icmp eq i8 %332, 0
@@ -905,24 +905,24 @@ socksstate.exit418.thread.i.i:                    ; preds = %socksstate.exit418.
 333:                                              ; preds = %socksstate.exit418.thread.i.i
   %334 = icmp eq i8 %332, 1
   %335 = select i1 %334, i32 2, i32 10
-  %.not379493.i.i = icmp eq ptr %.0321.i.i, null
+  %.not379493.i.i = icmp eq ptr %.0317.i.i, null
   br i1 %.not379493.i.i, label %.critedge.thread.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %333, %338
-  %.1322494.i.i = phi ptr [ %340, %338 ], [ %.0321.i.i, %333 ]
-  %336 = getelementptr inbounds i8, ptr %.1322494.i.i, i64 4
+  %.1494.i.i = phi ptr [ %340, %338 ], [ %.0317.i.i, %333 ]
+  %336 = getelementptr inbounds i8, ptr %.1494.i.i, i64 4
   %337 = load i32, ptr %336, align 4
   %.not380.i.i = icmp eq i32 %337, %335
   br i1 %.not380.i.i, label %.critedge.thread466.i.i, label %338
 
 338:                                              ; preds = %.lr.ph.i.i
-  %339 = getelementptr inbounds i8, ptr %.1322494.i.i, i64 40
+  %339 = getelementptr inbounds i8, ptr %.1494.i.i, i64 40
   %340 = load ptr, ptr %339, align 8
   %.not379.i.i = icmp eq ptr %340, null
   br i1 %.not379.i.i, label %.critedge.thread.i.i, label %.lr.ph.i.i, !llvm.loop !5
 
 .critedge.i.i:                                    ; preds = %socksstate.exit418.thread.i.i
-  %.not381.i.i = icmp eq ptr %.0321.i.i, null
+  %.not381.i.i = icmp eq ptr %.0317.i.i, null
   br i1 %.not381.i.i, label %.critedge.thread.i.i, label %.critedge.thread466.i.i
 
 .critedge.thread.i.i:                             ; preds = %338, %.critedge.i.i, %333
@@ -931,14 +931,14 @@ socksstate.exit418.thread.i.i:                    ; preds = %socksstate.exit418.
   br label %do_SOCKS5.exit.i
 
 .critedge.thread466.i.i:                          ; preds = %.lr.ph.i.i, %.critedge.i.i
-  %.2323469.i.i = phi ptr [ %.0321.i.i, %.critedge.i.i ], [ %.1322494.i.i, %.lr.ph.i.i ]
-  call void @Curl_printable_address(ptr noundef nonnull %.2323469.i.i, ptr noundef nonnull %18, i64 noundef 46) #7
+  %.2469.i.i = phi ptr [ %.0317.i.i, %.critedge.i.i ], [ %.1494.i.i, %.lr.ph.i.i ]
+  call void @Curl_printable_address(ptr noundef nonnull %.2469.i.i, ptr noundef nonnull %18, i64 noundef 46) #7
   store i8 5, ptr %96, align 1
   %342 = getelementptr inbounds i8, ptr %.0, i64 17
   store i8 1, ptr %342, align 1
   %343 = getelementptr inbounds i8, ptr %.0, i64 18
   store i8 0, ptr %343, align 1
-  %344 = getelementptr inbounds i8, ptr %.2323469.i.i, i64 4
+  %344 = getelementptr inbounds i8, ptr %.2469.i.i, i64 4
   %345 = load i32, ptr %344, align 4
   switch i32 %345, label %382 [
     i32 2, label %346
@@ -948,18 +948,18 @@ socksstate.exit418.thread.i.i:                    ; preds = %socksstate.exit418.
 346:                                              ; preds = %.critedge.thread466.i.i
   %347 = getelementptr inbounds i8, ptr %.0, i64 19
   store i8 1, ptr %347, align 1
-  %348 = getelementptr inbounds i8, ptr %.2323469.i.i, i64 32
+  %348 = getelementptr inbounds i8, ptr %.2469.i.i, i64 32
   %349 = load ptr, ptr %348, align 8
   %350 = getelementptr inbounds i8, ptr %349, i64 4
   br label %351
 
 351:                                              ; preds = %351, %346
   %indvars.iv502.i.i = phi i64 [ 0, %346 ], [ %indvars.iv.next503.i.i, %351 ]
-  %.0317498.i.i = phi i64 [ 4, %346 ], [ %354, %351 ]
+  %.0320497.i.i = phi i64 [ 4, %346 ], [ %354, %351 ]
   %352 = getelementptr inbounds i8, ptr %350, i64 %indvars.iv502.i.i
   %353 = load i8, ptr %352, align 1
-  %354 = add nuw nsw i64 %.0317498.i.i, 1
-  %355 = getelementptr inbounds i8, ptr %96, i64 %.0317498.i.i
+  %354 = add nuw nsw i64 %.0320497.i.i, 1
+  %355 = getelementptr inbounds i8, ptr %96, i64 %.0320497.i.i
   store i8 %353, ptr %355, align 1
   %indvars.iv.next503.i.i = add nuw nsw i64 %indvars.iv502.i.i, 1
   %exitcond505.not.i.i = icmp eq i64 %indvars.iv.next503.i.i, 4
@@ -985,18 +985,18 @@ socksstate.exit418.thread.i.i:                    ; preds = %socksstate.exit418.
 364:                                              ; preds = %.critedge.thread466.i.i
   %365 = getelementptr inbounds i8, ptr %.0, i64 19
   store i8 4, ptr %365, align 1
-  %366 = getelementptr inbounds i8, ptr %.2323469.i.i, i64 32
+  %366 = getelementptr inbounds i8, ptr %.2469.i.i, i64 32
   %367 = load ptr, ptr %366, align 8
   %368 = getelementptr inbounds i8, ptr %367, i64 8
   br label %369
 
 369:                                              ; preds = %369, %364
   %indvars.iv.i.i = phi i64 [ 0, %364 ], [ %indvars.iv.next.i.i, %369 ]
-  %.1318495.i.i = phi i64 [ 4, %364 ], [ %372, %369 ]
+  %.1321495.i.i = phi i64 [ 4, %364 ], [ %372, %369 ]
   %370 = getelementptr inbounds i8, ptr %368, i64 %indvars.iv.i.i
   %371 = load i8, ptr %370, align 1
-  %372 = add nuw nsw i64 %.1318495.i.i, 1
-  %373 = getelementptr inbounds i8, ptr %96, i64 %.1318495.i.i
+  %372 = add nuw nsw i64 %.1321495.i.i, 1
+  %373 = getelementptr inbounds i8, ptr %96, i64 %.1321495.i.i
   store i8 %371, ptr %373, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
@@ -1024,7 +1024,7 @@ socksstate.exit418.thread.i.i:                    ; preds = %socksstate.exit418.
   br label %383
 
 383:                                              ; preds = %382, %379, %375, %374, %361, %357, %356
-  %.2.i.i = phi i64 [ 8, %361 ], [ 8, %357 ], [ 8, %356 ], [ 20, %379 ], [ 20, %375 ], [ 20, %374 ], [ 3, %382 ]
+  %.2322.i.i = phi i64 [ 8, %361 ], [ 8, %357 ], [ 8, %356 ], [ 20, %379 ], [ 20, %375 ], [ 20, %374 ], [ 3, %382 ]
   %384 = load ptr, ptr %17, align 8
   call void @Curl_resolv_unlock(ptr noundef %1, ptr noundef %384) #7
   br label %421
@@ -1106,7 +1106,7 @@ socksstate.exit418.thread.i.i:                    ; preds = %socksstate.exit418.
   br label %421
 
 421:                                              ; preds = %417, %413, %385, %383, %95
-  %.4.i.i = phi i64 [ 0, %95 ], [ 3, %385 ], [ %.3.i.i, %417 ], [ %.3.i.i, %413 ], [ %.2.i.i, %383 ]
+  %.4.i.i = phi i64 [ 0, %95 ], [ 3, %385 ], [ %.3.i.i, %417 ], [ %.3.i.i, %413 ], [ %.2322.i.i, %383 ]
   %422 = getelementptr inbounds i8, ptr %.0, i64 632
   %423 = load i32, ptr %422, align 8
   %424 = lshr i32 %423, 8

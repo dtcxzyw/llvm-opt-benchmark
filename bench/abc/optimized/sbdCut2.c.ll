@@ -918,8 +918,8 @@ Vec_IntPushUniqueOrder.exit:                      ; preds = %89, %._crit_edge.i6
   br i1 %104, label %19, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %103, %99, %7, %._crit_edge.i73, %Vec_IntPushUniqueOrder.exit
-  %.0 = phi i32 [ 1, %Vec_IntPushUniqueOrder.exit ], [ 1, %._crit_edge.i73 ], [ 0, %7 ], [ 1, %99 ], [ 0, %103 ]
-  ret i32 %.0
+  %.045 = phi i32 [ 1, %Vec_IntPushUniqueOrder.exit ], [ 1, %._crit_edge.i73 ], [ 0, %7 ], [ 1, %99 ], [ 0, %103 ]
+  ret i32 %.045
 }
 
 ; Function Attrs: nounwind uwtable

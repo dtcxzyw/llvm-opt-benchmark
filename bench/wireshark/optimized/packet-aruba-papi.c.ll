@@ -444,22 +444,22 @@ define internal i32 @dissect_papi(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %50
 
 50:                                               ; preds = %45, %9
-  %.083 = phi i32 [ 76, %45 ], [ 44, %9 ]
+  %.0 = phi i32 [ 76, %45 ], [ 44, %9 ]
   %51 = load i32, ptr @g_papi_debug, align 4
   %.not84 = icmp eq i32 %51, 0
   br i1 %.not84, label %dissect_papi_debug.exit, label %52
 
 52:                                               ; preds = %50
   %53 = load i32, ptr @hf_papi_debug, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %53, ptr noundef %0, i32 noundef %.083, i32 noundef -1, i32 noundef 0) #2
+  %54 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %53, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #2
   %55 = load i32, ptr @ett_papi, align 4
   %56 = call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55) #2
   %57 = call i32 @tvb_reported_length(ptr noundef %0) #2
-  %58 = icmp ugt i32 %57, %.083
+  %58 = icmp ugt i32 %57, %.0
   br i1 %58, label %.lr.ph.i, label %dissect_papi_debug.exit
 
 .lr.ph.i:                                         ; preds = %52, %128
-  %.067.i = phi i32 [ %.1.i, %128 ], [ %.083, %52 ]
+  %.067.i = phi i32 [ %.1.i, %128 ], [ %.0, %52 ]
   %59 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.067.i) #2
   switch i8 %59, label %123 [
     i8 0, label %60
@@ -568,7 +568,7 @@ define internal i32 @dissect_papi(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %130, label %.lr.ph.i, label %dissect_papi_debug.exit, !llvm.loop !4
 
 dissect_papi_debug.exit:                          ; preds = %128, %52, %50
-  %.1 = phi i32 [ %.083, %50 ], [ %.083, %52 ], [ %.1.i, %128 ]
+  %.1 = phi i32 [ %.0, %50 ], [ %.0, %52 ], [ %.1.i, %128 ]
   %131 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1) #2
   %132 = load ptr, ptr @papi_dissector_table, align 8
   %133 = load i32, ptr %5, align 4
@@ -592,8 +592,8 @@ dissect_papi_debug.exit:                          ; preds = %128, %52, %50
   br label %143
 
 143:                                              ; preds = %4, %141
-  %.0 = phi i32 [ %142, %141 ], [ 0, %4 ]
-  ret i32 %.0
+  %.083 = phi i32 [ %142, %141 ], [ 0, %4 ]
+  ret i32 %.083
 }
 
 ; Function Attrs: nounwind uwtable

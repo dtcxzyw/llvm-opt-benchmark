@@ -905,8 +905,8 @@ define hidden void @VP8LPutBitsInternal(ptr nocapture noundef %0, i32 noundef %1
 
 13:                                               ; preds = %.lr.ph, %VP8LBitWriterResize.exit.thread
   %14 = phi ptr [ %.pre, %.lr.ph ], [ %47, %VP8LBitWriterResize.exit.thread ]
-  %.034 = phi i64 [ %6, %.lr.ph ], [ %48, %VP8LBitWriterResize.exit.thread ]
-  %.02533 = phi i32 [ %8, %.lr.ph ], [ %49, %VP8LBitWriterResize.exit.thread ]
+  %.034 = phi i32 [ %8, %.lr.ph ], [ %49, %VP8LBitWriterResize.exit.thread ]
+  %.02533 = phi i64 [ %6, %.lr.ph ], [ %48, %VP8LBitWriterResize.exit.thread ]
   %15 = getelementptr inbounds i8, ptr %14, i64 4
   %16 = load ptr, ptr %11, align 8
   %17 = icmp ugt ptr %15, %16
@@ -964,25 +964,25 @@ define hidden void @VP8LPutBitsInternal(ptr nocapture noundef %0, i32 noundef %1
 
 VP8LBitWriterResize.exit.thread:                  ; preds = %18, %37, %13
   %44 = phi ptr [ %14, %18 ], [ %39, %37 ], [ %14, %13 ]
-  %45 = trunc i64 %.034 to i32
+  %45 = trunc i64 %.02533 to i32
   store i32 %45, ptr %44, align 4
   %46 = load ptr, ptr %10, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 4
   store ptr %47, ptr %10, align 8
-  %48 = lshr i64 %.034, 32
-  %49 = add nsw i32 %.02533, -32
-  %50 = icmp sgt i32 %.02533, 63
+  %48 = lshr i64 %.02533, 32
+  %49 = add nsw i32 %.034, -32
+  %50 = icmp sgt i32 %.034, 63
   br i1 %50, label %13, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %VP8LBitWriterResize.exit.thread, %5
-  %.025.lcssa = phi i32 [ %8, %5 ], [ %49, %VP8LBitWriterResize.exit.thread ]
-  %.0.lcssa = phi i64 [ %6, %5 ], [ %48, %VP8LBitWriterResize.exit.thread ]
+  %.025.lcssa = phi i64 [ %6, %5 ], [ %48, %VP8LBitWriterResize.exit.thread ]
+  %.0.lcssa = phi i32 [ %8, %5 ], [ %49, %VP8LBitWriterResize.exit.thread ]
   %51 = zext i32 %1 to i64
-  %52 = zext nneg i32 %.025.lcssa to i64
+  %52 = zext nneg i32 %.0.lcssa to i64
   %53 = shl i64 %51, %52
-  %54 = or i64 %53, %.0.lcssa
+  %54 = or i64 %53, %.025.lcssa
   store i64 %54, ptr %0, align 8
-  %55 = add nsw i32 %.025.lcssa, %2
+  %55 = add nsw i32 %.0.lcssa, %2
   store i32 %55, ptr %7, align 8
   br label %56
 

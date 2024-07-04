@@ -132,20 +132,20 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
   br label %78
 
 78:                                               ; preds = %52, %._crit_edge96, %21, %._crit_edge
-  %.082 = phi ptr [ %15, %._crit_edge ], [ %15, %21 ], [ %46, %._crit_edge96 ], [ %46, %52 ]
-  %.081 = phi ptr [ %16, %._crit_edge ], [ %16, %21 ], [ %47, %._crit_edge96 ], [ %47, %52 ]
-  %.080 = phi ptr [ null, %._crit_edge ], [ null, %21 ], [ %45, %._crit_edge96 ], [ %45, %52 ]
-  %.078 = phi ptr [ %23, %._crit_edge ], [ %23, %21 ], [ %54, %._crit_edge96 ], [ %54, %52 ]
+  %.081 = phi ptr [ %23, %._crit_edge ], [ %23, %21 ], [ %54, %._crit_edge96 ], [ %54, %52 ]
+  %.080 = phi ptr [ %15, %._crit_edge ], [ %15, %21 ], [ %46, %._crit_edge96 ], [ %46, %52 ]
+  %.079 = phi ptr [ %16, %._crit_edge ], [ %16, %21 ], [ %47, %._crit_edge96 ], [ %47, %52 ]
+  %.078 = phi ptr [ null, %._crit_edge ], [ null, %21 ], [ %45, %._crit_edge96 ], [ %45, %52 ]
   %.0.in = phi i32 [ 1, %._crit_edge ], [ 0, %21 ], [ 1, %._crit_edge96 ], [ 0, %52 ]
-  %79 = tail call ptr @cs_free(ptr noundef %.078) #2
-  %80 = tail call ptr @cs_sfree(ptr noundef %.082) #2
-  %81 = tail call ptr @cs_nfree(ptr noundef %.081) #2
-  %82 = tail call ptr @cs_spfree(ptr noundef %.080) #2
+  %79 = tail call ptr @cs_free(ptr noundef %.081) #2
+  %80 = tail call ptr @cs_sfree(ptr noundef %.080) #2
+  %81 = tail call ptr @cs_nfree(ptr noundef %.079) #2
+  %82 = tail call ptr @cs_spfree(ptr noundef %.078) #2
   br label %83
 
 83:                                               ; preds = %3, %4, %78
-  %.077 = phi i32 [ %.0.in, %78 ], [ 0, %4 ], [ 0, %3 ]
-  ret i32 %.077
+  %.082 = phi i32 [ %.0.in, %78 ], [ 0, %4 ], [ 0, %3 ]
+  ret i32 %.082
 }
 
 declare ptr @cs_sqr(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

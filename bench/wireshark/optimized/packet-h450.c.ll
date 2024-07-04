@@ -1637,8 +1637,8 @@ proto_item_set_hidden.exit:                       ; preds = %get_op.exit, %27, %
   br label %get_op.exit.thread
 
 get_op.exit.thread:                               ; preds = %18, %51, %56, %53, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %52, %51 ], [ %58, %56 ], [ 0, %53 ], [ 0, %18 ]
-  ret i32 %.0
+  %.040 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %52, %51 ], [ %58, %56 ], [ 0, %53 ], [ 0, %18 ]
+  ret i32 %.040
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1751,8 +1751,8 @@ proto_item_set_hidden.exit:                       ; preds = %get_op.exit, %27, %
   br label %get_op.exit.thread
 
 get_op.exit.thread:                               ; preds = %18, %51, %56, %53, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %52, %51 ], [ %58, %56 ], [ 0, %53 ], [ 0, %18 ]
-  ret i32 %.0
+  %.040 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %52, %51 ], [ %58, %56 ], [ 0, %53 ], [ 0, %18 ]
+  ret i32 %.040
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1865,8 +1865,8 @@ proto_item_set_hidden.exit:                       ; preds = %get_err.exit, %27, 
   br label %get_err.exit.thread
 
 get_err.exit.thread:                              ; preds = %18, %51, %56, %53, %12, %9, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %52, %51 ], [ %58, %56 ], [ 0, %53 ], [ 0, %18 ]
-  ret i32 %.0
+  %.040 = phi i32 [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ %52, %51 ], [ %58, %56 ], [ 0, %53 ], [ 0, %18 ]
+  ret i32 %.040
 }
 
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

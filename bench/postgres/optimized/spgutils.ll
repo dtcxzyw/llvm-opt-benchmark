@@ -1161,8 +1161,8 @@ SpGistInitBuffer.exit:                            ; preds = %71, %77
   br label %108
 
 108:                                              ; preds = %106, %103, %SpGistInitBuffer.exit, %37, %29
-  %.0 = phi i32 [ %30, %29 ], [ %35, %SpGistInitBuffer.exit ], [ %35, %103 ], [ %107, %106 ], [ %38, %37 ]
-  ret i32 %.0
+  %.055 = phi i32 [ %30, %29 ], [ %35, %SpGistInitBuffer.exit ], [ %35, %103 ], [ %107, %106 ], [ %38, %37 ]
+  ret i32 %.055
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1608,7 +1608,7 @@ define dso_local noundef ptr @spgFormLeafTuple(ptr nocapture noundef readonly %0
   br i1 %or.cond, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %4
-  %.0 = phi i1 [ false, %4 ], [ %12, %.preheader ]
+  %.042 = phi i1 [ false, %4 ], [ %12, %.preheader ]
   %13 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3) #9
   %14 = add i64 %13, 23
   %15 = and i64 %14, -8
@@ -1628,7 +1628,7 @@ define dso_local noundef ptr @spgFormLeafTuple(ptr nocapture noundef readonly %0
   %26 = getelementptr inbounds i8, ptr %17, i64 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %26, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
   %27 = getelementptr i8, ptr %17, i64 16
-  br i1 %.0, label %28, label %31
+  br i1 %.042, label %28, label %31
 
 28:                                               ; preds = %.loopexit
   %29 = or i16 %25, -32768
@@ -1874,8 +1874,8 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %32, %
   br label %39
 
 39:                                               ; preds = %5, %SpGistGetInnerTypeSize.exit
-  %.045 = phi i32 [ %38, %SpGistGetInnerTypeSize.exit ], [ 0, %5 ]
-  %narrow = add nuw nsw i32 %.045, 8
+  %.044 = phi i32 [ %38, %SpGistGetInnerTypeSize.exit ], [ 0, %5 ]
+  %narrow = add nuw nsw i32 %.044, 8
   %40 = icmp sgt i32 %3, 0
   br i1 %40, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1885,23 +1885,23 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %32, %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.052 = phi i32 [ %narrow, %.lr.ph.preheader ], [ %47, %.lr.ph ]
+  %.04551 = phi i32 [ %narrow, %.lr.ph.preheader ], [ %47, %.lr.ph ]
   %41 = getelementptr ptr, ptr %4, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 6
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, 8191
   %46 = zext nneg i16 %45 to i32
-  %47 = add i32 %.052, %46
+  %47 = add i32 %.04551, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %39
-  %.0.lcssa = phi i32 [ %narrow, %39 ], [ %47, %.lr.ph ]
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.0.lcssa, i32 16)
+  %.045.lcssa = phi i32 [ %narrow, %39 ], [ %47, %.lr.ph ]
+  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.045.lcssa, i32 16)
   %48 = zext i32 %spec.store.select to i64
-  %49 = icmp ugt i32 %.0.lcssa, 8156
+  %49 = icmp ugt i32 %.045.lcssa, 8156
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %._crit_edge
@@ -1914,7 +1914,7 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %32, %
   unreachable
 
 55:                                               ; preds = %._crit_edge
-  %56 = icmp ugt i32 %.045, 65535
+  %56 = icmp ugt i32 %.044, 65535
   %57 = icmp sgt i32 %3, 8191
   %or.cond3 = or i1 %57, %56
   br i1 %or.cond3, label %58, label %61
@@ -1931,7 +1931,7 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %32, %
   %63 = load i32, ptr %62, align 4
   %64 = shl i32 %3, 3
   %65 = and i32 %63, 7
-  %66 = shl nuw i32 %.045, 16
+  %66 = shl nuw i32 %.044, 16
   %.masked = and i32 %64, 65528
   %67 = or disjoint i32 %.masked, %65
   %68 = or disjoint i32 %67, %66
@@ -1942,7 +1942,7 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %32, %
   br i1 %1, label %71, label %memcpyInnerDatum.exit
 
 71:                                               ; preds = %61
-  %.not = icmp eq i32 %.045, 0
+  %.not = icmp eq i32 %.044, 0
   %72 = getelementptr i8, ptr %62, i64 8
   %73 = select i1 %.not, ptr null, ptr %72
   %74 = getelementptr inbounds i8, ptr %0, i64 54
@@ -2010,25 +2010,25 @@ memcpyInnerDatum.exit:                            ; preds = %105, %77, %61
 
 .lr.ph55.preheader:                               ; preds = %memcpyInnerDatum.exit
   %108 = getelementptr i8, ptr %62, i64 8
-  %109 = zext nneg i32 %.045 to i64
+  %109 = zext nneg i32 %.044 to i64
   %110 = getelementptr i8, ptr %108, i64 %109
   %wide.trip.count61 = zext nneg i32 %3 to i64
   br label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55
   %indvars.iv58 = phi i64 [ 0, %.lr.ph55.preheader ], [ %indvars.iv.next59, %.lr.ph55 ]
-  %.04354 = phi ptr [ %110, %.lr.ph55.preheader ], [ %120, %.lr.ph55 ]
+  %.054 = phi ptr [ %110, %.lr.ph55.preheader ], [ %120, %.lr.ph55 ]
   %111 = getelementptr ptr, ptr %4, i64 %indvars.iv58
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds i8, ptr %112, i64 6
   %114 = load i16, ptr %113, align 2
   %115 = and i16 %114, 8191
   %116 = zext nneg i16 %115 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04354, ptr align 2 %112, i64 %116, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.054, ptr align 2 %112, i64 %116, i1 false)
   %117 = load i16, ptr %113, align 2
   %118 = and i16 %117, 8191
   %119 = zext nneg i16 %118 to i64
-  %120 = getelementptr i8, ptr %.04354, i64 %119
+  %120 = getelementptr i8, ptr %.054, i64 %119
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
   br i1 %exitcond62.not, label %._crit_edge56, label %.lr.ph55, !llvm.loop !12

@@ -1072,8 +1072,8 @@ fail.thread:                                      ; preds = %if.then, %if.then8
   br label %if.end29
 
 fail:                                             ; preds = %if.then19, %if.end25
-  %ctx.0 = phi ptr [ %call17, %if.then19 ], [ %cond27, %if.end25 ]
   %local_blk.1 = phi ptr [ %call21, %if.then19 ], [ %local_blk.0, %if.end25 ]
+  %ctx.0 = phi ptr [ %call17, %if.then19 ], [ %cond27, %if.end25 ]
   call void @blk_unref(ptr noundef %local_blk.1) #9
   %tobool27.not = icmp eq ptr %ctx.0, null
   br i1 %tobool27.not, label %if.end29, label %if.then28
@@ -1769,7 +1769,7 @@ for.end126.thread:                                ; preds = %if.end58
 
 for.body63:                                       ; preds = %if.end58, %for.inc124
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %for.inc124 ], [ 0, %if.end58 ]
-  %total.090 = phi i32 [ %total.1, %for.inc124 ], [ 0, %if.end58 ]
+  %total.091 = phi i32 [ %total.1, %for.inc124 ], [ 0, %if.end58 ]
   %5 = load ptr, ptr %sn_tab, align 8
   %name = getelementptr %struct.QEMUSnapshotInfo, ptr %5, i64 %indvars.iv105, i32 1
   %call66 = call i32 @bdrv_all_has_snapshot(ptr noundef %name, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #9
@@ -1777,11 +1777,11 @@ for.body63:                                       ; preds = %if.end58, %for.inc1
   br i1 %cmp67, label %if.then69, label %for.inc124
 
 if.then69:                                        ; preds = %for.body63
-  %idxprom70 = sext i32 %total.090 to i64
+  %idxprom70 = sext i32 %total.091 to i64
   %arrayidx71 = getelementptr i32, ptr %call59, i64 %idxprom70
   %6 = trunc nuw nsw i64 %indvars.iv105 to i32
   store i32 %6, ptr %arrayidx71, align 4
-  %inc72 = add i32 %total.090, 1
+  %inc72 = add i32 %total.091, 1
   %image_entry.086 = load ptr, ptr %image_list, align 8
   %tobool74.not87 = icmp eq ptr %image_entry.086, null
   br i1 %tobool74.not87, label %for.inc124, label %for.body75
@@ -1832,7 +1832,7 @@ for.inc120:                                       ; preds = %for.inc118, %for.bo
   br i1 %tobool74.not, label %for.inc124, label %for.body75, !llvm.loop !14
 
 for.inc124:                                       ; preds = %for.inc120, %if.then69, %for.body63
-  %total.1 = phi i32 [ %total.090, %for.body63 ], [ %inc72, %if.then69 ], [ %inc72, %for.inc120 ]
+  %total.1 = phi i32 [ %total.091, %for.body63 ], [ %inc72, %if.then69 ], [ %inc72, %for.inc120 ]
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %conv
   br i1 %exitcond109.not, label %for.end126, label %for.body63, !llvm.loop !15

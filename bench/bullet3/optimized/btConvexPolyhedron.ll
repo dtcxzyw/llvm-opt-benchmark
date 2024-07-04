@@ -1155,8 +1155,8 @@ for.inc83:                                        ; preds = %for.body61, %if.the
 
 for.body91:                                       ; preds = %for.body91.lr.ph, %for.body91
   %indvars.iv334 = phi i64 [ 0, %for.body91.lr.ph ], [ %indvars.iv.next335, %for.body91 ]
-  %MinZ.0301 = phi float [ 0x47EFFFFFE0000000, %for.body91.lr.ph ], [ %MinZ.1, %for.body91 ]
-  %MaxZ.0298 = phi float [ 0xC7EFFFFFE0000000, %for.body91.lr.ph ], [ %MaxZ.1, %for.body91 ]
+  %MaxZ.0302 = phi float [ 0xC7EFFFFFE0000000, %for.body91.lr.ph ], [ %MaxZ.1, %for.body91 ]
+  %MinZ.0299 = phi float [ 0x47EFFFFFE0000000, %for.body91.lr.ph ], [ %MinZ.1, %for.body91 ]
   %58 = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %for.body91.lr.ph ], [ %64, %for.body91 ]
   %59 = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %for.body91.lr.ph ], [ %63, %for.body91 ]
   %arrayidx.i172 = getelementptr inbounds %class.btVector3, ptr %48, i64 %indvars.iv334
@@ -1167,25 +1167,25 @@ for.body91:                                       ; preds = %for.body91.lr.ph, %
   %64 = select <2 x i1> %62, <2 x float> %60, <2 x float> %58
   %arrayidx.i177 = getelementptr inbounds i8, ptr %arrayidx.i172, i64 8
   %65 = load float, ptr %arrayidx.i177, align 4
-  %cmp115 = fcmp olt float %65, %MinZ.0301
-  %MinZ.1 = select i1 %cmp115, float %65, float %MinZ.0301
-  %cmp120 = fcmp ogt float %65, %MaxZ.0298
-  %MaxZ.1 = select i1 %cmp120, float %65, float %MaxZ.0298
+  %cmp115 = fcmp olt float %65, %MinZ.0299
+  %MinZ.1 = select i1 %cmp115, float %65, float %MinZ.0299
+  %cmp120 = fcmp ogt float %65, %MaxZ.0302
+  %MaxZ.1 = select i1 %cmp120, float %65, float %MaxZ.0302
   %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, 1
   %exitcond338.not = icmp eq i64 %indvars.iv.next335, %wide.trip.count337
   br i1 %exitcond338.not, label %for.end126, label %for.body91, !llvm.loop !19
 
 for.end126:                                       ; preds = %for.body91, %for.cond87.preheader
-  %MaxZ.0.lcssa = phi float [ 0xC7EFFFFFE0000000, %for.cond87.preheader ], [ %MaxZ.1, %for.body91 ]
   %MinZ.0.lcssa = phi float [ 0x47EFFFFFE0000000, %for.cond87.preheader ], [ %MinZ.1, %for.body91 ]
+  %MaxZ.0.lcssa = phi float [ 0xC7EFFFFFE0000000, %for.cond87.preheader ], [ %MaxZ.1, %for.body91 ]
   %66 = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %for.cond87.preheader ], [ %64, %for.body91 ]
   %67 = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %for.cond87.preheader ], [ %63, %for.body91 ]
   %mC = getelementptr inbounds i8, ptr %this, i64 140
-  %68 = fadd <2 x float> %66, %67
+  %68 = fadd <2 x float> %67, %66
   %add128 = extractelement <2 x float> %68, i64 0
-  %69 = fadd <2 x float> %66, %67
+  %69 = fadd <2 x float> %67, %66
   %add130 = extractelement <2 x float> %69, i64 1
-  %add132 = fadd float %MaxZ.0.lcssa, %MinZ.0.lcssa
+  %add132 = fadd float %MinZ.0.lcssa, %MaxZ.0.lcssa
   store float %add128, ptr %mC, align 4
   %arrayidx3.i181 = getelementptr inbounds i8, ptr %this, i64 144
   store float %add130, ptr %arrayidx3.i181, align 8

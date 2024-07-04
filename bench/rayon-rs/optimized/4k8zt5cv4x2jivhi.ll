@@ -1198,8 +1198,8 @@ define hidden void @_ZN10rayon_core5latch10CountLatch3new17hd2fc7d765e79c2b4E(pt
   br label %_ZN10rayon_core5latch10CountLatch10with_count17h7b8f7be430f1b6bbE.exit
 
 _ZN10rayon_core5latch10CountLatch10with_count17h7b8f7be430f1b6bbE.exit: ; preds = %2, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i"
-  %.sroa.02.0.i = phi ptr [ %.val.i, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i" ], [ null, %2 ]
   %.sroa.7.0.i = phi i64 [ %10, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i" ], [ 0, %2 ]
+  %.sroa.02.0.i = phi ptr [ %.val.i, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit.i" ], [ null, %2 ]
   store i64 1, ptr %0, align 8, !alias.scope !69
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.02.0.i, ptr %11, align 8, !alias.scope !69
@@ -1232,8 +1232,8 @@ define void @_ZN10rayon_core5latch10CountLatch10with_count17h7b8f7be430f1b6bbE(p
   br label %12
 
 12:                                               ; preds = %3, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit"
-  %.sroa.02.0 = phi ptr [ %.val, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit" ], [ null, %3 ]
   %.sroa.7.0 = phi i64 [ %11, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit" ], [ 0, %3 ]
+  %.sroa.02.0 = phi ptr [ %.val, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hc6f63d21865d5022E.exit" ], [ null, %3 ]
   store i64 %1, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.02.0, ptr %13, align 8

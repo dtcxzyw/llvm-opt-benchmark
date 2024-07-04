@@ -232,10 +232,10 @@ _ZN6google8protobufL6Fls128ENS0_7uint128E.exit30: ; preds = %70, %90
   %indvars.iv = phi i64 [ %111, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
   %.sroa.9.067 = phi i64 [ %1, %.lr.ph.preheader ], [ %.sroa.9.2, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
   %.sroa.052.066 = phi i64 [ %0, %.lr.ph.preheader ], [ %.sroa.052.1, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
-  %.sroa.6.065 = phi i64 [ 0, %.lr.ph.preheader ], [ %112, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
-  %.sroa.035.064 = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.035.1, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
-  %112 = tail call i64 @llvm.fshl.i64(i64 %.sroa.6.065, i64 %.sroa.035.064, i64 1)
-  %113 = shl i64 %.sroa.035.064, 1
+  %.sroa.035.065 = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.035.1, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
+  %.sroa.6.064 = phi i64 [ 0, %.lr.ph.preheader ], [ %112, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
+  %112 = tail call i64 @llvm.fshl.i64(i64 %.sroa.6.064, i64 %.sroa.035.065, i64 1)
+  %113 = shl i64 %.sroa.035.065, 1
   %114 = icmp ult i64 %indvars.iv, 64
   br i1 %114, label %115, label %120
 
@@ -285,8 +285,8 @@ _ZN6google8protobuf7uint128pLERKS1_.exit:         ; preds = %_ZN6google8protobuf
   br i1 %135, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %_ZN6google8protobuf7uint128pLERKS1_.exit, %_ZN6google8protobufL6Fls128ENS0_7uint128E.exit30
-  %.sroa.035.0.lcssa = phi i64 [ 0, %_ZN6google8protobufL6Fls128ENS0_7uint128E.exit30 ], [ %.sroa.035.1, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
   %.sroa.6.0.lcssa = phi i64 [ 0, %_ZN6google8protobufL6Fls128ENS0_7uint128E.exit30 ], [ %112, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
+  %.sroa.035.0.lcssa = phi i64 [ 0, %_ZN6google8protobufL6Fls128ENS0_7uint128E.exit30 ], [ %.sroa.035.1, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
   %.sroa.052.0.lcssa = phi i64 [ %0, %_ZN6google8protobufL6Fls128ENS0_7uint128E.exit30 ], [ %.sroa.052.1, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
   %.sroa.9.0.lcssa = phi i64 [ %1, %_ZN6google8protobufL6Fls128ENS0_7uint128E.exit30 ], [ %.sroa.9.2, %_ZN6google8protobuf7uint128pLERKS1_.exit ]
   store i64 %.sroa.035.0.lcssa, ptr %4, align 8

@@ -129,9 +129,9 @@ define dso_local ptr @llvm_debug_current_scope(ptr nocapture noundef readonly %0
   br label %13
 
 13:                                               ; preds = %8, %.critedge
-  %.016.in = phi ptr [ %12, %.critedge ], [ %11, %8 ]
-  %.016 = load ptr, ptr %.016.in, align 8
-  ret ptr %.016
+  %.015.in = phi ptr [ %12, %.critedge ], [ %11, %8 ]
+  %.015 = load ptr, ptr %.015.in, align 8
+  ret ptr %.015
 }
 
 ; Function Attrs: nounwind uwtable
@@ -293,8 +293,8 @@ define dso_local void @llvm_emit_debug_local_var(ptr nocapture noundef %0, ptr n
   br label %llvm_debug_current_scope.exit.i
 
 llvm_debug_current_scope.exit.i:                  ; preds = %.critedge.i.i, %26
-  %.016.in.i.i = phi ptr [ %30, %.critedge.i.i ], [ %29, %26 ]
-  %.016.i.i = load ptr, ptr %.016.in.i.i, align 8
+  %.015.in.i.i = phi ptr [ %30, %.critedge.i.i ], [ %29, %26 ]
+  %.015.i.i = load ptr, ptr %.015.in.i.i, align 8
   %31 = trunc i64 %7 to i32
   %32 = lshr i32 %31, 24
   %33 = getelementptr inbounds i8, ptr %0, i64 432
@@ -304,7 +304,7 @@ llvm_debug_current_scope.exit.i:                  ; preds = %.critedge.i.i, %26
   %.not30.i = icmp ult i64 %7, 4294967296
   %36 = select i1 %.not30.i, i32 1, i32 %.sroa.4.0.extract.trunc.i
   %37 = tail call i32 @llvm.umax.i32(i32 %32, i32 1)
-  %38 = tail call ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef %35, i32 noundef %36, i32 noundef %37, ptr noundef %.016.i.i, ptr noundef null) #8
+  %38 = tail call ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef %35, i32 noundef %36, i32 noundef %37, ptr noundef %.015.i.i, ptr noundef null) #8
   %39 = load ptr, ptr %8, align 8
   tail call void @LLVMSetCurrentDebugLocation2(ptr noundef %39, ptr noundef %38) #8
   br label %llvm_emit_debug_location.exit
@@ -337,13 +337,13 @@ llvm_emit_debug_location.exit:                    ; preds = %llvm_debug_current_
   br label %llvm_debug_current_scope.exit
 
 llvm_debug_current_scope.exit:                    ; preds = %51, %.critedge.i
-  %.016.in.i = phi ptr [ %55, %.critedge.i ], [ %54, %51 ]
+  %.015.in.i = phi ptr [ %55, %.critedge.i ], [ %54, %51 ]
   %.not34 = icmp eq ptr %44, null
   %spec.store.select1 = select i1 %.not34, ptr @.str, ptr %44
   %narrow = tail call i8 @llvm.umax.i8(i8 %43, i8 1)
   %spec.store.select2 = zext i8 %narrow to i32
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %41, i32 1)
-  %.016.i = load ptr, ptr %.016.in.i, align 8
+  %.015.i = load ptr, ptr %.015.in.i, align 8
   %56 = load ptr, ptr %3, align 8
   %57 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select1) #9
   %58 = getelementptr inbounds i8, ptr %0, i64 328
@@ -356,7 +356,7 @@ llvm_debug_current_scope.exit:                    ; preds = %51, %.critedge.i
   %65 = zext i1 %64 to i32
   %66 = getelementptr inbounds i8, ptr %1, i64 40
   %67 = load i32, ptr %66, align 8
-  %68 = tail call ptr @LLVMDIBuilderCreateAutoVariable(ptr noundef %56, ptr noundef %.016.i, ptr noundef nonnull %spec.store.select1, i64 noundef %57, ptr noundef %59, i32 noundef %spec.store.select, ptr noundef %62, i32 noundef %65, i32 noundef 0, i32 noundef %67) #8
+  %68 = tail call ptr @LLVMDIBuilderCreateAutoVariable(ptr noundef %56, ptr noundef %.015.i, ptr noundef nonnull %spec.store.select1, i64 noundef %57, ptr noundef %59, i32 noundef %spec.store.select, ptr noundef %62, i32 noundef %65, i32 noundef 0, i32 noundef %67) #8
   %69 = getelementptr inbounds i8, ptr %1, i64 96
   store ptr %68, ptr %69, align 8
   %70 = load ptr, ptr %3, align 8
@@ -365,7 +365,7 @@ llvm_debug_current_scope.exit:                    ; preds = %51, %.critedge.i
   %73 = tail call ptr @LLVMDIBuilderCreateExpression(ptr noundef %70, ptr noundef null, i64 noundef 0) #8
   %74 = getelementptr inbounds i8, ptr %0, i64 40
   %75 = load ptr, ptr %74, align 8
-  %76 = tail call ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef %75, i32 noundef %spec.store.select, i32 noundef %spec.store.select2, ptr noundef %.016.i, ptr noundef null) #8
+  %76 = tail call ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef %75, i32 noundef %spec.store.select, i32 noundef %spec.store.select2, ptr noundef %.015.i, ptr noundef null) #8
   %77 = getelementptr inbounds i8, ptr %0, i64 64
   %78 = load ptr, ptr %77, align 8
   %79 = tail call ptr @LLVMGetInsertBlock(ptr noundef %78) #8
@@ -418,8 +418,8 @@ define dso_local void @llvm_emit_debug_location(ptr nocapture noundef %0, i64 %1
   br label %llvm_debug_current_scope.exit
 
 llvm_debug_current_scope.exit:                    ; preds = %21, %.critedge.i
-  %.016.in.i = phi ptr [ %25, %.critedge.i ], [ %24, %21 ]
-  %.016.i = load ptr, ptr %.016.in.i, align 8
+  %.015.in.i = phi ptr [ %25, %.critedge.i ], [ %24, %21 ]
+  %.015.i = load ptr, ptr %.015.in.i, align 8
   %26 = trunc i64 %1 to i32
   %27 = lshr i32 %26, 24
   %28 = getelementptr inbounds i8, ptr %0, i64 432
@@ -429,7 +429,7 @@ llvm_debug_current_scope.exit:                    ; preds = %21, %.critedge.i
   %.not30 = icmp ult i64 %1, 4294967296
   %31 = select i1 %.not30, i32 1, i32 %.sroa.4.0.extract.trunc
   %32 = tail call i32 @llvm.umax.i32(i32 %27, i32 1)
-  %33 = tail call ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef %.016.i, ptr noundef null) #8
+  %33 = tail call ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef %.015.i, ptr noundef null) #8
   %34 = load ptr, ptr %3, align 8
   tail call void @LLVMSetCurrentDebugLocation2(ptr noundef %34, ptr noundef %33) #8
   br label %35
@@ -528,8 +528,8 @@ define dso_local void @llvm_debug_push_lexical_scope(ptr noundef %0, i64 %1) loc
   br label %14
 
 14:                                               ; preds = %9, %.critedge
-  %.030.in = phi ptr [ %13, %.critedge ], [ %12, %9 ]
-  %.030 = load ptr, ptr %.030.in, align 8
+  %.029.in = phi ptr [ %13, %.critedge ], [ %12, %9 ]
+  %.029 = load ptr, ptr %.029.in, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 320
   %16 = getelementptr inbounds i8, ptr %0, i64 328
   %17 = load ptr, ptr %16, align 8
@@ -553,7 +553,7 @@ define dso_local void @llvm_debug_push_lexical_scope(ptr noundef %0, i64 %1) loc
   %26 = select i1 %.not37, i32 1, i32 %.sroa.4.0.extract.trunc
   %.not38 = icmp ult i32 %22, 16777216
   %27 = select i1 %.not38, i32 1, i32 %23
-  %28 = tail call ptr @LLVMDIBuilderCreateLexicalBlock(ptr noundef %25, ptr noundef %.030, ptr noundef %.028, i32 noundef %26, i32 noundef %27) #8
+  %28 = tail call ptr @LLVMDIBuilderCreateLexicalBlock(ptr noundef %25, ptr noundef %.029, ptr noundef %.028, i32 noundef %26, i32 noundef %27) #8
   %29 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %30, label %33
@@ -1179,7 +1179,7 @@ define internal fastcc noundef ptr @llvm_debug_enum_type(ptr nocapture noundef r
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %77 ]
-  %.06069 = phi ptr [ null, %.lr.ph.preheader ], [ %80, %77 ]
+  %.06168 = phi ptr [ null, %.lr.ph.preheader ], [ %80, %77 ]
   %45 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 88
@@ -1189,7 +1189,7 @@ define internal fastcc noundef ptr @llvm_debug_enum_type(ptr nocapture noundef r
   %51 = load ptr, ptr %46, align 8
   %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #9
   %53 = tail call ptr @LLVMDIBuilderCreateEnumerator(ptr noundef %50, ptr noundef %51, i64 noundef %52, i64 noundef %49, i32 noundef %41) #8
-  %.not.i = icmp eq ptr %.06069, null
+  %.not.i = icmp eq ptr %.06168, null
   br i1 %.not.i, label %54, label %57
 
 54:                                               ; preds = %.lr.ph
@@ -1199,8 +1199,8 @@ define internal fastcc noundef ptr @llvm_debug_enum_type(ptr nocapture noundef r
   br label %59
 
 57:                                               ; preds = %.lr.ph
-  %58 = getelementptr inbounds i8, ptr %.06069, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.06069, i64 -4
+  %58 = getelementptr inbounds i8, ptr %.06168, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.06168, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %59
 
@@ -1245,7 +1245,7 @@ define internal fastcc noundef ptr @llvm_debug_enum_type(ptr nocapture noundef r
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %77, %3, %42
-  %.060.lcssa = phi ptr [ null, %42 ], [ null, %3 ], [ %80, %77 ]
+  %.061.lcssa = phi ptr [ null, %42 ], [ null, %3 ], [ %80, %77 ]
   %83 = load i32, ptr %8, align 4
   %84 = load ptr, ptr %11, align 8
   %85 = load ptr, ptr %4, align 8
@@ -1254,11 +1254,11 @@ define internal fastcc noundef ptr @llvm_debug_enum_type(ptr nocapture noundef r
   %88 = load ptr, ptr %18, align 8
   %89 = tail call i32 @type_size(ptr noundef %1) #8
   %90 = tail call i32 @type_abi_alignment(ptr noundef %1) #8
-  %.not66 = icmp eq ptr %.060.lcssa, null
+  %.not66 = icmp eq ptr %.061.lcssa, null
   br i1 %.not66, label %94, label %91
 
 91:                                               ; preds = %._crit_edge
-  %92 = getelementptr inbounds i8, ptr %.060.lcssa, i64 -8
+  %92 = getelementptr inbounds i8, ptr %.061.lcssa, i64 -8
   %93 = load i32, ptr %92, align 4
   br label %94
 
@@ -1270,7 +1270,7 @@ define internal fastcc noundef ptr @llvm_debug_enum_type(ptr nocapture noundef r
   %98 = tail call i32 @llvm.umax.i32(i32 %83, i32 1)
   %99 = load ptr, ptr %18, align 8
   %100 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef nonnull %0, ptr noundef nonnull %37, ptr noundef %99)
-  %101 = tail call ptr @LLVMDIBuilderCreateEnumerationType(ptr noundef %84, ptr noundef %2, ptr noundef %86, i64 noundef %87, ptr noundef %88, i32 noundef %98, i64 noundef %97, i32 noundef %95, ptr noundef %.060.lcssa, i32 noundef %.059, ptr noundef %100) #8
+  %101 = tail call ptr @LLVMDIBuilderCreateEnumerationType(ptr noundef %84, ptr noundef %2, ptr noundef %86, i64 noundef %87, ptr noundef %88, i32 noundef %98, i64 noundef %97, i32 noundef %95, ptr noundef %.061.lcssa, i32 noundef %.059, ptr noundef %100) #8
   tail call void @LLVMMetadataReplaceAllUsesWith(ptr noundef %29, ptr noundef %101) #8
   ret ptr %101
 }
@@ -1339,8 +1339,8 @@ vec_resize.exit:                                  ; preds = %18, %20
   br label %31
 
 31:                                               ; preds = %27, %24
-  %.077 = phi i32 [ %30, %27 ], [ %25, %24 ]
-  %32 = icmp eq i32 %.077, 40
+  %.078 = phi i32 [ %30, %27 ], [ %25, %24 ]
+  %32 = icmp eq i32 %.078, 40
   br i1 %32, label %70, label %.critedge
 
 .critedge:                                        ; preds = %vec_resize.exit, %31
@@ -1407,8 +1407,8 @@ expand_.exit:                                     ; preds = %38, %42
   br label %68
 
 68:                                               ; preds = %expand_.exit, %63
-  %.080 = phi i64 [ %67, %63 ], [ 4294967295, %expand_.exit ]
-  %69 = getelementptr inbounds ptr, ptr %62, i64 %.080
+  %.082 = phi i64 [ %67, %63 ], [ 4294967295, %expand_.exit ]
+  %69 = getelementptr inbounds ptr, ptr %62, i64 %.082
   store ptr %61, ptr %69, align 8
   br label %146
 
@@ -1482,8 +1482,8 @@ expand_.exit117._crit_edge:                       ; preds = %expand_.exit117
 
 107:                                              ; preds = %expand_.exit117._crit_edge, %102
   %108 = phi i32 [ %104, %102 ], [ %.pre, %expand_.exit117._crit_edge ]
-  %.081 = phi i64 [ %106, %102 ], [ 4294967295, %expand_.exit117._crit_edge ]
-  %109 = getelementptr inbounds ptr, ptr %101, i64 %.081
+  %.085 = phi i64 [ %106, %102 ], [ 4294967295, %expand_.exit117._crit_edge ]
+  %109 = getelementptr inbounds ptr, ptr %101, i64 %.085
   store ptr %100, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %101, i64 -8
   %.phi.trans.insert.i119 = getelementptr inbounds i8, ptr %101, i64 -4
@@ -1543,8 +1543,8 @@ expand_.exit117._crit_edge:                       ; preds = %expand_.exit117
   br label %144
 
 144:                                              ; preds = %134, %139
-  %.082 = phi i64 [ %143, %139 ], [ 4294967295, %134 ]
-  %145 = getelementptr inbounds ptr, ptr %138, i64 %.082
+  %.088 = phi i64 [ %143, %139 ], [ 4294967295, %134 ]
+  %145 = getelementptr inbounds ptr, ptr %138, i64 %.088
   store ptr %137, ptr %145, align 8
   br label %146
 
@@ -1617,8 +1617,8 @@ expand_.exit131:                                  ; preds = %153, %158
   br label %184
 
 184:                                              ; preds = %expand_.exit131, %181
-  %.085 = phi i32 [ %183, %181 ], [ 0, %expand_.exit131 ]
-  %185 = add i32 %.085, -1
+  %.086 = phi i32 [ %183, %181 ], [ 0, %expand_.exit131 ]
+  %185 = add i32 %.086, -1
   %186 = zext i32 %185 to i64
   %187 = getelementptr inbounds ptr, ptr %180, i64 %186
   store ptr %179, ptr %187, align 8
@@ -1683,8 +1683,8 @@ expand_.exit138:                                  ; preds = %191, %195
   br label %221
 
 221:                                              ; preds = %expand_.exit138, %216
-  %.086 = phi i64 [ %220, %216 ], [ 4294967295, %expand_.exit138 ]
-  %222 = getelementptr inbounds ptr, ptr %215, i64 %.086
+  %.084 = phi i64 [ %220, %216 ], [ 4294967295, %expand_.exit138 ]
+  %222 = getelementptr inbounds ptr, ptr %215, i64 %.084
   store ptr %214, ptr %222, align 8
   br label %223
 
@@ -1700,8 +1700,8 @@ expand_.exit138:                                  ; preds = %191, %195
   br label %232
 
 232:                                              ; preds = %._crit_edge, %223
-  %.088 = phi ptr [ %231, %223 ], [ %17, %._crit_edge ]
-  ret ptr %.088
+  %.081 = phi ptr [ %231, %223 ], [ %17, %._crit_edge ]
+  ret ptr %.081
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1754,7 +1754,7 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %81 ]
-  %.07999 = phi ptr [ null, %.lr.ph.preheader ], [ %84, %81 ]
+  %.07798 = phi ptr [ null, %.lr.ph.preheader ], [ %84, %81 ]
   %37 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 72
@@ -1778,7 +1778,7 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr nocapture noundef rea
   %55 = and i64 %54, 4294967288
   %56 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef nonnull %0, ptr noundef %40, ptr noundef %30)
   %57 = tail call ptr @LLVMDIBuilderCreateMemberType(ptr noundef %44, ptr noundef %30, ptr noundef nonnull %spec.select, i64 noundef %45, ptr noundef %46, i32 noundef %48, i64 noundef %51, i32 noundef %53, i64 noundef %55, i32 noundef 0, ptr noundef %56) #8
-  %.not.i = icmp eq ptr %.07999, null
+  %.not.i = icmp eq ptr %.07798, null
   br i1 %.not.i, label %58, label %61
 
 58:                                               ; preds = %.lr.ph
@@ -1788,8 +1788,8 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr nocapture noundef rea
   br label %63
 
 61:                                               ; preds = %.lr.ph
-  %62 = getelementptr inbounds i8, ptr %.07999, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.07999, i64 -4
+  %62 = getelementptr inbounds i8, ptr %.07798, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.07798, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %63
 
@@ -1834,7 +1834,7 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr nocapture noundef rea
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %81, %3, %34
-  %.079.lcssa = phi ptr [ null, %34 ], [ null, %3 ], [ %84, %81 ]
+  %.077.lcssa = phi ptr [ null, %34 ], [ null, %3 ], [ %84, %81 ]
   %87 = load i32, ptr %1, align 8
   %88 = icmp eq i32 %87, 27
   br i1 %88, label %89, label %120
@@ -1869,7 +1869,7 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr nocapture noundef rea
   br label %108
 
 108:                                              ; preds = %96, %105
-  %.076 = phi i32 [ %107, %105 ], [ 0, %96 ]
+  %.078 = phi i32 [ %107, %105 ], [ 0, %96 ]
   %109 = load i16, ptr %11, align 8
   %110 = and i16 %109, 255
   %111 = zext nneg i16 %110 to i32
@@ -1886,7 +1886,7 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr nocapture noundef rea
 .thread:                                          ; preds = %108, %114
   %117 = phi ptr [ %115, %114 ], [ @.str.7, %108 ]
   %118 = phi i64 [ %116, %114 ], [ 0, %108 ]
-  %119 = tail call ptr @LLVMDIBuilderCreateUnionType(ptr noundef %91, ptr noundef %2, ptr noundef nonnull %spec.select97, i64 noundef %97, ptr noundef %98, i32 noundef %99, i64 noundef %102, i32 noundef %104, i32 noundef 0, ptr noundef %.079.lcssa, i32 noundef %.076, i32 noundef %111, ptr noundef %117, i64 noundef %118) #8
+  %119 = tail call ptr @LLVMDIBuilderCreateUnionType(ptr noundef %91, ptr noundef %2, ptr noundef nonnull %spec.select97, i64 noundef %97, ptr noundef %98, i32 noundef %99, i64 noundef %102, i32 noundef %104, i32 noundef 0, ptr noundef %.077.lcssa, i32 noundef %.078, i32 noundef %111, ptr noundef %117, i64 noundef %118) #8
   tail call void @LLVMMetadataReplaceAllUsesWith(ptr noundef %30, ptr noundef %119) #8
   br label %130
 
@@ -1901,7 +1901,7 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr nocapture noundef rea
 
 124:                                              ; preds = %120, %122
   %125 = phi ptr [ %123, %122 ], [ @.str.7, %120 ]
-  %.not89 = icmp eq ptr %.079.lcssa, null
+  %.not89 = icmp eq ptr %.077.lcssa, null
   br i1 %.not89, label %.split, label %.split82
 
 .split:                                           ; preds = %124
@@ -1909,14 +1909,14 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr nocapture noundef rea
   br label %130
 
 .split82:                                         ; preds = %124
-  %127 = getelementptr inbounds i8, ptr %.079.lcssa, i64 -8
+  %127 = getelementptr inbounds i8, ptr %.077.lcssa, i64 -8
   %128 = load i32, ptr %127, align 4
-  %129 = tail call fastcc ptr @llvm_get_debug_struct(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %125, ptr noundef nonnull %.079.lcssa, i32 noundef %128, ptr noundef nonnull %8, ptr noundef %2)
+  %129 = tail call fastcc ptr @llvm_get_debug_struct(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %125, ptr noundef nonnull %.077.lcssa, i32 noundef %128, ptr noundef nonnull %8, ptr noundef %2)
   br label %130
 
 130:                                              ; preds = %.split, %.split82, %.thread
-  %.078 = phi ptr [ %119, %.thread ], [ %126, %.split ], [ %129, %.split82 ]
-  ret ptr %.078
+  %.080 = phi ptr [ %119, %.thread ], [ %126, %.split ], [ %129, %.split82 ]
+  ret ptr %.080
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2025,9 +2025,9 @@ define internal fastcc ptr @llvm_debug_array_type(ptr nocapture noundef readonly
   br label %4
 
 4:                                                ; preds = %31, %2
-  %.035 = phi ptr [ null, %2 ], [ %34, %31 ]
-  %.034 = phi ptr [ %1, %2 ], [ %47, %31 ]
-  %5 = getelementptr inbounds i8, ptr %.034, i64 8
+  %.034 = phi ptr [ null, %2 ], [ %34, %31 ]
+  %.033 = phi ptr [ %1, %2 ], [ %47, %31 ]
+  %5 = getelementptr inbounds i8, ptr %.033, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %48 [
@@ -2036,7 +2036,7 @@ define internal fastcc ptr @llvm_debug_array_type(ptr nocapture noundef readonly
   ]
 
 .critedge:                                        ; preds = %4, %4
-  %.not.i = icmp eq ptr %.035, null
+  %.not.i = icmp eq ptr %.034, null
   br i1 %.not.i, label %8, label %11
 
 8:                                                ; preds = %.critedge
@@ -2046,8 +2046,8 @@ define internal fastcc ptr @llvm_debug_array_type(ptr nocapture noundef readonly
   br label %13
 
 11:                                               ; preds = %.critedge
-  %12 = getelementptr inbounds i8, ptr %.035, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.035, i64 -4
+  %12 = getelementptr inbounds i8, ptr %.034, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.034, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %13
 
@@ -2101,7 +2101,7 @@ define internal fastcc ptr @llvm_debug_array_type(ptr nocapture noundef readonly
   br label %4, !llvm.loop !13
 
 48:                                               ; preds = %4
-  %49 = getelementptr inbounds i8, ptr %.034, i64 48
+  %49 = getelementptr inbounds i8, ptr %.033, i64 48
   %50 = load ptr, ptr %49, align 8
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %51, label %72
@@ -2136,22 +2136,22 @@ define internal fastcc ptr @llvm_debug_array_type(ptr nocapture noundef readonly
   %74 = tail call i32 @type_size(ptr noundef %1) #8
   %75 = shl i32 %74, 3
   %76 = zext i32 %75 to i64
-  %77 = tail call i32 @type_abi_alignment(ptr noundef nonnull %.034) #8
+  %77 = tail call i32 @type_abi_alignment(ptr noundef nonnull %.033) #8
   %78 = shl i32 %77, 3
   %79 = getelementptr inbounds i8, ptr %0, i64 328
   %80 = load ptr, ptr %79, align 8
-  %81 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef %0, ptr noundef nonnull %.034, ptr noundef %80)
-  %.not39 = icmp eq ptr %.035, null
+  %81 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef %0, ptr noundef nonnull %.033, ptr noundef %80)
+  %.not39 = icmp eq ptr %.034, null
   br i1 %.not39, label %85, label %82
 
 82:                                               ; preds = %72
-  %83 = getelementptr inbounds i8, ptr %.035, i64 -8
+  %83 = getelementptr inbounds i8, ptr %.034, i64 -8
   %84 = load i32, ptr %83, align 4
   br label %85
 
 85:                                               ; preds = %72, %82
-  %.033 = phi i32 [ %84, %82 ], [ 0, %72 ]
-  %86 = tail call ptr @LLVMDIBuilderCreateArrayType(ptr noundef %73, i64 noundef %76, i32 noundef %78, ptr noundef %81, ptr noundef %.035, i32 noundef %.033) #8
+  %.035 = phi i32 [ %84, %82 ], [ 0, %72 ]
+  %86 = tail call ptr @LLVMDIBuilderCreateArrayType(ptr noundef %73, i64 noundef %76, i32 noundef %78, ptr noundef %81, ptr noundef %.034, i32 noundef %.035) #8
   %87 = getelementptr inbounds i8, ptr %1, i64 48
   %88 = load ptr, ptr %87, align 8
   %.not40 = icmp eq ptr %88, null
@@ -2349,8 +2349,8 @@ define internal fastcc ptr @llvm_get_debug_struct(ptr nocapture noundef readonly
   br label %13
 
 13:                                               ; preds = %8, %7
-  %.024 = phi i32 [ %spec.store.select, %8 ], [ 0, %7 ]
-  %.0 = phi ptr [ %10, %8 ], [ null, %7 ]
+  %.024 = phi ptr [ %10, %8 ], [ null, %7 ]
+  %.0 = phi i32 [ %spec.store.select, %8 ], [ 0, %7 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 296
   %15 = getelementptr inbounds i8, ptr %0, i64 304
   %16 = load ptr, ptr %15, align 8
@@ -2375,7 +2375,7 @@ define internal fastcc ptr @llvm_get_debug_struct(ptr nocapture noundef readonly
   %29 = and i16 %28, 255
   %30 = zext nneg i16 %29 to i32
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #9
-  %32 = tail call ptr @LLVMDIBuilderCreateStructType(ptr noundef %16, ptr noundef %6, ptr noundef %21, i64 noundef %22, ptr noundef %.0, i32 noundef %.024, i64 noundef %25, i32 noundef %27, i32 noundef 0, ptr noundef null, ptr noundef %3, i32 noundef %4, i32 noundef %30, ptr noundef null, ptr noundef nonnull %2, i64 noundef %31) #8
+  %32 = tail call ptr @LLVMDIBuilderCreateStructType(ptr noundef %16, ptr noundef %6, ptr noundef %21, i64 noundef %22, ptr noundef %.024, i32 noundef %.0, i64 noundef %25, i32 noundef %27, i32 noundef 0, ptr noundef null, ptr noundef %3, i32 noundef %4, i32 noundef %30, ptr noundef null, ptr noundef nonnull %2, i64 noundef %31) #8
   %33 = getelementptr inbounds i8, ptr %1, i64 48
   %34 = load ptr, ptr %33, align 8
   %.not29 = icmp eq ptr %34, null

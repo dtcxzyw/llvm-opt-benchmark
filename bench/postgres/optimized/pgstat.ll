@@ -1117,13 +1117,13 @@ define dso_local ptr @pgstat_fetch_entry(i32 noundef %0, i32 noundef %1, i32 nou
 
 .lr.ph.i.i:                                       ; preds = %15, %50
   %48 = phi ptr [ %54, %50 ], [ %44, %15 ]
-  %.01113.i.i = phi i32 [ %52, %50 ], [ %42, %15 ]
+  %.013.i.i = phi i32 [ %52, %50 ], [ %42, %15 ]
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %48, ptr noundef nonnull dereferenceable(12) %4, i64 12)
   %49 = icmp eq i32 %bcmp.i.i, 0
   br i1 %49, label %pgstat_snapshot_lookup.exit, label %50
 
 50:                                               ; preds = %.lr.ph.i.i
-  %51 = add i32 %.01113.i.i, 1
+  %51 = add i32 %.013.i.i, 1
   %52 = and i32 %51, %.val
   %53 = zext i32 %52 to i64
   %54 = getelementptr %struct.PgStat_SnapshotEntry, ptr %.val47, i64 %53
@@ -1536,7 +1536,7 @@ pgstat_snapshot_update_parameters.exit.i.i:       ; preds = %pgstat_snapshot_com
 
 .lr.ph.i.i:                                       ; preds = %pgstat_snapshot_update_parameters.exit.i.i, %106
   %75 = phi i64 [ %108, %106 ], [ 0, %pgstat_snapshot_update_parameters.exit.i.i ]
-  %.060.i.i = phi i32 [ %107, %106 ], [ 0, %pgstat_snapshot_update_parameters.exit.i.i ]
+  %.04960.i.i = phi i32 [ %107, %106 ], [ 0, %pgstat_snapshot_update_parameters.exit.i.i ]
   %76 = getelementptr %struct.PgStat_SnapshotEntry, ptr %45, i64 %75
   %77 = getelementptr inbounds i8, ptr %76, i64 12
   %78 = load i8, ptr %77, align 4
@@ -1571,23 +1571,23 @@ pgstat_snapshot_update_parameters.exit.i.i:       ; preds = %pgstat_snapshot_com
   %102 = sub i64 %100, %101
   %103 = trunc i64 %102 to i32
   %104 = and i32 %70, %103
-  %105 = icmp eq i32 %104, %.060.i.i
+  %105 = icmp eq i32 %104, %.04960.i.i
   br i1 %105, label %.lr.ph73.i.i.preheader, label %106
 
 106:                                              ; preds = %79
-  %107 = add i32 %.060.i.i, 1
+  %107 = add i32 %.04960.i.i, 1
   %108 = zext i32 %107 to i64
   %109 = icmp ugt i64 %38, %108
   br i1 %109, label %.lr.ph.i.i, label %.lr.ph73.i.i.preheader, !llvm.loop !11
 
 .lr.ph73.i.i.preheader:                           ; preds = %106, %79, %.lr.ph.i.i
-  %.04970.i.i.ph = phi i32 [ %.060.i.i, %.lr.ph.i.i ], [ %.060.i.i, %79 ], [ 0, %106 ]
+  %.04771.i.i.ph = phi i32 [ 0, %106 ], [ %.04960.i.i, %.lr.ph.i.i ], [ %.04960.i.i, %79 ]
   br label %.lr.ph73.i.i
 
 .lr.ph73.i.i:                                     ; preds = %.lr.ph73.i.i.preheader, %153
-  %.171.i.i = phi i32 [ %156, %153 ], [ 0, %.lr.ph73.i.i.preheader ]
-  %.04970.i.i = phi i32 [ %spec.store.select.i.i, %153 ], [ %.04970.i.i.ph, %.lr.ph73.i.i.preheader ]
-  %110 = zext i32 %.04970.i.i to i64
+  %.04771.i.i = phi i32 [ %spec.store.select.i.i, %153 ], [ %.04771.i.i.ph, %.lr.ph73.i.i.preheader ]
+  %.170.i.i = phi i32 [ %156, %153 ], [ 0, %.lr.ph73.i.i.preheader ]
+  %110 = zext i32 %.04771.i.i to i64
   %111 = getelementptr %struct.PgStat_SnapshotEntry, ptr %45, i64 %110
   %112 = getelementptr inbounds i8, ptr %111, i64 12
   %113 = load i8, ptr %112, align 4
@@ -1631,8 +1631,8 @@ pgstat_snapshot_update_parameters.exit.i.i:       ; preds = %pgstat_snapshot_com
   br i1 %145, label %._crit_edge68.i.i, label %.lr.ph67.i.i
 
 .lr.ph67.i.i:                                     ; preds = %115, %.lr.ph67.i.i
-  %.04765.i.i = phi i32 [ %147, %.lr.ph67.i.i ], [ %140, %115 ]
-  %146 = add i32 %.04765.i.i, 1
+  %.065.i.i = phi i32 [ %147, %.lr.ph67.i.i ], [ %140, %115 ]
+  %146 = add i32 %.065.i.i, 1
   %147 = and i32 %146, %.val57.i.i
   %148 = zext i32 %147 to i64
   %149 = getelementptr %struct.PgStat_SnapshotEntry, ptr %57, i64 %148
@@ -1647,11 +1647,11 @@ pgstat_snapshot_update_parameters.exit.i.i:       ; preds = %pgstat_snapshot_com
   br label %153
 
 153:                                              ; preds = %._crit_edge68.i.i, %.lr.ph73.i.i
-  %154 = add i32 %.04970.i.i, 1
+  %154 = add i32 %.04771.i.i, 1
   %155 = zext i32 %154 to i64
   %.not52.i.i = icmp ugt i64 %38, %155
   %spec.store.select.i.i = select i1 %.not52.i.i, i32 %154, i32 0
-  %156 = add i32 %.171.i.i, 1
+  %156 = add i32 %.170.i.i, 1
   %157 = zext i32 %156 to i64
   %158 = icmp ugt i64 %38, %157
   br i1 %158, label %.lr.ph73.i.i, label %pgstat_snapshot_grow.exit.i, !llvm.loop !12
@@ -1678,7 +1678,7 @@ pgstat_snapshot_grow.exit.i:                      ; preds = %153, %pgstat_snapsh
 
 .lr.ph.i:                                         ; preds = %159, %241
   %168 = phi ptr [ %243, %241 ], [ %163, %159 ]
-  %.066111.i = phi i32 [ %202, %241 ], [ %161, %159 ]
+  %.070111.i = phi i32 [ %202, %241 ], [ %161, %159 ]
   %.071110.i = phi i32 [ %232, %241 ], [ 0, %159 ]
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %168, ptr noundef nonnull dereferenceable(12) %5, i64 12)
   %169 = icmp eq i32 %bcmp.i, 0
@@ -1712,20 +1712,20 @@ pgstat_snapshot_grow.exit.i:                      ; preds = %153, %pgstat_snapsh
   %193 = sub i64 %191, %192
   %194 = trunc i64 %193 to i32
   %195 = and i32 %.val75.i, %194
-  %.not.i79.i = icmp ugt i32 %195, %.066111.i
+  %.not.i79.i = icmp ugt i32 %195, %.070111.i
   br i1 %.not.i79.i, label %196, label %pgstat_snapshot_distance.exit.i
 
 196:                                              ; preds = %170
   %197 = load i64, ptr %0, align 8
   %198 = trunc i64 %197 to i32
-  %199 = add i32 %.066111.i, %198
+  %199 = add i32 %.070111.i, %198
   br label %pgstat_snapshot_distance.exit.i
 
 pgstat_snapshot_distance.exit.i:                  ; preds = %196, %170
-  %.pn.i.i = phi i32 [ %199, %196 ], [ %.066111.i, %170 ]
+  %.pn.i.i = phi i32 [ %199, %196 ], [ %.070111.i, %170 ]
   %.0.i.i = sub i32 %.pn.i.i, %195
   %200 = icmp ugt i32 %.071110.i, %.0.i.i
-  %201 = add i32 %.066111.i, 1
+  %201 = add i32 %.070111.i, 1
   %202 = and i32 %201, %.val75.i
   br i1 %200, label %.preheader80.i, label %231
 
@@ -1741,13 +1741,13 @@ pgstat_snapshot_distance.exit.i:                  ; preds = %196, %170
   %.lcssa94.i = phi i32 [ %221, %219 ], [ %202, %.preheader80.i ]
   %.lcssa92.i = phi ptr [ %223, %219 ], [ %204, %.preheader80.i ]
   %.lcssa83.lcssa.i = getelementptr inbounds i8, ptr %168, i64 12
-  %.not72137.i = icmp eq i32 %.lcssa94.i, %.066111.i
+  %.not72137.i = icmp eq i32 %.lcssa94.i, %.070111.i
   br i1 %.not72137.i, label %.sink.split.i, label %.lr.ph140.i
 
 .lr.ph119.i:                                      ; preds = %.preheader80.i, %219
   %208 = phi i32 [ %221, %219 ], [ %202, %.preheader80.i ]
-  %.067118.i = phi i32 [ %209, %219 ], [ 0, %.preheader80.i ]
-  %209 = add i32 %.067118.i, 1
+  %.066118.i = phi i32 [ %209, %219 ], [ 0, %.preheader80.i ]
+  %209 = add i32 %.066118.i, 1
   %210 = icmp sgt i32 %209, 150
   br i1 %210, label %211, label %219
 
@@ -1776,15 +1776,15 @@ pgstat_snapshot_distance.exit.i:                  ; preds = %196, %170
   br i1 %226, label %.preheader.i, label %.lr.ph119.i
 
 .lr.ph140.i:                                      ; preds = %.preheader.i, %.lr.ph140.i
-  %.068139.i = phi i32 [ %228, %.lr.ph140.i ], [ %.lcssa94.i, %.preheader.i ]
-  %.070138.i = phi ptr [ %230, %.lr.ph140.i ], [ %.lcssa92.i, %.preheader.i ]
+  %.067139.i = phi i32 [ %228, %.lr.ph140.i ], [ %.lcssa94.i, %.preheader.i ]
+  %.069138.i = phi ptr [ %230, %.lr.ph140.i ], [ %.lcssa92.i, %.preheader.i ]
   %.val78.i = load i32, ptr %33, align 4
-  %227 = add i32 %.068139.i, -1
+  %227 = add i32 %.067139.i, -1
   %228 = and i32 %.val78.i, %227
   %229 = zext i32 %228 to i64
   %230 = getelementptr %struct.PgStat_SnapshotEntry, ptr %160, i64 %229
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.070138.i, ptr noundef nonnull align 8 dereferenceable(24) %230, i64 24, i1 false)
-  %.not72.i = icmp eq i32 %228, %.066111.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.069138.i, ptr noundef nonnull align 8 dereferenceable(24) %230, i64 24, i1 false)
+  %.not72.i = icmp eq i32 %228, %.070111.i
   br i1 %.not72.i, label %.sink.split.i, label %.lr.ph140.i, !llvm.loop !13
 
 231:                                              ; preds = %pgstat_snapshot_distance.exit.i

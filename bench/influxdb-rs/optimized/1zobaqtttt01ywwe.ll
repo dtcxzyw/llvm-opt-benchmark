@@ -17836,10 +17836,10 @@ default.unreachable474:                           ; preds = %"_ZN5alloc11collect
           to label %145 unwind label %.loopexit.split-lp428.loopexit.split-lp
 
 137:                                              ; preds = %.lr.ph464, %"_ZN4core3ptr90drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$alloc..string..String$GT$$GT$17hbce5018248242f8eE.exit"
-  %.sroa.0306.0461 = phi ptr [ %.val, %.lr.ph464 ], [ %138, %"_ZN4core3ptr90drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$alloc..string..String$GT$$GT$17hbce5018248242f8eE.exit" ]
-  %138 = getelementptr inbounds i8, ptr %.sroa.0306.0461, i64 32
+  %.sroa.0306.0463 = phi ptr [ %.val, %.lr.ph464 ], [ %138, %"_ZN4core3ptr90drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$alloc..string..String$GT$$GT$17hbce5018248242f8eE.exit" ]
+  %138 = getelementptr inbounds i8, ptr %.sroa.0306.0463, i64 32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %69)
-  %139 = getelementptr inbounds i8, ptr %.sroa.0306.0461, i64 16
+  %139 = getelementptr inbounds i8, ptr %.sroa.0306.0463, i64 16
   %140 = load i64, ptr %139, align 8, !noundef !4
   %141 = load i64, ptr @_ZN3std11collections4hash3map11RandomState3new4KEYS7__getit5__KEY17h7a63e299ffdfb85aE, align 8, !range !5, !noalias !3216, !noundef !4
   %trunc.i.i281 = trunc nuw i64 %141 to i1
@@ -18891,7 +18891,7 @@ default.unreachable474:                           ; preds = %"_ZN5alloc11collect
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32)
   store <2 x i64> %413, ptr %.sroa.019.sroa.4.0..sroa_idx, align 8
-  %.val28 = load ptr, ptr %.sroa.0306.0461, align 8, !nonnull !4, !noundef !4
+  %.val28 = load ptr, ptr %.sroa.0306.0463, align 8, !nonnull !4, !noundef !4
   %.val29 = load i64, ptr %139, align 8, !noundef !4
   %419 = getelementptr inbounds { { i8, [31 x i8] }, { { { ptr, i64 }, i64 } } }, ptr %.val28, i64 %.val29
   %420 = icmp eq i64 %.val29, 0

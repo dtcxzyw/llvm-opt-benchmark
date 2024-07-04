@@ -348,8 +348,8 @@ define noundef ptr @stat_tap_find_table(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not, label %.loopexit, label %8
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %.preheader, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %17, %.lr.ph ], [ null, %8 ]
-  ret ptr %.0
+  %.09 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %17, %.lr.ph ], [ null, %8 ]
+  ret ptr %.09
 }
 
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1

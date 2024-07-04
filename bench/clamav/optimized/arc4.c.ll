@@ -23,10 +23,10 @@ define noundef zeroext i1 @arc4_init(ptr noundef %0, ptr noundef readonly %1, i3
 
 .preheader:                                       ; preds = %.preheader39, %.preheader
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.preheader ], [ 0, %.preheader39 ]
-  %.03241 = phi i32 [ %18, %.preheader ], [ 0, %.preheader39 ]
+  %.03142 = phi i32 [ %18, %.preheader ], [ 0, %.preheader39 ]
   %9 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv44
   %10 = load i32, ptr %9, align 4
-  %11 = add i32 %10, %.03241
+  %11 = add i32 %10, %.03142
   %12 = trunc nuw nsw i64 %indvars.iv44 to i32
   %13 = urem i32 %12, %2
   %14 = zext nneg i32 %13 to i64
@@ -68,15 +68,15 @@ define void @arc4_apply(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.031 = phi ptr [ %23, %.lr.ph ], [ %1, %3 ]
   %.02430 = phi i32 [ %8, %.lr.ph ], [ %2, %3 ]
-  %.02529 = phi i8 [ %9, %.lr.ph ], [ %5, %3 ]
-  %.02628 = phi i8 [ %14, %.lr.ph ], [ %7, %3 ]
+  %.02529 = phi i8 [ %14, %.lr.ph ], [ %7, %3 ]
+  %.02628 = phi i8 [ %9, %.lr.ph ], [ %5, %3 ]
   %8 = add i32 %.02430, -1
-  %9 = add i8 %.02529, 1
+  %9 = add i8 %.02628, 1
   %10 = zext i8 %9 to i64
   %11 = getelementptr inbounds i32, ptr %0, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = trunc i32 %12 to i8
-  %14 = add i8 %.02628, %13
+  %14 = add i8 %.02529, %13
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds i32, ptr %0, i64 %15
   %17 = load i32, ptr %16, align 4
@@ -96,10 +96,10 @@ define void @arc4_apply(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.026.lcssa = phi i8 [ %7, %3 ], [ %14, %.lr.ph ]
-  %.025.lcssa = phi i8 [ %5, %3 ], [ %9, %.lr.ph ]
-  store i8 %.025.lcssa, ptr %4, align 4
-  store i8 %.026.lcssa, ptr %6, align 1
+  %.026.lcssa = phi i8 [ %5, %3 ], [ %9, %.lr.ph ]
+  %.025.lcssa = phi i8 [ %7, %3 ], [ %14, %.lr.ph ]
+  store i8 %.026.lcssa, ptr %4, align 4
+  store i8 %.025.lcssa, ptr %6, align 1
   ret void
 }
 

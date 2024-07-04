@@ -189,9 +189,9 @@ define dso_local range(i32 0, 2) i32 @lzma_outq_read(ptr noalias noundef %0, ptr
   br label %19
 
 19:                                               ; preds = %15, %10
-  %.024 = phi i32 [ %18, %15 ], [ %13, %10 ]
+  %.0 = phi i32 [ %18, %15 ], [ %13, %10 ]
   %20 = load ptr, ptr %0, align 8
-  %21 = zext i32 %.024 to i64
+  %21 = zext i32 %.0 to i64
   %22 = getelementptr inbounds %struct.lzma_outbuf, ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 32
   %24 = load i8, ptr %23, align 8
@@ -223,8 +223,8 @@ define dso_local range(i32 0, 2) i32 @lzma_outq_read(ptr noalias noundef %0, ptr
   br label %42
 
 42:                                               ; preds = %26, %19, %6, %35
-  %.0 = phi i32 [ 1, %35 ], [ 0, %6 ], [ 0, %19 ], [ 0, %26 ]
-  ret i32 %.0
+  %.024 = phi i32 [ 1, %35 ], [ 0, %6 ], [ 0, %19 ], [ 0, %26 ]
+  ret i32 %.024
 }
 
 declare i64 @lzma_bufcpy(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2

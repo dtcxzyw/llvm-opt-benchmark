@@ -722,14 +722,14 @@ define hidden range(i32 -1, 1) i32 @zend_enum_build_backed_enum_table(ptr nounde
   br label %44
 
 44:                                               ; preds = %37, %42, %40
-  %.0 = phi ptr [ %41, %40 ], [ %43, %42 ], [ %39, %37 ]
-  %45 = getelementptr inbounds i8, ptr %.0, i64 16
+  %.0104 = phi ptr [ %41, %40 ], [ %43, %42 ], [ %39, %37 ]
+  %45 = getelementptr inbounds i8, ptr %.0104, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.0, i64 24
+  %47 = getelementptr inbounds i8, ptr %.0104, i64 24
   %48 = load i32, ptr %47, align 8
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds %struct._Bucket, ptr %46, i64 %49
-  %51 = getelementptr inbounds i8, ptr %.0, i64 8
+  %51 = getelementptr inbounds i8, ptr %.0104, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 4
   %.not119 = icmp eq i32 %53, 0
@@ -738,16 +738,16 @@ define hidden range(i32 -1, 1) i32 @zend_enum_build_backed_enum_table(ptr nounde
   br i1 %.not120136, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44, %123
-  %.0105137 = phi ptr [ %124, %123 ], [ %46, %44 ]
-  %54 = getelementptr inbounds i8, ptr %.0105137, i64 8
+  %.0137 = phi ptr [ %124, %123 ], [ %46, %44 ]
+  %54 = getelementptr inbounds i8, ptr %.0137, i64 8
   %55 = load i8, ptr %54, align 8
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %123, label %57
 
 57:                                               ; preds = %.lr.ph
-  %58 = getelementptr inbounds i8, ptr %.0105137, i64 24
+  %58 = getelementptr inbounds i8, ptr %.0137, i64 24
   %59 = load ptr, ptr %58, align 8
-  %60 = load ptr, ptr %.0105137, align 8
+  %60 = load ptr, ptr %.0137, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 12
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 64
@@ -852,7 +852,7 @@ define hidden range(i32 -1, 1) i32 @zend_enum_build_backed_enum_table(ptr nounde
   br label %123
 
 123:                                              ; preds = %103, %121, %57, %.lr.ph
-  %124 = getelementptr inbounds i8, ptr %.0105137, i64 32
+  %124 = getelementptr inbounds i8, ptr %.0137, i64 32
   %.not120 = icmp eq ptr %124, %50
   br i1 %.not120, label %.loopexit, label %.lr.ph
 
@@ -915,8 +915,8 @@ define hidden range(i32 -1, 1) i32 @zend_enum_build_backed_enum_table(ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %123, %.loopexit.sink.split, %44
-  %.0104 = phi i32 [ 0, %44 ], [ -1, %.loopexit.sink.split ], [ 0, %123 ]
-  ret i32 %.0104
+  %.0105 = phi i32 [ 0, %44 ], [ -1, %.loopexit.sink.split ], [ 0, %123 ]
+  ret i32 %.0105
 }
 
 declare noalias ptr @_emalloc_56() local_unnamed_addr #1
@@ -981,9 +981,9 @@ define range(i32 -1, 1) i32 @zend_enum_get_case_by_value(ptr nocapture noundef w
   br label %29
 
 29:                                               ; preds = %27, %21
-  %.052.in = phi ptr [ %26, %21 ], [ %28, %27 ]
-  %.052 = load ptr, ptr %.052.in, align 8
-  %.not64 = icmp eq ptr %.052, null
+  %.053.in = phi ptr [ %26, %21 ], [ %28, %27 ]
+  %.053 = load ptr, ptr %.053.in, align 8
+  %.not64 = icmp eq ptr %.053, null
   br i1 %.not64, label %42, label %30
 
 30:                                               ; preds = %29
@@ -993,7 +993,7 @@ define range(i32 -1, 1) i32 @zend_enum_get_case_by_value(ptr nocapture noundef w
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %30
-  %35 = tail call ptr @zend_hash_index_find(ptr noundef nonnull %.052, i64 noundef %2) #12
+  %35 = tail call ptr @zend_hash_index_find(ptr noundef nonnull %.053, i64 noundef %2) #12
   br label %40
 
 36:                                               ; preds = %30
@@ -1001,12 +1001,12 @@ define range(i32 -1, 1) i32 @zend_enum_get_case_by_value(ptr nocapture noundef w
   tail call void @llvm.assume(i1 %37)
   %38 = icmp ne ptr %3, null
   tail call void @llvm.assume(i1 %38)
-  %39 = tail call ptr @zend_hash_find(ptr noundef nonnull %.052, ptr noundef nonnull %3) #12
+  %39 = tail call ptr @zend_hash_find(ptr noundef nonnull %.053, ptr noundef nonnull %3) #12
   br label %40
 
 40:                                               ; preds = %36, %34
-  %.053 = phi ptr [ %35, %34 ], [ %39, %36 ]
-  %41 = icmp eq ptr %.053, null
+  %.0 = phi ptr [ %35, %34 ], [ %39, %36 ]
+  %41 = icmp eq ptr %.0, null
   br i1 %41, label %42, label %58
 
 42:                                               ; preds = %40, %29
@@ -1075,7 +1075,7 @@ define range(i32 -1, 1) i32 @zend_enum_get_case_by_value(ptr nocapture noundef w
 
 76:                                               ; preds = %69, %74, %72
   %.054 = phi ptr [ %73, %72 ], [ %75, %74 ], [ %71, %69 ]
-  %77 = load ptr, ptr %.053, align 8
+  %77 = load ptr, ptr %.0, align 8
   %78 = tail call ptr @zend_hash_find(ptr noundef %.054, ptr noundef %77) #12
   %.not69 = icmp eq ptr %78, null
   br i1 %.not69, label %81, label %79
@@ -1085,23 +1085,23 @@ define range(i32 -1, 1) i32 @zend_enum_get_case_by_value(ptr nocapture noundef w
   br label %81
 
 81:                                               ; preds = %76, %79
-  %.0 = phi ptr [ %80, %79 ], [ null, %76 ]
-  %82 = icmp ne ptr %.0, null
+  %.052 = phi ptr [ %80, %79 ], [ null, %76 ]
+  %82 = icmp ne ptr %.052, null
   tail call void @llvm.assume(i1 %82)
-  %83 = getelementptr inbounds i8, ptr %.0, i64 8
+  %83 = getelementptr inbounds i8, ptr %.052, i64 8
   %84 = load i8, ptr %83, align 8
   %85 = icmp eq i8 %84, 11
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %.0, i64 32
+  %87 = getelementptr inbounds i8, ptr %.052, i64 32
   %88 = load ptr, ptr %87, align 8
-  %89 = tail call i32 @zval_update_constant_ex(ptr noundef nonnull %.0, ptr noundef %88) #12
+  %89 = tail call i32 @zval_update_constant_ex(ptr noundef nonnull %.052, ptr noundef %88) #12
   %90 = icmp eq i32 %89, -1
   br i1 %90, label %93, label %91
 
 91:                                               ; preds = %86, %81
-  %92 = load ptr, ptr %.0, align 8
+  %92 = load ptr, ptr %.052, align 8
   store ptr %92, ptr %0, align 8
   br label %93
 
@@ -1379,14 +1379,14 @@ define internal void @zend_enum_cases_func(ptr nocapture noundef readonly %0, pt
   br label %31
 
 31:                                               ; preds = %24, %29, %27
-  %.0 = phi ptr [ %28, %27 ], [ %30, %29 ], [ %26, %24 ]
-  %32 = getelementptr inbounds i8, ptr %.0, i64 16
+  %.039 = phi ptr [ %28, %27 ], [ %30, %29 ], [ %26, %24 ]
+  %32 = getelementptr inbounds i8, ptr %.039, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %.0, i64 24
+  %34 = getelementptr inbounds i8, ptr %.039, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds %struct._Bucket, ptr %33, i64 %36
-  %38 = getelementptr inbounds i8, ptr %.0, i64 8
+  %38 = getelementptr inbounds i8, ptr %.039, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 4
   %.not47 = icmp eq i32 %40, 0
@@ -1395,14 +1395,14 @@ define internal void @zend_enum_cases_func(ptr nocapture noundef readonly %0, pt
   br i1 %.not4850, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31, %70
-  %.03951 = phi ptr [ %71, %70 ], [ %33, %31 ]
-  %41 = getelementptr inbounds i8, ptr %.03951, i64 8
+  %.051 = phi ptr [ %71, %70 ], [ %33, %31 ]
+  %41 = getelementptr inbounds i8, ptr %.051, i64 8
   %42 = load i8, ptr %41, align 8
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %70, label %44
 
 44:                                               ; preds = %.lr.ph
-  %45 = load ptr, ptr %.03951, align 8
+  %45 = load ptr, ptr %.051, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 12
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 64
@@ -1442,7 +1442,7 @@ define internal void @zend_enum_cases_func(ptr nocapture noundef readonly %0, pt
   br label %70
 
 70:                                               ; preds = %44, %.lr.ph, %61
-  %71 = getelementptr inbounds i8, ptr %.03951, i64 32
+  %71 = getelementptr inbounds i8, ptr %.051, i64 32
   %.not48 = icmp eq ptr %71, %37
   br i1 %.not48, label %.loopexit, label %.lr.ph
 
@@ -1520,8 +1520,8 @@ define internal fastcc void @zend_enum_register_func(ptr noundef %0, i32 noundef
   br label %46
 
 46:                                               ; preds = %36, %34
-  %.0104 = phi ptr [ %26, %34 ], [ %41, %36 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0104, i8 0, i64 %21, i1 false)
+  %.0106 = phi ptr [ %26, %34 ], [ %41, %36 ]
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.0106, i8 0, i64 %21, i1 false)
   br label %49
 
 47:                                               ; preds = %3
@@ -1529,7 +1529,7 @@ define internal fastcc void @zend_enum_register_func(ptr noundef %0, i32 noundef
   br label %49
 
 49:                                               ; preds = %47, %46
-  %.sink = phi ptr [ %48, %47 ], [ %.0104, %46 ]
+  %.sink = phi ptr [ %48, %47 ], [ %.0106, %46 ]
   %50 = getelementptr inbounds i8, ptr %2, i64 56
   store ptr %.sink, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2229,10 +2229,10 @@ define internal fastcc void @zend_enum_from_base(ptr noundef %0, ptr nocapture n
   br label %25
 
 25:                                               ; preds = %23, %.thread261
-  %.0207268 = phi i32 [ 0, %.thread261 ], [ 1, %23 ]
-  %.0208267 = phi ptr [ null, %.thread261 ], [ %18, %23 ]
-  %.0211266 = phi i32 [ 1, %.thread261 ], [ 9, %23 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0211266, i32 noundef %.0207268, ptr noundef null, i32 noundef 0, ptr noundef %.0208267) #12
+  %.0210268 = phi i32 [ 1, %.thread261 ], [ 9, %23 ]
+  %.0212267 = phi ptr [ null, %.thread261 ], [ %18, %23 ]
+  %.0213266 = phi i32 [ 0, %.thread261 ], [ 1, %23 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0210268, i32 noundef %.0213266, ptr noundef null, i32 noundef 0, ptr noundef %.0212267) #12
   br label %128
 
 26:                                               ; preds = %3
@@ -2284,11 +2284,11 @@ define internal fastcc void @zend_enum_from_base(ptr noundef %0, ptr nocapture n
   br i1 %.fr, label %.thread269, label %.thread295
 
 .thread295:                                       ; preds = %47, %40
-  %.0210304 = phi i32 [ 1, %40 ], [ 9, %47 ]
-  %.0212303 = phi i32 [ 0, %40 ], [ 1, %47 ]
-  %.0213302 = phi i32 [ 0, %40 ], [ 4, %47 ]
-  %.0214301 = phi ptr [ null, %40 ], [ %42, %47 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0210304, i32 noundef %.0212303, ptr noundef null, i32 noundef %.0213302, ptr noundef %.0214301) #12
+  %.0205304 = phi i32 [ 1, %40 ], [ 9, %47 ]
+  %.0206303 = phi i32 [ 0, %40 ], [ 4, %47 ]
+  %.0207302 = phi ptr [ null, %40 ], [ %42, %47 ]
+  %.0208301 = phi i32 [ 0, %40 ], [ 1, %47 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0205304, i32 noundef %.0208301, ptr noundef null, i32 noundef %.0206303, ptr noundef %.0207302) #12
   br label %128
 
 49:                                               ; preds = %26, %31, %34
@@ -2326,11 +2326,11 @@ define internal fastcc void @zend_enum_from_base(ptr noundef %0, ptr nocapture n
   br i1 %.fr344, label %.thread325thread-pre-split, label %.thread332
 
 .thread332:                                       ; preds = %60, %52
-  %.0201341 = phi i32 [ 1, %52 ], [ 9, %60 ]
-  %.0204340 = phi i32 [ 0, %52 ], [ 28, %60 ]
-  %.0205339 = phi ptr [ null, %52 ], [ %54, %60 ]
-  %.0206338 = phi i32 [ 0, %52 ], [ 1, %60 ]
-  call void @zend_wrong_parameter_error(i32 noundef %.0201341, i32 noundef %.0206338, ptr noundef null, i32 noundef %.0204340, ptr noundef %.0205339) #12
+  %.0200341 = phi i32 [ 1, %52 ], [ 9, %60 ]
+  %.0201340 = phi i32 [ 0, %52 ], [ 28, %60 ]
+  %.0202339 = phi ptr [ null, %52 ], [ %54, %60 ]
+  %.0203338 = phi i32 [ 0, %52 ], [ 1, %60 ]
+  call void @zend_wrong_parameter_error(i32 noundef %.0200341, i32 noundef %.0203338, ptr noundef null, i32 noundef %.0201340, ptr noundef %.0202339) #12
   br label %128
 
 .thread325thread-pre-split:                       ; preds = %60
@@ -2353,7 +2353,7 @@ define internal fastcc void @zend_enum_from_base(ptr noundef %0, ptr nocapture n
   br label %.thread269
 
 .thread269:                                       ; preds = %47, %23, %.thread283, %.thread251, %64, %.thread325
-  %.0203 = phi i1 [ true, %64 ], [ false, %.thread325 ], [ false, %.thread251 ], [ false, %.thread283 ], [ false, %23 ], [ false, %47 ]
+  %.0214 = phi i1 [ true, %64 ], [ false, %.thread325 ], [ false, %.thread251 ], [ false, %.thread283 ], [ false, %23 ], [ false, %47 ]
   %67 = load i64, ptr %5, align 8
   %68 = load ptr, ptr %4, align 8
   %69 = call i32 @zend_enum_get_case_by_value(ptr noundef nonnull %6, ptr noundef nonnull %10, i64 noundef %67, ptr noundef %68, i1 noundef zeroext %2)
@@ -2367,10 +2367,10 @@ define internal fastcc void @zend_enum_from_base(ptr noundef %0, ptr nocapture n
 
 74:                                               ; preds = %71
   call void @llvm.assume(i1 %2)
-  br i1 %.0203, label %112, label %126
+  br i1 %.0214, label %112, label %126
 
 75:                                               ; preds = %71
-  br i1 %.0203, label %76, label %90
+  br i1 %.0214, label %76, label %90
 
 76:                                               ; preds = %75
   %77 = load ptr, ptr %4, align 8
@@ -2412,7 +2412,7 @@ define internal fastcc void @zend_enum_from_base(ptr noundef %0, ptr nocapture n
   br label %128
 
 94:                                               ; preds = %.thread269
-  br i1 %.0203, label %95, label %109
+  br i1 %.0214, label %95, label %109
 
 95:                                               ; preds = %94
   %96 = load ptr, ptr %4, align 8

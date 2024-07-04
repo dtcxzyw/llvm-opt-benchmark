@@ -216,8 +216,8 @@ define ptr @WebPINewRGB(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noun
   br i1 %or.cond, label %20, label %11
 
 11:                                               ; preds = %7, %8
-  %.019 = phi i32 [ %3, %8 ], [ 0, %7 ]
   %.018 = phi i64 [ %2, %8 ], [ 0, %7 ]
+  %.0 = phi i32 [ %3, %8 ], [ 0, %7 ]
   %12 = tail call fastcc ptr @NewDecoder(ptr noundef null, ptr noundef null)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %20, label %14
@@ -230,14 +230,14 @@ define ptr @WebPINewRGB(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noun
   %17 = getelementptr inbounds i8, ptr %12, i64 368
   store ptr %1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %12, i64 376
-  store i32 %.019, ptr %18, align 8
+  store i32 %.0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %12, i64 384
   store i64 %.018, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %11, %8, %4, %14
-  %.0 = phi ptr [ %12, %14 ], [ null, %4 ], [ null, %8 ], [ null, %11 ]
-  ret ptr %.0
+  %.019 = phi ptr [ %12, %14 ], [ null, %4 ], [ null, %8 ], [ null, %11 ]
+  ret ptr %.019
 }
 
 ; Function Attrs: nounwind uwtable
@@ -279,17 +279,17 @@ define ptr @WebPINewYUVA(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nou
   br i1 %or.cond11, label %47, label %29
 
 29:                                               ; preds = %25, %26, %12
-  %.066 = phi i32 [ 0, %12 ], [ %2, %26 ], [ %2, %25 ]
-  %.065 = phi ptr [ null, %12 ], [ %3, %26 ], [ %3, %25 ]
-  %.064 = phi i64 [ 0, %12 ], [ %4, %26 ], [ %4, %25 ]
-  %.063 = phi i32 [ 0, %12 ], [ %5, %26 ], [ %5, %25 ]
-  %.062 = phi ptr [ null, %12 ], [ %6, %26 ], [ %6, %25 ]
-  %.061 = phi i64 [ 0, %12 ], [ %7, %26 ], [ %7, %25 ]
-  %.060 = phi i32 [ 0, %12 ], [ %8, %26 ], [ %8, %25 ]
-  %.059 = phi ptr [ null, %12 ], [ %9, %26 ], [ null, %25 ]
-  %.058 = phi i64 [ 0, %12 ], [ %10, %26 ], [ %10, %25 ]
-  %.057 = phi i32 [ 0, %12 ], [ %11, %26 ], [ %11, %25 ]
-  %.056 = phi i64 [ 0, %12 ], [ %1, %26 ], [ %1, %25 ]
+  %.065 = phi i64 [ 0, %12 ], [ %1, %26 ], [ %1, %25 ]
+  %.064 = phi i32 [ 0, %12 ], [ %2, %26 ], [ %2, %25 ]
+  %.063 = phi ptr [ null, %12 ], [ %3, %26 ], [ %3, %25 ]
+  %.062 = phi i64 [ 0, %12 ], [ %4, %26 ], [ %4, %25 ]
+  %.061 = phi i32 [ 0, %12 ], [ %5, %26 ], [ %5, %25 ]
+  %.060 = phi ptr [ null, %12 ], [ %6, %26 ], [ %6, %25 ]
+  %.059 = phi i64 [ 0, %12 ], [ %7, %26 ], [ %7, %25 ]
+  %.058 = phi i32 [ 0, %12 ], [ %8, %26 ], [ %8, %25 ]
+  %.057 = phi ptr [ null, %12 ], [ %9, %26 ], [ null, %25 ]
+  %.056 = phi i64 [ 0, %12 ], [ %10, %26 ], [ %10, %25 ]
+  %.055 = phi i32 [ 0, %12 ], [ %11, %26 ], [ %11, %25 ]
   %.0 = phi i32 [ 12, %12 ], [ 12, %26 ], [ 11, %25 ]
   %30 = tail call fastcc ptr @NewDecoder(ptr noundef null, ptr noundef null)
   %31 = icmp eq ptr %30, null
@@ -303,32 +303,32 @@ define ptr @WebPINewYUVA(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nou
   %35 = getelementptr inbounds i8, ptr %30, i64 368
   store ptr %0, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %30, i64 400
-  store i32 %.066, ptr %36, align 8
+  store i32 %.064, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %30, i64 416
-  store i64 %.056, ptr %37, align 8
+  store i64 %.065, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %30, i64 376
-  store ptr %.065, ptr %38, align 8
+  store ptr %.063, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %30, i64 404
-  store i32 %.063, ptr %39, align 4
+  store i32 %.061, ptr %39, align 4
   %40 = getelementptr inbounds i8, ptr %30, i64 424
-  store i64 %.064, ptr %40, align 8
+  store i64 %.062, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %30, i64 384
-  store ptr %.062, ptr %41, align 8
+  store ptr %.060, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %30, i64 408
-  store i32 %.060, ptr %42, align 8
+  store i32 %.058, ptr %42, align 8
   %43 = getelementptr inbounds i8, ptr %30, i64 432
-  store i64 %.061, ptr %43, align 8
+  store i64 %.059, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %30, i64 392
-  store ptr %.059, ptr %44, align 8
+  store ptr %.057, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %30, i64 412
-  store i32 %.057, ptr %45, align 4
+  store i32 %.055, ptr %45, align 4
   %46 = getelementptr inbounds i8, ptr %30, i64 440
-  store i64 %.058, ptr %46, align 8
+  store i64 %.056, ptr %46, align 8
   br label %47
 
 47:                                               ; preds = %29, %26, %21, %17, %14, %32
-  %.055 = phi ptr [ %30, %32 ], [ null, %14 ], [ null, %17 ], [ null, %21 ], [ null, %26 ], [ null, %29 ]
-  ret ptr %.055
+  %.066 = phi ptr [ %30, %32 ], [ null, %14 ], [ null, %17 ], [ null, %21 ], [ null, %26 ], [ null, %29 ]
+  ret ptr %.066
 }
 
 ; Function Attrs: nounwind uwtable
@@ -360,14 +360,14 @@ define ptr @WebPINewYUV(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noun
   br i1 %or.cond9.i, label %WebPINewYUVA.exit, label %22
 
 22:                                               ; preds = %18, %9
-  %.066.i = phi i32 [ 0, %9 ], [ %2, %18 ]
-  %.065.i = phi ptr [ null, %9 ], [ %3, %18 ]
-  %.064.i = phi i64 [ 0, %9 ], [ %4, %18 ]
-  %.063.i = phi i32 [ 0, %9 ], [ %5, %18 ]
-  %.062.i = phi ptr [ null, %9 ], [ %6, %18 ]
-  %.061.i = phi i64 [ 0, %9 ], [ %7, %18 ]
-  %.060.i = phi i32 [ 0, %9 ], [ %8, %18 ]
-  %.056.i = phi i64 [ 0, %9 ], [ %1, %18 ]
+  %.065.i = phi i64 [ 0, %9 ], [ %1, %18 ]
+  %.064.i = phi i32 [ 0, %9 ], [ %2, %18 ]
+  %.063.i = phi ptr [ null, %9 ], [ %3, %18 ]
+  %.062.i = phi i64 [ 0, %9 ], [ %4, %18 ]
+  %.061.i = phi i32 [ 0, %9 ], [ %5, %18 ]
+  %.060.i = phi ptr [ null, %9 ], [ %6, %18 ]
+  %.059.i = phi i64 [ 0, %9 ], [ %7, %18 ]
+  %.058.i = phi i32 [ 0, %9 ], [ %8, %18 ]
   %.0.i = phi i32 [ 12, %9 ], [ 11, %18 ]
   %23 = tail call fastcc ptr @NewDecoder(ptr noundef null, ptr noundef null)
   %24 = icmp eq ptr %23, null
@@ -381,21 +381,21 @@ define ptr @WebPINewYUV(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noun
   %28 = getelementptr inbounds i8, ptr %23, i64 368
   store ptr %0, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %23, i64 400
-  store i32 %.066.i, ptr %29, align 8
+  store i32 %.064.i, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %23, i64 416
-  store i64 %.056.i, ptr %30, align 8
+  store i64 %.065.i, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %23, i64 376
-  store ptr %.065.i, ptr %31, align 8
+  store ptr %.063.i, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %23, i64 404
-  store i32 %.063.i, ptr %32, align 4
+  store i32 %.061.i, ptr %32, align 4
   %33 = getelementptr inbounds i8, ptr %23, i64 424
-  store i64 %.064.i, ptr %33, align 8
+  store i64 %.062.i, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %23, i64 384
-  store ptr %.062.i, ptr %34, align 8
+  store ptr %.060.i, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %23, i64 408
-  store i32 %.060.i, ptr %35, align 8
+  store i32 %.058.i, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %23, i64 432
-  store i64 %.061.i, ptr %36, align 8
+  store i64 %.059.i, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %23, i64 392
   store ptr null, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %23, i64 412
@@ -405,8 +405,8 @@ define ptr @WebPINewYUV(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noun
   br label %WebPINewYUVA.exit
 
 WebPINewYUVA.exit:                                ; preds = %11, %14, %18, %22, %25
-  %.055.i = phi ptr [ %23, %25 ], [ null, %11 ], [ null, %14 ], [ null, %18 ], [ null, %22 ]
-  ret ptr %.055.i
+  %.066.i = phi ptr [ %23, %25 ], [ null, %11 ], [ null, %14 ], [ null, %18 ], [ null, %22 ]
+  ret ptr %.066.i
 }
 
 ; Function Attrs: nounwind uwtable

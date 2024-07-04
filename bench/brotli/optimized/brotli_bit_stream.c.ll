@@ -1312,11 +1312,11 @@ for.body52.lr.ph:                                 ; preds = %BuildAndStoreEntrop
   br label %for.body52
 
 for.body52:                                       ; preds = %for.body52.lr.ph, %for.inc127
-  %prev_byte.addr.0530 = phi i8 [ %prev_byte, %for.body52.lr.ph ], [ %prev_byte.addr.3, %for.inc127 ]
-  %prev_byte2.addr.0529 = phi i8 [ %prev_byte2, %for.body52.lr.ph ], [ %prev_byte2.addr.3, %for.inc127 ]
-  %pos.0528 = phi i64 [ %start_pos, %for.body52.lr.ph ], [ %add, %for.inc127 ]
-  %i.1527 = phi i64 [ 0, %for.body52.lr.ph ], [ %inc128, %for.inc127 ]
-  %arrayidx53 = getelementptr inbounds %struct.Command, ptr %commands, i64 %i.1527
+  %i.1530 = phi i64 [ 0, %for.body52.lr.ph ], [ %inc128, %for.inc127 ]
+  %pos.0529 = phi i64 [ %start_pos, %for.body52.lr.ph ], [ %add, %for.inc127 ]
+  %prev_byte.addr.0528 = phi i8 [ %prev_byte, %for.body52.lr.ph ], [ %prev_byte.addr.3, %for.inc127 ]
+  %prev_byte2.addr.0527 = phi i8 [ %prev_byte2, %for.body52.lr.ph ], [ %prev_byte2.addr.3, %for.inc127 ]
+  %arrayidx53 = getelementptr inbounds %struct.Command, ptr %commands, i64 %i.1530
   %cmd.sroa.0.0.copyload = load i32, ptr %arrayidx53, align 4
   %cmd.sroa.5.0.arrayidx53.sroa_idx = getelementptr inbounds i8, ptr %arrayidx53, i64 4
   %cmd.sroa.5.0.copyload = load i32, ptr %cmd.sroa.5.0.arrayidx53.sroa_idx, align 4
@@ -1461,9 +1461,9 @@ for.cond60.preheader:                             ; preds = %GetCopyLengthCode.e
   br i1 %cmp61.not522, label %if.end92, label %for.body63
 
 for.body63:                                       ; preds = %for.cond60.preheader, %StoreSymbol.exit
-  %pos.1524 = phi i64 [ %inc66, %StoreSymbol.exit ], [ %pos.0528, %for.cond60.preheader ]
-  %j.0523 = phi i64 [ %dec, %StoreSymbol.exit ], [ %conv.i172, %for.cond60.preheader ]
-  %and = and i64 %pos.1524, %mask
+  %j.0524 = phi i64 [ %dec, %StoreSymbol.exit ], [ %conv.i172, %for.cond60.preheader ]
+  %pos.1523 = phi i64 [ %inc66, %StoreSymbol.exit ], [ %pos.0529, %for.cond60.preheader ]
+  %and = and i64 %pos.1523, %mask
   %arrayidx64 = getelementptr inbounds i8, ptr %input, i64 %and
   %87 = load i8, ptr %arrayidx64, align 1
   %conv65 = zext i8 %87 to i64
@@ -1609,25 +1609,25 @@ StoreSymbol.exit:                                 ; preds = %for.body63, %GetBlo
   %120 = load i64, ptr %storage_ix, align 8
   %add.i.i302 = add i64 %120, %conv7.i293
   store i64 %add.i.i302, ptr %storage_ix, align 8
-  %inc66 = add i64 %pos.1524, 1
-  %dec = add nsw i64 %j.0523, -1
+  %inc66 = add i64 %pos.1523, 1
+  %dec = add nsw i64 %j.0524, -1
   %cmp61.not = icmp eq i64 %dec, 0
   br i1 %cmp61.not, label %if.end92, label %for.body63, !llvm.loop !33
 
 for.body76:                                       ; preds = %for.cond73.preheader, %StoreSymbolWithContext.exit
-  %prev_byte.addr.1519 = phi i8 [ %123, %StoreSymbolWithContext.exit ], [ %prev_byte.addr.0530, %for.cond73.preheader ]
-  %prev_byte2.addr.1518 = phi i8 [ %prev_byte.addr.1519, %StoreSymbolWithContext.exit ], [ %prev_byte2.addr.0529, %for.cond73.preheader ]
-  %pos.2517 = phi i64 [ %inc88, %StoreSymbolWithContext.exit ], [ %pos.0528, %for.cond73.preheader ]
-  %j70.0516 = phi i64 [ %dec90, %StoreSymbolWithContext.exit ], [ %conv.i172, %for.cond73.preheader ]
-  %idxprom77 = zext i8 %prev_byte.addr.1519 to i64
+  %j70.0519 = phi i64 [ %dec90, %StoreSymbolWithContext.exit ], [ %conv.i172, %for.cond73.preheader ]
+  %pos.2518 = phi i64 [ %inc88, %StoreSymbolWithContext.exit ], [ %pos.0529, %for.cond73.preheader ]
+  %prev_byte.addr.1517 = phi i8 [ %123, %StoreSymbolWithContext.exit ], [ %prev_byte.addr.0528, %for.cond73.preheader ]
+  %prev_byte2.addr.1516 = phi i8 [ %prev_byte.addr.1517, %StoreSymbolWithContext.exit ], [ %prev_byte2.addr.0527, %for.cond73.preheader ]
+  %idxprom77 = zext i8 %prev_byte.addr.1517 to i64
   %arrayidx78 = getelementptr inbounds i8, ptr %arrayidx, i64 %idxprom77
   %121 = load i8, ptr %arrayidx78, align 1
-  %idxprom80 = zext i8 %prev_byte2.addr.1518 to i64
+  %idxprom80 = zext i8 %prev_byte2.addr.1516 to i64
   %arrayidx81 = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom80
   %122 = load i8, ptr %arrayidx81, align 1
   %or210 = or i8 %122, %121
   %conv83 = zext i8 %or210 to i64
-  %and84 = and i64 %pos.2517, %mask
+  %and84 = and i64 %pos.2518, %mask
   %arrayidx85 = getelementptr inbounds i8, ptr %input, i64 %and84
   %123 = load i8, ptr %arrayidx85, align 1
   %conv86 = zext i8 %123 to i64
@@ -1779,15 +1779,15 @@ StoreSymbolWithContext.exit:                      ; preds = %for.body76, %GetBlo
   %159 = load i64, ptr %storage_ix, align 8
   %add.i.i332 = add i64 %159, %conv10.i323
   store i64 %add.i.i332, ptr %storage_ix, align 8
-  %inc88 = add i64 %pos.2517, 1
-  %dec90 = add nsw i64 %j70.0516, -1
+  %inc88 = add i64 %pos.2518, 1
+  %dec90 = add nsw i64 %j70.0519, -1
   %cmp74.not = icmp eq i64 %dec90, 0
   br i1 %cmp74.not, label %if.end92, label %for.body76, !llvm.loop !34
 
 if.end92:                                         ; preds = %StoreSymbolWithContext.exit, %StoreSymbol.exit, %for.cond73.preheader, %for.cond60.preheader
-  %pos.3 = phi i64 [ %pos.0528, %for.cond60.preheader ], [ %pos.0528, %for.cond73.preheader ], [ %inc66, %StoreSymbol.exit ], [ %inc88, %StoreSymbolWithContext.exit ]
-  %prev_byte2.addr.2 = phi i8 [ %prev_byte2.addr.0529, %for.cond60.preheader ], [ %prev_byte2.addr.0529, %for.cond73.preheader ], [ %prev_byte2.addr.0529, %StoreSymbol.exit ], [ %prev_byte.addr.1519, %StoreSymbolWithContext.exit ]
-  %prev_byte.addr.2 = phi i8 [ %prev_byte.addr.0530, %for.cond60.preheader ], [ %prev_byte.addr.0530, %for.cond73.preheader ], [ %prev_byte.addr.0530, %StoreSymbol.exit ], [ %123, %StoreSymbolWithContext.exit ]
+  %prev_byte2.addr.2 = phi i8 [ %prev_byte2.addr.0527, %for.cond60.preheader ], [ %prev_byte2.addr.0527, %for.cond73.preheader ], [ %prev_byte2.addr.0527, %StoreSymbol.exit ], [ %prev_byte.addr.1517, %StoreSymbolWithContext.exit ]
+  %prev_byte.addr.2 = phi i8 [ %prev_byte.addr.0528, %for.cond60.preheader ], [ %prev_byte.addr.0528, %for.cond73.preheader ], [ %prev_byte.addr.0528, %StoreSymbol.exit ], [ %123, %StoreSymbolWithContext.exit ]
+  %pos.3 = phi i64 [ %pos.0529, %for.cond60.preheader ], [ %pos.0529, %for.cond73.preheader ], [ %inc66, %StoreSymbol.exit ], [ %inc88, %StoreSymbolWithContext.exit ]
   %conv94 = zext nneg i32 %and3.i to i64
   %add = add i64 %pos.3, %conv94
   %tobool.not = icmp eq i32 %and3.i, 0
@@ -2001,7 +2001,7 @@ if.end123:                                        ; preds = %StoreSymbolWithCont
 for.inc127:                                       ; preds = %if.end92, %if.end123, %if.then96
   %prev_byte2.addr.3 = phi i8 [ %160, %if.end123 ], [ %160, %if.then96 ], [ %prev_byte2.addr.2, %if.end92 ]
   %prev_byte.addr.3 = phi i8 [ %161, %if.end123 ], [ %161, %if.then96 ], [ %prev_byte.addr.2, %if.end92 ]
-  %inc128 = add nuw i64 %i.1527, 1
+  %inc128 = add nuw i64 %i.1530, 1
   %exitcond.not = icmp eq i64 %inc128, %n_commands
   br i1 %exitcond.not, label %for.end129, label %for.body52, !llvm.loop !35
 
@@ -3591,9 +3591,9 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc33
   %0 = phi i64 [ %28, %for.inc33 ], [ %.pre, %for.body.preheader ]
-  %pos.075 = phi i64 [ %add, %for.inc33 ], [ %start_pos, %for.body.preheader ]
-  %i.074 = phi i64 [ %inc34, %for.inc33 ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds %struct.Command, ptr %commands, i64 %i.074
+  %i.075 = phi i64 [ %inc34, %for.inc33 ], [ 0, %for.body.preheader ]
+  %pos.074 = phi i64 [ %add, %for.inc33 ], [ %start_pos, %for.body.preheader ]
+  %arrayidx = getelementptr inbounds %struct.Command, ptr %commands, i64 %i.075
   %cmd.sroa.0.0.copyload = load i32, ptr %arrayidx, align 4
   %cmd.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %cmd.sroa.4.0.copyload = load i32, ptr %cmd.sroa.4.0.arrayidx.sroa_idx, align 4
@@ -3746,9 +3746,9 @@ GetCopyLengthCode.exit:                           ; preds = %if.else10.i, %if.th
 
 for.body9:                                        ; preds = %GetCopyLengthCode.exit, %for.body9
   %15 = phi i64 [ %add.i61, %for.body9 ], [ %add.i.i, %GetCopyLengthCode.exit ]
-  %pos.172 = phi i64 [ %inc, %for.body9 ], [ %pos.075, %GetCopyLengthCode.exit ]
-  %j.071 = phi i64 [ %dec, %for.body9 ], [ %conv.i75, %GetCopyLengthCode.exit ]
-  %and = and i64 %pos.172, %mask
+  %j.072 = phi i64 [ %dec, %for.body9 ], [ %conv.i75, %GetCopyLengthCode.exit ]
+  %pos.171 = phi i64 [ %inc, %for.body9 ], [ %pos.074, %GetCopyLengthCode.exit ]
+  %and = and i64 %pos.171, %mask
   %arrayidx10 = getelementptr inbounds i8, ptr %input, i64 %and
   %16 = load i8, ptr %arrayidx10, align 1
   %idxprom = zext i8 %16 to i64
@@ -3769,14 +3769,14 @@ for.body9:                                        ; preds = %GetCopyLengthCode.e
   %20 = load i64, ptr %storage_ix, align 8
   %add.i61 = add i64 %20, %conv12
   store i64 %add.i61, ptr %storage_ix, align 8
-  %inc = add i64 %pos.172, 1
-  %dec = add nsw i64 %j.071, -1
+  %inc = add i64 %pos.171, 1
+  %dec = add nsw i64 %j.072, -1
   %cmp7.not = icmp eq i64 %dec, 0
   br i1 %cmp7.not, label %for.end, label %for.body9, !llvm.loop !66
 
 for.end:                                          ; preds = %for.body9, %GetCopyLengthCode.exit
   %21 = phi i64 [ %add.i.i, %GetCopyLengthCode.exit ], [ %add.i61, %for.body9 ]
-  %pos.1.lcssa = phi i64 [ %pos.075, %GetCopyLengthCode.exit ], [ %inc, %for.body9 ]
+  %pos.1.lcssa = phi i64 [ %pos.074, %GetCopyLengthCode.exit ], [ %inc, %for.body9 ]
   %conv16 = zext nneg i32 %and3.i to i64
   %add = add i64 %pos.1.lcssa, %conv16
   %tobool = icmp ne i32 %and3.i, 0
@@ -3823,7 +3823,7 @@ if.then:                                          ; preds = %for.end
 
 for.inc33:                                        ; preds = %for.end, %if.then
   %28 = phi i64 [ %21, %for.end ], [ %add.i, %if.then ]
-  %inc34 = add nuw i64 %i.074, 1
+  %inc34 = add nuw i64 %i.075, 1
   %exitcond.not = icmp eq i64 %inc34, %n_commands
   br i1 %exitcond.not, label %for.end35, label %for.body, !llvm.loop !67
 

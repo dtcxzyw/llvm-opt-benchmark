@@ -1585,7 +1585,7 @@ Exp_IsLit.exit.preheader:                         ; preds = %68
   br label %72
 
 72:                                               ; preds = %.lr.ph204, %Vec_StrPush.exit141
-  %.085203 = phi i32 [ 0, %.lr.ph204 ], [ %100, %Vec_StrPush.exit141 ]
+  %.0203 = phi i32 [ 0, %.lr.ph204 ], [ %100, %Vec_StrPush.exit141 ]
   %73 = load i32, ptr %4, align 4
   %74 = load i32, ptr %2, align 8
   %75 = icmp eq i32 %73, %74
@@ -1647,7 +1647,7 @@ Vec_StrPush.exit141:                              ; preds = %.Vec_StrGrow.exit10
   %98 = sext i32 %96 to i64
   %99 = getelementptr inbounds i8, ptr %95, i64 %98
   store i8 45, ptr %99, align 1
-  %100 = add nuw nsw i32 %.085203, 1
+  %100 = add nuw nsw i32 %.0203, 1
   %exitcond207.not = icmp eq i32 %100, %0
   br i1 %exitcond207.not, label %Exp_IsLit.exit._crit_edge, label %72, !llvm.loop !13
 
@@ -2103,24 +2103,24 @@ Vec_PtrPush.exit176:                              ; preds = %.Vec_PtrGrow.exit11
   %309 = load i32, ptr %308, align 4
   %310 = and i32 %309, 1
   %.not89 = icmp eq i32 %310, 0
-  %spec.select = select i1 %.not89, ptr %149, ptr %140
-  %spec.select92 = select i1 %.not89, ptr %140, ptr %149
-  %311 = getelementptr i8, ptr %spec.select92, i64 4
-  %spec.select92.val = load i32, ptr %311, align 4
-  %312 = getelementptr i8, ptr %spec.select92, i64 8
-  %spec.select92.val120 = load ptr, ptr %312, align 8
-  %313 = sext i32 %spec.select92.val to i64
-  %314 = getelementptr ptr, ptr %spec.select92.val120, i64 %313
+  %spec.select = select i1 %.not89, ptr %140, ptr %149
+  %spec.select92 = select i1 %.not89, ptr %149, ptr %140
+  %311 = getelementptr i8, ptr %spec.select, i64 4
+  %spec.select.val = load i32, ptr %311, align 4
+  %312 = getelementptr i8, ptr %spec.select, i64 8
+  %spec.select.val120 = load ptr, ptr %312, align 8
+  %313 = sext i32 %spec.select.val to i64
+  %314 = getelementptr ptr, ptr %spec.select.val120, i64 %313
   %315 = getelementptr i8, ptr %314, i64 -8
   %316 = load ptr, ptr %315, align 8
   %317 = getelementptr i8, ptr %316, i64 4
   %.val93 = load i32, ptr %317, align 4
-  %318 = getelementptr i8, ptr %spec.select, i64 4
-  %spec.select.val = load i32, ptr %318, align 4
-  %319 = getelementptr i8, ptr %spec.select, i64 8
-  %spec.select.val121 = load ptr, ptr %319, align 8
-  %320 = sext i32 %spec.select.val to i64
-  %321 = getelementptr ptr, ptr %spec.select.val121, i64 %320
+  %318 = getelementptr i8, ptr %spec.select92, i64 4
+  %spec.select92.val = load i32, ptr %318, align 4
+  %319 = getelementptr i8, ptr %spec.select92, i64 8
+  %spec.select92.val121 = load ptr, ptr %319, align 8
+  %320 = sext i32 %spec.select92.val to i64
+  %321 = getelementptr ptr, ptr %spec.select92.val121, i64 %320
   %322 = getelementptr i8, ptr %321, i64 -8
   %323 = load ptr, ptr %322, align 8
   %324 = getelementptr i8, ptr %323, i64 4
@@ -2175,7 +2175,7 @@ Vec_PtrFree.exit.i:                               ; preds = %335, %332
   br label %Vec_VecFree.exit
 
 Vec_VecFree.exit:                                 ; preds = %.critedge.i, %340
-  tail call void @free(ptr noundef nonnull %spec.select92) #8
+  tail call void @free(ptr noundef nonnull %spec.select) #8
   %.val11.i179 = load i32, ptr %318, align 4
   %341 = icmp sgt i32 %.val11.i179, 0
   br i1 %341, label %.lr.ph.i182, label %.critedge.i180
@@ -2221,14 +2221,14 @@ Vec_PtrFree.exit.i188:                            ; preds = %347, %344
   br label %Vec_VecFree.exit192
 
 Vec_VecFree.exit192:                              ; preds = %.critedge.i180, %352
-  tail call void @free(ptr noundef nonnull %spec.select) #8
+  tail call void @free(ptr noundef nonnull %spec.select92) #8
   %353 = getelementptr i8, ptr %2, i64 8
   br label %354
 
 354:                                              ; preds = %Vec_VecFree.exit192, %Vec_StrPush.exit148, %Vec_StrPush.exit134, %Vec_StrPush.exit
-  %.0.in = phi ptr [ %36, %Vec_StrPush.exit ], [ %67, %Vec_StrPush.exit134 ], [ %135, %Vec_StrPush.exit148 ], [ %353, %Vec_VecFree.exit192 ]
-  %.0 = load ptr, ptr %.0.in, align 8
-  ret ptr %.0
+  %.082.in = phi ptr [ %36, %Vec_StrPush.exit ], [ %67, %Vec_StrPush.exit134 ], [ %135, %Vec_StrPush.exit148 ], [ %353, %Vec_VecFree.exit192 ]
+  %.082 = load ptr, ptr %.082.in, align 8
+  ret ptr %.082
 }
 
 ; Function Attrs: nounwind uwtable

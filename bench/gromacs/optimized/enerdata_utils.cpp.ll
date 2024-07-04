@@ -308,17 +308,17 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
 
 .split.us.split.us.i:                             ; preds = %.split.us.i, %.split.us.split.us.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.split.us.split.us.i ], [ 0, %.split.us.i ]
-  %.040.us.us.i = phi double [ %53, %.split.us.split.us.i ], [ 0.000000e+00, %.split.us.i ]
+  %.02840.us.us.i = phi double [ %53, %.split.us.split.us.i ], [ 0.000000e+00, %.split.us.i ]
   %51 = getelementptr inbounds [7 x double], ptr %34, i64 0, i64 %indvars.iv64.i
   %52 = load double, ptr %51, align 8
-  %53 = tail call double @llvm.fmuladd.f64(double %52, double 0.000000e+00, double %.040.us.us.i)
+  %53 = tail call double @llvm.fmuladd.f64(double %52, double 0.000000e+00, double %.02840.us.us.i)
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %.not.us.us.i = icmp eq i64 %indvars.iv.next65.i, 7
   br i1 %.not.us.us.i, label %_ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit, label %.split.us.split.us.i
 
 .split.us.split.i:                                ; preds = %.split.us.split.i.preheader, %.split.us.split.i
   %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %.split.us.split.i ], [ 0, %.split.us.split.i.preheader ]
-  %.040.us.i = phi double [ %65, %.split.us.split.i ], [ 0.000000e+00, %.split.us.split.i.preheader ]
+  %.02840.us.i = phi double [ %65, %.split.us.split.i ], [ 0.000000e+00, %.split.us.split.i.preheader ]
   %54 = getelementptr inbounds [7 x %"class.std::vector"], ptr %23, i64 0, i64 %indvars.iv61.i
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr double, ptr %55, i64 %indvars.iv
@@ -328,10 +328,10 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
   %60 = fsub double %57, %59
   %61 = fcmp une double %60, 0.000000e+00
   %62 = tail call double @llvm.copysign.f64(double %50, double %60)
-  %.028.us.i = select i1 %61, double %62, double 0.000000e+00
+  %.0.us.i = select i1 %61, double %62, double 0.000000e+00
   %63 = getelementptr inbounds [7 x double], ptr %34, i64 0, i64 %indvars.iv61.i
   %64 = load double, ptr %63, align 8
-  %65 = tail call double @llvm.fmuladd.f64(double %.028.us.i, double %64, double %.040.us.i)
+  %65 = tail call double @llvm.fmuladd.f64(double %.0.us.i, double %64, double %.02840.us.i)
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %.not.us.i = icmp eq i64 %indvars.iv.next62.i, 7
   br i1 %.not.us.i, label %_ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit, label %.split.us.split.i
@@ -346,7 +346,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
 
 .split.split.us.i:                                ; preds = %.split.split.us.i.preheader, %.split.split.us.i
   %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %.split.split.us.i ], [ 0, %.split.split.us.i.preheader ]
-  %.040.us43.i = phi double [ %78, %.split.split.us.i ], [ 0.000000e+00, %.split.split.us.i.preheader ]
+  %.02840.us43.i = phi double [ %78, %.split.split.us.i ], [ 0.000000e+00, %.split.split.us.i.preheader ]
   %68 = getelementptr inbounds [7 x %"class.std::vector"], ptr %23, i64 0, i64 %indvars.iv58.i
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr i8, ptr %69, i64 8
@@ -358,14 +358,14 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
   %.1.us46.i = select i1 %74, double %75, double 0.000000e+00
   %76 = getelementptr inbounds [7 x double], ptr %34, i64 0, i64 %indvars.iv58.i
   %77 = load double, ptr %76, align 8
-  %78 = tail call double @llvm.fmuladd.f64(double %.1.us46.i, double %77, double %.040.us43.i)
+  %78 = tail call double @llvm.fmuladd.f64(double %.1.us46.i, double %77, double %.02840.us43.i)
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %.not.us47.i = icmp eq i64 %indvars.iv.next59.i, 7
   br i1 %.not.us47.i, label %_ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit, label %.split.split.us.i
 
 .split.split.i:                                   ; preds = %.split.i, %.split.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.split.i ], [ 0, %.split.i ]
-  %.040.i = phi double [ %94, %.split.split.i ], [ 0.000000e+00, %.split.i ]
+  %.02840.i = phi double [ %94, %.split.split.i ], [ 0.000000e+00, %.split.i ]
   %79 = getelementptr inbounds [7 x %"class.std::vector"], ptr %23, i64 0, i64 %indvars.iv.i
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr double, ptr %80, i64 %indvars.iv
@@ -383,7 +383,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %10
   %.1.i = extractelement <2 x double> %91, i64 0
   %92 = getelementptr inbounds [7 x double], ptr %34, i64 0, i64 %indvars.iv.i
   %93 = load double, ptr %92, align 8
-  %94 = tail call double @llvm.fmuladd.f64(double %.1.i, double %93, double %.040.i)
+  %94 = tail call double @llvm.fmuladd.f64(double %.1.i, double %93, double %.02840.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 7
   br i1 %.not.i, label %_ZL11composeDhdliRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEERKNS0_IS1_dLS1_7EEE.exit, label %.split.split.i
@@ -1190,20 +1190,20 @@ _ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPert
   br i1 %.not.i24.us, label %_ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypefLS2_7EEE.exit.loopexit.us, label %25, !llvm.loop !10
 
 34:                                               ; preds = %.preheader.us, %34
-  %.02231.us = phi i64 [ 0, %.preheader.us ], [ %46, %34 ]
-  %.02330.us = phi double [ 0.000000e+00, %.preheader.us ], [ %45, %34 ]
-  %35 = getelementptr inbounds [7 x %"class.std::vector"], ptr %23, i64 0, i64 %.02231.us
+  %.031.us = phi i64 [ 0, %.preheader.us ], [ %46, %34 ]
+  %.02230.us = phi double [ 0.000000e+00, %.preheader.us ], [ %45, %34 ]
+  %35 = getelementptr inbounds [7 x %"class.std::vector"], ptr %23, i64 0, i64 %.031.us
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds double, ptr %36, i64 %indvars.iv39
   %38 = load double, ptr %37, align 8
-  %39 = getelementptr inbounds float, ptr %2, i64 %.02231.us
+  %39 = getelementptr inbounds float, ptr %2, i64 %.031.us
   %40 = load float, ptr %39, align 4
   %41 = fpext float %40 to double
   %42 = fsub double %38, %41
-  %43 = getelementptr inbounds [7 x double], ptr %1, i64 0, i64 %.02231.us
+  %43 = getelementptr inbounds [7 x double], ptr %1, i64 0, i64 %.031.us
   %44 = load double, ptr %43, align 8
-  %45 = tail call double @llvm.fmuladd.f64(double %42, double %44, double %.02330.us)
-  %46 = add nuw nsw i64 %.02231.us, 1
+  %45 = tail call double @llvm.fmuladd.f64(double %42, double %44, double %.02230.us)
+  %46 = add nuw nsw i64 %.031.us, 1
   %exitcond.not = icmp eq i64 %46, %21
   br i1 %exitcond.not, label %._crit_edge.us, label %34, !llvm.loop !11
 

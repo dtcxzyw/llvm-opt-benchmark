@@ -457,7 +457,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %49
 
 49:                                               ; preds = %27, %22
-  %.076 = phi ptr [ %32, %27 ], [ null, %22 ]
+  %.075 = phi ptr [ %32, %27 ], [ null, %22 ]
   %50 = zext i16 %24 to i32
   %51 = zext i8 %25 to i32
   %52 = zext i8 %26 to i32
@@ -469,7 +469,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 55:                                               ; preds = %49
   %56 = load ptr, ptr %15, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %56, i32 noundef 25, ptr noundef nonnull @.str.210, i32 noundef %51) #3
-  %57 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 12, ptr noundef nonnull %1, ptr noundef nonnull @.str.211, ptr noundef %53, ptr noundef nonnull @wai_frag_items, ptr noundef null, ptr noundef %.076) #3
+  %57 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 12, ptr noundef nonnull %1, ptr noundef nonnull @.str.211, ptr noundef %53, ptr noundef nonnull @wai_frag_items, ptr noundef null, ptr noundef %.075) #3
   %58 = tail call i32 @call_data_dissector(ptr noundef %54, ptr noundef nonnull %1, ptr noundef %2) #3
   br label %dissect_wai_data.exit
 
@@ -478,7 +478,7 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not82, label %67, label %60
 
 60:                                               ; preds = %59
-  %61 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 12, ptr noundef nonnull %1, ptr noundef nonnull @.str.211, ptr noundef %53, ptr noundef nonnull @wai_frag_items, ptr noundef null, ptr noundef %.076) #3
+  %61 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 12, ptr noundef nonnull %1, ptr noundef nonnull @.str.211, ptr noundef %53, ptr noundef nonnull @wai_frag_items, ptr noundef null, ptr noundef %.075) #3
   %.not83 = icmp eq ptr %61, null
   br i1 %.not83, label %67, label %62
 
@@ -492,14 +492,14 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %67
 
 67:                                               ; preds = %60, %62, %59
-  %.075 = phi ptr [ %61, %62 ], [ %54, %60 ], [ %54, %59 ]
-  %.074 = phi i16 [ %66, %62 ], [ %6, %60 ], [ %6, %59 ]
+  %.076 = phi i16 [ %66, %62 ], [ %6, %60 ], [ %6, %59 ]
+  %.074 = phi ptr [ %61, %62 ], [ %54, %60 ], [ %54, %59 ]
   br i1 %.not, label %dissect_wai_data.exit, label %68
 
 68:                                               ; preds = %67
   %69 = load i32, ptr @hf_wai_data, align 4
-  %70 = zext i16 %.074 to i32
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %.076, i32 noundef %69, ptr noundef %.075, i32 noundef 0, i32 noundef %70, i32 noundef 0) #3
+  %70 = zext i16 %.076 to i32
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %.075, i32 noundef %69, ptr noundef %.074, i32 noundef 0, i32 noundef %70, i32 noundef 0) #3
   %72 = load i32, ptr @ett_wai_data, align 4
   %73 = tail call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %72) #3
   %74 = tail call ptr @val_to_str_ext_const(i32 noundef %12, ptr noundef nonnull @wai_subtype_names_ext, ptr noundef nonnull @.str.208) #3
@@ -520,112 +520,112 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 75:                                               ; preds = %68
-  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.074, ptr noundef %73)
   %76 = load i32, ptr @hf_wai_uskid, align 4
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %76, ptr noundef %.075, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
+  %77 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %76, ptr noundef %.074, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
   %78 = load i32, ptr @hf_wai_addid, align 4
-  %79 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %78, ptr noundef %.075, i32 noundef 2, i32 noundef 12, ptr noundef nonnull @.str.226) #3
+  %79 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %78, ptr noundef %.074, i32 noundef 2, i32 noundef 12, ptr noundef nonnull @.str.226) #3
   %80 = load i32, ptr @ett_wai_mac, align 4
   %81 = tail call ptr @proto_item_add_subtree(ptr noundef %79, i32 noundef %80) #3
   %82 = load i32, ptr @hf_wai_ae_mac, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %.075, i32 noundef 2, i32 noundef 6, i32 noundef 0) #3
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %.074, i32 noundef 2, i32 noundef 6, i32 noundef 0) #3
   %84 = load i32, ptr @hf_wai_asue_mac, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %84, ptr noundef %.075, i32 noundef 8, i32 noundef 6, i32 noundef 0) #3
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %84, ptr noundef %.074, i32 noundef 8, i32 noundef 6, i32 noundef 0) #3
   %86 = load i32, ptr @hf_wai_counter, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %86, ptr noundef %.075, i32 noundef 14, i32 noundef 16, i32 noundef 0) #3
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %86, ptr noundef %.074, i32 noundef 14, i32 noundef 16, i32 noundef 0) #3
   %88 = load i32, ptr @hf_wai_message_auth_code, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %88, ptr noundef %.075, i32 noundef 30, i32 noundef 20, i32 noundef 0) #3
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %88, ptr noundef %.074, i32 noundef 30, i32 noundef 20, i32 noundef 0) #3
   br label %dissect_wai_data.exit
 
 90:                                               ; preds = %68
-  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.074, ptr noundef %73)
   %91 = load i32, ptr @hf_wai_sta_key_id, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %91, ptr noundef %.075, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %91, ptr noundef %.074, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
   %93 = load i32, ptr @hf_wai_uskid, align 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %93, ptr noundef %.075, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %93, ptr noundef %.074, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
   %95 = load i32, ptr @hf_wai_addid, align 4
-  %96 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %95, ptr noundef %.075, i32 noundef 3, i32 noundef 12, ptr noundef nonnull @.str.226) #3
+  %96 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %95, ptr noundef %.074, i32 noundef 3, i32 noundef 12, ptr noundef nonnull @.str.226) #3
   %97 = load i32, ptr @ett_wai_mac, align 4
   %98 = tail call ptr @proto_item_add_subtree(ptr noundef %96, i32 noundef %97) #3
   %99 = load i32, ptr @hf_wai_ae_mac, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %.075, i32 noundef 3, i32 noundef 6, i32 noundef 0) #3
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %.074, i32 noundef 3, i32 noundef 6, i32 noundef 0) #3
   %101 = load i32, ptr @hf_wai_asue_mac, align 4
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %101, ptr noundef %.075, i32 noundef 9, i32 noundef 6, i32 noundef 0) #3
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %101, ptr noundef %.074, i32 noundef 9, i32 noundef 6, i32 noundef 0) #3
   %103 = load i32, ptr @hf_wai_counter, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %103, ptr noundef %.075, i32 noundef 15, i32 noundef 16, i32 noundef 0) #3
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %103, ptr noundef %.074, i32 noundef 15, i32 noundef 16, i32 noundef 0) #3
   %105 = load i32, ptr @hf_wai_message_auth_code, align 4
-  %106 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %105, ptr noundef %.075, i32 noundef 31, i32 noundef 20, i32 noundef 0) #3
+  %106 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %105, ptr noundef %.074, i32 noundef 31, i32 noundef 20, i32 noundef 0) #3
   br label %dissect_wai_data.exit
 
 107:                                              ; preds = %68
-  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.074, ptr noundef %73)
   %108 = load i32, ptr @hf_wai_auth_id, align 4
-  %109 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %108, ptr noundef %.075, i32 noundef 1, i32 noundef 32, i32 noundef 0) #3
-  %110 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.075, i32 noundef 35) #3
+  %109 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %108, ptr noundef %.074, i32 noundef 1, i32 noundef 32, i32 noundef 0) #3
+  %110 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.074, i32 noundef 35) #3
   %111 = load i32, ptr @hf_wai_identity, align 4
   %112 = zext i16 %110 to i32
   %113 = add nuw nsw i32 %112, 4
-  %114 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %111, ptr noundef %.075, i32 noundef 33, i32 noundef %113, i32 noundef 0) #3
+  %114 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %111, ptr noundef %.074, i32 noundef 33, i32 noundef %113, i32 noundef 0) #3
   %115 = load i32, ptr @ett_wai_identity, align 4
   %116 = tail call ptr @proto_item_add_subtree(ptr noundef %114, i32 noundef %115) #3
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %114, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.215) #3
   %117 = load i32, ptr @hf_wai_identity_id, align 4
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %117, ptr noundef %.075, i32 noundef 33, i32 noundef 2, i32 noundef 0) #3
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %117, ptr noundef %.074, i32 noundef 33, i32 noundef 2, i32 noundef 0) #3
   %119 = load i32, ptr @hf_wai_identity_len, align 4
-  %120 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %119, ptr noundef %.075, i32 noundef 35, i32 noundef 2, i32 noundef 0) #3
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %119, ptr noundef %.074, i32 noundef 35, i32 noundef 2, i32 noundef 0) #3
   %121 = load i32, ptr @hf_wai_identity_data, align 4
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %121, ptr noundef %.075, i32 noundef 37, i32 noundef %112, i32 noundef 0) #3
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %121, ptr noundef %.074, i32 noundef 37, i32 noundef %112, i32 noundef 0) #3
   %123 = trunc i32 %113 to i16
   %124 = add i16 %123, 33
   %125 = zext i16 %124 to i32
-  %126 = tail call fastcc signext i16 @dissect_certificate(ptr noundef %.075, i32 noundef %125, ptr noundef %73, ptr noundef nonnull @.str.216)
+  %126 = tail call fastcc signext i16 @dissect_certificate(ptr noundef %.074, i32 noundef %125, ptr noundef %73, ptr noundef nonnull @.str.216)
   %127 = add i16 %126, %124
   %128 = zext i16 %127 to i32
-  %129 = tail call fastcc zeroext i16 @dissect_ecdh_parameter(ptr noundef %.075, i32 noundef %128, ptr noundef %73)
+  %129 = tail call fastcc zeroext i16 @dissect_ecdh_parameter(ptr noundef %.074, i32 noundef %128, ptr noundef %73)
   br label %dissect_wai_data.exit
 
 130:                                              ; preds = %68
-  %131 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.075, i32 noundef 0) #3
+  %131 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.074, i32 noundef 0) #3
   %132 = and i8 %131, 8
-  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.074, ptr noundef %73)
   %133 = load i32, ptr @hf_wai_auth_id, align 4
-  %134 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %133, ptr noundef %.075, i32 noundef 1, i32 noundef 32, i32 noundef 0) #3
+  %134 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %133, ptr noundef %.074, i32 noundef 1, i32 noundef 32, i32 noundef 0) #3
   %135 = load i32, ptr @hf_wai_challenge, align 4
-  %136 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %135, ptr noundef %.075, i32 noundef 33, i32 noundef 32, i32 noundef 0) #3
+  %136 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %135, ptr noundef %.074, i32 noundef 33, i32 noundef 32, i32 noundef 0) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %136, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.217) #3
-  %137 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.075, i32 noundef 65, ptr noundef %73, ptr noundef nonnull @.str.217)
+  %137 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.074, i32 noundef 65, ptr noundef %73, ptr noundef nonnull @.str.217)
   %narrow278.i = add nuw nsw i16 %137, 65
   %138 = zext nneg i16 %narrow278.i to i32
   %139 = add nuw nsw i32 %138, 2
-  %140 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.075, i32 noundef %139) #3
+  %140 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.074, i32 noundef %139) #3
   %141 = load i32, ptr @hf_wai_identity, align 4
   %142 = zext i16 %140 to i32
   %143 = add nuw nsw i32 %142, 4
-  %144 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %141, ptr noundef %.075, i32 noundef %138, i32 noundef %143, i32 noundef 0) #3
+  %144 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %141, ptr noundef %.074, i32 noundef %138, i32 noundef %143, i32 noundef 0) #3
   %145 = load i32, ptr @ett_wai_identity, align 4
   %146 = tail call ptr @proto_item_add_subtree(ptr noundef %144, i32 noundef %145) #3
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %144, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.218) #3
   %147 = load i32, ptr @hf_wai_identity_id, align 4
-  %148 = tail call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %147, ptr noundef %.075, i32 noundef %138, i32 noundef 2, i32 noundef 0) #3
+  %148 = tail call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %147, ptr noundef %.074, i32 noundef %138, i32 noundef 2, i32 noundef 0) #3
   %149 = load i32, ptr @hf_wai_identity_len, align 4
-  %150 = tail call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %149, ptr noundef %.075, i32 noundef %139, i32 noundef 2, i32 noundef 0) #3
+  %150 = tail call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %149, ptr noundef %.074, i32 noundef %139, i32 noundef 2, i32 noundef 0) #3
   %151 = load i32, ptr @hf_wai_identity_data, align 4
   %152 = add nuw nsw i32 %138, 4
-  %153 = tail call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %151, ptr noundef %.075, i32 noundef %152, i32 noundef %142, i32 noundef 0) #3
+  %153 = tail call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %151, ptr noundef %.074, i32 noundef %152, i32 noundef %142, i32 noundef 0) #3
   %154 = trunc i32 %143 to i16
   %155 = add i16 %narrow278.i, %154
   %156 = zext i16 %155 to i32
-  %157 = tail call fastcc signext i16 @dissect_certificate(ptr noundef %.075, i32 noundef %156, ptr noundef %73, ptr noundef nonnull @.str.219)
+  %157 = tail call fastcc signext i16 @dissect_certificate(ptr noundef %.074, i32 noundef %156, ptr noundef %73, ptr noundef nonnull @.str.219)
   %158 = add i16 %157, %155
   %159 = zext i16 %158 to i32
-  %160 = tail call fastcc zeroext i16 @dissect_ecdh_parameter(ptr noundef %.075, i32 noundef %159, ptr noundef %73)
+  %160 = tail call fastcc zeroext i16 @dissect_ecdh_parameter(ptr noundef %.074, i32 noundef %159, ptr noundef %73)
   %161 = add i16 %158, %160
   %.not279.i = icmp eq i8 %132, 0
   br i1 %.not279.i, label %167, label %162
 
 162:                                              ; preds = %130
   %163 = zext i16 %161 to i32
-  %164 = tail call fastcc i32 @dissect_identity_list(ptr noundef %.075, i32 noundef %163, ptr noundef %73)
+  %164 = tail call fastcc i32 @dissect_identity_list(ptr noundef %.074, i32 noundef %163, ptr noundef %73)
   %165 = trunc i32 %164 to i16
   %166 = add i16 %161, %165
   br label %167
@@ -633,62 +633,62 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 167:                                              ; preds = %162, %130
   %.0.i = phi i16 [ %166, %162 ], [ %161, %130 ]
   %168 = zext i16 %.0.i to i32
-  %169 = tail call fastcc zeroext i16 @dissect_signature(ptr noundef %.075, i32 noundef %168, ptr noundef %73, ptr noundef nonnull @.str.220)
+  %169 = tail call fastcc zeroext i16 @dissect_signature(ptr noundef %.074, i32 noundef %168, ptr noundef %73, ptr noundef nonnull @.str.220)
   br label %dissect_wai_data.exit
 
 170:                                              ; preds = %68
-  %171 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.075, i32 noundef 0) #3
+  %171 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.074, i32 noundef 0) #3
   %172 = and i8 %171, 8
-  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.074, ptr noundef %73)
   %173 = load i32, ptr @hf_wai_challenge, align 4
-  %174 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %173, ptr noundef %.075, i32 noundef 1, i32 noundef 32, i32 noundef 0) #3
+  %174 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %173, ptr noundef %.074, i32 noundef 1, i32 noundef 32, i32 noundef 0) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %174, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.217) #3
   %175 = load i32, ptr @hf_wai_challenge, align 4
-  %176 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %175, ptr noundef %.075, i32 noundef 33, i32 noundef 32, i32 noundef 0) #3
+  %176 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %175, ptr noundef %.074, i32 noundef 33, i32 noundef 32, i32 noundef 0) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %176, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.221) #3
   %177 = load i32, ptr @hf_wai_access_res, align 4
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %177, ptr noundef %.075, i32 noundef 65, i32 noundef 1, i32 noundef 0) #3
-  %179 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.075, i32 noundef 66, ptr noundef %73, ptr noundef nonnull @.str.217)
+  %178 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %177, ptr noundef %.074, i32 noundef 65, i32 noundef 1, i32 noundef 0) #3
+  %179 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.074, i32 noundef 66, ptr noundef %73, ptr noundef nonnull @.str.217)
   %narrow275.i = add nuw nsw i16 %179, 66
   %180 = zext nneg i16 %narrow275.i to i32
-  %181 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.075, i32 noundef %180, ptr noundef %73, ptr noundef nonnull @.str.221)
+  %181 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.074, i32 noundef %180, ptr noundef %73, ptr noundef nonnull @.str.221)
   %narrow276.i = add nuw nsw i16 %narrow275.i, %181
   %182 = zext nneg i16 %narrow276.i to i32
   %183 = add nuw nsw i32 %182, 2
-  %184 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.075, i32 noundef %183) #3
+  %184 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.074, i32 noundef %183) #3
   %185 = load i32, ptr @hf_wai_identity, align 4
   %186 = zext i16 %184 to i32
   %187 = add nuw nsw i32 %186, 4
-  %188 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %185, ptr noundef %.075, i32 noundef %182, i32 noundef %187, i32 noundef 0) #3
+  %188 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %185, ptr noundef %.074, i32 noundef %182, i32 noundef %187, i32 noundef 0) #3
   %189 = load i32, ptr @ett_wai_identity, align 4
   %190 = tail call ptr @proto_item_add_subtree(ptr noundef %188, i32 noundef %189) #3
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %188, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.218) #3
   %191 = load i32, ptr @hf_wai_identity_id, align 4
-  %192 = tail call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %191, ptr noundef %.075, i32 noundef %182, i32 noundef 2, i32 noundef 0) #3
+  %192 = tail call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %191, ptr noundef %.074, i32 noundef %182, i32 noundef 2, i32 noundef 0) #3
   %193 = load i32, ptr @hf_wai_identity_len, align 4
-  %194 = tail call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %193, ptr noundef %.075, i32 noundef %183, i32 noundef 2, i32 noundef 0) #3
+  %194 = tail call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %193, ptr noundef %.074, i32 noundef %183, i32 noundef 2, i32 noundef 0) #3
   %195 = load i32, ptr @hf_wai_identity_data, align 4
   %196 = add nuw nsw i32 %182, 4
-  %197 = tail call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %195, ptr noundef %.075, i32 noundef %196, i32 noundef %186, i32 noundef 0) #3
+  %197 = tail call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %195, ptr noundef %.074, i32 noundef %196, i32 noundef %186, i32 noundef 0) #3
   %198 = trunc i32 %187 to i16
   %199 = add i16 %narrow276.i, %198
   %200 = zext i16 %199 to i32
   %201 = add nuw nsw i32 %200, 2
-  %202 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.075, i32 noundef %201) #3
+  %202 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.074, i32 noundef %201) #3
   %203 = load i32, ptr @hf_wai_identity, align 4
   %204 = zext i16 %202 to i32
   %205 = add nuw nsw i32 %204, 4
-  %206 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %203, ptr noundef %.075, i32 noundef %200, i32 noundef %205, i32 noundef 0) #3
+  %206 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %203, ptr noundef %.074, i32 noundef %200, i32 noundef %205, i32 noundef 0) #3
   %207 = load i32, ptr @ett_wai_identity, align 4
   %208 = tail call ptr @proto_item_add_subtree(ptr noundef %206, i32 noundef %207) #3
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %206, ptr noundef nonnull @.str.227, ptr noundef nonnull @.str.219) #3
   %209 = load i32, ptr @hf_wai_identity_id, align 4
-  %210 = tail call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %209, ptr noundef %.075, i32 noundef %200, i32 noundef 2, i32 noundef 0) #3
+  %210 = tail call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %209, ptr noundef %.074, i32 noundef %200, i32 noundef 2, i32 noundef 0) #3
   %211 = load i32, ptr @hf_wai_identity_len, align 4
-  %212 = tail call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %211, ptr noundef %.075, i32 noundef %201, i32 noundef 2, i32 noundef 0) #3
+  %212 = tail call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %211, ptr noundef %.074, i32 noundef %201, i32 noundef 2, i32 noundef 0) #3
   %213 = load i32, ptr @hf_wai_identity_data, align 4
   %214 = add nuw nsw i32 %200, 4
-  %215 = tail call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %213, ptr noundef %.075, i32 noundef %214, i32 noundef %204, i32 noundef 0) #3
+  %215 = tail call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %213, ptr noundef %.074, i32 noundef %214, i32 noundef %204, i32 noundef 0) #3
   %216 = trunc i32 %205 to i16
   %217 = add i16 %199, %216
   %.not277.i = icmp eq i8 %172, 0
@@ -696,15 +696,15 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 218:                                              ; preds = %170
   %219 = zext i16 %217 to i32
-  %220 = tail call fastcc i32 @dissect_multiple_certificate(ptr noundef %.075, i32 noundef %219, ptr noundef %73)
+  %220 = tail call fastcc i32 @dissect_multiple_certificate(ptr noundef %.074, i32 noundef %219, ptr noundef %73)
   %221 = trunc i32 %220 to i16
   %222 = add i16 %217, %221
   %223 = zext i16 %222 to i32
-  %224 = tail call fastcc zeroext i16 @dissect_signature(ptr noundef %.075, i32 noundef %223, ptr noundef %73, ptr noundef nonnull @.str.222)
+  %224 = tail call fastcc zeroext i16 @dissect_signature(ptr noundef %.074, i32 noundef %223, ptr noundef %73, ptr noundef nonnull @.str.222)
   %225 = add i16 %222, %224
   %226 = zext i16 %225 to i32
   %227 = add nuw nsw i32 %226, 1
-  %228 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.075, i32 noundef %227) #3
+  %228 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %.074, i32 noundef %227) #3
   %229 = zext i16 %228 to i32
   %230 = add nuw nsw i32 %229, 4
   %231 = add nuw nsw i32 %230, %226
@@ -712,109 +712,109 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %232, label %233, label %236
 
 233:                                              ; preds = %218
-  %234 = tail call fastcc zeroext i16 @dissect_signature(ptr noundef %.075, i32 noundef %226, ptr noundef %73, ptr noundef nonnull @.str.223)
+  %234 = tail call fastcc zeroext i16 @dissect_signature(ptr noundef %.074, i32 noundef %226, ptr noundef %73, ptr noundef nonnull @.str.223)
   %235 = add i16 %234, %225
   br label %236
 
 236:                                              ; preds = %233, %218, %170
   %.0273.i = phi i16 [ %235, %233 ], [ %225, %218 ], [ %217, %170 ]
   %237 = zext i16 %.0273.i to i32
-  %238 = tail call fastcc zeroext i16 @dissect_signature(ptr noundef %.075, i32 noundef %237, ptr noundef %73, ptr noundef nonnull @.str.224)
+  %238 = tail call fastcc zeroext i16 @dissect_signature(ptr noundef %.074, i32 noundef %237, ptr noundef %73, ptr noundef nonnull @.str.224)
   br label %dissect_wai_data.exit
 
 239:                                              ; preds = %68
-  %240 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.075, i32 noundef 0) #3
+  %240 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %.074, i32 noundef 0) #3
   %241 = and i8 %240, 8
   %242 = load i32, ptr @hf_wai_addid, align 4
-  %243 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %242, ptr noundef %.075, i32 noundef 0, i32 noundef 12, ptr noundef nonnull @.str.226) #3
+  %243 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %242, ptr noundef %.074, i32 noundef 0, i32 noundef 12, ptr noundef nonnull @.str.226) #3
   %244 = load i32, ptr @ett_wai_mac, align 4
   %245 = tail call ptr @proto_item_add_subtree(ptr noundef %243, i32 noundef %244) #3
   %246 = load i32, ptr @hf_wai_ae_mac, align 4
-  %247 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %246, ptr noundef %.075, i32 noundef 0, i32 noundef 6, i32 noundef 0) #3
+  %247 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %246, ptr noundef %.074, i32 noundef 0, i32 noundef 6, i32 noundef 0) #3
   %248 = load i32, ptr @hf_wai_asue_mac, align 4
-  %249 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %248, ptr noundef %.075, i32 noundef 6, i32 noundef 6, i32 noundef 0) #3
+  %249 = tail call ptr @proto_tree_add_item(ptr noundef %245, i32 noundef %248, ptr noundef %.074, i32 noundef 6, i32 noundef 6, i32 noundef 0) #3
   %250 = load i32, ptr @hf_wai_challenge, align 4
-  %251 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %250, ptr noundef %.075, i32 noundef 12, i32 noundef 32, i32 noundef 0) #3
+  %251 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %250, ptr noundef %.074, i32 noundef 12, i32 noundef 32, i32 noundef 0) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %251, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.221) #3
   %252 = load i32, ptr @hf_wai_challenge, align 4
-  %253 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %252, ptr noundef %.075, i32 noundef 44, i32 noundef 32, i32 noundef 0) #3
+  %253 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %252, ptr noundef %.074, i32 noundef 44, i32 noundef 32, i32 noundef 0) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %253, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.217) #3
-  %254 = tail call fastcc signext i16 @dissect_certificate(ptr noundef %.075, i32 noundef 76, ptr noundef %73, ptr noundef nonnull @.str.225)
+  %254 = tail call fastcc signext i16 @dissect_certificate(ptr noundef %.074, i32 noundef 76, ptr noundef %73, ptr noundef nonnull @.str.225)
   %255 = add i16 %254, 76
   %256 = zext i16 %255 to i32
-  %257 = tail call fastcc signext i16 @dissect_certificate(ptr noundef %.075, i32 noundef %256, ptr noundef %73, ptr noundef nonnull @.str.216)
+  %257 = tail call fastcc signext i16 @dissect_certificate(ptr noundef %.074, i32 noundef %256, ptr noundef %73, ptr noundef nonnull @.str.216)
   %.not.i = icmp eq i8 %241, 0
   br i1 %.not.i, label %dissect_wai_data.exit, label %258
 
 258:                                              ; preds = %239
   %259 = add i16 %255, %257
   %260 = zext i16 %259 to i32
-  %261 = tail call fastcc i32 @dissect_identity_list(ptr noundef %.075, i32 noundef %260, ptr noundef %73)
+  %261 = tail call fastcc i32 @dissect_identity_list(ptr noundef %.074, i32 noundef %260, ptr noundef %73)
   br label %dissect_wai_data.exit
 
 262:                                              ; preds = %68
   %263 = load i32, ptr @hf_wai_addid, align 4
-  %264 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %263, ptr noundef %.075, i32 noundef 0, i32 noundef 12, ptr noundef nonnull @.str.226) #3
+  %264 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %263, ptr noundef %.074, i32 noundef 0, i32 noundef 12, ptr noundef nonnull @.str.226) #3
   %265 = load i32, ptr @ett_wai_mac, align 4
   %266 = tail call ptr @proto_item_add_subtree(ptr noundef %264, i32 noundef %265) #3
   %267 = load i32, ptr @hf_wai_ae_mac, align 4
-  %268 = tail call ptr @proto_tree_add_item(ptr noundef %266, i32 noundef %267, ptr noundef %.075, i32 noundef 0, i32 noundef 6, i32 noundef 0) #3
+  %268 = tail call ptr @proto_tree_add_item(ptr noundef %266, i32 noundef %267, ptr noundef %.074, i32 noundef 0, i32 noundef 6, i32 noundef 0) #3
   %269 = load i32, ptr @hf_wai_asue_mac, align 4
-  %270 = tail call ptr @proto_tree_add_item(ptr noundef %266, i32 noundef %269, ptr noundef %.075, i32 noundef 6, i32 noundef 6, i32 noundef 0) #3
-  %271 = tail call fastcc i32 @dissect_multiple_certificate(ptr noundef %.075, i32 noundef 12, ptr noundef %73)
+  %270 = tail call ptr @proto_tree_add_item(ptr noundef %266, i32 noundef %269, ptr noundef %.074, i32 noundef 6, i32 noundef 6, i32 noundef 0) #3
+  %271 = tail call fastcc i32 @dissect_multiple_certificate(ptr noundef %.074, i32 noundef 12, ptr noundef %73)
   %272 = add nuw nsw i32 %271, 12
   %273 = and i32 %272, 65535
-  %274 = tail call fastcc zeroext i16 @dissect_signature(ptr noundef %.075, i32 noundef %273, ptr noundef %73, ptr noundef nonnull @.str.222)
+  %274 = tail call fastcc zeroext i16 @dissect_signature(ptr noundef %.074, i32 noundef %273, ptr noundef %73, ptr noundef nonnull @.str.222)
   %275 = trunc i32 %272 to i16
   %276 = add i16 %274, %275
-  %277 = icmp ult i16 %276, %.074
+  %277 = icmp ult i16 %276, %.076
   br i1 %277, label %278, label %dissect_wai_data.exit
 
 278:                                              ; preds = %262
   %279 = zext i16 %276 to i32
-  %280 = tail call fastcc zeroext i16 @dissect_signature(ptr noundef %.075, i32 noundef %279, ptr noundef %73, ptr noundef nonnull @.str.223)
+  %280 = tail call fastcc zeroext i16 @dissect_signature(ptr noundef %.074, i32 noundef %279, ptr noundef %73, ptr noundef nonnull @.str.223)
   br label %dissect_wai_data.exit
 
 281:                                              ; preds = %68
-  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.074, ptr noundef %73)
   %282 = load i32, ptr @hf_wai_bkid, align 4
-  %283 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %282, ptr noundef %.075, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
+  %283 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %282, ptr noundef %.074, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
   %284 = load i32, ptr @hf_wai_uskid, align 4
-  %285 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %284, ptr noundef %.075, i32 noundef 17, i32 noundef 1, i32 noundef 0) #3
+  %285 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %284, ptr noundef %.074, i32 noundef 17, i32 noundef 1, i32 noundef 0) #3
   %286 = load i32, ptr @hf_wai_addid, align 4
-  %287 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %286, ptr noundef %.075, i32 noundef 18, i32 noundef 12, ptr noundef nonnull @.str.226) #3
+  %287 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %286, ptr noundef %.074, i32 noundef 18, i32 noundef 12, ptr noundef nonnull @.str.226) #3
   %288 = load i32, ptr @ett_wai_mac, align 4
   %289 = tail call ptr @proto_item_add_subtree(ptr noundef %287, i32 noundef %288) #3
   %290 = load i32, ptr @hf_wai_ae_mac, align 4
-  %291 = tail call ptr @proto_tree_add_item(ptr noundef %289, i32 noundef %290, ptr noundef %.075, i32 noundef 18, i32 noundef 6, i32 noundef 0) #3
+  %291 = tail call ptr @proto_tree_add_item(ptr noundef %289, i32 noundef %290, ptr noundef %.074, i32 noundef 18, i32 noundef 6, i32 noundef 0) #3
   %292 = load i32, ptr @hf_wai_asue_mac, align 4
-  %293 = tail call ptr @proto_tree_add_item(ptr noundef %289, i32 noundef %292, ptr noundef %.075, i32 noundef 24, i32 noundef 6, i32 noundef 0) #3
+  %293 = tail call ptr @proto_tree_add_item(ptr noundef %289, i32 noundef %292, ptr noundef %.074, i32 noundef 24, i32 noundef 6, i32 noundef 0) #3
   %294 = load i32, ptr @hf_wai_challenge, align 4
-  %295 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %294, ptr noundef %.075, i32 noundef 30, i32 noundef 32, i32 noundef 0) #3
+  %295 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %294, ptr noundef %.074, i32 noundef 30, i32 noundef 32, i32 noundef 0) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %295, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.221) #3
   br label %dissect_wai_data.exit
 
 296:                                              ; preds = %68
-  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.074, ptr noundef %73)
   %297 = load i32, ptr @hf_wai_bkid, align 4
-  %298 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %297, ptr noundef %.075, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
+  %298 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %297, ptr noundef %.074, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
   %299 = load i32, ptr @hf_wai_uskid, align 4
-  %300 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %299, ptr noundef %.075, i32 noundef 17, i32 noundef 1, i32 noundef 0) #3
+  %300 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %299, ptr noundef %.074, i32 noundef 17, i32 noundef 1, i32 noundef 0) #3
   %301 = load i32, ptr @hf_wai_addid, align 4
-  %302 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %301, ptr noundef %.075, i32 noundef 18, i32 noundef 12, ptr noundef nonnull @.str.226) #3
+  %302 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %301, ptr noundef %.074, i32 noundef 18, i32 noundef 12, ptr noundef nonnull @.str.226) #3
   %303 = load i32, ptr @ett_wai_mac, align 4
   %304 = tail call ptr @proto_item_add_subtree(ptr noundef %302, i32 noundef %303) #3
   %305 = load i32, ptr @hf_wai_ae_mac, align 4
-  %306 = tail call ptr @proto_tree_add_item(ptr noundef %304, i32 noundef %305, ptr noundef %.075, i32 noundef 18, i32 noundef 6, i32 noundef 0) #3
+  %306 = tail call ptr @proto_tree_add_item(ptr noundef %304, i32 noundef %305, ptr noundef %.074, i32 noundef 18, i32 noundef 6, i32 noundef 0) #3
   %307 = load i32, ptr @hf_wai_asue_mac, align 4
-  %308 = tail call ptr @proto_tree_add_item(ptr noundef %304, i32 noundef %307, ptr noundef %.075, i32 noundef 24, i32 noundef 6, i32 noundef 0) #3
+  %308 = tail call ptr @proto_tree_add_item(ptr noundef %304, i32 noundef %307, ptr noundef %.074, i32 noundef 24, i32 noundef 6, i32 noundef 0) #3
   %309 = load i32, ptr @hf_wai_challenge, align 4
-  %310 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %309, ptr noundef %.075, i32 noundef 30, i32 noundef 32, i32 noundef 0) #3
+  %310 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %309, ptr noundef %.074, i32 noundef 30, i32 noundef 32, i32 noundef 0) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %310, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.217) #3
   %311 = load i32, ptr @hf_wai_challenge, align 4
-  %312 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %311, ptr noundef %.075, i32 noundef 62, i32 noundef 32, i32 noundef 0) #3
+  %312 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %311, ptr noundef %.074, i32 noundef 62, i32 noundef 32, i32 noundef 0) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %312, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.221) #3
-  %313 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.075, i32 noundef 96) #3
+  %313 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.074, i32 noundef 96) #3
   %314 = tail call i32 @tvb_reported_length(ptr noundef %313) #3
   %315 = add i32 %314, -20
   %316 = load i32, ptr @hf_wai_wie, align 4
@@ -824,23 +824,23 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_wai_data.exit
 
 320:                                              ; preds = %68
-  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.074, ptr noundef %73)
   %321 = load i32, ptr @hf_wai_bkid, align 4
-  %322 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %321, ptr noundef %.075, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
+  %322 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %321, ptr noundef %.074, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
   %323 = load i32, ptr @hf_wai_uskid, align 4
-  %324 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %323, ptr noundef %.075, i32 noundef 17, i32 noundef 1, i32 noundef 0) #3
+  %324 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %323, ptr noundef %.074, i32 noundef 17, i32 noundef 1, i32 noundef 0) #3
   %325 = load i32, ptr @hf_wai_addid, align 4
-  %326 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %325, ptr noundef %.075, i32 noundef 18, i32 noundef 12, ptr noundef nonnull @.str.226) #3
+  %326 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %325, ptr noundef %.074, i32 noundef 18, i32 noundef 12, ptr noundef nonnull @.str.226) #3
   %327 = load i32, ptr @ett_wai_mac, align 4
   %328 = tail call ptr @proto_item_add_subtree(ptr noundef %326, i32 noundef %327) #3
   %329 = load i32, ptr @hf_wai_ae_mac, align 4
-  %330 = tail call ptr @proto_tree_add_item(ptr noundef %328, i32 noundef %329, ptr noundef %.075, i32 noundef 18, i32 noundef 6, i32 noundef 0) #3
+  %330 = tail call ptr @proto_tree_add_item(ptr noundef %328, i32 noundef %329, ptr noundef %.074, i32 noundef 18, i32 noundef 6, i32 noundef 0) #3
   %331 = load i32, ptr @hf_wai_asue_mac, align 4
-  %332 = tail call ptr @proto_tree_add_item(ptr noundef %328, i32 noundef %331, ptr noundef %.075, i32 noundef 24, i32 noundef 6, i32 noundef 0) #3
+  %332 = tail call ptr @proto_tree_add_item(ptr noundef %328, i32 noundef %331, ptr noundef %.074, i32 noundef 24, i32 noundef 6, i32 noundef 0) #3
   %333 = load i32, ptr @hf_wai_challenge, align 4
-  %334 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %333, ptr noundef %.075, i32 noundef 30, i32 noundef 32, i32 noundef 0) #3
+  %334 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %333, ptr noundef %.074, i32 noundef 30, i32 noundef 32, i32 noundef 0) #3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %334, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.217) #3
-  %335 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.075, i32 noundef 62) #3
+  %335 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.074, i32 noundef 62) #3
   %336 = tail call i32 @tvb_reported_length(ptr noundef %335) #3
   %337 = add i32 %336, -20
   %338 = load i32, ptr @hf_wai_wie, align 4
@@ -850,48 +850,48 @@ define internal i32 @dissect_wai(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_wai_data.exit
 
 342:                                              ; preds = %68
-  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.074, ptr noundef %73)
   %343 = load i32, ptr @hf_wai_mskid, align 4
-  %344 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %343, ptr noundef %.075, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
+  %344 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %343, ptr noundef %.074, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
   %345 = load i32, ptr @hf_wai_uskid, align 4
-  %346 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %345, ptr noundef %.075, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
+  %346 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %345, ptr noundef %.074, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
   %347 = load i32, ptr @hf_wai_addid, align 4
-  %348 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %347, ptr noundef %.075, i32 noundef 3, i32 noundef 12, ptr noundef nonnull @.str.226) #3
+  %348 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %347, ptr noundef %.074, i32 noundef 3, i32 noundef 12, ptr noundef nonnull @.str.226) #3
   %349 = load i32, ptr @ett_wai_mac, align 4
   %350 = tail call ptr @proto_item_add_subtree(ptr noundef %348, i32 noundef %349) #3
   %351 = load i32, ptr @hf_wai_ae_mac, align 4
-  %352 = tail call ptr @proto_tree_add_item(ptr noundef %350, i32 noundef %351, ptr noundef %.075, i32 noundef 3, i32 noundef 6, i32 noundef 0) #3
+  %352 = tail call ptr @proto_tree_add_item(ptr noundef %350, i32 noundef %351, ptr noundef %.074, i32 noundef 3, i32 noundef 6, i32 noundef 0) #3
   %353 = load i32, ptr @hf_wai_asue_mac, align 4
-  %354 = tail call ptr @proto_tree_add_item(ptr noundef %350, i32 noundef %353, ptr noundef %.075, i32 noundef 9, i32 noundef 6, i32 noundef 0) #3
+  %354 = tail call ptr @proto_tree_add_item(ptr noundef %350, i32 noundef %353, ptr noundef %.074, i32 noundef 9, i32 noundef 6, i32 noundef 0) #3
   %355 = load i32, ptr @hf_wai_data_pack_num, align 4
-  %356 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %355, ptr noundef %.075, i32 noundef 15, i32 noundef 16, i32 noundef 0) #3
+  %356 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %355, ptr noundef %.074, i32 noundef 15, i32 noundef 16, i32 noundef 0) #3
   %357 = load i32, ptr @hf_wai_key_ann_id, align 4
-  %358 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %357, ptr noundef %.075, i32 noundef 31, i32 noundef 16, i32 noundef 0) #3
-  %359 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.075, i32 noundef 47, ptr noundef %73, ptr noundef null)
+  %358 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %357, ptr noundef %.074, i32 noundef 31, i32 noundef 16, i32 noundef 0) #3
+  %359 = tail call fastcc zeroext i16 @dissect_key_data(ptr noundef %.074, i32 noundef 47, ptr noundef %73, ptr noundef null)
   %narrow.i = add nuw nsw i16 %359, 47
   %360 = zext nneg i16 %narrow.i to i32
   %361 = load i32, ptr @hf_wai_message_auth_code, align 4
-  %362 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %361, ptr noundef %.075, i32 noundef %360, i32 noundef 20, i32 noundef 0) #3
+  %362 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %361, ptr noundef %.074, i32 noundef %360, i32 noundef 20, i32 noundef 0) #3
   br label %dissect_wai_data.exit
 
 363:                                              ; preds = %68
-  tail call fastcc void @dissect_flag(ptr noundef %.075, ptr noundef %73)
+  tail call fastcc void @dissect_flag(ptr noundef %.074, ptr noundef %73)
   %364 = load i32, ptr @hf_wai_mskid, align 4
-  %365 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %364, ptr noundef %.075, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
+  %365 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %364, ptr noundef %.074, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
   %366 = load i32, ptr @hf_wai_uskid, align 4
-  %367 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %366, ptr noundef %.075, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
+  %367 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %366, ptr noundef %.074, i32 noundef 2, i32 noundef 1, i32 noundef 0) #3
   %368 = load i32, ptr @hf_wai_addid, align 4
-  %369 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %368, ptr noundef %.075, i32 noundef 3, i32 noundef 12, ptr noundef nonnull @.str.226) #3
+  %369 = tail call ptr @proto_tree_add_string(ptr noundef %73, i32 noundef %368, ptr noundef %.074, i32 noundef 3, i32 noundef 12, ptr noundef nonnull @.str.226) #3
   %370 = load i32, ptr @ett_wai_mac, align 4
   %371 = tail call ptr @proto_item_add_subtree(ptr noundef %369, i32 noundef %370) #3
   %372 = load i32, ptr @hf_wai_ae_mac, align 4
-  %373 = tail call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %372, ptr noundef %.075, i32 noundef 3, i32 noundef 6, i32 noundef 0) #3
+  %373 = tail call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %372, ptr noundef %.074, i32 noundef 3, i32 noundef 6, i32 noundef 0) #3
   %374 = load i32, ptr @hf_wai_asue_mac, align 4
-  %375 = tail call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %374, ptr noundef %.075, i32 noundef 9, i32 noundef 6, i32 noundef 0) #3
+  %375 = tail call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %374, ptr noundef %.074, i32 noundef 9, i32 noundef 6, i32 noundef 0) #3
   %376 = load i32, ptr @hf_wai_key_ann_id, align 4
-  %377 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %376, ptr noundef %.075, i32 noundef 15, i32 noundef 16, i32 noundef 0) #3
+  %377 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %376, ptr noundef %.074, i32 noundef 15, i32 noundef 16, i32 noundef 0) #3
   %378 = load i32, ptr @hf_wai_message_auth_code, align 4
-  %379 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %378, ptr noundef %.075, i32 noundef 31, i32 noundef 20, i32 noundef 0) #3
+  %379 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %378, ptr noundef %.074, i32 noundef 31, i32 noundef 20, i32 noundef 0) #3
   br label %dissect_wai_data.exit
 
 dissect_wai_data.exit:                            ; preds = %363, %342, %320, %296, %281, %278, %262, %258, %239, %236, %167, %107, %90, %75, %68, %67, %55

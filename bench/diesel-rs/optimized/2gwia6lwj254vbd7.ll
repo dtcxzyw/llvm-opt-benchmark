@@ -348,8 +348,8 @@ define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17hbd3
   %5 = getelementptr inbounds i8, ptr %0, i64 2
   %6 = load i16, ptr %5, align 2
   %7 = icmp slt i16 %4, %6
-  %.016 = select i1 %.not, i1 %7, i1 false
-  ret i1 %.016
+  %.0 = select i1 %.not, i1 %7, i1 false
+  ret i1 %.0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -488,12 +488,12 @@ parse_optional_module_params.exit.thread156:      ; preds = %29, %parse_optional
   br label %96
 
 96:                                               ; preds = %97, %94
-  %.0126 = phi i32 [ %1, %94 ], [ %101, %97 ]
-  %.not141 = icmp eq i32 %.0126, 0
+  %.0121 = phi i32 [ %1, %94 ], [ %101, %97 ]
+  %.not141 = icmp eq i32 %.0121, 0
   br i1 %.not141, label %.loopexit, label %97
 
 97:                                               ; preds = %96
-  %98 = zext i32 %.0126 to i64
+  %98 = zext i32 %.0121 to i64
   %99 = getelementptr inbounds %struct.Ast_, ptr %95, i64 %98
   %100 = getelementptr inbounds i8, ptr %99, i64 8
   %101 = load i32, ptr %100, align 8
@@ -642,8 +642,8 @@ expand_.exit:                                     ; preds = %142, %146
   br label %171
 
 171:                                              ; preds = %expand_.exit, %168
-  %.0119 = phi i32 [ %170, %168 ], [ 0, %expand_.exit ]
-  %172 = add i32 %.0119, -1
+  %.0120 = phi i32 [ %170, %168 ], [ 0, %expand_.exit ]
+  %172 = add i32 %.0120, -1
   %173 = zext i32 %172 to i64
   %174 = getelementptr inbounds ptr, ptr %167, i64 %173
   store ptr %116, ptr %174, align 8
@@ -720,10 +720,10 @@ expand_.exit:                                     ; preds = %142, %146
   br i1 %.not145, label %212, label %.thread164
 
 .thread164:                                       ; preds = %204, %207
-  %.0122 = phi i32 [ %209, %207 ], [ 0, %204 ]
+  %.0124 = phi i32 [ %209, %207 ], [ 0, %204 ]
   %210 = getelementptr inbounds i8, ptr %116, i64 16
   %211 = load i64, ptr %210, align 8
-  call void (i64, ptr, ...) @sema_error_at(i64 %211, ptr noundef nonnull @.str.12, i32 noundef %.0122) #8
+  call void (i64, ptr, ...) @sema_error_at(i64 %211, ptr noundef nonnull @.str.12, i32 noundef %.0124) #8
   br label %252
 
 212:                                              ; preds = %207
@@ -801,8 +801,8 @@ expand_.exit:                                     ; preds = %142, %146
   br label %252
 
 252:                                              ; preds = %.loopexit, %parse_optional_module_params.exit.thread156, %73, %parse_optional_module_params.exit.thread, %251, %248, %236, %230, %.critedge, %.thread164, %200, %192, %179, %.thread, %120, %105, %74, %24, %21, %20, %14, %8
-  %.0125 = phi i1 [ false, %8 ], [ false, %105 ], [ false, %120 ], [ false, %236 ], [ false, %.thread164 ], [ false, %230 ], [ false, %.critedge ], [ false, %192 ], [ false, %200 ], [ false, %179 ], [ false, %.thread ], [ true, %251 ], [ false, %248 ], [ false, %74 ], [ false, %24 ], [ false, %14 ], [ false, %20 ], [ false, %21 ], [ false, %parse_optional_module_params.exit.thread ], [ true, %73 ], [ false, %parse_optional_module_params.exit.thread156 ], [ false, %.loopexit ]
-  ret i1 %.0125
+  %.0123 = phi i1 [ false, %8 ], [ false, %105 ], [ false, %120 ], [ false, %236 ], [ false, %.thread164 ], [ false, %230 ], [ false, %.critedge ], [ false, %192 ], [ false, %200 ], [ false, %179 ], [ false, %.thread ], [ true, %251 ], [ false, %248 ], [ false, %74 ], [ false, %24 ], [ false, %14 ], [ false, %20 ], [ false, %21 ], [ false, %parse_optional_module_params.exit.thread ], [ true, %73 ], [ false, %parse_optional_module_params.exit.thread156 ], [ false, %.loopexit ]
+  ret i1 %.0123
 }
 
 declare void @sema_error_at(i64, ptr noundef, ...) local_unnamed_addr #1
@@ -984,7 +984,7 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nocapt
   br label %.loopexit67
 
 .loopexit67:                                      ; preds = %16, %.loopexit67.loopexit123, %.loopexit67.loopexit
-  %.041.ph.ph = phi i32 [ 0, %.loopexit67.loopexit ], [ 1, %.loopexit67.loopexit123 ], [ 2, %16 ]
+  %.037.ph.ph = phi i32 [ 0, %.loopexit67.loopexit ], [ 1, %.loopexit67.loopexit123 ], [ 2, %16 ]
   br i1 %.not52, label %30, label %35
 
 30:                                               ; preds = %.loopexit67
@@ -1005,7 +1005,7 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nocapt
   br label %.loopexit
 
 .outer:                                           ; preds = %35
-  store i32 %.041.ph.ph, ptr %2, align 4
+  store i32 %.037.ph.ph, ptr %2, align 4
   %39 = call zeroext i1 @parse_attribute(ptr noundef %0, ptr noundef nonnull %6, i1 noundef zeroext false)
   br i1 %39, label %.lr.ph77, label %.loopexit
 
@@ -1101,8 +1101,8 @@ define dso_local noundef zeroext i1 @parse_attributes(ptr noundef %0, ptr nocapt
   br label %.backedge
 
 .loopexit:                                        ; preds = %.outer, %.backedge, %10, %8, %53, %36, %30, %25, %18
-  %.038 = phi i1 [ false, %53 ], [ false, %25 ], [ false, %36 ], [ false, %30 ], [ false, %18 ], [ false, %8 ], [ %.not49, %.backedge ], [ true, %10 ], [ false, %.outer ]
-  ret i1 %.038
+  %.041 = phi i1 [ false, %53 ], [ false, %25 ], [ false, %36 ], [ false, %30 ], [ false, %18 ], [ false, %8 ], [ %.not49, %.backedge ], [ true, %10 ], [ false, %.outer ]
+  ret i1 %.041
 }
 
 declare void @sema_error_at_after(i64, ptr noundef, ...) local_unnamed_addr #1
@@ -1671,7 +1671,7 @@ extend_span_with_token.exit118.i:                 ; preds = %171, %170
   br label %181
 
 181:                                              ; preds = %213, %180
-  %.039.i = phi ptr [ null, %180 ], [ %216, %213 ]
+  %.037.i = phi ptr [ null, %180 ], [ %216, %213 ]
   %182 = tail call ptr @parse_expr(ptr noundef %0) #8
   %183 = icmp eq ptr %182, null
   br i1 %183, label %.critedge.i52, label %184
@@ -1688,7 +1688,7 @@ extend_span_with_token.exit118.i:                 ; preds = %171, %170
   br label %parse_vector_type_index.exit.backedge
 
 .critedge.i52:                                    ; preds = %184, %181
-  %.not.i.i53 = icmp eq ptr %.039.i, null
+  %.not.i.i53 = icmp eq ptr %.037.i, null
   br i1 %.not.i.i53, label %190, label %193
 
 190:                                              ; preds = %.critedge.i52
@@ -1698,8 +1698,8 @@ extend_span_with_token.exit118.i:                 ; preds = %171, %170
   br label %195
 
 193:                                              ; preds = %.critedge.i52
-  %194 = getelementptr inbounds i8, ptr %.039.i, i64 -8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.039.i, i64 -4
+  %194 = getelementptr inbounds i8, ptr %.037.i, i64 -8
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.037.i, i64 -4
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %195
 
@@ -2471,8 +2471,8 @@ extend_span_with_token.exit299:                   ; preds = %261, %262
   br label %271
 
 271:                                              ; preds = %extend_span_with_token.exit299, %244, %extend_span_with_token.exit290, %204, %189, %extend_span_with_token.exit281, %169, %164, %153, %extend_span_with_token.exit272, %123, %118, %107, %extend_span_with_token.exit263, %77, %72, %61, %extend_span_with_token.exit, %31, %26, %15
-  %.0229 = phi ptr [ %7, %extend_span_with_token.exit ], [ %35, %31 ], [ %27, %26 ], [ %19, %15 ], [ %53, %extend_span_with_token.exit263 ], [ %81, %77 ], [ %73, %72 ], [ %65, %61 ], [ %99, %extend_span_with_token.exit272 ], [ %127, %123 ], [ %119, %118 ], [ %111, %107 ], [ %145, %extend_span_with_token.exit281 ], [ %173, %169 ], [ %165, %164 ], [ %157, %153 ], [ %194, %extend_span_with_token.exit290 ], [ %205, %204 ], [ %246, %244 ], [ %.1, %extend_span_with_token.exit299 ], [ %190, %189 ]
-  ret ptr %.0229
+  %.0223 = phi ptr [ %7, %extend_span_with_token.exit ], [ %35, %31 ], [ %27, %26 ], [ %19, %15 ], [ %53, %extend_span_with_token.exit263 ], [ %81, %77 ], [ %73, %72 ], [ %65, %61 ], [ %99, %extend_span_with_token.exit272 ], [ %127, %123 ], [ %119, %118 ], [ %111, %107 ], [ %145, %extend_span_with_token.exit281 ], [ %173, %169 ], [ %165, %164 ], [ %157, %153 ], [ %194, %extend_span_with_token.exit290 ], [ %205, %204 ], [ %246, %244 ], [ %.1, %extend_span_with_token.exit299 ], [ %190, %189 ]
+  ret ptr %.0223
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2581,7 +2581,7 @@ define dso_local noundef zeroext i1 @parse_interface_impls(ptr noundef %0, ptr n
   br i1 %3, label %.preheader, label %.loopexit39
 
 .preheader:                                       ; preds = %2, %40
-  %.030 = phi ptr [ %43, %40 ], [ null, %2 ]
+  %.028 = phi ptr [ %43, %40 ], [ null, %2 ]
   %4 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 26) #8
   br i1 %4, label %.loopexit, label %5
 
@@ -2620,7 +2620,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %.not33, label %.loopexit39, label %.critedge
 
 .critedge:                                        ; preds = %parse_type.exit, %14
-  %.not.i37 = icmp eq ptr %.030, null
+  %.not.i37 = icmp eq ptr %.028, null
   br i1 %.not.i37, label %17, label %20
 
 17:                                               ; preds = %.critedge
@@ -2630,8 +2630,8 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %22
 
 20:                                               ; preds = %.critedge
-  %21 = getelementptr inbounds i8, ptr %.030, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.030, i64 -4
+  %21 = getelementptr inbounds i8, ptr %.028, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.028, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %22
 
@@ -2692,13 +2692,13 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.critedge36
-  %.1 = phi ptr [ %43, %.critedge36 ], [ %.030, %.preheader ]
+  %.1 = phi ptr [ %43, %.critedge36 ], [ %.028, %.preheader ]
   store ptr %.1, ptr %1, align 8
   br label %.loopexit39
 
 .loopexit39:                                      ; preds = %14, %51, %2, %.loopexit
-  %.029 = phi i1 [ true, %.loopexit ], [ true, %2 ], [ false, %51 ], [ false, %14 ]
-  ret i1 %.029
+  %.030 = phi i1 [ true, %.loopexit ], [ true, %2 ], [ false, %51 ], [ false, %14 ]
+  ret i1 %.030
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2815,8 +2815,8 @@ define dso_local ptr @parse_local_decl_after_type(ptr noundef %0, ptr noundef %1
   br label %58
 
 58:                                               ; preds = %41, %.critedge2, %9, %.critedge, %56, %45, %39, %27, %24, %5
-  %.057 = phi ptr [ %8, %5 ], [ %25, %24 ], [ %57, %56 ], [ %47, %45 ], [ %40, %39 ], [ %30, %27 ], [ %14, %.critedge ], [ %14, %9 ], [ %36, %.critedge2 ], [ %36, %41 ]
-  ret ptr %.057
+  %.0 = phi ptr [ %8, %5 ], [ %25, %24 ], [ %57, %56 ], [ %47, %45 ], [ %40, %39 ], [ %30, %27 ], [ %14, %.critedge ], [ %14, %9 ], [ %36, %.critedge2 ], [ %36, %41 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3008,8 +3008,8 @@ define dso_local ptr @parse_var_decl(ptr noundef %0) local_unnamed_addr #0 {
   br label %66
 
 66:                                               ; preds = %.critedge, %.critedge2, %28, %.critedge4, %45, %62, %59, %42, %25, %16, %4
-  %.0 = phi ptr [ %65, %62 ], [ %60, %59 ], [ %43, %42 ], [ %26, %25 ], [ null, %16 ], [ %7, %4 ], [ %50, %.critedge4 ], [ %50, %45 ], [ %33, %.critedge2 ], [ %33, %28 ], [ %13, %.critedge ]
-  ret ptr %.0
+  %.057 = phi ptr [ %65, %62 ], [ %60, %59 ], [ %43, %42 ], [ %26, %25 ], [ null, %16 ], [ %7, %4 ], [ %50, %.critedge4 ], [ %50, %45 ], [ %33, %.critedge2 ], [ %33, %28 ], [ %13, %.critedge ]
+  ret ptr %.057
 }
 
 declare ptr @parse_expr(ptr noundef) local_unnamed_addr #1
@@ -3038,12 +3038,12 @@ define dso_local ptr @parse_const_declaration(ptr noundef %0, i1 noundef zeroext
   br label %65
 
 .critedge:                                        ; preds = %8, %6, %3
-  %.046 = phi ptr [ null, %3 ], [ null, %6 ], [ %7, %8 ]
+  %.0 = phi ptr [ null, %3 ], [ null, %6 ], [ %7, %8 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8
-  %17 = tail call ptr @decl_new_var(ptr noundef %14, i64 %16, ptr noundef %.046, i32 noundef 0) #8
+  %17 = tail call ptr @decl_new_var(ptr noundef %14, i64 %16, ptr noundef %.0, i32 noundef 0) #8
   %18 = load i32, ptr %4, align 8
   switch i32 %18, label %19 [
     i32 64, label %consume_const_name.exit.thread
@@ -3338,7 +3338,7 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
   br i1 %49, label %.preheader, label %.loopexit135
 
 .preheader:                                       ; preds = %48, %.critedge123
-  %.0104 = phi ptr [ %142, %.critedge123 ], [ null, %48 ]
+  %.0102 = phi ptr [ %142, %.critedge123 ], [ null, %48 ]
   %50 = load i32, ptr %8, align 8
   switch i32 %50, label %108 [
     i32 1, label %51
@@ -3465,7 +3465,7 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
   %.sroa.311.0.i.sink = phi i64 [ %.sroa.33.0.extract.shift.i, %72 ], [ %80, %73 ], [ %.sroa.33.0.extract.shift.i126, %99 ], [ %107, %100 ]
   %.sink140 = phi i64 [ %70, %72 ], [ %70, %73 ], [ %97, %99 ], [ %97, %100 ]
   %.sink = phi ptr [ %69, %72 ], [ %69, %73 ], [ %96, %99 ], [ %96, %100 ]
-  %.0103.ph = phi ptr [ %53, %72 ], [ %53, %73 ], [ %83, %99 ], [ %83, %100 ]
+  %.0101.ph = phi ptr [ %53, %72 ], [ %53, %73 ], [ %83, %99 ], [ %83, %100 ]
   %.sroa.311.0.insert.ext.i = shl nuw i64 %.sroa.311.0.i.sink, 16
   %.sroa.311.0.insert.shift.i = and i64 %.sroa.311.0.insert.ext.i, 16711680
   %115 = and i64 %.sink140, -16711681
@@ -3474,8 +3474,8 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %108, %111
-  %.0103 = phi ptr [ null, %108 ], [ %109, %111 ], [ %.0103.ph, %.critedge.sink.split ]
-  %.not.i133 = icmp eq ptr %.0104, null
+  %.0101 = phi ptr [ null, %108 ], [ %109, %111 ], [ %.0101.ph, %.critedge.sink.split ]
+  %.not.i133 = icmp eq ptr %.0102, null
   br i1 %.not.i133, label %116, label %119
 
 116:                                              ; preds = %.critedge
@@ -3485,8 +3485,8 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
   br label %121
 
 119:                                              ; preds = %.critedge
-  %120 = getelementptr inbounds i8, ptr %.0104, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0104, i64 -4
+  %120 = getelementptr inbounds i8, ptr %.0102, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0102, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %121
 
@@ -3525,7 +3525,7 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
   %142 = getelementptr inbounds i8, ptr %.1.i, i64 8
   %143 = zext i32 %140 to i64
   %144 = getelementptr inbounds ptr, ptr %142, i64 %143
-  store ptr %.0103, ptr %144, align 8
+  store ptr %.0101, ptr %144, align 8
   %145 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 26) #8
   br i1 %145, label %.loopexit135, label %146
 
@@ -3552,8 +3552,8 @@ define dso_local noundef zeroext i1 @parse_attribute(ptr noundef %0, ptr nocaptu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %111, %149, %90, %65, %60, %3, %.loopexit135, %35, %30, %17, %14, %13
-  %.0107 = phi i1 [ false, %30 ], [ false, %35 ], [ true, %.loopexit135 ], [ false, %13 ], [ false, %14 ], [ true, %17 ], [ false, %3 ], [ false, %60 ], [ false, %65 ], [ false, %90 ], [ false, %149 ], [ false, %111 ]
-  ret i1 %.0107
+  %.0105 = phi i1 [ false, %30 ], [ false, %35 ], [ true, %.loopexit135 ], [ false, %13 ], [ false, %14 ], [ true, %17 ], [ false, %3 ], [ false, %60 ], [ false, %65 ], [ false, %90 ], [ false, %149 ], [ false, %111 ]
+  ret i1 %.0105
 }
 
 declare i32 @attribute_by_name(ptr noundef) local_unnamed_addr #1
@@ -3575,8 +3575,8 @@ define dso_local zeroext i1 @parse_parameters(ptr noundef %0, ptr nocapture noun
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %6
-  %.0182 = phi i8 [ 0, %6 ], [ %.0182.be, %.backedge.backedge ]
-  %.0178 = phi ptr [ null, %6 ], [ %.0178.be, %.backedge.backedge ]
+  %.0177 = phi ptr [ null, %6 ], [ %.0177.be, %.backedge.backedge ]
+  %.0175 = phi i8 [ 0, %6 ], [ %.0175.be, %.backedge.backedge ]
   %14 = load i32, ptr %7, align 8
   switch i32 %14, label %15 [
     i32 26, label %235
@@ -3609,7 +3609,7 @@ define dso_local zeroext i1 @parse_parameters(ptr noundef %0, ptr nocapture noun
   br label %.loopexit
 
 23:                                               ; preds = %.critedge
-  %24 = trunc nuw i8 %.0182 to i1
+  %24 = trunc nuw i8 %.0175 to i1
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
@@ -3619,7 +3619,7 @@ define dso_local zeroext i1 @parse_parameters(ptr noundef %0, ptr nocapture noun
 
 27:                                               ; preds = %23
   store i32 3, ptr %3, align 4
-  %.not204 = icmp eq ptr %.0178, null
+  %.not204 = icmp eq ptr %.0177, null
   br i1 %.not204, label %.split, label %32
 
 .split:                                           ; preds = %27
@@ -3632,10 +3632,10 @@ define dso_local zeroext i1 @parse_parameters(ptr noundef %0, ptr nocapture noun
   br i1 %31, label %expand_.exit.sink.split, label %expand_.exit
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %.0178, i64 -8
+  %33 = getelementptr inbounds i8, ptr %.0177, i64 -8
   %34 = load i32, ptr %33, align 4
   store i32 %34, ptr %4, align 4
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0178, i64 -4
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0177, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   %35 = icmp eq i32 %34, %.pre.i
   br i1 %35, label %36, label %expand_.exit
@@ -3679,8 +3679,8 @@ expand_.exit:                                     ; preds = %expand_.exit.sink.s
   br i1 %52, label %.backedge.backedge, label %235
 
 .backedge.backedge:                               ; preds = %expand_.exit, %228
-  %.0182.be = phi i8 [ 1, %expand_.exit ], [ %.1183, %228 ]
-  %.0178.be = phi ptr [ %phi.call, %expand_.exit ], [ %231, %228 ]
+  %.0177.be = phi ptr [ %phi.call, %expand_.exit ], [ %231, %228 ]
+  %.0175.be = phi i8 [ 1, %expand_.exit ], [ %.1176, %228 ]
   br label %.backedge, !llvm.loop !17
 
 53:                                               ; preds = %15
@@ -3753,7 +3753,7 @@ parse_next_is_typed_parameter.exit.thread:        ; preds = %53, %53, %53, %53, 
   br label %.loopexit
 
 65:                                               ; preds = %62
-  %66 = trunc nuw i8 %.0182 to i1
+  %66 = trunc nuw i8 %.0175 to i1
   br i1 %66, label %67, label %81
 
 67:                                               ; preds = %65
@@ -3793,15 +3793,15 @@ extend_span_with_token.exit:                      ; preds = %71, %72
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %81, %.critedge2, %54
-  %.0180.in.ph = phi i1 [ false, %54 ], [ false, %.critedge2 ], [ true, %81 ]
-  %.0177.ph = phi ptr [ null, %54 ], [ %57, %.critedge2 ], [ %57, %81 ]
+  %.0173.in.ph = phi i1 [ false, %54 ], [ false, %.critedge2 ], [ true, %81 ]
+  %.0172.ph = phi ptr [ null, %54 ], [ %57, %.critedge2 ], [ %57, %81 ]
   %.pr = load i32, ptr %7, align 8
   br label %parse_next_is_typed_parameter.exit.thread239
 
 parse_next_is_typed_parameter.exit.thread239:     ; preds = %53, %thread-pre-split
   %82 = phi i32 [ %.pr, %thread-pre-split ], [ %17, %53 ]
-  %.0180.in = phi i1 [ %.0180.in.ph, %thread-pre-split ], [ false, %53 ]
-  %.0177 = phi ptr [ %.0177.ph, %thread-pre-split ], [ null, %53 ]
+  %.0173.in = phi i1 [ %.0173.in.ph, %thread-pre-split ], [ false, %53 ]
+  %.0172 = phi ptr [ %.0172.ph, %thread-pre-split ], [ null, %53 ]
   %.sroa.011.0.copyload = load i64, ptr %11, align 8
   switch i32 %82, label %158 [
     i32 65, label %83
@@ -3823,15 +3823,15 @@ parse_next_is_typed_parameter.exit.thread239:     ; preds = %53, %thread-pre-spl
 
 84:                                               ; preds = %.thread, %parse_next_is_typed_parameter.exit.thread239
   %.sroa.011.0.copyload246 = phi i64 [ %.sroa.011.0.copyload243, %.thread ], [ %.sroa.011.0.copyload, %parse_next_is_typed_parameter.exit.thread239 ]
-  %.0177245 = phi ptr [ null, %.thread ], [ %.0177, %parse_next_is_typed_parameter.exit.thread239 ]
-  %.0180.in244 = phi i1 [ false, %.thread ], [ %.0180.in, %parse_next_is_typed_parameter.exit.thread239 ]
+  %.0172245 = phi ptr [ null, %.thread ], [ %.0172, %parse_next_is_typed_parameter.exit.thread239 ]
+  %.0173.in244 = phi i1 [ false, %.thread ], [ %.0173.in, %parse_next_is_typed_parameter.exit.thread239 ]
   %85 = load ptr, ptr %13, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
   %86 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 61) #8
   br i1 %86, label %87, label %159
 
 87:                                               ; preds = %84
-  br i1 %.0180.in244, label %88, label %90
+  br i1 %.0173.in244, label %88, label %90
 
 88:                                               ; preds = %87
   %89 = load i64, ptr %11, align 8
@@ -3872,7 +3872,7 @@ extend_span_with_token.exit221:                   ; preds = %93, %94
   br label %.loopexit
 
 103:                                              ; preds = %90
-  %.not197 = icmp eq ptr %.0177245, null
+  %.not197 = icmp eq ptr %.0172245, null
   br i1 %.not197, label %.thread247, label %104
 
 104:                                              ; preds = %103
@@ -3898,7 +3898,7 @@ extend_span_with_token.exit221:                   ; preds = %93, %94
 114:                                              ; preds = %parse_next_is_typed_parameter.exit.thread239
   %115 = load ptr, ptr %13, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
-  br i1 %.0180.in, label %119, label %116
+  br i1 %.0173.in, label %119, label %116
 
 116:                                              ; preds = %114
   %117 = load i32, ptr %10, align 8
@@ -3922,7 +3922,7 @@ extend_span_with_token.exit221:                   ; preds = %93, %94
   br label %.loopexit
 
 126:                                              ; preds = %121
-  br i1 %.0180.in, label %129, label %127
+  br i1 %.0173.in, label %129, label %127
 
 127:                                              ; preds = %126
   %128 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 61) #8
@@ -3969,7 +3969,7 @@ extend_span_with_token.exit230:                   ; preds = %133, %134
 144:                                              ; preds = %parse_next_is_typed_parameter.exit.thread239
   %145 = load ptr, ptr %13, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
-  br i1 %.0180.in, label %148, label %146
+  br i1 %.0173.in, label %148, label %146
 
 146:                                              ; preds = %144
   %147 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 61) #8
@@ -3983,7 +3983,7 @@ extend_span_with_token.exit230:                   ; preds = %133, %134
 150:                                              ; preds = %parse_next_is_typed_parameter.exit.thread239
   %151 = load ptr, ptr %13, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
-  br i1 %.0180.in, label %154, label %152
+  br i1 %.0173.in, label %154, label %152
 
 152:                                              ; preds = %150
   %153 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 61) #8
@@ -3995,8 +3995,8 @@ extend_span_with_token.exit230:                   ; preds = %133, %134
   br label %.loopexit
 
 156:                                              ; preds = %parse_next_is_typed_parameter.exit.thread239, %parse_next_is_typed_parameter.exit.thread239, %parse_next_is_typed_parameter.exit.thread239
-  %.not195 = icmp ne ptr %.0177, null
-  %brmerge = or i1 %.0180.in, %.not195
+  %.not195 = icmp ne ptr %.0172, null
+  %brmerge = or i1 %.0173.in, %.not195
   %.sroa.011.0.copyload13 = load i64, ptr %12, align 8
   br i1 %brmerge, label %159, label %157
 
@@ -4009,12 +4009,12 @@ extend_span_with_token.exit230:                   ; preds = %133, %134
   br label %.loopexit
 
 159:                                              ; preds = %156, %152, %146, %116, %84, %extend_span_with_token.exit230
-  %.1181.shrunk = phi i1 [ false, %extend_span_with_token.exit230 ], [ %.0180.in244, %84 ], [ false, %116 ], [ false, %146 ], [ false, %152 ], [ %.0180.in, %156 ]
-  %.1 = phi ptr [ %.0177, %extend_span_with_token.exit230 ], [ %.0177245, %84 ], [ %.0177, %116 ], [ %.0177, %146 ], [ %.0177, %152 ], [ %.0177, %156 ]
-  %.0174 = phi i32 [ 6, %extend_span_with_token.exit230 ], [ 3, %84 ], [ 11, %116 ], [ 7, %146 ], [ 12, %152 ], [ 3, %156 ]
-  %.0173 = phi ptr [ %122, %extend_span_with_token.exit230 ], [ %85, %84 ], [ %115, %116 ], [ %145, %146 ], [ %151, %152 ], [ null, %156 ]
+  %.1174.shrunk = phi i1 [ false, %extend_span_with_token.exit230 ], [ %.0173.in244, %84 ], [ false, %116 ], [ false, %146 ], [ false, %152 ], [ %.0173.in, %156 ]
+  %.1 = phi ptr [ %.0172, %extend_span_with_token.exit230 ], [ %.0172245, %84 ], [ %.0172, %116 ], [ %.0172, %146 ], [ %.0172, %152 ], [ %.0172, %156 ]
+  %.0170 = phi i32 [ 6, %extend_span_with_token.exit230 ], [ 3, %84 ], [ 11, %116 ], [ 7, %146 ], [ 12, %152 ], [ 3, %156 ]
+  %.0169 = phi ptr [ %122, %extend_span_with_token.exit230 ], [ %85, %84 ], [ %115, %116 ], [ %145, %146 ], [ %151, %152 ], [ null, %156 ]
   %.sroa.011.0 = phi i64 [ %.sroa.010.0.insert.insert.i228, %extend_span_with_token.exit230 ], [ %.sroa.011.0.copyload246, %84 ], [ %.sroa.011.0.copyload, %116 ], [ %.sroa.011.0.copyload, %146 ], [ %.sroa.011.0.copyload, %152 ], [ %.sroa.011.0.copyload13, %156 ]
-  %.0172 = phi i1 [ false, %extend_span_with_token.exit230 ], [ false, %84 ], [ false, %116 ], [ false, %146 ], [ false, %152 ], [ true, %156 ]
+  %.0 = phi i1 [ false, %extend_span_with_token.exit230 ], [ false, %84 ], [ false, %116 ], [ false, %146 ], [ false, %152 ], [ true, %156 ]
   %.not198 = icmp eq ptr %.1, null
   br i1 %.not198, label %.thread269, label %._crit_edge
 
@@ -4023,17 +4023,17 @@ extend_span_with_token.exit230:                   ; preds = %133, %134
   br label %161
 
 .thread269:                                       ; preds = %159
-  %160 = tail call ptr @decl_new_var(ptr noundef %.0173, i64 %.sroa.011.0, ptr noundef null, i32 noundef %.0174) #8
+  %160 = tail call ptr @decl_new_var(ptr noundef %.0169, i64 %.sroa.011.0, ptr noundef null, i32 noundef %.0170) #8
   br label %175
 
 161:                                              ; preds = %._crit_edge, %.thread247
   %162 = phi i16 [ %111, %.thread247 ], [ %.pre, %._crit_edge ]
-  %.0172265 = phi i1 [ false, %.thread247 ], [ %.0172, %._crit_edge ]
+  %.0265 = phi i1 [ false, %.thread247 ], [ %.0, %._crit_edge ]
   %.sroa.011.0263 = phi i64 [ %.sroa.011.0.copyload246, %.thread247 ], [ %.sroa.011.0, %._crit_edge ]
-  %.0173261 = phi ptr [ %85, %.thread247 ], [ %.0173, %._crit_edge ]
-  %.0174259 = phi i32 [ 3, %.thread247 ], [ %.0174, %._crit_edge ]
+  %.0169261 = phi ptr [ %85, %.thread247 ], [ %.0169, %._crit_edge ]
+  %.0170259 = phi i32 [ 3, %.thread247 ], [ %.0170, %._crit_edge ]
   %.1257 = phi ptr [ %108, %.thread247 ], [ %.1, %._crit_edge ]
-  %.1181.shrunk255 = phi i1 [ true, %.thread247 ], [ %.1181.shrunk, %._crit_edge ]
+  %.1174.shrunk255 = phi i1 [ true, %.thread247 ], [ %.1174.shrunk, %._crit_edge ]
   %163 = and i16 %162, 512
   %.not199 = icmp eq i16 %163, 0
   br i1 %.not199, label %167, label %164
@@ -4045,7 +4045,7 @@ extend_span_with_token.exit230:                   ; preds = %133, %134
   br label %.loopexit
 
 167:                                              ; preds = %161
-  %168 = tail call ptr @decl_new_var(ptr noundef %.0173261, i64 %.sroa.011.0263, ptr noundef nonnull %.1257, i32 noundef %.0174259) #8
+  %168 = tail call ptr @decl_new_var(ptr noundef %.0169261, i64 %.sroa.011.0263, ptr noundef nonnull %.1257, i32 noundef %.0170259) #8
   %169 = load ptr, ptr @type_info_arena, align 8
   %170 = ptrtoint ptr %.1257 to i64
   %171 = ptrtoint ptr %169 to i64
@@ -4056,8 +4056,8 @@ extend_span_with_token.exit230:                   ; preds = %133, %134
 
 175:                                              ; preds = %.thread269, %167
   %176 = phi ptr [ %168, %167 ], [ %160, %.thread269 ]
-  %.1181.shrunk256278 = phi i1 [ %.1181.shrunk255, %167 ], [ %.1181.shrunk, %.thread269 ]
-  %.0172266277 = phi i1 [ %.0172265, %167 ], [ %.0172, %.thread269 ]
+  %.1174.shrunk256278 = phi i1 [ %.1174.shrunk255, %167 ], [ %.1174.shrunk, %.thread269 ]
+  %.0266277 = phi i1 [ %.0265, %167 ], [ %.0, %.thread269 ]
   %177 = phi i32 [ %174, %167 ], [ 0, %.thread269 ]
   %178 = getelementptr inbounds i8, ptr %176, i64 80
   %179 = getelementptr inbounds i8, ptr %176, i64 84
@@ -4067,7 +4067,7 @@ extend_span_with_token.exit230:                   ; preds = %133, %134
   br i1 %181, label %182, label %.loopexit
 
 182:                                              ; preds = %175
-  br i1 %.0172266277, label %196, label %183
+  br i1 %.0266277, label %196, label %183
 
 183:                                              ; preds = %182
   %184 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 10) #8
@@ -4096,28 +4096,28 @@ extend_span_with_token.exit230:                   ; preds = %133, %134
   br label %.loopexit
 
 196:                                              ; preds = %.critedge4, %183, %182
-  br i1 %.1181.shrunk256278, label %197, label %204
+  br i1 %.1174.shrunk256278, label %197, label %204
 
 197:                                              ; preds = %196
   %198 = load i32, ptr %178, align 8
   %199 = or i32 %198, 1024
   store i32 %199, ptr %178, align 8
-  %.not201 = icmp eq ptr %.0178, null
+  %.not201 = icmp eq ptr %.0177, null
   br i1 %.not201, label %203, label %200
 
 200:                                              ; preds = %197
-  %201 = getelementptr inbounds i8, ptr %.0178, i64 -8
+  %201 = getelementptr inbounds i8, ptr %.0177, i64 -8
   %202 = load i32, ptr %201, align 4
   br label %203
 
 203:                                              ; preds = %197, %200
-  %.0171 = phi i32 [ %202, %200 ], [ 0, %197 ]
-  store i32 %.0171, ptr %4, align 4
+  %.0182 = phi i32 [ %202, %200 ], [ 0, %197 ]
+  store i32 %.0182, ptr %4, align 4
   br label %204
 
 204:                                              ; preds = %196, %203
-  %.1183 = phi i8 [ 1, %203 ], [ %.0182, %196 ]
-  %.not.i231 = icmp eq ptr %.0178, null
+  %.1176 = phi i8 [ 1, %203 ], [ %.0175, %196 ]
+  %.not.i231 = icmp eq ptr %.0177, null
   br i1 %.not.i231, label %205, label %208
 
 205:                                              ; preds = %204
@@ -4127,8 +4127,8 @@ extend_span_with_token.exit230:                   ; preds = %133, %134
   br label %210
 
 208:                                              ; preds = %204
-  %209 = getelementptr inbounds i8, ptr %.0178, i64 -8
-  %.phi.trans.insert.i232 = getelementptr inbounds i8, ptr %.0178, i64 -4
+  %209 = getelementptr inbounds i8, ptr %.0177, i64 -8
+  %.phi.trans.insert.i232 = getelementptr inbounds i8, ptr %.0177, i64 -4
   %.pre.i233 = load i32, ptr %.phi.trans.insert.i232, align 4
   br label %210
 
@@ -4172,13 +4172,13 @@ extend_span_with_token.exit230:                   ; preds = %133, %134
   br i1 %234, label %.backedge.backedge, label %235
 
 235:                                              ; preds = %.backedge, %.backedge, %228, %expand_.exit
-  %.1179 = phi ptr [ %phi.call, %expand_.exit ], [ %231, %228 ], [ %.0178, %.backedge ], [ %.0178, %.backedge ]
-  store ptr %.1179, ptr %1, align 8
+  %.1178 = phi ptr [ %phi.call, %expand_.exit ], [ %231, %228 ], [ %.0177, %.backedge ], [ %.0177, %.backedge ]
+  store ptr %.1178, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %175, %58, %235, %193, %164, %158, %157, %154, %148, %143, %129, %124, %119, %104, %extend_span_with_token.exit221, %88, %83, %extend_span_with_token.exit, %63, %25, %21, %19
-  %.0176 = phi i1 [ false, %25 ], [ true, %235 ], [ false, %21 ], [ false, %19 ], [ false, %extend_span_with_token.exit ], [ false, %158 ], [ false, %164 ], [ %195, %193 ], [ false, %157 ], [ false, %154 ], [ false, %148 ], [ false, %143 ], [ false, %129 ], [ false, %124 ], [ false, %119 ], [ false, %88 ], [ false, %104 ], [ false, %extend_span_with_token.exit221 ], [ false, %83 ], [ false, %63 ], [ false, %58 ], [ false, %175 ]
-  ret i1 %.0176
+  %.0181 = phi i1 [ false, %25 ], [ true, %235 ], [ false, %21 ], [ false, %19 ], [ false, %extend_span_with_token.exit ], [ false, %158 ], [ false, %164 ], [ %195, %193 ], [ false, %157 ], [ false, %154 ], [ false, %148 ], [ false, %143 ], [ false, %129 ], [ false, %124 ], [ false, %119 ], [ false, %88 ], [ false, %104 ], [ false, %extend_span_with_token.exit221 ], [ false, %83 ], [ false, %63 ], [ false, %58 ], [ false, %175 ]
+  ret i1 %.0181
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4207,7 +4207,7 @@ define dso_local zeroext i1 @parse_struct_body(ptr noundef %0, ptr nocapture nou
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.critedge147
-  %.0129 = phi i32 [ 0, %.critedge147 ], [ %.0129.be, %.backedge.backedge ]
+  %.0127 = phi i32 [ 0, %.critedge147 ], [ %.0127.be, %.backedge.backedge ]
   %17 = load i32, ptr %5, align 8
   switch i32 %17, label %109 [
     i32 24, label %199
@@ -4389,8 +4389,8 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   %102 = zext i32 %101 to i64
   %103 = getelementptr inbounds ptr, ptr %99, i64 %102
   store ptr %26, ptr %103, align 8
-  %104 = add nsw i32 %.0129, 1
-  %105 = icmp sgt i32 %.0129, 536870911
+  %104 = add nsw i32 %.0127, 1
+  %105 = icmp sgt i32 %.0127, 536870911
   br i1 %105, label %106, label %.backedge.backedge
 
 106:                                              ; preds = %96
@@ -4415,7 +4415,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %.loopexit
 
 116:                                              ; preds = %111
-  %117 = icmp sgt i32 %.0129, 0
+  %117 = icmp sgt i32 %.0127, 0
   br i1 %117, label %118, label %121
 
 118:                                              ; preds = %116
@@ -4465,11 +4465,11 @@ parse_type.exit156:                               ; preds = %.split8.i155, %.spl
   br i1 %.not140, label %.loopexit, label %.critedge5
 
 .critedge5:                                       ; preds = %parse_type.exit156, %132
-  %smax = call i32 @llvm.smax.i32(i32 %.0129, i32 536870912)
+  %smax = call i32 @llvm.smax.i32(i32 %.0127, i32 536870912)
   br label %135
 
 135:                                              ; preds = %188, %.critedge5
-  %.1 = phi i32 [ %.0129, %.critedge5 ], [ %176, %188 ]
+  %.1 = phi i32 [ %.0127, %.critedge5 ], [ %176, %188 ]
   %136 = load i32, ptr %5, align 8
   %137 = icmp eq i32 %136, 64
   br i1 %137, label %140, label %138
@@ -4587,7 +4587,7 @@ parse_type.exit156:                               ; preds = %.split8.i155, %.spl
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %198, %96
-  %.0129.be = phi i32 [ %104, %96 ], [ %176, %198 ]
+  %.0127.be = phi i32 [ %104, %96 ], [ %176, %198 ]
   br label %.backedge, !llvm.loop !18
 
 199:                                              ; preds = %.backedge
@@ -4595,8 +4595,8 @@ parse_type.exit156:                               ; preds = %.split8.i155, %.spl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %132, %59, %180, %8, %199, %195, %189, %177, %138, %118, %114, %106, %67, %55, %49, %44, %29
-  %.0127 = phi i1 [ false, %106 ], [ false, %55 ], [ false, %49 ], [ %46, %44 ], [ %31, %29 ], [ false, %67 ], [ false, %114 ], [ false, %118 ], [ false, %177 ], [ false, %189 ], [ false, %195 ], [ false, %138 ], [ true, %199 ], [ false, %8 ], [ false, %180 ], [ false, %59 ], [ false, %132 ]
-  ret i1 %.0127
+  %.0128 = phi i1 [ false, %106 ], [ false, %55 ], [ false, %49 ], [ %46, %44 ], [ %31, %29 ], [ false, %67 ], [ false, %114 ], [ false, %118 ], [ false, %177 ], [ false, %189 ], [ false, %195 ], [ false, %138 ], [ true, %199 ], [ false, %8 ], [ false, %180 ], [ false, %59 ], [ false, %132 ]
+  ret i1 %.0128
 }
 
 declare ptr @decl_new_with_type(ptr noundef, i64, i32 noundef) local_unnamed_addr #1
@@ -4627,8 +4627,8 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %.0114.ph160 = phi i8 [ 0, %.lr.ph.lr.ph ], [ %.1, %.outer ]
-  %14 = trunc nuw i8 %.0114.ph160 to i1
+  %.0108.ph160 = phi i8 [ 0, %.lr.ph.lr.ph ], [ %.1, %.outer ]
+  %14 = trunc nuw i8 %.0108.ph160 to i1
   br label %15
 
 15:                                               ; preds = %.lr.ph, %138
@@ -4690,7 +4690,7 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br label %.loopexit
 
 .critedge132:                                     ; preds = %35, %36
-  %.1 = phi i8 [ %.0114.ph160, %35 ], [ 1, %36 ]
+  %.1 = phi i8 [ %.0108.ph160, %35 ], [ 1, %36 ]
   tail call void @advance(ptr noundef nonnull %0) #8
   %41 = load ptr, ptr %13, align 8
   %.not127 = icmp eq ptr %41, null
@@ -4702,11 +4702,11 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br label %45
 
 45:                                               ; preds = %.critedge132, %42
-  %.0110 = phi i32 [ %44, %42 ], [ 0, %.critedge132 ]
+  %.0112 = phi i32 [ %44, %42 ], [ 0, %.critedge132 ]
   %46 = getelementptr inbounds i8, ptr %22, i64 96
-  store i32 %.0110, ptr %46, align 8
+  store i32 %.0112, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %22, i64 100
-  store i32 %.0110, ptr %47, align 4
+  store i32 %.0112, ptr %47, align 4
   %48 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %49, label %52
@@ -4892,10 +4892,10 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br i1 %146, label %.outer._crit_edge, label %15, !llvm.loop !19
 
 .outer._crit_edge:                                ; preds = %.outer, %138, %.critedge130
-  %.0114.ph.lcssa158 = phi i8 [ 0, %.critedge130 ], [ %.0114.ph160, %138 ], [ %.1, %.outer ]
+  %.0108.ph.lcssa158 = phi i8 [ 0, %.critedge130 ], [ %.0108.ph160, %138 ], [ %.1, %.outer ]
   %147 = getelementptr inbounds i8, ptr %1, i64 112
   %148 = load i8, ptr %147, align 8
-  %149 = shl nuw nsw i8 %.0114.ph.lcssa158, 4
+  %149 = shl nuw nsw i8 %.0108.ph.lcssa158, 4
   %150 = and i8 %149, 16
   %151 = and i8 %148, -17
   %152 = or disjoint i8 %151, %150
@@ -4903,8 +4903,8 @@ define internal fastcc noundef zeroext i1 @parse_bitstruct_body(ptr noundef %0, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %97, %85, %17, %80, %6, %.outer._crit_edge, %108, %104, %38, %31, %28
-  %.0113 = phi i1 [ false, %38 ], [ false, %108 ], [ false, %104 ], [ false, %28 ], [ false, %31 ], [ true, %.outer._crit_edge ], [ false, %6 ], [ false, %80 ], [ false, %17 ], [ false, %85 ], [ false, %97 ]
-  ret i1 %.0113
+  %.0111 = phi i1 [ false, %38 ], [ false, %108 ], [ false, %104 ], [ false, %28 ], [ false, %31 ], [ true, %.outer._crit_edge ], [ false, %6 ], [ false, %80 ], [ false, %17 ], [ false, %85 ], [ false, %97 ]
+  ret i1 %.0111
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5067,8 +5067,8 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br label %.critedge8
 
 36:                                               ; preds = %30, %26, %21
-  %.096 = phi ptr [ %31, %30 ], [ %27, %26 ], [ %23, %21 ]
-  %.not126 = icmp eq ptr %.096, null
+  %.0 = phi ptr [ %31, %30 ], [ %27, %26 ], [ %23, %21 ]
+  %.not126 = icmp eq ptr %.0, null
   br i1 %.not126, label %..critedge_crit_edge, label %37
 
 ..critedge_crit_edge:                             ; preds = %36
@@ -5076,7 +5076,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br label %.critedge
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %.096, i64 24
+  %38 = getelementptr inbounds i8, ptr %.0, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = and i64 %39, 127
   %.not127 = icmp eq i64 %40, 0
@@ -5084,7 +5084,7 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %37
   %41 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %39, %37 ]
-  %42 = getelementptr inbounds i8, ptr %.096, i64 24
+  %42 = getelementptr inbounds i8, ptr %.0, i64 24
   %43 = or i64 %41, 16384
   store i64 %43, ptr %42, align 8
   br label %.critedge8
@@ -5410,8 +5410,8 @@ define dso_local ptr @parse_top_level_statement(ptr noundef %0, ptr noundef writ
   br label %.critedge8
 
 .critedge8:                                       ; preds = %.critedge, %69, %71, %.critedge6, %129, %133, %137, %141, %145, %149, %153, %155, %160, %164, %168, %187, %124, %59, %37, %197, %193, %189, %178, %174, %170, %120, %112, %.critedge4, %99, %.critedge2, %86, %63, %44, %32, %16, %5
-  %.0 = phi ptr [ %196, %193 ], [ %192, %189 ], [ %203, %197 ], [ %184, %178 ], [ %177, %174 ], [ %173, %170 ], [ %123, %120 ], [ %113, %112 ], [ %102, %.critedge4 ], [ %100, %99 ], [ %89, %.critedge2 ], [ %87, %86 ], [ %66, %63 ], [ %47, %44 ], [ %35, %32 ], [ %17, %16 ], [ %6, %5 ], [ %.096, %37 ], [ %spec.select, %59 ], [ %spec.select130, %124 ], [ %188, %187 ], [ %169, %168 ], [ %165, %164 ], [ %161, %160 ], [ %157, %155 ], [ %154, %153 ], [ %150, %149 ], [ %146, %145 ], [ %142, %141 ], [ %138, %137 ], [ %134, %133 ], [ %130, %129 ], [ %115, %.critedge6 ], [ %77, %71 ], [ %70, %69 ], [ %.096, %.critedge ]
-  ret ptr %.0
+  %.096 = phi ptr [ %196, %193 ], [ %192, %189 ], [ %203, %197 ], [ %184, %178 ], [ %177, %174 ], [ %173, %170 ], [ %123, %120 ], [ %113, %112 ], [ %102, %.critedge4 ], [ %100, %99 ], [ %89, %.critedge2 ], [ %87, %86 ], [ %66, %63 ], [ %47, %44 ], [ %35, %32 ], [ %17, %16 ], [ %6, %5 ], [ %.0, %37 ], [ %spec.select, %59 ], [ %spec.select130, %124 ], [ %188, %187 ], [ %169, %168 ], [ %165, %164 ], [ %161, %160 ], [ %157, %155 ], [ %154, %153 ], [ %150, %149 ], [ %146, %145 ], [ %142, %141 ], [ %138, %137 ], [ %134, %133 ], [ %130, %129 ], [ %115, %.critedge6 ], [ %77, %71 ], [ %70, %69 ], [ %.0, %.critedge ]
+  ret ptr %.096
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5433,7 +5433,7 @@ define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr n
 
 12:                                               ; preds = %254, %5
   %13 = phi i32 [ %8, %5 ], [ %.pre, %254 ]
-  %.052 = phi i32 [ %8, %5 ], [ %13, %254 ]
+  %.0 = phi i32 [ %8, %5 ], [ %13, %254 ]
   %14 = load i32, ptr %9, align 8
   switch i32 %14, label %249 [
     i32 188, label %15
@@ -5499,7 +5499,7 @@ define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr n
   br label %parse_contract_param.exit.thread
 
 47:                                               ; preds = %42, %39, %.thread.i
-  %.064.i = phi i8 [ 1, %.thread.i ], [ 3, %39 ], [ 2, %42 ]
+  %.0.i = phi i8 [ 1, %.thread.i ], [ 3, %39 ], [ 2, %42 ]
   %48 = load i32, ptr %9, align 8
   %49 = icmp eq i32 %48, 25
   br i1 %49, label %.critedge.i, label %50
@@ -5516,8 +5516,8 @@ define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr n
   br label %54
 
 54:                                               ; preds = %.critedge.i, %19
-  %.065.i = phi i8 [ %53, %.critedge.i ], [ 0, %19 ]
-  %.1.i = phi i8 [ %.064.i, %.critedge.i ], [ 0, %19 ]
+  %.064.i = phi i8 [ %53, %.critedge.i ], [ 0, %19 ]
+  %.1.i = phi i8 [ %.0.i, %.critedge.i ], [ 0, %19 ]
   %55 = load i32, ptr %9, align 8
   %.off.i = add i32 %55, -64
   %switch.i = icmp ult i32 %.off.i, 9
@@ -5538,7 +5538,7 @@ define internal fastcc noundef zeroext i1 @parse_contracts(ptr noundef %0, ptr n
   %63 = getelementptr inbounds i8, ptr %22, i64 40
   %64 = load i8, ptr %63, align 8
   %65 = and i8 %64, -32
-  %66 = or i8 %.1.i, %.065.i
+  %66 = or i8 %.1.i, %.064.i
   %67 = or i8 %66, %65
   store i8 %67, ptr %63, align 8
   tail call void @advance(ptr noundef nonnull %0) #8
@@ -5624,23 +5624,23 @@ parse_contract_param.exit:                        ; preds = %._crit_edge.i, %79
   br label %108
 
 108:                                              ; preds = %164, %98
-  %.064.i54 = phi ptr [ null, %98 ], [ %167, %164 ]
+  %.063.i = phi ptr [ null, %98 ], [ %167, %164 ]
   %109 = load i64, ptr %6, align 8
   %110 = tail call ptr @vmem_alloc(ptr noundef nonnull @ast_arena, i64 noundef 48) #8
   store i64 %109, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 12
   store i8 30, ptr %111, align 4
   %112 = tail call fastcc ptr @parse_base_type(ptr noundef nonnull %0)
-  %.not.i55 = icmp eq ptr %112, null
-  br i1 %.not.i55, label %.critedge.i56, label %113
+  %.not.i54 = icmp eq ptr %112, null
+  br i1 %.not.i54, label %.critedge.i55, label %113
 
 113:                                              ; preds = %108
   %114 = load i16, ptr %112, align 8
   %115 = and i16 %114, 504
   %.not67.i = icmp eq i16 %115, 0
-  br i1 %.not67.i, label %parse_contract_param.exit.thread, label %.critedge.i56
+  br i1 %.not67.i, label %parse_contract_param.exit.thread, label %.critedge.i55
 
-.critedge.i56:                                    ; preds = %113, %108
+.critedge.i55:                                    ; preds = %113, %108
   %116 = getelementptr inbounds i8, ptr %110, i64 24
   store ptr %112, ptr %116, align 8
   %117 = load i16, ptr %112, align 8
@@ -5648,13 +5648,13 @@ parse_contract_param.exit:                        ; preds = %._crit_edge.i, %79
   %.not68.i = icmp eq i16 %118, 8
   br i1 %.not68.i, label %122, label %119
 
-119:                                              ; preds = %.critedge.i56
+119:                                              ; preds = %.critedge.i55
   %120 = getelementptr inbounds i8, ptr %112, i64 16
   %121 = load i64, ptr %120, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %121, ptr noundef nonnull @.str.97) #8
   br label %parse_contract_param.exit.thread
 
-122:                                              ; preds = %.critedge.i56
+122:                                              ; preds = %.critedge.i55
   %123 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 14) #8
   br i1 %123, label %124, label %128
 
@@ -5694,7 +5694,7 @@ extend_span_with_token.exit.i:                    ; preds = %132, %131
   %140 = and i64 %129, -16711681
   %.sroa.010.0.insert.insert.i.i = or disjoint i64 %.sroa.311.0.insert.shift.i.i, %140
   store i64 %.sroa.010.0.insert.insert.i.i, ptr %110, align 8
-  %.not.i71.i = icmp eq ptr %.064.i54, null
+  %.not.i71.i = icmp eq ptr %.063.i, null
   br i1 %.not.i71.i, label %141, label %144
 
 141:                                              ; preds = %extend_span_with_token.exit.i
@@ -5704,8 +5704,8 @@ extend_span_with_token.exit.i:                    ; preds = %132, %131
   br label %146
 
 144:                                              ; preds = %extend_span_with_token.exit.i
-  %145 = getelementptr inbounds i8, ptr %.064.i54, i64 -8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.064.i54, i64 -4
+  %145 = getelementptr inbounds i8, ptr %.063.i, i64 -8
+  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.063.i, i64 -4
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %146
 
@@ -5902,7 +5902,7 @@ parse_doc_optreturn.exit:                         ; preds = %extend_span_with_to
   br label %parse_contract_param.exit.thread
 
 249:                                              ; preds = %12
-  %250 = icmp eq i32 %.052, %13
+  %250 = icmp eq i32 %.0, %13
   %251 = load i64, ptr %6, align 8
   br i1 %250, label %252, label %253
 
@@ -5919,8 +5919,8 @@ parse_doc_optreturn.exit:                         ; preds = %extend_span_with_to
   br label %12
 
 parse_contract_param.exit.thread:                 ; preds = %217, %211, %201, %124, %113, %119, %72, %50, %45, %56, %2, %253, %252, %248
-  %.0 = phi i1 [ false, %252 ], [ false, %253 ], [ true, %248 ], [ true, %2 ], [ false, %56 ], [ false, %45 ], [ false, %50 ], [ false, %72 ], [ false, %119 ], [ false, %113 ], [ false, %124 ], [ false, %201 ], [ false, %211 ], [ false, %217 ]
-  ret i1 %.0
+  %.052 = phi i1 [ false, %252 ], [ false, %253 ], [ true, %248 ], [ true, %2 ], [ false, %56 ], [ false, %45 ], [ false, %50 ], [ false, %72 ], [ false, %119 ], [ false, %113 ], [ false, %124 ], [ false, %201 ], [ false, %211 ], [ false, %217 ]
+  ret i1 %.052
 }
 
 declare zeroext i1 @context_set_module_from_filename(ptr noundef) local_unnamed_addr #1
@@ -6190,9 +6190,9 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
 
 .lr.ph:                                           ; preds = %.preheader, %59
   %33 = phi ptr [ %67, %59 ], [ %16, %.preheader ]
-  %.0101132 = phi ptr [ %62, %59 ], [ null, %.preheader ]
+  %.096132 = phi ptr [ %62, %59 ], [ null, %.preheader ]
   %34 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
-  %.not.i = icmp eq ptr %.0101132, null
+  %.not.i = icmp eq ptr %.096132, null
   br i1 %34, label %35, label %73
 
 35:                                               ; preds = %.lr.ph
@@ -6205,8 +6205,8 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   br label %41
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %.0101132, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0101132, i64 -4
+  %40 = getelementptr inbounds i8, ptr %.096132, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.096132, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %41
 
@@ -6261,8 +6261,8 @@ define internal fastcc ptr @parse_global_declaration(ptr noundef %0) unnamed_add
   br i1 %.not.i, label %97, label %74
 
 74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %.0101132, i64 -8
-  %.phi.trans.insert.i122 = getelementptr inbounds i8, ptr %.0101132, i64 -4
+  %75 = getelementptr inbounds i8, ptr %.096132, i64 -8
+  %.phi.trans.insert.i122 = getelementptr inbounds i8, ptr %.096132, i64 -4
   %.pre.i123 = load i32, ptr %.phi.trans.insert.i122, align 4
   %76 = load i32, ptr %75, align 4
   %77 = icmp eq i32 %76, %.pre.i123
@@ -6431,8 +6431,8 @@ thread-pre-split:                                 ; preds = %117, %.critedge2
   br label %.loopexit.thread143
 
 .loopexit.thread143:                              ; preds = %137, %.loopexit, %.loopexit.thread, %130, %123, %115, %104, %99, %31, %29, %23, %7
-  %.0100 = phi ptr [ %26, %23 ], [ %106, %104 ], [ %148, %.loopexit.thread ], [ %133, %130 ], [ %116, %115 ], [ %126, %123 ], [ %100, %99 ], [ %30, %29 ], [ %32, %31 ], [ %8, %7 ], [ %33, %.loopexit ], [ %33, %137 ]
-  ret ptr %.0100
+  %.097 = phi ptr [ %26, %23 ], [ %106, %104 ], [ %148, %.loopexit.thread ], [ %133, %130 ], [ %116, %115 ], [ %126, %123 ], [ %100, %99 ], [ %30, %29 ], [ %32, %31 ], [ %8, %7 ], [ %33, %.loopexit ], [ %33, %137 ]
+  ret ptr %.097
 }
 
 declare ptr @unit_create(ptr noundef) local_unnamed_addr #1
@@ -6900,7 +6900,7 @@ extend_span_with_token.exit107.i:                 ; preds = %143, %142
   br label %parse_def_attribute.exit
 
 parse_def_attribute.exit:                         ; preds = %169, %176, %181, %189, %195, %200, %205, %220, %225, %229
-  %.062.i = phi ptr [ %172, %169 ], [ %163, %229 ], [ %228, %225 ], [ %221, %220 ], [ %208, %205 ], [ %201, %200 ], [ %198, %195 ], [ %192, %189 ], [ %184, %181 ], [ %177, %176 ]
+  %.061.i = phi ptr [ %172, %169 ], [ %163, %229 ], [ %228, %225 ], [ %221, %220 ], [ %208, %205 ], [ %201, %200 ], [ %198, %195 ], [ %192, %189 ], [ %184, %181 ], [ %177, %176 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %parse_def_type.exit
@@ -7093,7 +7093,7 @@ context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_pa
   br i1 %322, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %318, %361
-  %.02025.i.i = phi ptr [ %355, %361 ], [ null, %318 ]
+  %.01925.i.i = phi ptr [ %355, %361 ], [ null, %318 ]
   %323 = tail call ptr @parse_expr(ptr noundef nonnull %0) #8
   %324 = icmp eq ptr %323, null
   br i1 %324, label %.critedge.i.i, label %325
@@ -7106,7 +7106,7 @@ context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_pa
   br i1 %.not.i.i17, label %.loopexit.i, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %325, %.lr.ph.i.i
-  %.not.i.i.i = icmp eq ptr %.02025.i.i, null
+  %.not.i.i.i = icmp eq ptr %.01925.i.i, null
   br i1 %.not.i.i.i, label %329, label %332
 
 329:                                              ; preds = %.critedge.i.i
@@ -7116,8 +7116,8 @@ context_next_is_path_prefix_start.exit.thread.i:  ; preds = %.context_next_is_pa
   br label %334
 
 332:                                              ; preds = %.critedge.i.i
-  %333 = getelementptr inbounds i8, ptr %.02025.i.i, i64 -8
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.02025.i.i, i64 -4
+  %333 = getelementptr inbounds i8, ptr %.01925.i.i, i64 -8
+  %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.01925.i.i, i64 -4
   %.pre.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4
   br label %334
 
@@ -7237,7 +7237,7 @@ parse_def_ident.exit:                             ; preds = %247, %261, %268, %2
   br label %parse_def_type.exit
 
 parse_def_type.exit:                              ; preds = %157, %154, %135, %118, %105, %102, %71, %67, %60, %31, %27, %25, %19, %parse_def_ident.exit, %parse_def_attribute.exit
-  %.0 = phi ptr [ %.079.i, %parse_def_ident.exit ], [ %.062.i, %parse_def_attribute.exit ], [ %12, %105 ], [ %104, %102 ], [ %72, %71 ], [ %68, %67 ], [ %61, %60 ], [ %12, %157 ], [ %156, %154 ], [ %136, %135 ], [ %119, %118 ], [ %34, %31 ], [ %22, %19 ], [ %26, %25 ], [ %28, %27 ]
+  %.0 = phi ptr [ %.079.i, %parse_def_ident.exit ], [ %.061.i, %parse_def_attribute.exit ], [ %12, %105 ], [ %104, %102 ], [ %72, %71 ], [ %68, %67 ], [ %61, %60 ], [ %12, %157 ], [ %156, %154 ], [ %136, %135 ], [ %119, %118 ], [ %34, %31 ], [ %22, %19 ], [ %26, %25 ], [ %28, %27 ]
   ret ptr %.0
 }
 
@@ -7355,8 +7355,8 @@ define internal fastcc noundef zeroext i1 @parse_import(ptr noundef %0) unnamed_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %49, %46, %38, %26, %17, %16, %10
-  %.037 = phi i1 [ false, %26 ], [ false, %38 ], [ true, %49 ], [ false, %46 ], [ false, %10 ], [ false, %16 ], [ false, %17 ], [ false, %18 ]
-  ret i1 %.037
+  %.038 = phi i1 [ false, %26 ], [ false, %38 ], [ true, %49 ], [ false, %46 ], [ false, %10 ], [ false, %16 ], [ false, %17 ], [ false, %18 ]
+  ret i1 %.038
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7570,8 +7570,8 @@ define internal fastcc ptr @parse_exec(ptr noundef %0) unnamed_addr #0 {
   br label %81
 
 81:                                               ; preds = %80, %76, %71, %66, %29, %17, %7
-  %.055 = phi ptr [ %30, %29 ], [ %3, %80 ], [ %79, %76 ], [ %72, %71 ], [ %69, %66 ], [ %18, %17 ], [ %10, %7 ]
-  ret ptr %.055
+  %.054 = phi ptr [ %30, %29 ], [ %3, %80 ], [ %79, %76 ], [ %72, %71 ], [ %69, %66 ], [ %18, %17 ], [ %10, %7 ]
+  ret ptr %.054
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7715,7 +7715,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br i1 %19, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %18, %56
-  %.059 = phi ptr [ %59, %56 ], [ null, %18 ]
+  %.057 = phi ptr [ %59, %56 ], [ null, %18 ]
   %20 = tail call fastcc ptr @parse_base_type(ptr noundef %0)
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %.split8.i, label %22
@@ -7754,7 +7754,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %112
 
 .critedge:                                        ; preds = %parse_type.exit, %28
-  %.not.i79 = icmp eq ptr %.059, null
+  %.not.i79 = icmp eq ptr %.057, null
   br i1 %.not.i79, label %33, label %36
 
 33:                                               ; preds = %.critedge
@@ -7764,8 +7764,8 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %38
 
 36:                                               ; preds = %.critedge
-  %37 = getelementptr inbounds i8, ptr %.059, i64 -8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.059, i64 -4
+  %37 = getelementptr inbounds i8, ptr %.057, i64 -8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.057, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %38
 
@@ -7828,7 +7828,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %69, label %.critedge75, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge73, %103
-  %.06092 = phi ptr [ %106, %103 ], [ null, %.critedge73 ]
+  %.06292 = phi ptr [ %106, %103 ], [ null, %.critedge73 ]
   store i32 0, ptr %2, align 4
   %70 = call fastcc zeroext i1 @parse_contracts(ptr noundef %0, ptr noundef nonnull %2)
   br i1 %70, label %73, label %71
@@ -7852,7 +7852,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %.not70, label %.critedge77, label %.critedge2
 
 .critedge2:                                       ; preds = %73, %76
-  %.not.i81 = icmp eq ptr %.06092, null
+  %.not.i81 = icmp eq ptr %.06292, null
   br i1 %.not.i81, label %80, label %83
 
 80:                                               ; preds = %.critedge2
@@ -7862,8 +7862,8 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %85
 
 83:                                               ; preds = %.critedge2
-  %84 = getelementptr inbounds i8, ptr %.06092, i64 -8
-  %.phi.trans.insert.i82 = getelementptr inbounds i8, ptr %.06092, i64 -4
+  %84 = getelementptr inbounds i8, ptr %.06292, i64 -8
+  %.phi.trans.insert.i82 = getelementptr inbounds i8, ptr %.06292, i64 -4
   %.pre.i83 = load i32, ptr %.phi.trans.insert.i82, align 4
   br label %85
 
@@ -7907,9 +7907,9 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %109, label %.critedge75, label %.lr.ph, !llvm.loop !24
 
 .critedge75:                                      ; preds = %103, %.critedge73
-  %.060.lcssa = phi ptr [ null, %.critedge73 ], [ %106, %103 ]
+  %.062.lcssa = phi ptr [ null, %.critedge73 ], [ %106, %103 ]
   %110 = getelementptr inbounds i8, ptr %7, i64 96
-  store ptr %.060.lcssa, ptr %110, align 8
+  store ptr %.062.lcssa, ptr %110, align 8
   br label %112
 
 .critedge77:                                      ; preds = %76, %66, %71
@@ -7917,8 +7917,8 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %112
 
 112:                                              ; preds = %71, %.critedge75, %.critedge77, %31, %consume_type_name.exit.thread
-  %.062 = phi ptr [ %111, %.critedge77 ], [ %32, %31 ], [ %17, %consume_type_name.exit.thread ], [ %7, %.critedge75 ], [ %7, %71 ]
-  ret ptr %.062
+  %.058 = phi ptr [ %111, %.critedge77 ], [ %32, %31 ], [ %17, %consume_type_name.exit.thread ], [ %7, %.critedge75 ], [ %7, %71 ]
+  ret ptr %.058
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8680,7 +8680,7 @@ parse_enum_param_decl.exit.i:                     ; preds = %67
   br label %.loopexit125
 
 parse_enum_param_list.exit:                       ; preds = %.critedge.i, %.preheader.i, %35, %23
-  %.0105 = phi ptr [ null, %23 ], [ %26, %35 ], [ %26, %.preheader.i ], [ %26, %.critedge.i ]
+  %.0100 = phi ptr [ null, %23 ], [ %26, %35 ], [ %26, %.preheader.i ], [ %26, %.critedge.i ]
   %137 = tail call fastcc zeroext i1 @parse_attributes_for_global(ptr noundef nonnull %0, ptr noundef %7)
   br i1 %137, label %140, label %138
 
@@ -8705,7 +8705,7 @@ parse_enum_param_list.exit:                       ; preds = %.critedge.i, %.preh
 
 .critedge115:                                     ; preds = %140
   tail call void @advance(ptr noundef nonnull %0) #8
-  %.not111 = icmp eq ptr %.0105, null
+  %.not111 = icmp eq ptr %.0100, null
   br i1 %.not111, label %150, label %160
 
 150:                                              ; preds = %.critedge115
@@ -8724,7 +8724,7 @@ parse_enum_param_list.exit:                       ; preds = %.critedge.i, %.preh
   br label %160
 
 160:                                              ; preds = %.critedge115, %150
-  %161 = phi ptr [ %154, %150 ], [ %.0105, %.critedge115 ]
+  %161 = phi ptr [ %154, %150 ], [ %.0100, %.critedge115 ]
   %162 = getelementptr inbounds i8, ptr %7, i64 96
   %163 = getelementptr inbounds i8, ptr %7, i64 112
   store ptr %161, ptr %163, align 8
@@ -8922,8 +8922,8 @@ consume_const_name.exit:                          ; preds = %174
   br i1 %257, label %.loopexit125, label %.lr.ph134, !llvm.loop !28
 
 .loopexit125:                                     ; preds = %.critedge119, %160, %253, %214, %208, %201, %.loopexit126, %146, %138, %.loopexit127, %31, %28, %21, %consume_type_name.exit.thread
-  %.0104 = phi ptr [ %34, %31 ], [ %256, %253 ], [ %215, %214 ], [ %211, %208 ], [ %202, %201 ], [ %179, %.loopexit126 ], [ %149, %146 ], [ %139, %138 ], [ %136, %.loopexit127 ], [ %29, %28 ], [ %22, %21 ], [ %17, %consume_type_name.exit.thread ], [ %7, %160 ], [ %7, %.critedge119 ]
-  ret ptr %.0104
+  %.0102 = phi ptr [ %34, %31 ], [ %256, %253 ], [ %215, %214 ], [ %211, %208 ], [ %202, %201 ], [ %179, %.loopexit126 ], [ %149, %146 ], [ %139, %138 ], [ %136, %.loopexit127 ], [ %29, %28 ], [ %22, %21 ], [ %17, %consume_type_name.exit.thread ], [ %7, %160 ], [ %7, %.critedge119 ]
+  ret ptr %.0102
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9016,7 +9016,7 @@ consume_type_name.exit.thread:                    ; preds = %consume_type_name.e
   br label %48
 
 48:                                               ; preds = %.lr.ph100, %.critedge85
-  %.08099 = phi i64 [ 0, %.lr.ph100 ], [ %69, %.critedge85 ]
+  %.07699 = phi i64 [ 0, %.lr.ph100 ], [ %69, %.critedge85 ]
   %49 = load ptr, ptr %2, align 8
   %50 = load i64, ptr %4, align 8
   %51 = tail call ptr @decl_new(i32 noundef 15, ptr noundef %49, i64 %50) #8
@@ -9053,10 +9053,10 @@ consume_const_name.exit:                          ; preds = %53
   %65 = trunc i64 %64 to i32
   %66 = getelementptr inbounds i8, ptr %51, i64 92
   store i32 %65, ptr %66, align 4
-  %67 = trunc i64 %.08099 to i32
+  %67 = trunc i64 %.07699 to i32
   %68 = getelementptr inbounds i8, ptr %51, i64 88
   store i32 %67, ptr %68, align 8
-  %69 = add i64 %.08099, 1
+  %69 = add i64 %.07699, 1
   %70 = load ptr, ptr %44, align 8
   %.not = icmp eq ptr %70, null
   br i1 %.not, label %._crit_edge, label %71
@@ -9177,8 +9177,8 @@ consume_const_name.exit:                          ; preds = %53
   br label %128
 
 128:                                              ; preds = %._crit_edge101, %._crit_edge101.thread, %118, %79, %.loopexit, %29, %24, %20, %consume_type_name.exit.thread
-  %.079 = phi ptr [ %84, %79 ], [ %121, %118 ], [ %58, %.loopexit ], [ %127, %._crit_edge101.thread ], [ %32, %29 ], [ %25, %24 ], [ %21, %20 ], [ %16, %consume_type_name.exit.thread ], [ %6, %._crit_edge101 ]
-  ret ptr %.079
+  %.078 = phi ptr [ %84, %79 ], [ %121, %118 ], [ %58, %.loopexit ], [ %127, %._crit_edge101.thread ], [ %32, %29 ], [ %25, %24 ], [ %21, %20 ], [ %16, %consume_type_name.exit.thread ], [ %6, %._crit_edge101 ]
+  ret ptr %.078
 }
 
 declare void @scratch_buffer_clear() local_unnamed_addr #1
@@ -9473,9 +9473,9 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %.not57, label %96, label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge, %.critedge, %19, %30, %parse_type.exit
-  %.051 = phi ptr [ null, %.critedge ], [ null, %parse_type.exit ], [ %.0.i, %30 ], [ null, %19 ], [ null, %.critedge ]
+  %.0 = phi ptr [ null, %.critedge ], [ null, %parse_type.exit ], [ %.0.i, %30 ], [ null, %19 ], [ null, %.critedge ]
   %33 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 14) #8
-  %.not59 = icmp eq ptr %.051, null
+  %.not59 = icmp eq ptr %.0, null
   br i1 %33, label %34, label %42
 
 34:                                               ; preds = %.critedge2
@@ -9500,7 +9500,7 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br i1 %.not59, label %51, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %.051, i64 16
+  %44 = getelementptr inbounds i8, ptr %.0, i64 16
   %45 = load i64, ptr %44, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %45, ptr noundef nonnull @.str.112) #8
   br label %96
@@ -9528,8 +9528,8 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
 
 57:                                               ; preds = %.thread, %51
   %58 = phi i64 [ %50, %.thread ], [ %56, %51 ]
-  %.05080 = phi ptr [ null, %.thread ], [ %13, %51 ]
-  %.177 = phi ptr [ %.1.ph, %.thread ], [ %.051, %51 ]
+  %.180 = phi ptr [ %.1.ph, %.thread ], [ %.0, %51 ]
+  %.05077 = phi ptr [ null, %.thread ], [ %13, %51 ]
   %59 = getelementptr inbounds i8, ptr %0, i64 40
   %60 = load i32, ptr %59, align 8
   switch i32 %60, label %61 [
@@ -9551,15 +9551,15 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %96
 
 64:                                               ; preds = %57, %57, %.critedge67
-  %.05078 = phi ptr [ %13, %.critedge67 ], [ %.05080, %57 ], [ %.05080, %57 ]
-  %.175 = phi ptr [ %.051, %.critedge67 ], [ %.177, %57 ], [ %.177, %57 ]
+  %.178 = phi ptr [ %.0, %.critedge67 ], [ %.180, %57 ], [ %.180, %57 ]
+  %.05075 = phi ptr [ %13, %.critedge67 ], [ %.05077, %57 ], [ %.05077, %57 ]
   tail call void @advance(ptr noundef nonnull %0) #8
-  %.not64 = icmp eq ptr %.05078, null
+  %.not64 = icmp eq ptr %.05075, null
   br i1 %.not64, label %72, label %65
 
 65:                                               ; preds = %64
   %66 = load ptr, ptr @type_info_arena, align 8
-  %67 = ptrtoint ptr %.05078 to i64
+  %67 = ptrtoint ptr %.05075 to i64
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %67, %68
   %70 = sdiv exact i64 %69, 40
@@ -9584,12 +9584,12 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   %85 = and i16 %80, -3
   %86 = or disjoint i16 %84, %85
   store i16 %86, ptr %76, align 1
-  %.not65 = icmp eq ptr %.175, null
+  %.not65 = icmp eq ptr %.178, null
   br i1 %.not65, label %94, label %87
 
 87:                                               ; preds = %72
   %88 = load ptr, ptr @type_info_arena, align 8
-  %89 = ptrtoint ptr %.175 to i64
+  %89 = ptrtoint ptr %.178 to i64
   %90 = ptrtoint ptr %88 to i64
   %91 = sub i64 %89, %90
   %92 = sdiv exact i64 %91, 40
@@ -9602,8 +9602,8 @@ parse_type.exit:                                  ; preds = %.split8.i, %.split.
   br label %96
 
 96:                                               ; preds = %30, %14, %94, %63, %61, %43, %39
-  %.0 = phi i1 [ false, %61 ], [ true, %94 ], [ false, %63 ], [ false, %39 ], [ false, %43 ], [ false, %14 ], [ false, %30 ]
-  ret i1 %.0
+  %.051 = phi i1 [ false, %61 ], [ true, %94 ], [ false, %63 ], [ false, %39 ], [ false, %43 ], [ false, %14 ], [ false, %30 ]
+  ret i1 %.051
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9677,8 +9677,8 @@ define internal fastcc noundef zeroext i1 @parse_fn_parameter_list(ptr noundef %
   br label %39
 
 39:                                               ; preds = %17, %9, %.critedge, %27
-  %.028 = phi i1 [ true, %27 ], [ false, %9 ], [ false, %.critedge ], [ false, %17 ]
-  ret i1 %.028
+  %.027 = phi i1 [ true, %27 ], [ false, %9 ], [ false, %.critedge ], [ false, %17 ]
+  ret i1 %.027
 }
 
 declare ptr @parse_short_body(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1

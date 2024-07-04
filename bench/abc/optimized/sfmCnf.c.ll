@@ -759,8 +759,8 @@ Vec_StrPush.exit153:                              ; preds = %.Vec_StrGrow.exit10
   br label %.loopexit155
 
 .loopexit155:                                     ; preds = %.critedge, %.loopexit155.sink.split
-  %.072 = phi i32 [ 1, %.loopexit155.sink.split ], [ %164, %.critedge ]
-  ret i32 %.072
+  %.077 = phi i32 [ 1, %.loopexit155.sink.split ], [ %164, %.critedge ]
+  ret i32 %.077
 }
 
 declare i32 @Kit_TruthIsop(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3

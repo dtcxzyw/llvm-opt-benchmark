@@ -391,9 +391,9 @@ define internal ptr @H5O__link_decode(ptr noundef %0, ptr nocapture readnone %1,
 
 196:                                              ; preds = %194, %196
   %.0225 = phi i64 [ 0, %194 ], [ %203, %196 ]
-  %.0160224 = phi i64 [ 0, %194 ], [ %202, %196 ]
+  %.0159224 = phi i64 [ 0, %194 ], [ %202, %196 ]
   %197 = phi ptr [ %195, %194 ], [ %199, %196 ]
-  %198 = shl i64 %.0160224, 8
+  %198 = shl i64 %.0159224, 8
   %199 = getelementptr inbounds i8, ptr %197, i64 -1
   store ptr %199, ptr %7, align 8
   %200 = load i8, ptr %199, align 1

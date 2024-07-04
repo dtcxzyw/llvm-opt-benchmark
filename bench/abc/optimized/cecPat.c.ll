@@ -1076,11 +1076,11 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %45, %Vec_PtrAllocSi
   br label %54
 
 54:                                               ; preds = %.lr.ph160, %308
-  %.059158 = phi i32 [ %11, %.lr.ph160 ], [ %.1, %308 ]
-  %.060157 = phi i32 [ %2, %.lr.ph160 ], [ %.161, %308 ]
-  %.062156 = phi i32 [ -1, %.lr.ph160 ], [ %238, %308 ]
-  %.063155 = phi i32 [ 0, %.lr.ph160 ], [ %55, %308 ]
-  %55 = add nuw nsw i32 %.063155, 1
+  %.0158 = phi i32 [ %11, %.lr.ph160 ], [ %.1, %308 ]
+  %.059157 = phi i32 [ %2, %.lr.ph160 ], [ %.160, %308 ]
+  %.061156 = phi i32 [ 0, %.lr.ph160 ], [ %55, %308 ]
+  %.062155 = phi i32 [ -1, %.lr.ph160 ], [ %238, %308 ]
+  %55 = add nuw nsw i32 %.061156, 1
   store i32 0, ptr %53, align 4
   %56 = load ptr, ptr %48, align 8
   %57 = getelementptr i8, ptr %56, i64 8
@@ -1363,7 +1363,7 @@ Vec_IntPush.exit42.i:                             ; preds = %177, %Vec_IntGrow.e
   br i1 %exitcond.not.i82, label %Cec_ManPatRestore.exit, label %.lr.ph.i81, !llvm.loop !12
 
 Cec_ManPatRestore.exit:                           ; preds = %Vec_IntPush.exit42.i, %Vec_IntPush.exit.i
-  %185 = icmp sgt i32 %.059158, 1
+  %185 = icmp sgt i32 %.0158, 1
   br i1 %185, label %.lr.ph, label %Cec_ManPatCollectTry.exit.thread
 
 .lr.ph:                                           ; preds = %Cec_ManPatRestore.exit
@@ -1378,10 +1378,10 @@ Cec_ManPatRestore.exit:                           ; preds = %Vec_IntPush.exit42.
   br label %.lr.ph.i83.us
 
 .lr.ph.i83.us:                                    ; preds = %Cec_ManPatCollectTry.exit.us, %.lr.ph.split.us
-  %.0144.us = phi i32 [ 1, %.lr.ph.split.us ], [ %214, %Cec_ManPatCollectTry.exit.us ]
-  %187 = ashr i32 %.0144.us, 5
+  %.063144.us = phi i32 [ 1, %.lr.ph.split.us ], [ %214, %Cec_ManPatCollectTry.exit.us ]
+  %187 = ashr i32 %.063144.us, 5
   %188 = sext i32 %187 to i64
-  %189 = and i32 %.0144.us, 31
+  %189 = and i32 %.063144.us, 31
   %190 = shl nuw i32 1, %189
   br label %191
 
@@ -1412,12 +1412,12 @@ Cec_ManPatRestore.exit:                           ; preds = %Vec_IntPush.exit42.
   br i1 %209, label %Cec_ManPatCollectTry.exit.us, label %216
 
 Cec_ManPatCollectTry.exit.us:                     ; preds = %201
-  %210 = add nsw i32 %.0144.us, 1
+  %210 = add nsw i32 %.063144.us, 1
   %211 = srem i32 %210, %11
   %212 = icmp eq i32 %211, 0
   %213 = zext i1 %212 to i32
   %214 = add nsw i32 %210, %213
-  %215 = icmp slt i32 %214, %.059158
+  %215 = icmp slt i32 %214, %.0158
   br i1 %215, label %.lr.ph.i83.us, label %Cec_ManPatCollectTry.exit.thread, !llvm.loop !13
 
 216:                                              ; preds = %201, %191
@@ -1460,10 +1460,10 @@ Cec_ManPatCollectTry.exit.us:                     ; preds = %201
   br i1 %exitcond47.not.i, label %Cec_ManPatCollectTry.exit.thread, label %.lr.ph40.i, !llvm.loop !8
 
 Cec_ManPatCollectTry.exit.thread:                 ; preds = %Cec_ManPatCollectTry.exit.us, %237, %Cec_ManPatRestore.exit, %.lr.ph
-  %.0140 = phi i32 [ 1, %Cec_ManPatRestore.exit ], [ 1, %.lr.ph ], [ %.0144.us, %237 ], [ %214, %Cec_ManPatCollectTry.exit.us ]
-  %238 = call noundef i32 @llvm.smax.i32(i32 %.062156, i32 %.0140)
-  %239 = add nsw i32 %.059158, -1
-  %240 = icmp eq i32 %.0140, %239
+  %.063140 = phi i32 [ 1, %Cec_ManPatRestore.exit ], [ 1, %.lr.ph ], [ %.063144.us, %237 ], [ %214, %Cec_ManPatCollectTry.exit.us ]
+  %238 = call noundef i32 @llvm.smax.i32(i32 %.062155, i32 %.063140)
+  %239 = add nsw i32 %.0158, -1
+  %240 = icmp eq i32 %.063140, %239
   br i1 %240, label %241, label %308
 
 241:                                              ; preds = %Cec_ManPatCollectTry.exit.thread
@@ -1533,8 +1533,8 @@ Cec_ManPatCollectTry.exit.thread:                 ; preds = %Cec_ManPatCollectTr
 
 Vec_PtrReallocSimInfo.exit:                       ; preds = %._crit_edge.i, %._crit_edge.thread.i
   store ptr %256, ptr %34, align 8
-  %273 = shl nsw i32 %.060157, 1
-  call void @Gia_ManRandomInfo(ptr noundef nonnull %32, i32 noundef 0, i32 noundef %.060157, i32 noundef %273) #17
+  %273 = shl nsw i32 %.059157, 1
+  call void @Gia_ManRandomInfo(ptr noundef nonnull %32, i32 noundef 0, i32 noundef %.059157, i32 noundef %273) #17
   %.val24.i95 = load ptr, ptr %42, align 8
   %274 = getelementptr inbounds i8, ptr %.val24.i95, i64 8
   %275 = load ptr, ptr %274, align 8
@@ -1594,7 +1594,7 @@ Vec_PtrReallocSimInfo.exit113.thread:             ; preds = %Vec_PtrReallocSimIn
 Vec_PtrReallocSimInfo.exit113:                    ; preds = %296
   call void @free(ptr noundef nonnull %.val24.i95) #17
   store ptr %288, ptr %42, align 8
-  %301 = shl nsw i32 %.060157, 2
+  %301 = shl nsw i32 %.059157, 2
   %302 = sext i32 %301 to i64
   %smax183 = call i64 @llvm.smax.i64(i64 %286, i64 1)
   br label %303
@@ -1610,12 +1610,12 @@ Vec_PtrReallocSimInfo.exit113:                    ; preds = %296
   br i1 %exitcond184.not, label %Vec_PtrCleanSimInfo.exit119, label %303, !llvm.loop !10
 
 Vec_PtrCleanSimInfo.exit119:                      ; preds = %303, %Vec_PtrReallocSimInfo.exit113.thread
-  %307 = shl nsw i32 %.059158, 1
+  %307 = shl nsw i32 %.0158, 1
   br label %308
 
 308:                                              ; preds = %Vec_PtrCleanSimInfo.exit119, %Cec_ManPatCollectTry.exit.thread
-  %.161 = phi i32 [ %273, %Vec_PtrCleanSimInfo.exit119 ], [ %.060157, %Cec_ManPatCollectTry.exit.thread ]
-  %.1 = phi i32 [ %307, %Vec_PtrCleanSimInfo.exit119 ], [ %.059158, %Cec_ManPatCollectTry.exit.thread ]
+  %.160 = phi i32 [ %273, %Vec_PtrCleanSimInfo.exit119 ], [ %.059157, %Cec_ManPatCollectTry.exit.thread ]
+  %.1 = phi i32 [ %307, %Vec_PtrCleanSimInfo.exit119 ], [ %.0158, %Cec_ManPatCollectTry.exit.thread ]
   %309 = load i32, ptr %9, align 8
   %310 = load ptr, ptr %48, align 8
   %311 = getelementptr i8, ptr %310, i64 4
@@ -1629,8 +1629,8 @@ Vec_PtrCleanSimInfo.exit119:                      ; preds = %303, %Vec_PtrReallo
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Vec_PtrCleanSimInfo.exit
   %313 = phi ptr [ %35, %Vec_PtrCleanSimInfo.exit ], [ %.pre, %._crit_edge.loopexit ]
-  %.063.lcssa = phi i32 [ 0, %Vec_PtrCleanSimInfo.exit ], [ %55, %._crit_edge.loopexit ]
   %.062.lcssa = phi i32 [ -1, %Vec_PtrCleanSimInfo.exit ], [ %238, %._crit_edge.loopexit ]
+  %.061.lcssa = phi i32 [ 0, %Vec_PtrCleanSimInfo.exit ], [ %55, %._crit_edge.loopexit ]
   %.not.i120 = icmp eq ptr %313, null
   br i1 %.not.i120, label %Vec_PtrFree.exit, label %314
 
@@ -1704,7 +1704,7 @@ Abc_Clock.exit124:                                ; preds = %Abc_Clock.exit122, 
 
 351:                                              ; preds = %Abc_Clock.exit124
   %352 = load i32, ptr %322, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1, i32 noundef %.063.lcssa, i32 noundef %.062.lcssa, i32 noundef %11, i32 noundef %352)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1, i32 noundef %.061.lcssa, i32 noundef %.062.lcssa, i32 noundef %11, i32 noundef %352)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %353 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #17

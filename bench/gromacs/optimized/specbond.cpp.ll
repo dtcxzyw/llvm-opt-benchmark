@@ -754,7 +754,7 @@ define void @_Z18makeDisulfideBondsP7t_atomsP8t_symtabPA3_fbb(ptr dead_on_unwind
   br label %46
 
 46:                                               ; preds = %43, %41
-  %.0 = phi i32 [ -1, %41 ], [ %45, %43 ]
+  %.0114 = phi i32 [ -1, %41 ], [ %45, %43 ]
   %47 = load ptr, ptr %24, align 8
   %48 = load ptr, ptr %32, align 8
   %49 = ptrtoint ptr %48 to i64
@@ -882,7 +882,7 @@ define void @_Z18makeDisulfideBondsP7t_atomsP8t_symtabPA3_fbb(ptr dead_on_unwind
   br i1 %42, label %112, label %94
 
 94:                                               ; preds = %93
-  %95 = sext i32 %.0 to i64
+  %95 = sext i32 %.0114 to i64
   %96 = getelementptr inbounds %struct.t_atom, ptr %.pre584, i64 %95, i32 7
   %97 = load i32, ptr %96, align 4
   %98 = getelementptr inbounds %struct.t_atom, ptr %.pre584, i64 %indvars.iv, i32 7

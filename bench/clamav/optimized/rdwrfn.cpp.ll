@@ -314,9 +314,9 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
   br label %18
 
 18:                                               ; preds = %83, %3
-  %.046 = phi ptr [ %1, %3 ], [ %70, %83 ]
+  %.046 = phi i32 [ 0, %3 ], [ %.147, %83 ]
   %.044 = phi i32 [ 0, %3 ], [ %69, %83 ]
-  %.042 = phi i32 [ 0, %3 ], [ %.143, %83 ]
+  %.043 = phi ptr [ %1, %3 ], [ %70, %83 ]
   %.1 = phi i64 [ %spec.select, %3 ], [ %71, %83 ]
   %.not = icmp eq i64 %.1, 0
   br i1 %.not, label %88, label %19
@@ -363,7 +363,7 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
   br label %43
 
 43:                                               ; preds = %36, %30
-  %.047 = phi i64 [ %..1, %30 ], [ %spec.select58, %36 ]
+  %.042 = phi i64 [ %..1, %30 ], [ %spec.select58, %36 ]
   %44 = load ptr, ptr %20, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 56
   %46 = load ptr, ptr %45, align 8
@@ -375,7 +375,7 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 32
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(8256) %49, ptr noundef %.046, i64 noundef %.047)
+  %53 = tail call noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(8256) %49, ptr noundef %.043, i64 noundef %.042)
   %54 = load i8, ptr %11, align 1
   %55 = trunc i8 %54 to i1
   br i1 %55, label %65, label %56
@@ -392,17 +392,17 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
 
 63:                                               ; preds = %56
   %64 = sext i32 %53 to i64
-  tail call void @_ZN8DataHash6UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %.046, i64 noundef %64)
+  tail call void @_ZN8DataHash6UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %.043, i64 noundef %64)
   br label %65
 
 65:                                               ; preds = %28, %63, %56, %48, %23
-  %.143 = phi i32 [ %27, %23 ], [ %53, %48 ], [ %53, %63 ], [ %53, %56 ], [ %.042, %28 ]
-  %66 = sext i32 %.143 to i64
+  %.147 = phi i32 [ %27, %23 ], [ %53, %48 ], [ %53, %63 ], [ %53, %56 ], [ %.046, %28 ]
+  %66 = sext i32 %.147 to i64
   %67 = load i64, ptr %16, align 8
   %68 = add nsw i64 %67, %66
   store i64 %68, ptr %16, align 8
-  %69 = add nsw i32 %.143, %.044
-  %70 = getelementptr inbounds i8, ptr %.046, i64 %66
+  %69 = add nsw i32 %.147, %.044
+  %70 = getelementptr inbounds i8, ptr %.043, i64 %66
   %71 = sub i64 %.1, %66
   %72 = load i64, ptr %9, align 8
   %73 = sub nsw i64 %72, %66
@@ -414,7 +414,7 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
   br i1 %or.cond59, label %77, label %88
 
 77:                                               ; preds = %65
-  %78 = icmp eq i32 %.143, 0
+  %78 = icmp eq i32 %.147, 0
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %77
@@ -436,8 +436,8 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
   br label %.loopexit
 
 88:                                               ; preds = %65, %79, %18
+  %.2 = phi i32 [ %.147, %79 ], [ %.147, %65 ], [ %.046, %18 ]
   %.145 = phi i32 [ %69, %79 ], [ %69, %65 ], [ %.044, %18 ]
-  %.2 = phi i32 [ %.143, %79 ], [ %.143, %65 ], [ %.042, %18 ]
   %89 = load ptr, ptr %8, align 8
   %.not55 = icmp eq ptr %89, null
   br i1 %.not55, label %_ZN11ComprDataIO11ShowUnpReadEll.exit, label %90

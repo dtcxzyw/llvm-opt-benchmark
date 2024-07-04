@@ -149,10 +149,10 @@ if.end:                                           ; preds = %qobject_type.exit.i
   br i1 %tobool.not35.i, label %if.then29.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %for.inc.i
-  %exec_key.037.i = phi ptr [ %exec_key.1.i, %for.inc.i ], [ null, %if.end ]
-  %ent.036.i = phi ptr [ %call27.i, %for.inc.i ], [ %call.i, %if.end ]
-  %call1.i = tail call ptr @qdict_entry_key(ptr noundef nonnull %ent.036.i) #5
-  %call2.i = tail call ptr @qdict_entry_value(ptr noundef nonnull %ent.036.i) #5
+  %ent.037.i = phi ptr [ %call27.i, %for.inc.i ], [ %call.i, %if.end ]
+  %exec_key.036.i = phi ptr [ %exec_key.1.i, %for.inc.i ], [ null, %if.end ]
+  %call1.i = tail call ptr @qdict_entry_key(ptr noundef nonnull %ent.037.i) #5
+  %call2.i = tail call ptr @qdict_entry_value(ptr noundef nonnull %ent.037.i) #5
   %call3.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call1.i, ptr noundef nonnull dereferenceable(8) @.str.2) #7
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.then.i, label %lor.lhs.false.i
@@ -182,11 +182,11 @@ if.then9.i:                                       ; preds = %qobject_type.exit.i
   br label %out
 
 if.end.i:                                         ; preds = %qobject_type.exit.i51
-  %tobool10.not.i = icmp eq ptr %exec_key.037.i, null
+  %tobool10.not.i = icmp eq ptr %exec_key.036.i, null
   br i1 %tobool10.not.i, label %for.inc.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.3, i32 noundef 66, ptr noundef nonnull @__func__.qmp_dispatch_check_obj, ptr noundef nonnull @.str.25, ptr noundef %call1.i, ptr noundef nonnull %exec_key.037.i) #5
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %err, ptr noundef nonnull @.str.3, i32 noundef 66, ptr noundef nonnull @__func__.qmp_dispatch_check_obj, ptr noundef nonnull @.str.25, ptr noundef %call1.i, ptr noundef nonnull %exec_key.036.i) #5
   br label %out
 
 if.else.i46:                                      ; preds = %lor.lhs.false.i
@@ -243,8 +243,8 @@ if.else24.i:                                      ; preds = %if.else20.tail.i
   br label %out
 
 for.inc.i:                                        ; preds = %if.else20.tail.i, %qobject_type.exit23.i, %if.end.i
-  %exec_key.1.i = phi ptr [ %exec_key.037.i, %if.else20.tail.i ], [ %exec_key.037.i, %qobject_type.exit23.i ], [ %call1.i, %if.end.i ]
-  %call27.i = tail call ptr @qdict_next(ptr noundef nonnull %request, ptr noundef nonnull %ent.036.i) #5
+  %exec_key.1.i = phi ptr [ %exec_key.036.i, %if.else20.tail.i ], [ %exec_key.036.i, %qobject_type.exit23.i ], [ %call1.i, %if.end.i ]
+  %call27.i = tail call ptr @qdict_next(ptr noundef nonnull %request, ptr noundef nonnull %ent.037.i) #5
   %tobool.not.i48 = icmp eq ptr %call27.i, null
   br i1 %tobool.not.i48, label %for.end.i, label %for.body.i, !llvm.loop !5
 

@@ -91,12 +91,12 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %num_unmatched.016 = phi i32 [ 0, %for.body.preheader ], [ %spec.select, %for.body ]
+  %num_unmatched.015 = phi i32 [ 0, %for.body.preheader ], [ %spec.select, %for.body ]
   %arrayidx = getelementptr inbounds i8, ptr %seen, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx, align 1
   %tobool.not = icmp eq i8 %1, 0
   %inc = zext i1 %tobool.not to i32
-  %spec.select = add nuw nsw i32 %num_unmatched.016, %inc
+  %spec.select = add nuw nsw i32 %num_unmatched.015, %inc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
@@ -854,8 +854,8 @@ if.else.i.i.i:                                    ; preds = %sw.default.i.i.i
   br label %for.cond.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %if.end11.i.i.i.i, %if.else.i.i.i
-  %dst.0.i.i.i.i = phi ptr [ %call1.i.i.i.i, %if.else.i.i.i ], [ %incdec.ptr13.i.i.i.i, %if.end11.i.i.i.i ]
   %src.0.i.i.i.i = phi ptr [ %arrayidx29.i.i.i, %if.else.i.i.i ], [ %incdec.ptr12.i.i.i.i, %if.end11.i.i.i.i ]
+  %dst.0.i.i.i.i = phi ptr [ %call1.i.i.i.i, %if.else.i.i.i ], [ %incdec.ptr13.i.i.i.i, %if.end11.i.i.i.i ]
   %22 = load i8, ptr %src.0.i.i.i.i, align 1
   switch i8 %22, label %if.end6.i.i.i.i [
     i8 0, label %attr_value_unescape.exit.i.i.i
@@ -905,8 +905,8 @@ attr_value_unescape.exit.i.i.i:                   ; preds = %for.cond.i.i.i.i
   br label %sw.epilog.i.i.i
 
 sw.epilog.i.i.i:                                  ; preds = %attr_value_unescape.exit.i.i.i, %if.then27.i.i.i, %sw.bb18.i.i.i, %sw.bb.i.i.i
-  %attr.0.i.i.i = phi ptr [ %18, %if.then27.i.i.i ], [ %18, %attr_value_unescape.exit.i.i.i ], [ %incdec.ptr20.i.i.i, %sw.bb18.i.i.i ], [ %incdec.ptr.i.i.i, %sw.bb.i.i.i ]
   %attr_len.0.i.i.i = phi i64 [ %call22.i.i.i, %if.then27.i.i.i ], [ %call22.i.i.i, %attr_value_unescape.exit.i.i.i ], [ %call21.i.i.i, %sw.bb18.i.i.i ], [ %call17.i.i.i, %sw.bb.i.i.i ]
+  %attr.0.i.i.i = phi ptr [ %18, %if.then27.i.i.i ], [ %18, %attr_value_unescape.exit.i.i.i ], [ %incdec.ptr20.i.i.i, %sw.bb18.i.i.i ], [ %incdec.ptr.i.i.i, %sw.bb.i.i.i ]
   %call34.i.i.i = call ptr @xmemdupz(ptr noundef nonnull %attr.0.i.i.i, i64 noundef %attr_len.0.i.i.i) #16
   %call35.i.i.i = call ptr @git_attr(ptr noundef %call34.i.i.i) #16
   %tobool36.not.i.i.i = icmp eq ptr %call35.i.i.i, null
@@ -1875,8 +1875,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %to_free.0 = phi ptr [ %call, %if.then ], [ null, %entry ]
   %name.addr.0 = phi ptr [ %call, %if.then ], [ %name, %entry ]
+  %to_free.0 = phi ptr [ %call, %if.then ], [ null, %entry ]
   %attr_check = getelementptr inbounds i8, ptr %item, i64 48
   %1 = load ptr, ptr %attr_check, align 8
   tail call void @git_check_attr(ptr noundef %istate, ptr noundef %name.addr.0, ptr noundef %1) #16

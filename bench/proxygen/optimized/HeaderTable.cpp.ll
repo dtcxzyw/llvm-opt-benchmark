@@ -3138,14 +3138,14 @@ if.end33:                                         ; preds = %_ZNSt15__new_alloca
   br label %invoke.cont42
 
 while.cond38.loopexit:                            ; preds = %invoke.cont69, %invoke.cont42
-  %remaining.1.lcssa = phi i64 [ %remaining.0139, %invoke.cont42 ], [ %dec, %invoke.cont69 ]
+  %remaining.1.lcssa = phi i64 [ %remaining.0140, %invoke.cont42 ], [ %dec, %invoke.cont69 ]
   %cmp39.not = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp39.not, label %if.then.i92, label %invoke.cont42, !llvm.loop !53
 
 invoke.cont42:                                    ; preds = %if.end33, %while.cond38.loopexit
-  %add.ptr.pn140 = phi ptr [ %add.ptr, %if.end33 ], [ %srcChunk36.0141, %while.cond38.loopexit ]
-  %remaining.0139 = phi i64 [ %origSize, %if.end33 ], [ %remaining.1.lcssa, %while.cond38.loopexit ]
-  %srcChunk36.0141 = getelementptr inbounds i8, ptr %add.ptr.pn140, i64 -64
+  %remaining.0140 = phi i64 [ %origSize, %if.end33 ], [ %remaining.1.lcssa, %while.cond38.loopexit ]
+  %add.ptr.pn139 = phi ptr [ %add.ptr, %if.end33 ], [ %srcChunk36.0141, %while.cond38.loopexit ]
+  %srcChunk36.0141 = getelementptr inbounds i8, ptr %add.ptr.pn139, i64 -64
   %9 = load <16 x i8>, ptr %srcChunk36.0141, align 16
   %10 = icmp slt <16 x i8> %9, zeroinitializer
   %11 = bitcast <16 x i1> %10 to i16
@@ -3155,7 +3155,7 @@ invoke.cont42:                                    ; preds = %if.end33, %while.co
   br i1 %cond, label %while.cond38.loopexit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont42
-  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn140, i64 -48
+  %rawItems_.i.i48 = getelementptr inbounds i8, ptr %add.ptr.pn139, i64 -48
   %13 = load ptr, ptr %this, align 8
   br label %for.body
 
@@ -3190,18 +3190,18 @@ invoke.cont4.i.i.i:                               ; preds = %if.then.i51
   br label %ehcleanup
 
 while.body53:                                     ; preds = %for.body, %invoke.cont69
-  %remaining.1137 = phi i64 [ %dec, %invoke.cont69 ], [ %remaining.0139, %for.body ]
-  %iter.sroa.5.0136 = phi i32 [ %add8.i60, %invoke.cont69 ], [ 0, %for.body ]
-  %iter.sroa.0.0135 = phi i32 [ %iter.sroa.0.1, %invoke.cont69 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
+  %remaining.1137 = phi i64 [ %dec, %invoke.cont69 ], [ %remaining.0140, %for.body ]
+  %iter.sroa.0.0136 = phi i32 [ %iter.sroa.0.1, %invoke.cont69 ], [ %iter.sroa.0.0.extract.trunc, %for.body ]
+  %iter.sroa.5.0135 = phi i32 [ %add8.i60, %invoke.cont69 ], [ 0, %for.body ]
   %dec = add i64 %remaining.1137, -1
-  %and.i53 = and i32 %iter.sroa.0.0135, 1
+  %and.i53 = and i32 %iter.sroa.0.0136, 1
   %cmp.not.i54 = icmp eq i32 %and.i53, 0
-  %17 = call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.0135, i1 true)
+  %17 = call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.0136, i1 true)
   %add5.i65 = add nuw nsw i32 %17, 1
   %add5.i65.pn = select i1 %cmp.not.i54, i32 %add5.i65, i32 1
   %add.i64 = select i1 %cmp.not.i54, i32 %17, i32 0
-  %add.sink.i58 = add i32 %iter.sroa.5.0136, %add.i64
-  %iter.sroa.0.1 = lshr i32 %iter.sroa.0.0135, %add5.i65.pn
+  %add.sink.i58 = add i32 %iter.sroa.5.0135, %add.i64
+  %iter.sroa.0.1 = lshr i32 %iter.sroa.0.0136, %add5.i65.pn
   %add8.i60 = add i32 %add.sink.i58, 1
   %conv57 = zext i32 %add.sink.i58 to i64
   %arrayidx.i.i.i.i69 = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i48, i64 0, i64 %conv57
@@ -3936,8 +3936,8 @@ _ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__c
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE15computeItemHashERKj.exit, %entry
-  %hp.sroa.3.0 = phi i64 [ 1, %entry ], [ %9, %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE15computeItemHashERKj.exit ]
   %hp.sroa.0.0 = phi i64 [ 0, %entry ], [ %shr5.i, %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE15computeItemHashERKj.exit ]
+  %hp.sroa.3.0 = phi i64 [ 1, %entry ], [ %9, %_ZNK5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE15computeItemHashERKj.exit ]
   %sizeAndChunkShiftAndPackedBegin_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i, align 8
   %shr.i.i.i.i.i = and i64 %10, -256

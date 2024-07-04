@@ -2378,14 +2378,14 @@ for.cond.preheader:                               ; preds = %entry
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %for.cond.preheader, %if.end100
-  %hasOther.0.ph = phi i8 [ 0, %for.cond.preheader ], [ %hasOther.1, %if.end100 ]
-  %tobool57.not.ph = phi i1 [ false, %for.cond.preheader ], [ true, %if.end100 ]
   %index.addr.0.ph = phi i32 [ %index, %for.cond.preheader ], [ %call102, %if.end100 ]
+  %tobool57.not.ph = phi i1 [ false, %for.cond.preheader ], [ true, %if.end100 ]
+  %hasOther.0.ph = phi i8 [ 0, %for.cond.preheader ], [ %hasOther.1, %if.end100 ]
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.outer, %if.end69
-  %tobool57.not = phi i1 [ true, %if.end69 ], [ %tobool57.not.ph, %for.cond.outer ]
   %index.addr.0 = phi i32 [ %index.addr.0.lcssa.i179, %if.end69 ], [ %index.addr.0.ph, %for.cond.outer ]
+  %tobool57.not = phi i1 [ true, %if.end69 ], [ %tobool57.not.ph, %for.cond.outer ]
   %1 = load i16, ptr %fUnion.i.i, align 8
   %conv1.i.i = zext i16 %1 to i32
   %and.i.i = and i32 %conv1.i.i, 17
@@ -2857,8 +2857,8 @@ _ZN6icu_7514MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exi
   br label %if.end85
 
 if.end85:                                         ; preds = %_ZN6icu_7514MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit239, %_ZN6icu_7514MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit
-  %hasOther.1 = phi i8 [ %hasOther.0.ph, %_ZN6icu_7514MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit ], [ %spec.select, %_ZN6icu_7514MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit239 ]
   %index.addr.1 = phi i32 [ %index.addr.0.lcssa.i, %_ZN6icu_7514MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit ], [ %conv.i132, %_ZN6icu_7514MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit239 ]
+  %hasOther.1 = phi i8 [ %hasOther.0.ph, %_ZN6icu_7514MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit ], [ %spec.select, %_ZN6icu_7514MessagePattern7addPartE23UMessagePatternPartTypeiiiR10UErrorCode.exit239 ]
   %64 = load i32, ptr %errorCode, align 4
   %cmp.i241 = icmp slt i32 %64, 1
   br i1 %cmp.i241, label %if.end89, label %return
@@ -5186,10 +5186,10 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cond.i48 = phi i32 [ %cond.i42, %while.body.lr.ph ], [ %cond.i, %if.end31 ]
   %shr.i.i47 = phi i32 [ %shr.i.i41, %while.body.lr.ph ], [ %shr.i.i, %if.end31 ]
   %cmp.i.i46 = phi i1 [ %cmp.i.i40, %while.body.lr.ph ], [ %cmp.i.i, %if.end31 ]
-  %index.addr.045 = phi i32 [ %index, %while.body.lr.ph ], [ %index.addr.1, %if.end31 ]
-  %nestedBraces.044 = phi i32 [ 0, %while.body.lr.ph ], [ %nestedBraces.1, %if.end31 ]
-  %inc = add nsw i32 %index.addr.045, 1
-  %cmp.i.i22 = icmp ugt i32 %cond.i48, %index.addr.045
+  %nestedBraces.045 = phi i32 [ 0, %while.body.lr.ph ], [ %nestedBraces.1, %if.end31 ]
+  %index.addr.044 = phi i32 [ %index, %while.body.lr.ph ], [ %index.addr.1, %if.end31 ]
+  %inc = add nsw i32 %index.addr.044, 1
+  %cmp.i.i22 = icmp ugt i32 %cond.i48, %index.addr.044
   br i1 %cmp.i.i22, label %_ZNK6icu_7513UnicodeString6charAtEi.exit, label %if.end31
 
 _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %while.body
@@ -5197,7 +5197,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %while.body
   %tobool.not.i.i.i = icmp eq i16 %6, 0
   %7 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %7, ptr %fBuffer.i.i.i
-  %idxprom.i.i = sext i32 %index.addr.045 to i64
+  %idxprom.i.i = sext i32 %index.addr.044 to i64
   %arrayidx.i.i = getelementptr inbounds i16, ptr %cond.i2.i.i, i64 %idxprom.i.i
   %8 = load i16, ptr %arrayidx.i.i, align 2
   switch i16 %8, label %if.end31 [
@@ -5207,7 +5207,7 @@ _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %while.body
   ]
 
 if.then6:                                         ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %cmp.i.i23 = icmp slt i32 %index.addr.045, -1
+  %cmp.i.i23 = icmp slt i32 %index.addr.044, -1
   %start.addr.0.i = select i1 %cmp.i.i23, i32 0, i32 %inc
   %cond.i.i = select i1 %cmp.i.i46, i32 %4, i32 %shr.i.i47
   %sub.i = sub nsw i32 %cond.i.i, %start.addr.0.i
@@ -5227,19 +5227,19 @@ if.end11:                                         ; preds = %if.then6
   br label %if.end31
 
 if.then15:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %inc16 = add nsw i32 %nestedBraces.044, 1
+  %inc16 = add nsw i32 %nestedBraces.045, 1
   br label %if.end31
 
 if.then20:                                        ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  %cmp21 = icmp sgt i32 %nestedBraces.044, 0
+  %cmp21 = icmp sgt i32 %nestedBraces.045, 0
   br i1 %cmp21, label %if.then22, label %if.else23
 
 if.then22:                                        ; preds = %if.then20
-  %dec = add nsw i32 %nestedBraces.044, -1
+  %dec = add nsw i32 %nestedBraces.045, -1
   br label %if.end31
 
 if.else23:                                        ; preds = %if.then20
-  %sub = sub nsw i32 %index.addr.045, %index
+  %sub = sub nsw i32 %index.addr.044, %index
   %cmp25 = icmp sgt i32 %sub, 65535
   br i1 %cmp25, label %if.then26, label %if.end27
 
@@ -5327,8 +5327,8 @@ if.then.i:                                        ; preds = %_ZN6icu_7515MaybeSt
 if.end31:                                         ; preds = %while.body, %_ZNK6icu_7513UnicodeString6charAtEi.exit, %if.then15, %if.then22, %if.end11
   %19 = phi i32 [ %.pre51, %if.end11 ], [ %4, %if.then15 ], [ %4, %if.then22 ], [ %4, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %4, %while.body ]
   %20 = phi i16 [ %.pre, %if.end11 ], [ %5, %if.then15 ], [ %5, %if.then22 ], [ %5, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %5, %while.body ]
-  %nestedBraces.1 = phi i32 [ %nestedBraces.044, %if.end11 ], [ %inc16, %if.then15 ], [ %dec, %if.then22 ], [ %nestedBraces.044, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %nestedBraces.044, %while.body ]
   %index.addr.1 = phi i32 [ %inc12, %if.end11 ], [ %inc, %if.then15 ], [ %inc, %if.then22 ], [ %inc, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %inc, %while.body ]
+  %nestedBraces.1 = phi i32 [ %nestedBraces.045, %if.end11 ], [ %inc16, %if.then15 ], [ %dec, %if.then22 ], [ %nestedBraces.045, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %nestedBraces.045, %while.body ]
   %cmp.i.i = icmp slt i16 %20, 0
   %21 = ashr i16 %20, 5
   %shr.i.i = sext i16 %21 to i32
@@ -5407,7 +5407,7 @@ _ZN6icu_7514MessagePattern13setParseErrorEP11UParseErrori.exit: ; preds = %while
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.end7.i.i, %if.end27, %entry, %_ZN6icu_7514MessagePattern13setParseErrorEP11UParseErrori.exit, %if.then26, %if.then10
-  %retval.0 = phi i32 [ 0, %if.then10 ], [ 0, %if.then26 ], [ 0, %_ZN6icu_7514MessagePattern13setParseErrorEP11UParseErrori.exit ], [ 0, %entry ], [ %index.addr.045, %if.end27 ], [ %index.addr.045, %if.end7.i.i ], [ %index.addr.045, %if.then.i ]
+  %retval.0 = phi i32 [ 0, %if.then10 ], [ 0, %if.then26 ], [ 0, %_ZN6icu_7514MessagePattern13setParseErrorEP11UParseErrori.exit ], [ 0, %entry ], [ %index.addr.044, %if.end27 ], [ %index.addr.044, %if.end7.i.i ], [ %index.addr.044, %if.then.i ]
   ret i32 %retval.0
 }
 
@@ -5549,8 +5549,8 @@ if.end20.sink.split:                              ; preds = %if.end15, %if.end6
 
 if.end20:                                         ; preds = %if.end20.sink.split, %_ZNK6icu_7513UnicodeString6charAtEi.exit
   %cmp.not.not93 = phi i1 [ false, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %cmp.not.not93.ph, %if.end20.sink.split ]
-  %c.0 = phi i16 [ %6, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %7, %if.end20.sink.split ]
   %index.0 = phi i32 [ %inc, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %index.0.ph, %if.end20.sink.split ]
+  %c.0 = phi i16 [ %6, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %7, %if.end20.sink.split ]
   %isNegative.0 = phi i32 [ 32767, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ %isNegative.0.ph, %if.end20.sink.split ]
   %cmp22 = icmp eq i16 %c.0, 8734
   br i1 %cmp22, label %if.then23, label %while.cond.preheader
@@ -5588,8 +5588,8 @@ if.then26:                                        ; preds = %if.then23
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNK6icu_7513UnicodeString6charAtEi.exit89
   %indvars.iv = phi i64 [ %12, %while.body.lr.ph ], [ %indvars.iv.next, %_ZNK6icu_7513UnicodeString6charAtEi.exit89 ]
   %value.0100 = phi i32 [ 0, %while.body.lr.ph ], [ %add, %_ZNK6icu_7513UnicodeString6charAtEi.exit89 ]
-  %c.198 = phi i16 [ %c.0, %while.body.lr.ph ], [ %24, %_ZNK6icu_7513UnicodeString6charAtEi.exit89 ]
-  %conv31 = zext nneg i16 %c.198 to i32
+  %c.199 = phi i16 [ %c.0, %while.body.lr.ph ], [ %24, %_ZNK6icu_7513UnicodeString6charAtEi.exit89 ]
+  %conv31 = zext nneg i16 %c.199 to i32
   %mul = mul nsw i32 %value.0100, 10
   %sub36 = add nsw i32 %conv31, -48
   %add = add nsw i32 %sub36, %mul

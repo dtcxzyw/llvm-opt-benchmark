@@ -125,20 +125,20 @@ define void @Cudd_zddPrintSubtable(ptr nocapture noundef readonly %0) local_unna
   %indvars.iv = phi i64 [ %19, %.lr.ph40.preheader ], [ %indvars.iv.next, %.loopexit ]
   %21 = load ptr, ptr %13, align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
-  %.03335 = load ptr, ptr %22, align 8
-  %.not36 = icmp eq ptr %.03335, null
+  %.035 = load ptr, ptr %22, align 8
+  %.not36 = icmp eq ptr %.035, null
   br i1 %.not36, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph40, %61
-  %.03337 = phi ptr [ %.033, %61 ], [ %.03335, %.lr.ph40 ]
+  %.037 = phi ptr [ %.0, %61 ], [ %.035, %.lr.ph40 ]
   %23 = load ptr, ptr %8, align 8
-  %24 = ptrtoint ptr %.03337 to i64
+  %24 = ptrtoint ptr %.037 to i64
   %25 = udiv i64 %24, 40
-  %26 = load i32, ptr %.03337, align 8
-  %27 = getelementptr inbounds i8, ptr %.03337, i64 4
+  %26 = load i32, ptr %.037, align 8
+  %27 = getelementptr inbounds i8, ptr %.037, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.1, i64 noundef %25, i32 noundef %26, i32 noundef %28) #4
-  %30 = getelementptr inbounds i8, ptr %.03337, i64 16
+  %30 = getelementptr inbounds i8, ptr %.037, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, -2
@@ -160,7 +160,7 @@ define void @Cudd_zddPrintSubtable(ptr nocapture noundef readonly %0) local_unna
   br label %45
 
 45:                                               ; preds = %42, %38
-  %46 = getelementptr inbounds i8, ptr %.03337, i64 24
+  %46 = getelementptr inbounds i8, ptr %.037, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = ptrtoint ptr %47 to i64
   %49 = and i64 %48, -2
@@ -182,9 +182,9 @@ define void @Cudd_zddPrintSubtable(ptr nocapture noundef readonly %0) local_unna
   br label %61
 
 61:                                               ; preds = %58, %54
-  %62 = getelementptr inbounds i8, ptr %.03337, i64 8
-  %.033 = load ptr, ptr %62, align 8
-  %.not = icmp eq ptr %.033, null
+  %62 = getelementptr inbounds i8, ptr %.037, i64 8
+  %.0 = load ptr, ptr %62, align 8
+  %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.loopexit34, %1

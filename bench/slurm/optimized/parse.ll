@@ -377,8 +377,8 @@ define dso_local ptr @cronspec_to_bitstring(ptr noundef %0) local_unnamed_addr #
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i, %182
-  %.015.i = phi ptr [ %0, %182 ], [ %193, %.critedge.i ]
-  %187 = load i8, ptr %.015.i, align 1
+  %.0.i = phi ptr [ %0, %182 ], [ %193, %.critedge.i ]
+  %187 = load i8, ptr %.0.i, align 1
   %188 = sext i8 %187 to i64
   %189 = getelementptr inbounds i16, ptr %186, i64 %188
   %190 = load i16, ptr %189, align 2
@@ -388,18 +388,18 @@ define dso_local ptr @cronspec_to_bitstring(ptr noundef %0) local_unnamed_addr #
   %192 = and i8 %187, -2
   %switch.i = icmp eq i8 %192, 44
   %or.cond.i = or i1 %switch.i, %.not.i
-  %193 = getelementptr inbounds i8, ptr %.015.i, i64 1
+  %193 = getelementptr inbounds i8, ptr %.0.i, i64 1
   br i1 %or.cond.i, label %.critedge.i, label %194, !llvm.loop !7
 
 194:                                              ; preds = %.critedge.i
-  store i8 0, ptr %.015.i, align 1
+  store i8 0, ptr %.0.i, align 1
   %195 = tail call i32 @bit_unfmt(ptr noundef %184, ptr noundef nonnull %0) #8
   %.not17.i = icmp eq i32 %195, 0
-  store i8 %187, ptr %.015.i, align 1
+  store i8 %187, ptr %.0.i, align 1
   br i1 %.not17.i, label %_parse_range.exit.thread, label %_parse_range.exit
 
 _parse_range.exit.thread:                         ; preds = %194
-  store ptr %.015.i, ptr %2, align 8
+  store ptr %.0.i, ptr %2, align 8
   br label %196
 
 196:                                              ; preds = %_parse_range.exit.thread, %179, %174
@@ -907,8 +907,8 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_range(ptr noundef %0, ptr no
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge, %2
-  %.015 = phi ptr [ %3, %2 ], [ %12, %.critedge ]
-  %6 = load i8, ptr %.015, align 1
+  %.0 = phi ptr [ %3, %2 ], [ %12, %.critedge ]
+  %6 = load i8, ptr %.0, align 1
   %7 = sext i8 %6 to i64
   %8 = getelementptr inbounds i16, ptr %5, i64 %7
   %9 = load i16, ptr %8, align 2
@@ -918,24 +918,24 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_range(ptr noundef %0, ptr no
   %11 = and i8 %6, -2
   %switch = icmp eq i8 %11, 44
   %or.cond = or i1 %switch, %.not
-  %12 = getelementptr inbounds i8, ptr %.015, i64 1
+  %12 = getelementptr inbounds i8, ptr %.0, i64 1
   br i1 %or.cond, label %.critedge, label %13, !llvm.loop !7
 
 13:                                               ; preds = %.critedge
-  store i8 0, ptr %.015, align 1
+  store i8 0, ptr %.0, align 1
   %14 = load ptr, ptr %1, align 8
   %15 = tail call i32 @bit_unfmt(ptr noundef %0, ptr noundef %14) #8
   %.not17 = icmp eq i32 %15, 0
-  store i8 %6, ptr %.015, align 1
+  store i8 %6, ptr %.0, align 1
   br i1 %.not17, label %16, label %17
 
 16:                                               ; preds = %13
-  store ptr %.015, ptr %1, align 8
+  store ptr %.0, ptr %1, align 8
   br label %17
 
 17:                                               ; preds = %13, %16
-  %.0 = phi i32 [ 0, %16 ], [ -1, %13 ]
-  ret i32 %.0
+  %.015 = phi i32 [ 0, %16 ], [ -1, %13 ]
+  ret i32 %.015
 }
 
 ; Function Attrs: nounwind uwtable

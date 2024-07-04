@@ -295,17 +295,17 @@ if.then28.i:                                      ; preds = %if.else24.i
 
 if.end33.sink.split.i:                            ; preds = %if.then28.i, %if.then14.i
   %conv29.sink.i = phi i32 [ %conv29.i, %if.then28.i ], [ %11, %if.then14.i ]
+  %fld.addr.0.ph.i = phi ptr [ %fld, %if.then28.i ], [ %value.i, %if.then14.i ]
   %utype.1.ph.i = phi i64 [ %utype.055.i, %if.then28.i ], [ %conv16.i, %if.then14.i ]
   %str.0.ph.i = phi ptr [ %7, %if.then28.i ], [ %12, %if.then14.i ]
-  %fld.addr.0.ph.i = phi ptr [ %fld, %if.then28.i ], [ %value.i, %if.then14.i ]
   %call30.i = tail call ptr @ASN1_tag2str(i32 noundef %conv29.sink.i) #7
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.end33.sink.split.i, %if.else24.i, %if.then14.i
+  %fld.addr.0.i = phi ptr [ %value.i, %if.then14.i ], [ %fld, %if.else24.i ], [ %fld.addr.0.ph.i, %if.end33.sink.split.i ]
   %utype.1.i = phi i64 [ %conv16.i, %if.then14.i ], [ %utype.055.i, %if.else24.i ], [ %utype.1.ph.i, %if.end33.sink.split.i ]
   %str.0.i = phi ptr [ %12, %if.then14.i ], [ %7, %if.else24.i ], [ %str.0.ph.i, %if.end33.sink.split.i ]
   %pname.0.i = phi ptr [ null, %if.then14.i ], [ null, %if.else24.i ], [ %call30.i, %if.end33.sink.split.i ]
-  %fld.addr.0.i = phi ptr [ %value.i, %if.then14.i ], [ %fld, %if.else24.i ], [ %fld.addr.0.ph.i, %if.end33.sink.split.i ]
   %cmp34.i = icmp eq i64 %utype.1.i, 5
   br i1 %cmp34.i, label %if.then36.i, label %if.end42.i
 

@@ -112,7 +112,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br label %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread"
 
 "_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread": ; preds = %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread.preheader", %64
-  %.079157 = phi i64 [ %66, %64 ], [ 0, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread.preheader" ]
+  %.074157 = phi i64 [ %66, %64 ], [ 0, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread.preheader" ]
   %.sroa.0112.0.idx156 = phi i64 [ %.sroa.0112.0.add, %64 ], [ 0, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread.preheader" ]
   %.sroa.11.0155 = phi i64 [ %65, %64 ], [ 0, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread.preheader" ]
   %.sroa.0112.0.ptr = getelementptr inbounds i8, ptr %2, i64 %.sroa.0112.0.idx156
@@ -127,13 +127,13 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br i1 %54, label %.lr.ph160, label %._crit_edge.thread
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit.thread": ; preds = %64, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread"
-  %.180 = phi i64 [ %74, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread" ], [ 512, %64 ]
-  %.075 = phi i64 [ %89, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread" ], [ 0, %64 ]
+  %.076 = phi i64 [ %89, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread" ], [ 0, %64 ]
+  %.175 = phi i64 [ %74, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread" ], [ 512, %64 ]
   %.069 = phi i8 [ %.2, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread" ], [ 0, %64 ]
-  %55 = sub i64 271, %.180
+  %55 = sub i64 271, %.175
   %56 = lshr i64 %55, 2
   %57 = trunc i64 %56 to i8
-  %58 = trunc i64 %.180 to i32
+  %58 = trunc i64 %.175 to i32
   %59 = shl i8 %57, 2
   %60 = sext i8 %59 to i32
   %61 = add i32 %58, %60
@@ -143,29 +143,29 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
 
 64:                                               ; preds = %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread"
   %65 = add nuw nsw i64 %.sroa.11.0155, 1
-  %66 = add nuw nsw i64 %.079157, 64
+  %66 = add nuw nsw i64 %.074157, 64
   %67 = icmp eq i64 %.sroa.0112.0.add, 64
   br i1 %67, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit.thread", label %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread"
 
 .lr.ph160:                                        ; preds = %.preheader, %.lr.ph160
-  %.176159 = phi i64 [ %69, %.lr.ph160 ], [ %52, %.preheader ]
-  %.078158 = phi i64 [ %68, %.lr.ph160 ], [ 0, %.preheader ]
-  %68 = add i64 %.078158, 1
-  %69 = shl nuw i64 %.176159, 1
+  %.072159 = phi i64 [ %68, %.lr.ph160 ], [ 0, %.preheader ]
+  %.177158 = phi i64 [ %69, %.lr.ph160 ], [ %52, %.preheader ]
+  %68 = add i64 %.072159, 1
+  %69 = shl nuw i64 %.177158, 1
   %70 = icmp sgt i64 %69, -1
   br i1 %70, label %.lr.ph160, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph160
-  %71 = add i64 %68, %.079157
+  %71 = add i64 %68, %.074157
   %72 = icmp eq i64 %.sroa.11.0155, 7
   %73 = icmp eq i64 %68, 0
   %or.cond = select i1 %72, i1 true, i1 %73
   br i1 %or.cond, label %._crit_edge.thread, label %75
 
 ._crit_edge.thread:                               ; preds = %.preheader, %78, %._crit_edge
-  %74 = phi i64 [ %71, %._crit_edge ], [ %71, %78 ], [ %.079157, %.preheader ]
+  %74 = phi i64 [ %71, %._crit_edge ], [ %71, %78 ], [ %.074157, %.preheader ]
   %.sroa.0112.2.idx = phi i64 [ %.sroa.0112.0.add, %._crit_edge ], [ %.ptr.add, %78 ], [ %.sroa.0112.0.add, %.preheader ]
-  %.277 = phi i64 [ %69, %._crit_edge ], [ %83, %78 ], [ %52, %.preheader ]
+  %.278 = phi i64 [ %69, %._crit_edge ], [ %83, %78 ], [ %52, %.preheader ]
   %.1 = phi i8 [ 0, %._crit_edge ], [ %spec.select, %78 ], [ 0, %.preheader ]
   br label %87
 
@@ -180,7 +180,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
 78:                                               ; preds = %75
   %.ptr.add = add nuw nsw i64 %.sroa.0112.0.idx156, 16
   %79 = load i64, ptr %.ptr.ptr.le, align 8, !noundef !4
-  %80 = and i64 %.078158, 63
+  %80 = and i64 %.072159, 63
   %81 = xor i64 %80, 63
   %82 = lshr i64 %79, %81
   %83 = add i64 %82, %69
@@ -198,7 +198,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread": ; preds = %87, %90
   %.2 = phi i8 [ 1, %90 ], [ %.1, %87 ]
-  %89 = and i64 %.277, 9223372036854775807
+  %89 = and i64 %.278, 9223372036854775807
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit.thread"
 
 90:                                               ; preds = %87
@@ -241,18 +241,18 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
 109:                                              ; preds = %105
   %110 = add nuw nsw i32 %.065, 35
   %111 = zext nneg i32 %110 to i64
-  %112 = lshr i64 %.075, %111
+  %112 = lshr i64 %.076, %111
   %113 = trunc i64 %112 to i32
   %114 = add nuw nsw i32 %.065, 34
   %115 = zext nneg i32 %114 to i64
   %116 = shl nuw nsw i64 1, %115
-  %117 = and i64 %116, %.075
+  %117 = and i64 %116, %.076
   %.not187 = icmp eq i64 %117, 0
   %118 = sub nuw nsw i32 28, %.065
   %119 = shl i32 %62, %118
   %120 = sub nuw nsw i32 30, %.065
   %121 = zext nneg i32 %120 to i64
-  %122 = shl i64 %.075, %121
+  %122 = shl i64 %.076, %121
   %123 = icmp eq i64 %122, 0
   %spec.select90 = select i1 %123, i8 %.069, i8 1
   %124 = add i32 %119, %.066
@@ -263,14 +263,14 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   %127 = icmp eq i32 %.065, 30
   %128 = trunc i32 %62 to i8
   %129 = ashr i32 %62, 1
-  %.073 = select i1 %127, i32 0, i32 %129
+  %.079 = select i1 %127, i32 0, i32 %129
   %130 = zext i1 %127 to i8
   %.070.in = lshr i8 %128, %130
   %.3 = select i1 %127, i8 %128, i8 %.069
-  %.not89 = icmp eq i64 %.075, 0
+  %.not89 = icmp eq i64 %.076, 0
   %spec.select92 = select i1 %.not89, i8 %.3, i8 1
   %131 = trunc i8 %.070.in to i1
-  %132 = add i32 %.073, %.066
+  %132 = add i32 %.079, %.066
   br i1 %131, label %133, label %107
 
 133:                                              ; preds = %109, %126

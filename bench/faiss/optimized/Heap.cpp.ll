@@ -356,8 +356,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE4addnEmPKflml.omp_outlin
   %29 = phi i64 [ %98, %._crit_edge ], [ %21, %.lr.ph37 ]
   %30 = phi i64 [ %99, %._crit_edge ], [ %28, %.lr.ph37 ]
   %31 = phi i64 [ %100, %._crit_edge ], [ %28, %.lr.ph37 ]
-  %.035 = phi i64 [ %101, %._crit_edge ], [ %22, %.lr.ph37 ]
-  %32 = add i64 %.035, %13
+  %.03235 = phi i64 [ %101, %._crit_edge ], [ %22, %.lr.ph37 ]
+  %32 = add i64 %.03235, %13
   %33 = load ptr, ptr %25, align 8
   %34 = load i64, ptr %26, align 8
   %35 = mul i64 %34, %32
@@ -379,8 +379,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE4addnEmPKflml.omp_outlin
 
 46:                                               ; preds = %.lr.ph, %94
   %47 = phi i64 [ %30, %.lr.ph ], [ %95, %94 ]
-  %.03234 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
-  %48 = getelementptr inbounds float, ptr %43, i64 %.03234
+  %.034 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
+  %48 = getelementptr inbounds float, ptr %43, i64 %.034
   %49 = load float, ptr %48, align 4
   %50 = load float, ptr %36, align 4
   %51 = fcmp olt float %50, %49
@@ -389,7 +389,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE4addnEmPKflml.omp_outlin
 52:                                               ; preds = %46
   %53 = load i64, ptr %26, align 8
   %54 = load i64, ptr %7, align 8
-  %55 = add i64 %54, %.03234
+  %55 = add i64 %54, %.034
   %56 = icmp ult i64 %53, 2
   br i1 %56, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
 
@@ -474,7 +474,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 94:                                               ; preds = %46, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %95 = phi i64 [ %47, %46 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %96 = add nuw i64 %.03234, 1
+  %96 = add nuw i64 %.034, 1
   %97 = icmp ult i64 %96, %95
   br i1 %97, label %46, label %._crit_edge.loopexit, !llvm.loop !12
 
@@ -486,7 +486,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %98 = phi i64 [ %.pre41, %._crit_edge.loopexit ], [ %29, %.lr.ph37.split ]
   %99 = phi i64 [ %95, %._crit_edge.loopexit ], [ %30, %.lr.ph37.split ]
   %100 = phi i64 [ %95, %._crit_edge.loopexit ], [ 0, %.lr.ph37.split ]
-  %101 = add nuw i64 %.035, 1
+  %101 = add nuw i64 %.03235, 1
   %102 = add i64 %98, 1
   %103 = icmp ult i64 %101, %102
   br i1 %103, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !13
@@ -601,8 +601,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE13addn_with_idsEmPKfPKll
   %30 = phi i64 [ %103, %._crit_edge ], [ %22, %.lr.ph40 ]
   %31 = phi i64 [ %104, %._crit_edge ], [ %29, %.lr.ph40 ]
   %32 = phi i64 [ %105, %._crit_edge ], [ %29, %.lr.ph40 ]
-  %.038 = phi i64 [ %106, %._crit_edge ], [ %23, %.lr.ph40 ]
-  %33 = add i64 %.038, %14
+  %.03538 = phi i64 [ %106, %._crit_edge ], [ %23, %.lr.ph40 ]
+  %33 = add i64 %.03538, %14
   %34 = load ptr, ptr %26, align 8
   %35 = load i64, ptr %27, align 8
   %36 = mul i64 %35, %33
@@ -628,8 +628,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE13addn_with_idsEmPKfPKll
 
 51:                                               ; preds = %.lr.ph, %99
   %52 = phi i64 [ %31, %.lr.ph ], [ %100, %99 ]
-  %.03537 = phi i64 [ 0, %.lr.ph ], [ %101, %99 ]
-  %53 = getelementptr inbounds float, ptr %44, i64 %.03537
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %101, %99 ]
+  %53 = getelementptr inbounds float, ptr %44, i64 %.037
   %54 = load float, ptr %53, align 4
   %55 = load float, ptr %37, align 4
   %56 = fcmp olt float %55, %54
@@ -637,7 +637,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE13addn_with_idsEmPKfPKll
 
 57:                                               ; preds = %51
   %58 = load i64, ptr %27, align 8
-  %59 = getelementptr inbounds i64, ptr %48, i64 %.03537
+  %59 = getelementptr inbounds i64, ptr %48, i64 %.037
   %60 = load i64, ptr %59, align 8
   %61 = icmp ult i64 %58, 2
   br i1 %61, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
@@ -723,7 +723,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 99:                                               ; preds = %51, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %100 = phi i64 [ %52, %51 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %101 = add nuw i64 %.03537, 1
+  %101 = add nuw i64 %.037, 1
   %102 = icmp ult i64 %101, %100
   br i1 %102, label %51, label %._crit_edge.loopexit, !llvm.loop !14
 
@@ -735,7 +735,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %103 = phi i64 [ %.pre44, %._crit_edge.loopexit ], [ %30, %.lr.ph40.split ]
   %104 = phi i64 [ %100, %._crit_edge.loopexit ], [ %31, %.lr.ph40.split ]
   %105 = phi i64 [ %100, %._crit_edge.loopexit ], [ 0, %.lr.ph40.split ]
-  %106 = add nuw i64 %.038, 1
+  %106 = add nuw i64 %.03538, 1
   %107 = add i64 %103, 1
   %108 = icmp ult i64 %106, %107
   br i1 %108, label %.lr.ph40.split, label %._crit_edge41, !llvm.loop !15
@@ -908,9 +908,9 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE26addn_query_subset_with
   %25 = phi i64 [ %98, %._crit_edge ], [ %19, %.lr.ph36 ]
   %26 = phi i64 [ %99, %._crit_edge ], [ %24, %.lr.ph36 ]
   %27 = phi i64 [ %100, %._crit_edge ], [ %24, %.lr.ph36 ]
-  %.034 = phi i64 [ %101, %._crit_edge ], [ %20, %.lr.ph36 ]
+  %.03234 = phi i64 [ %101, %._crit_edge ], [ %20, %.lr.ph36 ]
   %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds i64, ptr %28, i64 %.034
+  %29 = getelementptr inbounds i64, ptr %28, i64 %.03234
   %30 = load i64, ptr %29, align 8
   %31 = load ptr, ptr %21, align 8
   %32 = load i64, ptr %22, align 8
@@ -919,11 +919,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE26addn_query_subset_with
   %35 = load ptr, ptr %23, align 8
   %36 = getelementptr inbounds i64, ptr %35, i64 %33
   %37 = load ptr, ptr %5, align 8
-  %38 = mul i64 %27, %.034
+  %38 = mul i64 %27, %.03234
   %39 = getelementptr inbounds float, ptr %37, i64 %38
   %40 = load ptr, ptr %7, align 8
   %41 = load i64, ptr %8, align 8
-  %42 = mul nsw i64 %41, %.034
+  %42 = mul nsw i64 %41, %.03234
   %43 = getelementptr inbounds i64, ptr %40, i64 %42
   %.not39 = icmp eq i64 %27, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
@@ -935,8 +935,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE26addn_query_subset_with
 
 46:                                               ; preds = %.lr.ph, %94
   %47 = phi i64 [ %26, %.lr.ph ], [ %95, %94 ]
-  %.03233 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
-  %48 = getelementptr inbounds float, ptr %39, i64 %.03233
+  %.033 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
+  %48 = getelementptr inbounds float, ptr %39, i64 %.033
   %49 = load float, ptr %48, align 4
   %50 = load float, ptr %34, align 4
   %51 = fcmp olt float %50, %49
@@ -944,7 +944,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIflEEE26addn_query_subset_with
 
 52:                                               ; preds = %46
   %53 = load i64, ptr %22, align 8
-  %54 = getelementptr inbounds i64, ptr %43, i64 %.03233
+  %54 = getelementptr inbounds i64, ptr %43, i64 %.033
   %55 = load i64, ptr %54, align 8
   %56 = icmp ult i64 %53, 2
   br i1 %56, label %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
@@ -1030,7 +1030,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 94:                                               ; preds = %46, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %95 = phi i64 [ %47, %46 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %96 = add nuw i64 %.03233, 1
+  %96 = add nuw i64 %.033, 1
   %97 = icmp ult i64 %96, %95
   br i1 %97, label %46, label %._crit_edge.loopexit, !llvm.loop !16
 
@@ -1042,7 +1042,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %98 = phi i64 [ %.pre41, %._crit_edge.loopexit ], [ %25, %.lr.ph36.split ]
   %99 = phi i64 [ %95, %._crit_edge.loopexit ], [ %26, %.lr.ph36.split ]
   %100 = phi i64 [ %95, %._crit_edge.loopexit ], [ 0, %.lr.ph36.split ]
-  %101 = add nuw i64 %.034, 1
+  %101 = add nuw i64 %.03234, 1
   %102 = add i64 %98, 1
   %103 = icmp ult i64 %101, %102
   br i1 %103, label %.lr.ph36.split, label %._crit_edge37, !llvm.loop !17
@@ -1336,37 +1336,37 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIflEEE16per_line_extremaEPfPl
   br label %20
 
 20:                                               ; preds = %.lr.ph45, %45
-  %.03043 = phi i64 [ %16, %.lr.ph45 ], [ %46, %45 ]
+  %.03343 = phi i64 [ %16, %.lr.ph45 ], [ %46, %45 ]
   %21 = load ptr, ptr %17, align 8
   %22 = load i64, ptr %18, align 8
-  %23 = mul i64 %22, %.03043
+  %23 = mul i64 %22, %.03343
   %24 = getelementptr inbounds float, ptr %21, i64 %23
   %.not47 = icmp eq i64 %22, 0
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.041 = phi i64 [ %28, %.lr.ph ], [ 0, %20 ]
-  %.03140 = phi float [ %.1, %.lr.ph ], [ 0x47EFFFFFE0000000, %20 ]
-  %.03239 = phi i64 [ %.133, %.lr.ph ], [ -1, %20 ]
+  %.03040 = phi float [ %.1, %.lr.ph ], [ 0x47EFFFFFE0000000, %20 ]
+  %.03139 = phi i64 [ %.132, %.lr.ph ], [ -1, %20 ]
   %25 = getelementptr inbounds float, ptr %24, i64 %.041
   %26 = load float, ptr %25, align 4
-  %27 = fcmp olt float %26, %.03140
-  %.133 = select i1 %27, i64 %.041, i64 %.03239
-  %.1 = select i1 %27, float %26, float %.03140
+  %27 = fcmp olt float %26, %.03040
+  %.132 = select i1 %27, i64 %.041, i64 %.03139
+  %.1 = select i1 %27, float %26, float %.03040
   %28 = add nuw i64 %.041, 1
   %exitcond.not = icmp eq i64 %28, %22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
-  %.032.lcssa = phi i64 [ -1, %20 ], [ %.133, %.lr.ph ]
-  %.031.lcssa = phi float [ 0x47EFFFFFE0000000, %20 ], [ %.1, %.lr.ph ]
+  %.031.lcssa = phi i64 [ -1, %20 ], [ %.132, %.lr.ph ]
+  %.030.lcssa = phi float [ 0x47EFFFFFE0000000, %20 ], [ %.1, %.lr.ph ]
   %29 = load ptr, ptr %3, align 8
   %.not37 = icmp eq ptr %29, null
   br i1 %.not37, label %32, label %30
 
 30:                                               ; preds = %._crit_edge
-  %31 = getelementptr inbounds float, ptr %29, i64 %.03043
-  store float %.031.lcssa, ptr %31, align 4
+  %31 = getelementptr inbounds float, ptr %29, i64 %.03343
+  store float %.030.lcssa, ptr %31, align 4
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
@@ -1377,26 +1377,26 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIflEEE16per_line_extremaEPfPl
 34:                                               ; preds = %32
   %35 = load ptr, ptr %19, align 8
   %36 = icmp ne ptr %35, null
-  %37 = icmp ne i64 %.032.lcssa, -1
+  %37 = icmp ne i64 %.031.lcssa, -1
   %or.cond = select i1 %36, i1 %37, i1 false
   br i1 %or.cond, label %38, label %.sink.split
 
 38:                                               ; preds = %34
   %39 = load i64, ptr %18, align 8
-  %40 = mul i64 %39, %.03043
+  %40 = mul i64 %39, %.03343
   %41 = getelementptr i64, ptr %35, i64 %40
-  %42 = getelementptr i64, ptr %41, i64 %.032.lcssa
+  %42 = getelementptr i64, ptr %41, i64 %.031.lcssa
   %43 = load i64, ptr %42, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %34, %38
-  %.sink = phi i64 [ %43, %38 ], [ %.032.lcssa, %34 ]
-  %44 = getelementptr inbounds i64, ptr %33, i64 %.03043
+  %.sink = phi i64 [ %43, %38 ], [ %.031.lcssa, %34 ]
+  %44 = getelementptr inbounds i64, ptr %33, i64 %.03343
   store i64 %.sink, ptr %44, align 8
   br label %45
 
 45:                                               ; preds = %.sink.split, %32
-  %46 = add nuw i64 %.03043, 1
+  %46 = add nuw i64 %.03343, 1
   %47 = load i64, ptr %7, align 8
   %48 = add i64 %47, 1
   %49 = icmp ult i64 %46, %48
@@ -1599,8 +1599,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE4addnEmPKflml.omp_outlin
   %29 = phi i64 [ %98, %._crit_edge ], [ %21, %.lr.ph37 ]
   %30 = phi i64 [ %99, %._crit_edge ], [ %28, %.lr.ph37 ]
   %31 = phi i64 [ %100, %._crit_edge ], [ %28, %.lr.ph37 ]
-  %.035 = phi i64 [ %101, %._crit_edge ], [ %22, %.lr.ph37 ]
-  %32 = add i64 %.035, %13
+  %.03235 = phi i64 [ %101, %._crit_edge ], [ %22, %.lr.ph37 ]
+  %32 = add i64 %.03235, %13
   %33 = load ptr, ptr %25, align 8
   %34 = load i64, ptr %26, align 8
   %35 = mul i64 %34, %32
@@ -1622,8 +1622,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE4addnEmPKflml.omp_outlin
 
 46:                                               ; preds = %.lr.ph, %94
   %47 = phi i64 [ %30, %.lr.ph ], [ %95, %94 ]
-  %.03234 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
-  %48 = getelementptr inbounds float, ptr %43, i64 %.03234
+  %.034 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
+  %48 = getelementptr inbounds float, ptr %43, i64 %.034
   %49 = load float, ptr %48, align 4
   %50 = load float, ptr %36, align 4
   %51 = fcmp ogt float %50, %49
@@ -1632,7 +1632,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE4addnEmPKflml.omp_outlin
 52:                                               ; preds = %46
   %53 = load i64, ptr %26, align 8
   %54 = load i64, ptr %7, align 8
-  %55 = add i64 %54, %.03234
+  %55 = add i64 %54, %.034
   %56 = icmp ult i64 %53, 2
   br i1 %56, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
 
@@ -1717,7 +1717,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 94:                                               ; preds = %46, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %95 = phi i64 [ %47, %46 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %96 = add nuw i64 %.03234, 1
+  %96 = add nuw i64 %.034, 1
   %97 = icmp ult i64 %96, %95
   br i1 %97, label %46, label %._crit_edge.loopexit, !llvm.loop !25
 
@@ -1729,7 +1729,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %98 = phi i64 [ %.pre41, %._crit_edge.loopexit ], [ %29, %.lr.ph37.split ]
   %99 = phi i64 [ %95, %._crit_edge.loopexit ], [ %30, %.lr.ph37.split ]
   %100 = phi i64 [ %95, %._crit_edge.loopexit ], [ 0, %.lr.ph37.split ]
-  %101 = add nuw i64 %.035, 1
+  %101 = add nuw i64 %.03235, 1
   %102 = add i64 %98, 1
   %103 = icmp ult i64 %101, %102
   br i1 %103, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !26
@@ -1835,8 +1835,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE13addn_with_idsEmPKfPKll
   %30 = phi i64 [ %103, %._crit_edge ], [ %22, %.lr.ph40 ]
   %31 = phi i64 [ %104, %._crit_edge ], [ %29, %.lr.ph40 ]
   %32 = phi i64 [ %105, %._crit_edge ], [ %29, %.lr.ph40 ]
-  %.038 = phi i64 [ %106, %._crit_edge ], [ %23, %.lr.ph40 ]
-  %33 = add i64 %.038, %14
+  %.03538 = phi i64 [ %106, %._crit_edge ], [ %23, %.lr.ph40 ]
+  %33 = add i64 %.03538, %14
   %34 = load ptr, ptr %26, align 8
   %35 = load i64, ptr %27, align 8
   %36 = mul i64 %35, %33
@@ -1862,8 +1862,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE13addn_with_idsEmPKfPKll
 
 51:                                               ; preds = %.lr.ph, %99
   %52 = phi i64 [ %31, %.lr.ph ], [ %100, %99 ]
-  %.03537 = phi i64 [ 0, %.lr.ph ], [ %101, %99 ]
-  %53 = getelementptr inbounds float, ptr %44, i64 %.03537
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %101, %99 ]
+  %53 = getelementptr inbounds float, ptr %44, i64 %.037
   %54 = load float, ptr %53, align 4
   %55 = load float, ptr %37, align 4
   %56 = fcmp ogt float %55, %54
@@ -1871,7 +1871,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE13addn_with_idsEmPKfPKll
 
 57:                                               ; preds = %51
   %58 = load i64, ptr %27, align 8
-  %59 = getelementptr inbounds i64, ptr %48, i64 %.03537
+  %59 = getelementptr inbounds i64, ptr %48, i64 %.037
   %60 = load i64, ptr %59, align 8
   %61 = icmp ult i64 %58, 2
   br i1 %61, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
@@ -1957,7 +1957,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 99:                                               ; preds = %51, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %100 = phi i64 [ %52, %51 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %101 = add nuw i64 %.03537, 1
+  %101 = add nuw i64 %.037, 1
   %102 = icmp ult i64 %101, %100
   br i1 %102, label %51, label %._crit_edge.loopexit, !llvm.loop !27
 
@@ -1969,7 +1969,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %103 = phi i64 [ %.pre44, %._crit_edge.loopexit ], [ %30, %.lr.ph40.split ]
   %104 = phi i64 [ %100, %._crit_edge.loopexit ], [ %31, %.lr.ph40.split ]
   %105 = phi i64 [ %100, %._crit_edge.loopexit ], [ 0, %.lr.ph40.split ]
-  %106 = add nuw i64 %.038, 1
+  %106 = add nuw i64 %.03538, 1
   %107 = add i64 %103, 1
   %108 = icmp ult i64 %106, %107
   br i1 %108, label %.lr.ph40.split, label %._crit_edge41, !llvm.loop !28
@@ -2109,9 +2109,9 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE26addn_query_subset_with
   %25 = phi i64 [ %98, %._crit_edge ], [ %19, %.lr.ph36 ]
   %26 = phi i64 [ %99, %._crit_edge ], [ %24, %.lr.ph36 ]
   %27 = phi i64 [ %100, %._crit_edge ], [ %24, %.lr.ph36 ]
-  %.034 = phi i64 [ %101, %._crit_edge ], [ %20, %.lr.ph36 ]
+  %.03234 = phi i64 [ %101, %._crit_edge ], [ %20, %.lr.ph36 ]
   %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds i64, ptr %28, i64 %.034
+  %29 = getelementptr inbounds i64, ptr %28, i64 %.03234
   %30 = load i64, ptr %29, align 8
   %31 = load ptr, ptr %21, align 8
   %32 = load i64, ptr %22, align 8
@@ -2120,11 +2120,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE26addn_query_subset_with
   %35 = load ptr, ptr %23, align 8
   %36 = getelementptr inbounds i64, ptr %35, i64 %33
   %37 = load ptr, ptr %5, align 8
-  %38 = mul i64 %27, %.034
+  %38 = mul i64 %27, %.03234
   %39 = getelementptr inbounds float, ptr %37, i64 %38
   %40 = load ptr, ptr %7, align 8
   %41 = load i64, ptr %8, align 8
-  %42 = mul nsw i64 %41, %.034
+  %42 = mul nsw i64 %41, %.03234
   %43 = getelementptr inbounds i64, ptr %40, i64 %42
   %.not39 = icmp eq i64 %27, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
@@ -2136,8 +2136,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE26addn_query_subset_with
 
 46:                                               ; preds = %.lr.ph, %94
   %47 = phi i64 [ %26, %.lr.ph ], [ %95, %94 ]
-  %.03233 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
-  %48 = getelementptr inbounds float, ptr %39, i64 %.03233
+  %.033 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
+  %48 = getelementptr inbounds float, ptr %39, i64 %.033
   %49 = load float, ptr %48, align 4
   %50 = load float, ptr %34, align 4
   %51 = fcmp ogt float %50, %49
@@ -2145,7 +2145,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIflEEE26addn_query_subset_with
 
 52:                                               ; preds = %46
   %53 = load i64, ptr %22, align 8
-  %54 = getelementptr inbounds i64, ptr %43, i64 %.03233
+  %54 = getelementptr inbounds i64, ptr %43, i64 %.033
   %55 = load i64, ptr %54, align 8
   %56 = icmp ult i64 %53, 2
   br i1 %56, label %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
@@ -2231,7 +2231,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 94:                                               ; preds = %46, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %95 = phi i64 [ %47, %46 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %96 = add nuw i64 %.03233, 1
+  %96 = add nuw i64 %.033, 1
   %97 = icmp ult i64 %96, %95
   br i1 %97, label %46, label %._crit_edge.loopexit, !llvm.loop !29
 
@@ -2243,7 +2243,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %98 = phi i64 [ %.pre41, %._crit_edge.loopexit ], [ %25, %.lr.ph36.split ]
   %99 = phi i64 [ %95, %._crit_edge.loopexit ], [ %26, %.lr.ph36.split ]
   %100 = phi i64 [ %95, %._crit_edge.loopexit ], [ 0, %.lr.ph36.split ]
-  %101 = add nuw i64 %.034, 1
+  %101 = add nuw i64 %.03234, 1
   %102 = add i64 %98, 1
   %103 = icmp ult i64 %101, %102
   br i1 %103, label %.lr.ph36.split, label %._crit_edge37, !llvm.loop !30
@@ -2531,37 +2531,37 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIflEEE16per_line_extremaEPfPl
   br label %20
 
 20:                                               ; preds = %.lr.ph45, %45
-  %.03043 = phi i64 [ %16, %.lr.ph45 ], [ %46, %45 ]
+  %.03343 = phi i64 [ %16, %.lr.ph45 ], [ %46, %45 ]
   %21 = load ptr, ptr %17, align 8
   %22 = load i64, ptr %18, align 8
-  %23 = mul i64 %22, %.03043
+  %23 = mul i64 %22, %.03343
   %24 = getelementptr inbounds float, ptr %21, i64 %23
   %.not47 = icmp eq i64 %22, 0
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.041 = phi i64 [ %28, %.lr.ph ], [ 0, %20 ]
-  %.03140 = phi float [ %.1, %.lr.ph ], [ 0xC7EFFFFFE0000000, %20 ]
-  %.03239 = phi i64 [ %.133, %.lr.ph ], [ -1, %20 ]
+  %.03040 = phi float [ %.1, %.lr.ph ], [ 0xC7EFFFFFE0000000, %20 ]
+  %.03139 = phi i64 [ %.132, %.lr.ph ], [ -1, %20 ]
   %25 = getelementptr inbounds float, ptr %24, i64 %.041
   %26 = load float, ptr %25, align 4
-  %27 = fcmp ogt float %26, %.03140
-  %.133 = select i1 %27, i64 %.041, i64 %.03239
-  %.1 = select i1 %27, float %26, float %.03140
+  %27 = fcmp ogt float %26, %.03040
+  %.132 = select i1 %27, i64 %.041, i64 %.03139
+  %.1 = select i1 %27, float %26, float %.03040
   %28 = add nuw i64 %.041, 1
   %exitcond.not = icmp eq i64 %28, %22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
-  %.032.lcssa = phi i64 [ -1, %20 ], [ %.133, %.lr.ph ]
-  %.031.lcssa = phi float [ 0xC7EFFFFFE0000000, %20 ], [ %.1, %.lr.ph ]
+  %.031.lcssa = phi i64 [ -1, %20 ], [ %.132, %.lr.ph ]
+  %.030.lcssa = phi float [ 0xC7EFFFFFE0000000, %20 ], [ %.1, %.lr.ph ]
   %29 = load ptr, ptr %3, align 8
   %.not37 = icmp eq ptr %29, null
   br i1 %.not37, label %32, label %30
 
 30:                                               ; preds = %._crit_edge
-  %31 = getelementptr inbounds float, ptr %29, i64 %.03043
-  store float %.031.lcssa, ptr %31, align 4
+  %31 = getelementptr inbounds float, ptr %29, i64 %.03343
+  store float %.030.lcssa, ptr %31, align 4
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
@@ -2572,26 +2572,26 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIflEEE16per_line_extremaEPfPl
 34:                                               ; preds = %32
   %35 = load ptr, ptr %19, align 8
   %36 = icmp ne ptr %35, null
-  %37 = icmp ne i64 %.032.lcssa, -1
+  %37 = icmp ne i64 %.031.lcssa, -1
   %or.cond = select i1 %36, i1 %37, i1 false
   br i1 %or.cond, label %38, label %.sink.split
 
 38:                                               ; preds = %34
   %39 = load i64, ptr %18, align 8
-  %40 = mul i64 %39, %.03043
+  %40 = mul i64 %39, %.03343
   %41 = getelementptr i64, ptr %35, i64 %40
-  %42 = getelementptr i64, ptr %41, i64 %.032.lcssa
+  %42 = getelementptr i64, ptr %41, i64 %.031.lcssa
   %43 = load i64, ptr %42, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %34, %38
-  %.sink = phi i64 [ %43, %38 ], [ %.032.lcssa, %34 ]
-  %44 = getelementptr inbounds i64, ptr %33, i64 %.03043
+  %.sink = phi i64 [ %43, %38 ], [ %.031.lcssa, %34 ]
+  %44 = getelementptr inbounds i64, ptr %33, i64 %.03343
   store i64 %.sink, ptr %44, align 8
   br label %45
 
 45:                                               ; preds = %.sink.split, %32
-  %46 = add nuw i64 %.03043, 1
+  %46 = add nuw i64 %.03343, 1
   %47 = load i64, ptr %7, align 8
   %48 = add i64 %47, 1
   %49 = icmp ult i64 %46, %48
@@ -2794,8 +2794,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE4addnEmPKfiml.omp_outlin
   %29 = phi i64 [ %99, %._crit_edge ], [ %21, %.lr.ph37 ]
   %30 = phi i64 [ %100, %._crit_edge ], [ %28, %.lr.ph37 ]
   %31 = phi i64 [ %101, %._crit_edge ], [ %28, %.lr.ph37 ]
-  %.035 = phi i64 [ %102, %._crit_edge ], [ %22, %.lr.ph37 ]
-  %32 = add i64 %.035, %13
+  %.03235 = phi i64 [ %102, %._crit_edge ], [ %22, %.lr.ph37 ]
+  %32 = add i64 %.03235, %13
   %33 = load ptr, ptr %25, align 8
   %34 = load i64, ptr %26, align 8
   %35 = mul i64 %34, %32
@@ -2817,8 +2817,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE4addnEmPKfiml.omp_outlin
 
 46:                                               ; preds = %.lr.ph, %95
   %47 = phi i64 [ %30, %.lr.ph ], [ %96, %95 ]
-  %.03234 = phi i64 [ 0, %.lr.ph ], [ %97, %95 ]
-  %48 = getelementptr inbounds float, ptr %43, i64 %.03234
+  %.034 = phi i64 [ 0, %.lr.ph ], [ %97, %95 ]
+  %48 = getelementptr inbounds float, ptr %43, i64 %.034
   %49 = load float, ptr %48, align 4
   %50 = load float, ptr %36, align 4
   %51 = fcmp olt float %50, %49
@@ -2827,7 +2827,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE4addnEmPKfiml.omp_outlin
 52:                                               ; preds = %46
   %53 = load i64, ptr %26, align 8
   %54 = load i32, ptr %7, align 4
-  %55 = trunc i64 %.03234 to i32
+  %55 = trunc i64 %.034 to i32
   %56 = add i32 %54, %55
   %57 = icmp ult i64 %53, 2
   br i1 %57, label %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
@@ -2913,7 +2913,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 95:                                               ; preds = %46, %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %96 = phi i64 [ %47, %46 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %97 = add nuw i64 %.03234, 1
+  %97 = add nuw i64 %.034, 1
   %98 = icmp ult i64 %97, %96
   br i1 %98, label %46, label %._crit_edge.loopexit, !llvm.loop !38
 
@@ -2925,7 +2925,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %99 = phi i64 [ %.pre41, %._crit_edge.loopexit ], [ %29, %.lr.ph37.split ]
   %100 = phi i64 [ %96, %._crit_edge.loopexit ], [ %30, %.lr.ph37.split ]
   %101 = phi i64 [ %96, %._crit_edge.loopexit ], [ 0, %.lr.ph37.split ]
-  %102 = add nuw i64 %.035, 1
+  %102 = add nuw i64 %.03235, 1
   %103 = add i64 %99, 1
   %104 = icmp ult i64 %102, %103
   br i1 %104, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !39
@@ -3031,8 +3031,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE13addn_with_idsEmPKfPKil
   %30 = phi i64 [ %103, %._crit_edge ], [ %22, %.lr.ph40 ]
   %31 = phi i64 [ %104, %._crit_edge ], [ %29, %.lr.ph40 ]
   %32 = phi i64 [ %105, %._crit_edge ], [ %29, %.lr.ph40 ]
-  %.038 = phi i64 [ %106, %._crit_edge ], [ %23, %.lr.ph40 ]
-  %33 = add i64 %.038, %14
+  %.03538 = phi i64 [ %106, %._crit_edge ], [ %23, %.lr.ph40 ]
+  %33 = add i64 %.03538, %14
   %34 = load ptr, ptr %26, align 8
   %35 = load i64, ptr %27, align 8
   %36 = mul i64 %35, %33
@@ -3058,8 +3058,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE13addn_with_idsEmPKfPKil
 
 51:                                               ; preds = %.lr.ph, %99
   %52 = phi i64 [ %31, %.lr.ph ], [ %100, %99 ]
-  %.03537 = phi i64 [ 0, %.lr.ph ], [ %101, %99 ]
-  %53 = getelementptr inbounds float, ptr %44, i64 %.03537
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %101, %99 ]
+  %53 = getelementptr inbounds float, ptr %44, i64 %.037
   %54 = load float, ptr %53, align 4
   %55 = load float, ptr %37, align 4
   %56 = fcmp olt float %55, %54
@@ -3067,7 +3067,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE13addn_with_idsEmPKfPKil
 
 57:                                               ; preds = %51
   %58 = load i64, ptr %27, align 8
-  %59 = getelementptr inbounds i32, ptr %48, i64 %.03537
+  %59 = getelementptr inbounds i32, ptr %48, i64 %.037
   %60 = load i32, ptr %59, align 4
   %61 = icmp ult i64 %58, 2
   br i1 %61, label %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
@@ -3153,7 +3153,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 99:                                               ; preds = %51, %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %100 = phi i64 [ %52, %51 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %101 = add nuw i64 %.03537, 1
+  %101 = add nuw i64 %.037, 1
   %102 = icmp ult i64 %101, %100
   br i1 %102, label %51, label %._crit_edge.loopexit, !llvm.loop !40
 
@@ -3165,7 +3165,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %103 = phi i64 [ %.pre44, %._crit_edge.loopexit ], [ %30, %.lr.ph40.split ]
   %104 = phi i64 [ %100, %._crit_edge.loopexit ], [ %31, %.lr.ph40.split ]
   %105 = phi i64 [ %100, %._crit_edge.loopexit ], [ 0, %.lr.ph40.split ]
-  %106 = add nuw i64 %.038, 1
+  %106 = add nuw i64 %.03538, 1
   %107 = add i64 %103, 1
   %108 = icmp ult i64 %106, %107
   br i1 %108, label %.lr.ph40.split, label %._crit_edge41, !llvm.loop !41
@@ -3305,9 +3305,9 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE26addn_query_subset_with
   %25 = phi i64 [ %99, %._crit_edge ], [ %19, %.lr.ph36 ]
   %26 = phi i64 [ %100, %._crit_edge ], [ %24, %.lr.ph36 ]
   %27 = phi i64 [ %101, %._crit_edge ], [ %24, %.lr.ph36 ]
-  %.034 = phi i64 [ %102, %._crit_edge ], [ %20, %.lr.ph36 ]
+  %.03234 = phi i64 [ %102, %._crit_edge ], [ %20, %.lr.ph36 ]
   %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %.034
+  %29 = getelementptr inbounds i32, ptr %28, i64 %.03234
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = load ptr, ptr %21, align 8
@@ -3317,11 +3317,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE26addn_query_subset_with
   %36 = load ptr, ptr %23, align 8
   %37 = getelementptr inbounds i32, ptr %36, i64 %34
   %38 = load ptr, ptr %5, align 8
-  %39 = mul i64 %27, %.034
+  %39 = mul i64 %27, %.03234
   %40 = getelementptr inbounds float, ptr %38, i64 %39
   %41 = load ptr, ptr %7, align 8
   %42 = load i64, ptr %8, align 8
-  %43 = mul nsw i64 %42, %.034
+  %43 = mul nsw i64 %42, %.03234
   %44 = getelementptr inbounds i32, ptr %41, i64 %43
   %.not39 = icmp eq i64 %27, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
@@ -3333,8 +3333,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE26addn_query_subset_with
 
 47:                                               ; preds = %.lr.ph, %95
   %48 = phi i64 [ %26, %.lr.ph ], [ %96, %95 ]
-  %.03233 = phi i64 [ 0, %.lr.ph ], [ %97, %95 ]
-  %49 = getelementptr inbounds float, ptr %40, i64 %.03233
+  %.033 = phi i64 [ 0, %.lr.ph ], [ %97, %95 ]
+  %49 = getelementptr inbounds float, ptr %40, i64 %.033
   %50 = load float, ptr %49, align 4
   %51 = load float, ptr %35, align 4
   %52 = fcmp olt float %51, %50
@@ -3342,7 +3342,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIfiEEE26addn_query_subset_with
 
 53:                                               ; preds = %47
   %54 = load i64, ptr %22, align 8
-  %55 = getelementptr inbounds i32, ptr %44, i64 %.03233
+  %55 = getelementptr inbounds i32, ptr %44, i64 %.033
   %56 = load i32, ptr %55, align 4
   %57 = icmp ult i64 %54, 2
   br i1 %57, label %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
@@ -3428,7 +3428,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 95:                                               ; preds = %47, %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %96 = phi i64 [ %48, %47 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %97 = add nuw i64 %.03233, 1
+  %97 = add nuw i64 %.033, 1
   %98 = icmp ult i64 %97, %96
   br i1 %98, label %47, label %._crit_edge.loopexit, !llvm.loop !42
 
@@ -3440,7 +3440,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %99 = phi i64 [ %.pre41, %._crit_edge.loopexit ], [ %25, %.lr.ph36.split ]
   %100 = phi i64 [ %96, %._crit_edge.loopexit ], [ %26, %.lr.ph36.split ]
   %101 = phi i64 [ %96, %._crit_edge.loopexit ], [ 0, %.lr.ph36.split ]
-  %102 = add nuw i64 %.034, 1
+  %102 = add nuw i64 %.03234, 1
   %103 = add i64 %99, 1
   %104 = icmp ult i64 %102, %103
   br i1 %104, label %.lr.ph36.split, label %._crit_edge37, !llvm.loop !43
@@ -3727,37 +3727,37 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIfiEEE16per_line_extremaEPfPi
   br label %20
 
 20:                                               ; preds = %.lr.ph45, %47
-  %.03043 = phi i64 [ %16, %.lr.ph45 ], [ %48, %47 ]
+  %.03343 = phi i64 [ %16, %.lr.ph45 ], [ %48, %47 ]
   %21 = load ptr, ptr %17, align 8
   %22 = load i64, ptr %18, align 8
-  %23 = mul i64 %22, %.03043
+  %23 = mul i64 %22, %.03343
   %24 = getelementptr inbounds float, ptr %21, i64 %23
   %.not47 = icmp eq i64 %22, 0
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.041 = phi i64 [ %28, %.lr.ph ], [ 0, %20 ]
-  %.03140 = phi float [ %.1, %.lr.ph ], [ 0x47EFFFFFE0000000, %20 ]
-  %.03239 = phi i64 [ %.133, %.lr.ph ], [ -1, %20 ]
+  %.03040 = phi float [ %.1, %.lr.ph ], [ 0x47EFFFFFE0000000, %20 ]
+  %.03139 = phi i64 [ %.132, %.lr.ph ], [ -1, %20 ]
   %25 = getelementptr inbounds float, ptr %24, i64 %.041
   %26 = load float, ptr %25, align 4
-  %27 = fcmp olt float %26, %.03140
-  %.133 = select i1 %27, i64 %.041, i64 %.03239
-  %.1 = select i1 %27, float %26, float %.03140
+  %27 = fcmp olt float %26, %.03040
+  %.132 = select i1 %27, i64 %.041, i64 %.03139
+  %.1 = select i1 %27, float %26, float %.03040
   %28 = add nuw i64 %.041, 1
   %exitcond.not = icmp eq i64 %28, %22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
-  %.032.lcssa = phi i64 [ -1, %20 ], [ %.133, %.lr.ph ]
-  %.031.lcssa = phi float [ 0x47EFFFFFE0000000, %20 ], [ %.1, %.lr.ph ]
+  %.031.lcssa = phi i64 [ -1, %20 ], [ %.132, %.lr.ph ]
+  %.030.lcssa = phi float [ 0x47EFFFFFE0000000, %20 ], [ %.1, %.lr.ph ]
   %29 = load ptr, ptr %3, align 8
   %.not37 = icmp eq ptr %29, null
   br i1 %.not37, label %32, label %30
 
 30:                                               ; preds = %._crit_edge
-  %31 = getelementptr inbounds float, ptr %29, i64 %.03043
-  store float %.031.lcssa, ptr %31, align 4
+  %31 = getelementptr inbounds float, ptr %29, i64 %.03343
+  store float %.030.lcssa, ptr %31, align 4
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
@@ -3768,30 +3768,30 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIfiEEE16per_line_extremaEPfPi
 34:                                               ; preds = %32
   %35 = load ptr, ptr %19, align 8
   %36 = icmp ne ptr %35, null
-  %37 = icmp ne i64 %.032.lcssa, -1
+  %37 = icmp ne i64 %.031.lcssa, -1
   %or.cond = select i1 %36, i1 %37, i1 false
   br i1 %or.cond, label %38, label %44
 
 38:                                               ; preds = %34
   %39 = load i64, ptr %18, align 8
-  %40 = mul i64 %39, %.03043
+  %40 = mul i64 %39, %.03343
   %41 = getelementptr i32, ptr %35, i64 %40
-  %42 = getelementptr i32, ptr %41, i64 %.032.lcssa
+  %42 = getelementptr i32, ptr %41, i64 %.031.lcssa
   %43 = load i32, ptr %42, align 4
   br label %.sink.split
 
 44:                                               ; preds = %34
-  %45 = trunc i64 %.032.lcssa to i32
+  %45 = trunc i64 %.031.lcssa to i32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %44, %38
   %.sink = phi i32 [ %43, %38 ], [ %45, %44 ]
-  %46 = getelementptr inbounds i32, ptr %33, i64 %.03043
+  %46 = getelementptr inbounds i32, ptr %33, i64 %.03343
   store i32 %.sink, ptr %46, align 4
   br label %47
 
 47:                                               ; preds = %.sink.split, %32
-  %48 = add nuw i64 %.03043, 1
+  %48 = add nuw i64 %.03343, 1
   %49 = load i64, ptr %7, align 8
   %50 = add i64 %49, 1
   %51 = icmp ult i64 %48, %50
@@ -3994,8 +3994,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE4addnEmPKfiml.omp_outlin
   %29 = phi i64 [ %99, %._crit_edge ], [ %21, %.lr.ph37 ]
   %30 = phi i64 [ %100, %._crit_edge ], [ %28, %.lr.ph37 ]
   %31 = phi i64 [ %101, %._crit_edge ], [ %28, %.lr.ph37 ]
-  %.035 = phi i64 [ %102, %._crit_edge ], [ %22, %.lr.ph37 ]
-  %32 = add i64 %.035, %13
+  %.03235 = phi i64 [ %102, %._crit_edge ], [ %22, %.lr.ph37 ]
+  %32 = add i64 %.03235, %13
   %33 = load ptr, ptr %25, align 8
   %34 = load i64, ptr %26, align 8
   %35 = mul i64 %34, %32
@@ -4017,8 +4017,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE4addnEmPKfiml.omp_outlin
 
 46:                                               ; preds = %.lr.ph, %95
   %47 = phi i64 [ %30, %.lr.ph ], [ %96, %95 ]
-  %.03234 = phi i64 [ 0, %.lr.ph ], [ %97, %95 ]
-  %48 = getelementptr inbounds float, ptr %43, i64 %.03234
+  %.034 = phi i64 [ 0, %.lr.ph ], [ %97, %95 ]
+  %48 = getelementptr inbounds float, ptr %43, i64 %.034
   %49 = load float, ptr %48, align 4
   %50 = load float, ptr %36, align 4
   %51 = fcmp ogt float %50, %49
@@ -4027,7 +4027,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE4addnEmPKfiml.omp_outlin
 52:                                               ; preds = %46
   %53 = load i64, ptr %26, align 8
   %54 = load i32, ptr %7, align 4
-  %55 = trunc i64 %.03234 to i32
+  %55 = trunc i64 %.034 to i32
   %56 = add i32 %54, %55
   %57 = icmp ult i64 %53, 2
   br i1 %57, label %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
@@ -4113,7 +4113,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 95:                                               ; preds = %46, %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %96 = phi i64 [ %47, %46 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %97 = add nuw i64 %.03234, 1
+  %97 = add nuw i64 %.034, 1
   %98 = icmp ult i64 %97, %96
   br i1 %98, label %46, label %._crit_edge.loopexit, !llvm.loop !51
 
@@ -4125,7 +4125,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %99 = phi i64 [ %.pre41, %._crit_edge.loopexit ], [ %29, %.lr.ph37.split ]
   %100 = phi i64 [ %96, %._crit_edge.loopexit ], [ %30, %.lr.ph37.split ]
   %101 = phi i64 [ %96, %._crit_edge.loopexit ], [ 0, %.lr.ph37.split ]
-  %102 = add nuw i64 %.035, 1
+  %102 = add nuw i64 %.03235, 1
   %103 = add i64 %99, 1
   %104 = icmp ult i64 %102, %103
   br i1 %104, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !52
@@ -4231,8 +4231,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE13addn_with_idsEmPKfPKil
   %30 = phi i64 [ %103, %._crit_edge ], [ %22, %.lr.ph40 ]
   %31 = phi i64 [ %104, %._crit_edge ], [ %29, %.lr.ph40 ]
   %32 = phi i64 [ %105, %._crit_edge ], [ %29, %.lr.ph40 ]
-  %.038 = phi i64 [ %106, %._crit_edge ], [ %23, %.lr.ph40 ]
-  %33 = add i64 %.038, %14
+  %.03538 = phi i64 [ %106, %._crit_edge ], [ %23, %.lr.ph40 ]
+  %33 = add i64 %.03538, %14
   %34 = load ptr, ptr %26, align 8
   %35 = load i64, ptr %27, align 8
   %36 = mul i64 %35, %33
@@ -4258,8 +4258,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE13addn_with_idsEmPKfPKil
 
 51:                                               ; preds = %.lr.ph, %99
   %52 = phi i64 [ %31, %.lr.ph ], [ %100, %99 ]
-  %.03537 = phi i64 [ 0, %.lr.ph ], [ %101, %99 ]
-  %53 = getelementptr inbounds float, ptr %44, i64 %.03537
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %101, %99 ]
+  %53 = getelementptr inbounds float, ptr %44, i64 %.037
   %54 = load float, ptr %53, align 4
   %55 = load float, ptr %37, align 4
   %56 = fcmp ogt float %55, %54
@@ -4267,7 +4267,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE13addn_with_idsEmPKfPKil
 
 57:                                               ; preds = %51
   %58 = load i64, ptr %27, align 8
-  %59 = getelementptr inbounds i32, ptr %48, i64 %.03537
+  %59 = getelementptr inbounds i32, ptr %48, i64 %.037
   %60 = load i32, ptr %59, align 4
   %61 = icmp ult i64 %58, 2
   br i1 %61, label %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
@@ -4353,7 +4353,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 99:                                               ; preds = %51, %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %100 = phi i64 [ %52, %51 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %101 = add nuw i64 %.03537, 1
+  %101 = add nuw i64 %.037, 1
   %102 = icmp ult i64 %101, %100
   br i1 %102, label %51, label %._crit_edge.loopexit, !llvm.loop !53
 
@@ -4365,7 +4365,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %103 = phi i64 [ %.pre44, %._crit_edge.loopexit ], [ %30, %.lr.ph40.split ]
   %104 = phi i64 [ %100, %._crit_edge.loopexit ], [ %31, %.lr.ph40.split ]
   %105 = phi i64 [ %100, %._crit_edge.loopexit ], [ 0, %.lr.ph40.split ]
-  %106 = add nuw i64 %.038, 1
+  %106 = add nuw i64 %.03538, 1
   %107 = add i64 %103, 1
   %108 = icmp ult i64 %106, %107
   br i1 %108, label %.lr.ph40.split, label %._crit_edge41, !llvm.loop !54
@@ -4505,9 +4505,9 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE26addn_query_subset_with
   %25 = phi i64 [ %99, %._crit_edge ], [ %19, %.lr.ph36 ]
   %26 = phi i64 [ %100, %._crit_edge ], [ %24, %.lr.ph36 ]
   %27 = phi i64 [ %101, %._crit_edge ], [ %24, %.lr.ph36 ]
-  %.034 = phi i64 [ %102, %._crit_edge ], [ %20, %.lr.ph36 ]
+  %.03234 = phi i64 [ %102, %._crit_edge ], [ %20, %.lr.ph36 ]
   %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %.034
+  %29 = getelementptr inbounds i32, ptr %28, i64 %.03234
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = load ptr, ptr %21, align 8
@@ -4517,11 +4517,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE26addn_query_subset_with
   %36 = load ptr, ptr %23, align 8
   %37 = getelementptr inbounds i32, ptr %36, i64 %34
   %38 = load ptr, ptr %5, align 8
-  %39 = mul i64 %27, %.034
+  %39 = mul i64 %27, %.03234
   %40 = getelementptr inbounds float, ptr %38, i64 %39
   %41 = load ptr, ptr %7, align 8
   %42 = load i64, ptr %8, align 8
-  %43 = mul nsw i64 %42, %.034
+  %43 = mul nsw i64 %42, %.03234
   %44 = getelementptr inbounds i32, ptr %41, i64 %43
   %.not39 = icmp eq i64 %27, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
@@ -4533,8 +4533,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE26addn_query_subset_with
 
 47:                                               ; preds = %.lr.ph, %95
   %48 = phi i64 [ %26, %.lr.ph ], [ %96, %95 ]
-  %.03233 = phi i64 [ 0, %.lr.ph ], [ %97, %95 ]
-  %49 = getelementptr inbounds float, ptr %40, i64 %.03233
+  %.033 = phi i64 [ 0, %.lr.ph ], [ %97, %95 ]
+  %49 = getelementptr inbounds float, ptr %40, i64 %.033
   %50 = load float, ptr %49, align 4
   %51 = load float, ptr %35, align 4
   %52 = fcmp ogt float %51, %50
@@ -4542,7 +4542,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIfiEEE26addn_query_subset_with
 
 53:                                               ; preds = %47
   %54 = load i64, ptr %22, align 8
-  %55 = getelementptr inbounds i32, ptr %44, i64 %.03233
+  %55 = getelementptr inbounds i32, ptr %44, i64 %.033
   %56 = load i32, ptr %55, align 4
   %57 = icmp ult i64 %54, 2
   br i1 %57, label %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
@@ -4628,7 +4628,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 95:                                               ; preds = %47, %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %96 = phi i64 [ %48, %47 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %97 = add nuw i64 %.03233, 1
+  %97 = add nuw i64 %.033, 1
   %98 = icmp ult i64 %97, %96
   br i1 %98, label %47, label %._crit_edge.loopexit, !llvm.loop !55
 
@@ -4640,7 +4640,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %99 = phi i64 [ %.pre41, %._crit_edge.loopexit ], [ %25, %.lr.ph36.split ]
   %100 = phi i64 [ %96, %._crit_edge.loopexit ], [ %26, %.lr.ph36.split ]
   %101 = phi i64 [ %96, %._crit_edge.loopexit ], [ 0, %.lr.ph36.split ]
-  %102 = add nuw i64 %.034, 1
+  %102 = add nuw i64 %.03234, 1
   %103 = add i64 %99, 1
   %104 = icmp ult i64 %102, %103
   br i1 %104, label %.lr.ph36.split, label %._crit_edge37, !llvm.loop !56
@@ -4927,37 +4927,37 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIfiEEE16per_line_extremaEPfPi
   br label %20
 
 20:                                               ; preds = %.lr.ph45, %47
-  %.03043 = phi i64 [ %16, %.lr.ph45 ], [ %48, %47 ]
+  %.03343 = phi i64 [ %16, %.lr.ph45 ], [ %48, %47 ]
   %21 = load ptr, ptr %17, align 8
   %22 = load i64, ptr %18, align 8
-  %23 = mul i64 %22, %.03043
+  %23 = mul i64 %22, %.03343
   %24 = getelementptr inbounds float, ptr %21, i64 %23
   %.not47 = icmp eq i64 %22, 0
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.041 = phi i64 [ %28, %.lr.ph ], [ 0, %20 ]
-  %.03140 = phi float [ %.1, %.lr.ph ], [ 0xC7EFFFFFE0000000, %20 ]
-  %.03239 = phi i64 [ %.133, %.lr.ph ], [ -1, %20 ]
+  %.03040 = phi float [ %.1, %.lr.ph ], [ 0xC7EFFFFFE0000000, %20 ]
+  %.03139 = phi i64 [ %.132, %.lr.ph ], [ -1, %20 ]
   %25 = getelementptr inbounds float, ptr %24, i64 %.041
   %26 = load float, ptr %25, align 4
-  %27 = fcmp ogt float %26, %.03140
-  %.133 = select i1 %27, i64 %.041, i64 %.03239
-  %.1 = select i1 %27, float %26, float %.03140
+  %27 = fcmp ogt float %26, %.03040
+  %.132 = select i1 %27, i64 %.041, i64 %.03139
+  %.1 = select i1 %27, float %26, float %.03040
   %28 = add nuw i64 %.041, 1
   %exitcond.not = icmp eq i64 %28, %22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
-  %.032.lcssa = phi i64 [ -1, %20 ], [ %.133, %.lr.ph ]
-  %.031.lcssa = phi float [ 0xC7EFFFFFE0000000, %20 ], [ %.1, %.lr.ph ]
+  %.031.lcssa = phi i64 [ -1, %20 ], [ %.132, %.lr.ph ]
+  %.030.lcssa = phi float [ 0xC7EFFFFFE0000000, %20 ], [ %.1, %.lr.ph ]
   %29 = load ptr, ptr %3, align 8
   %.not37 = icmp eq ptr %29, null
   br i1 %.not37, label %32, label %30
 
 30:                                               ; preds = %._crit_edge
-  %31 = getelementptr inbounds float, ptr %29, i64 %.03043
-  store float %.031.lcssa, ptr %31, align 4
+  %31 = getelementptr inbounds float, ptr %29, i64 %.03343
+  store float %.030.lcssa, ptr %31, align 4
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
@@ -4968,30 +4968,30 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIfiEEE16per_line_extremaEPfPi
 34:                                               ; preds = %32
   %35 = load ptr, ptr %19, align 8
   %36 = icmp ne ptr %35, null
-  %37 = icmp ne i64 %.032.lcssa, -1
+  %37 = icmp ne i64 %.031.lcssa, -1
   %or.cond = select i1 %36, i1 %37, i1 false
   br i1 %or.cond, label %38, label %44
 
 38:                                               ; preds = %34
   %39 = load i64, ptr %18, align 8
-  %40 = mul i64 %39, %.03043
+  %40 = mul i64 %39, %.03343
   %41 = getelementptr i32, ptr %35, i64 %40
-  %42 = getelementptr i32, ptr %41, i64 %.032.lcssa
+  %42 = getelementptr i32, ptr %41, i64 %.031.lcssa
   %43 = load i32, ptr %42, align 4
   br label %.sink.split
 
 44:                                               ; preds = %34
-  %45 = trunc i64 %.032.lcssa to i32
+  %45 = trunc i64 %.031.lcssa to i32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %44, %38
   %.sink = phi i32 [ %43, %38 ], [ %45, %44 ]
-  %46 = getelementptr inbounds i32, ptr %33, i64 %.03043
+  %46 = getelementptr inbounds i32, ptr %33, i64 %.03343
   store i32 %.sink, ptr %46, align 4
   br label %47
 
 47:                                               ; preds = %.sink.split, %32
-  %48 = add nuw i64 %.03043, 1
+  %48 = add nuw i64 %.03343, 1
   %49 = load i64, ptr %7, align 8
   %50 = add i64 %49, 1
   %51 = icmp ult i64 %48, %50
@@ -5194,8 +5194,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE4addnEmPKilml.omp_outlin
   %29 = phi i64 [ %98, %._crit_edge ], [ %21, %.lr.ph37 ]
   %30 = phi i64 [ %99, %._crit_edge ], [ %28, %.lr.ph37 ]
   %31 = phi i64 [ %100, %._crit_edge ], [ %28, %.lr.ph37 ]
-  %.035 = phi i64 [ %101, %._crit_edge ], [ %22, %.lr.ph37 ]
-  %32 = add i64 %.035, %13
+  %.03235 = phi i64 [ %101, %._crit_edge ], [ %22, %.lr.ph37 ]
+  %32 = add i64 %.03235, %13
   %33 = load ptr, ptr %25, align 8
   %34 = load i64, ptr %26, align 8
   %35 = mul i64 %34, %32
@@ -5217,8 +5217,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE4addnEmPKilml.omp_outlin
 
 46:                                               ; preds = %.lr.ph, %94
   %47 = phi i64 [ %30, %.lr.ph ], [ %95, %94 ]
-  %.03234 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
-  %48 = getelementptr inbounds i32, ptr %43, i64 %.03234
+  %.034 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
+  %48 = getelementptr inbounds i32, ptr %43, i64 %.034
   %49 = load i32, ptr %48, align 4
   %50 = load i32, ptr %36, align 4
   %51 = icmp slt i32 %50, %49
@@ -5227,7 +5227,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE4addnEmPKilml.omp_outlin
 52:                                               ; preds = %46
   %53 = load i64, ptr %26, align 8
   %54 = load i64, ptr %7, align 8
-  %55 = add i64 %54, %.03234
+  %55 = add i64 %54, %.034
   %56 = icmp ult i64 %53, 2
   br i1 %56, label %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
 
@@ -5312,7 +5312,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 94:                                               ; preds = %46, %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %95 = phi i64 [ %47, %46 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %96 = add nuw i64 %.03234, 1
+  %96 = add nuw i64 %.034, 1
   %97 = icmp ult i64 %96, %95
   br i1 %97, label %46, label %._crit_edge.loopexit, !llvm.loop !64
 
@@ -5324,7 +5324,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %98 = phi i64 [ %.pre41, %._crit_edge.loopexit ], [ %29, %.lr.ph37.split ]
   %99 = phi i64 [ %95, %._crit_edge.loopexit ], [ %30, %.lr.ph37.split ]
   %100 = phi i64 [ %95, %._crit_edge.loopexit ], [ 0, %.lr.ph37.split ]
-  %101 = add nuw i64 %.035, 1
+  %101 = add nuw i64 %.03235, 1
   %102 = add i64 %98, 1
   %103 = icmp ult i64 %101, %102
   br i1 %103, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !65
@@ -5430,8 +5430,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE13addn_with_idsEmPKiPKll
   %30 = phi i64 [ %103, %._crit_edge ], [ %22, %.lr.ph40 ]
   %31 = phi i64 [ %104, %._crit_edge ], [ %29, %.lr.ph40 ]
   %32 = phi i64 [ %105, %._crit_edge ], [ %29, %.lr.ph40 ]
-  %.038 = phi i64 [ %106, %._crit_edge ], [ %23, %.lr.ph40 ]
-  %33 = add i64 %.038, %14
+  %.03538 = phi i64 [ %106, %._crit_edge ], [ %23, %.lr.ph40 ]
+  %33 = add i64 %.03538, %14
   %34 = load ptr, ptr %26, align 8
   %35 = load i64, ptr %27, align 8
   %36 = mul i64 %35, %33
@@ -5457,8 +5457,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE13addn_with_idsEmPKiPKll
 
 51:                                               ; preds = %.lr.ph, %99
   %52 = phi i64 [ %31, %.lr.ph ], [ %100, %99 ]
-  %.03537 = phi i64 [ 0, %.lr.ph ], [ %101, %99 ]
-  %53 = getelementptr inbounds i32, ptr %44, i64 %.03537
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %101, %99 ]
+  %53 = getelementptr inbounds i32, ptr %44, i64 %.037
   %54 = load i32, ptr %53, align 4
   %55 = load i32, ptr %37, align 4
   %56 = icmp slt i32 %55, %54
@@ -5466,7 +5466,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE13addn_with_idsEmPKiPKll
 
 57:                                               ; preds = %51
   %58 = load i64, ptr %27, align 8
-  %59 = getelementptr inbounds i64, ptr %48, i64 %.03537
+  %59 = getelementptr inbounds i64, ptr %48, i64 %.037
   %60 = load i64, ptr %59, align 8
   %61 = icmp ult i64 %58, 2
   br i1 %61, label %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
@@ -5552,7 +5552,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 99:                                               ; preds = %51, %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %100 = phi i64 [ %52, %51 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %101 = add nuw i64 %.03537, 1
+  %101 = add nuw i64 %.037, 1
   %102 = icmp ult i64 %101, %100
   br i1 %102, label %51, label %._crit_edge.loopexit, !llvm.loop !66
 
@@ -5564,7 +5564,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %103 = phi i64 [ %.pre44, %._crit_edge.loopexit ], [ %30, %.lr.ph40.split ]
   %104 = phi i64 [ %100, %._crit_edge.loopexit ], [ %31, %.lr.ph40.split ]
   %105 = phi i64 [ %100, %._crit_edge.loopexit ], [ 0, %.lr.ph40.split ]
-  %106 = add nuw i64 %.038, 1
+  %106 = add nuw i64 %.03538, 1
   %107 = add i64 %103, 1
   %108 = icmp ult i64 %106, %107
   br i1 %108, label %.lr.ph40.split, label %._crit_edge41, !llvm.loop !67
@@ -5704,9 +5704,9 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE26addn_query_subset_with
   %25 = phi i64 [ %98, %._crit_edge ], [ %19, %.lr.ph36 ]
   %26 = phi i64 [ %99, %._crit_edge ], [ %24, %.lr.ph36 ]
   %27 = phi i64 [ %100, %._crit_edge ], [ %24, %.lr.ph36 ]
-  %.034 = phi i64 [ %101, %._crit_edge ], [ %20, %.lr.ph36 ]
+  %.03234 = phi i64 [ %101, %._crit_edge ], [ %20, %.lr.ph36 ]
   %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds i64, ptr %28, i64 %.034
+  %29 = getelementptr inbounds i64, ptr %28, i64 %.03234
   %30 = load i64, ptr %29, align 8
   %31 = load ptr, ptr %21, align 8
   %32 = load i64, ptr %22, align 8
@@ -5715,11 +5715,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE26addn_query_subset_with
   %35 = load ptr, ptr %23, align 8
   %36 = getelementptr inbounds i64, ptr %35, i64 %33
   %37 = load ptr, ptr %5, align 8
-  %38 = mul i64 %27, %.034
+  %38 = mul i64 %27, %.03234
   %39 = getelementptr inbounds i32, ptr %37, i64 %38
   %40 = load ptr, ptr %7, align 8
   %41 = load i64, ptr %8, align 8
-  %42 = mul nsw i64 %41, %.034
+  %42 = mul nsw i64 %41, %.03234
   %43 = getelementptr inbounds i64, ptr %40, i64 %42
   %.not39 = icmp eq i64 %27, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
@@ -5731,8 +5731,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE26addn_query_subset_with
 
 46:                                               ; preds = %.lr.ph, %94
   %47 = phi i64 [ %26, %.lr.ph ], [ %95, %94 ]
-  %.03233 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
-  %48 = getelementptr inbounds i32, ptr %39, i64 %.03233
+  %.033 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
+  %48 = getelementptr inbounds i32, ptr %39, i64 %.033
   %49 = load i32, ptr %48, align 4
   %50 = load i32, ptr %34, align 4
   %51 = icmp slt i32 %50, %49
@@ -5740,7 +5740,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMinIilEEE26addn_query_subset_with
 
 52:                                               ; preds = %46
   %53 = load i64, ptr %22, align 8
-  %54 = getelementptr inbounds i64, ptr %43, i64 %.03233
+  %54 = getelementptr inbounds i64, ptr %43, i64 %.033
   %55 = load i64, ptr %54, align 8
   %56 = icmp ult i64 %53, 2
   br i1 %56, label %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
@@ -5826,7 +5826,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 94:                                               ; preds = %46, %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %95 = phi i64 [ %47, %46 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %96 = add nuw i64 %.03233, 1
+  %96 = add nuw i64 %.033, 1
   %97 = icmp ult i64 %96, %95
   br i1 %97, label %46, label %._crit_edge.loopexit, !llvm.loop !68
 
@@ -5838,7 +5838,7 @@ _ZN5faiss16heap_replace_topINS_4CMinIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %98 = phi i64 [ %.pre41, %._crit_edge.loopexit ], [ %25, %.lr.ph36.split ]
   %99 = phi i64 [ %95, %._crit_edge.loopexit ], [ %26, %.lr.ph36.split ]
   %100 = phi i64 [ %95, %._crit_edge.loopexit ], [ 0, %.lr.ph36.split ]
-  %101 = add nuw i64 %.034, 1
+  %101 = add nuw i64 %.03234, 1
   %102 = add i64 %98, 1
   %103 = icmp ult i64 %101, %102
   br i1 %103, label %.lr.ph36.split, label %._crit_edge37, !llvm.loop !69
@@ -6126,37 +6126,37 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIilEEE16per_line_extremaEPiPl
   br label %20
 
 20:                                               ; preds = %.lr.ph46, %45
-  %.03044 = phi i64 [ %16, %.lr.ph46 ], [ %46, %45 ]
+  %.03344 = phi i64 [ %16, %.lr.ph46 ], [ %46, %45 ]
   %21 = load ptr, ptr %17, align 8
   %22 = load i64, ptr %18, align 8
-  %23 = mul i64 %22, %.03044
+  %23 = mul i64 %22, %.03344
   %24 = getelementptr inbounds i32, ptr %21, i64 %23
   %.not48 = icmp eq i64 %22, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.042 = phi i64 [ %28, %.lr.ph ], [ 0, %20 ]
-  %.03141 = phi i32 [ %spec.select39, %.lr.ph ], [ 2147483647, %20 ]
-  %.03240 = phi i64 [ %spec.select, %.lr.ph ], [ -1, %20 ]
+  %.03041 = phi i32 [ %spec.select39, %.lr.ph ], [ 2147483647, %20 ]
+  %.03140 = phi i64 [ %spec.select, %.lr.ph ], [ -1, %20 ]
   %25 = getelementptr inbounds i32, ptr %24, i64 %.042
   %26 = load i32, ptr %25, align 4
-  %27 = icmp slt i32 %26, %.03141
-  %spec.select = select i1 %27, i64 %.042, i64 %.03240
-  %spec.select39 = call i32 @llvm.smin.i32(i32 %26, i32 %.03141)
+  %27 = icmp slt i32 %26, %.03041
+  %spec.select = select i1 %27, i64 %.042, i64 %.03140
+  %spec.select39 = call i32 @llvm.smin.i32(i32 %26, i32 %.03041)
   %28 = add nuw i64 %.042, 1
   %exitcond.not = icmp eq i64 %28, %22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
-  %.032.lcssa = phi i64 [ -1, %20 ], [ %spec.select, %.lr.ph ]
-  %.031.lcssa = phi i32 [ 2147483647, %20 ], [ %spec.select39, %.lr.ph ]
+  %.031.lcssa = phi i64 [ -1, %20 ], [ %spec.select, %.lr.ph ]
+  %.030.lcssa = phi i32 [ 2147483647, %20 ], [ %spec.select39, %.lr.ph ]
   %29 = load ptr, ptr %3, align 8
   %.not37 = icmp eq ptr %29, null
   br i1 %.not37, label %32, label %30
 
 30:                                               ; preds = %._crit_edge
-  %31 = getelementptr inbounds i32, ptr %29, i64 %.03044
-  store i32 %.031.lcssa, ptr %31, align 4
+  %31 = getelementptr inbounds i32, ptr %29, i64 %.03344
+  store i32 %.030.lcssa, ptr %31, align 4
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
@@ -6167,26 +6167,26 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMinIilEEE16per_line_extremaEPiPl
 34:                                               ; preds = %32
   %35 = load ptr, ptr %19, align 8
   %36 = icmp ne ptr %35, null
-  %37 = icmp ne i64 %.032.lcssa, -1
+  %37 = icmp ne i64 %.031.lcssa, -1
   %or.cond = select i1 %36, i1 %37, i1 false
   br i1 %or.cond, label %38, label %.sink.split
 
 38:                                               ; preds = %34
   %39 = load i64, ptr %18, align 8
-  %40 = mul i64 %39, %.03044
+  %40 = mul i64 %39, %.03344
   %41 = getelementptr i64, ptr %35, i64 %40
-  %42 = getelementptr i64, ptr %41, i64 %.032.lcssa
+  %42 = getelementptr i64, ptr %41, i64 %.031.lcssa
   %43 = load i64, ptr %42, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %34, %38
-  %.sink = phi i64 [ %43, %38 ], [ %.032.lcssa, %34 ]
-  %44 = getelementptr inbounds i64, ptr %33, i64 %.03044
+  %.sink = phi i64 [ %43, %38 ], [ %.031.lcssa, %34 ]
+  %44 = getelementptr inbounds i64, ptr %33, i64 %.03344
   store i64 %.sink, ptr %44, align 8
   br label %45
 
 45:                                               ; preds = %.sink.split, %32
-  %46 = add nuw i64 %.03044, 1
+  %46 = add nuw i64 %.03344, 1
   %47 = load i64, ptr %7, align 8
   %48 = add i64 %47, 1
   %49 = icmp ult i64 %46, %48
@@ -6389,8 +6389,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE4addnEmPKilml.omp_outlin
   %29 = phi i64 [ %98, %._crit_edge ], [ %21, %.lr.ph37 ]
   %30 = phi i64 [ %99, %._crit_edge ], [ %28, %.lr.ph37 ]
   %31 = phi i64 [ %100, %._crit_edge ], [ %28, %.lr.ph37 ]
-  %.035 = phi i64 [ %101, %._crit_edge ], [ %22, %.lr.ph37 ]
-  %32 = add i64 %.035, %13
+  %.03235 = phi i64 [ %101, %._crit_edge ], [ %22, %.lr.ph37 ]
+  %32 = add i64 %.03235, %13
   %33 = load ptr, ptr %25, align 8
   %34 = load i64, ptr %26, align 8
   %35 = mul i64 %34, %32
@@ -6412,8 +6412,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE4addnEmPKilml.omp_outlin
 
 46:                                               ; preds = %.lr.ph, %94
   %47 = phi i64 [ %30, %.lr.ph ], [ %95, %94 ]
-  %.03234 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
-  %48 = getelementptr inbounds i32, ptr %43, i64 %.03234
+  %.034 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
+  %48 = getelementptr inbounds i32, ptr %43, i64 %.034
   %49 = load i32, ptr %48, align 4
   %50 = load i32, ptr %36, align 4
   %51 = icmp sgt i32 %50, %49
@@ -6422,7 +6422,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE4addnEmPKilml.omp_outlin
 52:                                               ; preds = %46
   %53 = load i64, ptr %26, align 8
   %54 = load i64, ptr %7, align 8
-  %55 = add i64 %54, %.03234
+  %55 = add i64 %54, %.034
   %56 = icmp ult i64 %53, 2
   br i1 %56, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
 
@@ -6507,7 +6507,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 94:                                               ; preds = %46, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %95 = phi i64 [ %47, %46 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %96 = add nuw i64 %.03234, 1
+  %96 = add nuw i64 %.034, 1
   %97 = icmp ult i64 %96, %95
   br i1 %97, label %46, label %._crit_edge.loopexit, !llvm.loop !77
 
@@ -6519,7 +6519,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %98 = phi i64 [ %.pre41, %._crit_edge.loopexit ], [ %29, %.lr.ph37.split ]
   %99 = phi i64 [ %95, %._crit_edge.loopexit ], [ %30, %.lr.ph37.split ]
   %100 = phi i64 [ %95, %._crit_edge.loopexit ], [ 0, %.lr.ph37.split ]
-  %101 = add nuw i64 %.035, 1
+  %101 = add nuw i64 %.03235, 1
   %102 = add i64 %98, 1
   %103 = icmp ult i64 %101, %102
   br i1 %103, label %.lr.ph37.split, label %._crit_edge38, !llvm.loop !78
@@ -6625,8 +6625,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE13addn_with_idsEmPKiPKll
   %30 = phi i64 [ %103, %._crit_edge ], [ %22, %.lr.ph40 ]
   %31 = phi i64 [ %104, %._crit_edge ], [ %29, %.lr.ph40 ]
   %32 = phi i64 [ %105, %._crit_edge ], [ %29, %.lr.ph40 ]
-  %.038 = phi i64 [ %106, %._crit_edge ], [ %23, %.lr.ph40 ]
-  %33 = add i64 %.038, %14
+  %.03538 = phi i64 [ %106, %._crit_edge ], [ %23, %.lr.ph40 ]
+  %33 = add i64 %.03538, %14
   %34 = load ptr, ptr %26, align 8
   %35 = load i64, ptr %27, align 8
   %36 = mul i64 %35, %33
@@ -6652,8 +6652,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE13addn_with_idsEmPKiPKll
 
 51:                                               ; preds = %.lr.ph, %99
   %52 = phi i64 [ %31, %.lr.ph ], [ %100, %99 ]
-  %.03537 = phi i64 [ 0, %.lr.ph ], [ %101, %99 ]
-  %53 = getelementptr inbounds i32, ptr %44, i64 %.03537
+  %.037 = phi i64 [ 0, %.lr.ph ], [ %101, %99 ]
+  %53 = getelementptr inbounds i32, ptr %44, i64 %.037
   %54 = load i32, ptr %53, align 4
   %55 = load i32, ptr %37, align 4
   %56 = icmp sgt i32 %55, %54
@@ -6661,7 +6661,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE13addn_with_idsEmPKiPKll
 
 57:                                               ; preds = %51
   %58 = load i64, ptr %27, align 8
-  %59 = getelementptr inbounds i64, ptr %48, i64 %.03537
+  %59 = getelementptr inbounds i64, ptr %48, i64 %.037
   %60 = load i64, ptr %59, align 8
   %61 = icmp ult i64 %58, 2
   br i1 %61, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
@@ -6747,7 +6747,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 99:                                               ; preds = %51, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %100 = phi i64 [ %52, %51 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %101 = add nuw i64 %.03537, 1
+  %101 = add nuw i64 %.037, 1
   %102 = icmp ult i64 %101, %100
   br i1 %102, label %51, label %._crit_edge.loopexit, !llvm.loop !79
 
@@ -6759,7 +6759,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %103 = phi i64 [ %.pre44, %._crit_edge.loopexit ], [ %30, %.lr.ph40.split ]
   %104 = phi i64 [ %100, %._crit_edge.loopexit ], [ %31, %.lr.ph40.split ]
   %105 = phi i64 [ %100, %._crit_edge.loopexit ], [ 0, %.lr.ph40.split ]
-  %106 = add nuw i64 %.038, 1
+  %106 = add nuw i64 %.03538, 1
   %107 = add i64 %103, 1
   %108 = icmp ult i64 %106, %107
   br i1 %108, label %.lr.ph40.split, label %._crit_edge41, !llvm.loop !80
@@ -6899,9 +6899,9 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE26addn_query_subset_with
   %25 = phi i64 [ %98, %._crit_edge ], [ %19, %.lr.ph36 ]
   %26 = phi i64 [ %99, %._crit_edge ], [ %24, %.lr.ph36 ]
   %27 = phi i64 [ %100, %._crit_edge ], [ %24, %.lr.ph36 ]
-  %.034 = phi i64 [ %101, %._crit_edge ], [ %20, %.lr.ph36 ]
+  %.03234 = phi i64 [ %101, %._crit_edge ], [ %20, %.lr.ph36 ]
   %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds i64, ptr %28, i64 %.034
+  %29 = getelementptr inbounds i64, ptr %28, i64 %.03234
   %30 = load i64, ptr %29, align 8
   %31 = load ptr, ptr %21, align 8
   %32 = load i64, ptr %22, align 8
@@ -6910,11 +6910,11 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE26addn_query_subset_with
   %35 = load ptr, ptr %23, align 8
   %36 = getelementptr inbounds i64, ptr %35, i64 %33
   %37 = load ptr, ptr %5, align 8
-  %38 = mul i64 %27, %.034
+  %38 = mul i64 %27, %.03234
   %39 = getelementptr inbounds i32, ptr %37, i64 %38
   %40 = load ptr, ptr %7, align 8
   %41 = load i64, ptr %8, align 8
-  %42 = mul nsw i64 %41, %.034
+  %42 = mul nsw i64 %41, %.03234
   %43 = getelementptr inbounds i64, ptr %40, i64 %42
   %.not39 = icmp eq i64 %27, 0
   br i1 %.not39, label %._crit_edge, label %.lr.ph
@@ -6926,8 +6926,8 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE26addn_query_subset_with
 
 46:                                               ; preds = %.lr.ph, %94
   %47 = phi i64 [ %26, %.lr.ph ], [ %95, %94 ]
-  %.03233 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
-  %48 = getelementptr inbounds i32, ptr %39, i64 %.03233
+  %.033 = phi i64 [ 0, %.lr.ph ], [ %96, %94 ]
+  %48 = getelementptr inbounds i32, ptr %39, i64 %.033
   %49 = load i32, ptr %48, align 4
   %50 = load i32, ptr %34, align 4
   %51 = icmp sgt i32 %50, %49
@@ -6935,7 +6935,7 @@ define internal void @_ZN5faiss9HeapArrayINS_4CMaxIilEEE26addn_query_subset_with
 
 52:                                               ; preds = %46
   %53 = load i64, ptr %22, align 8
-  %54 = getelementptr inbounds i64, ptr %43, i64 %.03233
+  %54 = getelementptr inbounds i64, ptr %43, i64 %.033
   %55 = load i64, ptr %54, align 8
   %56 = icmp ult i64 %53, 2
   br i1 %56, label %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, label %.lr.ph.preheader.i
@@ -7021,7 +7021,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
 
 94:                                               ; preds = %46, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
   %95 = phi i64 [ %47, %46 ], [ %.pre, %_ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ]
-  %96 = add nuw i64 %.03233, 1
+  %96 = add nuw i64 %.033, 1
   %97 = icmp ult i64 %96, %95
   br i1 %97, label %46, label %._crit_edge.loopexit, !llvm.loop !81
 
@@ -7033,7 +7033,7 @@ _ZN5faiss16heap_replace_topINS_4CMaxIilEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; pred
   %98 = phi i64 [ %.pre41, %._crit_edge.loopexit ], [ %25, %.lr.ph36.split ]
   %99 = phi i64 [ %95, %._crit_edge.loopexit ], [ %26, %.lr.ph36.split ]
   %100 = phi i64 [ %95, %._crit_edge.loopexit ], [ 0, %.lr.ph36.split ]
-  %101 = add nuw i64 %.034, 1
+  %101 = add nuw i64 %.03234, 1
   %102 = add i64 %98, 1
   %103 = icmp ult i64 %101, %102
   br i1 %103, label %.lr.ph36.split, label %._crit_edge37, !llvm.loop !82
@@ -7321,37 +7321,37 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIilEEE16per_line_extremaEPiPl
   br label %20
 
 20:                                               ; preds = %.lr.ph46, %45
-  %.03044 = phi i64 [ %16, %.lr.ph46 ], [ %46, %45 ]
+  %.03344 = phi i64 [ %16, %.lr.ph46 ], [ %46, %45 ]
   %21 = load ptr, ptr %17, align 8
   %22 = load i64, ptr %18, align 8
-  %23 = mul i64 %22, %.03044
+  %23 = mul i64 %22, %.03344
   %24 = getelementptr inbounds i32, ptr %21, i64 %23
   %.not48 = icmp eq i64 %22, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.042 = phi i64 [ %28, %.lr.ph ], [ 0, %20 ]
-  %.03141 = phi i32 [ %spec.select39, %.lr.ph ], [ -2147483648, %20 ]
-  %.03240 = phi i64 [ %spec.select, %.lr.ph ], [ -1, %20 ]
+  %.03041 = phi i32 [ %spec.select39, %.lr.ph ], [ -2147483648, %20 ]
+  %.03140 = phi i64 [ %spec.select, %.lr.ph ], [ -1, %20 ]
   %25 = getelementptr inbounds i32, ptr %24, i64 %.042
   %26 = load i32, ptr %25, align 4
-  %27 = icmp sgt i32 %26, %.03141
-  %spec.select = select i1 %27, i64 %.042, i64 %.03240
-  %spec.select39 = call i32 @llvm.smax.i32(i32 %26, i32 %.03141)
+  %27 = icmp sgt i32 %26, %.03041
+  %spec.select = select i1 %27, i64 %.042, i64 %.03140
+  %spec.select39 = call i32 @llvm.smax.i32(i32 %26, i32 %.03041)
   %28 = add nuw i64 %.042, 1
   %exitcond.not = icmp eq i64 %28, %22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
-  %.032.lcssa = phi i64 [ -1, %20 ], [ %spec.select, %.lr.ph ]
-  %.031.lcssa = phi i32 [ -2147483648, %20 ], [ %spec.select39, %.lr.ph ]
+  %.031.lcssa = phi i64 [ -1, %20 ], [ %spec.select, %.lr.ph ]
+  %.030.lcssa = phi i32 [ -2147483648, %20 ], [ %spec.select39, %.lr.ph ]
   %29 = load ptr, ptr %3, align 8
   %.not37 = icmp eq ptr %29, null
   br i1 %.not37, label %32, label %30
 
 30:                                               ; preds = %._crit_edge
-  %31 = getelementptr inbounds i32, ptr %29, i64 %.03044
-  store i32 %.031.lcssa, ptr %31, align 4
+  %31 = getelementptr inbounds i32, ptr %29, i64 %.03344
+  store i32 %.030.lcssa, ptr %31, align 4
   br label %32
 
 32:                                               ; preds = %30, %._crit_edge
@@ -7362,26 +7362,26 @@ define internal void @_ZNK5faiss9HeapArrayINS_4CMaxIilEEE16per_line_extremaEPiPl
 34:                                               ; preds = %32
   %35 = load ptr, ptr %19, align 8
   %36 = icmp ne ptr %35, null
-  %37 = icmp ne i64 %.032.lcssa, -1
+  %37 = icmp ne i64 %.031.lcssa, -1
   %or.cond = select i1 %36, i1 %37, i1 false
   br i1 %or.cond, label %38, label %.sink.split
 
 38:                                               ; preds = %34
   %39 = load i64, ptr %18, align 8
-  %40 = mul i64 %39, %.03044
+  %40 = mul i64 %39, %.03344
   %41 = getelementptr i64, ptr %35, i64 %40
-  %42 = getelementptr i64, ptr %41, i64 %.032.lcssa
+  %42 = getelementptr i64, ptr %41, i64 %.031.lcssa
   %43 = load i64, ptr %42, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %34, %38
-  %.sink = phi i64 [ %43, %38 ], [ %.032.lcssa, %34 ]
-  %44 = getelementptr inbounds i64, ptr %33, i64 %.03044
+  %.sink = phi i64 [ %43, %38 ], [ %.031.lcssa, %34 ]
+  %44 = getelementptr inbounds i64, ptr %33, i64 %.03344
   store i64 %.sink, ptr %44, align 8
   br label %45
 
 45:                                               ; preds = %.sink.split, %32
-  %46 = add nuw i64 %.03044, 1
+  %46 = add nuw i64 %.03344, 1
   %47 = load i64, ptr %7, align 8
   %48 = add i64 %47, 1
   %49 = icmp ult i64 %46, %48
@@ -7526,9 +7526,9 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIiSaIiE
 
 44:                                               ; preds = %.lr.ph116, %._crit_edge113
   %45 = phi i64 [ %.pre, %.lr.ph116 ], [ %195, %._crit_edge113 ]
-  %.0114 = phi i64 [ %41, %.lr.ph116 ], [ %196, %._crit_edge113 ]
+  %.073114 = phi i64 [ %41, %.lr.ph116 ], [ %196, %._crit_edge113 ]
   %46 = load ptr, ptr %4, align 8
-  %47 = mul i64 %45, %.0114
+  %47 = mul i64 %45, %.073114
   %48 = getelementptr inbounds float, ptr %46, i64 %47
   %49 = load ptr, ptr %6, align 8
   %50 = getelementptr inbounds i64, ptr %49, i64 %47
@@ -7547,22 +7547,22 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIiSaIiE
   br label %57
 
 57:                                               ; preds = %.lr.ph, %83
-  %.070105 = phi i32 [ 0, %.lr.ph ], [ %.1, %83 ]
-  %.073104 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
-  %58 = getelementptr inbounds i32, ptr %.sroa.097.0127, i64 %.073104
+  %.070105 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
+  %.071104 = phi i32 [ 0, %.lr.ph ], [ %.172, %83 ]
+  %58 = getelementptr inbounds i32, ptr %.sroa.097.0127, i64 %.070105
   store i32 0, ptr %58, align 4
-  %59 = mul nsw i64 %56, %.073104
+  %59 = mul nsw i64 %56, %.070105
   %60 = getelementptr inbounds i64, ptr %50, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = icmp sgt i64 %61, -1
   br i1 %62, label %63, label %83
 
 63:                                               ; preds = %57
-  %64 = add nsw i32 %.070105, 1
+  %64 = add nsw i32 %.071104, 1
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds float, ptr %48, i64 %59
   %67 = load float, ptr %66, align 4
-  %68 = trunc i64 %.073104 to i32
+  %68 = trunc i64 %.070105 to i32
   %69 = icmp ugt i32 %64, 1
   br i1 %69, label %.lr.ph.i, label %_ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
 
@@ -7599,8 +7599,8 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   br label %83
 
 83:                                               ; preds = %_ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, %57
-  %.1 = phi i32 [ %64, %_ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %.070105, %57 ]
-  %84 = add nuw nsw i64 %.073104, 1
+  %.172 = phi i32 [ %64, %_ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %.071104, %57 ]
+  %84 = add nuw nsw i64 %.070105, 1
   %exitcond.not = icmp eq i64 %84, %52
   br i1 %exitcond.not, label %._crit_edge, label %57, !llvm.loop !88
 
@@ -7610,7 +7610,7 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %87 = load ptr, ptr %9, align 8
   %88 = getelementptr inbounds i64, ptr %87, i64 %47
   %89 = icmp ne i64 %45, 0
-  %90 = icmp sgt i32 %.1, 0
+  %90 = icmp sgt i32 %.172, 0
   %91 = select i1 %89, i1 %90, i1 false
   br i1 %91, label %.lr.ph109, label %.preheader
 
@@ -7618,8 +7618,8 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %92 = phi ptr [ %87, %._crit_edge ], [ %55, %._crit_edge.thread ], [ %87, %187 ]
   %93 = phi ptr [ %85, %._crit_edge ], [ %54, %._crit_edge.thread ], [ %85, %187 ]
   %94 = phi i64 [ %45, %._crit_edge ], [ %45, %._crit_edge.thread ], [ %161, %187 ]
-  %.071.lcssa = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %indvars.iv.next, %187 ]
-  %95 = and i64 %.071.lcssa, 4294967295
+  %.0.lcssa = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %indvars.iv.next, %187 ]
+  %95 = and i64 %.0.lcssa, 4294967295
   %96 = icmp ugt i64 %94, %95
   br i1 %96, label %.lr.ph112.preheader, label %._crit_edge113
 
@@ -7630,7 +7630,7 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
 
 .lr.ph109:                                        ; preds = %._crit_edge, %187
   %indvars.iv = phi i64 [ %indvars.iv.next, %187 ], [ 0, %._crit_edge ]
-  %.2107 = phi i32 [ %.3, %187 ], [ %.1, %._crit_edge ]
+  %.2106 = phi i32 [ %.3, %187 ], [ %.172, %._crit_edge ]
   %99 = load i32, ptr %35, align 4
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i32, ptr %.sroa.097.0127, i64 %100
@@ -7646,13 +7646,13 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %110 = load i64, ptr %109, align 8
   %111 = getelementptr inbounds i64, ptr %88, i64 %indvars.iv
   store i64 %110, ptr %111, align 8
-  %112 = add nsw i32 %.2107, -1
-  %113 = zext nneg i32 %.2107 to i64
+  %112 = add nsw i32 %.2106, -1
+  %113 = zext nneg i32 %.2106 to i64
   %114 = getelementptr inbounds float, ptr %42, i64 %113
   %115 = load float, ptr %114, align 4
   %116 = getelementptr inbounds i32, ptr %43, i64 %113
   %117 = load i32, ptr %116, align 4
-  %118 = icmp ult i32 %.2107, 2
+  %118 = icmp ult i32 %.2106, 2
   br i1 %118, label %_ZN5faiss8heap_popINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIE.exit, label %.lr.ph.i82
 
 .lr.ph.i82:                                       ; preds = %.lr.ph109, %147
@@ -7754,7 +7754,7 @@ _ZN5faiss8heap_popINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.ph109,
 170:                                              ; preds = %163
   %171 = getelementptr inbounds float, ptr %48, i64 %166
   %172 = load float, ptr %171, align 4
-  %173 = icmp ugt i32 %.2107, 1
+  %173 = icmp ugt i32 %.2106, 1
   br i1 %173, label %.lr.ph.i87, label %_ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91
 
 .lr.ph.i87:                                       ; preds = %170, %_ZN5faiss4CMinIfiE4cmp2Effii.exit.thread.i90
@@ -7790,7 +7790,7 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91: ; preds = %_
   br label %187
 
 187:                                              ; preds = %_ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91, %_ZN5faiss8heap_popINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIE.exit, %163
-  %.3 = phi i32 [ %.2107, %_ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91 ], [ %112, %163 ], [ %112, %_ZN5faiss8heap_popINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIE.exit ]
+  %.3 = phi i32 [ %.2106, %_ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91 ], [ %112, %163 ], [ %112, %_ZN5faiss8heap_popINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %188 = icmp ugt i64 %161, %indvars.iv.next
   %189 = icmp sgt i32 %.3, 0
@@ -7810,7 +7810,7 @@ _ZN5faiss9heap_pushINS_4CMinIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91: ; preds = %_
 
 ._crit_edge113:                                   ; preds = %.lr.ph112, %.preheader
   %195 = phi i64 [ %94, %.preheader ], [ %193, %.lr.ph112 ]
-  %196 = add nuw i64 %.0114, 1
+  %196 = add nuw i64 %.073114, 1
   %197 = load i64, ptr %12, align 8
   %198 = add i64 %197, 1
   %199 = icmp ult i64 %196, %198
@@ -7991,9 +7991,9 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIiSaIiE
 
 44:                                               ; preds = %.lr.ph116, %._crit_edge113
   %45 = phi i64 [ %.pre, %.lr.ph116 ], [ %195, %._crit_edge113 ]
-  %.0114 = phi i64 [ %41, %.lr.ph116 ], [ %196, %._crit_edge113 ]
+  %.073114 = phi i64 [ %41, %.lr.ph116 ], [ %196, %._crit_edge113 ]
   %46 = load ptr, ptr %4, align 8
-  %47 = mul i64 %45, %.0114
+  %47 = mul i64 %45, %.073114
   %48 = getelementptr inbounds float, ptr %46, i64 %47
   %49 = load ptr, ptr %6, align 8
   %50 = getelementptr inbounds i64, ptr %49, i64 %47
@@ -8012,22 +8012,22 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIiSaIiE
   br label %57
 
 57:                                               ; preds = %.lr.ph, %83
-  %.070105 = phi i32 [ 0, %.lr.ph ], [ %.1, %83 ]
-  %.073104 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
-  %58 = getelementptr inbounds i32, ptr %.sroa.097.0127, i64 %.073104
+  %.070105 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
+  %.071104 = phi i32 [ 0, %.lr.ph ], [ %.172, %83 ]
+  %58 = getelementptr inbounds i32, ptr %.sroa.097.0127, i64 %.070105
   store i32 0, ptr %58, align 4
-  %59 = mul nsw i64 %56, %.073104
+  %59 = mul nsw i64 %56, %.070105
   %60 = getelementptr inbounds i64, ptr %50, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = icmp sgt i64 %61, -1
   br i1 %62, label %63, label %83
 
 63:                                               ; preds = %57
-  %64 = add nsw i32 %.070105, 1
+  %64 = add nsw i32 %.071104, 1
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds float, ptr %48, i64 %59
   %67 = load float, ptr %66, align 4
-  %68 = trunc i64 %.073104 to i32
+  %68 = trunc i64 %.070105 to i32
   %69 = icmp ugt i32 %64, 1
   br i1 %69, label %.lr.ph.i, label %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
 
@@ -8064,8 +8064,8 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   br label %83
 
 83:                                               ; preds = %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, %57
-  %.1 = phi i32 [ %64, %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %.070105, %57 ]
-  %84 = add nuw nsw i64 %.073104, 1
+  %.172 = phi i32 [ %64, %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %.071104, %57 ]
+  %84 = add nuw nsw i64 %.070105, 1
   %exitcond.not = icmp eq i64 %84, %52
   br i1 %exitcond.not, label %._crit_edge, label %57, !llvm.loop !92
 
@@ -8075,7 +8075,7 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %87 = load ptr, ptr %9, align 8
   %88 = getelementptr inbounds i64, ptr %87, i64 %47
   %89 = icmp ne i64 %45, 0
-  %90 = icmp sgt i32 %.1, 0
+  %90 = icmp sgt i32 %.172, 0
   %91 = select i1 %89, i1 %90, i1 false
   br i1 %91, label %.lr.ph109, label %.preheader
 
@@ -8083,8 +8083,8 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %92 = phi ptr [ %87, %._crit_edge ], [ %55, %._crit_edge.thread ], [ %87, %187 ]
   %93 = phi ptr [ %85, %._crit_edge ], [ %54, %._crit_edge.thread ], [ %85, %187 ]
   %94 = phi i64 [ %45, %._crit_edge ], [ %45, %._crit_edge.thread ], [ %161, %187 ]
-  %.071.lcssa = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %indvars.iv.next, %187 ]
-  %95 = and i64 %.071.lcssa, 4294967295
+  %.0.lcssa = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %indvars.iv.next, %187 ]
+  %95 = and i64 %.0.lcssa, 4294967295
   %96 = icmp ugt i64 %94, %95
   br i1 %96, label %.lr.ph112.preheader, label %._crit_edge113
 
@@ -8095,7 +8095,7 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
 
 .lr.ph109:                                        ; preds = %._crit_edge, %187
   %indvars.iv = phi i64 [ %indvars.iv.next, %187 ], [ 0, %._crit_edge ]
-  %.2107 = phi i32 [ %.3, %187 ], [ %.1, %._crit_edge ]
+  %.2106 = phi i32 [ %.3, %187 ], [ %.172, %._crit_edge ]
   %99 = load i32, ptr %35, align 4
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i32, ptr %.sroa.097.0127, i64 %100
@@ -8111,13 +8111,13 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %110 = load i64, ptr %109, align 8
   %111 = getelementptr inbounds i64, ptr %88, i64 %indvars.iv
   store i64 %110, ptr %111, align 8
-  %112 = add nsw i32 %.2107, -1
-  %113 = zext nneg i32 %.2107 to i64
+  %112 = add nsw i32 %.2106, -1
+  %113 = zext nneg i32 %.2106 to i64
   %114 = getelementptr inbounds float, ptr %42, i64 %113
   %115 = load float, ptr %114, align 4
   %116 = getelementptr inbounds i32, ptr %43, i64 %113
   %117 = load i32, ptr %116, align 4
-  %118 = icmp ult i32 %.2107, 2
+  %118 = icmp ult i32 %.2106, 2
   br i1 %118, label %_ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit, label %.lr.ph.i82
 
 .lr.ph.i82:                                       ; preds = %.lr.ph109, %147
@@ -8219,7 +8219,7 @@ _ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.ph109,
 170:                                              ; preds = %163
   %171 = getelementptr inbounds float, ptr %48, i64 %166
   %172 = load float, ptr %171, align 4
-  %173 = icmp ugt i32 %.2107, 1
+  %173 = icmp ugt i32 %.2106, 1
   br i1 %173, label %.lr.ph.i87, label %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91
 
 .lr.ph.i87:                                       ; preds = %170, %_ZN5faiss4CMaxIfiE4cmp2Effii.exit.thread.i90
@@ -8255,7 +8255,7 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91: ; preds = %_
   br label %187
 
 187:                                              ; preds = %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91, %_ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit, %163
-  %.3 = phi i32 [ %.2107, %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91 ], [ %112, %163 ], [ %112, %_ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit ]
+  %.3 = phi i32 [ %.2106, %_ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91 ], [ %112, %163 ], [ %112, %_ZN5faiss8heap_popINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %188 = icmp ugt i64 %161, %indvars.iv.next
   %189 = icmp sgt i32 %.3, 0
@@ -8275,7 +8275,7 @@ _ZN5faiss9heap_pushINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit91: ; preds = %_
 
 ._crit_edge113:                                   ; preds = %.lr.ph112, %.preheader
   %195 = phi i64 [ %94, %.preheader ], [ %193, %.lr.ph112 ]
-  %196 = add nuw i64 %.0114, 1
+  %196 = add nuw i64 %.073114, 1
   %197 = load i64, ptr %12, align 8
   %198 = add i64 %197, 1
   %199 = icmp ult i64 %196, %198
@@ -8444,9 +8444,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit84:             ; preds = %_ZNSt6vectorIiSaIiE
 
 44:                                               ; preds = %.lr.ph120, %._crit_edge117
   %45 = phi i64 [ %.pre, %.lr.ph120 ], [ %195, %._crit_edge117 ]
-  %.0118 = phi i64 [ %41, %.lr.ph120 ], [ %196, %._crit_edge117 ]
+  %.073118 = phi i64 [ %41, %.lr.ph120 ], [ %196, %._crit_edge117 ]
   %46 = load ptr, ptr %4, align 8
-  %47 = mul i64 %45, %.0118
+  %47 = mul i64 %45, %.073118
   %48 = getelementptr inbounds i32, ptr %46, i64 %47
   %49 = load ptr, ptr %6, align 8
   %50 = getelementptr inbounds i64, ptr %49, i64 %47
@@ -8465,22 +8465,22 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit84:             ; preds = %_ZNSt6vectorIiSaIiE
   br label %57
 
 57:                                               ; preds = %.lr.ph, %83
-  %.070109 = phi i32 [ 0, %.lr.ph ], [ %.1, %83 ]
-  %.073108 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
-  %58 = getelementptr inbounds i32, ptr %.sroa.0101.0131, i64 %.073108
+  %.070109 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
+  %.071108 = phi i32 [ 0, %.lr.ph ], [ %.172, %83 ]
+  %58 = getelementptr inbounds i32, ptr %.sroa.0101.0131, i64 %.070109
   store i32 0, ptr %58, align 4
-  %59 = mul nsw i64 %56, %.073108
+  %59 = mul nsw i64 %56, %.070109
   %60 = getelementptr inbounds i64, ptr %50, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = icmp sgt i64 %61, -1
   br i1 %62, label %63, label %83
 
 63:                                               ; preds = %57
-  %64 = add nsw i32 %.070109, 1
+  %64 = add nsw i32 %.071108, 1
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i32, ptr %48, i64 %59
   %67 = load i32, ptr %66, align 4
-  %68 = trunc i64 %.073108 to i32
+  %68 = trunc i64 %.070109 to i32
   %69 = icmp ugt i32 %64, 1
   br i1 %69, label %.lr.ph.i, label %_ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
 
@@ -8517,8 +8517,8 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   br label %83
 
 83:                                               ; preds = %_ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, %57
-  %.1 = phi i32 [ %64, %_ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %.070109, %57 ]
-  %84 = add nuw nsw i64 %.073108, 1
+  %.172 = phi i32 [ %64, %_ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %.071108, %57 ]
+  %84 = add nuw nsw i64 %.070109, 1
   %exitcond.not = icmp eq i64 %84, %52
   br i1 %exitcond.not, label %._crit_edge, label %57, !llvm.loop !96
 
@@ -8528,7 +8528,7 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %87 = load ptr, ptr %9, align 8
   %88 = getelementptr inbounds i64, ptr %87, i64 %47
   %89 = icmp ne i64 %45, 0
-  %90 = icmp sgt i32 %.1, 0
+  %90 = icmp sgt i32 %.172, 0
   %91 = select i1 %89, i1 %90, i1 false
   br i1 %91, label %.lr.ph113, label %.preheader
 
@@ -8536,8 +8536,8 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %92 = phi ptr [ %87, %._crit_edge ], [ %55, %._crit_edge.thread ], [ %87, %187 ]
   %93 = phi ptr [ %85, %._crit_edge ], [ %54, %._crit_edge.thread ], [ %85, %187 ]
   %94 = phi i64 [ %45, %._crit_edge ], [ %45, %._crit_edge.thread ], [ %161, %187 ]
-  %.071.lcssa = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %indvars.iv.next, %187 ]
-  %95 = and i64 %.071.lcssa, 4294967295
+  %.0.lcssa = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %indvars.iv.next, %187 ]
+  %95 = and i64 %.0.lcssa, 4294967295
   %96 = icmp ugt i64 %94, %95
   br i1 %96, label %.lr.ph116.preheader, label %._crit_edge117
 
@@ -8548,7 +8548,7 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
 
 .lr.ph113:                                        ; preds = %._crit_edge, %187
   %indvars.iv = phi i64 [ %indvars.iv.next, %187 ], [ 0, %._crit_edge ]
-  %.2111 = phi i32 [ %.3, %187 ], [ %.1, %._crit_edge ]
+  %.2110 = phi i32 [ %.3, %187 ], [ %.172, %._crit_edge ]
   %99 = load i32, ptr %35, align 4
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i32, ptr %.sroa.0101.0131, i64 %100
@@ -8564,13 +8564,13 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %110 = load i64, ptr %109, align 8
   %111 = getelementptr inbounds i64, ptr %88, i64 %indvars.iv
   store i64 %110, ptr %111, align 8
-  %112 = add nsw i32 %.2111, -1
-  %113 = zext nneg i32 %.2111 to i64
+  %112 = add nsw i32 %.2110, -1
+  %113 = zext nneg i32 %.2110 to i64
   %114 = getelementptr inbounds i32, ptr %42, i64 %113
   %115 = load i32, ptr %114, align 4
   %116 = getelementptr inbounds i32, ptr %43, i64 %113
   %117 = load i32, ptr %116, align 4
-  %118 = icmp ult i32 %.2111, 2
+  %118 = icmp ult i32 %.2110, 2
   br i1 %118, label %_ZN5faiss8heap_popINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIE.exit, label %.lr.ph.i85
 
 .lr.ph.i85:                                       ; preds = %.lr.ph113, %147
@@ -8672,7 +8672,7 @@ _ZN5faiss8heap_popINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.ph113,
 170:                                              ; preds = %163
   %171 = getelementptr inbounds i32, ptr %48, i64 %166
   %172 = load i32, ptr %171, align 4
-  %173 = icmp ugt i32 %.2111, 1
+  %173 = icmp ugt i32 %.2110, 1
   br i1 %173, label %.lr.ph.i90, label %_ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94
 
 .lr.ph.i90:                                       ; preds = %170, %_ZN5faiss4CMinIiiE4cmp2Eiiii.exit.thread.i93
@@ -8708,7 +8708,7 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94: ; preds = %_
   br label %187
 
 187:                                              ; preds = %_ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94, %_ZN5faiss8heap_popINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIE.exit, %163
-  %.3 = phi i32 [ %.2111, %_ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94 ], [ %112, %163 ], [ %112, %_ZN5faiss8heap_popINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIE.exit ]
+  %.3 = phi i32 [ %.2110, %_ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94 ], [ %112, %163 ], [ %112, %_ZN5faiss8heap_popINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %188 = icmp ugt i64 %161, %indvars.iv.next
   %189 = icmp sgt i32 %.3, 0
@@ -8728,7 +8728,7 @@ _ZN5faiss9heap_pushINS_4CMinIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94: ; preds = %_
 
 ._crit_edge117:                                   ; preds = %.lr.ph116, %.preheader
   %195 = phi i64 [ %94, %.preheader ], [ %193, %.lr.ph116 ]
-  %196 = add nuw i64 %.0118, 1
+  %196 = add nuw i64 %.073118, 1
   %197 = load i64, ptr %12, align 8
   %198 = add i64 %197, 1
   %199 = icmp ult i64 %196, %198
@@ -8897,9 +8897,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit84:             ; preds = %_ZNSt6vectorIiSaIiE
 
 44:                                               ; preds = %.lr.ph120, %._crit_edge117
   %45 = phi i64 [ %.pre, %.lr.ph120 ], [ %195, %._crit_edge117 ]
-  %.0118 = phi i64 [ %41, %.lr.ph120 ], [ %196, %._crit_edge117 ]
+  %.073118 = phi i64 [ %41, %.lr.ph120 ], [ %196, %._crit_edge117 ]
   %46 = load ptr, ptr %4, align 8
-  %47 = mul i64 %45, %.0118
+  %47 = mul i64 %45, %.073118
   %48 = getelementptr inbounds i32, ptr %46, i64 %47
   %49 = load ptr, ptr %6, align 8
   %50 = getelementptr inbounds i64, ptr %49, i64 %47
@@ -8918,22 +8918,22 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit84:             ; preds = %_ZNSt6vectorIiSaIiE
   br label %57
 
 57:                                               ; preds = %.lr.ph, %83
-  %.070109 = phi i32 [ 0, %.lr.ph ], [ %.1, %83 ]
-  %.073108 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
-  %58 = getelementptr inbounds i32, ptr %.sroa.0101.0131, i64 %.073108
+  %.070109 = phi i64 [ 0, %.lr.ph ], [ %84, %83 ]
+  %.071108 = phi i32 [ 0, %.lr.ph ], [ %.172, %83 ]
+  %58 = getelementptr inbounds i32, ptr %.sroa.0101.0131, i64 %.070109
   store i32 0, ptr %58, align 4
-  %59 = mul nsw i64 %56, %.073108
+  %59 = mul nsw i64 %56, %.070109
   %60 = getelementptr inbounds i64, ptr %50, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = icmp sgt i64 %61, -1
   br i1 %62, label %63, label %83
 
 63:                                               ; preds = %57
-  %64 = add nsw i32 %.070109, 1
+  %64 = add nsw i32 %.071108, 1
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i32, ptr %48, i64 %59
   %67 = load i32, ptr %66, align 4
-  %68 = trunc i64 %.073108 to i32
+  %68 = trunc i64 %.070109 to i32
   %69 = icmp ugt i32 %64, 1
   br i1 %69, label %.lr.ph.i, label %_ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit
 
@@ -8970,8 +8970,8 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   br label %83
 
 83:                                               ; preds = %_ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit, %57
-  %.1 = phi i32 [ %64, %_ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %.070109, %57 ]
-  %84 = add nuw nsw i64 %.073108, 1
+  %.172 = phi i32 [ %64, %_ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit ], [ %.071108, %57 ]
+  %84 = add nuw nsw i64 %.070109, 1
   %exitcond.not = icmp eq i64 %84, %52
   br i1 %exitcond.not, label %._crit_edge, label %57, !llvm.loop !101
 
@@ -8981,7 +8981,7 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %87 = load ptr, ptr %9, align 8
   %88 = getelementptr inbounds i64, ptr %87, i64 %47
   %89 = icmp ne i64 %45, 0
-  %90 = icmp sgt i32 %.1, 0
+  %90 = icmp sgt i32 %.172, 0
   %91 = select i1 %89, i1 %90, i1 false
   br i1 %91, label %.lr.ph113, label %.preheader
 
@@ -8989,8 +8989,8 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %92 = phi ptr [ %87, %._crit_edge ], [ %55, %._crit_edge.thread ], [ %87, %187 ]
   %93 = phi ptr [ %85, %._crit_edge ], [ %54, %._crit_edge.thread ], [ %85, %187 ]
   %94 = phi i64 [ %45, %._crit_edge ], [ %45, %._crit_edge.thread ], [ %161, %187 ]
-  %.071.lcssa = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %indvars.iv.next, %187 ]
-  %95 = and i64 %.071.lcssa, 4294967295
+  %.0.lcssa = phi i64 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %indvars.iv.next, %187 ]
+  %95 = and i64 %.0.lcssa, 4294967295
   %96 = icmp ugt i64 %94, %95
   br i1 %96, label %.lr.ph116.preheader, label %._crit_edge117
 
@@ -9001,7 +9001,7 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
 
 .lr.ph113:                                        ; preds = %._crit_edge, %187
   %indvars.iv = phi i64 [ %indvars.iv.next, %187 ], [ 0, %._crit_edge ]
-  %.2111 = phi i32 [ %.3, %187 ], [ %.1, %._crit_edge ]
+  %.2110 = phi i32 [ %.3, %187 ], [ %.172, %._crit_edge ]
   %99 = load i32, ptr %35, align 4
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i32, ptr %.sroa.0101.0131, i64 %100
@@ -9017,13 +9017,13 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit: ; preds = %_ZN
   %110 = load i64, ptr %109, align 8
   %111 = getelementptr inbounds i64, ptr %88, i64 %indvars.iv
   store i64 %110, ptr %111, align 8
-  %112 = add nsw i32 %.2111, -1
-  %113 = zext nneg i32 %.2111 to i64
+  %112 = add nsw i32 %.2110, -1
+  %113 = zext nneg i32 %.2110 to i64
   %114 = getelementptr inbounds i32, ptr %42, i64 %113
   %115 = load i32, ptr %114, align 4
   %116 = getelementptr inbounds i32, ptr %43, i64 %113
   %117 = load i32, ptr %116, align 4
-  %118 = icmp ult i32 %.2111, 2
+  %118 = icmp ult i32 %.2110, 2
   br i1 %118, label %_ZN5faiss8heap_popINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIE.exit, label %.lr.ph.i85
 
 .lr.ph.i85:                                       ; preds = %.lr.ph113, %147
@@ -9125,7 +9125,7 @@ _ZN5faiss8heap_popINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIE.exit: ; preds = %.lr.ph113,
 170:                                              ; preds = %163
   %171 = getelementptr inbounds i32, ptr %48, i64 %166
   %172 = load i32, ptr %171, align 4
-  %173 = icmp ugt i32 %.2111, 1
+  %173 = icmp ugt i32 %.2110, 1
   br i1 %173, label %.lr.ph.i90, label %_ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94
 
 .lr.ph.i90:                                       ; preds = %170, %_ZN5faiss4CMaxIiiE4cmp2Eiiii.exit.thread.i93
@@ -9161,7 +9161,7 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94: ; preds = %_
   br label %187
 
 187:                                              ; preds = %_ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94, %_ZN5faiss8heap_popINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIE.exit, %163
-  %.3 = phi i32 [ %.2111, %_ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94 ], [ %112, %163 ], [ %112, %_ZN5faiss8heap_popINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIE.exit ]
+  %.3 = phi i32 [ %.2110, %_ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94 ], [ %112, %163 ], [ %112, %_ZN5faiss8heap_popINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIE.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %188 = icmp ugt i64 %161, %indvars.iv.next
   %189 = icmp sgt i32 %.3, 0
@@ -9181,7 +9181,7 @@ _ZN5faiss9heap_pushINS_4CMaxIiiEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit94: ; preds = %_
 
 ._crit_edge117:                                   ; preds = %.lr.ph116, %.preheader
   %195 = phi i64 [ %94, %.preheader ], [ %193, %.lr.ph116 ]
-  %196 = add nuw i64 %.0118, 1
+  %196 = add nuw i64 %.073118, 1
   %197 = load i64, ptr %12, align 8
   %198 = add i64 %197, 1
   %199 = icmp ult i64 %196, %198

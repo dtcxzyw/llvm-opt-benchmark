@@ -285,21 +285,21 @@ define ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef readonly %1, i16 
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %18 = phi ptr [ %25, %.lr.ph ], [ %17, %8 ]
-  %.05262 = phi ptr [ %24, %.lr.ph ], [ %3, %8 ]
-  %.05461 = phi i32 [ %23, %.lr.ph ], [ %16, %8 ]
+  %.05362 = phi i32 [ %23, %.lr.ph ], [ %16, %8 ]
+  %.05461 = phi ptr [ %24, %.lr.ph ], [ %3, %8 ]
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %18, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 %19(ptr noundef %0, ptr noundef %21) #11
-  %23 = add i32 %22, %.05461
-  %24 = getelementptr i8, ptr %.05262, i64 8
+  %23 = add i32 %22, %.05362
+  %24 = getelementptr i8, ptr %.05461, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not58 = icmp eq ptr %25, null
   br i1 %.not58, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
-  %.054.lcssa = phi i32 [ %16, %8 ], [ %23, %.lr.ph ]
-  %26 = add i32 %.054.lcssa, 4
+  %.053.lcssa = phi i32 [ %16, %8 ], [ %23, %.lr.ph ]
+  %26 = add i32 %.053.lcssa, 4
   %27 = load ptr, ptr %9, align 8
   %28 = sext i32 %26 to i64
   %29 = tail call noalias ptr @wmem_alloc0(ptr noundef %27, i64 noundef %28) #11
@@ -326,7 +326,7 @@ define ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef readonly %1, i16 
   br i1 %.not5963, label %._crit_edge69, label %.lr.ph68.preheader
 
 .lr.ph68.preheader:                               ; preds = %._crit_edge
-  %41 = sub i32 %.054.lcssa, %15
+  %41 = sub i32 %.053.lcssa, %15
   %42 = sext i32 %16 to i64
   %43 = getelementptr i8, ptr %29, i64 %42
   br label %.lr.ph68
@@ -334,17 +334,17 @@ define ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef readonly %1, i16 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %44 = phi ptr [ %54, %.lr.ph68 ], [ %40, %.lr.ph68.preheader ]
   %.066 = phi ptr [ %51, %.lr.ph68 ], [ %43, %.lr.ph68.preheader ]
-  %.165 = phi ptr [ %53, %.lr.ph68 ], [ %3, %.lr.ph68.preheader ]
-  %.05364 = phi i32 [ %52, %.lr.ph68 ], [ %41, %.lr.ph68.preheader ]
+  %.05265 = phi i32 [ %52, %.lr.ph68 ], [ %41, %.lr.ph68.preheader ]
+  %.164 = phi ptr [ %53, %.lr.ph68 ], [ %3, %.lr.ph68.preheader ]
   %45 = getelementptr inbounds i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %44, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call i32 %46(ptr noundef %0, ptr noundef %48, ptr noundef %.066, i32 noundef %.05364) #11
+  %49 = tail call i32 %46(ptr noundef %0, ptr noundef %48, ptr noundef %.066, i32 noundef %.05265) #11
   %50 = sext i32 %49 to i64
   %51 = getelementptr i8, ptr %.066, i64 %50
-  %52 = sub i32 %.05364, %49
-  %53 = getelementptr i8, ptr %.165, i64 8
+  %52 = sub i32 %.05265, %49
+  %53 = getelementptr i8, ptr %.164, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not59 = icmp eq ptr %54, null
   br i1 %.not59, label %._crit_edge69, label %.lr.ph68, !llvm.loop !6

@@ -1406,11 +1406,11 @@ for.body42.preheader.i:                           ; preds = %for.end.i11
   br label %for.body42.i
 
 for.body42.i:                                     ; preds = %_ZNSt15_Deque_iteratorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_ERSA_PSA_EppEv.exit.i, %for.body42.preheader.i
-  %__begin1.sroa.11.060.i = phi ptr [ %__begin1.sroa.11.1.i, %_ZNSt15_Deque_iteratorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_ERSA_PSA_EppEv.exit.i ], [ %102, %for.body42.preheader.i ]
+  %__begin1.sroa.0.060.i = phi ptr [ %__begin1.sroa.0.1.i, %_ZNSt15_Deque_iteratorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_ERSA_PSA_EppEv.exit.i ], [ %100, %for.body42.preheader.i ]
   %__begin1.sroa.8.059.i = phi ptr [ %__begin1.sroa.8.1.i, %_ZNSt15_Deque_iteratorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_ERSA_PSA_EppEv.exit.i ], [ %103, %for.body42.preheader.i ]
-  %__begin1.sroa.0.058.i = phi ptr [ %__begin1.sroa.0.1.i, %_ZNSt15_Deque_iteratorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_ERSA_PSA_EppEv.exit.i ], [ %100, %for.body42.preheader.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %v44.i, ptr noundef nonnull align 8 dereferenceable(16) %__begin1.sroa.0.058.i, i64 16, i1 false)
-  %second46.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.058.i, i64 16
+  %__begin1.sroa.11.058.i = phi ptr [ %__begin1.sroa.11.1.i, %_ZNSt15_Deque_iteratorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_ERSA_PSA_EppEv.exit.i ], [ %102, %for.body42.preheader.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %v44.i, ptr noundef nonnull align 8 dereferenceable(16) %__begin1.sroa.0.060.i, i64 16, i1 false)
+  %second46.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.060.i, i64 16
   %u.sroa.0.0.copyload.i = load ptr, ptr %second46.i, align 8
   %104 = load ptr, ptr %ordering, align 8
   %105 = load ptr, ptr %_M_finish.i225.i, align 8
@@ -1650,20 +1650,20 @@ invoke.cont81.i:                                  ; preds = %_ZSt4moveIN9__gnu_c
           to label %for.inc91.i unwind label %lpad.loopexit.i21
 
 for.inc91.i:                                      ; preds = %invoke.cont81.i, %invoke.cont74.i, %invoke.cont66.i
-  %incdec.ptr.i157.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.058.i, i64 32
+  %incdec.ptr.i157.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.060.i, i64 32
   %cmp.i158.i = icmp eq ptr %incdec.ptr.i157.i, %__begin1.sroa.8.059.i
   br i1 %cmp.i158.i, label %if.then.i.i13, label %_ZNSt15_Deque_iteratorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_ERSA_PSA_EppEv.exit.i
 
 if.then.i.i13:                                    ; preds = %for.inc91.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.11.060.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.11.058.i, i64 8
   %123 = load ptr, ptr %add.ptr.i.i, align 8
   %add.ptr.i.i160.i = getelementptr inbounds i8, ptr %123, i64 512
   br label %_ZNSt15_Deque_iteratorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_ERSA_PSA_EppEv.exit.i
 
 _ZNSt15_Deque_iteratorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES9_ERSA_PSA_EppEv.exit.i: ; preds = %if.then.i.i13, %for.inc91.i
-  %__begin1.sroa.0.1.i = phi ptr [ %123, %if.then.i.i13 ], [ %incdec.ptr.i157.i, %for.inc91.i ]
+  %__begin1.sroa.11.1.i = phi ptr [ %add.ptr.i.i, %if.then.i.i13 ], [ %__begin1.sroa.11.058.i, %for.inc91.i ]
   %__begin1.sroa.8.1.i = phi ptr [ %add.ptr.i.i160.i, %if.then.i.i13 ], [ %__begin1.sroa.8.059.i, %for.inc91.i ]
-  %__begin1.sroa.11.1.i = phi ptr [ %add.ptr.i.i, %if.then.i.i13 ], [ %__begin1.sroa.11.060.i, %for.inc91.i ]
+  %__begin1.sroa.0.1.i = phi ptr [ %123, %if.then.i.i13 ], [ %incdec.ptr.i157.i, %for.inc91.i ]
   %cmp.i.i30.not.i = icmp eq ptr %__begin1.sroa.0.1.i, %101
   br i1 %cmp.i.i30.not.i, label %for.end93.i, label %for.body42.i
 

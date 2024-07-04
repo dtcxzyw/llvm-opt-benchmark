@@ -136,12 +136,12 @@ select.unfold:                                    ; preds = %9, %13
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.02331 = phi ptr [ %.023, %.lr.ph ], [ %.02326, %.preheader ]
   %.030 = phi i32 [ %23, %.lr.ph ], [ %17, %.preheader ]
-  %.02229 = phi i32 [ %24, %.lr.ph ], [ 1, %.preheader ]
+  %.02129 = phi i32 [ %24, %.lr.ph ], [ 1, %.preheader ]
   %20 = load i8, ptr %.02331, align 1
   %21 = zext i8 %20 to i32
   %22 = shl i32 %.030, 8
   %23 = or disjoint i32 %22, %21
-  %24 = add nuw nsw i32 %.02229, 1
+  %24 = add nuw nsw i32 %.02129, 1
   %.023 = getelementptr inbounds i8, ptr %.02331, i64 1
   %25 = icmp slt i32 %24, %15
   %.not = icmp ult ptr %.023, %1
@@ -149,8 +149,8 @@ select.unfold:                                    ; preds = %9, %13
   br i1 %or.cond, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader.thread, %.preheader, %select.unfold
-  %.021 = phi i32 [ %17, %select.unfold ], [ %17, %.preheader ], [ %12, %.preheader.thread ], [ %23, %.lr.ph ]
-  ret i32 %.021
+  %.022 = phi i32 [ %17, %select.unfold ], [ %17, %.preheader ], [ %12, %.preheader.thread ], [ %23, %.lr.ph ]
+  ret i32 %.022
 }
 
 declare i32 @onigenc_mb4_code_to_mbclen(i32 noundef, ptr noundef) #1

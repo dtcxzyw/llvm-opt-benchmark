@@ -286,8 +286,8 @@ if.end25:                                         ; preds = %for.end
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end25, %if.end5
-  %bytes.addr.0 = phi i32 [ %sub18, %if.end25 ], [ %bytes, %if.end5 ]
   %m.addr.0 = phi ptr [ %add.ptr, %if.end25 ], [ %m, %if.end5 ]
+  %bytes.addr.0 = phi i32 [ %sub18, %if.end25 ], [ %bytes, %if.end5 ]
   %cmp29 = icmp ugt i32 %bytes.addr.0, 15
   br i1 %cmp29, label %if.then31, label %if.end42
 
@@ -300,8 +300,8 @@ if.then31:                                        ; preds = %if.end28
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then31, %if.end28
-  %bytes.addr.1 = phi i32 [ %sub41, %if.then31 ], [ %bytes.addr.0, %if.end28 ]
   %m.addr.1 = phi ptr [ %add.ptr39, %if.then31 ], [ %m.addr.0, %if.end28 ]
+  %bytes.addr.1 = phi i32 [ %sub41, %if.then31 ], [ %bytes.addr.0, %if.end28 ]
   %tobool43.not = icmp eq i32 %bytes.addr.1, 0
   br i1 %tobool43.not, label %return, label %for.cond45.preheader
 
@@ -367,19 +367,19 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %m.addr.061 = phi ptr [ %m, %while.body.lr.ph ], [ %add.ptr, %while.body ]
   %bytes.addr.060 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub, %while.body ]
-  %h0.059 = phi i64 [ %1, %while.body.lr.ph ], [ %and75, %while.body ]
+  %h2.059 = phi i64 [ %3, %while.body.lr.ph ], [ %and71, %while.body ]
   %h1.058 = phi i64 [ %2, %while.body.lr.ph ], [ %add76, %while.body ]
-  %h2.057 = phi i64 [ %3, %while.body.lr.ph ], [ %and71, %while.body ]
+  %h0.057 = phi i64 [ %1, %while.body.lr.ph ], [ %and75, %while.body ]
   %7 = load i64, ptr %m.addr.061, align 1
   %arrayidx15 = getelementptr inbounds i8, ptr %m.addr.061, i64 8
   %8 = load i64, ptr %arrayidx15, align 1
   %and = and i64 %7, 17592186044415
-  %add = add i64 %and, %h0.059
+  %add = add i64 %and, %h0.057
   %or = tail call i64 @llvm.fshl.i64(i64 %8, i64 %7, i64 20)
   %and17 = and i64 %or, 17592186044415
   %add18 = add i64 %and17, %h1.058
   %shr19 = lshr i64 %8, 24
-  %or21 = add i64 %h2.057, %cond
+  %or21 = add i64 %h2.059, %cond
   %add22 = add i64 %or21, %shr19
   %conv23 = zext i64 %add to i128
   %mul25 = mul nuw i128 %conv23, %conv24
@@ -424,9 +424,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %entry
-  %h2.0.lcssa = phi i64 [ %3, %entry ], [ %and71, %while.body ]
-  %h1.0.lcssa = phi i64 [ %2, %entry ], [ %add76, %while.body ]
   %h0.0.lcssa = phi i64 [ %1, %entry ], [ %and75, %while.body ]
+  %h1.0.lcssa = phi i64 [ %2, %entry ], [ %add76, %while.body ]
+  %h2.0.lcssa = phi i64 [ %3, %entry ], [ %and71, %while.body ]
   store i64 %h0.0.lcssa, ptr %h, align 8
   store i64 %h1.0.lcssa, ptr %arrayidx9, align 8
   store i64 %h2.0.lcssa, ptr %arrayidx11, align 8
@@ -526,18 +526,18 @@ if.end28.i:                                       ; preds = %for.end.i
   br i1 %cmp29.i, label %if.then31.i, label %if.end42.i
 
 if.then31.i:                                      ; preds = %lor.lhs.false.i, %if.end28.i
-  %m.addr.0.i7 = phi ptr [ %add.ptr.i, %if.end28.i ], [ %little64, %lor.lhs.false.i ]
-  %bytes.addr.0.i6 = phi i32 [ %sub18.i, %if.end28.i ], [ 16, %lor.lhs.false.i ]
-  %4 = and i32 %bytes.addr.0.i6, 16
+  %bytes.addr.0.i7 = phi i32 [ %sub18.i, %if.end28.i ], [ 16, %lor.lhs.false.i ]
+  %m.addr.0.i6 = phi ptr [ %add.ptr.i, %if.end28.i ], [ %little64, %lor.lhs.false.i ]
+  %4 = and i32 %bytes.addr.0.i7, 16
   %and.i = zext nneg i32 %4 to i64
-  call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %m.addr.0.i7, i64 noundef %and.i)
-  %add.ptr39.i = getelementptr inbounds i8, ptr %m.addr.0.i7, i64 %and.i
-  %sub41.i = and i32 %bytes.addr.0.i6, 15
+  call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %m.addr.0.i6, i64 noundef %and.i)
+  %add.ptr39.i = getelementptr inbounds i8, ptr %m.addr.0.i6, i64 %and.i
+  %sub41.i = and i32 %bytes.addr.0.i7, 15
   br label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.then31.i, %if.end28.i
-  %bytes.addr.1.i = phi i32 [ %sub41.i, %if.then31.i ], [ %sub18.i, %if.end28.i ]
   %m.addr.1.i = phi ptr [ %add.ptr39.i, %if.then31.i ], [ %add.ptr.i, %if.end28.i ]
+  %bytes.addr.1.i = phi i32 [ %sub41.i, %if.then31.i ], [ %sub18.i, %if.end28.i ]
   %tobool43.not.i = icmp eq i32 %bytes.addr.1.i, 0
   br i1 %tobool43.not.i, label %return, label %for.cond45.preheader.i
 
@@ -630,18 +630,18 @@ if.end28.i:                                       ; preds = %for.end.i
   br i1 %cmp29.i, label %if.then31.i, label %if.end42.i
 
 if.then31.i:                                      ; preds = %lor.lhs.false.i, %if.end28.i
-  %m.addr.0.i6 = phi ptr [ %add.ptr.i, %if.end28.i ], [ %little64, %lor.lhs.false.i ]
-  %bytes.addr.0.i5 = phi i32 [ %sub18.i, %if.end28.i ], [ 16, %lor.lhs.false.i ]
-  %4 = and i32 %bytes.addr.0.i5, 16
+  %bytes.addr.0.i6 = phi i32 [ %sub18.i, %if.end28.i ], [ 16, %lor.lhs.false.i ]
+  %m.addr.0.i5 = phi ptr [ %add.ptr.i, %if.end28.i ], [ %little64, %lor.lhs.false.i ]
+  %4 = and i32 %bytes.addr.0.i6, 16
   %and.i = zext nneg i32 %4 to i64
-  call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %m.addr.0.i6, i64 noundef %and.i)
-  %add.ptr39.i = getelementptr inbounds i8, ptr %m.addr.0.i6, i64 %and.i
-  %sub41.i = and i32 %bytes.addr.0.i5, 15
+  call fastcc void @poly1305_blocks(ptr noundef nonnull %ctx, ptr noundef nonnull %m.addr.0.i5, i64 noundef %and.i)
+  %add.ptr39.i = getelementptr inbounds i8, ptr %m.addr.0.i5, i64 %and.i
+  %sub41.i = and i32 %bytes.addr.0.i6, 15
   br label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.then31.i, %if.end28.i
-  %bytes.addr.1.i = phi i32 [ %sub41.i, %if.then31.i ], [ %sub18.i, %if.end28.i ]
   %m.addr.1.i = phi ptr [ %add.ptr39.i, %if.then31.i ], [ %add.ptr.i, %if.end28.i ]
+  %bytes.addr.1.i = phi i32 [ %sub41.i, %if.then31.i ], [ %sub18.i, %if.end28.i ]
   %tobool43.not.i = icmp eq i32 %bytes.addr.1.i, 0
   br i1 %tobool43.not.i, label %return, label %for.cond45.preheader.i
 

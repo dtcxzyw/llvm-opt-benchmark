@@ -311,10 +311,10 @@ if.end.i:                                         ; preds = %for.body
 
 for.body.i:                                       ; preds = %if.end.i, %if.end18.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end18.i ], [ 0, %if.end.i ]
-  %pos.030.i = phi i32 [ %add19.i, %if.end18.i ], [ 8, %if.end.i ]
+  %pos.029.i = phi i32 [ %add19.i, %if.end18.i ], [ 8, %if.end.i ]
   %15 = load ptr, ptr %ifs.i, align 8
   %arrayidx13.i = getelementptr %struct.USBDescIface, ptr %15, i64 %indvars.iv.i
-  %idx.ext.i = sext i32 %pos.030.i to i64
+  %idx.ext.i = sext i32 %pos.029.i to i64
   %add.ptr.i = getelementptr i8, ptr %add.ptr, i64 %idx.ext.i
   %sub.i = sub i64 %sub, %idx.ext.i
   %call.i = tail call i32 @usb_desc_iface(ptr noundef %arrayidx13.i, i32 noundef %flags, ptr noundef %add.ptr.i, i64 noundef %sub.i)
@@ -322,7 +322,7 @@ for.body.i:                                       ; preds = %if.end.i, %if.end18
   br i1 %cmp15.i, label %return, label %if.end18.i
 
 if.end18.i:                                       ; preds = %for.body.i
-  %add19.i = add i32 %call.i, %pos.030.i
+  %add19.i = add i32 %call.i, %pos.029.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = load i8, ptr %nif.i, align 2
   %17 = zext i8 %16 to i64
@@ -421,10 +421,10 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %if.end18
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end18 ], [ 0, %if.end ]
-  %pos.030 = phi i32 [ %add19, %if.end18 ], [ 8, %if.end ]
+  %pos.029 = phi i32 [ %add19, %if.end18 ], [ 8, %if.end ]
   %7 = load ptr, ptr %ifs, align 8
   %arrayidx13 = getelementptr %struct.USBDescIface, ptr %7, i64 %indvars.iv
-  %idx.ext = sext i32 %pos.030 to i64
+  %idx.ext = sext i32 %pos.029 to i64
   %add.ptr = getelementptr i8, ptr %dest, i64 %idx.ext
   %sub = sub i64 %len, %idx.ext
   %call = tail call i32 @usb_desc_iface(ptr noundef %arrayidx13, i32 noundef %flags, ptr noundef %add.ptr, i64 noundef %sub)
@@ -432,7 +432,7 @@ for.body:                                         ; preds = %if.end, %if.end18
   br i1 %cmp15, label %return, label %if.end18
 
 if.end18:                                         ; preds = %for.body
-  %add19 = add i32 %call, %pos.030
+  %add19 = add i32 %call, %pos.029
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i8, ptr %nif, align 2
   %9 = zext i8 %8 to i64

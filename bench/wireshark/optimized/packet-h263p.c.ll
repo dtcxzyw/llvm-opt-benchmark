@@ -147,7 +147,7 @@ define internal i32 @dissect_h263P(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %32
 
 32:                                               ; preds = %25, %7
-  %.072 = phi i32 [ 3, %25 ], [ 2, %7 ]
+  %.0 = phi i32 [ 3, %25 ], [ 2, %7 ]
   %33 = lshr i16 %12, 3
   %34 = and i16 %33, 63
   %.not76 = icmp eq i16 %34, 0
@@ -156,15 +156,15 @@ define internal i32 @dissect_h263P(ptr noundef %0, ptr noundef %1, ptr noundef %
 35:                                               ; preds = %32
   %36 = zext nneg i16 %34 to i32
   %37 = load i32, ptr @hf_h263P_extra_hdr, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %37, ptr noundef %0, i32 noundef %.072, i32 noundef %36, i32 noundef 0) #2
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %37, ptr noundef %0, i32 noundef %.0, i32 noundef %36, i32 noundef 0) #2
   %39 = load i32, ptr @ett_h263P_extra_hdr, align 4
   %40 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39) #2
-  %41 = tail call i32 @dissect_h263_picture_layer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %40, i32 noundef %.072, i32 noundef %36, i32 noundef 1) #2
-  %42 = add nuw nsw i32 %.072, %36
+  %41 = tail call i32 @dissect_h263_picture_layer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %40, i32 noundef %.0, i32 noundef %36, i32 noundef 1) #2
+  %42 = add nuw nsw i32 %.0, %36
   br label %43
 
 43:                                               ; preds = %35, %32
-  %.1 = phi i32 [ %42, %35 ], [ %.072, %32 ]
+  %.1 = phi i32 [ %42, %35 ], [ %.0, %32 ]
   %44 = and i32 %23, 1024
   %.not77 = icmp eq i32 %44, 0
   %45 = load i32, ptr @hf_h263P_payload, align 4

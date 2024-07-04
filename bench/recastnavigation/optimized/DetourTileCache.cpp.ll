@@ -1216,15 +1216,15 @@ define noundef i32 @_ZNK11dtTileCache10queryTilesEPKfS1_PjPii(ptr nocapture noun
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge47
   %.051 = phi i32 [ %.2.lcssa, %._crit_edge47 ], [ 0, %.preheader.lr.ph ]
-  %.03350 = phi i32 [ %156, %._crit_edge47 ], [ %45, %.preheader.lr.ph ]
-  %53 = mul i32 %.03350, -669632447
+  %.03450 = phi i32 [ %156, %._crit_edge47 ], [ %45, %.preheader.lr.ph ]
+  %53 = mul i32 %.03450, -669632447
   br label %54
 
 54:                                               ; preds = %.preheader, %._crit_edge
   %.145 = phi i32 [ %.051, %.preheader ], [ %.2.lcssa, %._crit_edge ]
-  %.03444 = phi i32 [ %24, %.preheader ], [ %155, %._crit_edge ]
+  %.03344 = phi i32 [ %24, %.preheader ], [ %155, %._crit_edge ]
   %55 = load i32, ptr %47, align 4
-  %56 = mul i32 %.03444, -1918454973
+  %56 = mul i32 %.03344, -1918454973
   %57 = add i32 %56, %53
   %58 = and i32 %55, %57
   %59 = load ptr, ptr %48, align 8
@@ -1251,13 +1251,13 @@ define noundef i32 @_ZNK11dtTileCache10queryTilesEPKfS1_PjPii(ptr nocapture noun
 68:                                               ; preds = %65
   %69 = getelementptr inbounds i8, ptr %67, i64 8
   %70 = load i32, ptr %69, align 4
-  %71 = icmp eq i32 %70, %.03444
+  %71 = icmp eq i32 %70, %.03344
   br i1 %71, label %72, label %87
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds i8, ptr %67, i64 12
   %74 = load i32, ptr %73, align 4
-  %75 = icmp eq i32 %74, %.03350
+  %75 = icmp eq i32 %74, %.03450
   %76 = icmp slt i32 %.01621.i, 32
   %or.cond.i = select i1 %75, i1 %76, i1 false
   br i1 %or.cond.i, label %_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile.exit.i, label %87
@@ -1388,13 +1388,13 @@ _Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread:      ; preds = %142, %146, %151
 
 ._crit_edge:                                      ; preds = %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread, %54, %_ZNK11dtTileCache10getTilesAtEiiPji.exit
   %.2.lcssa = phi i32 [ %.145, %_ZNK11dtTileCache10getTilesAtEiiPji.exit ], [ %.145, %54 ], [ %.3, %_Z15dtOverlapBoundsPKfS0_S0_S0_.exit.thread ]
-  %155 = add i32 %.03444, 1
-  %exitcond56.not = icmp eq i32 %.03444, %29
+  %155 = add i32 %.03344, 1
+  %exitcond56.not = icmp eq i32 %.03344, %29
   br i1 %exitcond56.not, label %._crit_edge47, label %54, !llvm.loop !12
 
 ._crit_edge47:                                    ; preds = %._crit_edge
-  %156 = add i32 %.03350, 1
-  %exitcond57.not = icmp eq i32 %.03350, %46
+  %156 = add i32 %.03450, 1
+  %exitcond57.not = icmp eq i32 %.03450, %46
   br i1 %exitcond57.not, label %._crit_edge52, label %.preheader, !llvm.loop !13
 
 ._crit_edge52:                                    ; preds = %._crit_edge47, %.preheader.lr.ph, %6
@@ -1870,7 +1870,7 @@ _ZL8containsPKjij.exit95.thread:                  ; preds = %128, %_ZL8containsP
   br i1 %206, label %171, label %.loopexit99, !llvm.loop !20
 
 .loopexit99:                                      ; preds = %.loopexit.thread159, %._crit_edge.thread, %165, %._crit_edge
-  %.074 = phi i32 [ 1073741824, %._crit_edge ], [ %157, %165 ], [ 1073741824, %._crit_edge.thread ], [ %157, %.loopexit.thread159 ]
+  %.072 = phi i32 [ 1073741824, %._crit_edge ], [ %157, %165 ], [ 1073741824, %._crit_edge.thread ], [ %157, %.loopexit.thread159 ]
   %.not85 = icmp eq ptr %3, null
   br i1 %.not85, label %214, label %207
 
@@ -1886,7 +1886,7 @@ _ZL8containsPKjij.exit95.thread:                  ; preds = %128, %_ZL8containsP
   br label %214
 
 214:                                              ; preds = %207, %.loopexit99
-  ret i32 %.074
+  ret i32 %.072
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -2407,7 +2407,7 @@ _ZL8containsPKjij.exit.thread:                    ; preds = %71, %.critedge, %66
           to label %244 unwind label %.loopexit.split-lp
 
 244:                                              ; preds = %235, %240, %242, %223, %158, %142, %136, %131, %123, %118, %57
-  %.0 = phi i32 [ %56, %57 ], [ %117, %118 ], [ -2147483644, %123 ], [ %130, %131 ], [ -2147483644, %136 ], [ %141, %142 ], [ 1073741824, %158 ], [ -2147483648, %223 ], [ %239, %242 ], [ 1073741824, %240 ], [ 1073741824, %235 ]
+  %.065 = phi i32 [ %56, %57 ], [ %117, %118 ], [ -2147483644, %123 ], [ %130, %131 ], [ -2147483644, %136 ], [ %141, %142 ], [ 1073741824, %158 ], [ -2147483648, %223 ], [ %239, %242 ], [ 1073741824, %240 ], [ 1073741824, %235 ]
   %245 = load ptr, ptr %44, align 8
   %246 = load ptr, ptr %4, align 8
   invoke void @_Z20dtFreeTileCacheLayerP16dtTileCacheAllocP16dtTileCacheLayer(ptr noundef %245, ptr noundef %246)
@@ -2437,7 +2437,7 @@ _ZL8containsPKjij.exit.thread:                    ; preds = %71, %.critedge, %66
   unreachable
 
 _ZN23NavMeshTileBuildContextD2Ev.exit:            ; preds = %.noexc1.i, %27, %19
-  %.1 = phi i32 [ -2147483640, %19 ], [ -2147483640, %27 ], [ %.0, %.noexc1.i ]
+  %.1 = phi i32 [ -2147483640, %19 ], [ -2147483640, %27 ], [ %.065, %.noexc1.i ]
   ret i32 %.1
 }
 

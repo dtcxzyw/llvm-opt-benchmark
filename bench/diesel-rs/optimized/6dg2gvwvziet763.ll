@@ -228,8 +228,8 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
   br label %"_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hf098354ffab6a750E.llvm.7456726251399703923.exit"
 
 "_ZN3std4hash6random11RandomState3new4KEYS7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hf098354ffab6a750E.llvm.7456726251399703923.exit": ; preds = %3, %5
-  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
   %.sroa.3.0.i = phi i64 [ %8, %5 ], [ %.sroa.6.0.copyload.i, %3 ]
+  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %.sroa.5.0.copyload.i, %3 ]
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.0.0.i, ptr %.sroa.4.0..sroa_idx, align 8
@@ -260,8 +260,8 @@ define hidden { i64, i64 } @"_ZN3std4hash6random11RandomState3new4KEYS7__getit28
   br label %8
 
 8:                                                ; preds = %2, %4
-  %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
   %.sroa.3.0 = phi i64 [ %7, %4 ], [ %.sroa.6.0.copyload, %2 ]
+  %.sroa.0.0 = phi i64 [ %6, %4 ], [ %.sroa.5.0.copyload, %2 ]
   %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
   ret { i64, i64 } %10
@@ -4551,8 +4551,8 @@ define hidden void @_ZN6diesel5mysql10connection3url17ConnectionOptions5parse17h
   br label %116
 
 116:                                              ; preds = %102, %115
+  %.sroa.9.0548 = phi i64 [ %114, %115 ], [ undef, %102 ]
   %.sroa.0455.0 = phi ptr [ %112, %115 ], [ null, %102 ]
-  %.sroa.9.0549 = phi i64 [ %114, %115 ], [ undef, %102 ]
   %117 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17ha4aa98a269a592fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %28, ptr noalias noundef nonnull readonly align 1 @anon.ed479340877e258417c0d62e253f64d9.109, i64 noundef 6)
           to label %126 unwind label %124
 
@@ -4580,11 +4580,11 @@ define hidden void @_ZN6diesel5mysql10connection3url17ConnectionOptions5parse17h
 
 121:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit403"
   store i8 0, ptr %.sroa.0455.0, align 1
-  %122 = icmp eq i64 %.sroa.9.0549, 0
+  %122 = icmp eq i64 %.sroa.9.0548, 0
   br i1 %122, label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit", label %123
 
 123:                                              ; preds = %121
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0455.0, i64 noundef %.sroa.9.0549, i64 noundef 1) #31
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0455.0, i64 noundef %.sroa.9.0548, i64 noundef 1) #31
   br label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit"
 
 124:                                              ; preds = %127, %116
@@ -4619,8 +4619,8 @@ define hidden void @_ZN6diesel5mysql10connection3url17ConnectionOptions5parse17h
   br label %140
 
 140:                                              ; preds = %126, %139
+  %.sroa.8.0549 = phi i64 [ %138, %139 ], [ undef, %126 ]
   %.sroa.0459.0 = phi ptr [ %136, %139 ], [ null, %126 ]
-  %.sroa.8.0548 = phi i64 [ %138, %139 ], [ undef, %126 ]
   %141 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17ha4aa98a269a592fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %28, ptr noalias noundef nonnull readonly align 1 @anon.ed479340877e258417c0d62e253f64d9.110, i64 noundef 8)
           to label %154 unwind label %152
 
@@ -4647,11 +4647,11 @@ define hidden void @_ZN6diesel5mysql10connection3url17ConnectionOptions5parse17h
 
 145:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit404"
   store i8 0, ptr %.sroa.0455.0, align 1
-  %146 = icmp eq i64 %.sroa.9.0549, 0
+  %146 = icmp eq i64 %.sroa.9.0548, 0
   br i1 %146, label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit402", label %147
 
 147:                                              ; preds = %145
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0455.0, i64 noundef %.sroa.9.0549, i64 noundef 1) #31
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0455.0, i64 noundef %.sroa.9.0548, i64 noundef 1) #31
   br label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit402"
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit405": ; preds = %179, %177, %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit407", %152
@@ -4661,11 +4661,11 @@ define hidden void @_ZN6diesel5mysql10connection3url17ConnectionOptions5parse17h
 
 149:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit405"
   store i8 0, ptr %.sroa.0459.0, align 1
-  %150 = icmp eq i64 %.sroa.8.0548, 0
+  %150 = icmp eq i64 %.sroa.8.0549, 0
   br i1 %150, label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit403", label %151
 
 151:                                              ; preds = %149
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0459.0, i64 noundef %.sroa.8.0548, i64 noundef 1) #31
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0459.0, i64 noundef %.sroa.8.0549, i64 noundef 1) #31
   br label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit403"
 
 152:                                              ; preds = %155, %140
@@ -4700,8 +4700,8 @@ define hidden void @_ZN6diesel5mysql10connection3url17ConnectionOptions5parse17h
   br label %168
 
 168:                                              ; preds = %154, %167
-  %.sroa.0462.0 = phi ptr [ %164, %167 ], [ null, %154 ]
   %.sroa.8463.0 = phi i64 [ %166, %167 ], [ undef, %154 ]
+  %.sroa.0462.0 = phi ptr [ %164, %167 ], [ null, %154 ]
   %169 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17ha4aa98a269a592fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %28, ptr noalias noundef nonnull readonly align 1 @anon.ed479340877e258417c0d62e253f64d9.111, i64 noundef 7)
           to label %182 unwind label %180
 
@@ -4728,11 +4728,11 @@ define hidden void @_ZN6diesel5mysql10connection3url17ConnectionOptions5parse17h
 
 173:                                              ; preds = %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit406"
   store i8 0, ptr %.sroa.0459.0, align 1
-  %174 = icmp eq i64 %.sroa.8.0548, 0
+  %174 = icmp eq i64 %.sroa.8.0549, 0
   br i1 %174, label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit404", label %175
 
 175:                                              ; preds = %173
-  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0459.0, i64 noundef %.sroa.8.0548, i64 noundef 1) #31
+  call void @__rust_dealloc(ptr noundef nonnull %.sroa.0459.0, i64 noundef %.sroa.8.0549, i64 noundef 1) #31
   br label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit404"
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit407": ; preds = %207, %205, %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$alloc..ffi..c_str..CString$GT$$GT$17h32ba8aa22c8163b8E.exit439", %180
@@ -4781,8 +4781,8 @@ define hidden void @_ZN6diesel5mysql10connection3url17ConnectionOptions5parse17h
   br label %196
 
 196:                                              ; preds = %182, %195
-  %.sroa.0466.0 = phi ptr [ %192, %195 ], [ null, %182 ]
   %.sroa.8467.0 = phi i64 [ %194, %195 ], [ undef, %182 ]
+  %.sroa.0466.0 = phi ptr [ %192, %195 ], [ null, %182 ]
   %197 = invoke fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17ha4aa98a269a592fcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %28, ptr noalias noundef nonnull readonly align 1 @anon.ed479340877e258417c0d62e253f64d9.112, i64 noundef 8)
           to label %210 unwind label %208
 
@@ -4958,8 +4958,8 @@ define hidden void @_ZN6diesel5mysql10connection3url17ConnectionOptions5parse17h
   ]
 
 246:                                              ; preds = %270, %244, %279, %259
-  %.sroa.0470.0 = phi ptr [ %276, %279 ], [ %256, %259 ], [ null, %244 ], [ null, %270 ]
   %.sroa.10.0 = phi i64 [ %278, %279 ], [ %258, %259 ], [ undef, %244 ], [ undef, %270 ]
+  %.sroa.0470.0 = phi ptr [ %276, %279 ], [ %256, %259 ], [ null, %244 ], [ null, %270 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
   %247 = invoke { ptr, i64 } @_ZN3url3Url8username17hb0fb1f81005b9051E(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %31)
@@ -5134,8 +5134,8 @@ define hidden void @_ZN6diesel5mysql10connection3url17ConnectionOptions5parse17h
           to label %302 unwind label %296
 
 301:                                              ; preds = %298, %309
-  %.sroa.0477.0 = phi ptr [ %306, %309 ], [ null, %298 ]
   %.sroa.8478.0 = phi i64 [ %308, %309 ], [ undef, %298 ]
+  %.sroa.0477.0 = phi ptr [ %306, %309 ], [ null, %298 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   invoke void @_ZN3url3Url13path_segments17h077568f84e0e9fb5E(ptr noalias nocapture noundef nonnull sret({ [15 x i32], i32, [2 x i32] }) align 8 dereferenceable(72) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %31)
           to label %318 unwind label %312
@@ -5245,11 +5245,11 @@ define hidden void @_ZN6diesel5mysql10connection3url17ConnectionOptions5parse17h
   %.sroa.9164.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.0455.0, ptr %.sroa.9164.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %.sroa.9.0549, ptr %.sroa.10.0..sroa_idx, align 8
+  store i64 %.sroa.9.0548, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11165.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %.sroa.0459.0, ptr %.sroa.11165.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
-  store i64 %.sroa.8.0548, ptr %.sroa.12.0..sroa_idx, align 8
+  store i64 %.sroa.8.0549, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %.sroa.0462.0, ptr %.sroa.13.0..sroa_idx, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88

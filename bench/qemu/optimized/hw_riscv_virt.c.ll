@@ -458,9 +458,9 @@ for.body.lr.ph:                                   ; preds = %if.end6
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %mmio_irqchip.0205 = phi ptr [ null, %for.body.lr.ph ], [ %mmio_irqchip.1182187, %for.inc ]
-  %virtio_irqchip.0204 = phi ptr [ null, %for.body.lr.ph ], [ %virtio_irqchip.2188, %for.inc ]
-  %pcie_irqchip.0203 = phi ptr [ null, %for.body.lr.ph ], [ %pcie_irqchip.3, %for.inc ]
+  %pcie_irqchip.0204 = phi ptr [ null, %for.body.lr.ph ], [ %pcie_irqchip.3, %for.inc ]
+  %virtio_irqchip.0203 = phi ptr [ null, %for.body.lr.ph ], [ %virtio_irqchip.2188, %for.inc ]
+  %mmio_irqchip.0202 = phi ptr [ null, %for.body.lr.ph ], [ %mmio_irqchip.1182187, %for.inc ]
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %call8 = tail call zeroext i1 @riscv_socket_check_hartids(ptr noundef %machine, i32 noundef %2) #13
   br i1 %call8, label %if.end10, label %if.then9
@@ -641,17 +641,17 @@ if.then133:                                       ; preds = %if.end107
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end107, %if.then123, %if.end120.thread, %if.then133
-  %virtio_irqchip.2188 = phi ptr [ %virtio_irqchip.0204, %if.then133 ], [ %call46.i.sink, %if.end120.thread ], [ %call46.i.sink, %if.then123 ], [ %virtio_irqchip.0204, %if.end107 ]
-  %mmio_irqchip.1182187 = phi ptr [ %mmio_irqchip.0205, %if.then133 ], [ %call46.i.sink, %if.end120.thread ], [ %mmio_irqchip.0205, %if.then123 ], [ %mmio_irqchip.0205, %if.end107 ]
-  %pcie_irqchip.3 = phi ptr [ %call46.i.sink, %if.then133 ], [ %call46.i.sink, %if.end120.thread ], [ %call46.i.sink, %if.then123 ], [ %pcie_irqchip.0203, %if.end107 ]
+  %virtio_irqchip.2188 = phi ptr [ %virtio_irqchip.0203, %if.then133 ], [ %call46.i.sink, %if.end120.thread ], [ %call46.i.sink, %if.then123 ], [ %virtio_irqchip.0203, %if.end107 ]
+  %mmio_irqchip.1182187 = phi ptr [ %mmio_irqchip.0202, %if.then133 ], [ %call46.i.sink, %if.end120.thread ], [ %mmio_irqchip.0202, %if.then123 ], [ %mmio_irqchip.0202, %if.end107 ]
+  %pcie_irqchip.3 = phi ptr [ %call46.i.sink, %if.then133 ], [ %call46.i.sink, %if.end120.thread ], [ %call46.i.sink, %if.then123 ], [ %pcie_irqchip.0204, %if.end107 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %if.end6
-  %pcie_irqchip.0.lcssa = phi ptr [ null, %if.end6 ], [ %pcie_irqchip.3, %for.inc ]
-  %virtio_irqchip.0.lcssa = phi ptr [ null, %if.end6 ], [ %virtio_irqchip.2188, %for.inc ]
   %mmio_irqchip.0.lcssa = phi ptr [ null, %if.end6 ], [ %mmio_irqchip.1182187, %for.inc ]
+  %virtio_irqchip.0.lcssa = phi ptr [ null, %if.end6 ], [ %virtio_irqchip.2188, %for.inc ]
+  %pcie_irqchip.0.lcssa = phi ptr [ null, %if.end6 ], [ %pcie_irqchip.3, %for.inc ]
   %soc138 = getelementptr inbounds i8, ptr %call.i, i64 376
   %call140 = tail call zeroext i1 @riscv_is_32bit(ptr noundef nonnull %soc138) #13
   br i1 %call140, label %if.then141, label %if.else147
@@ -1272,10 +1272,10 @@ for.body.lr.ph.i.i:                               ; preds = %if.then
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %phandle.0.i = phi i32 [ 1, %for.body.lr.ph.i.i ], [ %phandle.2.i, %for.inc.i.i ]
   %indvars.iv.i.i = phi i64 [ %8, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
-  %phandle_pos.05.i.i = phi i32 [ %7, %for.body.lr.ph.i.i ], [ %sub15.i.i, %for.inc.i.i ]
+  %phandle_pos.07.i.i = phi i32 [ %7, %for.body.lr.ph.i.i ], [ %sub15.i.i, %for.inc.i.i ]
   %num_harts.i.i = getelementptr [4 x %struct.RISCVHartArrayState], ptr %soc, i64 0, i64 %indvars.iv.i.i, i32 1
   %9 = load i32, ptr %num_harts.i.i, align 8
-  %sub15.i.i = sub i32 %phandle_pos.05.i.i, %9
+  %sub15.i.i = sub i32 %phandle_pos.07.i.i, %9
   %10 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %call16.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.96, i32 noundef %10) #13
   %11 = load ptr, ptr %fdt.i.i, align 8
@@ -1555,8 +1555,8 @@ if.else.i.i.i:                                    ; preds = %if.end.i99.i.i
   br label %if.end119.i.i.i
 
 if.end119.i.i.i:                                  ; preds = %if.else.i.i.i, %if.then103.i.i.i
-  %size.0.i.i.i = phi i32 [ 8, %if.then103.i.i.i ], [ 16392, %if.else.i.i.i ]
   %addr.0.i.i.i = phi i64 [ %add108.i.i.i, %if.then103.i.i.i ], [ %add116.i.i.i, %if.else.i.i.i ]
+  %size.0.i.i.i = phi i32 [ 8, %if.then103.i.i.i ], [ 16392, %if.else.i.i.i ]
   %call120.i.i.i = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.119, i64 noundef %addr.0.i.i.i) #13
   %fdt121.i.i.i = getelementptr inbounds i8, ptr %call.i.i84.i.i, i64 40
   %63 = load ptr, ptr %fdt121.i.i.i, align 8
@@ -1775,10 +1775,10 @@ for.body38.lr.ph.i.i:                             ; preds = %if.end31.i.i
 for.body38.i.i:                                   ; preds = %for.inc59.i.i, %for.body38.lr.ph.i.i
   %phandle.5.i = phi i32 [ %phandle.4.i, %for.body38.lr.ph.i.i ], [ %phandle.6.i, %for.inc59.i.i ]
   %indvars.iv14.i.i = phi i64 [ %93, %for.body38.lr.ph.i.i ], [ %indvars.iv.next15.i.i, %for.inc59.i.i ]
-  %phandle_pos.19.i.i = phi i32 [ %92, %for.body38.lr.ph.i.i ], [ %sub43.i.i, %for.inc59.i.i ]
+  %phandle_pos.110.i.i = phi i32 [ %92, %for.body38.lr.ph.i.i ], [ %sub43.i.i, %for.inc59.i.i ]
   %num_harts42.i.i = getelementptr [4 x %struct.RISCVHartArrayState], ptr %soc, i64 0, i64 %indvars.iv14.i.i, i32 1
   %94 = load i32, ptr %num_harts42.i.i, align 8
-  %sub43.i.i = sub i32 %phandle_pos.19.i.i, %94
+  %sub43.i.i = sub i32 %phandle_pos.110.i.i, %94
   %95 = load i32, ptr %aia_type.i.i, align 8
   %cmp45.i.i = icmp eq i32 %95, 0
   %idxprom48.i.i = sext i32 %sub43.i.i to i64
@@ -2145,17 +2145,17 @@ for.end55.i37.i:                                  ; preds = %for.body47.i34.i
   br label %for.body.i.i39.i
 
 for.body.i.i39.i:                                 ; preds = %for.inc26.i.i.i, %for.end55.i37.i
-  %dev.031.i.i.i = phi i32 [ 0, %for.end55.i37.i ], [ %inc27.i.i.i, %for.inc26.i.i.i ]
-  %irq_map.030.i.i.i = phi ptr [ %full_irq_map.i.i.i, %for.end55.i37.i ], [ %add.ptr.i.i.i, %for.inc26.i.i.i ]
-  %irq_map_stride.029.i.i.i = phi i32 [ 0, %for.end55.i37.i ], [ %spec.select.i.i.i, %for.inc26.i.i.i ]
-  %mul.i.i40.i = shl nuw nsw i32 %dev.031.i.i.i, 19
+  %irq_map.031.i.i.i = phi ptr [ %full_irq_map.i.i.i, %for.end55.i37.i ], [ %add.ptr.i.i.i, %for.inc26.i.i.i ]
+  %irq_map_stride.030.i.i.i = phi i32 [ 0, %for.end55.i37.i ], [ %spec.select.i.i.i, %for.inc26.i.i.i ]
+  %dev.029.i.i.i = phi i32 [ 0, %for.end55.i37.i ], [ %inc27.i.i.i, %for.inc26.i.i.i ]
+  %mul.i.i40.i = shl nuw nsw i32 %dev.029.i.i.i, 19
   br label %for.body3.i.i.i
 
 for.body3.i.i.i:                                  ; preds = %if.end.i.i46.i, %for.body.i.i39.i
   %pin.028.i.i.i = phi i32 [ 0, %for.body.i.i39.i ], [ %add6.i.i.i, %if.end.i.i46.i ]
-  %irq_map.127.i.i.i = phi ptr [ %irq_map.030.i.i.i, %for.body.i.i39.i ], [ %add.ptr.i.i.i, %if.end.i.i46.i ]
-  %irq_map_stride.126.i.i.i = phi i32 [ %irq_map_stride.029.i.i.i, %for.body.i.i39.i ], [ %spec.select.i.i.i, %if.end.i.i46.i ]
-  %add.i.i41.i = add nuw nsw i32 %pin.028.i.i.i, %dev.031.i.i.i
+  %irq_map.127.i.i.i = phi ptr [ %irq_map.031.i.i.i, %for.body.i.i39.i ], [ %add.ptr.i.i.i, %if.end.i.i46.i ]
+  %irq_map_stride.126.i.i.i = phi i32 [ %irq_map_stride.030.i.i.i, %for.body.i.i39.i ], [ %spec.select.i.i.i, %if.end.i.i46.i ]
+  %add.i.i41.i = add nuw nsw i32 %pin.028.i.i.i, %dev.029.i.i.i
   store i32 %mul.i.i40.i, ptr %irq_map.127.i.i.i, align 4
   %add6.i.i.i = add nuw nsw i32 %pin.028.i.i.i, 1
   %155 = shl nuw nsw i32 %add6.i.i.i, 24
@@ -2187,7 +2187,7 @@ if.end.i.i46.i:                                   ; preds = %if.then.i.i44.i, %f
   br i1 %exitcond.not.i.i48.i, label %for.inc26.i.i.i, label %for.body3.i.i.i, !llvm.loop !29
 
 for.inc26.i.i.i:                                  ; preds = %if.end.i.i46.i
-  %inc27.i.i.i = add nuw nsw i32 %dev.031.i.i.i, 1
+  %inc27.i.i.i = add nuw nsw i32 %dev.029.i.i.i, 1
   %exitcond33.not.i.i.i = icmp eq i32 %inc27.i.i.i, 4
   br i1 %exitcond33.not.i.i.i, label %for.end28.i.i.i, label %for.body.i.i39.i, !llvm.loop !30
 

@@ -2534,11 +2534,11 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.e
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_Py_NewRef.exit.i, %for.inc.i
-  %i.045.i = phi i64 [ %dec.i13, %for.inc.i ], [ %6, %_Py_NewRef.exit.i ]
-  %upper.044.i = phi i64 [ %upper.1.i, %for.inc.i ], [ 3, %_Py_NewRef.exit.i ]
+  %upper.045.i = phi i64 [ %upper.1.i, %for.inc.i ], [ 3, %_Py_NewRef.exit.i ]
+  %i.044.i = phi i64 [ %dec.i13, %for.inc.i ], [ %6, %_Py_NewRef.exit.i ]
   %inner.043.i = phi ptr [ %inner.1.i, %for.inc.i ], [ %call.i, %_Py_NewRef.exit.i ]
   %outer.042.i = phi ptr [ %outer.1.i, %for.inc.i ], [ %call.i, %_Py_NewRef.exit.i ]
-  %shr.i = lshr i64 %call, %i.045.i
+  %shr.i = lshr i64 %call, %i.044.i
   %cmp5.i = icmp ult i64 %shr.i, 3
   br i1 %cmp5.i, label %for.inc.i, label %if.end8.i
 
@@ -2548,7 +2548,7 @@ if.end8.i:                                        ; preds = %for.body.i
   %sub9.i = add i64 %or.i, -2
   %7 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub9.i, i1 true)
   %sub.i37.i = sub nuw nsw i64 64, %7
-  %call12.i = call fastcc ptr @factorial_partial_product(i64 noundef %upper.044.i, i64 noundef %or.i, i64 noundef %sub.i37.i)
+  %call12.i = call fastcc ptr @factorial_partial_product(i64 noundef %upper.045.i, i64 noundef %or.i, i64 noundef %sub.i37.i)
   %cmp13.i = icmp eq ptr %call12.i, null
   br i1 %cmp13.i, label %error.i, label %if.end16.i
 
@@ -2613,9 +2613,9 @@ if.then1.i55.i:                                   ; preds = %if.end.i52.i
 for.inc.i:                                        ; preds = %if.then1.i55.i, %if.end.i52.i, %do.body27.i, %for.body.i
   %outer.1.i = phi ptr [ %outer.042.i, %for.body.i ], [ %call22.i, %do.body27.i ], [ %call22.i, %if.then1.i55.i ], [ %call22.i, %if.end.i52.i ]
   %inner.1.i = phi ptr [ %inner.043.i, %for.body.i ], [ %call17.i, %do.body27.i ], [ %call17.i, %if.then1.i55.i ], [ %call17.i, %if.end.i52.i ]
-  %upper.1.i = phi i64 [ %upper.044.i, %for.body.i ], [ %or.i, %do.body27.i ], [ %or.i, %if.then1.i55.i ], [ %or.i, %if.end.i52.i ]
-  %dec.i13 = add nsw i64 %i.045.i, -1
-  %cmp3.i = icmp sgt i64 %i.045.i, 0
+  %upper.1.i = phi i64 [ %upper.045.i, %for.body.i ], [ %or.i, %do.body27.i ], [ %or.i, %if.then1.i55.i ], [ %or.i, %if.end.i52.i ]
+  %dec.i13 = add nsw i64 %i.044.i, -1
+  %cmp3.i = icmp sgt i64 %i.044.i, 0
   br i1 %cmp3.i, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.inc.i
@@ -4056,10 +4056,10 @@ for.cond:                                         ; preds = %Py_DECREF.exit155
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv132 = phi i64 [ %11, %for.body.lr.ph ], [ %indvars.iv.next133, %for.cond ]
-  %d.0125 = phi i64 [ %shr37, %for.body.lr.ph ], [ %shr67, %for.cond ]
+  %d.0124 = phi i64 [ %shr37, %for.body.lr.ph ], [ %shr67, %for.cond ]
   %a.0123 = phi ptr [ %call58, %for.body.lr.ph ], [ %call95, %for.cond ]
   %shr67 = lshr i64 %div94, %indvars.iv132
-  %13 = add nuw i64 %d.0125, %shr67
+  %13 = add nuw i64 %d.0124, %shr67
   %add = sub i64 %.neg, %13
   %call71 = tail call ptr @_PyLong_Rshift(ptr noundef nonnull %call, i64 noundef %add) #15
   %cmp72 = icmp eq ptr %call71, null
@@ -4087,7 +4087,7 @@ do.end:                                           ; preds = %if.end.i186, %if.th
   br i1 %cmp77, label %if.then.i, label %do.body81
 
 do.body81:                                        ; preds = %do.end
-  %16 = xor i64 %d.0125, -1
+  %16 = xor i64 %d.0124, -1
   %sub85 = add nsw i64 %shr67, %16
   %call86 = tail call ptr @_PyLong_Lshift(ptr noundef nonnull %a.0123, i64 noundef %sub85) #15
   %17 = load i64, ptr %a.0123, align 8
@@ -5318,33 +5318,33 @@ if.end8.i:                                        ; preds = %if.end4.i
   br label %while.body.outer.outer.i
 
 while.body.outer.outer.i:                         ; preds = %while.body.outer.outer.i.backedge, %if.end8.i
-  %flt_total.sroa.7.0.ph.ph.i = phi double [ 0.000000e+00, %if.end8.i ], [ %flt_total.sroa.7.1267.i, %while.body.outer.outer.i.backedge ]
+  %flt_total.sroa.0.0.ph.ph.i = phi double [ 0.000000e+00, %if.end8.i ], [ %flt_total.sroa.0.1267.i, %while.body.outer.outer.i.backedge ]
   %flt_total.sroa.5.0.ph.ph.i = phi double [ 0.000000e+00, %if.end8.i ], [ %flt_total.sroa.5.1268.i, %while.body.outer.outer.i.backedge ]
-  %flt_total.sroa.0.0.ph.ph.i = phi double [ 0.000000e+00, %if.end8.i ], [ %flt_total.sroa.0.1269.i, %while.body.outer.outer.i.backedge ]
+  %flt_total.sroa.7.0.ph.ph.i = phi double [ 0.000000e+00, %if.end8.i ], [ %flt_total.sroa.7.1269.i, %while.body.outer.outer.i.backedge ]
   %total.0.ph.ph.i = phi ptr [ %call5.i, %if.end8.i ], [ %call220.i, %while.body.outer.outer.i.backedge ]
-  %int_total.0.ph.ph.i = phi i64 [ 0, %if.end8.i ], [ %int_total.1.i, %while.body.outer.outer.i.backedge ]
-  %flt_path_enabled.0.ph.ph.i = phi i1 [ true, %if.end8.i ], [ false, %while.body.outer.outer.i.backedge ]
-  %q_stopped.0.ph.ph.i = phi i8 [ 0, %if.end8.i ], [ %q_stopped.179.i, %while.body.outer.outer.i.backedge ]
   %p_stopped.0.ph.ph.i = phi i8 [ 0, %if.end8.i ], [ %p_stopped.163.i, %while.body.outer.outer.i.backedge ]
+  %q_stopped.0.ph.ph.i = phi i8 [ 0, %if.end8.i ], [ %q_stopped.179.i, %while.body.outer.outer.i.backedge ]
+  %int_path_enabled.0.ph.ph.i = phi i1 [ true, %if.end8.i ], [ false, %while.body.outer.outer.i.backedge ]
+  %int_total.0.ph.ph.i = phi i64 [ 0, %if.end8.i ], [ %int_total.1.i, %while.body.outer.outer.i.backedge ]
   br label %while.body.outer.i
 
 while.body.outer.i:                               ; preds = %while.body.outer.i.backedge, %while.body.outer.outer.i
-  %flt_total.sroa.7.0.ph.i = phi double [ %flt_total.sroa.7.0.ph.ph.i, %while.body.outer.outer.i ], [ %add15.i.i, %while.body.outer.i.backedge ]
-  %flt_total.sroa.5.0.ph.i = phi double [ %flt_total.sroa.5.0.ph.ph.i, %while.body.outer.outer.i ], [ %add.i11.i.i, %while.body.outer.i.backedge ]
   %flt_total.sroa.0.0.ph.i = phi double [ %flt_total.sroa.0.0.ph.ph.i, %while.body.outer.outer.i ], [ %add.i.i.i, %while.body.outer.i.backedge ]
+  %flt_total.sroa.5.0.ph.i = phi double [ %flt_total.sroa.5.0.ph.ph.i, %while.body.outer.outer.i ], [ %add.i11.i.i, %while.body.outer.i.backedge ]
+  %flt_total.sroa.7.0.ph.i = phi double [ %flt_total.sroa.7.0.ph.ph.i, %while.body.outer.outer.i ], [ %add15.i.i, %while.body.outer.i.backedge ]
   %total.0.ph.i = phi ptr [ %total.0.ph.ph.i, %while.body.outer.outer.i ], [ %total.1.i, %while.body.outer.i.backedge ]
-  %int_total.0.ph.i = phi i64 [ %int_total.0.ph.ph.i, %while.body.outer.outer.i ], [ %int_total.1.i, %while.body.outer.i.backedge ]
-  %flt_total_in_use.0.ph.i = phi i1 [ false, %while.body.outer.outer.i ], [ true, %while.body.outer.i.backedge ]
-  %int_path_enabled.0.ph.i = phi i1 [ %flt_path_enabled.0.ph.ph.i, %while.body.outer.outer.i ], [ false, %while.body.outer.i.backedge ]
-  %q_stopped.0.ph.i = phi i8 [ %q_stopped.0.ph.ph.i, %while.body.outer.outer.i ], [ %q_stopped.179.i, %while.body.outer.i.backedge ]
   %p_stopped.0.ph.i = phi i8 [ %p_stopped.0.ph.ph.i, %while.body.outer.outer.i ], [ %p_stopped.163.i, %while.body.outer.i.backedge ]
+  %q_stopped.0.ph.i = phi i8 [ %q_stopped.0.ph.ph.i, %while.body.outer.outer.i ], [ %q_stopped.179.i, %while.body.outer.i.backedge ]
+  %int_path_enabled.0.ph.i = phi i1 [ %int_path_enabled.0.ph.ph.i, %while.body.outer.outer.i ], [ false, %while.body.outer.i.backedge ]
+  %flt_total_in_use.0.ph.i = phi i1 [ false, %while.body.outer.outer.i ], [ true, %while.body.outer.i.backedge ]
+  %int_total.0.ph.i = phi i64 [ %int_total.0.ph.ph.i, %while.body.outer.outer.i ], [ %int_total.1.i, %while.body.outer.i.backedge ]
   br i1 %int_path_enabled.0.ph.i, label %while.body.us.i, label %while.body.outer.split.i
 
 while.body.us.i:                                  ; preds = %while.body.outer.i, %while.body.us.i.backedge
-  %int_total.0.us.i = phi i64 [ %add.us.i, %while.body.us.i.backedge ], [ %int_total.0.ph.i, %while.body.outer.i ]
-  %int_total_in_use.0.us.i = phi i1 [ true, %while.body.us.i.backedge ], [ false, %while.body.outer.i ]
-  %q_stopped.0.us.i = phi i8 [ %q_stopped.1.us.i, %while.body.us.i.backedge ], [ %q_stopped.0.ph.i, %while.body.outer.i ]
   %p_stopped.0.us.i = phi i8 [ %p_stopped.1.us.i, %while.body.us.i.backedge ], [ %p_stopped.0.ph.i, %while.body.outer.i ]
+  %q_stopped.0.us.i = phi i8 [ %q_stopped.1.us.i, %while.body.us.i.backedge ], [ %q_stopped.0.ph.i, %while.body.outer.i ]
+  %int_total_in_use.0.us.i = phi i1 [ true, %while.body.us.i.backedge ], [ false, %while.body.outer.i ]
+  %int_total.0.us.i = phi i64 [ %add.us.i, %while.body.us.i.backedge ], [ %int_total.0.ph.i, %while.body.outer.i ]
   %call12.us.i = call ptr %9(ptr noundef nonnull %call.i) #15
   %cmp13.us.i = icmp eq ptr %call12.us.i, null
   br i1 %cmp13.us.i, label %if.then14.us.i, label %if.end22.us.i
@@ -5596,7 +5596,7 @@ if.end107.i:                                      ; preds = %if.then1.i367.i, %i
   %cmp1317.i = phi i1 [ %cmp13.us.i, %finalize_int_path.split.us.i ], [ %cmp13.us.i, %if.then103.i ], [ %cmp13.us.i, %if.then1.i367.i ], [ %cmp13.us.i, %if.end.i364.i ], [ %cmp13.i, %if.end34.i ]
   %total.1.i = phi ptr [ %total.0.ph.i, %finalize_int_path.split.us.i ], [ %call91.i, %if.then103.i ], [ %call91.i, %if.then1.i367.i ], [ %call91.i, %if.end.i364.i ], [ %total.0.ph.i, %if.end34.i ]
   %int_total.1.i = phi i64 [ %int_total.0.us.i, %finalize_int_path.split.us.i ], [ 0, %if.then103.i ], [ 0, %if.then1.i367.i ], [ 0, %if.end.i364.i ], [ %int_total.0.ph.i, %if.end34.i ]
-  br i1 %flt_path_enabled.0.ph.ph.i, label %if.then109.i, label %if.end211.i
+  br i1 %int_path_enabled.0.ph.ph.i, label %if.then109.i, label %if.end211.i
 
 if.then109.i:                                     ; preds = %if.end107.i
   br i1 %tobool3671.i, label %finalize_flt_path.i, label %if.then111.i
@@ -5661,9 +5661,9 @@ land.lhs.true157.i:                               ; preds = %if.then152.i
   br i1 %tobool159.not.i, label %if.end165.i, label %finalize_flt_path.sink.split.i
 
 if.end165.i:                                      ; preds = %land.lhs.true157.i, %if.then152.i, %land.lhs.true138.i, %if.then133.i, %if.then123.i
-  %flt_q.0.i = phi double [ %call23.val143.i, %if.then123.i ], [ -1.000000e+00, %land.lhs.true138.i ], [ %call135.i, %if.then133.i ], [ %call23.val141.i, %land.lhs.true157.i ], [ %call23.val141.i, %if.then152.i ]
   %flt_p.0.i = phi double [ %call12.val144.i, %if.then123.i ], [ %call12.val142.i, %land.lhs.true138.i ], [ %call12.val142.i, %if.then133.i ], [ -1.000000e+00, %land.lhs.true157.i ], [ %call154.i, %if.then152.i ]
-  %mul.i.i.i = fmul double %flt_q.0.i, %flt_p.0.i
+  %flt_q.0.i = phi double [ %call23.val143.i, %if.then123.i ], [ -1.000000e+00, %land.lhs.true138.i ], [ %call135.i, %if.then133.i ], [ %call23.val141.i, %land.lhs.true157.i ], [ %call23.val141.i, %if.then152.i ]
+  %mul.i.i.i = fmul double %flt_p.0.i, %flt_q.0.i
   %fneg.i.i.i = fneg double %mul.i.i.i
   %39 = call double @llvm.fma.f64(double %flt_p.0.i, double %flt_q.0.i, double %fneg.i.i.i)
   %add.i.i.i = fadd double %flt_total.sroa.0.0.ph.i, %mul.i.i.i
@@ -5733,7 +5733,7 @@ finalize_flt_path.i:                              ; preds = %if.end165.i, %land.
   br i1 %flt_total_in_use.0.ph.i, label %if.then186.i, label %if.end211.i
 
 if.then186.i:                                     ; preds = %finalize_flt_path.i
-  %add.i.i167.i = fadd double %flt_total.sroa.5.0.ph.i, %flt_total.sroa.0.0.ph.i
+  %add.i.i167.i = fadd double %flt_total.sroa.0.0.ph.i, %flt_total.sroa.5.0.ph.i
   %sub.i.i168.i = fsub double %add.i.i167.i, %flt_total.sroa.5.0.ph.i
   %sub1.i.i169.i = fsub double %add.i.i167.i, %sub.i.i168.i
   %sub2.i.i170.i = fsub double %flt_total.sroa.5.0.ph.i, %sub1.i.i169.i
@@ -5783,17 +5783,17 @@ if.then1.i331.i:                                  ; preds = %if.end.i328.i
   br i1 %tobool3671.i, label %normal_exit.i, label %if.end214.i
 
 if.end211.i:                                      ; preds = %if.end107.i, %if.end.i328.i, %if.then207.i, %finalize_flt_path.i
-  %flt_total.sroa.7.1.i = phi double [ %flt_total.sroa.7.0.ph.i, %finalize_flt_path.i ], [ 0.000000e+00, %if.then207.i ], [ 0.000000e+00, %if.end.i328.i ], [ %flt_total.sroa.7.0.ph.ph.i, %if.end107.i ]
-  %flt_total.sroa.5.1.i = phi double [ %flt_total.sroa.5.0.ph.i, %finalize_flt_path.i ], [ 0.000000e+00, %if.then207.i ], [ 0.000000e+00, %if.end.i328.i ], [ %flt_total.sroa.5.0.ph.ph.i, %if.end107.i ]
   %flt_total.sroa.0.1.i = phi double [ %flt_total.sroa.0.0.ph.i, %finalize_flt_path.i ], [ 0.000000e+00, %if.then207.i ], [ 0.000000e+00, %if.end.i328.i ], [ %flt_total.sroa.0.0.ph.ph.i, %if.end107.i ]
+  %flt_total.sroa.5.1.i = phi double [ %flt_total.sroa.5.0.ph.i, %finalize_flt_path.i ], [ 0.000000e+00, %if.then207.i ], [ 0.000000e+00, %if.end.i328.i ], [ %flt_total.sroa.5.0.ph.ph.i, %if.end107.i ]
+  %flt_total.sroa.7.1.i = phi double [ %flt_total.sroa.7.0.ph.i, %finalize_flt_path.i ], [ 0.000000e+00, %if.then207.i ], [ 0.000000e+00, %if.end.i328.i ], [ %flt_total.sroa.7.0.ph.ph.i, %if.end107.i ]
   %total.2.i = phi ptr [ %total.1.i, %finalize_flt_path.i ], [ %call193.i, %if.then207.i ], [ %call193.i, %if.end.i328.i ], [ %total.1.i, %if.end107.i ]
   br i1 %tobool3671.i, label %normal_exit.i, label %if.end214.i
 
 if.end214.i:                                      ; preds = %if.end211.i, %if.then1.i331.i
   %total.2270.i = phi ptr [ %call193.i, %if.then1.i331.i ], [ %total.2.i, %if.end211.i ]
-  %flt_total.sroa.0.1269.i = phi double [ 0.000000e+00, %if.then1.i331.i ], [ %flt_total.sroa.0.1.i, %if.end211.i ]
+  %flt_total.sroa.7.1269.i = phi double [ 0.000000e+00, %if.then1.i331.i ], [ %flt_total.sroa.7.1.i, %if.end211.i ]
   %flt_total.sroa.5.1268.i = phi double [ 0.000000e+00, %if.then1.i331.i ], [ %flt_total.sroa.5.1.i, %if.end211.i ]
-  %flt_total.sroa.7.1267.i = phi double [ 0.000000e+00, %if.then1.i331.i ], [ %flt_total.sroa.7.1.i, %if.end211.i ]
+  %flt_total.sroa.0.1267.i = phi double [ 0.000000e+00, %if.then1.i331.i ], [ %flt_total.sroa.0.1.i, %if.end211.i ]
   %call215.i = call ptr @PyNumber_Multiply(ptr noundef %call1230.i, ptr noundef %call2354.i) #15
   %cmp216.i = icmp eq ptr %call215.i, null
   br i1 %cmp216.i, label %err_exit.i, label %if.end219.i
@@ -8973,12 +8973,12 @@ for.cond.preheader:                               ; preds = %land.lhs.true19
   br i1 %cmp2475, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %n.addr.078 = phi i64 [ %dec, %for.body ], [ %n, %for.cond.preheader ]
+  %i.078 = phi i64 [ %inc, %for.body ], [ 1, %for.cond.preheader ]
   %result.077 = phi i64 [ %div, %for.body ], [ %n, %for.cond.preheader ]
-  %i.076 = phi i64 [ %inc, %for.body ], [ 1, %for.cond.preheader ]
-  %dec = add i64 %n.addr.078, -1
-  %mul26 = mul i64 %dec, %result.077
-  %inc = add nuw nsw i64 %i.076, 1
+  %n.addr.076 = phi i64 [ %dec, %for.body ], [ %n, %for.cond.preheader ]
+  %dec = add i64 %n.addr.076, -1
+  %mul26 = mul i64 %result.077, %dec
+  %inc = add nuw nsw i64 %i.078, 1
   %div = udiv i64 %mul26, %inc
   %exitcond80.not = icmp eq i64 %inc, %k
   br i1 %exitcond80.not, label %for.end, label %for.body, !llvm.loop !25
@@ -9026,12 +9026,12 @@ if.then38:                                        ; preds = %if.then35
   br label %return
 
 for.body59:                                       ; preds = %for.cond56.preheader, %for.body59
-  %n.addr.174 = phi i64 [ %dec60, %for.body59 ], [ %n, %for.cond56.preheader ]
+  %i55.074 = phi i64 [ %inc62, %for.body59 ], [ 1, %for.cond56.preheader ]
   %result54.073 = phi i64 [ %mul61, %for.body59 ], [ %n, %for.cond56.preheader ]
-  %i55.072 = phi i64 [ %inc62, %for.body59 ], [ 1, %for.cond56.preheader ]
-  %dec60 = add i64 %n.addr.174, -1
-  %mul61 = mul i64 %dec60, %result54.073
-  %inc62 = add nuw nsw i64 %i55.072, 1
+  %n.addr.172 = phi i64 [ %dec60, %for.body59 ], [ %n, %for.cond56.preheader ]
+  %dec60 = add i64 %n.addr.172, -1
+  %mul61 = mul i64 %result54.073, %dec60
+  %inc62 = add nuw nsw i64 %i55.074, 1
   %exitcond.not = icmp eq i64 %inc62, %k
   br i1 %exitcond.not, label %for.end63, label %for.body59, !llvm.loop !26
 

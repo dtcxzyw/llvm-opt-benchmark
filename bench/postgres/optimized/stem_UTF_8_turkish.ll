@@ -186,11 +186,11 @@ define hidden range(i32 -2147483648, 2) i32 @turkish_UTF_8_stem(ptr noundef %0) 
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %6 = phi i32 [ %10, %.lr.ph.i ], [ %4, %1 ]
-  %.01214.i = phi i32 [ %9, %.lr.ph.i ], [ 2, %1 ]
+  %.014.i = phi i32 [ %9, %.lr.ph.i ], [ 2, %1 ]
   %7 = load i32, ptr %2, align 8
   %8 = add i32 %7, %6
   store i32 %8, ptr %2, align 8
-  %9 = add i32 %.01214.i, -1
+  %9 = add i32 %.014.i, -1
   %10 = tail call i32 @out_grouping_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel, i32 noundef 97, i32 noundef 305, i32 noundef 1) #2
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %r_more_than_one_syllable_word.exit, label %.lr.ph.i

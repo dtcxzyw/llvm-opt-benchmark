@@ -1143,14 +1143,14 @@ define internal fastcc range(i32 -30, 1) i32 @ar_parse_gnu_filename_table(ptr no
 
 .lr.ph:                                           ; preds = %1, %19
   %12 = phi ptr [ %20, %19 ], [ %8, %1 ]
-  %.02130 = phi ptr [ %21, %19 ], [ %8, %1 ]
-  %13 = load i8, ptr %.02130, align 1
+  %.030 = phi ptr [ %21, %19 ], [ %8, %1 ]
+  %13 = load i8, ptr %.030, align 1
   %14 = icmp eq i8 %13, 47
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %.02130, i64 1
-  store i8 0, ptr %.02130, align 1
+  %16 = getelementptr inbounds i8, ptr %.030, i64 1
+  store i8 0, ptr %.030, align 1
   %17 = load i8, ptr %16, align 1
   %.not25 = icmp eq i8 %17, 10
   br i1 %.not25, label %18, label %.loopexit
@@ -1162,7 +1162,7 @@ define internal fastcc range(i32 -30, 1) i32 @ar_parse_gnu_filename_table(ptr no
 
 19:                                               ; preds = %.lr.ph, %18
   %20 = phi ptr [ %.pre, %18 ], [ %12, %.lr.ph ]
-  %.1 = phi ptr [ %16, %18 ], [ %.02130, %.lr.ph ]
+  %.1 = phi ptr [ %16, %18 ], [ %.030, %.lr.ph ]
   %21 = getelementptr inbounds i8, ptr %.1, i64 1
   %22 = getelementptr inbounds i8, ptr %20, i64 %6
   %23 = getelementptr inbounds i8, ptr %22, i64 -1
@@ -1170,14 +1170,14 @@ define internal fastcc range(i32 -30, 1) i32 @ar_parse_gnu_filename_table(ptr no
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %19, %1
-  %.021.lcssa = phi ptr [ %8, %1 ], [ %21, %19 ]
+  %.0.lcssa = phi ptr [ %8, %1 ], [ %21, %19 ]
   %.lcssa27 = phi ptr [ %9, %1 ], [ %22, %19 ]
   %.lcssa = phi ptr [ %10, %1 ], [ %23, %19 ]
-  %.not = icmp eq ptr %.021.lcssa, %.lcssa27
+  %.not = icmp eq ptr %.0.lcssa, %.lcssa27
   br i1 %.not, label %27, label %25
 
 25:                                               ; preds = %._crit_edge
-  %26 = load i8, ptr %.021.lcssa, align 1
+  %26 = load i8, ptr %.0.lcssa, align 1
   switch i8 %26, label %.loopexit [
     i8 10, label %27
     i8 96, label %27
@@ -1195,8 +1195,8 @@ define internal fastcc range(i32 -30, 1) i32 @ar_parse_gnu_filename_table(ptr no
   br label %29
 
 29:                                               ; preds = %.loopexit, %27
-  %.0 = phi i32 [ -30, %.loopexit ], [ 0, %27 ]
-  ret i32 %.0
+  %.021 = phi i32 [ -30, %.loopexit ], [ 0, %27 ]
+  ret i32 %.021
 }
 
 declare void @archive_entry_set_mtime(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1

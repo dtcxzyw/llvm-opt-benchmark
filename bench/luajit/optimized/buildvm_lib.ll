@@ -905,20 +905,20 @@ libdef_uleb128.exit53.i:                          ; preds = %do.body.i43.i, %lib
   br i1 %cmp54.not.i, label %libdef_fixupbc.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %libdef_uleb128.exit53.i, %for.body.i
-  %p.addr.056.i = phi ptr [ %add.ptr16.i, %for.body.i ], [ %p.addr.1.i39.i, %libdef_uleb128.exit53.i ]
-  %i.055.i = phi i32 [ %inc15.i, %for.body.i ], [ 0, %libdef_uleb128.exit53.i ]
-  %16 = load i8, ptr %p.addr.056.i, align 1
-  %arrayidx4.i = getelementptr inbounds i8, ptr %p.addr.056.i, i64 2
+  %i.056.i = phi i32 [ %inc15.i, %for.body.i ], [ 0, %libdef_uleb128.exit53.i ]
+  %p.addr.055.i = phi ptr [ %add.ptr16.i, %for.body.i ], [ %p.addr.1.i39.i, %libdef_uleb128.exit53.i ]
+  %16 = load i8, ptr %p.addr.055.i, align 1
+  %arrayidx4.i = getelementptr inbounds i8, ptr %p.addr.055.i, i64 2
   %17 = load i8, ptr %arrayidx4.i, align 1
   %cmp6.i = icmp eq i8 %16, 16
   %cmp9.i = icmp eq i8 %17, 14
   %or.cond.i = select i1 %cmp6.i, i1 %cmp9.i, i1 false
   %spec.select.i = select i1 %or.cond.i, i8 17, i8 %16
   %spec.select17.i = select i1 %or.cond.i, i8 15, i8 %17
-  store i8 %spec.select.i, ptr %p.addr.056.i, align 1
+  store i8 %spec.select.i, ptr %p.addr.055.i, align 1
   store i8 %spec.select17.i, ptr %arrayidx4.i, align 1
-  %inc15.i = add nuw i32 %i.055.i, 1
-  %add.ptr16.i = getelementptr inbounds i8, ptr %p.addr.056.i, i64 4
+  %inc15.i = add nuw i32 %i.056.i, 1
+  %add.ptr16.i = getelementptr inbounds i8, ptr %p.addr.055.i, i64 4
   %exitcond.not.i = icmp eq i32 %inc15.i, %v.1.i40.i
   br i1 %exitcond.not.i, label %libdef_fixupbc.exit.loopexit, label %for.body.i, !llvm.loop !17
 

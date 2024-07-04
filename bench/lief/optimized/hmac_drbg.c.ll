@@ -462,9 +462,9 @@ mbedtls_hmac_drbg_reseed.exit:                    ; preds = %42
   br label %52
 
 52:                                               ; preds = %.lr.ph, %59
-  %.04372 = phi ptr [ %1, %.lr.ph ], [ %60, %59 ]
-  %.04471 = phi i64 [ %2, %.lr.ph ], [ %61, %59 ]
-  %53 = call i64 @llvm.umin.i64(i64 %.04471, i64 %9)
+  %.072 = phi ptr [ %1, %.lr.ph ], [ %60, %59 ]
+  %.04371 = phi i64 [ %2, %.lr.ph ], [ %61, %59 ]
+  %53 = call i64 @llvm.umin.i64(i64 %.04371, i64 %9)
   %54 = call i32 @mbedtls_md_hmac_reset(ptr noundef nonnull %0) #12
   %.not60 = icmp eq i32 %54, 0
   br i1 %.not60, label %55, label %.loopexit
@@ -480,9 +480,9 @@ mbedtls_hmac_drbg_reseed.exit:                    ; preds = %42
   br i1 %.not62, label %59, label %.loopexit
 
 59:                                               ; preds = %57
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04372, ptr nonnull align 8 %51, i64 %53, i1 false)
-  %60 = getelementptr inbounds i8, ptr %.04372, i64 %53
-  %61 = sub i64 %.04471, %53
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.072, ptr nonnull align 8 %51, i64 %53, i1 false)
+  %60 = getelementptr inbounds i8, ptr %.072, i64 %53
+  %61 = sub i64 %.04371, %53
   %.not58 = icmp eq i64 %61, 0
   br i1 %.not58, label %._crit_edge, label %52, !llvm.loop !6
 
@@ -499,8 +499,8 @@ mbedtls_hmac_drbg_reseed.exit:                    ; preds = %42
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %55, %57, %mbedtls_hmac_drbg_reseed.exit, %mbedtls_hmac_drbg_reseed.exit.thread, %63, %48, %._crit_edge, %11, %5
-  %.0 = phi i32 [ -3, %5 ], [ -5, %11 ], [ %43, %mbedtls_hmac_drbg_reseed.exit ], [ %49, %48 ], [ %62, %._crit_edge ], [ 0, %63 ], [ %.032.i.i.ph, %mbedtls_hmac_drbg_reseed.exit.thread ], [ %58, %57 ], [ %56, %55 ], [ %54, %52 ]
-  ret i32 %.0
+  %.046 = phi i32 [ -3, %5 ], [ -5, %11 ], [ %43, %mbedtls_hmac_drbg_reseed.exit ], [ %49, %48 ], [ %62, %._crit_edge ], [ 0, %63 ], [ %.032.i.i.ph, %mbedtls_hmac_drbg_reseed.exit.thread ], [ %58, %57 ], [ %56, %55 ], [ %54, %52 ]
+  ret i32 %.046
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

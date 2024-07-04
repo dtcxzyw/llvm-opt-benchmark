@@ -558,8 +558,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
   br label %97
 
 96:                                               ; preds = %92, %88
-  %.0 = phi ptr [ %89, %88 ], [ %93, %92 ]
-  ret ptr %.0
+  %.022 = phi ptr [ %89, %88 ], [ %93, %92 ]
+  ret ptr %.022
 
 97:                                               ; preds = %94, %90, %.body32, %.body
   %.pn = phi { ptr, i32 } [ %91, %90 ], [ %95, %94 ], [ %75, %.body32 ], [ %49, %.body ]

@@ -410,7 +410,7 @@ Vec_PtrFillExtra.exit:                            ; preds = %1, %._crit_edge.i
 .preheader133:                                    ; preds = %Vec_PtrFillExtra.exit, %.critedge
   %47 = phi i1 [ true, %Vec_PtrFillExtra.exit ], [ false, %.critedge ]
   %indvars.iv151 = phi i64 [ 0, %Vec_PtrFillExtra.exit ], [ 1, %.critedge ]
-  %.091137 = phi i32 [ 0, %Vec_PtrFillExtra.exit ], [ %.192.lcssa, %.critedge ]
+  %.0138 = phi i32 [ 0, %Vec_PtrFillExtra.exit ], [ %.1.lcssa, %.critedge ]
   %48 = getelementptr inbounds [2 x ptr], ptr %2, i64 0, i64 %indvars.iv151
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr i8, ptr %49, i64 4
@@ -425,15 +425,15 @@ Vec_PtrFillExtra.exit:                            ; preds = %1, %._crit_edge.i
 .lr.ph:                                           ; preds = %.preheader133, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader133 ]
   %53 = phi ptr [ %64, %.lr.ph ], [ %49, %.preheader133 ]
-  %.192136 = phi i32 [ %59, %.lr.ph ], [ %.091137, %.preheader133 ]
+  %.1136 = phi i32 [ %59, %.lr.ph ], [ %.0138, %.preheader133 ]
   %54 = getelementptr i8, ptr %53, i64 8
   %.val102 = load ptr, ptr %54, align 8
   %55 = getelementptr inbounds i32, ptr %.val102, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
   %57 = load ptr, ptr %5, align 8
   %58 = load ptr, ptr %46, align 8
-  %59 = add nsw i32 %.192136, 1
-  %60 = tail call ptr @Cudd_bddIthVar(ptr noundef %58, i32 noundef %.192136) #15
+  %59 = add nsw i32 %.1136, 1
+  %60 = tail call ptr @Cudd_bddIthVar(ptr noundef %58, i32 noundef %.1136) #15
   %61 = getelementptr i8, ptr %57, i64 8
   %.val108 = load ptr, ptr %61, align 8
   %62 = sext i32 %56 to i64
@@ -448,7 +448,7 @@ Vec_PtrFillExtra.exit:                            ; preds = %1, %._crit_edge.i
   br i1 %67, label %.lr.ph, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader133
-  %.192.lcssa = phi i32 [ %.091137, %.preheader133 ], [ %59, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %.0138, %.preheader133 ], [ %59, %.lr.ph ]
   br i1 %47, label %.preheader133, label %.preheader132, !llvm.loop !7
 
 .preheader131:                                    ; preds = %.preheader132, %.critedge2
@@ -551,14 +551,14 @@ Vec_PtrFillExtra.exit:                            ; preds = %1, %._crit_edge.i
   %142 = getelementptr inbounds i8, ptr %0, i64 72
   %143 = load ptr, ptr %142, align 8
   %144 = load i32, ptr %143, align 8
-  %.not.i.i121 = icmp slt i32 %144, %.192.lcssa
+  %.not.i.i121 = icmp slt i32 %144, %.1.lcssa
   br i1 %.not.i.i121, label %145, label %Vec_IntGrow.exit.i
 
 145:                                              ; preds = %115
   %146 = getelementptr inbounds i8, ptr %143, i64 8
   %147 = load ptr, ptr %146, align 8
   %.not9.i.i128 = icmp eq ptr %147, null
-  %148 = sext i32 %.192.lcssa to i64
+  %148 = sext i32 %.1.lcssa to i64
   %149 = shl nsw i64 %148, 2
   br i1 %.not9.i.i128, label %152, label %150
 
@@ -573,16 +573,16 @@ Vec_PtrFillExtra.exit:                            ; preds = %1, %._crit_edge.i
 154:                                              ; preds = %152, %150
   %155 = phi ptr [ %151, %150 ], [ %153, %152 ]
   store ptr %155, ptr %146, align 8
-  store i32 %.192.lcssa, ptr %143, align 8
+  store i32 %.1.lcssa, ptr %143, align 8
   br label %Vec_IntGrow.exit.i
 
 Vec_IntGrow.exit.i:                               ; preds = %154, %115
-  %156 = icmp sgt i32 %.192.lcssa, 0
+  %156 = icmp sgt i32 %.1.lcssa, 0
   br i1 %156, label %.lr.ph.i123, label %Vec_IntFill.exit
 
 .lr.ph.i123:                                      ; preds = %Vec_IntGrow.exit.i
   %157 = getelementptr inbounds i8, ptr %143, i64 8
-  %wide.trip.count.i124 = zext nneg i32 %.192.lcssa to i64
+  %wide.trip.count.i124 = zext nneg i32 %.1.lcssa to i64
   br label %158
 
 158:                                              ; preds = %158, %.lr.ph.i123
@@ -596,7 +596,7 @@ Vec_IntGrow.exit.i:                               ; preds = %154, %115
 
 Vec_IntFill.exit:                                 ; preds = %158, %Vec_IntGrow.exit.i
   %161 = getelementptr inbounds i8, ptr %143, i64 4
-  store i32 %.192.lcssa, ptr %161, align 4
+  store i32 %.1.lcssa, ptr %161, align 4
   %162 = ptrtoint ptr %141 to i64
   %163 = and i64 %162, -2
   %164 = inttoptr i64 %163 to ptr
@@ -614,7 +614,7 @@ Vec_IntFill.exit:                                 ; preds = %158, %Vec_IntGrow.e
 .lr.ph145:                                        ; preds = %Vec_IntFill.exit
   %170 = getelementptr inbounds i8, ptr %0, i64 24
   %171 = sext i32 %.val to i64
-  %wide.trip.count = zext nneg i32 %.192.lcssa to i64
+  %wide.trip.count = zext nneg i32 %.1.lcssa to i64
   br label %172
 
 172:                                              ; preds = %.lr.ph145, %216

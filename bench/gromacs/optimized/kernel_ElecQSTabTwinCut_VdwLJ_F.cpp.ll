@@ -124,8 +124,8 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
 
 56:                                               ; preds = %.lr.ph2251, %.loopexit
   %.sroa.01674.02250 = phi ptr [ %48, %.lr.ph2251 ], [ %1326, %.loopexit ]
-  %.sroa.5.02249 = phi <8 x float> [ undef, %.lr.ph2251 ], [ %.sroa.5.1, %.loopexit ]
-  %.sroa.01621.02248 = phi <8 x float> [ undef, %.lr.ph2251 ], [ %.sroa.01621.1, %.loopexit ]
+  %.sroa.5.02247 = phi <8 x float> [ undef, %.lr.ph2251 ], [ %.sroa.5.1, %.loopexit ]
+  %.sroa.01621.02246 = phi <8 x float> [ undef, %.lr.ph2251 ], [ %.sroa.01621.1, %.loopexit ]
   %57 = getelementptr inbounds i8, ptr %.sroa.01674.02250, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 127
@@ -236,8 +236,8 @@ _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERK
   br label %._crit_edge2329
 
 ._crit_edge2329:                                  ; preds = %56, %130
-  %.sroa.01621.1 = phi <8 x float> [ %136, %130 ], [ %.sroa.01621.02248, %56 ]
-  %.sroa.5.1 = phi <8 x float> [ %142, %130 ], [ %.sroa.5.02249, %56 ]
+  %.sroa.01621.1 = phi <8 x float> [ %136, %130 ], [ %.sroa.01621.02246, %56 ]
+  %.sroa.5.1 = phi <8 x float> [ %142, %130 ], [ %.sroa.5.02247, %56 ]
   %143 = load i32, ptr %1, align 8
   %144 = shl i32 %143, 1
   br label %145

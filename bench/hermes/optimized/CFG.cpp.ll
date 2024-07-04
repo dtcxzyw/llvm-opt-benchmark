@@ -6990,9 +6990,9 @@ if.end8:                                          ; preds = %if.then5
   br label %for.body
 
 for.body:                                         ; preds = %if.end8, %if.end23
-  %TmpEnd.079 = phi ptr [ %TmpStorage, %if.end8 ], [ %TmpEnd.1, %if.end23 ]
-  %P.0.idx78 = phi i64 [ 0, %if.end8 ], [ %P.0.add, %if.end23 ]
-  %P.0.ptr80 = getelementptr inbounds i8, ptr %storage.i.i.i, i64 %P.0.idx78
+  %P.0.idx79 = phi i64 [ 0, %if.end8 ], [ %P.0.add, %if.end23 ]
+  %TmpEnd.078 = phi ptr [ %TmpStorage, %if.end8 ], [ %TmpEnd.1, %if.end23 ]
+  %P.0.ptr80 = getelementptr inbounds i8, ptr %storage.i.i.i, i64 %P.0.idx79
   %1 = load ptr, ptr %P.0.ptr80, align 8
   %cmp.i.i = icmp eq ptr %1, inttoptr (i64 -8 to ptr)
   %second.i = getelementptr inbounds i8, ptr %P.0.ptr80, i64 8
@@ -7008,17 +7008,17 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %4, label %if.end23, label %if.then17
 
 if.then17:                                        ; preds = %land.lhs.true
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %TmpEnd.079, ptr noundef nonnull align 8 dereferenceable(16) %P.0.ptr80, i64 16, i1 false)
-  %second.i24 = getelementptr inbounds i8, ptr %TmpEnd.079, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %TmpEnd.078, ptr noundef nonnull align 8 dereferenceable(16) %P.0.ptr80, i64 16, i1 false)
+  %second.i24 = getelementptr inbounds i8, ptr %TmpEnd.078, i64 16
   %second.i25 = getelementptr inbounds i8, ptr %P.0.ptr80, i64 16
   %5 = load i32, ptr %second.i25, align 8
   store i32 %5, ptr %second.i24, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %TmpEnd.079, i64 24
+  %incdec.ptr = getelementptr inbounds i8, ptr %TmpEnd.078, i64 24
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then17, %land.lhs.true, %for.body
-  %TmpEnd.1 = phi ptr [ %TmpEnd.079, %for.body ], [ %TmpEnd.079, %land.lhs.true ], [ %incdec.ptr, %if.then17 ]
-  %P.0.add = add nuw nsw i64 %P.0.idx78, 24
+  %TmpEnd.1 = phi ptr [ %TmpEnd.078, %for.body ], [ %TmpEnd.078, %land.lhs.true ], [ %incdec.ptr, %if.then17 ]
+  %P.0.add = add nuw nsw i64 %P.0.idx79, 24
   %cmp12.not = icmp eq i64 %P.0.add, 96
   br i1 %cmp12.not, label %for.body.i.i.preheader, label %for.body, !llvm.loop !60
 
@@ -7465,8 +7465,8 @@ entry:
   br i1 %cmp23, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %while.body
-  %__holeIndex.addr.024 = phi i64 [ %spec.select, %while.body ], [ %__holeIndex, %entry ]
-  %add = shl i64 %__holeIndex.addr.024, 1
+  %__secondChild.024 = phi i64 [ %spec.select, %while.body ], [ %__holeIndex, %entry ]
+  %add = shl i64 %__secondChild.024, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds %"class.llvh::cfg::Update", ptr %__first, i64 %mul
   %sub2 = or disjoint i64 %add, 1
@@ -7474,13 +7474,13 @@ while.body:                                       ; preds = %entry, %while.body
   %call.i = call noundef zeroext i1 @_ZZN4llvh3cfg15LegalizeUpdatesIPN6hermes10BasicBlockEEEvNS_8ArrayRefINS0_6UpdateIT_EEEERNS_15SmallVectorImplIS8_EEbENKUlRKNS6_IS4_EESF_E_clESF_SF_(ptr noundef nonnull align 8 dereferenceable(8) %__comp, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3)
   %spec.select = select i1 %call.i, i64 %sub2, i64 %mul
   %add.ptr4 = getelementptr inbounds %"class.llvh::cfg::Update", ptr %__first, i64 %spec.select
-  %add.ptr5 = getelementptr inbounds %"class.llvh::cfg::Update", ptr %__first, i64 %__holeIndex.addr.024
+  %add.ptr5 = getelementptr inbounds %"class.llvh::cfg::Update", ptr %__first, i64 %__secondChild.024
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr5, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4, i64 16, i1 false)
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !66
 
 while.end:                                        ; preds = %while.body, %entry
-  %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %while.body ]
+  %__secondChild.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %spec.select, %while.body ]
   %and = and i64 %__len, 1
   %cmp6 = icmp eq i64 %and, 0
   br i1 %cmp6, label %land.lhs.true, label %if.end17
@@ -7488,19 +7488,19 @@ while.end:                                        ; preds = %while.body, %entry
 land.lhs.true:                                    ; preds = %while.end
   %sub7 = add nsw i64 %__len, -2
   %div8 = ashr exact i64 %sub7, 1
-  %cmp9 = icmp eq i64 %__holeIndex.addr.0.lcssa, %div8
+  %cmp9 = icmp eq i64 %__secondChild.0.lcssa, %div8
   br i1 %cmp9, label %if.then10, label %if.end17
 
 if.then10:                                        ; preds = %land.lhs.true
-  %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
+  %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
   %add.ptr14 = getelementptr inbounds %"class.llvh::cfg::Update", ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds %"class.llvh::cfg::Update", ptr %__first, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr15 = getelementptr inbounds %"class.llvh::cfg::Update", ptr %__first, i64 %__secondChild.0.lcssa
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr15, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr14, i64 16, i1 false)
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then10, %land.lhs.true, %while.end
-  %__holeIndex.addr.1 = phi i64 [ %sub13, %if.then10 ], [ %__holeIndex.addr.0.lcssa, %land.lhs.true ], [ %__holeIndex.addr.0.lcssa, %while.end ]
+  %__holeIndex.addr.1 = phi i64 [ %sub13, %if.then10 ], [ %__secondChild.0.lcssa, %land.lhs.true ], [ %__secondChild.0.lcssa, %while.end ]
   %0 = load i64, ptr %__comp, align 8
   store i64 %0, ptr %__cmp, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %__value.i)
@@ -16104,9 +16104,9 @@ if.end8:                                          ; preds = %if.then5
   br label %for.body
 
 for.body:                                         ; preds = %if.end8, %if.end23
-  %TmpEnd.033 = phi ptr [ %TmpStorage, %if.end8 ], [ %TmpEnd.1, %if.end23 ]
-  %P.0.idx32 = phi i64 [ 0, %if.end8 ], [ %P.0.add, %if.end23 ]
-  %P.0.ptr = getelementptr inbounds i8, ptr %storage.i.i.i, i64 %P.0.idx32
+  %P.0.idx33 = phi i64 [ 0, %if.end8 ], [ %P.0.add, %if.end23 ]
+  %TmpEnd.032 = phi ptr [ %TmpStorage, %if.end8 ], [ %TmpEnd.1, %if.end23 ]
+  %P.0.ptr = getelementptr inbounds i8, ptr %storage.i.i.i, i64 %P.0.idx33
   %1 = load ptr, ptr %P.0.ptr, align 8
   %magicptr = ptrtoint ptr %1 to i64
   switch i64 %magicptr, label %if.then17 [
@@ -16115,13 +16115,13 @@ for.body:                                         ; preds = %if.end8, %if.end23
   ]
 
 if.then17:                                        ; preds = %for.body
-  store ptr %1, ptr %TmpEnd.033, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %TmpEnd.033, i64 8
+  store ptr %1, ptr %TmpEnd.032, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %TmpEnd.032, i64 8
   br label %if.end23
 
 if.end23:                                         ; preds = %for.body, %for.body, %if.then17
-  %TmpEnd.1 = phi ptr [ %TmpEnd.033, %for.body ], [ %incdec.ptr, %if.then17 ], [ %TmpEnd.033, %for.body ]
-  %P.0.add = add nuw nsw i64 %P.0.idx32, 8
+  %TmpEnd.1 = phi ptr [ %TmpEnd.032, %for.body ], [ %incdec.ptr, %if.then17 ], [ %TmpEnd.032, %for.body ]
+  %P.0.add = add nuw nsw i64 %P.0.idx33, 8
   %cmp12.not = icmp eq i64 %P.0.add, 64
   br i1 %cmp12.not, label %for.end, label %for.body, !llvm.loop !141
 
@@ -16583,9 +16583,9 @@ if.end8:                                          ; preds = %if.then5
   br label %for.body
 
 for.body:                                         ; preds = %if.end8, %if.end23
-  %TmpEnd.035 = phi ptr [ %TmpStorage, %if.end8 ], [ %TmpEnd.1, %if.end23 ]
-  %P.0.idx34 = phi i64 [ 0, %if.end8 ], [ %P.0.add, %if.end23 ]
-  %P.0.ptr36 = getelementptr inbounds i8, ptr %storage.i.i.i, i64 %P.0.idx34
+  %P.0.idx35 = phi i64 [ 0, %if.end8 ], [ %P.0.add, %if.end23 ]
+  %TmpEnd.034 = phi ptr [ %TmpStorage, %if.end8 ], [ %TmpEnd.1, %if.end23 ]
+  %P.0.ptr36 = getelementptr inbounds i8, ptr %storage.i.i.i, i64 %P.0.idx35
   %1 = load ptr, ptr %P.0.ptr36, align 8
   %magicptr = ptrtoint ptr %1 to i64
   switch i64 %magicptr, label %if.then17 [
@@ -16594,17 +16594,17 @@ for.body:                                         ; preds = %if.end8, %if.end23
   ]
 
 if.then17:                                        ; preds = %for.body
-  store ptr %1, ptr %TmpEnd.035, align 8
-  %second.i = getelementptr inbounds i8, ptr %TmpEnd.035, i64 8
+  store ptr %1, ptr %TmpEnd.034, align 8
+  %second.i = getelementptr inbounds i8, ptr %TmpEnd.034, i64 8
   %second.i22 = getelementptr inbounds i8, ptr %P.0.ptr36, i64 8
   %2 = load i32, ptr %second.i22, align 8
   store i32 %2, ptr %second.i, align 4
-  %incdec.ptr = getelementptr inbounds i8, ptr %TmpEnd.035, i64 16
+  %incdec.ptr = getelementptr inbounds i8, ptr %TmpEnd.034, i64 16
   br label %if.end23
 
 if.end23:                                         ; preds = %for.body, %for.body, %if.then17
-  %TmpEnd.1 = phi ptr [ %TmpEnd.035, %for.body ], [ %incdec.ptr, %if.then17 ], [ %TmpEnd.035, %for.body ]
-  %P.0.add = add nuw nsw i64 %P.0.idx34, 16
+  %TmpEnd.1 = phi ptr [ %TmpEnd.034, %for.body ], [ %incdec.ptr, %if.then17 ], [ %TmpEnd.034, %for.body ]
+  %P.0.add = add nuw nsw i64 %P.0.idx35, 16
   %cmp12.not = icmp eq i64 %P.0.add, 128
   br i1 %cmp12.not, label %for.end, label %for.body, !llvm.loop !144
 

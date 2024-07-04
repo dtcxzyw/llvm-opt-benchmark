@@ -4075,7 +4075,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc53
   %indvars.iv87 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next88, %for.inc53 ]
   %2 = phi ptr [ %0, %for.body.lr.ph ], [ %62, %for.inc53 ]
-  %counter.079 = phi i64 [ 0, %for.body.lr.ph ], [ %counter.4, %for.inc53 ]
+  %counter.078 = phi i64 [ 0, %for.body.lr.ph ], [ %counter.4, %for.inc53 ]
   %m_data.i = getelementptr inbounds i8, ptr %2, i64 16
   %3 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv87
@@ -4092,7 +4092,7 @@ if.then:                                          ; preds = %for.body, %for.body
   %m_size.i27 = getelementptr inbounds i8, ptr %4, i64 932
   %6 = load i32, ptr %m_size.i27, align 4
   %conv93 = zext i32 %6 to i64
-  %add = add i64 %counter.079, %conv93
+  %add = add i64 %counter.078, %conv93
   br label %for.inc53
 
 if.end:                                           ; preds = %for.body
@@ -4120,7 +4120,7 @@ for.body11.lr.ph:                                 ; preds = %for.cond7.preheader
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.inc
   %9 = phi i32 [ %8, %for.body11.lr.ph ], [ %46, %for.inc ]
   %indvars.iv84 = phi i64 [ 0, %for.body11.lr.ph ], [ %indvars.iv.next85, %for.inc ]
-  %counter.173 = phi i64 [ %counter.079, %for.body11.lr.ph ], [ %counter.2, %for.inc ]
+  %counter.173 = phi i64 [ %counter.078, %for.body11.lr.ph ], [ %counter.2, %for.inc ]
   %10 = load ptr, ptr %m_data.i29, align 8
   %arrayidx.i31 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %10, i64 %indvars.iv84
   %m_im = getelementptr inbounds i8, ptr %arrayidx.i31, i64 112
@@ -4196,7 +4196,7 @@ for.inc:                                          ; preds = %for.body11, %if.the
 
 for.body31:                                       ; preds = %for.body31.lr.ph, %for.body31
   %indvars.iv = phi i64 [ 0, %for.body31.lr.ph ], [ %indvars.iv.next, %for.body31 ]
-  %counter.370 = phi i64 [ %counter.079, %for.body31.lr.ph ], [ %inc40, %for.body31 ]
+  %counter.370 = phi i64 [ %counter.078, %for.body31.lr.ph ], [ %inc40, %for.body31 ]
   %48 = load ptr, ptr %m_data.i42, align 8
   %arrayidx.i44 = getelementptr inbounds %"struct.btSoftBody::Node", ptr %48, i64 %indvars.iv
   %m_im34 = getelementptr inbounds i8, ptr %arrayidx.i44, i64 112
@@ -4230,7 +4230,7 @@ for.body31:                                       ; preds = %for.body31.lr.ph, %
   br i1 %cmp30, label %for.body31, label %for.inc53, !llvm.loop !40
 
 for.inc53:                                        ; preds = %for.body31, %for.inc, %for.cond27.preheader, %for.cond7.preheader, %if.then
-  %counter.4 = phi i64 [ %add, %if.then ], [ %counter.079, %for.cond7.preheader ], [ %counter.079, %for.cond27.preheader ], [ %counter.2, %for.inc ], [ %inc40, %for.body31 ]
+  %counter.4 = phi i64 [ %add, %if.then ], [ %counter.078, %for.cond7.preheader ], [ %counter.078, %for.cond27.preheader ], [ %counter.2, %for.inc ], [ %inc40, %for.body31 ]
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %62 = load ptr, ptr %m_softBodies, align 8
   %m_size.i = getelementptr inbounds i8, ptr %62, i64 4
@@ -4909,8 +4909,8 @@ _ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE5clearEv.exit: ; preds = %entry, 
 for.body:                                         ; preds = %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE5clearEv.exit, %for.inc27
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %for.inc27 ], [ 0, %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE5clearEv.exit ]
   %4 = phi ptr [ %26, %for.inc27 ], [ %2, %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE5clearEv.exit ]
-  %node_id.044 = phi i32 [ %node_id.1.lcssa, %for.inc27 ], [ 0, %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE5clearEv.exit ]
-  %face_id.042 = phi i32 [ %face_id.1.lcssa, %for.inc27 ], [ 0, %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE5clearEv.exit ]
+  %face_id.043 = phi i32 [ %face_id.1.lcssa, %for.inc27 ], [ 0, %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE5clearEv.exit ]
+  %node_id.042 = phi i32 [ %node_id.1.lcssa, %for.inc27 ], [ 0, %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE5clearEv.exit ]
   %m_data.i = getelementptr inbounds i8, ptr %4, i64 16
   %5 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv49
@@ -4925,7 +4925,7 @@ for.body8.lr.ph:                                  ; preds = %for.body
   br label %for.body8
 
 for.cond16.preheader:                             ; preds = %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE9push_backERKS2_.exit, %for.body
-  %node_id.1.lcssa = phi i32 [ %node_id.044, %for.body ], [ %inc, %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE9push_backERKS2_.exit ]
+  %node_id.1.lcssa = phi i32 [ %node_id.042, %for.body ], [ %inc, %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE9push_backERKS2_.exit ]
   %m_size.i29 = getelementptr inbounds i8, ptr %6, i64 1028
   %8 = load i32, ptr %m_size.i29, align 4
   %cmp1836 = icmp sgt i32 %8, 0
@@ -4937,7 +4937,7 @@ for.body19.lr.ph:                                 ; preds = %for.cond16.preheade
 
 for.body8:                                        ; preds = %for.body8.lr.ph, %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE9push_backERKS2_.exit
   %indvars.iv = phi i64 [ 0, %for.body8.lr.ph ], [ %indvars.iv.next, %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE9push_backERKS2_.exit ]
-  %node_id.134 = phi i32 [ %node_id.044, %for.body8.lr.ph ], [ %inc, %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE9push_backERKS2_.exit ]
+  %node_id.134 = phi i32 [ %node_id.042, %for.body8.lr.ph ], [ %inc, %_ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE9push_backERKS2_.exit ]
   %9 = load ptr, ptr %m_data.i15, align 8
   %index = getelementptr inbounds %"struct.btSoftBody::Node", ptr %9, i64 %indvars.iv, i32 13
   store i32 %node_id.134, ptr %index, align 8
@@ -5026,7 +5026,7 @@ _ZN20btAlignedObjectArrayIPN10btSoftBody4NodeEE9push_backERKS2_.exit: ; preds = 
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.body19
   %indvars.iv46 = phi i64 [ 0, %for.body19.lr.ph ], [ %indvars.iv.next47, %for.body19 ]
-  %face_id.137 = phi i32 [ %face_id.042, %for.body19.lr.ph ], [ %inc23, %for.body19 ]
+  %face_id.137 = phi i32 [ %face_id.043, %for.body19.lr.ph ], [ %inc23, %for.body19 ]
   %23 = load ptr, ptr %m_data.i30, align 8
   %m_index = getelementptr inbounds %"struct.btSoftBody::Face", ptr %23, i64 %indvars.iv46, i32 10
   store i32 %face_id.137, ptr %m_index, align 8
@@ -5038,7 +5038,7 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   br i1 %cmp18, label %for.body19, label %for.inc27, !llvm.loop !61
 
 for.inc27:                                        ; preds = %for.body19, %for.cond16.preheader
-  %face_id.1.lcssa = phi i32 [ %face_id.042, %for.cond16.preheader ], [ %inc23, %for.body19 ]
+  %face_id.1.lcssa = phi i32 [ %face_id.043, %for.cond16.preheader ], [ %inc23, %for.body19 ]
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %26 = load ptr, ptr %m_softBodies, align 8
   %m_size.i = getelementptr inbounds i8, ptr %26, i64 4

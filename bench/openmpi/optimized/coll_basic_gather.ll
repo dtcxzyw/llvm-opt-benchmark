@@ -47,22 +47,22 @@ ompi_comm_remote_size.exit:                       ; preds = %9, %13
   br i1 %31, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %23, %34
-  %.02534 = phi ptr [ %36, %34 ], [ %3, %23 ]
+  %.034 = phi ptr [ %36, %34 ], [ %3, %23 ]
   %.02633 = phi i32 [ %35, %34 ], [ 0, %23 ]
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
-  %33 = tail call i32 %32(ptr noundef %.02534, i64 noundef %29, ptr noundef %5, i32 noundef %.02633, i32 noundef -19, ptr noundef %7, ptr noundef null) #1
+  %33 = tail call i32 %32(ptr noundef %.034, i64 noundef %29, ptr noundef %5, i32 noundef %.02633, i32 noundef -19, ptr noundef %7, ptr noundef null) #1
   %.not32 = icmp eq i32 %33, 0
   br i1 %.not32, label %34, label %.loopexit
 
 34:                                               ; preds = %.lr.ph
   %35 = add nuw nsw i32 %.02633, 1
-  %36 = getelementptr inbounds i8, ptr %.02534, i64 %30
+  %36 = getelementptr inbounds i8, ptr %.034, i64 %30
   %exitcond.not = icmp eq i32 %35, %18
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %34, %23, %19, %ompi_comm_remote_size.exit
-  %.0 = phi i32 [ %22, %19 ], [ 0, %ompi_comm_remote_size.exit ], [ 0, %23 ], [ %33, %.lr.ph ], [ 0, %34 ]
-  ret i32 %.0
+  %.027 = phi i32 [ %22, %19 ], [ 0, %ompi_comm_remote_size.exit ], [ 0, %23 ], [ %33, %.lr.ph ], [ 0, %34 ]
+  ret i32 %.027
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

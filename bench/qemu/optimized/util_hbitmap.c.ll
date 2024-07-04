@@ -484,12 +484,12 @@ land.rhs:                                         ; preds = %do.body
   br i1 %cmp38, label %do.body, label %if.end45, !llvm.loop !9
 
 if.end45:                                         ; preds = %land.rhs, %if.end31
-  %cur.0 = phi i64 [ %or, %if.end31 ], [ %7, %land.rhs ]
   %pos.1 = phi i64 [ %shr1, %if.end31 ], [ %inc, %land.rhs ]
+  %cur.0 = phi i64 [ %or, %if.end31 ], [ %7, %land.rhs ]
   %shl46 = shl i64 %pos.1, 6
   %not.i = xor i64 %cur.0, -1
   %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i, i1 false)
-  %add48 = add nuw i64 %shl46, %8
+  %add48 = add nuw i64 %8, %shl46
   %cmp49.not = icmp ult i64 %add48, %cond
   br i1 %cmp49.not, label %if.end52, label %return
 

@@ -519,9 +519,9 @@ for.cond.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
   %1 = phi ptr [ %7, %for.inc.i ], [ %0, %for.cond.preheader.i ]
-  %list.addr.016.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %list, %for.cond.preheader.i ]
+  %nr_found.016.i = phi i32 [ %nr_found.1.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
   %found.015.i = phi ptr [ %found.1.i, %for.inc.i ], [ null, %for.cond.preheader.i ]
-  %nr_found.014.i = phi i32 [ %nr_found.1.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
+  %list.addr.014.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %list, %for.cond.preheader.i ]
   %2 = load ptr, ptr %1, align 8
   %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
   %conv5.i = trunc i64 %call4.i to i32
@@ -549,14 +549,14 @@ land.lhs.true13.i:                                ; preds = %land.lhs.true.i, %f
   br i1 %tobool15.not.i, label %if.then16.i, label %for.inc.i
 
 if.then16.i:                                      ; preds = %land.lhs.true13.i
-  %6 = load ptr, ptr %list.addr.016.i, align 8
-  %inc.i = add nuw nsw i32 %nr_found.014.i, 1
+  %6 = load ptr, ptr %list.addr.014.i, align 8
+  %inc.i = add nuw nsw i32 %nr_found.016.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then16.i, %land.lhs.true13.i, %land.lhs.true.i, %lor.lhs.false.i
-  %nr_found.1.i = phi i32 [ %nr_found.014.i, %land.lhs.true13.i ], [ %inc.i, %if.then16.i ], [ %nr_found.014.i, %land.lhs.true.i ], [ %nr_found.014.i, %lor.lhs.false.i ]
   %found.1.i = phi ptr [ %found.015.i, %land.lhs.true13.i ], [ %6, %if.then16.i ], [ %found.015.i, %land.lhs.true.i ], [ %found.015.i, %lor.lhs.false.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %list.addr.016.i, i64 8
+  %nr_found.1.i = phi i32 [ %nr_found.016.i, %land.lhs.true13.i ], [ %inc.i, %if.then16.i ], [ %nr_found.016.i, %land.lhs.true.i ], [ %nr_found.016.i, %lor.lhs.false.i ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %list.addr.014.i, i64 8
   %7 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool1.i = icmp ne ptr %7, null
   %cmp.i = icmp slt i32 %nr_found.1.i, 2

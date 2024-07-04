@@ -256,7 +256,7 @@ define internal i32 @dissect_bthci_iso(ptr noundef %0, ptr noundef %1, ptr nound
   br label %74
 
 74:                                               ; preds = %.thread, %70
-  %.0308 = phi ptr [ %65, %70 ], [ null, %.thread ]
+  %.0304 = phi ptr [ %65, %70 ], [ null, %.thread ]
   %75 = getelementptr inbounds i8, ptr %3, i64 40
   %76 = load ptr, ptr %75, align 8
   %77 = call ptr @wmem_tree_lookup32_array(ptr noundef %76, ptr noundef nonnull %5) #7
@@ -377,11 +377,11 @@ define internal i32 @dissect_bthci_iso(ptr noundef %0, ptr noundef %1, ptr nound
   br label %146
 
 146:                                              ; preds = %103, %136, %139, %143
-  %.0305 = phi ptr [ %145, %143 ], [ @.str.57, %139 ], [ @.str.57, %136 ], [ @.str.57, %103 ]
+  %.0303 = phi ptr [ %145, %143 ], [ @.str.57, %139 ], [ @.str.57, %136 ], [ @.str.57, %103 ]
   %147 = call ptr @get_ether_name(ptr noundef nonnull %104) #7
   %148 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %147) #8
   %149 = add i64 %148, 3
-  %150 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0305) #8
+  %150 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0303) #8
   %151 = add i64 %149, %150
   %152 = getelementptr inbounds i8, ptr %1, i64 408
   %153 = load ptr, ptr %152, align 8
@@ -389,7 +389,7 @@ define internal i32 @dissect_bthci_iso(ptr noundef %0, ptr noundef %1, ptr nound
   %sext = add i64 %154, 4294967296
   %155 = ashr exact i64 %sext, 32
   %156 = call noalias ptr @wmem_alloc(ptr noundef %153, i64 noundef %155) #7
-  %157 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %156, i64 noundef %155, ptr noundef nonnull @.str.58, ptr noundef %147, ptr noundef %.0305) #7
+  %157 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %156, i64 noundef %155, ptr noundef nonnull @.str.58, ptr noundef %147, ptr noundef %.0303) #7
   %158 = load i32, ptr %21, align 4
   switch i32 %158, label %216 [
     i32 1, label %159
@@ -398,14 +398,14 @@ define internal i32 @dissect_bthci_iso(ptr noundef %0, ptr noundef %1, ptr nound
 
 159:                                              ; preds = %146
   %160 = getelementptr inbounds i8, ptr %1, i64 160
-  %161 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0305) #8
+  %161 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0303) #8
   %162 = trunc i64 %161 to i32
   %163 = add i32 %162, 1
   store i32 7, ptr %160, align 8
   %164 = getelementptr inbounds i8, ptr %1, i64 164
   store i32 %163, ptr %164, align 4
   %165 = getelementptr inbounds i8, ptr %1, i64 168
-  store ptr %.0305, ptr %165, align 8
+  store ptr %.0303, ptr %165, align 8
   %166 = getelementptr inbounds i8, ptr %1, i64 176
   store ptr null, ptr %166, align 8
   %167 = getelementptr inbounds i8, ptr %1, i64 112
@@ -424,14 +424,14 @@ define internal i32 @dissect_bthci_iso(ptr noundef %0, ptr noundef %1, ptr nound
 
 175:                                              ; preds = %146
   %176 = getelementptr inbounds i8, ptr %1, i64 184
-  %177 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0305) #8
+  %177 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0303) #8
   %178 = trunc i64 %177 to i32
   %179 = add i32 %178, 1
   store i32 7, ptr %176, align 8
   %180 = getelementptr inbounds i8, ptr %1, i64 188
   store i32 %179, ptr %180, align 4
   %181 = getelementptr inbounds i8, ptr %1, i64 192
-  store ptr %.0305, ptr %181, align 8
+  store ptr %.0303, ptr %181, align 8
   %182 = getelementptr inbounds i8, ptr %1, i64 200
   store ptr null, ptr %182, align 8
   %183 = getelementptr inbounds i8, ptr %1, i64 136
@@ -553,7 +553,7 @@ define internal i32 @dissect_bthci_iso(ptr noundef %0, ptr noundef %1, ptr nound
   br label %236
 
 236:                                              ; preds = %235, %232
-  %.0309 = phi ptr [ %234, %232 ], [ @.str.60, %235 ]
+  %.0305 = phi ptr [ %234, %232 ], [ @.str.60, %235 ]
   %237 = getelementptr inbounds i8, ptr %3, i64 72
   %238 = load ptr, ptr %237, align 8
   %239 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %238, ptr noundef nonnull %5) #7
@@ -579,17 +579,17 @@ define internal i32 @dissect_bthci_iso(ptr noundef %0, ptr noundef %1, ptr nound
   br label %252
 
 252:                                              ; preds = %236, %240, %244, %249
-  %.0307 = phi ptr [ %251, %249 ], [ @.str.57, %244 ], [ @.str.57, %240 ], [ @.str.57, %236 ]
-  %253 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0309) #8
+  %.0306 = phi ptr [ %251, %249 ], [ @.str.57, %244 ], [ @.str.57, %240 ], [ @.str.57, %236 ]
+  %253 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0305) #8
   %254 = add i64 %253, 3
-  %255 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0307) #8
+  %255 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0306) #8
   %256 = add i64 %254, %255
   %257 = load ptr, ptr %220, align 8
   %258 = shl i64 %256, 32
   %sext340 = add i64 %258, 4294967296
   %259 = ashr exact i64 %sext340, 32
   %260 = call noalias ptr @wmem_alloc(ptr noundef %257, i64 noundef %259) #7
-  %261 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %260, i64 noundef %259, ptr noundef nonnull @.str.58, ptr noundef %.0309, ptr noundef %.0307) #7
+  %261 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %260, i64 noundef %259, ptr noundef nonnull @.str.58, ptr noundef %.0305, ptr noundef %.0306) #7
   %262 = load i32, ptr %21, align 4
   switch i32 %262, label %282 [
     i32 1, label %.sink.split387
@@ -613,14 +613,14 @@ define internal i32 @dissect_bthci_iso(ptr noundef %0, ptr noundef %1, ptr nound
   %.sink391 = phi i64 [ 216, %263 ], [ 240, %252 ]
   %.sink389 = phi i64 [ 224, %263 ], [ 248, %252 ]
   %264 = getelementptr inbounds i8, ptr %1, i64 %.sink417
-  %265 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0307) #8
+  %265 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0306) #8
   %266 = trunc i64 %265 to i32
   %267 = add i32 %266, 1
   store i32 7, ptr %264, align 8
   %268 = getelementptr inbounds i8, ptr %1, i64 %.sink413
   store i32 %267, ptr %268, align 4
   %269 = getelementptr inbounds i8, ptr %1, i64 %.sink410
-  store ptr %.0307, ptr %269, align 8
+  store ptr %.0306, ptr %269, align 8
   %270 = getelementptr inbounds i8, ptr %1, i64 %.sink408
   store ptr null, ptr %270, align 8
   %271 = getelementptr inbounds i8, ptr %1, i64 %.sink406
@@ -712,7 +712,7 @@ define internal i32 @dissect_bthci_iso(ptr noundef %0, ptr noundef %1, ptr nound
   unreachable
 
 309:                                              ; preds = %306, %298
-  %.0306 = phi ptr [ %289, %306 ], [ %302, %298 ]
+  %.0307 = phi ptr [ %289, %306 ], [ %302, %298 ]
   br i1 %.not, label %314, label %310
 
 310:                                              ; preds = %309
@@ -798,13 +798,13 @@ define internal i32 @dissect_bthci_iso(ptr noundef %0, ptr noundef %1, ptr nound
   %358 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %353, i32 noundef 4, i64 noundef %357) #7
   %359 = getelementptr inbounds i8, ptr %339, i64 24
   store i32 %343, ptr %359, align 8
-  %360 = load ptr, ptr %.0306, align 8
+  %360 = load ptr, ptr %.0307, align 8
   %361 = load i32, ptr %51, align 4
   call void @wmem_tree_insert32(ptr noundef %360, i32 noundef %361, ptr noundef nonnull %339) #7
   br label %.thread374
 
 362:                                              ; preds = %332
-  %363 = load ptr, ptr %.0306, align 8
+  %363 = load ptr, ptr %.0307, align 8
   %364 = load i32, ptr %51, align 4
   %365 = call ptr @wmem_tree_lookup32(ptr noundef %363, i32 noundef %364) #7
   %.not353 = icmp eq ptr %365, null
@@ -847,7 +847,7 @@ proto_item_set_generated.exit:                    ; preds = %368, %371, %374
   br i1 %.not343, label %455, label %381
 
 381:                                              ; preds = %379
-  %382 = load ptr, ptr %.0306, align 8
+  %382 = load ptr, ptr %.0307, align 8
   %383 = load i32, ptr %51, align 4
   %384 = call ptr @wmem_tree_lookup32_le(ptr noundef %382, i32 noundef %383) #7
   %385 = load ptr, ptr %290, align 8
@@ -995,12 +995,12 @@ proto_item_set_generated.exit362:                 ; preds = %433, %436, %439
   br label %462
 
 462:                                              ; preds = %458, %461, %455
-  %.not355 = icmp eq ptr %.0308, null
+  %.not355 = icmp eq ptr %.0304, null
   br i1 %.not355, label %proto_item_set_generated.exit368, label %463
 
 463:                                              ; preds = %462
   %464 = load i32, ptr @hf_bthci_iso_connect_in, align 4
-  %465 = load i32, ptr %.0308, align 4
+  %465 = load i32, ptr %.0304, align 4
   %466 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %464, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %465) #7
   %.not.i363 = icmp eq ptr %466, null
   br i1 %.not.i363, label %proto_item_set_generated.exit365, label %467
@@ -1019,7 +1019,7 @@ proto_item_set_generated.exit362:                 ; preds = %433, %436, %439
   br label %proto_item_set_generated.exit365
 
 proto_item_set_generated.exit365:                 ; preds = %463, %467, %470
-  %474 = getelementptr inbounds i8, ptr %.0308, i64 4
+  %474 = getelementptr inbounds i8, ptr %.0304, i64 4
   %475 = load i32, ptr %474, align 4
   %.not356 = icmp eq i32 %475, -1
   br i1 %.not356, label %proto_item_set_generated.exit368, label %476

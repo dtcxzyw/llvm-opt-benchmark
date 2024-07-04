@@ -1368,7 +1368,7 @@ for.cond.preheader:                               ; preds = %if.else
 
 for.body:                                         ; preds = %for.cond.preheader, %land.end
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %land.end ]
-  %ret.035 = phi i32 [ 1, %for.cond.preheader ], [ %land.ext, %land.end ]
+  %ret.034 = phi i32 [ 1, %for.cond.preheader ], [ %land.ext, %land.end ]
   %3 = load i32, ptr %aadctr, align 8
   %cmp20.not = icmp eq i32 %3, 0
   br i1 %cmp20.not, label %if.end27, label %if.then21
@@ -1380,7 +1380,7 @@ if.then21:                                        ; preds = %for.body
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then21, %for.body
-  %tobool.not = icmp eq i32 %ret.035, 0
+  %tobool.not = icmp eq i32 %ret.034, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end27

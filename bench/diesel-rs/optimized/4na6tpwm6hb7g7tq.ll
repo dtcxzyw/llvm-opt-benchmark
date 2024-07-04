@@ -48,7 +48,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
   br label %82
 
 25:                                               ; preds = %37, %42, %40, %29, %22
-  %.0 = phi i8 [ %.1.ph, %42 ], [ %.1.ph, %40 ], [ 1, %29 ], [ 1, %22 ], [ 0, %37 ]
+  %.043 = phi i8 [ %.1.ph, %42 ], [ %.1.ph, %40 ], [ 1, %29 ], [ 1, %22 ], [ 0, %37 ]
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = load i64, ptr %10, align 8, !range !4, !noundef !3
@@ -224,7 +224,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
           to label %96 unwind label %73
 
 92:                                               ; preds = %89
-  %93 = trunc nuw i8 %.0 to i1
+  %93 = trunc nuw i8 %.043 to i1
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %92
@@ -276,7 +276,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
   br label %82
 
 25:                                               ; preds = %37, %42, %40, %29, %22
-  %.0 = phi i8 [ %.1.ph, %42 ], [ %.1.ph, %40 ], [ 1, %29 ], [ 1, %22 ], [ 0, %37 ]
+  %.043 = phi i8 [ %.1.ph, %42 ], [ %.1.ph, %40 ], [ 1, %29 ], [ 1, %22 ], [ 0, %37 ]
   %26 = landingpad { ptr, i32 }
           cleanup
   %27 = load i64, ptr %10, align 8, !range !4, !noundef !3
@@ -452,7 +452,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
           to label %96 unwind label %73
 
 92:                                               ; preds = %89
-  %93 = trunc nuw i8 %.0 to i1
+  %93 = trunc nuw i8 %.043 to i1
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %92

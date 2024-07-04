@@ -1102,8 +1102,8 @@ if.end36:                                         ; preds = %if.then29, %if.else
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then14, %if.then9, %entry, %if.end36
-  %retval.sroa.0.0 = phi double [ %mul38, %if.end36 ], [ 1.000000e+00, %entry ], [ 0.000000e+00, %if.then9 ], [ 0.000000e+00, %if.then14 ]
   %retval.sroa.4.0 = phi double [ %mul41, %if.end36 ], [ 0.000000e+00, %entry ], [ 0.000000e+00, %if.then9 ], [ 0.000000e+00, %if.then14 ]
+  %retval.sroa.0.0 = phi double [ %mul38, %if.end36 ], [ 1.000000e+00, %entry ], [ 0.000000e+00, %if.then9 ], [ 0.000000e+00, %if.then14 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
@@ -1379,8 +1379,8 @@ if.else8:                                         ; preds = %if.else
   br label %return
 
 return:                                           ; preds = %if.else, %if.end.i, %if.then1.i, %if.then3, %if.else8, %if.then
-  %retval.sroa.0.0 = phi double [ %retval.sroa.0.0.copyload, %if.then ], [ %call9, %if.else8 ], [ %cv.sroa.0.0.copyload, %if.then3 ], [ %cv.sroa.0.0.copyload, %if.then1.i ], [ %cv.sroa.0.0.copyload, %if.end.i ], [ -1.000000e+00, %if.else ]
   %retval.sroa.5.0 = phi double [ %retval.sroa.5.0.copyload, %if.then ], [ 0.000000e+00, %if.else8 ], [ %cv.sroa.6.0.copyload, %if.then3 ], [ %cv.sroa.6.0.copyload, %if.then1.i ], [ %cv.sroa.6.0.copyload, %if.end.i ], [ 0.000000e+00, %if.else ]
+  %retval.sroa.0.0 = phi double [ %retval.sroa.0.0.copyload, %if.then ], [ %call9, %if.else8 ], [ %cv.sroa.0.0.copyload, %if.then3 ], [ %cv.sroa.0.0.copyload, %if.then1.i ], [ %cv.sroa.0.0.copyload, %if.end.i ], [ -1.000000e+00, %if.else ]
   %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.5.0, 1
   ret { double, double } %.fca.1.insert
@@ -3844,8 +3844,8 @@ if.else53:                                        ; preds = %if.end49
   br label %if.end58
 
 if.end58:                                         ; preds = %if.end49, %if.else53
-  %y.0 = phi double [ %cond, %if.else53 ], [ %call37, %if.end49 ]
   %s.addr.3 = phi ptr [ %incdec.ptr57, %if.else53 ], [ %8, %if.end49 ]
+  %y.0 = phi double [ %cond, %if.else53 ], [ %call37, %if.end49 ]
   %10 = load i8, ptr %s.addr.3, align 1
   switch i8 %10, label %parse_error [
     i8 106, label %if.end67
@@ -3876,8 +3876,8 @@ if.then90:                                        ; preds = %if.else82, %if.else
 
 if.end97:                                         ; preds = %if.else82, %if.then90
   %12 = phi i8 [ %11, %if.else82 ], [ %.pr, %if.then90 ]
-  %y.1 = phi double [ 1.000000e+00, %if.else82 ], [ %cond94, %if.then90 ]
   %s.addr.4 = phi ptr [ %s.addr.2, %if.else82 ], [ %incdec.ptr95, %if.then90 ]
+  %y.1 = phi double [ 1.000000e+00, %if.else82 ], [ %cond94, %if.then90 ]
   switch i8 %12, label %parse_error [
     i8 106, label %if.end106
     i8 74, label %if.end106
@@ -3888,9 +3888,9 @@ if.end106:                                        ; preds = %if.end97, %if.end97
   br label %if.end108
 
 if.end108:                                        ; preds = %if.then29, %if.end67, %if.then77, %if.end106
+  %s.addr.5 = phi ptr [ %incdec.ptr68, %if.end67 ], [ %incdec.ptr78, %if.then77 ], [ %incdec.ptr107, %if.end106 ], [ %5, %if.then29 ]
   %x.0 = phi double [ %call, %if.end67 ], [ 0.000000e+00, %if.then77 ], [ 0.000000e+00, %if.end106 ], [ %call, %if.then29 ]
   %y.2 = phi double [ %y.0, %if.end67 ], [ %call, %if.then77 ], [ %y.1, %if.end106 ], [ 0.000000e+00, %if.then29 ]
-  %s.addr.5 = phi ptr [ %incdec.ptr68, %if.end67 ], [ %incdec.ptr78, %if.then77 ], [ %incdec.ptr107, %if.end106 ], [ %5, %if.then29 ]
   br label %while.cond109
 
 while.cond109:                                    ; preds = %while.cond109, %if.end108

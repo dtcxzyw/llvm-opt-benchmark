@@ -304,8 +304,8 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4rcp_Ev.exit.critedge: ; preds
   br label %_ZN5drjit7divisorIjiEC2Ej.exit
 
 _ZN5drjit7divisorIjiEC2Ej.exit:                   ; preds = %43, %41
-  %.sroa.2.0 = phi i32 [ 0, %41 ], [ %spec.select, %43 ]
   %.sroa.5.0 = phi i8 [ %42, %41 ], [ %44, %43 ]
+  %.sroa.2.0 = phi i32 [ 0, %41 ], [ %spec.select, %43 ]
   %57 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %29, ptr %57, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 84

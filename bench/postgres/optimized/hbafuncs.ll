@@ -96,7 +96,7 @@ define dso_local noundef i64 @pg_hba_file_rules(ptr noundef %0) local_unnamed_ad
   br i1 %40, label %.lr.ph, label %fill_hba_view.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %fill_hba_line.exit.i
-  %.02128.i7 = phi i32 [ %spec.select.i, %fill_hba_line.exit.i ], [ 0, %.lr.ph.i ]
+  %.02027.i7 = phi i32 [ %spec.select.i, %fill_hba_line.exit.i ], [ 0, %.lr.ph.i ]
   %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i, %fill_hba_line.exit.i ], [ 0, %.lr.ph.i ]
   %41 = load ptr, ptr %21, align 8
   %42 = getelementptr %union.ListCell, ptr %41, i64 %indvars.iv.i6
@@ -115,8 +115,8 @@ define dso_local noundef i64 @pg_hba_file_rules(ptr noundef %0) local_unnamed_ad
   %50 = phi ptr [ %.pr.i, %47 ], [ %45, %.lr.ph ]
   %.0.i = phi ptr [ %48, %47 ], [ null, %.lr.ph ]
   %51 = icmp eq ptr %50, null
-  %52 = add i32 %.02128.i7, 1
-  %spec.select.i = select i1 %51, i32 %52, i32 %.02128.i7
+  %52 = add i32 %.02027.i7, 1
+  %spec.select.i = select i1 %51, i32 %52, i32 %.02027.i7
   %53 = getelementptr inbounds i8, ptr %43, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %43, i64 16
@@ -183,12 +183,12 @@ switch.lookup:                                    ; preds = %64
 
 78:                                               ; preds = %78, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %78 ]
-  %.076124.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %83, %78 ]
+  %.073124.i.i = phi ptr [ null, %.lr.ph.i.i ], [ %83, %78 ]
   %79 = load ptr, ptr %77, align 8
   %80 = getelementptr %union.ListCell, ptr %79, i64 %indvars.iv.i.i
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %81, align 8
-  %83 = call ptr @lappend(ptr noundef %.076124.i.i, ptr noundef %82) #4
+  %83 = call ptr @lappend(ptr noundef %.073124.i.i, ptr noundef %82) #4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %84 = load i32, ptr %75, align 4
   %85 = sext i32 %84 to i64
@@ -196,8 +196,8 @@ switch.lookup:                                    ; preds = %64
   br i1 %.not90.i.i, label %78, label %._crit_edge.i.i, !llvm.loop !5
 
 ._crit_edge.i.i:                                  ; preds = %78, %.preheader122.i.i
-  %.076.lcssa.i.i = phi ptr [ null, %.preheader122.i.i ], [ %83, %78 ]
-  %86 = call ptr @strlist_to_textarray(ptr noundef %.076.lcssa.i.i) #4
+  %.073.lcssa.i.i = phi ptr [ null, %.preheader122.i.i ], [ %83, %78 ]
+  %86 = call ptr @strlist_to_textarray(ptr noundef %.073.lcssa.i.i) #4
   %87 = ptrtoint ptr %86 to i64
   store i64 %87, ptr %26, align 16
   br label %89
@@ -224,12 +224,12 @@ switch.lookup:                                    ; preds = %64
 
 95:                                               ; preds = %95, %.lr.ph129.i.i
   %indvars.iv134.i.i = phi i64 [ 0, %.lr.ph129.i.i ], [ %indvars.iv.next135.i.i, %95 ]
-  %.072127.i.i = phi ptr [ null, %.lr.ph129.i.i ], [ %100, %95 ]
+  %.070127.i.i = phi ptr [ null, %.lr.ph129.i.i ], [ %100, %95 ]
   %96 = load ptr, ptr %94, align 8
   %97 = getelementptr %union.ListCell, ptr %96, i64 %indvars.iv134.i.i
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %98, align 8
-  %100 = call ptr @lappend(ptr noundef %.072127.i.i, ptr noundef %99) #4
+  %100 = call ptr @lappend(ptr noundef %.070127.i.i, ptr noundef %99) #4
   %indvars.iv.next135.i.i = add nuw nsw i64 %indvars.iv134.i.i, 1
   %101 = load i32, ptr %92, align 4
   %102 = sext i32 %101 to i64
@@ -237,8 +237,8 @@ switch.lookup:                                    ; preds = %64
   br i1 %.not93.i.i, label %95, label %._crit_edge130.i.i, !llvm.loop !7
 
 ._crit_edge130.i.i:                               ; preds = %95, %.preheader.i.i
-  %.072.lcssa.i.i = phi ptr [ null, %.preheader.i.i ], [ %100, %95 ]
-  %103 = call ptr @strlist_to_textarray(ptr noundef %.072.lcssa.i.i) #4
+  %.070.lcssa.i.i = phi ptr [ null, %.preheader.i.i ], [ %100, %95 ]
+  %103 = call ptr @strlist_to_textarray(ptr noundef %.070.lcssa.i.i) #4
   %104 = ptrtoint ptr %103 to i64
   store i64 %104, ptr %28, align 8
   br label %106
@@ -286,7 +286,7 @@ switch.lookup:                                    ; preds = %64
   br label %125
 
 125:                                              ; preds = %123, %112
-  %.074.i.i = phi ptr [ %124, %123 ], [ null, %112 ]
+  %.075.i.i = phi ptr [ %124, %123 ], [ null, %112 ]
   %126 = getelementptr inbounds i8, ptr %.0.i, i64 312
   %127 = load i32, ptr %126, align 8
   %128 = icmp sgt i32 %127, 0
@@ -315,30 +315,30 @@ switch.lookup:                                    ; preds = %64
   br label %.thread108.i.i
 
 140:                                              ; preds = %136, %125
-  %.077.i.i = phi ptr [ %137, %136 ], [ null, %125 ]
-  %.not95.i.i = icmp eq ptr %.074.i.i, null
+  %.074.i.i = phi ptr [ %137, %136 ], [ null, %125 ]
+  %.not95.i.i = icmp eq ptr %.075.i.i, null
   br i1 %.not95.i.i, label %.thread115.i.i, label %.thread108.i.i
 
 .thread108.i.i:                                   ; preds = %140, %139, %138, %109, %106
-  %.175114.i.i = phi ptr [ %.074.i.i, %140 ], [ %111, %109 ], [ @.str.8, %138 ], [ @.str.9, %139 ], [ @.str.7, %106 ]
-  %.077113.i.i = phi ptr [ %.077.i.i, %140 ], [ null, %109 ], [ null, %138 ], [ null, %139 ], [ null, %106 ]
-  %141 = call ptr @cstring_to_text(ptr noundef nonnull %.175114.i.i) #4
+  %.074114.i.i = phi ptr [ %.074.i.i, %140 ], [ null, %139 ], [ null, %138 ], [ null, %109 ], [ null, %106 ]
+  %.176112.i.i = phi ptr [ %.075.i.i, %140 ], [ @.str.9, %139 ], [ @.str.8, %138 ], [ %111, %109 ], [ @.str.7, %106 ]
+  %141 = call ptr @cstring_to_text(ptr noundef nonnull %.176112.i.i) #4
   %142 = ptrtoint ptr %141 to i64
   store i64 %142, ptr %30, align 16
   br label %143
 
 .thread115.i.i:                                   ; preds = %140, %106
-  %.077119.i.i = phi ptr [ %.077.i.i, %140 ], [ null, %106 ]
+  %.074119.i.i = phi ptr [ %.074.i.i, %140 ], [ null, %106 ]
   store i8 1, ptr %31, align 1
   br label %143
 
 143:                                              ; preds = %.thread115.i.i, %.thread108.i.i
-  %.077112.i.i = phi ptr [ %.077119.i.i, %.thread115.i.i ], [ %.077113.i.i, %.thread108.i.i ]
-  %.not96.i.i = icmp eq ptr %.077112.i.i, null
+  %.074113.i.i = phi ptr [ %.074119.i.i, %.thread115.i.i ], [ %.074114.i.i, %.thread108.i.i ]
+  %.not96.i.i = icmp eq ptr %.074113.i.i, null
   br i1 %.not96.i.i, label %147, label %144
 
 144:                                              ; preds = %143
-  %145 = call ptr @cstring_to_text(ptr noundef nonnull %.077112.i.i) #4
+  %145 = call ptr @cstring_to_text(ptr noundef nonnull %.074113.i.i) #4
   %146 = ptrtoint ptr %145 to i64
   store i64 %146, ptr %32, align 8
   br label %148
@@ -819,7 +819,7 @@ define dso_local noundef i64 @pg_ident_file_mappings(ptr noundef %0) local_unnam
   br i1 %29, label %.lr.ph, label %fill_ident_view.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %fill_ident_line.exit.i
-  %.02127.i6 = phi i32 [ %spec.select.i, %fill_ident_line.exit.i ], [ 0, %.lr.ph.i ]
+  %.02026.i6 = phi i32 [ %spec.select.i, %fill_ident_line.exit.i ], [ 0, %.lr.ph.i ]
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i, %fill_ident_line.exit.i ], [ 0, %.lr.ph.i ]
   %30 = load ptr, ptr %19, align 8
   %31 = getelementptr %union.ListCell, ptr %30, i64 %indvars.iv.i5
@@ -838,8 +838,8 @@ define dso_local noundef i64 @pg_ident_file_mappings(ptr noundef %0) local_unnam
   %39 = phi ptr [ %.pr.i, %36 ], [ %34, %.lr.ph ]
   %.0.i = phi ptr [ %37, %36 ], [ null, %.lr.ph ]
   %40 = icmp eq ptr %39, null
-  %41 = add i32 %.02127.i6, 1
-  %spec.select.i = select i1 %40, i32 %41, i32 %.02127.i6
+  %41 = add i32 %.02026.i6, 1
+  %spec.select.i = select i1 %40, i32 %41, i32 %.02026.i6
   %42 = getelementptr inbounds i8, ptr %32, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %32, i64 16

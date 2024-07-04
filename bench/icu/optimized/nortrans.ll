@@ -614,8 +614,8 @@ do.body.preheader:                                ; preds = %invoke.cont
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond50
-  %c.0 = phi i32 [ %c.2, %do.cond50 ], [ %call.i33, %do.body.preheader ]
   %limit.0 = phi i32 [ %limit.1, %do.cond50 ], [ %1, %do.body.preheader ]
+  %c.0 = phi i32 [ %c.2, %do.cond50 ], [ %call.i33, %do.body.preheader ]
   %start.0 = phi i32 [ %start.2, %do.cond50 ], [ %0, %do.body.preheader ]
   %3 = load i16, ptr %fUnion2.i, align 8
   %conv2.i3.i = and i16 %3, 1

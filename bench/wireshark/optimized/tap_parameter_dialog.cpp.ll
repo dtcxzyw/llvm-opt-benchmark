@@ -12059,16 +12059,16 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br label %49
 
 49:                                               ; preds = %.lr.ph, %171
-  %.037 = phi i64 [ 0, %.lr.ph ], [ %172, %171 ]
+  %.02337 = phi i64 [ 0, %.lr.ph ], [ %172, %171 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.037
+  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.02337
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  %53 = shl nuw i64 %.037, 7
+  %53 = shl nuw i64 %.02337, 7
   br label %54
 
 54:                                               ; preds = %49, %169
-  %.02335 = phi i64 [ 0, %49 ], [ %170, %169 ]
-  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.02335
+  %.035 = phi i64 [ 0, %49 ], [ %170, %169 ]
+  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.035
   %56 = load i8, ptr %55, align 1
   %.not34 = icmp eq i8 %56, -1
   br i1 %.not34, label %169, label %57
@@ -12131,7 +12131,7 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QS
   br i1 %98, label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit, label %.lr.ph.i, !llvm.loop !136
 
 99:                                               ; preds = %57
-  %100 = add nuw nsw i64 %.02335, %53
+  %100 = add nuw nsw i64 %.035, %53
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE4findERS3_.exit
 
@@ -12288,12 +12288,12 @@ _ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11Capture
   br label %169
 
 169:                                              ; preds = %54, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2ERKSB_.exit
-  %170 = add nuw nsw i64 %.02335, 1
+  %170 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %170, 128
   br i1 %exitcond.not, label %171, label %54, !llvm.loop !139
 
 171:                                              ; preds = %169
-  %172 = add nuw nsw i64 %.037, 1
+  %172 = add nuw nsw i64 %.02337, 1
   %exitcond39.not = icmp eq i64 %172, %47
   br i1 %exitcond39.not, label %._crit_edge, label %49, !llvm.loop !140
 
@@ -12494,14 +12494,14 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE8freeDataEv.exit
-  %.02242 = phi i64 [ 0, %.lr.ph ], [ %169, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE8freeDataEv.exit ]
-  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02242
+  %.02342 = phi i64 [ 0, %.lr.ph ], [ %169, %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE8freeDataEv.exit ]
+  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02342
   %42 = getelementptr inbounds i8, ptr %41, i64 128
   br label %43
 
 43:                                               ; preds = %40, %150
-  %.02341 = phi i64 [ 0, %40 ], [ %151, %150 ]
-  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02341
+  %.02241 = phi i64 [ 0, %40 ], [ %151, %150 ]
+  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02241
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, -1
   br i1 %.not, label %150, label %46
@@ -12714,7 +12714,7 @@ _ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11Capture
   br label %150
 
 150:                                              ; preds = %43, %_ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11CaptureFileEEC2EOSB_.exit
-  %151 = add nuw nsw i64 %.02341, 1
+  %151 = add nuw nsw i64 %.02241, 1
   %exitcond.not = icmp eq i64 %151, 128
   br i1 %exitcond.not, label %152, label %43, !llvm.loop !141
 
@@ -12766,7 +12766,7 @@ _ZN12QHashPrivate4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS1_S1_R11Capture
   br label %_ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE8freeDataEv.exit
 
 _ZN12QHashPrivate4SpanINS_4NodeIK7QStringPFP18TapParameterDialogR7QWidgetS2_S2_R11CaptureFileEEEE8freeDataEv.exit: ; preds = %152, %168
-  %169 = add nuw nsw i64 %.02242, 1
+  %169 = add nuw nsw i64 %.02342, 1
   %exitcond44.not = icmp eq i64 %169, %38
   br i1 %exitcond44.not, label %._crit_edge.thread, label %40, !llvm.loop !142
 

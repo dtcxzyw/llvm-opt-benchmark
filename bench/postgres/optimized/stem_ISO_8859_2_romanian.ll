@@ -666,13 +666,13 @@ r_combo_suffix.exit.i:                            ; preds = %187, %.lr.ph.i, %r_
   store i32 %194, ptr %6, align 8
   %195 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_3, i32 noundef 62) #2
   %.not.i71 = icmp eq i32 %195, 0
-  %.pre103 = load ptr, ptr %42, align 8
+  %.pre102 = load ptr, ptr %42, align 8
   br i1 %.not.i71, label %r_standard_suffix.exit, label %196
 
 196:                                              ; preds = %r_combo_suffix.exit.i
   %197 = load i32, ptr %2, align 8
   store i32 %197, ptr %4, align 4
-  %.val47.val.i = load i32, ptr %.pre103, align 4
+  %.val47.val.i = load i32, ptr %.pre102, align 4
   %.not.i48.not.i = icmp sgt i32 %.val47.val.i, %197
   br i1 %.not.i48.not.i, label %r_standard_suffix.exit, label %198
 
@@ -722,7 +722,7 @@ r_combo_suffix.exit.i:                            ; preds = %187, %.lr.ph.i, %r_
   br label %r_standard_suffix.exit
 
 r_standard_suffix.exit:                           ; preds = %216, %204, %202, %196, %r_combo_suffix.exit.i
-  %219 = phi ptr [ %.pre, %216 ], [ %.pre103, %204 ], [ %.pre103, %202 ], [ %.pre103, %196 ], [ %.pre103, %r_combo_suffix.exit.i ]
+  %219 = phi ptr [ %.pre, %216 ], [ %.pre102, %204 ], [ %.pre102, %202 ], [ %.pre102, %196 ], [ %.pre102, %r_combo_suffix.exit.i ]
   %220 = load i32, ptr %5, align 4
   store i32 %220, ptr %2, align 8
   %221 = getelementptr i8, ptr %219, i64 12
@@ -792,11 +792,11 @@ r_standard_suffix.exit:                           ; preds = %216, %204, %202, %1
 
 .sink.split.i:                                    ; preds = %249, %246, %239, %235, %230, %227
   store i32 %228, ptr %114, align 8
-  %.pre104 = load i32, ptr %5, align 4
+  %.pre103 = load i32, ptr %5, align 4
   br label %r_verb_suffix.exit
 
 r_verb_suffix.exit:                               ; preds = %.sink.split.i, %223, %r_standard_suffix.exit
-  %252 = phi i32 [ %.pre104, %.sink.split.i ], [ %220, %223 ], [ %220, %r_standard_suffix.exit ]
+  %252 = phi i32 [ %.pre103, %.sink.split.i ], [ %220, %223 ], [ %220, %r_standard_suffix.exit ]
   store i32 %252, ptr %2, align 8
   store i32 %252, ptr %6, align 8
   %253 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_5, i32 noundef 5) #2
@@ -824,8 +824,8 @@ r_verb_suffix.exit:                               ; preds = %.sink.split.i, %223
   br label %263
 
 263:                                              ; preds = %286, %260
-  %264 = phi i32 [ %.pre106, %286 ], [ %261, %260 ]
-  %265 = phi i32 [ %.pre105, %286 ], [ %262, %260 ]
+  %264 = phi i32 [ %.pre105, %286 ], [ %261, %260 ]
+  %265 = phi i32 [ %.pre104, %286 ], [ %262, %260 ]
   store i32 %265, ptr %4, align 4
   %.not.i81 = icmp slt i32 %265, %264
   br i1 %.not.i81, label %266, label %.thread38.i
@@ -855,11 +855,11 @@ r_verb_suffix.exit:                               ; preds = %.sink.split.i, %223
   switch i32 %272, label %286 [
     i32 1, label %275
     i32 2, label %278
-    i32 3, label %._crit_edge.i83
+    i32 3, label %._crit_edge.i82
   ]
 
-._crit_edge.i83:                                  ; preds = %273
-  %.pre.i84 = load i32, ptr %5, align 4
+._crit_edge.i82:                                  ; preds = %273
+  %.pre.i83 = load i32, ptr %5, align 4
   br label %281
 
 275:                                              ; preds = %273
@@ -872,9 +872,9 @@ r_verb_suffix.exit:                               ; preds = %.sink.split.i, %223
   %280 = icmp slt i32 %279, 0
   br i1 %280, label %r_vowel_suffix.exit, label %286
 
-281:                                              ; preds = %._crit_edge.i83, %.thread38.i
-  %282 = phi i32 [ %264, %.thread38.i ], [ %.pre.i84, %._crit_edge.i83 ]
-  %283 = phi i32 [ %265, %.thread38.i ], [ %274, %._crit_edge.i83 ]
+281:                                              ; preds = %._crit_edge.i82, %.thread38.i
+  %282 = phi i32 [ %264, %.thread38.i ], [ %.pre.i83, %._crit_edge.i82 ]
+  %283 = phi i32 [ %265, %.thread38.i ], [ %274, %._crit_edge.i82 ]
   %.not34.i = icmp slt i32 %283, %282
   br i1 %.not34.i, label %284, label %287
 
@@ -884,8 +884,8 @@ r_verb_suffix.exit:                               ; preds = %.sink.split.i, %223
   br label %286
 
 286:                                              ; preds = %284, %278, %275, %273
-  %.pre105 = load i32, ptr %2, align 8
-  %.pre106 = load i32, ptr %5, align 4
+  %.pre104 = load i32, ptr %2, align 8
+  %.pre105 = load i32, ptr %5, align 4
   br label %263
 
 287:                                              ; preds = %281, %271

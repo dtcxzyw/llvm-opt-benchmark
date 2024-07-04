@@ -414,8 +414,8 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   br label %18
 
 18:                                               ; preds = %16, %13
-  %.036 = phi ptr [ %15, %13 ], [ %17, %16 ]
-  %19 = load ptr, ptr %.036, align 8
+  %.0 = phi ptr [ %15, %13 ], [ %17, %16 ]
+  %19 = load ptr, ptr %.0, align 8
   %.not57 = icmp eq ptr %19, null
   br i1 %.not57, label %.sink.split, label %.preheader
 
@@ -433,7 +433,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
 
 24:                                               ; preds = %.lr.ph, %30
   %25 = phi i8 [ %21, %.lr.ph ], [ %32, %30 ]
-  %.03751 = phi ptr [ %20, %.lr.ph ], [ %31, %30 ]
+  %.03551 = phi ptr [ %20, %.lr.ph ], [ %31, %30 ]
   %26 = sext i8 %25 to i64
   %27 = getelementptr inbounds i16, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2
@@ -442,15 +442,15 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not45, label %.critedge, label %30
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %.03751, i64 1
+  %31 = getelementptr inbounds i8, ptr %.03551, i64 1
   %32 = load i8, ptr %31, align 1
   %.not44 = icmp eq i8 %32, 0
   br i1 %.not44, label %.critedge, label %24, !llvm.loop !4
 
 .critedge:                                        ; preds = %24, %30, %.preheader
   %char066 = phi i8 [ 0, %.preheader ], [ 0, %30 ], [ %25, %24 ]
-  %.037.lcssa = phi ptr [ %20, %.preheader ], [ %31, %30 ], [ %.03751, %24 ]
-  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.037.lcssa) #13
+  %.035.lcssa = phi ptr [ %20, %.preheader ], [ %31, %30 ], [ %.03551, %24 ]
+  %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.035.lcssa) #13
   %34 = trunc i64 %33 to i32
   %35 = add i32 %34, -2
   %36 = icmp sgt i32 %35, 0
@@ -460,7 +460,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   %37 = tail call ptr @__ctype_b_loc() #14
   %38 = zext nneg i32 %35 to i64
   %39 = load ptr, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %.037.lcssa, i64 %38
+  %40 = getelementptr inbounds i8, ptr %.035.lcssa, i64 %38
   %41 = load i8, ptr %40, align 1
   %42 = sext i8 %41 to i64
   %43 = getelementptr inbounds i16, ptr %39, i64 %42
@@ -475,7 +475,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   store i8 0, ptr %46, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv70, 1
   %47 = load ptr, ptr %37, align 8
-  %48 = getelementptr inbounds i8, ptr %.037.lcssa, i64 %indvars.iv.next
+  %48 = getelementptr inbounds i8, ptr %.035.lcssa, i64 %indvars.iv.next
   %49 = load i8, ptr %48, align 1
   %50 = sext i8 %49 to i64
   %51 = getelementptr inbounds i16, ptr %47, i64 %50
@@ -485,7 +485,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not46, label %.critedge2.loopexit, label %.lr.ph71
 
 .critedge2.loopexit:                              ; preds = %.lr.ph71, %.lr.ph55
-  %char0.pre = load i8, ptr %.037.lcssa, align 1
+  %char0.pre = load i8, ptr %.035.lcssa, align 1
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.critedge
@@ -494,7 +494,7 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
   br i1 %54, label %63, label %55
 
 55:                                               ; preds = %.critedge2
-  %56 = call ptr @PMIx_Argv_split(ptr noundef nonnull %.037.lcssa, i32 noundef 32) #12
+  %56 = call ptr @PMIx_Argv_split(ptr noundef nonnull %.035.lcssa, i32 noundef 32) #12
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr @environ, align 8
   %59 = call noalias ptr @pmix_path_findv(ptr noundef %57, i32 noundef 1, ptr noundef %58, ptr noundef nonnull %3) #12
@@ -513,19 +513,19 @@ define noundef ptr @prte_plm_ssh_search(ptr noundef %0, ptr noundef %1) local_un
 
 63:                                               ; preds = %.critedge2, %62
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %64 = getelementptr inbounds ptr, ptr %.036, i64 %indvars.iv.next62
+  %64 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv.next62
   %65 = load ptr, ptr %64, align 8
   %.not = icmp eq ptr %65, null
   br i1 %.not, label %.sink.split, label %.preheader, !llvm.loop !6
 
 .sink.split:                                      ; preds = %63, %18, %60
-  %.0.ph = phi ptr [ %56, %60 ], [ null, %18 ], [ null, %63 ]
-  call void @PMIx_Argv_free(ptr noundef nonnull %.036) #12
+  %.038.ph = phi ptr [ %56, %60 ], [ null, %18 ], [ null, %63 ]
+  call void @PMIx_Argv_free(ptr noundef nonnull %.0) #12
   br label %66
 
 66:                                               ; preds = %.sink.split, %2
-  %.0 = phi ptr [ null, %2 ], [ %.0.ph, %.sink.split ]
-  ret ptr %.0
+  %.038 = phi ptr [ null, %2 ], [ %.038.ph, %.sink.split ]
+  ret ptr %.038
 }
 
 ; Function Attrs: nounwind

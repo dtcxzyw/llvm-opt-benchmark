@@ -71,29 +71,29 @@ define void @rb_Digest_MD5_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %33
 
 33:                                               ; preds = %30, %20
-  %.037 = phi i64 [ %32, %30 ], [ %2, %20 ]
-  %.0 = phi ptr [ %31, %30 ], [ %1, %20 ]
-  %34 = icmp ugt i64 %.037, 63
+  %.037 = phi ptr [ %31, %30 ], [ %1, %20 ]
+  %.0 = phi i64 [ %32, %30 ], [ %2, %20 ]
+  %34 = icmp ugt i64 %.0, 63
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %33, %.lr.ph
-  %.143 = phi ptr [ %35, %.lr.ph ], [ %.0, %33 ]
-  %.13842 = phi i64 [ %36, %.lr.ph ], [ %.037, %33 ]
-  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.143)
-  %35 = getelementptr inbounds i8, ptr %.143, i64 64
-  %36 = add i64 %.13842, -64
+  %.143 = phi i64 [ %36, %.lr.ph ], [ %.0, %33 ]
+  %.13842 = phi ptr [ %35, %.lr.ph ], [ %.037, %33 ]
+  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.13842)
+  %35 = getelementptr inbounds i8, ptr %.13842, i64 64
+  %36 = add i64 %.143, -64
   %37 = icmp ugt i64 %36, 63
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33
-  %.138.lcssa = phi i64 [ %.037, %33 ], [ %36, %.lr.ph ]
-  %.1.lcssa = phi ptr [ %.0, %33 ], [ %35, %.lr.ph ]
-  %.not41 = icmp eq i64 %.138.lcssa, 0
+  %.138.lcssa = phi ptr [ %.037, %33 ], [ %35, %.lr.ph ]
+  %.1.lcssa = phi i64 [ %.0, %33 ], [ %36, %.lr.ph ]
+  %.not41 = icmp eq i64 %.1.lcssa, 0
   br i1 %.not41, label %40, label %38
 
 38:                                               ; preds = %._crit_edge
   %39 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr align 1 %.1.lcssa, i64 %.138.lcssa, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr align 1 %.138.lcssa, i64 %.1.lcssa, i1 false)
   br label %40
 
 40:                                               ; preds = %21, %3, %38, %._crit_edge
@@ -746,29 +746,29 @@ define noundef i32 @rb_Digest_MD5_Finish(ptr noundef %0, ptr nocapture noundef w
   br label %43
 
 43:                                               ; preds = %40, %30
-  %.037.i = phi i64 [ %42, %40 ], [ %20, %30 ]
-  %.0.i = phi ptr [ %41, %40 ], [ @rb_Digest_MD5_Finish.pad, %30 ]
-  %44 = icmp ugt i64 %.037.i, 63
+  %.037.i = phi ptr [ %41, %40 ], [ @rb_Digest_MD5_Finish.pad, %30 ]
+  %.0.i = phi i64 [ %42, %40 ], [ %20, %30 ]
+  %44 = icmp ugt i64 %.0.i, 63
   br i1 %44, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.i
-  %.143.i = phi ptr [ %45, %.lr.ph.i ], [ %.0.i, %43 ]
-  %.13842.i = phi i64 [ %46, %.lr.ph.i ], [ %.037.i, %43 ]
-  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.143.i)
-  %45 = getelementptr inbounds i8, ptr %.143.i, i64 64
-  %46 = add i64 %.13842.i, -64
+  %.143.i = phi i64 [ %46, %.lr.ph.i ], [ %.0.i, %43 ]
+  %.13842.i = phi ptr [ %45, %.lr.ph.i ], [ %.037.i, %43 ]
+  tail call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef %.13842.i)
+  %45 = getelementptr inbounds i8, ptr %.13842.i, i64 64
+  %46 = add i64 %.143.i, -64
   %47 = icmp ugt i64 %46, 63
   br i1 %47, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %43
-  %.138.lcssa.i = phi i64 [ %.037.i, %43 ], [ %46, %.lr.ph.i ]
-  %.1.lcssa.i = phi ptr [ %.0.i, %43 ], [ %45, %.lr.ph.i ]
-  %.not41.i = icmp eq i64 %.138.lcssa.i, 0
+  %.138.lcssa.i = phi ptr [ %.037.i, %43 ], [ %45, %.lr.ph.i ]
+  %.1.lcssa.i = phi i64 [ %.0.i, %43 ], [ %46, %.lr.ph.i ]
+  %.not41.i = icmp eq i64 %.1.lcssa.i, 0
   br i1 %.not41.i, label %rb_Digest_MD5_Update.exit, label %48
 
 48:                                               ; preds = %._crit_edge.i
   %49 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %49, ptr align 1 %.1.lcssa.i, i64 %.138.lcssa.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %49, ptr align 1 %.138.lcssa.i, i64 %.1.lcssa.i, i1 false)
   br label %rb_Digest_MD5_Update.exit
 
 rb_Digest_MD5_Update.exit:                        ; preds = %31, %._crit_edge.i, %48
@@ -810,25 +810,25 @@ rb_Digest_MD5_Update.exit:                        ; preds = %31, %._crit_edge.i,
   br i1 %71, label %.lr.ph.i22, label %._crit_edge.i18
 
 .lr.ph.i22:                                       ; preds = %68, %.lr.ph.i22
-  %.143.i23 = phi ptr [ %72, %.lr.ph.i22 ], [ %69, %68 ]
-  %.13842.i24 = phi i64 [ %73, %.lr.ph.i22 ], [ %70, %68 ]
-  call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %.143.i23)
-  %72 = getelementptr inbounds i8, ptr %.143.i23, i64 64
-  %73 = add i64 %.13842.i24, -64
+  %.143.i23 = phi i64 [ %73, %.lr.ph.i22 ], [ %70, %68 ]
+  %.13842.i24 = phi ptr [ %72, %.lr.ph.i22 ], [ %69, %68 ]
+  call fastcc void @md5_process(ptr noundef nonnull %0, ptr noundef nonnull %.13842.i24)
+  %72 = getelementptr inbounds i8, ptr %.13842.i24, i64 64
+  %73 = add i64 %.143.i23, -64
   %74 = icmp ugt i64 %73, 63
   br i1 %74, label %.lr.ph.i22, label %._crit_edge.i18, !llvm.loop !6
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i22, %68
-  %.138.lcssa.i19 = phi i64 [ %70, %68 ], [ %73, %.lr.ph.i22 ]
-  %.1.lcssa.i20 = phi ptr [ %69, %68 ], [ %72, %.lr.ph.i22 ]
-  %.not41.i21 = icmp eq i64 %.138.lcssa.i19, 0
+  %.138.lcssa.i19 = phi ptr [ %69, %68 ], [ %72, %.lr.ph.i22 ]
+  %.1.lcssa.i20 = phi i64 [ %70, %68 ], [ %73, %.lr.ph.i22 ]
+  %.not41.i21 = icmp eq i64 %.1.lcssa.i20, 0
   br i1 %.not41.i21, label %rb_Digest_MD5_Update.exit25, label %._crit_edge.i18.thread
 
 ._crit_edge.i18.thread:                           ; preds = %59, %._crit_edge.i18
-  %.1.lcssa.i2032 = phi ptr [ %.1.lcssa.i20, %._crit_edge.i18 ], [ %3, %59 ]
-  %.138.lcssa.i1931 = phi i64 [ %.138.lcssa.i19, %._crit_edge.i18 ], [ 8, %59 ]
+  %.1.lcssa.i2032 = phi i64 [ %.1.lcssa.i20, %._crit_edge.i18 ], [ 8, %59 ]
+  %.138.lcssa.i1931 = phi ptr [ %.138.lcssa.i19, %._crit_edge.i18 ], [ %3, %59 ]
   %75 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %75, ptr noundef nonnull align 1 dereferenceable(1) %.1.lcssa.i2032, i64 %.138.lcssa.i1931, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %75, ptr noundef nonnull align 1 dereferenceable(1) %.138.lcssa.i1931, i64 %.1.lcssa.i2032, i1 false)
   br label %rb_Digest_MD5_Update.exit25
 
 rb_Digest_MD5_Update.exit25:                      ; preds = %60, %._crit_edge.i18, %._crit_edge.i18.thread

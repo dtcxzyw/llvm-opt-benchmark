@@ -160,66 +160,66 @@ define hidden range(i32 0, 2) i32 @osi_check_and_get_checksum(ptr noundef %0, i3
 
 18:                                               ; preds = %.lr.ph96, %._crit_edge
   %.05894 = phi i32 [ %16, %.lr.ph96 ], [ %19, %._crit_edge ]
-  %.06293 = phi i32 [ %2, %.lr.ph96 ], [ %33, %._crit_edge ]
-  %.06392 = phi i32 [ 0, %.lr.ph96 ], [ %32, %._crit_edge ]
-  %.06591 = phi i32 [ 0, %.lr.ph96 ], [ %31, %._crit_edge ]
-  %.07090 = phi ptr [ %15, %.lr.ph96 ], [ %.272, %._crit_edge ]
+  %.06293 = phi i32 [ 0, %.lr.ph96 ], [ %32, %._crit_edge ]
+  %.06392 = phi i32 [ 0, %.lr.ph96 ], [ %31, %._crit_edge ]
+  %.06891 = phi ptr [ %15, %.lr.ph96 ], [ %.270, %._crit_edge ]
+  %.07190 = phi i32 [ %2, %.lr.ph96 ], [ %33, %._crit_edge ]
   %19 = add i32 %.05894, -1
   %.not82 = icmp eq i32 %.05894, 0
-  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %.06293, i32 5803)
-  %.061 = select i1 %.not82, i32 %17, i32 %spec.store.select
-  %.not100 = icmp eq i32 %.061, 0
+  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %.07190, i32 5803)
+  %.060 = select i1 %.not82, i32 %17, i32 %spec.store.select
+  %.not100 = icmp eq i32 %.060, 0
   br i1 %.not100, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %18
-  %20 = add nsw i32 %.061, -1
+  %20 = add nsw i32 %.060, -1
   %21 = zext i32 %20 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.05986 = phi i32 [ %27, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.16485 = phi i32 [ %26, %.lr.ph ], [ %.06392, %.lr.ph.preheader ]
-  %.16684 = phi i32 [ %25, %.lr.ph ], [ %.06591, %.lr.ph.preheader ]
-  %.17183 = phi ptr [ %22, %.lr.ph ], [ %.07090, %.lr.ph.preheader ]
-  %22 = getelementptr i8, ptr %.17183, i64 1
-  %23 = load i8, ptr %.17183, align 1
+  %.185 = phi i32 [ %26, %.lr.ph ], [ %.06293, %.lr.ph.preheader ]
+  %.16484 = phi i32 [ %25, %.lr.ph ], [ %.06392, %.lr.ph.preheader ]
+  %.16983 = phi ptr [ %22, %.lr.ph ], [ %.06891, %.lr.ph.preheader ]
+  %22 = getelementptr i8, ptr %.16983, i64 1
+  %23 = load i8, ptr %.16983, align 1
   %24 = zext i8 %23 to i32
-  %25 = add i32 %.16684, %24
-  %26 = add i32 %25, %.16485
+  %25 = add i32 %.16484, %24
+  %26 = add i32 %25, %.185
   %27 = add nuw i32 %.05986, 1
-  %exitcond.not = icmp eq i32 %27, %.061
+  %exitcond.not = icmp eq i32 %27, %.060
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %scevgep = getelementptr i8, ptr %.07090, i64 1
+  %scevgep = getelementptr i8, ptr %.06891, i64 1
   %scevgep105 = getelementptr i8, ptr %scevgep, i64 %21
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
-  %.171.lcssa = phi ptr [ %.07090, %18 ], [ %scevgep105, %._crit_edge.loopexit ]
-  %.166.lcssa = phi i32 [ %.06591, %18 ], [ %25, %._crit_edge.loopexit ]
-  %.164.lcssa = phi i32 [ %.06392, %18 ], [ %26, %._crit_edge.loopexit ]
-  %28 = shl i32 %.166.lcssa, 1
-  %29 = add i32 %.06293, -2
-  %.272.idx = select i1 %.not82, i64 2, i64 0
-  %.272 = getelementptr i8, ptr %.171.lcssa, i64 %.272.idx
+  %.169.lcssa = phi ptr [ %.06891, %18 ], [ %scevgep105, %._crit_edge.loopexit ]
+  %.164.lcssa = phi i32 [ %.06392, %18 ], [ %25, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.06293, %18 ], [ %26, %._crit_edge.loopexit ]
+  %28 = shl i32 %.164.lcssa, 1
+  %29 = add i32 %.07190, -2
+  %.172 = select i1 %.not82, i32 %29, i32 %.07190
+  %.270.idx = select i1 %.not82, i64 2, i64 0
+  %.270 = getelementptr i8, ptr %.169.lcssa, i64 %.270.idx
   %30 = select i1 %.not82, i32 %28, i32 0
-  %.2 = add i32 %30, %.164.lcssa
-  %.1 = select i1 %.not82, i32 %29, i32 %.06293
-  %31 = urem i32 %.166.lcssa, 255
+  %.2 = add i32 %30, %.1.lcssa
+  %31 = urem i32 %.164.lcssa, 255
   %32 = urem i32 %.2, 255
-  %33 = sub i32 %.1, %.061
+  %33 = sub i32 %.172, %.060
   %.not80 = icmp eq i32 %33, 0
   br i1 %.not80, label %._crit_edge97, label %18, !llvm.loop !8
 
 ._crit_edge97:                                    ; preds = %._crit_edge, %13
-  %.065.lcssa = phi i32 [ 0, %13 ], [ %31, %._crit_edge ]
-  %.063.lcssa = phi i32 [ 0, %13 ], [ %32, %._crit_edge ]
+  %.063.lcssa = phi i32 [ 0, %13 ], [ %31, %._crit_edge ]
+  %.062.lcssa = phi i32 [ 0, %13 ], [ %32, %._crit_edge ]
   %34 = sub i32 %2, %14
-  %35 = mul i32 %.065.lcssa, %34
-  %36 = add nuw nsw i32 %.063.lcssa, %.065.lcssa
+  %35 = mul i32 %.063.lcssa, %34
+  %36 = add nuw nsw i32 %.062.lcssa, %.063.lcssa
   %37 = sub i32 %35, %36
-  %38 = sub i32 %.063.lcssa, %35
+  %38 = sub i32 %.062.lcssa, %35
   %39 = add i32 %38, -1
   %.lobit = ashr i32 %37, 31
   %spec.select = add i32 %.lobit, %37
@@ -238,8 +238,8 @@ define hidden range(i32 0, 2) i32 @osi_check_and_get_checksum(ptr noundef %0, i3
   br label %49
 
 49:                                               ; preds = %11, %._crit_edge97
-  %.060 = phi i32 [ 1, %._crit_edge97 ], [ 0, %11 ]
-  ret i32 %.060
+  %.061 = phi i32 [ 1, %._crit_edge97 ], [ 0, %11 ]
+  ret i32 %.061
 }
 
 ; Function Attrs: noreturn

@@ -1959,8 +1959,8 @@ if.then37:                                        ; preds = %if.end34
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then37, %if.end34
-  %i.0 = phi double [ %fneg, %if.then37 ], [ %v.val, %if.end34 ]
   %op.addr.0 = phi i32 [ %7, %if.then37 ], [ %op, %if.end34 ]
+  %i.0 = phi double [ %fneg, %if.then37 ], [ %v.val, %if.end34 ]
   %call39 = call double @frexp(double noundef %i.0, ptr noundef nonnull %exponent) #17
   %8 = load i32, ptr %exponent, align 4
   %cmp40 = icmp slt i32 %8, 0
@@ -2090,9 +2090,9 @@ Error:                                            ; preds = %if.end95, %do.end84
   br label %return
 
 Compare:                                          ; preds = %if.end46, %if.end38, %lor.lhs.false, %if.then3, %if.then, %if.then32, %if.then26, %if.then18
-  %j.0 = phi double [ %w.val67, %if.then ], [ %conv19, %if.then18 ], [ %mul, %if.then26 ], [ %call33, %if.then32 ], [ 0.000000e+00, %if.then3 ], [ 2.000000e+00, %lor.lhs.false ], [ 2.000000e+00, %if.end38 ], [ 1.000000e+00, %if.end46 ]
-  %i.1 = phi double [ %v.val, %if.then ], [ %conv, %if.then18 ], [ %conv27, %if.then26 ], [ %v.val, %if.then32 ], [ %v.val, %if.then3 ], [ 1.000000e+00, %lor.lhs.false ], [ 1.000000e+00, %if.end38 ], [ 2.000000e+00, %if.end46 ]
   %op.addr.1 = phi i32 [ %op, %if.then ], [ %op, %if.then18 ], [ %op, %if.then26 ], [ %op, %if.then32 ], [ %op, %if.then3 ], [ %op.addr.0, %lor.lhs.false ], [ %op.addr.0, %if.end38 ], [ %op.addr.0, %if.end46 ]
+  %i.1 = phi double [ %v.val, %if.then ], [ %conv, %if.then18 ], [ %conv27, %if.then26 ], [ %v.val, %if.then32 ], [ %v.val, %if.then3 ], [ 1.000000e+00, %lor.lhs.false ], [ 1.000000e+00, %if.end38 ], [ 2.000000e+00, %if.end46 ]
+  %j.0 = phi double [ %w.val67, %if.then ], [ %conv19, %if.then18 ], [ %mul, %if.then26 ], [ %call33, %if.then32 ], [ 0.000000e+00, %if.then3 ], [ 2.000000e+00, %lor.lhs.false ], [ 2.000000e+00, %if.end38 ], [ 1.000000e+00, %if.end46 ]
   switch i32 %op.addr.1, label %sw.epilog [
     i32 2, label %sw.bb
     i32 3, label %sw.bb108
@@ -5756,8 +5756,8 @@ while.end106:                                     ; preds = %while.cond97
   br label %if.end109
 
 if.end109:                                        ; preds = %if.end68, %while.end106
-  %s.8 = phi ptr [ %s.7, %while.end106 ], [ %s.5, %if.end68 ]
   %exp.0 = phi i64 [ %call107, %while.end106 ], [ 0, %if.end68 ]
+  %s.8 = phi ptr [ %s.7, %while.end106 ], [ %s.5, %if.end68 ]
   %cmp111131 = icmp sgt i64 %sub.ptr.sub, 0
   br i1 %cmp111131, label %land.rhs113.lr.ph, label %while.end127
 
@@ -5839,18 +5839,18 @@ for.cond178.preheader:                            ; preds = %if.end166
   br i1 %cmp179138, label %for.body181, label %finished.sink.split
 
 for.body181:                                      ; preds = %for.cond178.preheader, %for.body181
-  %x.0140 = phi double [ %20, %for.body181 ], [ 0.000000e+00, %for.cond178.preheader ]
-  %i.0139 = phi i64 [ %dec197, %for.body181 ], [ %sub140, %for.cond178.preheader ]
-  %cmp183 = icmp slt i64 %i.0139, %sub.ptr.sub60
-  %idx.neg186 = sub nsw i64 0, %i.0139
+  %i.0140 = phi i64 [ %dec197, %for.body181 ], [ %sub140, %for.cond178.preheader ]
+  %x.0139 = phi double [ %20, %for.body181 ], [ 0.000000e+00, %for.cond178.preheader ]
+  %cmp183 = icmp slt i64 %i.0140, %sub.ptr.sub60
+  %idx.neg186 = sub nsw i64 0, %i.0140
   %cond193.v = select i1 %cmp183, ptr %17, ptr %add.ptr150
   %cond193 = getelementptr i8, ptr %cond193.v, i64 %idx.neg186
   %19 = load i8, ptr %cond193, align 1
   %call194 = call fastcc i32 @hex_from_char(i8 noundef signext %19)
   %conv195 = sitofp i32 %call194 to double
-  %20 = call double @llvm.fmuladd.f64(double %x.0140, double 1.600000e+01, double %conv195)
-  %dec197 = add nsw i64 %i.0139, -1
-  %cmp179.not = icmp eq i64 %i.0139, 0
+  %20 = call double @llvm.fmuladd.f64(double %x.0139, double 1.600000e+01, double %conv195)
+  %dec197 = add nsw i64 %i.0140, -1
+  %cmp179.not = icmp eq i64 %i.0140, 0
   br i1 %cmp179.not, label %finished.sink.split, label %for.body181, !llvm.loop !20
 
 if.end201:                                        ; preds = %if.end166
@@ -5864,17 +5864,17 @@ if.end201:                                        ; preds = %if.end166
   br i1 %cmp210142, label %for.body212, label %for.end229
 
 for.body212:                                      ; preds = %if.end201, %for.body212
-  %x.1144 = phi double [ %23, %for.body212 ], [ 0.000000e+00, %if.end201 ]
-  %i.1143 = phi i64 [ %dec228, %for.body212 ], [ %sub140, %if.end201 ]
-  %cmp214 = icmp slt i64 %i.1143, %sub.ptr.sub60
-  %idx.neg217 = sub nsw i64 0, %i.1143
+  %i.1144 = phi i64 [ %dec228, %for.body212 ], [ %sub140, %if.end201 ]
+  %x.1143 = phi double [ %23, %for.body212 ], [ 0.000000e+00, %if.end201 ]
+  %cmp214 = icmp slt i64 %i.1144, %sub.ptr.sub60
+  %idx.neg217 = sub nsw i64 0, %i.1144
   %cond224.v = select i1 %cmp214, ptr %17, ptr %add.ptr150
   %cond224 = getelementptr i8, ptr %cond224.v, i64 %idx.neg217
   %22 = load i8, ptr %cond224, align 1
   %call225 = call fastcc i32 @hex_from_char(i8 noundef signext %22)
   %conv226 = sitofp i32 %call225 to double
-  %23 = call double @llvm.fmuladd.f64(double %x.1144, double 1.600000e+01, double %conv226)
-  %dec228 = add nsw i64 %i.1143, -1
+  %23 = call double @llvm.fmuladd.f64(double %x.1143, double 1.600000e+01, double %conv226)
+  %dec228 = add nsw i64 %i.1144, -1
   %cmp210 = icmp sgt i64 %dec228, %div207
   br i1 %cmp210, label %for.body212, label %for.end229, !llvm.loop !21
 
@@ -5966,9 +5966,9 @@ finished.sink.split:                              ; preds = %for.body181, %for.c
   br label %finished
 
 finished:                                         ; preds = %while.body126, %finished.sink.split, %for.end, %while.end127, %while.end
+  %x.3 = phi double [ %call3, %while.end ], [ 0.000000e+00, %while.end127 ], [ 0.000000e+00, %for.end ], [ %call329, %finished.sink.split ], [ 0.000000e+00, %while.body126 ]
   %s.9 = phi ptr [ %3, %while.end ], [ %s.8, %while.end127 ], [ %s.8, %for.end ], [ %s.8, %finished.sink.split ], [ %s.8, %while.body126 ]
   %negate.1 = phi i32 [ 0, %while.end ], [ %negate.0, %while.end127 ], [ %negate.0, %for.end ], [ %negate.0, %finished.sink.split ], [ %negate.0, %while.body126 ]
-  %x.3 = phi double [ %call3, %while.end ], [ 0.000000e+00, %while.end127 ], [ 0.000000e+00, %for.end ], [ %call329, %finished.sink.split ], [ 0.000000e+00, %while.body126 ]
   br label %while.cond330
 
 while.cond330:                                    ; preds = %while.cond330, %finished

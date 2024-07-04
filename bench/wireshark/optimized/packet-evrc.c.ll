@@ -382,18 +382,18 @@ define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr n
 
 .lr.ph7:                                          ; preds = %12, %.lr.ph7
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph7 ], [ 0, %12 ]
-  %.01374 = phi i32 [ %33, %.lr.ph7 ], [ 1, %12 ]
+  %.01365 = phi i32 [ %33, %.lr.ph7 ], [ 1, %12 ]
   %19 = load i32, ptr @ett_toc, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %21 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %11, ptr noundef %0, i32 noundef %.01374, i32 noundef 1, i32 noundef %19, ptr noundef null, ptr noundef nonnull @.str.102, i32 noundef %20) #3
+  %21 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %11, ptr noundef %0, i32 noundef %.01365, i32 noundef 1, i32 noundef %19, ptr noundef null, ptr noundef nonnull @.str.102, i32 noundef %20) #3
   %22 = load i32, ptr @hf_evrc_legacy_toc_fe_ind, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %0, i32 noundef %.01374, i32 noundef 1, i32 noundef 0) #3
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %0, i32 noundef %.01365, i32 noundef 1, i32 noundef 0) #3
   %24 = load i32, ptr @hf_evrc_legacy_toc_reduc_rate, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %24, ptr noundef %0, i32 noundef %.01374, i32 noundef 1, i32 noundef 0) #3
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %24, ptr noundef %0, i32 noundef %.01365, i32 noundef 1, i32 noundef 0) #3
   %26 = load i32, ptr @hf_evrc_legacy_toc_frame_type, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %26, ptr noundef %0, i32 noundef %.01374, i32 noundef 1, i32 noundef 0) #3
-  %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.01374) #3
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %26, ptr noundef %0, i32 noundef %.01365, i32 noundef 1, i32 noundef 0) #3
+  %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.01365) #3
   %29 = icmp slt i8 %28, 0
   %30 = and i8 %28, 127
   %31 = icmp ult i8 %30, 5
@@ -404,9 +404,9 @@ define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr n
   %.0.i = select i1 %31, i8 %switch.masked, i8 0
   %32 = getelementptr [32 x i8], ptr %5, i64 0, i64 %indvars.iv
   store i8 %.0.i, ptr %32, align 1
-  %33 = add nuw nsw i32 %.01374, 1
+  %33 = add nuw nsw i32 %.01365, 1
   %34 = icmp ult i64 %indvars.iv, 31
-  %or.cond = and i1 %29, %34
+  %or.cond = and i1 %34, %29
   %.not150 = icmp ne i32 %7, %33
   %or.cond153.not = and i1 %or.cond, %.not150
   br i1 %or.cond153.not, label %.lr.ph7, label %.critedge.loopexit, !llvm.loop !4
@@ -472,10 +472,10 @@ default.unreachable:                              ; preds = %6
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57, %89
-  %.11382 = phi i32 [ %90, %89 ], [ 2, %57 ]
-  %.01391 = phi i8 [ %.1140, %89 ], [ 0, %57 ]
-  %74 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.11382) #3
-  %75 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %.0133, ptr noundef %0, i32 noundef %.11382, i32 noundef 1, i32 noundef 0) #3
+  %.12 = phi i32 [ %90, %89 ], [ 2, %57 ]
+  %.01371 = phi i8 [ %.1138, %89 ], [ 0, %57 ]
+  %74 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.12) #3
+  %75 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %.0133, ptr noundef %0, i32 noundef %.12, i32 noundef 1, i32 noundef 0) #3
   %76 = icmp ult i8 %74, 80
   %77 = lshr i8 %74, 1
   %78 = and i8 %77, 120
@@ -483,15 +483,15 @@ default.unreachable:                              ; preds = %6
   %switch.downshift30 = lshr i40 94657380864, %switch.shiftamt29
   %switch.masked31 = trunc i40 %switch.downshift30 to i8
   %.0.i154 = select i1 %76, i8 %switch.masked31, i8 0
-  %79 = zext i8 %.01391 to i64
+  %79 = zext i8 %.01371 to i64
   %80 = getelementptr [32 x i8], ptr %5, i64 0, i64 %79
   store i8 %.0.i154, ptr %80, align 1
-  %81 = add i8 %.01391, 1
+  %81 = add i8 %.01371, 1
   %.not149 = icmp ugt i8 %81, %68
   br i1 %.not149, label %89, label %evrc_frame_type_to_octs.exit157
 
 evrc_frame_type_to_octs.exit157:                  ; preds = %.lr.ph
-  %82 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %.0, ptr noundef %0, i32 noundef %.11382, i32 noundef 1, i32 noundef 0) #3
+  %82 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %.0, ptr noundef %0, i32 noundef %.12, i32 noundef 1, i32 noundef 0) #3
   %83 = and i8 %74, 15
   %84 = icmp ult i8 %83, 5
   %85 = shl nuw nsw i8 %83, 3
@@ -502,32 +502,32 @@ evrc_frame_type_to_octs.exit157:                  ; preds = %.lr.ph
   %86 = zext i8 %81 to i64
   %87 = getelementptr [32 x i8], ptr %5, i64 0, i64 %86
   store i8 %.0.i156, ptr %87, align 1
-  %88 = add i8 %.01391, 2
+  %88 = add i8 %.01371, 2
   br label %89
 
 89:                                               ; preds = %evrc_frame_type_to_octs.exit157, %.lr.ph
-  %.1140 = phi i8 [ %88, %evrc_frame_type_to_octs.exit157 ], [ %81, %.lr.ph ]
-  %90 = add i32 %.11382, 1
-  %91 = icmp ule i8 %.1140, %68
+  %.1138 = phi i8 [ %88, %evrc_frame_type_to_octs.exit157 ], [ %81, %.lr.ph ]
+  %90 = add i32 %.12, 1
+  %91 = icmp ule i8 %.1138, %68
   %92 = icmp ne i32 %7, %90
   %93 = and i1 %91, %92
   br i1 %93, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %89, %57
-  %.1138.lcssa = phi i32 [ 2, %57 ], [ %90, %89 ]
+  %.1.lcssa = phi i32 [ 2, %57 ], [ %90, %89 ]
   %94 = and i32 %70, 1
   %.not148 = icmp eq i32 %94, 0
   br i1 %.not148, label %99, label %95
 
 95:                                               ; preds = %._crit_edge
   %96 = load i32, ptr @hf_evrc_padding, align 4
-  %97 = add i32 %.1138.lcssa, -1
+  %97 = add i32 %.1.lcssa, -1
   %98 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %96, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0) #3
   br label %99
 
 99:                                               ; preds = %95, %._crit_edge
   %100 = load ptr, ptr %4, align 8
-  %101 = add i32 %.1138.lcssa, -2
+  %101 = add i32 %.1.lcssa, -2
   call void @proto_item_set_len(ptr noundef %100, i32 noundef %101) #3
   br label %.lr.ph12.preheader
 
@@ -536,9 +536,9 @@ evrc_frame_type_to_octs.exit157:                  ; preds = %.lr.ph
   br label %.lr.ph12.preheader
 
 .lr.ph12.preheader:                               ; preds = %99, %.critedge.loopexit
-  %.2.ph = phi i32 [ %33, %.critedge.loopexit ], [ %.1138.lcssa, %99 ]
-  %.1.ph = phi i8 [ %102, %.critedge.loopexit ], [ %narrow, %99 ]
-  %wide.trip.count = zext i8 %.1.ph to i64
+  %.1141.ph = phi i8 [ %102, %.critedge.loopexit ], [ %narrow, %99 ]
+  %.2.ph = phi i32 [ %33, %.critedge.loopexit ], [ %.1.lcssa, %99 ]
+  %wide.trip.count = zext i8 %.1141.ph to i64
   br label %.lr.ph12
 
 .lr.ph12:                                         ; preds = %.lr.ph12.preheader, %108

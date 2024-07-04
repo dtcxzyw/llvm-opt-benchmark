@@ -6842,9 +6842,9 @@ _ZN12clap_builder5error7Message9formatted17hb8a5085a0c6ccae7E.exit.i: ; preds = 
   br label %"_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h9389c8003c74298dE.exit"
 
 "_ZN5alloc6borrow12Cow$LT$B$GT$10into_owned17h9389c8003c74298dE.exit": ; preds = %.noexc, %_ZN12clap_builder5error7Message9formatted17hb8a5085a0c6ccae7E.exit.i
-  %.sroa.0.sroa.0.0 = phi i64 [ %.sroa.0.sroa.0.0.copyload, %.noexc ], [ %.sroa.0.1, %_ZN12clap_builder5error7Message9formatted17hb8a5085a0c6ccae7E.exit.i ]
-  %.sroa.0.sroa.6.0 = phi ptr [ %.sroa.0.sroa.6.0.copyload, %.noexc ], [ %.sroa.6.1, %_ZN12clap_builder5error7Message9formatted17hb8a5085a0c6ccae7E.exit.i ]
   %.sroa.0.sroa.7.0 = phi i64 [ %.sroa.0.sroa.7.0.copyload, %.noexc ], [ %.sroa.8.1, %_ZN12clap_builder5error7Message9formatted17hb8a5085a0c6ccae7E.exit.i ]
+  %.sroa.0.sroa.6.0 = phi ptr [ %.sroa.0.sroa.6.0.copyload, %.noexc ], [ %.sroa.6.1, %_ZN12clap_builder5error7Message9formatted17hb8a5085a0c6ccae7E.exit.i ]
+  %.sroa.0.sroa.0.0 = phi i64 [ %.sroa.0.sroa.0.0.copyload, %.noexc ], [ %.sroa.0.1, %_ZN12clap_builder5error7Message9formatted17hb8a5085a0c6ccae7E.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1926)
   call void @llvm.experimental.noalias.scope.decl(metadata !1929)
   call void @llvm.experimental.noalias.scope.decl(metadata !1931)

@@ -3611,69 +3611,69 @@ define dso_local void @_ZN8FileLine18lineDirectiveParseEPKcRNSt7__cxx1112basic_s
 
 .lr.ph:                                           ; preds = %5, %18
   %15 = phi i8 [ %20, %18 ], [ %14, %5 ]
-  %.0130 = phi ptr [ %19, %18 ], [ %1, %5 ]
+  %.067130 = phi ptr [ %19, %18 ], [ %1, %5 ]
   %16 = sext i8 %15 to i32
   %17 = tail call i32 @isspace(i32 noundef %16) #23
   %.not82 = icmp eq i32 %17, 0
   br i1 %.not82, label %.lr.ph135, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %.0130, i64 1
+  %19 = getelementptr inbounds i8, ptr %.067130, i64 1
   %20 = load i8, ptr %19, align 1
   %.not = icmp eq i8 %20, 0
   br i1 %.not, label %.critedge6, label %.lr.ph, !llvm.loop !96
 
 .lr.ph135:                                        ; preds = %.lr.ph, %24
   %21 = phi i8 [ %26, %24 ], [ %15, %.lr.ph ]
-  %.1134 = phi ptr [ %25, %24 ], [ %.0130, %.lr.ph ]
+  %.168134 = phi ptr [ %25, %24 ], [ %.067130, %.lr.ph ]
   %22 = sext i8 %21 to i32
   %23 = tail call i32 @isspace(i32 noundef %22) #23
   %.not84 = icmp eq i32 %23, 0
   br i1 %.not84, label %24, label %.lr.ph141
 
 24:                                               ; preds = %.lr.ph135
-  %25 = getelementptr inbounds i8, ptr %.1134, i64 1
+  %25 = getelementptr inbounds i8, ptr %.168134, i64 1
   %26 = load i8, ptr %25, align 1
   %.not83 = icmp eq i8 %26, 0
   br i1 %.not83, label %.critedge6, label %.lr.ph135, !llvm.loop !97
 
 .lr.ph141:                                        ; preds = %.lr.ph135, %30
   %27 = phi i8 [ %32, %30 ], [ %21, %.lr.ph135 ]
-  %.2140 = phi ptr [ %31, %30 ], [ %.1134, %.lr.ph135 ]
+  %.269140 = phi ptr [ %31, %30 ], [ %.168134, %.lr.ph135 ]
   %28 = sext i8 %27 to i32
   %29 = tail call i32 @isspace(i32 noundef %28) #23
   %.not86 = icmp eq i32 %29, 0
   br i1 %.not86, label %.lr.ph149, label %30
 
 30:                                               ; preds = %.lr.ph141
-  %31 = getelementptr inbounds i8, ptr %.2140, i64 1
+  %31 = getelementptr inbounds i8, ptr %.269140, i64 1
   %32 = load i8, ptr %31, align 1
   %.not85 = icmp eq i8 %32, 0
   br i1 %.not85, label %.critedge6, label %.lr.ph141, !llvm.loop !98
 
 .lr.ph149:                                        ; preds = %.lr.ph141, %36
   %33 = phi i8 [ %38, %36 ], [ %27, %.lr.ph141 ]
-  %.3148 = phi ptr [ %37, %36 ], [ %.2140, %.lr.ph141 ]
+  %.370148 = phi ptr [ %37, %36 ], [ %.269140, %.lr.ph141 ]
   %34 = sext i8 %33 to i32
   %35 = tail call i32 @isspace(i32 noundef %34) #23
   %.not88 = icmp eq i32 %35, 0
   br i1 %.not88, label %36, label %.critedge6
 
 36:                                               ; preds = %.lr.ph149
-  %37 = getelementptr inbounds i8, ptr %.3148, i64 1
+  %37 = getelementptr inbounds i8, ptr %.370148, i64 1
   %38 = load i8, ptr %37, align 1
   %.not87 = icmp eq i8 %38, 0
   br i1 %.not87, label %.critedge6, label %.lr.ph149, !llvm.loop !99
 
 .critedge6:                                       ; preds = %18, %24, %30, %.lr.ph149, %36, %5
-  %.2.lcssa170 = phi ptr [ %1, %5 ], [ %.2140, %36 ], [ %.2140, %.lr.ph149 ], [ %31, %30 ], [ %25, %24 ], [ %19, %18 ]
+  %.269.lcssa170 = phi ptr [ %1, %5 ], [ %.269140, %36 ], [ %.269140, %.lr.ph149 ], [ %31, %30 ], [ %25, %24 ], [ %19, %18 ]
   %39 = phi i8 [ 0, %5 ], [ %27, %36 ], [ %27, %.lr.ph149 ], [ 0, %30 ], [ 0, %24 ], [ 0, %18 ]
   %40 = phi i8 [ 0, %5 ], [ %33, %.lr.ph149 ], [ 0, %36 ], [ 0, %30 ], [ 0, %24 ], [ 0, %18 ]
-  %.3.lcssa = phi ptr [ %1, %5 ], [ %.3148, %.lr.ph149 ], [ %37, %36 ], [ %31, %30 ], [ %25, %24 ], [ %19, %18 ]
-  %41 = ptrtoint ptr %.3.lcssa to i64
-  %42 = ptrtoint ptr %.2.lcssa170 to i64
+  %.370.lcssa = phi ptr [ %1, %5 ], [ %.370148, %.lr.ph149 ], [ %37, %36 ], [ %31, %30 ], [ %25, %24 ], [ %19, %18 ]
+  %41 = ptrtoint ptr %.370.lcssa to i64
+  %42 = ptrtoint ptr %.269.lcssa170 to i64
   %43 = sub i64 %41, %42
-  %44 = tail call i32 @strncmp(ptr noundef nonnull %.2.lcssa170, ptr noundef nonnull @.str.37, i64 noundef %43) #23
+  %44 = tail call i32 @strncmp(ptr noundef nonnull %.269.lcssa170, ptr noundef nonnull @.str.37, i64 noundef %43) #23
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %50
 
@@ -3690,7 +3690,7 @@ define dso_local void @_ZN8FileLine18lineDirectiveParseEPKcRNSt7__cxx1112basic_s
   br i1 %isdigit, label %52, label %.critedge8.thread
 
 52:                                               ; preds = %50
-  %53 = tail call i32 @atoi(ptr nocapture noundef nonnull %.2.lcssa170) #23
+  %53 = tail call i32 @atoi(ptr nocapture noundef nonnull %.269.lcssa170) #23
   br label %54
 
 54:                                               ; preds = %52, %46
@@ -3700,14 +3700,14 @@ define dso_local void @_ZN8FileLine18lineDirectiveParseEPKcRNSt7__cxx1112basic_s
 
 .lr.ph155:                                        ; preds = %54, %58
   %55 = phi i8 [ %60, %58 ], [ %40, %54 ]
-  %.4154 = phi ptr [ %59, %58 ], [ %.3.lcssa, %54 ]
+  %.471154 = phi ptr [ %59, %58 ], [ %.370.lcssa, %54 ]
   %56 = sext i8 %55 to i32
   %57 = tail call i32 @isspace(i32 noundef %56) #23
   %.not90 = icmp eq i32 %57, 0
   br i1 %.not90, label %.critedge8, label %58
 
 58:                                               ; preds = %.lr.ph155
-  %59 = getelementptr inbounds i8, ptr %.4154, i64 1
+  %59 = getelementptr inbounds i8, ptr %.471154, i64 1
   %60 = load i8, ptr %59, align 1
   %.not89 = icmp eq i8 %60, 0
   br i1 %.not89, label %.critedge8.thread, label %.lr.ph155, !llvm.loop !100
@@ -3717,19 +3717,19 @@ define dso_local void @_ZN8FileLine18lineDirectiveParseEPKcRNSt7__cxx1112basic_s
   br i1 %.not91, label %61, label %.critedge8.thread
 
 61:                                               ; preds = %.critedge8
-  %62 = getelementptr inbounds i8, ptr %.4154, i64 1
+  %62 = getelementptr inbounds i8, ptr %.471154, i64 1
   br label %63
 
 63:                                               ; preds = %65, %61
-  %.5 = phi ptr [ %62, %61 ], [ %66, %65 ]
-  %64 = load i8, ptr %.5, align 1
+  %.572 = phi ptr [ %62, %61 ], [ %66, %65 ]
+  %64 = load i8, ptr %.572, align 1
   switch i8 %64, label %65 [
     i8 34, label %67
     i8 0, label %.critedge8.thread
   ]
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %.5, i64 1
+  %66 = getelementptr inbounds i8, ptr %.572, i64 1
   br label %63, !llvm.loop !101
 
 67:                                               ; preds = %63
@@ -3745,7 +3745,7 @@ define dso_local void @_ZN8FileLine18lineDirectiveParseEPKcRNSt7__cxx1112basic_s
 .noexc108:                                        ; preds = %.noexc
   %69 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 0, ptr %69, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %62, ptr noundef nonnull %.5)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %62, ptr noundef nonnull %.572)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit unwind label %70
 
 70:                                               ; preds = %.noexc108
@@ -3846,8 +3846,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %105
 
 96:                                               ; preds = %.preheader, %98
-  %.5.pn = phi ptr [ %.6, %98 ], [ %.5, %.preheader ]
-  %.6 = getelementptr inbounds i8, ptr %.5.pn, i64 1
+  %.572.pn = phi ptr [ %.6, %98 ], [ %.572, %.preheader ]
+  %.6 = getelementptr inbounds i8, ptr %.572.pn, i64 1
   %97 = load i8, ptr %.6, align 1
   %.not98 = icmp eq i8 %97, 0
   br i1 %.not98, label %.critedge12.thread, label %98

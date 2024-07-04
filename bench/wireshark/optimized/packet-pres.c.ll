@@ -695,12 +695,12 @@ define internal i32 @dissect_pres(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %30
 
 30:                                               ; preds = %25, %23
-  %.060 = phi ptr [ %29, %25 ], [ null, %23 ]
+  %.059 = phi ptr [ %29, %25 ], [ null, %23 ]
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %7)
   call void @asn1_ctx_init(ptr noundef nonnull %7, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %1) #6
   %31 = load i32, ptr @hf_pres_UD_type_PDU, align 4
   %32 = load i32, ptr @ett_pres_UD_type, align 4
-  %33 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef %.060, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @UD_type_sequence, i32 noundef %31, i32 noundef %32) #6
+  %33 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef %.059, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @UD_type_sequence, i32 noundef %31, i32 noundef %32) #6
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %7)
   %34 = call i32 @tvb_captured_length(ptr noundef %0) #6
   br label %133
@@ -817,8 +817,8 @@ dissect_ppdu.exit.us:                             ; preds = %.split.us
   br label %.split74
 
 .split:                                           ; preds = %.split.preheader, %dissect_ppdu.exit
-  %.059 = phi i32 [ %.0.i69, %dissect_ppdu.exit ], [ 0, %.split.preheader ]
-  %81 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.059) #6
+  %.060 = phi i32 [ %.0.i69, %dissect_ppdu.exit ], [ 0, %.split.preheader ]
+  %81 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.060) #6
   %82 = icmp sgt i32 %81, 0
   br i1 %82, label %83, label %.loopexit
 
@@ -830,7 +830,7 @@ dissect_ppdu.exit.us:                             ; preds = %.split.us
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %83
-  %87 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pres_wrong_spdu_type, ptr noundef %0, i32 noundef %.059, i32 noundef -1, ptr noundef nonnull @.str.247, i32 noundef 0) #6
+  %87 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pres_wrong_spdu_type, ptr noundef %0, i32 noundef %.060, i32 noundef -1, ptr noundef nonnull @.str.247, i32 noundef 0) #6
   br label %dissect_ppdu.exit
 
 88:                                               ; preds = %83
@@ -840,7 +840,7 @@ dissect_ppdu.exit.us:                             ; preds = %.split.us
   call void @col_add_str(ptr noundef %90, i32 noundef 25, ptr noundef %91) #6
   store ptr %3, ptr %74, align 8
   %92 = load i32, ptr @proto_pres, align 4
-  %93 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %92, ptr noundef %0, i32 noundef %.059, i32 noundef -1, i32 noundef 0) #6
+  %93 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %92, ptr noundef %0, i32 noundef %.060, i32 noundef -1, i32 noundef 0) #6
   %94 = load i32, ptr @ett_pres, align 4
   %95 = call ptr @proto_item_add_subtree(ptr noundef %93, i32 noundef %94) #6
   %96 = load i8, ptr %3, align 4
@@ -859,59 +859,59 @@ dissect_ppdu.exit.us:                             ; preds = %.split.us
 97:                                               ; preds = %88
   %98 = load i32, ptr @hf_pres_CP_type, align 4
   %99 = load i32, ptr @ett_pres_CP_type, align 4
-  %100 = call i32 @dissect_ber_set(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.059, ptr noundef nonnull @CP_type_set, i32 noundef %98, i32 noundef %99) #6
+  %100 = call i32 @dissect_ber_set(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.060, ptr noundef nonnull @CP_type_set, i32 noundef %98, i32 noundef %99) #6
   br label %dissect_ppdu.exit
 
 101:                                              ; preds = %88
   %102 = load i32, ptr @hf_pres_CPA_PPDU, align 4
   %103 = load i32, ptr @ett_pres_CPA_PPDU, align 4
-  %104 = call i32 @dissect_ber_set(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.059, ptr noundef nonnull @CPA_PPDU_set, i32 noundef %102, i32 noundef %103) #6
+  %104 = call i32 @dissect_ber_set(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.060, ptr noundef nonnull @CPA_PPDU_set, i32 noundef %102, i32 noundef %103) #6
   br label %dissect_ppdu.exit
 
 105:                                              ; preds = %88, %88
   %106 = load i32, ptr @hf_pres_Abort_type, align 4
   %107 = load i32, ptr @ett_pres_Abort_type, align 4
-  %108 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.059, ptr noundef nonnull @Abort_type_choice, i32 noundef %106, i32 noundef %107, ptr noundef null) #6
+  %108 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.060, ptr noundef nonnull @Abort_type_choice, i32 noundef %106, i32 noundef %107, ptr noundef null) #6
   br label %dissect_ppdu.exit
 
 109:                                              ; preds = %88
   %110 = load i32, ptr @hf_pres_user_data, align 4
   %111 = load i32, ptr @ett_pres_User_data, align 4
-  %112 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.059, ptr noundef nonnull @User_data_choice, i32 noundef %110, i32 noundef %111, ptr noundef null) #6
+  %112 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.060, ptr noundef nonnull @User_data_choice, i32 noundef %110, i32 noundef %111, ptr noundef null) #6
   br label %dissect_ppdu.exit
 
 113:                                              ; preds = %88
   %114 = load i32, ptr @hf_pres_Typed_data_type, align 4
   %115 = load i32, ptr @ett_pres_Typed_data_type, align 4
-  %116 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.059, ptr noundef nonnull @Typed_data_type_choice, i32 noundef %114, i32 noundef %115, ptr noundef null) #6
+  %116 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.060, ptr noundef nonnull @Typed_data_type_choice, i32 noundef %114, i32 noundef %115, ptr noundef null) #6
   br label %dissect_ppdu.exit
 
 117:                                              ; preds = %88
   %118 = load i32, ptr @ett_pres_RS_PPDU, align 4
-  %119 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.059, ptr noundef nonnull @RS_PPDU_sequence, i32 noundef -1, i32 noundef %118) #6
+  %119 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.060, ptr noundef nonnull @RS_PPDU_sequence, i32 noundef -1, i32 noundef %118) #6
   br label %dissect_ppdu.exit
 
 120:                                              ; preds = %88
   %121 = load i32, ptr @ett_pres_RSA_PPDU, align 4
-  %122 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.059, ptr noundef nonnull @RSA_PPDU_sequence, i32 noundef -1, i32 noundef %121) #6
+  %122 = call i32 @dissect_ber_sequence(i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.060, ptr noundef nonnull @RSA_PPDU_sequence, i32 noundef -1, i32 noundef %121) #6
   br label %dissect_ppdu.exit
 
 123:                                              ; preds = %88
   %124 = load i32, ptr @hf_pres_CPR_PPDU, align 4
   %125 = load i32, ptr @ett_pres_CPR_PPDU, align 4
-  %126 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.059, ptr noundef nonnull @CPR_PPDU_choice, i32 noundef %124, i32 noundef %125, ptr noundef null) #6
+  %126 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.060, ptr noundef nonnull @CPR_PPDU_choice, i32 noundef %124, i32 noundef %125, ptr noundef null) #6
   br label %dissect_ppdu.exit
 
 127:                                              ; preds = %88
   %128 = load i32, ptr @hf_pres_user_data, align 4
   %129 = load i32, ptr @ett_pres_User_data, align 4
-  %130 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.059, ptr noundef nonnull @User_data_choice, i32 noundef %128, i32 noundef %129, ptr noundef null) #6
+  %130 = call i32 @dissect_ber_choice(ptr noundef nonnull %5, ptr noundef %95, ptr noundef %0, i32 noundef %.060, ptr noundef nonnull @User_data_choice, i32 noundef %128, i32 noundef %129, ptr noundef null) #6
   br label %dissect_ppdu.exit
 
 dissect_ppdu.exit:                                ; preds = %86, %97, %101, %105, %109, %113, %117, %120, %123, %127
   %.0.i69 = phi i32 [ 0, %86 ], [ %130, %127 ], [ %126, %123 ], [ %122, %120 ], [ %119, %117 ], [ %116, %113 ], [ %112, %109 ], [ %108, %105 ], [ %104, %101 ], [ %100, %97 ]
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5)
-  %.not66 = icmp sgt i32 %.0.i69, %.059
+  %.not66 = icmp sgt i32 %.0.i69, %.060
   br i1 %.not66, label %.split, label %.split74, !llvm.loop !6
 
 .split74:                                         ; preds = %dissect_ppdu.exit, %dissect_ppdu.exit.us

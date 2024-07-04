@@ -554,20 +554,20 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %54
 
 54:                                               ; preds = %.lr.ph164, %.cont
-  %.0111161 = phi i32 [ 1, %.lr.ph164 ], [ %278, %.cont ]
-  %.0112160 = phi ptr [ %49, %.lr.ph164 ], [ %277, %.cont ]
+  %.0110161 = phi i32 [ 1, %.lr.ph164 ], [ %278, %.cont ]
+  %.0111160 = phi ptr [ %49, %.lr.ph164 ], [ %277, %.cont ]
   %.0159 = phi i32 [ 0, %.lr.ph164 ], [ %.3, %.cont ]
   %.0140158 = phi i32 [ 0, %.lr.ph164 ], [ %.3143, %.cont ]
-  %55 = load ptr, ptr %.0112160, align 8
+  %55 = load ptr, ptr %.0111160, align 8
   %56 = load i32, ptr %55, align 8
   %.not118 = icmp eq i32 %56, 0
   %57 = load i32, ptr %50, align 8
-  %58 = icmp ult i32 %.0111161, %57
+  %58 = icmp ult i32 %.0110161, %57
   br i1 %58, label %62, label %59
 
 59:                                               ; preds = %54
   %60 = load i32, ptr %51, align 4
-  %61 = icmp ugt i32 %.0111161, %60
+  %61 = icmp ugt i32 %.0110161, %60
   br i1 %61, label %62, label %68
 
 62:                                               ; preds = %59, %54
@@ -851,7 +851,7 @@ follow_print_hex.exit:                            ; preds = %141, %83
 .lr.ph151:                                        ; preds = %.thread, %.lr.ph151
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph151 ], [ 0, %.thread ]
   %212 = phi ptr [ %234, %.lr.ph151 ], [ %209, %.thread ]
-  %.0110149 = phi i32 [ %231, %.lr.ph151 ], [ 0, %.thread ]
+  %.0112149 = phi i32 [ %231, %.lr.ph151 ], [ 0, %.thread ]
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr i8, ptr %213, i64 %indvars.iv
   %215 = load i8, ptr %214, align 1
@@ -859,8 +859,8 @@ follow_print_hex.exit:                            ; preds = %141, %83
   %217 = zext nneg i8 %216 to i64
   %218 = getelementptr [16 x i8], ptr @bin2hex, i64 0, i64 %217
   %219 = load i8, ptr %218, align 1
-  %220 = or disjoint i32 %.0110149, 1
-  %221 = zext i32 %.0110149 to i64
+  %220 = or disjoint i32 %.0112149, 1
+  %221 = zext i32 %.0112149 to i64
   %222 = getelementptr i8, ptr %208, i64 %221
   store i8 %219, ptr %222, align 1
   %223 = load ptr, ptr %201, align 8
@@ -871,7 +871,7 @@ follow_print_hex.exit:                            ; preds = %141, %83
   %228 = zext nneg i8 %227 to i64
   %229 = getelementptr [16 x i8], ptr @bin2hex, i64 0, i64 %228
   %230 = load i8, ptr %229, align 1
-  %231 = add i32 %.0110149, 2
+  %231 = add i32 %.0112149, 2
   %232 = zext i32 %220 to i64
   %233 = getelementptr i8, ptr %208, i64 %232
   store i8 %230, ptr %233, align 1
@@ -884,9 +884,9 @@ follow_print_hex.exit:                            ; preds = %141, %83
   br i1 %238, label %.lr.ph151, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph151, %.thread
-  %.0110.lcssa = phi i32 [ 0, %.thread ], [ %231, %.lr.ph151 ]
-  %239 = or disjoint i32 %.0110.lcssa, 1
-  %240 = zext i32 %.0110.lcssa to i64
+  %.0112.lcssa = phi i32 [ 0, %.thread ], [ %231, %.lr.ph151 ]
+  %239 = or disjoint i32 %.0112.lcssa, 1
+  %240 = zext i32 %.0112.lcssa to i64
   %241 = getelementptr i8, ptr %208, i64 %240
   store i8 10, ptr %241, align 1
   %242 = zext i32 %239 to i64
@@ -944,9 +944,9 @@ follow_print_hex.exit:                            ; preds = %141, %83
 .cont:                                            ; preds = %.lr.ph, %245, %follow_print_hex.exit, %62, %182, %184, %._crit_edge
   %.3143 = phi i32 [ %.0140158, %._crit_edge ], [ %.0140158, %184 ], [ %.0140158, %182 ], [ %spec.select144, %62 ], [ %spec.select146, %follow_print_hex.exit ], [ %.0140158, %245 ], [ %.0140158, %.lr.ph ]
   %.3 = phi i32 [ %.0159, %._crit_edge ], [ %.0159, %184 ], [ %.0159, %182 ], [ %spec.select145, %62 ], [ %spec.select147, %follow_print_hex.exit ], [ %.0159, %245 ], [ %.0159, %.lr.ph ]
-  %276 = getelementptr inbounds i8, ptr %.0112160, i64 16
+  %276 = getelementptr inbounds i8, ptr %.0111160, i64 16
   %277 = load ptr, ptr %276, align 8
-  %278 = add i32 %.0111161, 1
+  %278 = add i32 %.0110161, 1
   %.not = icmp eq ptr %277, null
   br i1 %.not, label %._crit_edge165, label %54, !llvm.loop !11
 

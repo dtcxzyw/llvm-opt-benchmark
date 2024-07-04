@@ -253,8 +253,8 @@ define internal i32 @dissect_pana(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %39
 
 39:                                               ; preds = %32, %29, %26, %23, %18, %15, %13, %11, %7, %4, %37
-  %.0 = phi i32 [ %38, %37 ], [ 0, %4 ], [ 0, %7 ], [ 0, %11 ], [ 0, %13 ], [ 0, %15 ], [ 0, %18 ], [ 0, %23 ], [ 0, %26 ], [ 0, %29 ], [ 0, %32 ]
-  ret i32 %.0
+  %.040 = phi i32 [ %38, %37 ], [ 0, %4 ], [ 0, %7 ], [ 0, %11 ], [ 0, %13 ], [ 0, %15 ], [ 0, %18 ], [ 0, %23 ], [ 0, %26 ], [ 0, %29 ], [ 0, %32 ]
+  ret i32 %.040
 }
 
 ; Function Attrs: nounwind uwtable
@@ -331,7 +331,7 @@ define internal fastcc void @dissect_pana_pdu(ptr noundef %0, ptr noundef %1, pt
   br label %35
 
 35:                                               ; preds = %29, %25
-  %.098 = phi ptr [ %28, %25 ], [ %31, %29 ]
+  %.099 = phi ptr [ %28, %25 ], [ %31, %29 ]
   %36 = getelementptr inbounds i8, ptr %1, i64 80
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 50
@@ -355,14 +355,14 @@ define internal fastcc void @dissect_pana_pdu(ptr noundef %0, ptr noundef %1, pt
   %47 = getelementptr inbounds i8, ptr %43, i64 8
   %48 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
-  %49 = load ptr, ptr %.098, align 8
+  %49 = load ptr, ptr %.099, align 8
   %50 = zext i32 %12 to i64
   %51 = inttoptr i64 %50 to ptr
   %52 = tail call ptr @wmem_map_insert(ptr noundef %49, ptr noundef %51, ptr noundef nonnull %43) #5
   br label %72
 
 53:                                               ; preds = %41
-  %54 = load ptr, ptr %.098, align 8
+  %54 = load ptr, ptr %.099, align 8
   %55 = zext i32 %12 to i64
   %56 = inttoptr i64 %55 to ptr
   %57 = tail call ptr @wmem_map_lookup(ptr noundef %54, ptr noundef %56) #5
@@ -377,7 +377,7 @@ define internal fastcc void @dissect_pana_pdu(ptr noundef %0, ptr noundef %1, pt
   br label %81
 
 61:                                               ; preds = %35
-  %62 = load ptr, ptr %.098, align 8
+  %62 = load ptr, ptr %.099, align 8
   %63 = zext i32 %12 to i64
   %64 = inttoptr i64 %63 to ptr
   %65 = tail call ptr @wmem_map_lookup(ptr noundef %62, ptr noundef %64) #5
@@ -558,7 +558,7 @@ define internal fastcc void @dissect_avps(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph:                                           ; preds = %3, %105
   %.0138 = phi i32 [ %107, %105 ], [ 0, %3 ]
-  %.0127137 = phi i32 [ %108, %105 ], [ %4, %3 ]
+  %.0125137 = phi i32 [ %108, %105 ], [ %4, %3 ]
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0138) #5
   %7 = add i32 %.0138, 2
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #5
@@ -754,7 +754,7 @@ pana_avp_get_type.exit:                           ; preds = %13, %17, %19, %20, 
   %.1135 = phi i32 [ %49, %54 ], [ %49, %64 ], [ %49, %67 ], [ %49, %70 ], [ %49, %73 ], [ %49, %76 ], [ %49, %79 ], [ %49, %82 ], [ %49, %85 ], [ %49, %88 ], [ %49, %99 ], [ %49, %101 ], [ %53, %50 ]
   %106 = add nuw nsw i32 %30, %11
   %107 = add i32 %106, %.1135
-  %108 = sub nsw i32 %.0127137, %31
+  %108 = sub nsw i32 %.0125137, %31
   %109 = icmp sgt i32 %108, 0
   br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 

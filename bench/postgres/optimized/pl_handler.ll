@@ -155,7 +155,7 @@ define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr nocaptur
 
 .lr.ph45:                                         ; preds = %.lr.ph, %53
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph ]
-  %.0293744 = phi i32 [ %54, %53 ], [ 0, %.lr.ph ]
+  %.03744 = phi i32 [ %54, %53 ], [ 0, %.lr.ph ]
   %27 = load ptr, ptr %24, align 8
   %28 = getelementptr %union.ListCell, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
@@ -207,7 +207,7 @@ define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr nocaptur
 
 53:                                               ; preds = %35, %32, %.lr.ph45
   %.sink = phi i32 [ 2, %.lr.ph45 ], [ 4, %32 ], [ 8, %35 ]
-  %54 = or i32 %.0293744, %.sink
+  %54 = or i32 %.03744, %.sink
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %23, align 4
   %56 = sext i32 %55 to i64
@@ -215,14 +215,14 @@ define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr nocaptur
   br i1 %57, label %.lr.ph45, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph, %21
-  %.029.lcssa = phi i32 [ 0, %21 ], [ 0, %.lr.ph ], [ %54, %53 ]
+  %.0.lcssa = phi i32 [ 0, %21 ], [ 0, %.lr.ph ], [ %54, %53 ]
   call void @pfree(ptr noundef %14) #10
   %58 = load ptr, ptr %4, align 8
   call void @list_free(ptr noundef %58) #10
   br label %59
 
 59:                                               ; preds = %8, %3, %._crit_edge
-  %.2 = phi i32 [ %.029.lcssa, %._crit_edge ], [ -1, %3 ], [ 0, %8 ]
+  %.2 = phi i32 [ %.0.lcssa, %._crit_edge ], [ -1, %3 ], [ 0, %8 ]
   %60 = call ptr @guc_malloc(i32 noundef 15, i64 noundef 4) #10
   %.not33 = icmp eq ptr %60, null
   br i1 %.not33, label %62, label %61
@@ -233,8 +233,8 @@ define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr nocaptur
   br label %62
 
 62:                                               ; preds = %59, %61, %48, %43, %16
-  %.0 = phi i1 [ true, %61 ], [ false, %43 ], [ false, %48 ], [ false, %16 ], [ false, %59 ]
-  ret i1 %.0
+  %.029 = phi i1 [ true, %61 ], [ false, %43 ], [ false, %48 ], [ false, %16 ], [ false, %59 ]
+  ret i1 %.029
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
@@ -605,18 +605,18 @@ define noundef i64 @plpgsql_validator(ptr nocapture noundef readonly %0) local_u
     i32 2279, label %42
     i32 3838, label %35
     i32 2249, label %.fold.split
-    i32 2278, label %.fold.split138
-    i32 2283, label %.fold.split139
-    i32 2277, label %.fold.split140
-    i32 2776, label %.fold.split141
-    i32 3500, label %.fold.split142
-    i32 3831, label %.fold.split143
-    i32 4537, label %.fold.split144
-    i32 5077, label %.fold.split145
-    i32 5078, label %.fold.split146
-    i32 5079, label %.fold.split147
-    i32 5080, label %.fold.split148
-    i32 4538, label %.fold.split149
+    i32 2278, label %.fold.split139
+    i32 2283, label %.fold.split140
+    i32 2277, label %.fold.split141
+    i32 2776, label %.fold.split142
+    i32 3500, label %.fold.split143
+    i32 3831, label %.fold.split144
+    i32 4537, label %.fold.split145
+    i32 5077, label %.fold.split146
+    i32 5078, label %.fold.split147
+    i32 5079, label %.fold.split148
+    i32 5080, label %.fold.split149
+    i32 4538, label %.fold.split150
   ]
 
 35:                                               ; preds = %33
@@ -633,9 +633,6 @@ define noundef i64 @plpgsql_validator(ptr nocapture noundef readonly %0) local_u
   unreachable
 
 .fold.split:                                      ; preds = %33
-  br label %42
-
-.fold.split138:                                   ; preds = %33
   br label %42
 
 .fold.split139:                                   ; preds = %33
@@ -671,9 +668,12 @@ define noundef i64 @plpgsql_validator(ptr nocapture noundef readonly %0) local_u
 .fold.split149:                                   ; preds = %33
   br label %42
 
-42:                                               ; preds = %33, %.fold.split149, %.fold.split148, %.fold.split147, %.fold.split146, %.fold.split145, %.fold.split144, %.fold.split143, %.fold.split142, %.fold.split141, %.fold.split140, %.fold.split139, %.fold.split138, %.fold.split, %35, %22
-  %.0124 = phi i1 [ true, %35 ], [ false, %22 ], [ false, %33 ], [ false, %.fold.split ], [ false, %.fold.split138 ], [ false, %.fold.split139 ], [ false, %.fold.split140 ], [ false, %.fold.split141 ], [ false, %.fold.split142 ], [ false, %.fold.split143 ], [ false, %.fold.split144 ], [ false, %.fold.split145 ], [ false, %.fold.split146 ], [ false, %.fold.split147 ], [ false, %.fold.split148 ], [ false, %.fold.split149 ]
-  %.0123 = phi i1 [ false, %35 ], [ false, %22 ], [ true, %33 ], [ false, %.fold.split ], [ false, %.fold.split138 ], [ false, %.fold.split139 ], [ false, %.fold.split140 ], [ false, %.fold.split141 ], [ false, %.fold.split142 ], [ false, %.fold.split143 ], [ false, %.fold.split144 ], [ false, %.fold.split145 ], [ false, %.fold.split146 ], [ false, %.fold.split147 ], [ false, %.fold.split148 ], [ false, %.fold.split149 ]
+.fold.split150:                                   ; preds = %33
+  br label %42
+
+42:                                               ; preds = %33, %.fold.split150, %.fold.split149, %.fold.split148, %.fold.split147, %.fold.split146, %.fold.split145, %.fold.split144, %.fold.split143, %.fold.split142, %.fold.split141, %.fold.split140, %.fold.split139, %.fold.split, %35, %22
+  %.0126 = phi i1 [ true, %35 ], [ false, %22 ], [ false, %33 ], [ false, %.fold.split ], [ false, %.fold.split139 ], [ false, %.fold.split140 ], [ false, %.fold.split141 ], [ false, %.fold.split142 ], [ false, %.fold.split143 ], [ false, %.fold.split144 ], [ false, %.fold.split145 ], [ false, %.fold.split146 ], [ false, %.fold.split147 ], [ false, %.fold.split148 ], [ false, %.fold.split149 ], [ false, %.fold.split150 ]
+  %.0124 = phi i1 [ false, %35 ], [ false, %22 ], [ true, %33 ], [ false, %.fold.split ], [ false, %.fold.split139 ], [ false, %.fold.split140 ], [ false, %.fold.split141 ], [ false, %.fold.split142 ], [ false, %.fold.split143 ], [ false, %.fold.split144 ], [ false, %.fold.split145 ], [ false, %.fold.split146 ], [ false, %.fold.split147 ], [ false, %.fold.split148 ], [ false, %.fold.split149 ], [ false, %.fold.split150 ]
   %43 = call i32 @get_func_arg_info(ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.lr.ph.preheader, label %._crit_edge
@@ -734,8 +734,8 @@ define noundef i64 @plpgsql_validator(ptr nocapture noundef readonly %0) local_u
 
 65:                                               ; preds = %._crit_edge
   %66 = call i32 @SPI_connect() #10
-  %.not135 = icmp eq i32 %66, 1
-  br i1 %.not135, label %71, label %67
+  %.not136 = icmp eq i32 %66, 1
+  br i1 %.not136, label %71, label %67
 
 67:                                               ; preds = %65
   %68 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
@@ -755,7 +755,7 @@ define noundef i64 @plpgsql_validator(ptr nocapture noundef readonly %0) local_u
   %74 = load ptr, ptr @CurrentMemoryContext, align 8
   %75 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %74, ptr %75, align 8
-  br i1 %.0123, label %76, label %77
+  br i1 %.0124, label %76, label %77
 
 76:                                               ; preds = %71
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, i8 0, i64 80, i1 false)
@@ -763,7 +763,7 @@ define noundef i64 @plpgsql_validator(ptr nocapture noundef readonly %0) local_u
   br label %.sink.split
 
 77:                                               ; preds = %71
-  br i1 %.0124, label %78, label %80
+  br i1 %.0126, label %78, label %80
 
 78:                                               ; preds = %77
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
@@ -779,8 +779,8 @@ define noundef i64 @plpgsql_validator(ptr nocapture noundef readonly %0) local_u
 80:                                               ; preds = %.sink.split, %77
   %81 = call ptr @plpgsql_compile(ptr noundef nonnull %5, i1 noundef zeroext true) #10
   %82 = call i32 @SPI_finish() #10
-  %.not136 = icmp eq i32 %82, 2
-  br i1 %.not136, label %87, label %83
+  %.not137 = icmp eq i32 %82, 2
+  br i1 %.not137, label %87, label %83
 
 83:                                               ; preds = %80
   %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12

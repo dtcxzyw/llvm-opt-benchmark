@@ -42,28 +42,28 @@ define i32 @cs_leaf(i32 noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr
   br i1 %27, label %.loopexit, label %.preheader62
 
 .preheader62:                                     ; preds = %24, %.preheader62
-  %.048 = phi i32 [ %31, %.preheader62 ], [ %26, %24 ]
-  %29 = sext i32 %.048 to i64
+  %.049 = phi i32 [ %31, %.preheader62 ], [ %26, %24 ]
+  %29 = sext i32 %.049 to i64
   %30 = getelementptr inbounds i32, ptr %5, i64 %29
   %31 = load i32, ptr %30, align 4
-  %.not60 = icmp eq i32 %.048, %31
+  %.not60 = icmp eq i32 %.049, %31
   br i1 %.not60, label %.preheader, label %.preheader62, !llvm.loop !4
 
 .preheader:                                       ; preds = %.preheader62
-  %.not6163 = icmp eq i32 %26, %.048
+  %.not6163 = icmp eq i32 %26, %.049
   br i1 %.not6163, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.04964 = phi i32 [ %34, %.lr.ph ], [ %26, %.preheader ]
-  %32 = sext i32 %.04964 to i64
+  %.04864 = phi i32 [ %34, %.lr.ph ], [ %26, %.preheader ]
+  %32 = sext i32 %.04864 to i64
   %33 = getelementptr inbounds i32, ptr %5, i64 %32
   %34 = load i32, ptr %33, align 4
-  store i32 %.048, ptr %33, align 4
-  %.not61 = icmp eq i32 %34, %.048
+  store i32 %.049, ptr %33, align 4
+  %.not61 = icmp eq i32 %34, %.049
   br i1 %.not61, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %24, %16, %17, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %17 ], [ -1, %16 ], [ %0, %24 ], [ %26, %.preheader ], [ %.048, %.lr.ph ]
+  %.0 = phi i32 [ -1, %7 ], [ -1, %17 ], [ -1, %16 ], [ %0, %24 ], [ %26, %.preheader ], [ %.049, %.lr.ph ]
   ret i32 %.0
 }
 

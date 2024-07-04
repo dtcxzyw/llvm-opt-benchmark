@@ -67,8 +67,8 @@ define internal i64 @codec_l16_decode(ptr nocapture noundef readonly %0, ptr noc
   br label %30
 
 .preheader:                                       ; preds = %.preheader40, %23
-  %.03543 = phi i64 [ %27, %23 ], [ 0, %.preheader40 ]
-  %16 = mul i64 %.03543, %.pre
+  %.03443 = phi i64 [ %27, %23 ], [ 0, %.preheader40 ]
+  %16 = mul i64 %.03443, %.pre
   %17 = getelementptr i16, ptr %1, i64 %16
   br label %18
 
@@ -87,9 +87,9 @@ define internal i64 @codec_l16_decode(ptr nocapture noundef readonly %0, ptr noc
 23:                                               ; preds = %18
   %24 = udiv i32 %22, %spec.select
   %25 = trunc i32 %24 to i16
-  %26 = getelementptr i16, ptr %3, i64 %.03543
+  %26 = getelementptr i16, ptr %3, i64 %.03443
   store i16 %25, ptr %26, align 2
-  %27 = add nuw i64 %.03543, 1
+  %27 = add nuw i64 %.03443, 1
   %28 = icmp ult i64 %27, %12
   br i1 %28, label %.preheader, label %._crit_edge, !llvm.loop !6
 
@@ -99,8 +99,8 @@ define internal i64 @codec_l16_decode(ptr nocapture noundef readonly %0, ptr noc
   br label %30
 
 30:                                               ; preds = %._crit_edge, %13
-  %.034 = phi i64 [ %29, %._crit_edge ], [ %15, %13 ]
-  ret i64 %.034
+  %.035 = phi i64 [ %29, %._crit_edge ], [ %15, %13 ]
+  ret i64 %.035
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

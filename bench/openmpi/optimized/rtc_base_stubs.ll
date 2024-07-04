@@ -196,8 +196,8 @@ define internal fastcc i32 @write_help_msg(i32 noundef %0, ptr noundef %1, ptr n
   br label %44
 
 44:                                               ; preds = %5, %43, %21, %14
-  %.0 = phi i32 [ -5, %14 ], [ -5, %21 ], [ %.2, %43 ], [ -5, %5 ]
-  ret i32 %.0
+  %.030 = phi i32 [ -5, %14 ], [ -5, %21 ], [ %.2, %43 ], [ -5, %5 ]
+  ret i32 %.030
 }
 
 ; Function Attrs: noreturn nounwind uwtable

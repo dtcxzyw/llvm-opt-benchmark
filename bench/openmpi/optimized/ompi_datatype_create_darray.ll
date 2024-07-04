@@ -143,9 +143,9 @@ define i32 @ompi_datatype_create_darray(i32 noundef %0, i32 noundef %1, i32 noun
 
 88:                                               ; preds = %80, %._crit_edge.i
   %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %82, %80 ]
-  %.082.i = phi i32 [ 0, %._crit_edge.i ], [ %87, %80 ]
-  %89 = sdiv i32 %.082.i, %..i
-  %90 = srem i32 %.082.i, %..i
+  %.081.i = phi i32 [ 0, %._crit_edge.i ], [ %87, %80 ]
+  %89 = sdiv i32 %.081.i, %..i
+  %90 = srem i32 %.081.i, %..i
   %91 = sext i32 %.pre-phi.i to i64
   %92 = mul nsw i64 %22, %91
   br i1 %44, label %.preheader102.i, label %.preheader104.i
@@ -263,14 +263,14 @@ define i32 @ompi_datatype_create_darray(i32 noundef %0, i32 noundef %1, i32 noun
   br i1 %.not99.i, label %129, label %cyclic.exit
 
 129:                                              ; preds = %.loopexit.i
-  %130 = icmp eq i32 %.082.i, 0
+  %130 = icmp eq i32 %.081.i, 0
   %narrow.i = select i1 %130, i32 0, i32 %77
   %spec.select.i = sext i32 %narrow.i to i64
   store i64 %spec.select.i, ptr %75, align 8
   br label %cyclic.exit
 
 cyclic.exit:                                      ; preds = %.loopexit103.i, %106, %.loopexit.i, %129
-  %.081.i = phi i32 [ 0, %129 ], [ %104, %.loopexit103.i ], [ %110, %106 ], [ %128, %.loopexit.i ]
+  %.086.i = phi i32 [ 0, %129 ], [ %104, %.loopexit103.i ], [ %110, %106 ], [ %128, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
@@ -297,7 +297,7 @@ cyclic.exit:                                      ; preds = %.loopexit103.i, %10
   br label %142
 
 142:                                              ; preds = %137, %cyclic.exit, %56
-  %.0107 = phi i32 [ %141, %137 ], [ %.081.i, %cyclic.exit ], [ %66, %56 ]
+  %.0107 = phi i32 [ %141, %137 ], [ %.086.i, %cyclic.exit ], [ %66, %56 ]
   %143 = call i32 @ompi_datatype_destroy(ptr noundef nonnull %15) #6
   %.not124 = icmp eq i32 %.0107, 0
   br i1 %.not124, label %144, label %.loopexit

@@ -200,9 +200,9 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %len.addr.063 = phi i32 [ %len, %while.body.lr.ph ], [ %sub, %while.cond.backedge ]
-  %q.060 = phi ptr [ %0, %while.body.lr.ph ], [ %add.ptr18, %while.cond.backedge ]
-  %1 = load i8, ptr %q.060, align 1
+  %q.062 = phi ptr [ %0, %while.body.lr.ph ], [ %add.ptr18, %while.cond.backedge ]
+  %len.addr.060 = phi i32 [ %len, %while.body.lr.ph ], [ %sub, %while.cond.backedge ]
+  %1 = load i8, ptr %q.062, align 1
   %tobool1.not = icmp eq i8 %1, 0
   br i1 %tobool1.not, label %while.end, label %if.end
 
@@ -216,17 +216,17 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %land.lhs.true
-  %incdec.ptr = getelementptr inbounds i8, ptr %q.060, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %q.062, i64 1
   br label %while.end
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
   %cmp = icmp eq i8 %1, 37
-  %or.cond = icmp ugt i32 %len.addr.063, 2
+  %or.cond = icmp ugt i32 %len.addr.060, 2
   %or.cond22 = and i1 %or.cond, %cmp
   br i1 %or.cond22, label %if.then13, label %if.end20
 
 if.then13:                                        ; preds = %if.end5
-  %add.ptr = getelementptr inbounds i8, ptr %q.060, i64 1
+  %add.ptr = getelementptr inbounds i8, ptr %q.062, i64 1
   %2 = load i8, ptr %add.ptr, align 1
   %idxprom.i.i = zext i8 %2 to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i.i
@@ -237,7 +237,7 @@ if.then13:                                        ; preds = %if.end5
 
 cond.false.i:                                     ; preds = %if.then13
   %shl.i = shl nuw nsw i32 %conv.i.i, 4
-  %arrayidx1.i = getelementptr inbounds i8, ptr %q.060, i64 2
+  %arrayidx1.i = getelementptr inbounds i8, ptr %q.062, i64 2
   %4 = load i8, ptr %arrayidx1.i, align 1
   %idxprom.i4.i = zext i8 %4 to i64
   %arrayidx.i5.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4.i
@@ -288,8 +288,8 @@ while.cond.backedge:                              ; preds = %strbuf_avail.exit.i
   %11 = load i64, ptr %len.i.i26, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %10, i64 %11
   store i8 0, ptr %arrayidx3.i, align 1
-  %add.ptr18 = getelementptr inbounds i8, ptr %q.060, i64 %.sink68
-  %sub = add nsw i32 %len.addr.063, %.sink
+  %add.ptr18 = getelementptr inbounds i8, ptr %q.062, i64 %.sink68
+  %sub = add nsw i32 %len.addr.060, %.sink
   %tobool.not = icmp eq i32 %sub, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
 
@@ -328,7 +328,7 @@ if.end28.sink.split:                              ; preds = %if.else, %strbuf_av
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond.backedge, %while.body, %entry, %if.then4
-  %q.1 = phi ptr [ %incdec.ptr, %if.then4 ], [ %0, %entry ], [ %add.ptr18, %while.cond.backedge ], [ %q.060, %while.body ]
+  %q.1 = phi ptr [ %incdec.ptr, %if.then4 ], [ %0, %entry ], [ %add.ptr18, %while.cond.backedge ], [ %q.062, %while.body ]
   store ptr %q.1, ptr %query, align 8
   %call31 = tail call ptr @strbuf_detach(ptr noundef %out, ptr noundef null) #9
   ret ptr %call31

@@ -280,8 +280,8 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.140) #2
   %7 = icmp eq ptr %3, null
-  %.0383.sroa.gep390 = getelementptr inbounds i8, ptr %3, i64 8
-  %.0383.sroa.gep384 = getelementptr inbounds i8, ptr %3, i64 4
+  %.0.sroa.gep390 = getelementptr inbounds i8, ptr %3, i64 8
+  %.0.sroa.gep384 = getelementptr inbounds i8, ptr %3, i64 4
   %8 = load i32, ptr @proto_btmesh_provisioning, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %10 = load i32, ptr @ett_btmesh_provisioning, align 4
@@ -305,32 +305,32 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %23 = zext nneg i8 %15 to i32
   %24 = tail call ptr @val_to_str_const(i32 noundef %23, ptr noundef nonnull @btmesh_provisioning_pdu_type_format, ptr noundef nonnull @.str.141) #2
   tail call void @col_set_str(ptr noundef %22, i32 noundef 25, ptr noundef %24) #2
-  br i1 %7, label %.cont406.thread, label %.cont406
+  br i1 %7, label %.cont405.thread, label %.cont405
 
-.cont406:                                         ; preds = %21
-  %.else.val408 = load i32, ptr %.0383.sroa.gep384, align 4
-  %.not394 = icmp eq i32 %.else.val408, 0
-  br i1 %.not394, label %.cont406.thread, label %.cont409
+.cont405:                                         ; preds = %21
+  %.else.val407 = load i32, ptr %.0.sroa.gep384, align 4
+  %.not393 = icmp eq i32 %.else.val407, 0
+  br i1 %.not393, label %.cont405.thread, label %.cont408
 
-.cont409:                                         ; preds = %.cont406
-  %.else.val411 = load i32, ptr %3, align 4
-  switch i32 %.else.val411, label %.cont406.thread [
+.cont408:                                         ; preds = %.cont405
+  %.else.val410 = load i32, ptr %3, align 4
+  switch i32 %.else.val410, label %.cont405.thread [
     i32 1, label %.cont
     i32 3, label %26
   ]
 
-.cont:                                            ; preds = %.cont409
+.cont:                                            ; preds = %.cont408
   %25 = load ptr, ptr %5, align 8
-  %.else.val = load i32, ptr %.0383.sroa.gep390, align 4
+  %.else.val = load i32, ptr %.0.sroa.gep390, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.142, i32 noundef %.else.val) #2
-  br label %.cont406.thread
+  br label %.cont405.thread
 
-26:                                               ; preds = %.cont409
+26:                                               ; preds = %.cont408
   %27 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.143) #2
-  br label %.cont406.thread
+  br label %.cont405.thread
 
-.cont406.thread:                                  ; preds = %21, %.cont, %26, %.cont409, %.cont406
+.cont405.thread:                                  ; preds = %21, %.cont, %26, %.cont408, %.cont405
   switch i8 %15, label %264 [
     i8 0, label %28
     i8 1, label %31
@@ -344,12 +344,12 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
     i8 9, label %255
   ]
 
-28:                                               ; preds = %.cont406.thread
+28:                                               ; preds = %.cont405.thread
   %29 = load i32, ptr @hf_btmesh_provisioning_attention_duration, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %29, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   br label %270
 
-31:                                               ; preds = %.cont406.thread
+31:                                               ; preds = %.cont405.thread
   %32 = load i32, ptr @hf_btmesh_provisioning_number_of_elements, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %32, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
@@ -370,8 +370,8 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %45 = load i32, ptr @hf_btmesh_provisioning_algorithms_rfu, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %45, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #2
   %47 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 2, i32 noundef 0) #2
-  %.not400 = icmp ult i16 %47, 2
-  br i1 %.not400, label %50, label %48
+  %.not399 = icmp ult i16 %47, 2
+  br i1 %.not399, label %50, label %48
 
 48:                                               ; preds = %38
   %49 = tail call ptr @proto_tree_add_expert(ptr noundef %42, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_provisioning_rfu_not_zero, ptr noundef %0, i32 noundef 2, i32 noundef -1) #2
@@ -387,8 +387,8 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %57 = load i32, ptr @hf_btmesh_provisioning_public_key_type_rfu, align 4
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %57, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
   %59 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
-  %.not401 = icmp ult i8 %59, 2
-  br i1 %.not401, label %62, label %60
+  %.not400 = icmp ult i8 %59, 2
+  br i1 %.not400, label %62, label %60
 
 60:                                               ; preds = %50
   %61 = tail call ptr @proto_tree_add_expert(ptr noundef %54, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_provisioning_prohibited, ptr noundef %0, i32 noundef 4, i32 noundef -1) #2
@@ -404,8 +404,8 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %69 = load i32, ptr @hf_btmesh_provisioning_static_oob_type_rfu, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %69, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #2
   %71 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
-  %.not402 = icmp ult i8 %71, 2
-  br i1 %.not402, label %74, label %72
+  %.not401 = icmp ult i8 %71, 2
+  br i1 %.not401, label %74, label %72
 
 72:                                               ; preds = %62
   %73 = tail call ptr @proto_tree_add_expert(ptr noundef %66, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_provisioning_prohibited, ptr noundef %0, i32 noundef 5, i32 noundef -1) #2
@@ -442,8 +442,8 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %98 = load i32, ptr @hf_btmesh_provisioning_output_oob_action_output_rfu, align 4
   %99 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %98, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef 0) #2
   %100 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 7, i32 noundef 0) #2
-  %.not403 = icmp ult i16 %100, 32
-  br i1 %.not403, label %103, label %101
+  %.not402 = icmp ult i16 %100, 32
+  br i1 %.not402, label %103, label %101
 
 101:                                              ; preds = %83
   %102 = tail call ptr @proto_tree_add_expert(ptr noundef %87, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_provisioning_rfu_not_zero, ptr noundef %0, i32 noundef 7, i32 noundef -1) #2
@@ -478,19 +478,19 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %125 = load i32, ptr @hf_btmesh_provisioning_input_oob_action_rfu, align 4
   %126 = tail call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %125, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0) #2
   %127 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 10, i32 noundef 0) #2
-  %.not404 = icmp ult i16 %127, 16
-  br i1 %.not404, label %270, label %128
+  %.not403 = icmp ult i16 %127, 16
+  br i1 %.not403, label %270, label %128
 
 128:                                              ; preds = %112
   %129 = tail call ptr @proto_tree_add_expert(ptr noundef %116, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_provisioning_rfu_not_zero, ptr noundef %0, i32 noundef 10, i32 noundef -1) #2
   br label %270
 
-130:                                              ; preds = %.cont406.thread
+130:                                              ; preds = %.cont405.thread
   %131 = load i32, ptr @hf_btmesh_provisioning_algorithm, align 4
   %132 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %131, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %133 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %.not395 = icmp eq i8 %133, 0
-  br i1 %.not395, label %138, label %134
+  %.not394 = icmp eq i8 %133, 0
+  br i1 %.not394, label %138, label %134
 
 134:                                              ; preds = %130
   %135 = load i32, ptr @ett_btmesh_provisioning_algorithm, align 4
@@ -526,8 +526,8 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %152 = load i32, ptr @hf_btmesh_provisioning_authentication_action_no_oob_action, align 4
   %153 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %152, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
   %154 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
-  %.not398 = icmp eq i8 %154, 0
-  br i1 %.not398, label %159, label %155
+  %.not397 = icmp eq i8 %154, 0
+  br i1 %.not397, label %159, label %155
 
 155:                                              ; preds = %151
   %156 = load i32, ptr @ett_btmesh_provisioning_authentication_action, align 4
@@ -539,8 +539,8 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %160 = load i32, ptr @hf_btmesh_provisioning_authentication_size_no_oob_action, align 4
   %161 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %160, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #2
   %162 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
-  %.not399 = icmp eq i8 %162, 0
-  br i1 %.not399, label %270, label %163
+  %.not398 = icmp eq i8 %162, 0
+  br i1 %.not398, label %270, label %163
 
 163:                                              ; preds = %159
   %164 = load i32, ptr @ett_btmesh_provisioning_authentication_size, align 4
@@ -552,8 +552,8 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %168 = load i32, ptr @hf_btmesh_provisioning_authentication_action_static_oob_action, align 4
   %169 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %168, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
   %170 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
-  %.not396 = icmp eq i8 %170, 0
-  br i1 %.not396, label %175, label %171
+  %.not395 = icmp eq i8 %170, 0
+  br i1 %.not395, label %175, label %171
 
 171:                                              ; preds = %167
   %172 = load i32, ptr @ett_btmesh_provisioning_authentication_action, align 4
@@ -565,8 +565,8 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %176 = load i32, ptr @hf_btmesh_provisioning_authentication_size_static_oob_action, align 4
   %177 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %176, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #2
   %178 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
-  %.not397 = icmp eq i8 %178, 0
-  br i1 %.not397, label %270, label %179
+  %.not396 = icmp eq i8 %178, 0
+  br i1 %.not396, label %270, label %179
 
 179:                                              ; preds = %175
   %180 = load i32, ptr @ett_btmesh_provisioning_authentication_size, align 4
@@ -656,31 +656,31 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %238 = add i32 %237, 4
   br label %270
 
-239:                                              ; preds = %.cont406.thread
+239:                                              ; preds = %.cont405.thread
   %240 = load i32, ptr @hf_btmesh_provisioning_public_key_x, align 4
   %241 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %240, ptr noundef %0, i32 noundef 1, i32 noundef 32, i32 noundef 0) #2
   %242 = load i32, ptr @hf_btmesh_provisioning_public_key_y, align 4
   %243 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %242, ptr noundef %0, i32 noundef 33, i32 noundef 32, i32 noundef 0) #2
   br label %270
 
-244:                                              ; preds = %.cont406.thread
+244:                                              ; preds = %.cont405.thread
   %245 = load i32, ptr @hf_btmesh_provisioning_confirmation, align 4
   %246 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %245, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0) #2
   br label %270
 
-247:                                              ; preds = %.cont406.thread
+247:                                              ; preds = %.cont405.thread
   %248 = load i32, ptr @hf_btmesh_provisioning_random, align 4
   %249 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %248, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0) #2
   br label %270
 
-250:                                              ; preds = %.cont406.thread
+250:                                              ; preds = %.cont405.thread
   %251 = load i32, ptr @hf_btmesh_provisioning_encrypted_provisioning_data, align 4
   %252 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %251, ptr noundef %0, i32 noundef 1, i32 noundef 25, i32 noundef 0) #2
   %253 = load i32, ptr @hf_btmesh_provisioning_decrypted_provisioning_data_mic, align 4
   %254 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %253, ptr noundef %0, i32 noundef 26, i32 noundef 8, i32 noundef 0) #2
   br label %270
 
-255:                                              ; preds = %.cont406.thread
+255:                                              ; preds = %.cont405.thread
   %256 = load i32, ptr @hf_btmesh_provisioning_error_code, align 4
   %257 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %256, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %258 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
@@ -693,7 +693,7 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %263 = tail call ptr @proto_tree_add_expert(ptr noundef %262, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_provisioning_in_rfu_range, ptr noundef %0, i32 noundef 1, i32 noundef -1) #2
   br label %270
 
-264:                                              ; preds = %.cont406.thread
+264:                                              ; preds = %.cont405.thread
   %265 = load i32, ptr @hf_btmesh_provisioning_unknown_data, align 4
   %266 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %265, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0) #2
   %267 = tail call ptr @proto_tree_add_expert(ptr noundef %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_provisioning_unknown_opcode, ptr noundef %0, i32 noundef 1, i32 noundef -1) #2
@@ -701,14 +701,14 @@ define internal i32 @dissect_btmesh_provisioning_msg(ptr noundef %0, ptr noundef
   %269 = add i32 %268, 1
   br label %270
 
-270:                                              ; preds = %255, %260, %221, %227, %225, %197, %203, %201, %175, %179, %159, %163, %112, %128, %.cont406.thread, %.cont406.thread, %231, %264, %250, %247, %244, %239, %28
-  %.0 = phi i32 [ %269, %264 ], [ 34, %250 ], [ 17, %247 ], [ 17, %244 ], [ 1, %.cont406.thread ], [ 1, %.cont406.thread ], [ 65, %239 ], [ %238, %231 ], [ 2, %28 ], [ 12, %128 ], [ 12, %112 ], [ 6, %163 ], [ 6, %159 ], [ 6, %179 ], [ 6, %175 ], [ 6, %201 ], [ 6, %203 ], [ 6, %197 ], [ 6, %225 ], [ 6, %227 ], [ 6, %221 ], [ 2, %260 ], [ 2, %255 ]
-  %271 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0) #2
-  %.not405 = icmp eq i32 %271, 0
-  br i1 %.not405, label %274, label %272
+270:                                              ; preds = %255, %260, %221, %227, %225, %197, %203, %201, %175, %179, %159, %163, %112, %128, %.cont405.thread, %.cont405.thread, %231, %264, %250, %247, %244, %239, %28
+  %.0383 = phi i32 [ %269, %264 ], [ 34, %250 ], [ 17, %247 ], [ 17, %244 ], [ 1, %.cont405.thread ], [ 1, %.cont405.thread ], [ 65, %239 ], [ %238, %231 ], [ 2, %28 ], [ 12, %128 ], [ 12, %112 ], [ 6, %163 ], [ 6, %159 ], [ 6, %179 ], [ 6, %175 ], [ 6, %201 ], [ 6, %203 ], [ 6, %197 ], [ 6, %225 ], [ 6, %227 ], [ 6, %221 ], [ 2, %260 ], [ 2, %255 ]
+  %271 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0383) #2
+  %.not404 = icmp eq i32 %271, 0
+  br i1 %.not404, label %274, label %272
 
 272:                                              ; preds = %270
-  %273 = tail call ptr @proto_tree_add_expert(ptr noundef %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_provisioning_unknown_payload, ptr noundef %0, i32 noundef %.0, i32 noundef -1) #2
+  %273 = tail call ptr @proto_tree_add_expert(ptr noundef %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_btmesh_provisioning_unknown_payload, ptr noundef %0, i32 noundef %.0383, i32 noundef -1) #2
   br label %274
 
 274:                                              ; preds = %272, %270

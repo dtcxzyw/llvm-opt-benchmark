@@ -366,9 +366,9 @@ define ptr @extraBddMove(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %37
 
 37:                                               ; preds = %35, %27
-  %.053 = phi ptr [ %30, %27 ], [ %26, %35 ]
-  %.052 = phi ptr [ %34, %27 ], [ %36, %35 ]
-  %38 = tail call ptr @extraBddMove(ptr noundef %0, ptr noundef %.053, ptr noundef %2)
+  %.052 = phi ptr [ %30, %27 ], [ %26, %35 ]
+  %.051 = phi ptr [ %34, %27 ], [ %36, %35 ]
+  %38 = tail call ptr @extraBddMove(ptr noundef %0, ptr noundef %.052, ptr noundef %2)
   %39 = icmp eq ptr %38, null
   br i1 %39, label %74, label %40
 
@@ -380,7 +380,7 @@ define ptr @extraBddMove(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
-  %47 = tail call ptr @extraBddMove(ptr noundef %0, ptr noundef %.052, ptr noundef %2)
+  %47 = tail call ptr @extraBddMove(ptr noundef %0, ptr noundef %.051, ptr noundef %2)
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %50
 
@@ -427,8 +427,8 @@ define ptr @extraBddMove(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %74
 
 74:                                               ; preds = %37, %9, %3, %65, %64, %49
-  %.051 = phi ptr [ null, %49 ], [ null, %64 ], [ %62, %65 ], [ %1, %3 ], [ %10, %9 ], [ null, %37 ]
-  ret ptr %.051
+  %.053 = phi ptr [ null, %49 ], [ null, %64 ], [ %62, %65 ], [ %1, %3 ], [ %10, %9 ], [ null, %37 ]
+  ret ptr %.053
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1184,9 +1184,9 @@ define noundef ptr @Extra_bddGetOneCube(ptr noundef %0, ptr noundef %1) local_un
   br label %23
 
 23:                                               ; preds = %21, %13
-  %.037 = phi ptr [ %20, %13 ], [ %22, %21 ]
-  %.036 = phi ptr [ %16, %13 ], [ %12, %21 ]
-  %24 = tail call ptr @Extra_bddGetOneCube(ptr noundef %0, ptr noundef %.036)
+  %.037 = phi ptr [ %16, %13 ], [ %12, %21 ]
+  %.036 = phi ptr [ %20, %13 ], [ %22, %21 ]
+  %24 = tail call ptr @Extra_bddGetOneCube(ptr noundef %0, ptr noundef %.037)
   tail call void @Cudd_Ref(ptr noundef %24) #18
   %25 = getelementptr inbounds i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8
@@ -1211,7 +1211,7 @@ define noundef ptr @Extra_bddGetOneCube(ptr noundef %0, ptr noundef %1) local_un
 
 41:                                               ; preds = %23
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %24) #18
-  %42 = tail call ptr @Extra_bddGetOneCube(ptr noundef nonnull %0, ptr noundef %.037)
+  %42 = tail call ptr @Extra_bddGetOneCube(ptr noundef nonnull %0, ptr noundef %.036)
   tail call void @Cudd_Ref(ptr noundef %42) #18
   %43 = getelementptr inbounds i8, ptr %0, i64 344
   %44 = load ptr, ptr %43, align 8
@@ -1299,8 +1299,8 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   %17 = and i32 %16, 1
   %18 = zext nneg i32 %17 to i64
   %19 = xor i64 %14, %18
-  %.026.us.us = inttoptr i64 %19 to ptr
-  %20 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.031.us.us, ptr noundef %.026.us.us) #18
+  %.025.us.us = inttoptr i64 %19 to ptr
+  %20 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.031.us.us, ptr noundef %.025.us.us) #18
   tail call void @Cudd_Ref(ptr noundef %20) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.031.us.us) #18
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
@@ -1318,8 +1318,8 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   %26 = and i32 %25, 1
   %27 = zext nneg i32 %26 to i64
   %28 = xor i64 %23, %27
-  %.026.us = inttoptr i64 %28 to ptr
-  %29 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.031.us, ptr noundef %.026.us) #18
+  %.025.us = inttoptr i64 %28 to ptr
+  %29 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.031.us, ptr noundef %.025.us) #18
   tail call void @Cudd_Ref(ptr noundef %29) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.031.us) #18
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
@@ -1343,8 +1343,8 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   %38 = and i32 %37, 1
   %39 = zext nneg i32 %38 to i64
   %40 = xor i64 %33, %39
-  %.026.us35 = inttoptr i64 %40 to ptr
-  %41 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.031.us32, ptr noundef %.026.us35) #18
+  %.025.us35 = inttoptr i64 %40 to ptr
+  %41 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.031.us32, ptr noundef %.025.us35) #18
   tail call void @Cudd_Ref(ptr noundef %41) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.031.us32) #18
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
@@ -1364,8 +1364,8 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   %49 = and i32 %48, 1
   %50 = zext nneg i32 %49 to i64
   %51 = xor i64 %44, %50
-  %.026 = inttoptr i64 %51 to ptr
-  %52 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.031, ptr noundef %.026) #18
+  %.025 = inttoptr i64 %51 to ptr
+  %52 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.031, ptr noundef %.025) #18
   tail call void @Cudd_Ref(ptr noundef %52) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.031) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1435,7 +1435,7 @@ define ptr @Extra_bddSupportNegativeCube(ptr noundef %0, ptr noundef %1) local_u
 
 30:                                               ; preds = %.lr.ph69.us, %67
   %indvars.iv = phi i64 [ %22, %.lr.ph69.us ], [ %indvars.iv.next, %67 ]
-  %.05665.us = phi ptr [ %23, %.lr.ph69.us ], [ %.1.us, %67 ]
+  %.05565.us = phi ptr [ %23, %.lr.ph69.us ], [ %.1.us, %67 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %31 = load i32, ptr %5, align 8
   %32 = sext i32 %31 to i64
@@ -1472,7 +1472,7 @@ define ptr @Extra_bddSupportNegativeCube(ptr noundef %0, ptr noundef %1) local_u
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %56, 1
   store i32 %57, ptr %55, align 4
-  %58 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %.05665.us, ptr noundef %52) #18
+  %58 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %.05565.us, ptr noundef %52) #18
   %59 = icmp eq ptr %58, null
   br i1 %59, label %69, label %60
 
@@ -1484,17 +1484,17 @@ define ptr @Extra_bddSupportNegativeCube(ptr noundef %0, ptr noundef %1) local_u
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 4
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.05665.us) #18
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.05565.us) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %52) #18
   br label %67
 
 67:                                               ; preds = %60, %38
-  %.1.us = phi ptr [ %58, %60 ], [ %.05665.us, %38 ]
+  %.1.us = phi ptr [ %58, %60 ], [ %.05565.us, %38 ]
   %68 = icmp sgt i64 %indvars.iv, 1
   br i1 %68, label %30, label %..loopexit_crit_edge.us, !llvm.loop !23
 
 69:                                               ; preds = %44
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.05665.us) #18
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.05565.us) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %52) #18
   br label %..loopexit_crit_edge.us
 
@@ -1535,8 +1535,8 @@ define ptr @Extra_bddSupportNegativeCube(ptr noundef %0, ptr noundef %1) local_u
   br label %88
 
 88:                                               ; preds = %.split71.us, %81, %14
-  %.0 = phi ptr [ null, %14 ], [ %.us-phi, %81 ], [ null, %.split71.us ]
-  ret ptr %.0
+  %.056 = phi ptr [ null, %14 ], [ %.us-phi, %81 ], [ null, %.split71.us ]
+  ret ptr %.056
 }
 
 declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -1868,9 +1868,9 @@ define internal ptr @extraZddPrimes(ptr noundef %0, ptr noundef %1) #0 {
 115:                                              ; preds = %105, %77, %61
   %.sink142 = phi ptr [ %72, %61 ], [ %88, %77 ], [ %112, %105 ]
   %.sink = phi ptr [ %50, %61 ], [ %40, %77 ], [ %50, %105 ]
-  %.0122 = phi ptr [ %72, %61 ], [ %81, %77 ], [ %112, %105 ]
-  %.0121 = phi ptr [ %65, %61 ], [ %88, %77 ], [ %102, %105 ]
-  %.0120 = phi ptr [ %40, %61 ], [ %50, %77 ], [ %92, %105 ]
+  %.0122 = phi ptr [ %40, %61 ], [ %50, %77 ], [ %92, %105 ]
+  %.0121 = phi ptr [ %72, %61 ], [ %81, %77 ], [ %112, %105 ]
+  %.0120 = phi ptr [ %65, %61 ], [ %88, %77 ], [ %102, %105 ]
   %116 = ptrtoint ptr %.sink142 to i64
   %117 = and i64 %116, -2
   %118 = inttoptr i64 %117 to ptr
@@ -1880,7 +1880,7 @@ define internal ptr @extraZddPrimes(ptr noundef %0, ptr noundef %1) #0 {
   store i32 %121, ptr %119, align 4
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #18
   %122 = load i32, ptr %20, align 8
-  %123 = tail call ptr @extraComposeCover(ptr noundef nonnull %0, ptr noundef %.0121, ptr noundef %.0122, ptr noundef nonnull %.0120, i32 noundef %122)
+  %123 = tail call ptr @extraComposeCover(ptr noundef nonnull %0, ptr noundef %.0120, ptr noundef %.0121, ptr noundef nonnull %.0122, i32 noundef %122)
   %124 = icmp eq ptr %123, null
   br i1 %124, label %126, label %125
 
@@ -2781,7 +2781,7 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr nocapture noundef %1, i32 no
 
 20:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %.06065 = phi i32 [ 0, %.lr.ph ], [ %.1, %55 ]
+  %.065 = phi i32 [ 0, %.lr.ph ], [ %.1, %55 ]
   %21 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
@@ -2802,7 +2802,7 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr nocapture noundef %1, i32 no
 
 26:                                               ; preds = %23, %24
   %27 = phi ptr [ %.pre, %24 ], [ %22, %23 ]
-  %.059 = phi ptr [ %25, %24 ], [ null, %23 ]
+  %.061 = phi ptr [ %25, %24 ], [ null, %23 ]
   %28 = ptrtoint ptr %27 to i64
   %29 = xor i64 %28, 1
   %30 = inttoptr i64 %29 to ptr
@@ -2817,13 +2817,13 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr nocapture noundef %1, i32 no
 
 34:                                               ; preds = %26, %31
   %35 = phi ptr [ %.pre71, %31 ], [ %30, %26 ]
-  %.0 = phi ptr [ %33, %31 ], [ null, %26 ]
+  %.062 = phi ptr [ %33, %31 ], [ null, %26 ]
   %36 = ptrtoint ptr %35 to i64
   %37 = xor i64 %36, 1
   %38 = inttoptr i64 %37 to ptr
   store ptr %38, ptr %21, align 8
-  %39 = icmp ne ptr %.059, null
-  %40 = icmp ne ptr %.0, null
+  %39 = icmp ne ptr %.061, null
+  %40 = icmp ne ptr %.062, null
   %or.cond5 = select i1 %39, i1 true, i1 %40
   br i1 %or.cond5, label %41, label %._crit_edge.loopexit.split.loop.exit
 
@@ -2859,13 +2859,13 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr nocapture noundef %1, i32 no
   br label %53
 
 53:                                               ; preds = %45, %52, %51, %42
-  %.061.in = phi ptr [ %8, %51 ], [ %7, %52 ], [ %7, %45 ], [ %8, %42 ]
-  %.061 = load i32, ptr %.061.in, align 4
-  %54 = add nsw i32 %.061, %.06065
+  %.059.in = phi ptr [ %8, %51 ], [ %7, %52 ], [ %7, %45 ], [ %8, %42 ]
+  %.059 = load i32, ptr %.059.in, align 4
+  %54 = add nsw i32 %.059, %.065
   br label %55
 
 55:                                               ; preds = %20, %53
-  %.1 = phi i32 [ %54, %53 ], [ %.06065, %20 ]
+  %.1 = phi i32 [ %54, %53 ], [ %.065, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !36
@@ -2875,12 +2875,12 @@ define i32 @Extra_bddCountCubes(ptr noundef %0, ptr nocapture noundef %1, i32 no
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55, %._crit_edge.loopexit.split.loop.exit, %6
-  %.062.lcssa = phi i32 [ 0, %6 ], [ %56, %._crit_edge.loopexit.split.loop.exit ], [ %2, %55 ]
-  %.060.lcssa = phi i32 [ 0, %6 ], [ %.06065, %._crit_edge.loopexit.split.loop.exit ], [ %.1, %55 ]
+  %.060.lcssa = phi i32 [ 0, %6 ], [ %56, %._crit_edge.loopexit.split.loop.exit ], [ %2, %55 ]
+  %.0.lcssa = phi i32 [ 0, %6 ], [ %.065, %._crit_edge.loopexit.split.loop.exit ], [ %.1, %55 ]
   store i32 %11, ptr %10, align 4
   tail call void @st__free_table(ptr noundef %9) #18
-  %57 = icmp eq i32 %.062.lcssa, %2
-  %58 = select i1 %57, i32 %.060.lcssa, i32 -1
+  %57 = icmp eq i32 %.060.lcssa, %2
+  %58 = select i1 %57, i32 %.0.lcssa, i32 -1
   ret i32 %58
 }
 
@@ -3923,8 +3923,8 @@ define ptr @Extra_zddRandomSet(ptr noundef %0, i32 noundef %1, i32 noundef %2, d
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %81
-  %.05670 = phi i32 [ 0, %.preheader.lr.ph ], [ %82, %81 ]
-  %.05769 = phi ptr [ %17, %.preheader.lr.ph ], [ %.158, %81 ]
+  %.05570 = phi i32 [ 0, %.preheader.lr.ph ], [ %82, %81 ]
+  %.05669 = phi ptr [ %17, %.preheader.lr.ph ], [ %.157, %81 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -4024,19 +4024,19 @@ extraZddCombination.exit.us.i:                    ; preds = %71, %._crit_edge.lo
 
 Extra_zddCombination.exit.loopexit:               ; preds = %extraZddCombination.exit.us.i
   tail call void @Cudd_Ref(ptr noundef %.0.i.us.i) #18
-  %.not = icmp eq i32 %.05670, 0
+  %.not = icmp eq i32 %.05570, 0
   br i1 %.not, label %79, label %74
 
 74:                                               ; preds = %Extra_zddCombination.exit.loopexit
-  %75 = tail call ptr @Cudd_zddDiff(ptr noundef nonnull %0, ptr noundef %.05769, ptr noundef %.0.i.us.i) #18
+  %75 = tail call ptr @Cudd_zddDiff(ptr noundef nonnull %0, ptr noundef %.05669, ptr noundef %.0.i.us.i) #18
   tail call void @Cudd_Ref(ptr noundef %75) #18
-  %.not65 = icmp eq ptr %75, %.05769
+  %.not65 = icmp eq ptr %75, %.05669
   br i1 %.not65, label %78, label %76
 
 76:                                               ; preds = %74
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %75) #18
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.0.i.us.i) #18
-  %77 = add nsw i32 %.05670, -1
+  %77 = add nsw i32 %.05570, -1
   br label %81
 
 78:                                               ; preds = %74
@@ -4044,27 +4044,27 @@ Extra_zddCombination.exit.loopexit:               ; preds = %extraZddCombination
   br label %79
 
 79:                                               ; preds = %78, %Extra_zddCombination.exit.loopexit
-  %80 = tail call ptr @Cudd_zddUnion(ptr noundef nonnull %0, ptr noundef %.05769, ptr noundef %.0.i.us.i) #18
+  %80 = tail call ptr @Cudd_zddUnion(ptr noundef nonnull %0, ptr noundef %.05669, ptr noundef %.0.i.us.i) #18
   tail call void @Cudd_Ref(ptr noundef %80) #18
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.05769) #18
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.05669) #18
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.0.i.us.i) #18
   br label %81
 
 81:                                               ; preds = %79, %76
-  %.158 = phi ptr [ %.05769, %76 ], [ %80, %79 ]
-  %.1 = phi i32 [ %77, %76 ], [ %.05670, %79 ]
+  %.157 = phi ptr [ %.05669, %76 ], [ %80, %79 ]
+  %.1 = phi i32 [ %77, %76 ], [ %.05570, %79 ]
   %82 = add nsw i32 %.1, 1
   %83 = icmp slt i32 %82, %2
   br i1 %83, label %.preheader, label %._crit_edge71, !llvm.loop !44
 
 ._crit_edge71:                                    ; preds = %81
   tail call void @free(ptr noundef %12) #18
-  tail call void @Cudd_Deref(ptr noundef %.158) #18
+  tail call void @Cudd_Deref(ptr noundef %.157) #18
   br label %84
 
 84:                                               ; preds = %4, %._crit_edge71, %14
-  %.0 = phi ptr [ null, %14 ], [ %.158, %._crit_edge71 ], [ null, %4 ]
-  ret ptr %.0
+  %.058 = phi ptr [ null, %14 ], [ %.157, %._crit_edge71 ], [ null, %4 ]
+  ret ptr %.058
 }
 
 declare void @Cudd_Srandom(i64 noundef) local_unnamed_addr #3
@@ -4250,7 +4250,7 @@ define ptr @extraBddTuples(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br label %95
 
 ._crit_edge:                                      ; preds = %62, %80, %84
-  %.065 = phi ptr [ %83, %80 ], [ %85, %84 ], [ %.0, %62 ]
+  %.064 = phi ptr [ %83, %80 ], [ %85, %84 ], [ %.0, %62 ]
   %88 = load i32, ptr %44, align 4
   %89 = add i32 %88, -1
   store i32 %89, ptr %44, align 4
@@ -4260,12 +4260,12 @@ define ptr @extraBddTuples(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %93 = load i32, ptr %92, align 4
   %94 = add i32 %93, -1
   store i32 %94, ptr %92, align 4
-  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddTuples, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.065) #18
+  tail call void @cuddCacheInsert2(ptr noundef nonnull %0, ptr noundef nonnull @extraBddTuples, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %.064) #18
   br label %95
 
 95:                                               ; preds = %35, %33, %31, %._crit_edge, %87, %79, %59, %27
-  %.064 = phi ptr [ %30, %27 ], [ %.065, %._crit_edge ], [ null, %79 ], [ null, %87 ], [ null, %59 ], [ %26, %31 ], [ %34, %33 ], [ null, %35 ]
-  ret ptr %.064
+  %.065 = phi ptr [ %30, %27 ], [ %.064, %._crit_edge ], [ null, %79 ], [ null, %87 ], [ null, %59 ], [ %26, %31 ], [ %34, %33 ], [ null, %35 ]
+  ret ptr %.065
 }
 
 ; Function Attrs: nounwind uwtable

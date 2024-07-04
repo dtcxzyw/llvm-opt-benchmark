@@ -8807,8 +8807,8 @@ define hidden noundef range(i8 0, 38) i8 @_ZN13wasmtime_wasi4host10filesystem17f
   br label %30
 
 30:                                               ; preds = %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %3, %2, %29
-  %.04 = phi i8 [ 37, %2 ], [ 37, %3 ], [ 11, %28 ], [ 10, %27 ], [ 2, %26 ], [ 27, %25 ], [ 9, %24 ], [ 30, %23 ], [ 15, %22 ], [ 25, %21 ], [ 18, %20 ], [ 16, %19 ], [ 34, %18 ], [ 23, %17 ], [ 8, %16 ], [ 7, %15 ], [ 12, %14 ], [ 14, %13 ], [ 24, %12 ], [ 0, %11 ], [ 4, %10 ], [ 3, %9 ], [ 13, %8 ], [ 22, %7 ], [ 20, %6 ], [ 31, %5 ], [ 32, %29 ]
-  ret i8 %.04
+  %.0 = phi i8 [ 37, %2 ], [ 37, %3 ], [ 11, %28 ], [ 10, %27 ], [ 2, %26 ], [ 27, %25 ], [ 9, %24 ], [ 30, %23 ], [ 15, %22 ], [ 25, %21 ], [ 18, %20 ], [ 16, %19 ], [ 34, %18 ], [ 23, %17 ], [ 8, %16 ], [ 7, %15 ], [ 12, %14 ], [ 14, %13 ], [ 24, %12 ], [ 0, %11 ], [ 4, %10 ], [ 3, %9 ], [ 13, %8 ], [ 22, %7 ], [ 20, %6 ], [ 31, %5 ], [ 32, %29 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -9197,9 +9197,9 @@ common.resume:                                    ; preds = %88, %63, %39
   br label %93
 
 93:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1ffdd2e8eb654b31E.exit.thread", %"_ZN4core3ptr142drop_in_place$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Datetime$C$std..io..error..Error$GT$$GT$17h87cf5442077d9eefE.exit44"
-  %.sroa.67.0111 = phi i32 [ %85, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1ffdd2e8eb654b31E.exit.thread" ], [ undef, %"_ZN4core3ptr142drop_in_place$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Datetime$C$std..io..error..Error$GT$$GT$17h87cf5442077d9eefE.exit44" ]
+  %.sroa.05.0111 = phi i64 [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1ffdd2e8eb654b31E.exit.thread" ], [ 0, %"_ZN4core3ptr142drop_in_place$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Datetime$C$std..io..error..Error$GT$$GT$17h87cf5442077d9eefE.exit44" ]
   %.sroa.56.0110 = phi i64 [ %83, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1ffdd2e8eb654b31E.exit.thread" ], [ undef, %"_ZN4core3ptr142drop_in_place$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Datetime$C$std..io..error..Error$GT$$GT$17h87cf5442077d9eefE.exit44" ]
-  %.sroa.05.0109 = phi i64 [ 1, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1ffdd2e8eb654b31E.exit.thread" ], [ 0, %"_ZN4core3ptr142drop_in_place$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Datetime$C$std..io..error..Error$GT$$GT$17h87cf5442077d9eefE.exit44" ]
+  %.sroa.67.0109 = phi i32 [ %85, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h1ffdd2e8eb654b31E.exit.thread" ], [ undef, %"_ZN4core3ptr142drop_in_place$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Datetime$C$std..io..error..Error$GT$$GT$17h87cf5442077d9eefE.exit44" ]
   %94 = getelementptr inbounds i8, ptr %0, i64 88
   store i8 %.0.i, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %0, i64 72
@@ -9218,11 +9218,11 @@ common.resume:                                    ; preds = %88, %63, %39
   %.sroa.63.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %.sroa.63.094, ptr %.sroa.63.0..sroa_idx, align 8
   %98 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %.sroa.05.0109, ptr %98, align 8
+  store i64 %.sroa.05.0111, ptr %98, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %.sroa.56.0110, ptr %.sroa.56.0..sroa_idx, align 8
   %.sroa.67.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %.sroa.67.0111, ptr %.sroa.67.0..sroa_idx, align 8
+  store i32 %.sroa.67.0109, ptr %.sroa.67.0..sroa_idx, align 8
   ret void
 
 99:                                               ; preds = %68
@@ -21640,10 +21640,10 @@ define void @"_ZN92_$LT$wasmtime_wasi..tcp..TcpReadStream$u20$as$u20$wasmtime_wa
   unreachable
 
 143:                                              ; preds = %136, %108
+  %.sroa.7.0 = phi ptr [ %.sroa.8.0.copyload, %108 ], [ %.sroa.7.0.copyload41, %136 ]
   %.sroa.6.0 = phi i64 [ %.sroa.544.0.copyload, %108 ], [ %137, %136 ]
   %.sroa.5.0 = phi ptr [ %.sroa.042.0.copyload, %108 ], [ %140, %136 ]
   %.sroa.0.0 = phi ptr [ @_ZN5bytes9bytes_mut13SHARED_VTABLE17h95b56e6dc55b8910E, %108 ], [ %.sroa.0.0.copyload33, %136 ]
-  %.sroa.7.0 = phi ptr [ %.sroa.8.0.copyload, %108 ], [ %.sroa.7.0.copyload41, %136 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   store ptr %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx34 = getelementptr inbounds i8, ptr %0, i64 8

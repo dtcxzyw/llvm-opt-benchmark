@@ -995,17 +995,17 @@ define ptr @cuddMakeBddFromZddCover(ptr noundef %0, ptr noundef %1) #0 {
   br label %95
 
 94:                                               ; preds = %91, %87
-  %.0107 = phi ptr [ %90, %87 ], [ %92, %91 ]
-  call void @Cudd_Ref(ptr noundef %.0107) #5
+  %.0106 = phi ptr [ %90, %87 ], [ %92, %91 ]
+  call void @Cudd_Ref(ptr noundef %.0106) #5
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0105) #5
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0) #5
-  call void @cuddCacheInsert1(ptr noundef nonnull %0, ptr noundef nonnull @cuddMakeBddFromZddCover, ptr noundef %1, ptr noundef %.0107) #5
-  call void @Cudd_Deref(ptr noundef %.0107) #5
+  call void @cuddCacheInsert1(ptr noundef nonnull %0, ptr noundef nonnull @cuddMakeBddFromZddCover, ptr noundef %1, ptr noundef %.0106) #5
+  call void @Cudd_Deref(ptr noundef %.0106) #5
   br label %95
 
 95:                                               ; preds = %19, %17, %2, %94, %93, %86, %69, %60, %49, %38, %31, %13
-  %.0106 = phi ptr [ %16, %13 ], [ %.0107, %94 ], [ null, %86 ], [ null, %93 ], [ null, %69 ], [ null, %60 ], [ null, %49 ], [ null, %38 ], [ null, %31 ], [ %7, %2 ], [ %18, %17 ], [ null, %19 ]
-  ret ptr %.0106
+  %.0107 = phi ptr [ %16, %13 ], [ %.0106, %94 ], [ null, %86 ], [ null, %93 ], [ null, %69 ], [ null, %60 ], [ null, %49 ], [ null, %38 ], [ null, %31 ], [ %7, %2 ], [ %18, %17 ], [ null, %19 ]
+  ret ptr %.0107
 }
 
 ; Function Attrs: noreturn nounwind

@@ -733,7 +733,7 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer15get_bounds_infoEiPdS1_iS1_S1_
   br i1 %44, label %45, label %110
 
 45:                                               ; preds = %33, %32
-  %.057 = phi ptr [ %38, %33 ], [ null, %32 ]
+  %.056 = phi ptr [ %38, %33 ], [ null, %32 ]
   %46 = icmp sgt i32 %1, 0
   br i1 %46, label %.lr.ph, label %._crit_edge
 
@@ -746,11 +746,11 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer15get_bounds_infoEiPdS1_iS1_S1_
 
 50:                                               ; preds = %.lr.ph, %83
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
-  %.05266 = phi i32 [ 0, %.lr.ph ], [ %.1, %83 ]
-  %.05365 = phi i32 [ 0, %.lr.ph ], [ %.154, %83 ]
-  %.05564 = phi i32 [ 0, %.lr.ph ], [ %.156, %83 ]
+  %.05166 = phi i32 [ 0, %.lr.ph ], [ %.1, %83 ]
+  %.05265 = phi i32 [ 0, %.lr.ph ], [ %.153, %83 ]
+  %.05464 = phi i32 [ 0, %.lr.ph ], [ %.155, %83 ]
   %51 = load ptr, ptr %47, align 8
-  %52 = sext i32 %.05564 to i64
+  %52 = sext i32 %.05464 to i64
   %53 = getelementptr inbounds i32, ptr %51, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext i32 %54 to i64
@@ -760,13 +760,13 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer15get_bounds_infoEiPdS1_iS1_S1_
 57:                                               ; preds = %50
   %58 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
   store double 0xFFEFFFFFFFFFFFFF, ptr %58, align 8
-  %59 = add nsw i32 %.05564, 1
+  %59 = add nsw i32 %.05464, 1
   br label %60
 
 60:                                               ; preds = %57, %50
-  %.156 = phi i32 [ %59, %57 ], [ %.05564, %50 ]
+  %.155 = phi i32 [ %59, %57 ], [ %.05464, %50 ]
   %61 = load ptr, ptr %48, align 8
-  %62 = sext i32 %.05365 to i64
+  %62 = sext i32 %.05265 to i64
   %63 = getelementptr inbounds i32, ptr %61, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext i32 %64 to i64
@@ -776,13 +776,13 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer15get_bounds_infoEiPdS1_iS1_S1_
 67:                                               ; preds = %60
   %68 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
   store double 0x7FEFFFFFFFFFFFFF, ptr %68, align 8
-  %69 = add nsw i32 %.05365, 1
+  %69 = add nsw i32 %.05265, 1
   br label %70
 
 70:                                               ; preds = %67, %60
-  %.154 = phi i32 [ %69, %67 ], [ %.05365, %60 ]
+  %.153 = phi i32 [ %69, %67 ], [ %.05265, %60 ]
   %71 = load ptr, ptr %49, align 8
-  %72 = sext i32 %.05266 to i64
+  %72 = sext i32 %.05166 to i64
   %73 = getelementptr inbounds i32, ptr %71, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = zext i32 %74 to i64
@@ -790,27 +790,27 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer15get_bounds_infoEiPdS1_iS1_S1_
   br i1 %76, label %77, label %83
 
 77:                                               ; preds = %70
-  %78 = getelementptr inbounds double, ptr %.057, i64 %indvars.iv
+  %78 = getelementptr inbounds double, ptr %.056, i64 %indvars.iv
   %79 = load double, ptr %78, align 8
   %80 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
   store double %79, ptr %80, align 8
   %81 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
   store double %79, ptr %81, align 8
-  %82 = add nsw i32 %.05266, 1
+  %82 = add nsw i32 %.05166, 1
   br label %83
 
 83:                                               ; preds = %70, %77
-  %.1 = phi i32 [ %82, %77 ], [ %.05266, %70 ]
+  %.1 = phi i32 [ %82, %77 ], [ %.05166, %70 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %83, %45
-  %84 = icmp eq ptr %.057, null
+  %84 = icmp eq ptr %.056, null
   br i1 %84, label %86, label %85
 
 85:                                               ; preds = %._crit_edge
-  tail call void @_ZdaPv(ptr noundef nonnull %.057) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %.056) #9
   br label %86
 
 86:                                               ; preds = %22, %._crit_edge, %85
@@ -859,8 +859,8 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer15get_bounds_infoEiPdS1_iS1_S1_
   br label %110
 
 110:                                              ; preds = %33, %.loopexit
-  %.0 = phi i1 [ %21, %.loopexit ], [ false, %33 ]
-  ret i1 %.0
+  %.057 = phi i1 [ %21, %.loopexit ], [ false, %33 ]
+  ret i1 %.057
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1002,14 +1002,14 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer18get_starting_pointEibPdbS1_S1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %13
-  %.0 = phi ptr [ %18, %13 ], [ null, %10 ]
+  %.021 = phi ptr [ %18, %13 ], [ null, %10 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 64
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(12) %20, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, i32 noundef %12, i1 noundef zeroext %8, ptr noundef %.0)
+  %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(12) %20, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, i32 noundef %12, i1 noundef zeroext %8, ptr noundef %.021)
   %brmerge.demorgan = and i1 %25, %8
   %26 = load i32, ptr %21, align 8
   %27 = icmp sgt i32 %26, 0
@@ -1030,7 +1030,7 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer18get_starting_pointEibPdbS1_S1
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds double, ptr %.0, i64 %indvars.iv
+  %36 = getelementptr inbounds double, ptr %.021, i64 %indvars.iv
   %37 = load double, ptr %36, align 8
   %38 = zext nneg i32 %33 to i64
   %39 = getelementptr inbounds double, ptr %9, i64 %38
@@ -1046,11 +1046,11 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer18get_starting_pointEibPdbS1_S1
   br i1 %43, label %29, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %40, %._crit_edge
-  %44 = icmp eq ptr %.0, null
+  %44 = icmp eq ptr %.021, null
   br i1 %44, label %46, label %45
 
 45:                                               ; preds = %.loopexit
-  tail call void @_ZdaPv(ptr noundef nonnull %.0) #9
+  tail call void @_ZdaPv(ptr noundef nonnull %.021) #9
   br label %46
 
 46:                                               ; preds = %45, %.loopexit
@@ -1203,7 +1203,7 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer10eval_jac_gEiPKdbiiPiS3_Pd(ptr
 
 48:                                               ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
-  %.05162 = phi i32 [ 0, %.lr.ph ], [ %.152, %71 ]
+  %.05261 = phi i32 [ 0, %.lr.ph ], [ %.153, %71 ]
   %.05460 = phi i32 [ 0, %.lr.ph ], [ %.155, %71 ]
   %49 = load ptr, ptr %47, align 8
   %50 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
@@ -1217,28 +1217,28 @@ define noundef zeroext i1 @_ZN5Ipopt11TNLPReducer10eval_jac_gEiPKdbiiPiS3_Pd(ptr
 
 57:                                               ; preds = %48
   %58 = add nuw nsw i32 %55, %35
-  %59 = sext i32 %.05162 to i64
+  %59 = sext i32 %.05460 to i64
   %60 = getelementptr inbounds i32, ptr %6, i64 %59
   store i32 %58, ptr %60, align 4
   %61 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds i32, ptr %7, i64 %59
   store i32 %62, ptr %63, align 4
-  %64 = add nsw i32 %.05162, 1
+  %64 = add nsw i32 %.05460, 1
   br label %71
 
 65:                                               ; preds = %48
   %66 = load ptr, ptr %11, align 8
-  %67 = sext i32 %.05460 to i64
+  %67 = sext i32 %.05261 to i64
   %68 = getelementptr inbounds i32, ptr %66, i64 %67
   %69 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %69, ptr %68, align 4
-  %70 = add nsw i32 %.05460, 1
+  %70 = add nsw i32 %.05261, 1
   br label %71
 
 71:                                               ; preds = %57, %65
-  %.155 = phi i32 [ %.05460, %57 ], [ %70, %65 ]
-  %.152 = phi i32 [ %64, %57 ], [ %.05162, %65 ]
+  %.155 = phi i32 [ %64, %57 ], [ %.05460, %65 ]
+  %.153 = phi i32 [ %.05261, %57 ], [ %70, %65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %72 = load i32, ptr %16, align 4
   %73 = sext i32 %72 to i64

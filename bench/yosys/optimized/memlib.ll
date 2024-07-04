@@ -13920,14 +13920,14 @@ _ZNSt6vectorIiSaIiEE2atEm.exit:                   ; preds = %8
   br label %230
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds i8, ptr %.01673, i64 1
+  %30 = getelementptr inbounds i8, ptr %.073, i64 1
   %31 = load i8, ptr %30, align 1
   %.not19 = icmp eq i8 %31, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %32 = phi i8 [ %31, %29 ], [ %7, %.preheader ]
-  %.01673 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
+  %.073 = phi ptr [ %30, %29 ], [ %0, %.preheader ]
   %33 = icmp ult i8 %32, 33
   br i1 %33, label %34, label %29
 
@@ -14374,8 +14374,8 @@ _ZNSt6vectorIiSaIiEE2atEm.exit57:                 ; preds = %_ZNSt6vectorIPcSaIS
   br label %230
 
 230:                                              ; preds = %_ZNSt6vectorIiSaIiEE2atEm.exit57, %227, %1, %_ZNSt6vectorIiSaIiEE2atEm.exit
-  %.0 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
-  ret i32 %.0
+  %.016 = phi i32 [ %28, %_ZNSt6vectorIiSaIiEE2atEm.exit ], [ 0, %1 ], [ %196, %227 ], [ %196, %_ZNSt6vectorIiSaIiEE2atEm.exit57 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -29977,13 +29977,13 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit117: ; preds = %670, %.noexc116
   br i1 %685, label %686, label %.invoke171
 
 686:                                              ; preds = %683, %680, %677, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit117
-  %.024 = phi i32 [ 0, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit117 ], [ 1, %677 ], [ 2, %680 ], [ 3, %683 ]
+  %.025 = phi i32 [ 0, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit117 ], [ 1, %677 ], [ 2, %680 ], [ 3, %683 ]
   invoke fastcc void @_ZN12_GLOBAL__N_16Parser8get_semiEv(ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.invoke173 unwind label %.loopexit.split-lp163
 
 .invoke173:                                       ; preds = %686, %717
   %.sink179 = phi i64 [ 1280, %717 ], [ 1256, %686 ]
-  %687 = phi i32 [ %.025, %717 ], [ %.024, %686 ]
+  %687 = phi i32 [ %.024, %717 ], [ %.025, %686 ]
   %688 = getelementptr inbounds i8, ptr %0, i64 %.sink179
   invoke fastcc void @_ZN12_GLOBAL__N_16Parser7add_capIN5Yosys10MemLibrary12ResetValKindEEEvRSt6vectorINS_10CapabilityIT_EESaIS8_EES7_(ptr noundef nonnull align 8 dereferenceable(1425) %0, ptr noundef nonnull align 8 dereferenceable(24) %688, i32 noundef %687)
           to label %862 unwind label %.loopexit.split-lp163
@@ -30045,7 +30045,7 @@ _ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit119: ; preds = %698, %.noexc118
   br i1 %716, label %717, label %.invoke171
 
 717:                                              ; preds = %714, %711, %708, %705, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit119
-  %.025 = phi i32 [ 0, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit119 ], [ 1, %705 ], [ 2, %708 ], [ 3, %711 ], [ 4, %714 ]
+  %.024 = phi i32 [ 0, %_ZN12_GLOBAL__N_16Parser9get_tokenB5cxx11Ev.exit119 ], [ 1, %705 ], [ 2, %708 ], [ 3, %711 ], [ 4, %714 ]
   invoke fastcc void @_ZN12_GLOBAL__N_16Parser8get_semiEv(ptr noundef nonnull align 8 dereferenceable(1425) %0)
           to label %.invoke173 unwind label %.loopexit.split-lp163
 

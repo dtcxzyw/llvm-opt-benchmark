@@ -59,19 +59,19 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef read
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0176245 = phi ptr [ %50, %.lr.ph ], [ %1, %.preheader ]
-  %.0177244 = phi i32 [ %51, %.lr.ph ], [ %2, %.preheader ]
-  %.0178243 = phi i32 [ %45, %.lr.ph ], [ -1640531527, %.preheader ]
-  %.0179242 = phi i32 [ %41, %.lr.ph ], [ -1640531527, %.preheader ]
-  %.0184241 = phi i32 [ %49, %.lr.ph ], [ -17973521, %.preheader ]
-  %7 = load i32, ptr %.0176245, align 1
-  %8 = getelementptr inbounds i8, ptr %.0176245, i64 4
+  %.0245 = phi ptr [ %50, %.lr.ph ], [ %1, %.preheader ]
+  %.0176244 = phi i32 [ %51, %.lr.ph ], [ %2, %.preheader ]
+  %.0177243 = phi i32 [ %45, %.lr.ph ], [ -1640531527, %.preheader ]
+  %.0178242 = phi i32 [ %41, %.lr.ph ], [ -1640531527, %.preheader ]
+  %.0183241 = phi i32 [ %49, %.lr.ph ], [ -17973521, %.preheader ]
+  %7 = load i32, ptr %.0245, align 1
+  %8 = getelementptr inbounds i8, ptr %.0245, i64 4
   %9 = load i32, ptr %8, align 1
-  %10 = add i32 %9, %.0178243
-  %11 = getelementptr inbounds i8, ptr %.0176245, i64 8
+  %10 = add i32 %9, %.0177243
+  %11 = getelementptr inbounds i8, ptr %.0245, i64 8
   %12 = load i32, ptr %11, align 1
-  %13 = add i32 %12, %.0184241
-  %.neg224 = add i32 %7, %.0179242
+  %13 = add i32 %12, %.0183241
+  %.neg224 = add i32 %7, %.0178242
   %14 = add i32 %10, %13
   %15 = sub i32 %.neg224, %14
   %16 = lshr i32 %13, 13
@@ -108,19 +108,19 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef read
   %47 = sub i32 %37, %46
   %48 = lshr i32 %45, 15
   %49 = xor i32 %47, %48
-  %50 = getelementptr inbounds i8, ptr %.0176245, i64 12
-  %51 = add i32 %.0177244, -12
+  %50 = getelementptr inbounds i8, ptr %.0245, i64 12
+  %51 = add i32 %.0176244, -12
   %52 = icmp ugt i32 %51, 11
   br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0184.lcssa = phi i32 [ -17973521, %.preheader ], [ %49, %.lr.ph ]
-  %.0179.lcssa = phi i32 [ -1640531527, %.preheader ], [ %41, %.lr.ph ]
-  %.0178.lcssa = phi i32 [ -1640531527, %.preheader ], [ %45, %.lr.ph ]
-  %.0177.lcssa = phi i32 [ %2, %.preheader ], [ %51, %.lr.ph ]
-  %.0176.lcssa = phi ptr [ %1, %.preheader ], [ %50, %.lr.ph ]
-  %53 = add i32 %.0184.lcssa, %2
-  switch i32 %.0177.lcssa, label %117 [
+  %.0183.lcssa = phi i32 [ -17973521, %.preheader ], [ %49, %.lr.ph ]
+  %.0178.lcssa = phi i32 [ -1640531527, %.preheader ], [ %41, %.lr.ph ]
+  %.0177.lcssa = phi i32 [ -1640531527, %.preheader ], [ %45, %.lr.ph ]
+  %.0176.lcssa = phi i32 [ %2, %.preheader ], [ %51, %.lr.ph ]
+  %.0.lcssa = phi ptr [ %1, %.preheader ], [ %50, %.lr.ph ]
+  %53 = add i32 %.0183.lcssa, %2
+  switch i32 %.0176.lcssa, label %117 [
     i32 11, label %54
     i32 10, label %60
     i32 9, label %66
@@ -135,7 +135,7 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef read
   ]
 
 54:                                               ; preds = %._crit_edge
-  %55 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 10
+  %55 = getelementptr inbounds i8, ptr %.0.lcssa, i64 10
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = shl nuw i32 %57, 24
@@ -143,36 +143,36 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef read
   br label %60
 
 60:                                               ; preds = %54, %._crit_edge
-  %.1185 = phi i32 [ %53, %._crit_edge ], [ %59, %54 ]
-  %61 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 9
+  %.1184 = phi i32 [ %53, %._crit_edge ], [ %59, %54 ]
+  %61 = getelementptr inbounds i8, ptr %.0.lcssa, i64 9
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = shl nuw nsw i32 %63, 16
-  %65 = add i32 %64, %.1185
+  %65 = add i32 %64, %.1184
   br label %66
 
 66:                                               ; preds = %60, %._crit_edge
-  %.2186 = phi i32 [ %53, %._crit_edge ], [ %65, %60 ]
-  %67 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 8
+  %.2185 = phi i32 [ %53, %._crit_edge ], [ %65, %60 ]
+  %67 = getelementptr inbounds i8, ptr %.0.lcssa, i64 8
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   %70 = shl nuw nsw i32 %69, 8
-  %71 = add i32 %70, %.2186
+  %71 = add i32 %70, %.2185
   br label %72
 
 72:                                               ; preds = %66, %._crit_edge
-  %.3187 = phi i32 [ %53, %._crit_edge ], [ %71, %66 ]
-  %73 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 7
+  %.3186 = phi i32 [ %53, %._crit_edge ], [ %71, %66 ]
+  %73 = getelementptr inbounds i8, ptr %.0.lcssa, i64 7
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = shl nuw i32 %75, 24
-  %77 = add i32 %76, %.0178.lcssa
+  %77 = add i32 %76, %.0177.lcssa
   br label %78
 
 78:                                               ; preds = %72, %._crit_edge
-  %.4188 = phi i32 [ %53, %._crit_edge ], [ %.3187, %72 ]
-  %.1 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %77, %72 ]
-  %79 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 6
+  %.4187 = phi i32 [ %53, %._crit_edge ], [ %.3186, %72 ]
+  %.1 = phi i32 [ %.0177.lcssa, %._crit_edge ], [ %77, %72 ]
+  %79 = getelementptr inbounds i8, ptr %.0.lcssa, i64 6
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   %82 = shl nuw nsw i32 %81, 16
@@ -180,9 +180,9 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef read
   br label %84
 
 84:                                               ; preds = %78, %._crit_edge
-  %.5189 = phi i32 [ %53, %._crit_edge ], [ %.4188, %78 ]
-  %.2 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %83, %78 ]
-  %85 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 5
+  %.5188 = phi i32 [ %53, %._crit_edge ], [ %.4187, %78 ]
+  %.2 = phi i32 [ %.0177.lcssa, %._crit_edge ], [ %83, %78 ]
+  %85 = getelementptr inbounds i8, ptr %.0.lcssa, i64 5
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i32
   %88 = shl nuw nsw i32 %87, 8
@@ -190,61 +190,61 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef read
   br label %90
 
 90:                                               ; preds = %84, %._crit_edge
-  %.6190 = phi i32 [ %53, %._crit_edge ], [ %.5189, %84 ]
-  %.3 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %89, %84 ]
-  %91 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 4
+  %.6189 = phi i32 [ %53, %._crit_edge ], [ %.5188, %84 ]
+  %.3 = phi i32 [ %.0177.lcssa, %._crit_edge ], [ %89, %84 ]
+  %91 = getelementptr inbounds i8, ptr %.0.lcssa, i64 4
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i32
   %94 = add i32 %.3, %93
   br label %95
 
 95:                                               ; preds = %90, %._crit_edge
-  %.7191 = phi i32 [ %53, %._crit_edge ], [ %.6190, %90 ]
-  %.4 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %94, %90 ]
-  %96 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 3
+  %.7190 = phi i32 [ %53, %._crit_edge ], [ %.6189, %90 ]
+  %.4 = phi i32 [ %.0177.lcssa, %._crit_edge ], [ %94, %90 ]
+  %96 = getelementptr inbounds i8, ptr %.0.lcssa, i64 3
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = shl nuw i32 %98, 24
-  %100 = add i32 %99, %.0179.lcssa
+  %100 = add i32 %99, %.0178.lcssa
   br label %101
 
 101:                                              ; preds = %95, %._crit_edge
-  %.8192 = phi i32 [ %53, %._crit_edge ], [ %.7191, %95 ]
-  %.1180 = phi i32 [ %.0179.lcssa, %._crit_edge ], [ %100, %95 ]
-  %.5 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %.4, %95 ]
-  %102 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 2
+  %.8191 = phi i32 [ %53, %._crit_edge ], [ %.7190, %95 ]
+  %.1179 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %100, %95 ]
+  %.5 = phi i32 [ %.0177.lcssa, %._crit_edge ], [ %.4, %95 ]
+  %102 = getelementptr inbounds i8, ptr %.0.lcssa, i64 2
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
   %105 = shl nuw nsw i32 %104, 16
-  %106 = add i32 %105, %.1180
+  %106 = add i32 %105, %.1179
   br label %107
 
 107:                                              ; preds = %101, %._crit_edge
-  %.9 = phi i32 [ %53, %._crit_edge ], [ %.8192, %101 ]
-  %.2181 = phi i32 [ %.0179.lcssa, %._crit_edge ], [ %106, %101 ]
-  %.6 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %.5, %101 ]
-  %108 = getelementptr inbounds i8, ptr %.0176.lcssa, i64 1
+  %.9 = phi i32 [ %53, %._crit_edge ], [ %.8191, %101 ]
+  %.2180 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %106, %101 ]
+  %.6 = phi i32 [ %.0177.lcssa, %._crit_edge ], [ %.5, %101 ]
+  %108 = getelementptr inbounds i8, ptr %.0.lcssa, i64 1
   %109 = load i8, ptr %108, align 1
   %110 = zext i8 %109 to i32
   %111 = shl nuw nsw i32 %110, 8
-  %112 = add i32 %111, %.2181
+  %112 = add i32 %111, %.2180
   br label %113
 
 113:                                              ; preds = %107, %._crit_edge
   %.10 = phi i32 [ %53, %._crit_edge ], [ %.9, %107 ]
-  %.3182 = phi i32 [ %.0179.lcssa, %._crit_edge ], [ %112, %107 ]
-  %.7 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %.6, %107 ]
-  %114 = load i8, ptr %.0176.lcssa, align 1
+  %.3181 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %112, %107 ]
+  %.7 = phi i32 [ %.0177.lcssa, %._crit_edge ], [ %.6, %107 ]
+  %114 = load i8, ptr %.0.lcssa, align 1
   %115 = zext i8 %114 to i32
-  %116 = add i32 %.3182, %115
+  %116 = add i32 %.3181, %115
   br label %117
 
 117:                                              ; preds = %._crit_edge, %113
   %.11 = phi i32 [ %53, %._crit_edge ], [ %.10, %113 ]
-  %.4183 = phi i32 [ %.0179.lcssa, %._crit_edge ], [ %116, %113 ]
-  %.8 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %.7, %113 ]
+  %.4182 = phi i32 [ %.0178.lcssa, %._crit_edge ], [ %116, %113 ]
+  %.8 = phi i32 [ %.0177.lcssa, %._crit_edge ], [ %.7, %113 ]
   %118 = add i32 %.11, %.8
-  %119 = sub i32 %.4183, %118
+  %119 = sub i32 %.4182, %118
   %120 = lshr i32 %.11, 13
   %121 = xor i32 %119, %120
   %122 = add i32 %.11, %121
@@ -308,27 +308,27 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef read
   br label %173
 
 173:                                              ; preds = %188, %.lr.ph253
-  %.1194251 = phi ptr [ %170, %.lr.ph253 ], [ %191, %188 ]
-  %174 = getelementptr inbounds i8, ptr %.1194251, i64 60
+  %.1193251 = phi ptr [ %170, %.lr.ph253 ], [ %191, %188 ]
+  %174 = getelementptr inbounds i8, ptr %.1193251, i64 60
   %175 = load i32, ptr %174, align 4
   %176 = icmp eq i32 %175, %153
   br i1 %176, label %177, label %185
 
 177:                                              ; preds = %173
-  %178 = getelementptr inbounds i8, ptr %.1194251, i64 56
+  %178 = getelementptr inbounds i8, ptr %.1193251, i64 56
   %179 = load i32, ptr %178, align 8
   %180 = icmp eq i32 %179, %2
   br i1 %180, label %181, label %185
 
 181:                                              ; preds = %177
-  %182 = getelementptr inbounds i8, ptr %.1194251, i64 48
+  %182 = getelementptr inbounds i8, ptr %.1193251, i64 48
   %183 = load ptr, ptr %182, align 8
   %bcmp = tail call i32 @bcmp(ptr %183, ptr nonnull %1, i64 %171)
   %184 = icmp eq i32 %bcmp, 0
   br i1 %184, label %.loopexit, label %185
 
 185:                                              ; preds = %181, %177, %173
-  %186 = getelementptr inbounds i8, ptr %.1194251, i64 40
+  %186 = getelementptr inbounds i8, ptr %.1193251, i64 40
   %187 = load ptr, ptr %186, align 8
   %.not205 = icmp eq ptr %187, null
   br i1 %.not205, label %.loopexit, label %188
@@ -340,8 +340,8 @@ define internal fastcc ptr @xhash_find(ptr noundef readonly %0, ptr noundef read
   br label %173, !llvm.loop !8
 
 .loopexit:                                        ; preds = %185, %181, %156, %117, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %117 ], [ null, %156 ], [ null, %185 ], [ %.1194251, %181 ]
-  ret ptr %.0
+  %.0196 = phi ptr [ null, %3 ], [ null, %117 ], [ null, %156 ], [ null, %185 ], [ %.1193251, %181 ]
+  ret ptr %.0196
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
@@ -387,19 +387,19 @@ define ptr @xhash_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.0257332 = phi i32 [ %56, %.lr.ph ], [ -17973521, %7 ]
-  %.0260331 = phi i32 [ %48, %.lr.ph ], [ -1640531527, %7 ]
-  %.0265330 = phi i32 [ %52, %.lr.ph ], [ -1640531527, %7 ]
-  %.0274329 = phi i32 [ %58, %.lr.ph ], [ %12, %7 ]
-  %.0275328 = phi ptr [ %57, %.lr.ph ], [ %11, %7 ]
-  %14 = load i32, ptr %.0275328, align 1
-  %15 = getelementptr inbounds i8, ptr %.0275328, i64 4
+  %.0259332 = phi i32 [ %56, %.lr.ph ], [ -17973521, %7 ]
+  %.0260331 = phi ptr [ %57, %.lr.ph ], [ %11, %7 ]
+  %.0261330 = phi i32 [ %58, %.lr.ph ], [ %12, %7 ]
+  %.0262329 = phi i32 [ %52, %.lr.ph ], [ -1640531527, %7 ]
+  %.0271328 = phi i32 [ %48, %.lr.ph ], [ -1640531527, %7 ]
+  %14 = load i32, ptr %.0260331, align 1
+  %15 = getelementptr inbounds i8, ptr %.0260331, i64 4
   %16 = load i32, ptr %15, align 1
-  %17 = add i32 %16, %.0265330
-  %18 = getelementptr inbounds i8, ptr %.0275328, i64 8
+  %17 = add i32 %16, %.0262329
+  %18 = getelementptr inbounds i8, ptr %.0260331, i64 8
   %19 = load i32, ptr %18, align 1
-  %20 = add i32 %19, %.0257332
-  %.neg311 = add i32 %14, %.0260331
+  %20 = add i32 %19, %.0259332
+  %.neg311 = add i32 %14, %.0271328
   %21 = add i32 %17, %20
   %22 = sub i32 %.neg311, %21
   %23 = lshr i32 %20, 13
@@ -436,19 +436,19 @@ define ptr @xhash_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %54 = sub i32 %44, %53
   %55 = lshr i32 %52, 15
   %56 = xor i32 %54, %55
-  %57 = getelementptr inbounds i8, ptr %.0275328, i64 12
-  %58 = add i32 %.0274329, -12
+  %57 = getelementptr inbounds i8, ptr %.0260331, i64 12
+  %58 = add i32 %.0261330, -12
   %59 = icmp ugt i32 %58, 11
   br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
-  %.0275.lcssa = phi ptr [ %11, %7 ], [ %57, %.lr.ph ]
-  %.0274.lcssa = phi i32 [ %12, %7 ], [ %58, %.lr.ph ]
-  %.0265.lcssa = phi i32 [ -1640531527, %7 ], [ %52, %.lr.ph ]
-  %.0260.lcssa = phi i32 [ -1640531527, %7 ], [ %48, %.lr.ph ]
-  %.0257.lcssa = phi i32 [ -17973521, %7 ], [ %56, %.lr.ph ]
-  %60 = add i32 %.0257.lcssa, %12
-  switch i32 %.0274.lcssa, label %124 [
+  %.0271.lcssa = phi i32 [ -1640531527, %7 ], [ %48, %.lr.ph ]
+  %.0262.lcssa = phi i32 [ -1640531527, %7 ], [ %52, %.lr.ph ]
+  %.0261.lcssa = phi i32 [ %12, %7 ], [ %58, %.lr.ph ]
+  %.0260.lcssa = phi ptr [ %11, %7 ], [ %57, %.lr.ph ]
+  %.0259.lcssa = phi i32 [ -17973521, %7 ], [ %56, %.lr.ph ]
+  %60 = add i32 %.0259.lcssa, %12
+  switch i32 %.0261.lcssa, label %124 [
     i32 11, label %61
     i32 10, label %67
     i32 9, label %73
@@ -463,7 +463,7 @@ define ptr @xhash_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   ]
 
 61:                                               ; preds = %._crit_edge
-  %62 = getelementptr inbounds i8, ptr %.0275.lcssa, i64 10
+  %62 = getelementptr inbounds i8, ptr %.0260.lcssa, i64 10
   %63 = load i8, ptr %62, align 1
   %64 = zext i8 %63 to i32
   %65 = shl nuw i32 %64, 24
@@ -472,7 +472,7 @@ define ptr @xhash_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 67:                                               ; preds = %61, %._crit_edge
   %.1 = phi i32 [ %60, %._crit_edge ], [ %66, %61 ]
-  %68 = getelementptr inbounds i8, ptr %.0275.lcssa, i64 9
+  %68 = getelementptr inbounds i8, ptr %.0260.lcssa, i64 9
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i32
   %71 = shl nuw nsw i32 %70, 16
@@ -481,7 +481,7 @@ define ptr @xhash_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 73:                                               ; preds = %67, %._crit_edge
   %.2 = phi i32 [ %60, %._crit_edge ], [ %72, %67 ]
-  %74 = getelementptr inbounds i8, ptr %.0275.lcssa, i64 8
+  %74 = getelementptr inbounds i8, ptr %.0260.lcssa, i64 8
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
   %77 = shl nuw nsw i32 %76, 8
@@ -490,93 +490,93 @@ define ptr @xhash_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 79:                                               ; preds = %73, %._crit_edge
   %.3 = phi i32 [ %60, %._crit_edge ], [ %78, %73 ]
-  %80 = getelementptr inbounds i8, ptr %.0275.lcssa, i64 7
+  %80 = getelementptr inbounds i8, ptr %.0260.lcssa, i64 7
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
   %83 = shl nuw i32 %82, 24
-  %84 = add i32 %83, %.0265.lcssa
+  %84 = add i32 %83, %.0262.lcssa
   br label %85
 
 85:                                               ; preds = %79, %._crit_edge
-  %.1266 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %84, %79 ]
+  %.1263 = phi i32 [ %.0262.lcssa, %._crit_edge ], [ %84, %79 ]
   %.4 = phi i32 [ %60, %._crit_edge ], [ %.3, %79 ]
-  %86 = getelementptr inbounds i8, ptr %.0275.lcssa, i64 6
+  %86 = getelementptr inbounds i8, ptr %.0260.lcssa, i64 6
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i32
   %89 = shl nuw nsw i32 %88, 16
-  %90 = add i32 %89, %.1266
+  %90 = add i32 %89, %.1263
   br label %91
 
 91:                                               ; preds = %85, %._crit_edge
-  %.2267 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %90, %85 ]
+  %.2264 = phi i32 [ %.0262.lcssa, %._crit_edge ], [ %90, %85 ]
   %.5 = phi i32 [ %60, %._crit_edge ], [ %.4, %85 ]
-  %92 = getelementptr inbounds i8, ptr %.0275.lcssa, i64 5
+  %92 = getelementptr inbounds i8, ptr %.0260.lcssa, i64 5
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
   %95 = shl nuw nsw i32 %94, 8
-  %96 = add i32 %95, %.2267
+  %96 = add i32 %95, %.2264
   br label %97
 
 97:                                               ; preds = %91, %._crit_edge
-  %.3268 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %96, %91 ]
+  %.3265 = phi i32 [ %.0262.lcssa, %._crit_edge ], [ %96, %91 ]
   %.6 = phi i32 [ %60, %._crit_edge ], [ %.5, %91 ]
-  %98 = getelementptr inbounds i8, ptr %.0275.lcssa, i64 4
+  %98 = getelementptr inbounds i8, ptr %.0260.lcssa, i64 4
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i32
-  %101 = add i32 %.3268, %100
+  %101 = add i32 %.3265, %100
   br label %102
 
 102:                                              ; preds = %97, %._crit_edge
-  %.4269 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %101, %97 ]
+  %.4266 = phi i32 [ %.0262.lcssa, %._crit_edge ], [ %101, %97 ]
   %.7 = phi i32 [ %60, %._crit_edge ], [ %.6, %97 ]
-  %103 = getelementptr inbounds i8, ptr %.0275.lcssa, i64 3
+  %103 = getelementptr inbounds i8, ptr %.0260.lcssa, i64 3
   %104 = load i8, ptr %103, align 1
   %105 = zext i8 %104 to i32
   %106 = shl nuw i32 %105, 24
-  %107 = add i32 %106, %.0260.lcssa
+  %107 = add i32 %106, %.0271.lcssa
   br label %108
 
 108:                                              ; preds = %102, %._crit_edge
-  %.5270 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %.4269, %102 ]
-  %.1261 = phi i32 [ %.0260.lcssa, %._crit_edge ], [ %107, %102 ]
+  %.1272 = phi i32 [ %.0271.lcssa, %._crit_edge ], [ %107, %102 ]
+  %.5267 = phi i32 [ %.0262.lcssa, %._crit_edge ], [ %.4266, %102 ]
   %.8 = phi i32 [ %60, %._crit_edge ], [ %.7, %102 ]
-  %109 = getelementptr inbounds i8, ptr %.0275.lcssa, i64 2
+  %109 = getelementptr inbounds i8, ptr %.0260.lcssa, i64 2
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i32
   %112 = shl nuw nsw i32 %111, 16
-  %113 = add i32 %112, %.1261
+  %113 = add i32 %112, %.1272
   br label %114
 
 114:                                              ; preds = %108, %._crit_edge
-  %.6271 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %.5270, %108 ]
-  %.2262 = phi i32 [ %.0260.lcssa, %._crit_edge ], [ %113, %108 ]
+  %.2273 = phi i32 [ %.0271.lcssa, %._crit_edge ], [ %113, %108 ]
+  %.6268 = phi i32 [ %.0262.lcssa, %._crit_edge ], [ %.5267, %108 ]
   %.9 = phi i32 [ %60, %._crit_edge ], [ %.8, %108 ]
-  %115 = getelementptr inbounds i8, ptr %.0275.lcssa, i64 1
+  %115 = getelementptr inbounds i8, ptr %.0260.lcssa, i64 1
   %116 = load i8, ptr %115, align 1
   %117 = zext i8 %116 to i32
   %118 = shl nuw nsw i32 %117, 8
-  %119 = add i32 %118, %.2262
+  %119 = add i32 %118, %.2273
   br label %120
 
 120:                                              ; preds = %114, %._crit_edge
-  %.7272 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %.6271, %114 ]
-  %.3263 = phi i32 [ %.0260.lcssa, %._crit_edge ], [ %119, %114 ]
+  %.3274 = phi i32 [ %.0271.lcssa, %._crit_edge ], [ %119, %114 ]
+  %.7269 = phi i32 [ %.0262.lcssa, %._crit_edge ], [ %.6268, %114 ]
   %.10 = phi i32 [ %60, %._crit_edge ], [ %.9, %114 ]
-  %121 = load i8, ptr %.0275.lcssa, align 1
+  %121 = load i8, ptr %.0260.lcssa, align 1
   %122 = zext i8 %121 to i32
-  %123 = add i32 %.3263, %122
+  %123 = add i32 %.3274, %122
   br label %124
 
 124:                                              ; preds = %._crit_edge, %120
-  %.8273 = phi i32 [ %.0265.lcssa, %._crit_edge ], [ %.7272, %120 ]
-  %.4264 = phi i32 [ %.0260.lcssa, %._crit_edge ], [ %123, %120 ]
+  %.4275 = phi i32 [ %.0271.lcssa, %._crit_edge ], [ %123, %120 ]
+  %.8270 = phi i32 [ %.0262.lcssa, %._crit_edge ], [ %.7269, %120 ]
   %.11 = phi i32 [ %60, %._crit_edge ], [ %.10, %120 ]
-  %125 = add i32 %.8273, %.11
-  %126 = sub i32 %.4264, %125
+  %125 = add i32 %.8270, %.11
+  %126 = sub i32 %.4275, %125
   %127 = lshr i32 %.11, 13
   %128 = xor i32 %126, %127
   %129 = add i32 %.11, %128
-  %130 = sub i32 %.8273, %129
+  %130 = sub i32 %.8270, %129
   %131 = shl i32 %128, 8
   %132 = xor i32 %130, %131
   %133 = add i32 %128, %132
@@ -787,10 +787,10 @@ define ptr @xhash_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.not291337, label %._crit_edge341, label %.lr.ph340
 
 .lr.ph340:                                        ; preds = %.lr.ph344, %302
-  %.0258338 = phi ptr [ %267, %302 ], [ %265, %.lr.ph344 ]
-  %266 = getelementptr inbounds i8, ptr %.0258338, i64 32
+  %.0257338 = phi ptr [ %267, %302 ], [ %265, %.lr.ph344 ]
+  %266 = getelementptr inbounds i8, ptr %.0257338, i64 32
   %267 = load ptr, ptr %266, align 8
-  %268 = getelementptr inbounds i8, ptr %.0258338, i64 52
+  %268 = getelementptr inbounds i8, ptr %.0257338, i64 52
   %269 = load i32, ptr %268, align 4
   %270 = load ptr, ptr %161, align 8
   %271 = getelementptr inbounds i8, ptr %270, i64 8
@@ -829,7 +829,7 @@ define ptr @xhash_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %297
 
 297:                                              ; preds = %284, %295, %.lr.ph340
-  %298 = getelementptr inbounds i8, ptr %.0258338, i64 24
+  %298 = getelementptr inbounds i8, ptr %.0257338, i64 24
   store ptr null, ptr %298, align 8
   %299 = load ptr, ptr %277, align 8
   store ptr %299, ptr %266, align 8
@@ -838,11 +838,11 @@ define ptr @xhash_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 300:                                              ; preds = %297
   %301 = getelementptr inbounds i8, ptr %299, i64 24
-  store ptr %.0258338, ptr %301, align 8
+  store ptr %.0257338, ptr %301, align 8
   br label %302
 
 302:                                              ; preds = %300, %297
-  store ptr %.0258338, ptr %277, align 8
+  store ptr %.0257338, ptr %277, align 8
   %.not291 = icmp eq ptr %267, null
   br i1 %.not291, label %._crit_edge341.loopexit, label %.lr.ph340, !llvm.loop !10
 

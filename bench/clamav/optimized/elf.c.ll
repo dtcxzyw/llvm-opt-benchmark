@@ -1327,17 +1327,17 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh64(ptr noundef %0, ptr no
 
 54:                                               ; preds = %.lr.ph, %134
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %134 ]
-  %.0186209 = phi i64 [ %38, %.lr.ph ], [ %72, %134 ]
+  %.0185209 = phi i64 [ %38, %.lr.ph ], [ %72, %134 ]
   %55 = getelementptr inbounds %struct.elf_section_hdr64, ptr %48, i64 %indvars.iv
   %56 = load i64, ptr %52, align 8
-  %or.cond207.not = icmp ugt i64 %56, %.0186209
+  %or.cond207.not = icmp ugt i64 %56, %.0185209
   br i1 %or.cond207.not, label %57, label %fmap_readn.exit.thread
 
 57:                                               ; preds = %54
-  %58 = sub i64 %56, %.0186209
+  %58 = sub i64 %56, %.0185209
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %58, i64 64)
   %59 = load ptr, ptr %53, align 8
-  %60 = tail call ptr %59(ptr noundef nonnull %1, i64 noundef %.0186209, i64 noundef %spec.select.i, i32 noundef 0) #8
+  %60 = tail call ptr %59(ptr noundef nonnull %1, i64 noundef %.0185209, i64 noundef %spec.select.i, i32 noundef 0) #8
   %.not26.i = icmp eq ptr %60, null
   br i1 %.not26.i, label %fmap_readn.exit.thread, label %fmap_readn.exit
 
@@ -1374,7 +1374,7 @@ fmap_readn.exit.thread:                           ; preds = %57, %54, %fmap_read
   br label %135
 
 71:                                               ; preds = %fmap_readn.exit
-  %72 = add i64 %.0186209, 64
+  %72 = add i64 %.0185209, 64
   br i1 %13, label %73, label %106
 
 73:                                               ; preds = %71
@@ -1474,8 +1474,8 @@ fmap_readn.exit.thread:                           ; preds = %57, %54, %fmap_read
   br i1 %exitcond.not, label %._crit_edge, label %54
 
 ._crit_edge:                                      ; preds = %134, %45
-  %.0185215 = phi ptr [ null, %45 ], [ %48, %134 ]
-  tail call void @free(ptr noundef %.0185215) #8
+  %.0187215 = phi ptr [ null, %45 ], [ %48, %134 ]
+  tail call void @free(ptr noundef %.0187215) #8
   br label %135
 
 135:                                              ; preds = %67, %33, %29, %._crit_edge, %70, %49, %44, %32, %15, %11
@@ -1601,9 +1601,9 @@ define internal fastcc range(i32 0, 27) i32 @cli_elf_sh32(ptr noundef %0, ptr no
 
 54:                                               ; preds = %.lr.ph, %129
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %129 ]
-  %.0139160 = phi i32 [ %38, %.lr.ph ], [ %73, %129 ]
+  %.0138160 = phi i32 [ %38, %.lr.ph ], [ %73, %129 ]
   %55 = getelementptr inbounds %struct.elf_section_hdr32, ptr %48, i64 %indvars.iv
-  %56 = zext i32 %.0139160 to i64
+  %56 = zext i32 %.0138160 to i64
   %57 = load i64, ptr %52, align 8
   %or.cond159.not = icmp ugt i64 %57, %56
   br i1 %or.cond159.not, label %58, label %fmap_readn.exit.thread
@@ -1649,7 +1649,7 @@ fmap_readn.exit.thread:                           ; preds = %58, %54, %fmap_read
   br label %130
 
 72:                                               ; preds = %fmap_readn.exit
-  %73 = add i32 %.0139160, 40
+  %73 = add i32 %.0138160, 40
   br i1 %13, label %74, label %102
 
 74:                                               ; preds = %72
@@ -1743,8 +1743,8 @@ fmap_readn.exit.thread:                           ; preds = %58, %54, %fmap_read
   br i1 %exitcond.not, label %._crit_edge, label %54
 
 ._crit_edge:                                      ; preds = %129, %45
-  %.0137167 = phi ptr [ null, %45 ], [ %48, %129 ]
-  tail call void @free(ptr noundef %.0137167) #8
+  %.0139167 = phi ptr [ null, %45 ], [ %48, %129 ]
+  tail call void @free(ptr noundef %.0139167) #8
   br label %130
 
 130:                                              ; preds = %68, %33, %29, %._crit_edge, %71, %49, %44, %32, %15, %11
@@ -1853,14 +1853,14 @@ define i32 @cli_unpackelf(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not26, label %.thread, label %20
 
 20:                                               ; preds = %.thread33, %19
-  %.038 = phi i32 [ %18, %.thread33 ], [ 0, %19 ]
+  %.01937 = phi i32 [ %18, %.thread33 ], [ 0, %19 ]
   %21 = call i32 @close(i32 noundef %12) #8
   %.pre = load ptr, ptr %2, align 8
   br label %.thread
 
 .thread:                                          ; preds = %20, %19
   %22 = phi ptr [ %.pre, %20 ], [ %14, %19 ]
-  %.032 = phi i32 [ %.038, %20 ], [ 0, %19 ]
+  %.01932 = phi i32 [ %.01937, %20 ], [ 0, %19 ]
   %.not27 = icmp eq ptr %22, null
   br i1 %.not27, label %.thread43, label %23
 
@@ -1883,13 +1883,13 @@ define i32 @cli_unpackelf(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread43
 
 .thread43:                                        ; preds = %.thread, %30, %4
-  %.0324245 = phi i32 [ %9, %4 ], [ %.032, %30 ], [ %.032, %.thread ]
+  %.019324245 = phi i32 [ %9, %4 ], [ %.01932, %30 ], [ %.01932, %.thread ]
   call void @cli_bytecode_context_destroy(ptr noundef nonnull %3) #8
   br label %32
 
 32:                                               ; preds = %.thread47, %.thread43
-  %.0324246 = phi i32 [ %.0324245, %.thread43 ], [ 20, %.thread47 ]
-  ret i32 %.0324246
+  %.019324246 = phi i32 [ %.019324245, %.thread43 ], [ 20, %.thread47 ]
+  ret i32 %.019324246
 }
 
 declare ptr @cli_bytecode_context_alloc() local_unnamed_addr #1

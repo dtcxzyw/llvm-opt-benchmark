@@ -93,7 +93,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %confidence.020 = phi i32 [ %confidence.addr.1.i, %for.inc ], [ 10, %entry ]
+  %confidence.019 = phi i32 [ %confidence.addr.1.i, %for.inc ], [ 10, %entry ]
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i16
@@ -113,7 +113,7 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end
-  %sub.i = add nsw i32 %confidence.020, -10
+  %sub.i = add nsw i32 %confidence.019, -10
   br label %_ZN6icu_75L16adjustConfidenceEDsi.exit
 
 if.else.i:                                        ; preds = %if.end
@@ -121,8 +121,8 @@ if.else.i:                                        ; preds = %if.end
   %or.cond.i = icmp ult i16 %5, 224
   %cmp6.i = icmp eq i16 %or, 10
   %or.cond1.i = or i1 %cmp6.i, %or.cond.i
-  %add.i = add nuw nsw i32 %confidence.020, 10
-  %spec.select.i = select i1 %or.cond1.i, i32 %add.i, i32 %confidence.020
+  %add.i = add nuw nsw i32 %confidence.019, 10
+  %spec.select.i = select i1 %or.cond1.i, i32 %add.i, i32 %confidence.019
   br label %_ZN6icu_75L16adjustConfidenceEDsi.exit
 
 _ZN6icu_75L16adjustConfidenceEDsi.exit:           ; preds = %if.then.i, %if.else.i
@@ -189,7 +189,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %confidence.023 = phi i32 [ %confidence.addr.1.i, %for.inc ], [ 10, %entry ]
+  %confidence.022 = phi i32 [ %confidence.addr.1.i, %for.inc ], [ 10, %entry ]
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i16
@@ -226,7 +226,7 @@ if.end20:                                         ; preds = %for.body
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end20
-  %sub.i = add nsw i32 %confidence.023, -10
+  %sub.i = add nsw i32 %confidence.022, -10
   br label %_ZN6icu_75L16adjustConfidenceEDsi.exit
 
 if.else.i:                                        ; preds = %if.end20
@@ -234,8 +234,8 @@ if.else.i:                                        ; preds = %if.end20
   %or.cond.i = icmp ult i16 %7, 224
   %cmp6.i = icmp eq i16 %or, 10
   %or.cond1.i = or i1 %cmp6.i, %or.cond.i
-  %add.i = add nuw nsw i32 %confidence.023, 10
-  %spec.select.i = select i1 %or.cond1.i, i32 %add.i, i32 %confidence.023
+  %add.i = add nuw nsw i32 %confidence.022, 10
+  %spec.select.i = select i1 %or.cond1.i, i32 %add.i, i32 %confidence.022
   br label %_ZN6icu_75L16adjustConfidenceEDsi.exit
 
 _ZN6icu_75L16adjustConfidenceEDsi.exit:           ; preds = %if.then.i, %if.else.i
@@ -300,23 +300,23 @@ for.body.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %numValid.032 = phi i32 [ %numValid.1, %for.body ], [ 0, %for.body.preheader ]
-  %i.031 = phi i32 [ %add16, %for.body ], [ 0, %for.body.preheader ]
-  %numInvalid.030 = phi i32 [ %numInvalid.1, %for.body ], [ 0, %for.body.preheader ]
+  %i.032 = phi i32 [ %add16, %for.body ], [ 0, %for.body.preheader ]
+  %numInvalid.031 = phi i32 [ %numInvalid.1, %for.body ], [ 0, %for.body.preheader ]
+  %numValid.030 = phi i32 [ %numValid.1, %for.body ], [ 0, %for.body.preheader ]
   %vtable4 = load ptr, ptr %this, align 8
   %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 40
   %3 = load ptr, ptr %vfn5, align 8
-  %call6 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0, i32 noundef %i.031)
-  %or.cond = icmp ugt i32 %call6, 1114110
+  %call6 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %0, i32 noundef %i.032)
+  %or.cond = icmp ult i32 %call6, 1114111
   %4 = and i32 %call6, 2095104
-  %or.cond1 = icmp eq i32 %4, 55296
-  %or.cond25 = or i1 %or.cond, %or.cond1
-  %add = zext i1 %or.cond25 to i32
-  %numInvalid.1 = add nuw nsw i32 %numInvalid.030, %add
-  %not.or.cond25 = xor i1 %or.cond25, true
-  %add14 = zext i1 %not.or.cond25 to i32
-  %numValid.1 = add nuw nsw i32 %numValid.032, %add14
-  %add16 = add nuw nsw i32 %i.031, 4
+  %or.cond1 = icmp ne i32 %4, 55296
+  %or.cond25.not = and i1 %or.cond, %or.cond1
+  %add14 = zext i1 %or.cond25.not to i32
+  %numValid.1 = add nuw nsw i32 %numValid.030, %add14
+  %not.or.cond25.not = xor i1 %or.cond25.not, true
+  %add = zext i1 %not.or.cond25.not to i32
+  %numInvalid.1 = add nuw nsw i32 %numInvalid.031, %add
+  %add16 = add nuw nsw i32 %i.032, 4
   %cmp3 = icmp slt i32 %add16, %mul
   br i1 %cmp3, label %for.body, label %for.end, !llvm.loop !7
 

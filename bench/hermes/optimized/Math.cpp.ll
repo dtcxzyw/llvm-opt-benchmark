@@ -678,9 +678,9 @@ for.body.lr.ph:                                   ; preds = %_ZN4llvh15SmallVect
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit
   %hasNaN.046 = phi i1 [ false, %for.body.lr.ph ], [ %16, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit ]
   %hasInf.045 = phi i1 [ false, %for.body.lr.ph ], [ %14, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit ]
-  %max.044 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %.sroa.speculated, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit ]
-  %__begin2.sroa.0.043 = phi ptr [ %6, %for.body.lr.ph ], [ %incdec.ptr.i.i, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.043, i64 -8
+  %__begin2.sroa.0.044 = phi ptr [ %6, %for.body.lr.ph ], [ %incdec.ptr.i.i, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit ]
+  %max.043 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %.sroa.speculated, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.044, i64 -8
   %7 = load ptr, ptr %chunks_.i, align 8
   %arrayidx.i18.i = getelementptr inbounds ptr, ptr %7, i64 %conv.i
   %8 = load ptr, ptr %arrayidx.i18.i, align 8
@@ -721,8 +721,8 @@ _ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit: ; preds = %if.end, 
   %21 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i = add i32 %21, 1
   store i32 %add.i, ptr %Size.i.i.i.i.i, align 8
-  %cmp.i25 = fcmp olt double %12, %max.044
-  %.sroa.speculated = select i1 %cmp.i25, double %max.044, double %12
+  %cmp.i25 = fcmp olt double %12, %max.043
+  %.sroa.speculated = select i1 %cmp.i25, double %max.043, double %12
   %cmp.i.i.i.not = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i.i.not, label %for.end, label %for.body
 
@@ -745,16 +745,16 @@ if.end42:                                         ; preds = %if.end36
 
 for.body50:                                       ; preds = %if.end42, %for.body50
   %sum.052 = phi double [ %add, %for.body50 ], [ 0.000000e+00, %if.end42 ]
-  %c.051 = phi double [ %sub54, %for.body50 ], [ 0.000000e+00, %if.end42 ]
-  %__begin244.050 = phi ptr [ %incdec.ptr, %for.body50 ], [ %22, %if.end42 ]
-  %24 = load double, ptr %__begin244.050, align 8
+  %__begin244.051 = phi ptr [ %incdec.ptr, %for.body50 ], [ %22, %if.end42 ]
+  %c.050 = phi double [ %sub54, %for.body50 ], [ 0.000000e+00, %if.end42 ]
+  %24 = load double, ptr %__begin244.051, align 8
   %div = fdiv double %24, %.sroa.speculated
   %mul = fmul double %div, %div
-  %sub = fsub double %mul, %c.051
+  %sub = fsub double %mul, %c.050
   %add = fadd double %sum.052, %sub
   %sub53 = fsub double %add, %sum.052
   %sub54 = fsub double %sub53, %sub
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin244.050, i64 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin244.051, i64 8
   %cmp49.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp49.not, label %for.end56, label %for.body50
 

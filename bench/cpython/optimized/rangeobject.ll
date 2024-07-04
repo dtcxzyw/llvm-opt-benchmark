@@ -2189,8 +2189,8 @@ do.end30.i:                                       ; preds = %if.then1.i.i, %if.e
   br i1 %cmp33.not.i, label %fail.i, label %compute_slice.exit
 
 fail.i:                                           ; preds = %do.end30.i, %compute_item.exit45.i, %if.else.i30.i, %compute_item.exit.i, %if.else.i.i, %if.end.i14
-  %substop.0.i = phi ptr [ null, %if.end.i14 ], [ null, %compute_item.exit.i ], [ null, %compute_item.exit45.i ], [ %retval.0.i37.i, %do.end30.i ], [ null, %if.else.i.i ], [ null, %if.else.i30.i ]
   %substart.0.i = phi ptr [ null, %if.end.i14 ], [ null, %compute_item.exit.i ], [ %retval.0.i.i, %compute_item.exit45.i ], [ %retval.0.i.i, %do.end30.i ], [ null, %if.else.i.i ], [ %retval.0.i.i, %if.else.i30.i ]
+  %substop.0.i = phi ptr [ null, %if.end.i14 ], [ null, %compute_item.exit.i ], [ null, %compute_item.exit45.i ], [ %retval.0.i37.i, %do.end30.i ], [ null, %if.else.i.i ], [ null, %if.else.i30.i ]
   %30 = load ptr, ptr %start.i, align 8
   %cmp.not.i.i = icmp eq ptr %30, null
   br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i46.i
@@ -2456,9 +2456,9 @@ if.else13.i:                                      ; preds = %if.end6.i
   br i1 %tobool.not.i, label %return, label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.else13.i, %if.end.i111.i, %if.then12.i
+  %step.addr.0.i = phi ptr [ %step, %if.then12.i ], [ %step, %if.end.i111.i ], [ %call14.i, %if.else13.i ]
   %lo.0.i = phi ptr [ %start, %if.then12.i ], [ %start, %if.end.i111.i ], [ %stop, %if.else13.i ]
   %hi.0.i = phi ptr [ %stop, %if.then12.i ], [ %stop, %if.end.i111.i ], [ %start, %if.else13.i ]
-  %step.addr.0.i = phi ptr [ %step, %if.then12.i ], [ %step, %if.end.i111.i ], [ %call14.i, %if.else13.i ]
   %call18.i = call i32 @PyObject_RichCompareBool(ptr noundef %lo.0.i, ptr noundef %hi.0.i, i32 noundef 5) #6
   %cmp19.not.i = icmp eq i32 %call18.i, 0
   br i1 %cmp19.not.i, label %if.end25.i, label %if.then20.i

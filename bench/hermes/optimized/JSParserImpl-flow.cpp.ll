@@ -4397,8 +4397,8 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %call4.pn = phi { i64, i8 } [ %call4, %if.then ], [ %.fca.1.insert.i, %if.else ]
-  %optBody.sroa.3.0 = extractvalue { i64, i8 } %call4.pn, 1
   %optBody.sroa.0.0 = extractvalue { i64, i8 } %call4.pn, 0
+  %optBody.sroa.3.0 = extractvalue { i64, i8 } %call4.pn, 1
   %tobool.i = trunc i8 %optBody.sroa.3.0 to i1
   br i1 %tobool.i, label %lor.lhs.false, label %return
 
@@ -5554,8 +5554,8 @@ if.then28:                                        ; preds = %_ZNK6hermes6parser6
   %call2.i29 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl23parseRenderTypeOperatorEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %14 = extractvalue { i64, i8 } %call2.i29, 0
   %call4.i = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl29parsePrefixTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %optBody.sroa.3.0.i = extractvalue { i64, i8 } %call4.i, 1
   %optBody.sroa.0.0.i = extractvalue { i64, i8 } %call4.i, 0
+  %optBody.sroa.3.0.i = extractvalue { i64, i8 } %call4.i, 1
   %tobool.i.i = trunc i8 %optBody.sroa.3.0.i to i1
   br i1 %tobool.i.i, label %lor.lhs.false.i, label %return
 

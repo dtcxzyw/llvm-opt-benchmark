@@ -119,19 +119,19 @@ define zeroext i1 @zend_gdb_present() local_unnamed_addr #0 {
   br label %13
 
 13:                                               ; preds = %.critedge, %11
-  %.013 = phi ptr [ %12, %11 ], [ %15, %.critedge ]
-  %14 = load i8, ptr %.013, align 1
+  %.0 = phi ptr [ %12, %11 ], [ %15, %.critedge ]
+  %14 = load i8, ptr %.0, align 1
   switch i8 %14, label %16 [
     i8 32, label %.critedge
     i8 9, label %.critedge
   ]
 
 .critedge:                                        ; preds = %13, %13
-  %15 = getelementptr inbounds i8, ptr %.013, i64 1
+  %15 = getelementptr inbounds i8, ptr %.0, i64 1
   br label %13
 
 16:                                               ; preds = %13
-  %17 = call i32 @atoi(ptr nocapture noundef nonnull %.013) #11
+  %17 = call i32 @atoi(ptr nocapture noundef nonnull %.0) #11
   %.not19 = icmp eq i32 %17, 0
   br i1 %.not19, label %24, label %18
 
@@ -147,12 +147,12 @@ define zeroext i1 @zend_gdb_present() local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %22, %8, %18, %16, %5
-  %.0 = phi i1 [ false, %18 ], [ false, %16 ], [ false, %8 ], [ false, %5 ], [ %.not20, %22 ]
+  %.013 = phi i1 [ false, %18 ], [ false, %16 ], [ false, %8 ], [ false, %5 ], [ %.not20, %22 ]
   %25 = call i32 @close(i32 noundef %3) #9
   br label %26
 
 26:                                               ; preds = %24, %0
-  %.1 = phi i1 [ %.0, %24 ], [ false, %0 ]
+  %.1 = phi i1 [ %.013, %24 ], [ false, %0 ]
   ret i1 %.1
 }
 

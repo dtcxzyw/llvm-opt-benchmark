@@ -1234,15 +1234,14 @@ if.then:                                          ; preds = %if.then.critedge, %
   store i32 0, ptr %atbol, align 8
   br label %for.cond.outer
 
-for.cond.outer:                                   ; preds = %if.then15, %if.then
-  %cont_line_col.0.ph = phi i32 [ %cond, %if.then15 ], [ 0, %if.then ]
-  %altcol.0.ph = phi i32 [ %altcol.0, %if.then15 ], [ 0, %if.then ]
-  %col.0.ph = phi i32 [ %col.0, %if.then15 ], [ 0, %if.then ]
+for.cond.outer:                                   ; preds = %for.cond.outer.backedge, %if.then
+  %col.0.ph = phi i32 [ 0, %if.then ], [ %col.0.ph.be, %for.cond.outer.backedge ]
+  %altcol.0.ph = phi i32 [ 0, %if.then ], [ %altcol.0.ph.be, %for.cond.outer.backedge ]
+  %cont_line_col.0.ph = phi i32 [ 0, %if.then ], [ %cont_line_col.0, %for.cond.outer.backedge ]
   br label %for.cond
 
-for.cond:                                         ; preds = %for.cond.backedge, %for.cond.outer
-  %altcol.0 = phi i32 [ %altcol.0.ph, %for.cond.outer ], [ %altcol.0.be, %for.cond.backedge ]
-  %col.0 = phi i32 [ %col.0.ph, %for.cond.outer ], [ %col.0.be, %for.cond.backedge ]
+for.cond:                                         ; preds = %for.cond.outer, %if.then15
+  %cont_line_col.0 = phi i32 [ %cond, %if.then15 ], [ %cont_line_col.0.ph, %for.cond.outer ]
   %.pre.i = load ptr, ptr %cur.i, align 8
   %.pre31.i = load ptr, ptr %inp.i, align 8
   br label %for.cond.i
@@ -1304,34 +1303,34 @@ tok_nextc.exit:                                   ; preds = %if.then.i
   switch i8 %11, label %if.then.i889 [
     i8 32, label %if.then2
     i8 9, label %if.then5
-    i8 12, label %for.cond.backedge
+    i8 12, label %for.cond.outer.backedge
     i8 92, label %if.then15
   ]
 
-for.cond.backedge:                                ; preds = %tok_nextc.exit, %if.then5, %if.then2
-  %altcol.0.be = phi i32 [ %inc3, %if.then2 ], [ %add8, %if.then5 ], [ 0, %tok_nextc.exit ]
-  %col.0.be = phi i32 [ %inc, %if.then2 ], [ %mul, %if.then5 ], [ 0, %tok_nextc.exit ]
-  br label %for.cond
-
 if.then2:                                         ; preds = %tok_nextc.exit
-  %inc = add i32 %col.0, 1
-  %inc3 = add i32 %altcol.0, 1
-  br label %for.cond.backedge
+  %inc = add i32 %col.0.ph, 1
+  %inc3 = add i32 %altcol.0.ph, 1
+  br label %for.cond.outer.backedge
+
+for.cond.outer.backedge:                          ; preds = %tok_nextc.exit, %if.then2, %if.then5
+  %col.0.ph.be = phi i32 [ %mul, %if.then5 ], [ %inc, %if.then2 ], [ 0, %tok_nextc.exit ]
+  %altcol.0.ph.be = phi i32 [ %add8, %if.then5 ], [ %inc3, %if.then2 ], [ 0, %tok_nextc.exit ]
+  br label %for.cond.outer
 
 if.then5:                                         ; preds = %tok_nextc.exit
   %12 = load i32, ptr %tabsize, align 8
-  %div = sdiv i32 %col.0, %12
+  %div = sdiv i32 %col.0.ph, %12
   %add = add i32 %div, 1
   %mul = mul i32 %add, %12
-  %add8 = add i32 %altcol.0, 1
-  br label %for.cond.backedge
+  %add8 = add i32 %altcol.0.ph, 1
+  br label %for.cond.outer.backedge
 
 if.then15:                                        ; preds = %tok_nextc.exit
-  %tobool16.not = icmp eq i32 %cont_line_col.0.ph, 0
-  %cond = select i1 %tobool16.not, i32 %col.0, i32 %cont_line_col.0.ph
+  %tobool16.not = icmp eq i32 %cont_line_col.0, 0
+  %cond = select i1 %tobool16.not, i32 %col.0.ph, i32 %cont_line_col.0
   %call17 = tail call fastcc i32 @tok_continuation_line(ptr noundef nonnull %tok)
   %cmp18 = icmp eq i32 %call17, -1
-  br i1 %cmp18, label %if.then19, label %for.cond.outer
+  br i1 %cmp18, label %if.then19, label %for.cond
 
 if.then19:                                        ; preds = %if.then15
   %call20 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 64, ptr noundef null, ptr noundef null) #8
@@ -1366,7 +1365,7 @@ tok_backup.exit:                                  ; preds = %if.end.i893
 
 if.then30:                                        ; preds = %tok_backup.exit, %tok_backup.exit, %tok_backup.exit
   %cmp27 = icmp eq i8 %11, 10
-  %cmp31 = icmp eq i32 %col.0, 0
+  %cmp31 = icmp eq i32 %col.0.ph, 0
   %or.cond2 = and i1 %cmp31, %cmp27
   %.pre2354 = load ptr, ptr %prompt, align 8
   %cmp34.not = icmp eq ptr %.pre2354, null
@@ -1385,16 +1384,16 @@ land.lhs.true39:                                  ; preds = %if.else36
 
 land.lhs.true47:                                  ; preds = %if.end7.i, %if.then13.i, %if.then23.i, %if.then2.i, %tok_backup.exit, %land.lhs.true33, %land.lhs.true39
   %16 = phi ptr [ %2, %land.lhs.true39 ], [ %2, %land.lhs.true33 ], [ %2, %tok_backup.exit ], [ %2, %if.then2.i ], [ %10, %if.then23.i ], [ %7, %if.then13.i ], [ %2, %if.end7.i ]
-  %altcol.2.ph = phi i32 [ 0, %land.lhs.true39 ], [ %altcol.0, %land.lhs.true33 ], [ %altcol.0, %tok_backup.exit ], [ %altcol.0, %if.then2.i ], [ %altcol.0, %if.then23.i ], [ %altcol.0, %if.then13.i ], [ %altcol.0, %if.end7.i ]
-  %col.2.ph = phi i32 [ 0, %land.lhs.true39 ], [ 0, %land.lhs.true33 ], [ %col.0, %tok_backup.exit ], [ %col.0, %if.then2.i ], [ %col.0, %if.then23.i ], [ %col.0, %if.then13.i ], [ %col.0, %if.end7.i ]
+  %col.2.ph = phi i32 [ 0, %land.lhs.true39 ], [ 0, %land.lhs.true33 ], [ %col.0.ph, %tok_backup.exit ], [ %col.0.ph, %if.then2.i ], [ %col.0.ph, %if.then23.i ], [ %col.0.ph, %if.then13.i ], [ %col.0.ph, %if.end7.i ]
+  %altcol.2.ph = phi i32 [ 0, %land.lhs.true39 ], [ %altcol.0.ph, %land.lhs.true33 ], [ %altcol.0.ph, %tok_backup.exit ], [ %altcol.0.ph, %if.then2.i ], [ %altcol.0.ph, %if.then23.i ], [ %altcol.0.ph, %if.then13.i ], [ %altcol.0.ph, %if.end7.i ]
   %17 = load i32, ptr %level, align 8
   %cmp48 = icmp eq i32 %17, 0
   br i1 %cmp48, label %if.then49, label %if.end136
 
 if.then49:                                        ; preds = %land.lhs.true47
-  %tobool50.not = icmp eq i32 %cont_line_col.0.ph, 0
-  %cond54 = select i1 %tobool50.not, i32 %col.2.ph, i32 %cont_line_col.0.ph
-  %cond59 = select i1 %tobool50.not, i32 %altcol.2.ph, i32 %cont_line_col.0.ph
+  %tobool50.not = icmp eq i32 %cont_line_col.0, 0
+  %cond54 = select i1 %tobool50.not, i32 %col.2.ph, i32 %cont_line_col.0
+  %cond59 = select i1 %tobool50.not, i32 %altcol.2.ph, i32 %cont_line_col.0
   %18 = load i32, ptr %indent, align 4
   %idxprom = sext i32 %18 to i64
   %arrayidx = getelementptr [100 x i32], ptr %indstack, i64 0, i64 %idxprom
@@ -1536,8 +1535,8 @@ if.then157:                                       ; preds = %if.else154
   br label %if.end159
 
 if.end159:                                        ; preds = %if.then157, %if.else154
-  %p_end.1 = phi ptr [ %29, %if.then157 ], [ null, %if.else154 ]
   %p_start.1 = phi ptr [ %33, %if.then157 ], [ null, %if.else154 ]
+  %p_end.1 = phi ptr [ %29, %if.then157 ], [ null, %if.else154 ]
   %dec161 = add nsw i32 %31, -1
   store i32 %dec161, ptr %pendin110, align 4
   %call162 = tail call i32 @_PyLexer_token_setup(ptr noundef nonnull %tok, ptr noundef %token, i32 noundef 5, ptr noundef %p_start.1, ptr noundef %p_end.1) #8
@@ -1636,11 +1635,11 @@ again:                                            ; preds = %again.preheader, %i
 
 for.cond.i949.outer:                              ; preds = %again, %if.end16.i965
   %.pre31.i9482358.ph = phi ptr [ %.pre31.i948.pre, %again ], [ %52, %if.end16.i965 ]
-  %.ph3104 = phi ptr [ %.pre.i947.pre, %again ], [ %51, %if.end16.i965 ]
+  %.ph3120 = phi ptr [ %.pre.i947.pre, %again ], [ %51, %if.end16.i965 ]
   br label %for.cond.i949
 
 for.cond.i949:                                    ; preds = %for.cond.i949.backedge, %for.cond.i949.outer
-  %46 = phi ptr [ %.ph3104, %for.cond.i949.outer ], [ %incdec.ptr.i956, %for.cond.i949.backedge ]
+  %46 = phi ptr [ %.ph3120, %for.cond.i949.outer ], [ %incdec.ptr.i956, %for.cond.i949.backedge ]
   %cmp.not.i950 = icmp eq ptr %46, %.pre31.i9482358.ph
   br i1 %cmp.not.i950, label %if.end7.i960, label %if.then.i951
 
@@ -1814,10 +1813,10 @@ if.then199:                                       ; preds = %if.end197
 
 land.rhs204:                                      ; preds = %if.then199, %if.end236
   %70 = phi i8 [ 35, %if.then199 ], [ %73, %if.end236 ]
-  %p.12142 = phi ptr [ %68, %if.then199 ], [ %p.3, %if.end236 ]
+  %current_starting_col_offset.02142 = phi i32 [ %69, %if.then199 ], [ %current_starting_col_offset.2, %if.end236 ]
   %prefix.02141 = phi ptr [ @.str.28, %if.then199 ], [ %incdec.ptr237, %if.end236 ]
-  %current_starting_col_offset.02140 = phi i32 [ %69, %if.then199 ], [ %current_starting_col_offset.2, %if.end236 ]
-  %cmp206 = icmp ult ptr %p.12142, %.pre.i980
+  %p.12140 = phi ptr [ %68, %if.then199 ], [ %p.3, %if.end236 ]
+  %cmp206 = icmp ult ptr %p.12140, %.pre.i980
   br i1 %cmp206, label %while.body209, label %if.end285
 
 while.body209:                                    ; preds = %land.rhs204
@@ -1825,8 +1824,8 @@ while.body209:                                    ; preds = %land.rhs204
   br i1 %cmp211, label %while.cond214, label %if.else226
 
 while.cond214:                                    ; preds = %while.body209, %while.body223
-  %current_starting_col_offset.1 = phi i32 [ %inc224, %while.body223 ], [ %current_starting_col_offset.02140, %while.body209 ]
-  %p.2 = phi ptr [ %incdec.ptr, %while.body223 ], [ %p.12142, %while.body209 ]
+  %p.2 = phi ptr [ %incdec.ptr, %while.body223 ], [ %p.12140, %while.body209 ]
+  %current_starting_col_offset.1 = phi i32 [ %inc224, %while.body223 ], [ %current_starting_col_offset.02142, %while.body209 ]
   %71 = load i8, ptr %p.2, align 1
   switch i8 %71, label %if.end236 [
     i8 32, label %while.body223
@@ -1839,18 +1838,18 @@ while.body223:                                    ; preds = %while.cond214, %whi
   br label %while.cond214, !llvm.loop !12
 
 if.else226:                                       ; preds = %while.body209
-  %72 = load i8, ptr %p.12142, align 1
+  %72 = load i8, ptr %p.12140, align 1
   %cmp229 = icmp eq i8 %70, %72
   br i1 %cmp229, label %if.then231, label %if.end285
 
 if.then231:                                       ; preds = %if.else226
-  %incdec.ptr232 = getelementptr i8, ptr %p.12142, i64 1
-  %inc233 = add i32 %current_starting_col_offset.02140, 1
+  %incdec.ptr232 = getelementptr i8, ptr %p.12140, i64 1
+  %inc233 = add i32 %current_starting_col_offset.02142, 1
   br label %if.end236
 
 if.end236:                                        ; preds = %while.cond214, %if.then231
-  %current_starting_col_offset.2 = phi i32 [ %inc233, %if.then231 ], [ %current_starting_col_offset.1, %while.cond214 ]
   %p.3 = phi ptr [ %incdec.ptr232, %if.then231 ], [ %p.2, %while.cond214 ]
+  %current_starting_col_offset.2 = phi i32 [ %inc233, %if.then231 ], [ %current_starting_col_offset.1, %while.cond214 ]
   %incdec.ptr237 = getelementptr i8, ptr %prefix.02141, i64 1
   %73 = load i8, ptr %incdec.ptr237, align 1
   %exitcond = icmp eq ptr %incdec.ptr237, getelementptr inbounds (i8, ptr @.str.28, i64 8)
@@ -1935,7 +1934,7 @@ if.else280:                                       ; preds = %land.lhs.true246, %
   br label %return
 
 if.end285:                                        ; preds = %land.rhs204, %if.else226, %if.end197
-  %p.4 = phi ptr [ %p.0, %if.end197 ], [ %p.12142, %if.else226 ], [ %p.12142, %land.rhs204 ]
+  %p.4 = phi ptr [ %p.0, %if.end197 ], [ %p.12140, %if.else226 ], [ %p.12140, %land.rhs204 ]
   br i1 %tobool194.not, label %if.end292, label %if.then288
 
 if.then288:                                       ; preds = %if.end285
@@ -2027,18 +2026,18 @@ while.body332.preheader:                          ; preds = %lor.lhs.false318, %
 while.body332:                                    ; preds = %while.body332.preheader, %tok_nextc.exit1066
   %.pre31.i1040 = phi ptr [ %.pre31.i10402392, %tok_nextc.exit1066 ], [ %.pre31.i1129, %while.body332.preheader ]
   %.pre.i1039 = phi ptr [ %.pre.i10392389, %tok_nextc.exit1066 ], [ %.pre.i1128, %while.body332.preheader ]
-  %saw_f.0 = phi i32 [ %saw_f.1, %tok_nextc.exit1066 ], [ 0, %while.body332.preheader ]
-  %saw_u.0 = phi i32 [ %saw_u.1, %tok_nextc.exit1066 ], [ 0, %while.body332.preheader ]
-  %saw_r.0 = phi i32 [ %saw_r.1, %tok_nextc.exit1066 ], [ 0, %while.body332.preheader ]
   %saw_b.0 = phi i32 [ %saw_b.1, %tok_nextc.exit1066 ], [ 0, %while.body332.preheader ]
+  %saw_r.0 = phi i32 [ %saw_r.1, %tok_nextc.exit1066 ], [ 0, %while.body332.preheader ]
+  %saw_u.0 = phi i32 [ %saw_u.1, %tok_nextc.exit1066 ], [ 0, %while.body332.preheader ]
+  %saw_f.0 = phi i32 [ %saw_f.1, %tok_nextc.exit1066 ], [ 0, %while.body332.preheader ]
   %c.2 = phi i32 [ %retval.0.i1050, %tok_nextc.exit1066 ], [ %c.1, %while.body332.preheader ]
-  %92 = or i32 %saw_b.0, %saw_u.0
+  %92 = or i32 %saw_u.0, %saw_b.0
   %or.cond9 = icmp ne i32 %92, 0
   %tobool337 = icmp ne i32 %saw_f.0, 0
   %or.cond10 = select i1 %or.cond9, i1 true, i1 %tobool337
   %93 = and i32 %c.2, -33
   %or.cond11 = icmp ne i32 %93, 66
-  %or.cond.not = or i1 %or.cond11, %or.cond10
+  %or.cond.not = or i1 %or.cond10, %or.cond11
   br i1 %or.cond.not, label %if.else345, label %if.end388
 
 if.else345:                                       ; preds = %while.body332
@@ -2050,7 +2049,7 @@ if.else345:                                       ; preds = %while.body332
   br i1 %or.cond878.not, label %if.else360, label %if.end388
 
 if.else360:                                       ; preds = %if.else345
-  %94 = or i32 %saw_r.0, %saw_u.0
+  %94 = or i32 %saw_u.0, %saw_r.0
   %or.cond16.not = icmp eq i32 %94, 0
   %or.cond17 = icmp eq i32 %93, 82
   %or.cond879 = and i1 %or.cond16.not, %or.cond17
@@ -2064,10 +2063,10 @@ if.else371:                                       ; preds = %if.else360
   br i1 %or.cond880, label %if.end388, label %while.cond401
 
 if.end388:                                        ; preds = %if.else371, %if.else360, %if.else345, %while.body332
-  %saw_f.1 = phi i32 [ 0, %while.body332 ], [ 0, %if.else345 ], [ %saw_f.0, %if.else360 ], [ 1, %if.else371 ]
-  %saw_u.1 = phi i32 [ 0, %while.body332 ], [ 1, %if.else345 ], [ 0, %if.else360 ], [ 0, %if.else371 ]
-  %saw_r.1 = phi i32 [ %saw_r.0, %while.body332 ], [ 0, %if.else345 ], [ 1, %if.else360 ], [ %saw_r.0, %if.else371 ]
   %saw_b.1 = phi i32 [ 1, %while.body332 ], [ 0, %if.else345 ], [ %saw_b.0, %if.else360 ], [ 0, %if.else371 ]
+  %saw_r.1 = phi i32 [ %saw_r.0, %while.body332 ], [ 0, %if.else345 ], [ 1, %if.else360 ], [ %saw_r.0, %if.else371 ]
+  %saw_u.1 = phi i32 [ 0, %while.body332 ], [ 1, %if.else345 ], [ 0, %if.else360 ], [ 0, %if.else371 ]
+  %saw_f.1 = phi i32 [ 0, %while.body332 ], [ 0, %if.else345 ], [ %saw_f.0, %if.else360 ], [ 1, %if.else371 ]
   br label %for.cond.i1041
 
 for.cond.i1041:                                   ; preds = %if.end16.i1057, %if.end388

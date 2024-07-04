@@ -16,8 +16,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [36 x i8] c"could not initialize %s context: %s\00", align 1
 @.str.9 = private unnamed_addr constant [32 x i8] c"could not update %s context: %s\00", align 1
 @.str.10 = private unnamed_addr constant [34 x i8] c"could not finalize %s context: %s\00", align 1
-@switch.table.cryptohash_internal = private unnamed_addr constant [4 x i32] [i32 28, i32 32, i32 48, i32 64], align 4
-@switch.table.cryptohash_internal.1 = private unnamed_addr constant [4 x ptr] [ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6], align 8
+@switch.table.cryptohash_internal = private unnamed_addr constant [4 x ptr] [ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6], align 8
+@switch.table.cryptohash_internal.1 = private unnamed_addr constant [4 x i32] [i32 28, i32 32, i32 48, i32 64], align 4
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @md5_text(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
@@ -186,12 +186,12 @@ define internal fastcc ptr @cryptohash_internal(i32 noundef %0, ptr noundef %1) 
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -2
   %2 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.cryptohash_internal, i64 0, i64 %2
-  %switch.load = load i32, ptr %switch.gep, align 4
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.cryptohash_internal, i64 0, i64 %2
+  %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = sext i32 %switch.tableidx to i64
-  %switch.gep35 = getelementptr inbounds [4 x ptr], ptr @switch.table.cryptohash_internal.1, i64 0, i64 %3
-  %switch.load36 = load ptr, ptr %switch.gep35, align 8
-  %4 = add nuw nsw i32 %switch.load, 4
+  %switch.gep35 = getelementptr inbounds [4 x i32], ptr @switch.table.cryptohash_internal.1, i64 0, i64 %3
+  %switch.load36 = load i32, ptr %switch.gep35, align 4
+  %4 = add nuw nsw i32 %switch.load36, 4
   %5 = zext nneg i32 %4 to i64
   %6 = tail call ptr @palloc0(i64 noundef %5) #4
   %7 = load i8, ptr %1, align 1
@@ -240,7 +240,7 @@ switch.lookup:
   %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %36)
   %37 = tail call ptr @pg_cryptohash_error(ptr noundef %32) #4
-  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %switch.load36, ptr noundef %37) #4
+  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %switch.load, ptr noundef %37) #4
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 120, ptr noundef nonnull @__func__.cryptohash_internal) #4
   unreachable
 
@@ -257,13 +257,13 @@ switch.lookup:
   %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %45)
   %46 = tail call ptr @pg_cryptohash_error(ptr noundef %32) #4
-  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load36, ptr noundef %46) #4
+  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef nonnull %switch.load, ptr noundef %46) #4
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 123, ptr noundef nonnull @__func__.cryptohash_internal) #4
   unreachable
 
 48:                                               ; preds = %39
   %49 = getelementptr inbounds i8, ptr %6, i64 4
-  %50 = zext nneg i32 %switch.load to i64
+  %50 = zext nneg i32 %switch.load36 to i64
   %51 = tail call i32 @pg_cryptohash_final(ptr noundef %32, ptr noundef nonnull %49, i64 noundef %50) #4
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %57
@@ -272,7 +272,7 @@ switch.lookup:
   %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   tail call void @llvm.assume(i1 %54)
   %55 = tail call ptr @pg_cryptohash_error(ptr noundef %32) #4
-  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull %switch.load36, ptr noundef %55) #4
+  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull %switch.load, ptr noundef %55) #4
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 127, ptr noundef nonnull @__func__.cryptohash_internal) #4
   unreachable
 

@@ -2807,8 +2807,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.
   br label %171
 
 213:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit607", %196
-  %.sroa.4.1.i.i375.ph = phi i32 [ %197, %196 ], [ %188, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit607" ]
-  %.sroa.4.0.insert.ext.i.i3762729 = zext i32 %.sroa.4.1.i.i375.ph to i64
+  %.sroa.4.1.i.i374.ph = phi i32 [ %197, %196 ], [ %188, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit607" ]
+  %.sroa.4.0.insert.ext.i.i3762729 = zext i32 %.sroa.4.1.i.i374.ph to i64
   %.sroa.4.0.insert.shift.i.i3772730 = shl nuw i64 %.sroa.4.0.insert.ext.i.i3762729, 32
   %.sroa.03.0.insert.insert.i.i3782731 = or disjoint i64 %.sroa.4.0.insert.shift.i.i3772730, 5
   %.not.i.i394 = icmp sgt i64 %.sroa.4.0.insert.shift.i.i3772730, -1
@@ -3552,8 +3552,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.
   br label %460
 
 489:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit661", %474
-  %.sroa.4.1.i.i333.ph = phi i32 [ %475, %474 ], [ %469, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit661" ]
-  %.sroa.4.0.insert.ext.i.i3342736 = zext i32 %.sroa.4.1.i.i333.ph to i64
+  %.sroa.4.1.i.i332.ph = phi i32 [ %475, %474 ], [ %469, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit661" ]
+  %.sroa.4.0.insert.ext.i.i3342736 = zext i32 %.sroa.4.1.i.i332.ph to i64
   %.sroa.4.0.insert.shift.i.i3352737 = shl nuw i64 %.sroa.4.0.insert.ext.i.i3342736, 32
   %.sroa.03.0.insert.insert.i.i3362738 = or disjoint i64 %.sroa.4.0.insert.shift.i.i3352737, 5
   %.not.i.i352 = icmp sgt i64 %.sroa.4.0.insert.shift.i.i3352737, -1
@@ -3980,8 +3980,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.
   br label %603
 
 645:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit733", %628
-  %.sroa.4.1.i.i249.ph = phi i32 [ %629, %628 ], [ %620, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit733" ]
-  %.sroa.4.0.insert.ext.i.i2502758 = zext i32 %.sroa.4.1.i.i249.ph to i64
+  %.sroa.4.1.i.i248.ph = phi i32 [ %629, %628 ], [ %620, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit733" ]
+  %.sroa.4.0.insert.ext.i.i2502758 = zext i32 %.sroa.4.1.i.i248.ph to i64
   %.sroa.4.0.insert.shift.i.i2512759 = shl nuw i64 %.sroa.4.0.insert.ext.i.i2502758, 32
   %.sroa.03.0.insert.insert.i.i2522760 = or disjoint i64 %.sroa.4.0.insert.shift.i.i2512759, 5
   %.not.i.i268 = icmp sgt i64 %.sroa.4.0.insert.shift.i.i2512759, -1
@@ -4659,8 +4659,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.
   br label %862
 
 891:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit802", %876
-  %.sroa.4.1.i.i207.ph = phi i32 [ %877, %876 ], [ %871, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit802" ]
-  %.sroa.4.0.insert.ext.i.i2082765 = zext i32 %.sroa.4.1.i.i207.ph to i64
+  %.sroa.4.1.i.i206.ph = phi i32 [ %877, %876 ], [ %871, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit802" ]
+  %.sroa.4.0.insert.ext.i.i2082765 = zext i32 %.sroa.4.1.i.i206.ph to i64
   %.sroa.4.0.insert.shift.i.i2092766 = shl nuw i64 %.sroa.4.0.insert.ext.i.i2082765, 32
   %.sroa.03.0.insert.insert.i.i2102767 = or disjoint i64 %.sroa.4.0.insert.shift.i.i2092766, 5
   %.not.i.i226 = icmp sgt i64 %.sroa.4.0.insert.shift.i.i2092766, -1
@@ -4876,8 +4876,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.
   br label %923
 
 964:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit838", %947
-  %.sroa.4.1.i.i165.ph = phi i32 [ %948, %947 ], [ %939, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit838" ]
-  %.sroa.4.0.insert.ext.i.i1662775 = zext i32 %.sroa.4.1.i.i165.ph to i64
+  %.sroa.4.1.i.i164.ph = phi i32 [ %948, %947 ], [ %939, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit838" ]
+  %.sroa.4.0.insert.ext.i.i1662775 = zext i32 %.sroa.4.1.i.i164.ph to i64
   %.sroa.4.0.insert.shift.i.i1672776 = shl nuw i64 %.sroa.4.0.insert.ext.i.i1662775, 32
   %.sroa.03.0.insert.insert.i.i1682777 = or disjoint i64 %.sroa.4.0.insert.shift.i.i1672776, 5
   %.not.i.i184 = icmp sgt i64 %.sroa.4.0.insert.shift.i.i1672776, -1
@@ -6354,8 +6354,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.
   br label %46
 
 90:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit", %73
-  %.sroa.4.1.i.i60.ph = phi i32 [ %74, %73 ], [ %63, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit" ]
-  %.sroa.4.0.insert.ext.i.i611062 = zext i32 %.sroa.4.1.i.i60.ph to i64
+  %.sroa.4.1.i.i59.ph = phi i32 [ %74, %73 ], [ %63, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit" ]
+  %.sroa.4.0.insert.ext.i.i611062 = zext i32 %.sroa.4.1.i.i59.ph to i64
   %.sroa.4.0.insert.shift.i.i621063 = shl nuw i64 %.sroa.4.0.insert.ext.i.i611062, 32
   %.sroa.03.0.insert.insert.i.i631064 = or disjoint i64 %.sroa.4.0.insert.shift.i.i621063, 5
   %.not.i.i79 = icmp sgt i64 %.sroa.4.0.insert.shift.i.i621063, -1
@@ -8918,8 +8918,8 @@ _ZN14regex_automata6hybrid3dfa7LazyRef19get_cached_start_id17h75ba8958808ab7c2E.
   br label %330
 
 359:                                              ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit229", %344
-  %.sroa.4.1.i.i102.ph = phi i32 [ %345, %344 ], [ %339, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit229" ]
-  %.sroa.4.0.insert.ext.i.i103759 = zext i32 %.sroa.4.1.i.i102.ph to i64
+  %.sroa.4.1.i.i101.ph = phi i32 [ %345, %344 ], [ %339, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17haabff9077a7e77a6E.exit229" ]
+  %.sroa.4.0.insert.ext.i.i103759 = zext i32 %.sroa.4.1.i.i101.ph to i64
   %.sroa.4.0.insert.shift.i.i104760 = shl nuw i64 %.sroa.4.0.insert.ext.i.i103759, 32
   %.sroa.03.0.insert.insert.i.i105761 = or disjoint i64 %.sroa.4.0.insert.shift.i.i104760, 5
   %.not.i.i121 = icmp sgt i64 %.sroa.4.0.insert.shift.i.i104760, -1

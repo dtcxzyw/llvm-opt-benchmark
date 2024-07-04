@@ -3034,8 +3034,8 @@ rb_array_len.exit:                                ; preds = %7, %10
   br label %16
 
 16:                                               ; preds = %.preheader, %symbol2event_flag.exit
-  %.046 = phi i32 [ 0, %.preheader ], [ %94, %symbol2event_flag.exit ]
-  %.01045 = phi i64 [ 0, %.preheader ], [ %95, %symbol2event_flag.exit ]
+  %.046 = phi i64 [ 0, %.preheader ], [ %95, %symbol2event_flag.exit ]
+  %.01045 = phi i32 [ 0, %.preheader ], [ %94, %symbol2event_flag.exit ]
   %17 = load i64, ptr %4, align 8
   %18 = and i64 %17, 8192
   %.not.i.i = icmp eq i64 %18, 0
@@ -3047,7 +3047,7 @@ rb_array_len.exit:                                ; preds = %7, %10
 
 RARRAY_AREF.exit:                                 ; preds = %16, %19
   %.0.i.i = phi ptr [ %20, %19 ], [ %14, %16 ]
-  %21 = getelementptr i64, ptr %.0.i.i, i64 %.01045
+  %21 = getelementptr i64, ptr %.0.i.i, i64 %.046
   %22 = load i64, ptr %21, align 8
   %23 = tail call i64 @rb_to_symbol_type(i64 noundef %22) #4
   %.pr.i.i = load i64, ptr @symbol2event_flag.rbimpl_id, align 8
@@ -3269,8 +3269,8 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %59
 
 symbol2event_flag.exit:                           ; preds = %rbimpl_intern_const.exit.i, %rbimpl_intern_const.exit43.i, %rbimpl_intern_const.exit49.i, %rbimpl_intern_const.exit55.i, %rbimpl_intern_const.exit61.i, %rbimpl_intern_const.exit67.i, %rbimpl_intern_const.exit33, %rbimpl_intern_const.exit27, %rbimpl_intern_const.exit21, %rbimpl_intern_const.exit, %63, %67, %71, %75, %79, %83, %87
   %.0.i12 = phi i32 [ 1, %rbimpl_intern_const.exit.i ], [ 2, %rbimpl_intern_const.exit43.i ], [ 4, %rbimpl_intern_const.exit49.i ], [ 8, %rbimpl_intern_const.exit55.i ], [ 16, %rbimpl_intern_const.exit61.i ], [ 32, %rbimpl_intern_const.exit67.i ], [ 64, %rbimpl_intern_const.exit33 ], [ 128, %rbimpl_intern_const.exit27 ], [ 256, %rbimpl_intern_const.exit21 ], [ 512, %rbimpl_intern_const.exit ], [ 1024, %63 ], [ 2048, %67 ], [ 4096, %71 ], [ 8192, %75 ], [ 16384, %79 ], [ 296, %83 ], [ 592, %87 ]
-  %94 = or i32 %.0.i12, %.046
-  %95 = add nuw nsw i64 %.01045, 1
+  %94 = or i32 %.0.i12, %.01045
+  %95 = add nuw nsw i64 %.046, 1
   %exitcond.not = icmp eq i64 %95, %.0.i
   br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !16
 
@@ -3900,8 +3900,8 @@ define internal i64 @tracepoint_enable_m(ptr nocapture readnone %0, i64 noundef 
   br label %17
 
 17:                                               ; preds = %15, %5
-  %.021 = phi i64 [ %16, %15 ], [ %4, %5 ]
-  %18 = and i64 %.021, -5
+  %.0 = phi i64 [ %16, %15 ], [ %4, %5 ]
+  %18 = and i64 %.0, -5
   %.not29 = icmp eq i64 %18, 0
   br i1 %.not29, label %.thread, label %19
 
@@ -3917,14 +3917,14 @@ define internal i64 @tracepoint_enable_m(ptr nocapture readnone %0, i64 noundef 
   unreachable
 
 24:                                               ; preds = %19
-  %25 = tail call ptr @rb_check_typeddata(i64 noundef %.021, ptr noundef nonnull @ruby_threadptr_data_type) #4
+  %25 = tail call ptr @rb_check_typeddata(i64 noundef %.0, ptr noundef nonnull @ruby_threadptr_data_type) #4
   store ptr %25, ptr %20, align 8
-  %26 = and i64 %.021, 7
+  %26 = and i64 %.0, 7
   %.not30 = icmp eq i64 %26, 0
   br i1 %.not30, label %27, label %rb_obj_written.exit
 
 27:                                               ; preds = %24
-  tail call void @rb_gc_writebarrier(i64 noundef %1, i64 noundef %.021) #4
+  tail call void @rb_gc_writebarrier(i64 noundef %1, i64 noundef %.0) #4
   br label %rb_obj_written.exit
 
 .thread:                                          ; preds = %11, %17
@@ -4006,7 +4006,7 @@ iseq_of.exit.i:                                   ; preds = %rbimpl_intern_const
   br label %61
 
 61:                                               ; preds = %58, %50
-  %.034.i = phi i32 [ 0, %50 ], [ %60, %58 ]
+  %.033.i = phi i32 [ 0, %50 ], [ %60, %58 ]
   %62 = getelementptr inbounds i8, ptr %37, i64 16
   %63 = tail call i64 @rb_ident_hash_new() #4
   %64 = tail call i64 @rb_obj_hide(i64 noundef %63) #4
@@ -4104,10 +4104,10 @@ rb_hook_list_connect_tracepoint.exit.i:           ; preds = %108, %alloc_event_h
   br label %111
 
 111:                                              ; preds = %rb_hook_list_connect_tracepoint.exit.i, %76, %71, %rb_obj_write.exit.i
-  %.033.i = phi i1 [ true, %rb_hook_list_connect_tracepoint.exit.i ], [ false, %76 ], [ false, %71 ], [ false, %rb_obj_write.exit.i ]
-  %.0.i = phi i32 [ 1, %rb_hook_list_connect_tracepoint.exit.i ], [ 0, %76 ], [ 0, %71 ], [ 0, %rb_obj_write.exit.i ]
+  %.034.i = phi i32 [ 1, %rb_hook_list_connect_tracepoint.exit.i ], [ 0, %76 ], [ 0, %71 ], [ 0, %rb_obj_write.exit.i ]
+  %.0.i = phi i1 [ true, %rb_hook_list_connect_tracepoint.exit.i ], [ false, %76 ], [ false, %71 ], [ false, %rb_obj_write.exit.i ]
   %112 = load i32, ptr %37, align 8
-  %113 = tail call i32 @rb_iseq_add_local_tracepoint_recursively(ptr noundef %44, i32 noundef %112, i64 noundef %1, i32 noundef %.034.i, i1 noundef zeroext %.033.i) #4
+  %113 = tail call i32 @rb_iseq_add_local_tracepoint_recursively(ptr noundef %44, i32 noundef %112, i64 noundef %1, i32 noundef %.033.i, i1 noundef zeroext %.0.i) #4
   %114 = load i64, ptr %62, align 8
   %115 = ptrtoint ptr %44 to i64
   %116 = tail call i64 @rb_hash_aset(i64 noundef %114, i64 noundef %115, i64 noundef 20) #4
@@ -4131,7 +4131,7 @@ rb_hook_list_connect_tracepoint.exit.i:           ; preds = %108, %alloc_event_h
 
 126:                                              ; preds = %125, %119, %111
   %127 = sub i32 0, %113
-  %128 = icmp eq i32 %.0.i, %127
+  %128 = icmp eq i32 %.034.i, %127
   br i1 %128, label %129, label %rb_tracepoint_enable_for_target.exit
 
 129:                                              ; preds = %126
@@ -4165,8 +4165,8 @@ rb_tracepoint_enable_for_target.exit:             ; preds = %126
   br label %141
 
 141:                                              ; preds = %139, %136
-  %.0 = phi i64 [ %138, %136 ], [ %140, %139 ]
-  ret i64 %.0
+  %.021 = phi i64 [ %138, %136 ], [ %140, %139 ]
+  ret i64 %.021
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5249,8 +5249,8 @@ define dso_local i32 @rb_postponed_job_preregister(i32 noundef %0, ptr noundef %
   br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !19
 
 .loopexit:                                        ; preds = %20, %15
-  %.0 = phi i32 [ %16, %15 ], [ -1, %20 ]
-  ret i32 %.0
+  %.012 = phi i32 [ %16, %15 ], [ -1, %20 ]
+  ret i32 %.012
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

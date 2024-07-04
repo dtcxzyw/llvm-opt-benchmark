@@ -228,8 +228,8 @@ define dso_local ptr @source_file_load(ptr noundef %0, ptr noundef writeonly %1,
   br label %43
 
 43:                                               ; preds = %.critedge, %39
-  %.045 = phi i16 [ %42, %39 ], [ 0, %.critedge ]
-  store i16 %.045, ptr %37, align 8
+  %.047 = phi i16 [ %42, %39 ], [ 0, %.critedge ]
+  store i16 %.047, ptr %37, align 8
   %44 = getelementptr inbounds i8, ptr %37, i64 40
   store ptr %13, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %37, i64 8
@@ -298,8 +298,8 @@ define dso_local ptr @source_file_load(ptr noundef %0, ptr noundef writeonly %1,
   br label %82
 
 82:                                               ; preds = %29, %30, %74, %34, %15
-  %.048 = phi ptr [ null, %34 ], [ %37, %74 ], [ null, %15 ], [ %.pre64, %30 ], [ %24, %29 ]
-  ret ptr %.048
+  %.046 = phi ptr [ null, %34 ], [ %37, %74 ], [ null, %15 ], [ %.pre64, %30 ], [ %24, %29 ]
+  ret ptr %.046
 }
 
 ; Function Attrs: nofree nounwind

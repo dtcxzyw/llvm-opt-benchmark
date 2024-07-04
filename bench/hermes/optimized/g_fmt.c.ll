@@ -30,8 +30,8 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp, label %while.cond, label %if.end6
 
 while.cond:                                       ; preds = %if.end, %while.cond
-  %s.0 = phi ptr [ %incdec.ptr3, %while.cond ], [ %call1, %if.end ]
   %b.addr.1 = phi ptr [ %incdec.ptr4, %while.cond ], [ %b.addr.0, %if.end ]
+  %s.0 = phi ptr [ %incdec.ptr3, %while.cond ], [ %call1, %if.end ]
   %incdec.ptr3 = getelementptr inbounds i8, ptr %s.0, i64 1
   %2 = load i8, ptr %s.0, align 1
   %incdec.ptr4 = getelementptr inbounds i8, ptr %b.addr.1, i64 1
@@ -71,10 +71,10 @@ if.then14:                                        ; preds = %if.then10
   br i1 %tobool18.not47, label %if.end22, label %while.body19
 
 while.body19:                                     ; preds = %if.then14, %while.body19
-  %b.addr.249 = phi ptr [ %incdec.ptr20, %while.body19 ], [ %incdec.ptr15, %if.then14 ]
-  %s.148 = phi ptr [ %incdec.ptr17, %while.body19 ], [ %incdec.ptr11, %if.then14 ]
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %s.148, i64 1
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %b.addr.249, i64 1
+  %s.149 = phi ptr [ %incdec.ptr17, %while.body19 ], [ %incdec.ptr11, %if.then14 ]
+  %b.addr.248 = phi ptr [ %incdec.ptr20, %while.body19 ], [ %incdec.ptr15, %if.then14 ]
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %s.149, i64 1
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %b.addr.248, i64 1
   %7 = load i8, ptr %incdec.ptr17, align 1
   store i8 %7, ptr %incdec.ptr20, align 1
   %tobool18.not = icmp eq i8 %7, 0
@@ -107,8 +107,8 @@ if.end29:                                         ; preds = %if.else, %if.then26
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond, %if.end29
-  %j.0 = phi i32 [ 2, %if.end29 ], [ %inc, %for.cond ]
   %k.0 = phi i32 [ 10, %if.end29 ], [ %mul, %for.cond ]
+  %j.0 = phi i32 [ 2, %if.end29 ], [ %inc, %for.cond ]
   %mul = mul nuw nsw i32 %k.0, 10
   %cmp30.not = icmp sgt i32 %mul, %10
   %inc = add nuw nsw i32 %j.0, 1
@@ -159,7 +159,7 @@ if.then49:                                        ; preds = %if.else46
   br i1 %cmp5244, label %for.body54.preheader, label %while.cond59.preheader
 
 while.cond59.preheader:                           ; preds = %while.cond59.preheader.loopexit, %if.then49
-  %b.addr.7.ph = phi ptr [ %b.addr.643, %if.then49 ], [ %scevgep, %while.cond59.preheader.loopexit ]
+  %b.addr.7.ph = phi ptr [ %scevgep, %while.cond59.preheader.loopexit ], [ %b.addr.643, %if.then49 ]
   br label %while.cond59
 
 for.body54.preheader:                             ; preds = %if.then49
@@ -182,8 +182,8 @@ for.body54:                                       ; preds = %for.body54.preheade
   br i1 %exitcond.not, label %while.cond59.preheader.loopexit, label %for.body54, !llvm.loop !8
 
 while.cond59:                                     ; preds = %while.cond59.preheader, %while.cond59
-  %s.2 = phi ptr [ %incdec.ptr60, %while.cond59 ], [ %call1, %while.cond59.preheader ]
   %b.addr.7 = phi ptr [ %incdec.ptr61, %while.cond59 ], [ %b.addr.7.ph, %while.cond59.preheader ]
+  %s.2 = phi ptr [ %incdec.ptr60, %while.cond59 ], [ %call1, %while.cond59.preheader ]
   %incdec.ptr60 = getelementptr inbounds i8, ptr %s.2, i64 1
   %20 = load i8, ptr %s.2, align 1
   %incdec.ptr61 = getelementptr inbounds i8, ptr %b.addr.7, i64 1

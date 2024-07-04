@@ -239,8 +239,8 @@ define range(i32 -1, 1) i32 @H5F_mount(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not101130, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44, %55
-  %.081131 = phi ptr [ %57, %55 ], [ %45, %44 ]
-  %48 = getelementptr inbounds i8, ptr %.081131, i64 16
+  %.082131 = phi ptr [ %57, %55 ], [ %45, %44 ]
+  %48 = getelementptr inbounds i8, ptr %.082131, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, %.pre
   br i1 %50, label %51, label %55
@@ -252,7 +252,7 @@ define range(i32 -1, 1) i32 @H5F_mount(ptr noundef %0, ptr noundef %1, ptr nound
   br label %190
 
 55:                                               ; preds = %.lr.ph
-  %56 = getelementptr inbounds i8, ptr %.081131, i64 56
+  %56 = getelementptr inbounds i8, ptr %.082131, i64 56
   %57 = load ptr, ptr %56, align 8
   %.not101 = icmp eq ptr %57, null
   br i1 %.not101, label %._crit_edge, label %.lr.ph
@@ -281,9 +281,9 @@ define range(i32 -1, 1) i32 @H5F_mount(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not139, label %._crit_edge136.thread, label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %69, %.thread150
-  %.083133 = phi i32 [ %93, %.thread150 ], [ 0, %69 ]
-  %.085132 = phi i32 [ %91, %.thread150 ], [ %71, %69 ]
-  %72 = add i32 %.083133, %.085132
+  %.086133 = phi i32 [ %93, %.thread150 ], [ %71, %69 ]
+  %.088132 = phi i32 [ %91, %.thread150 ], [ 0, %69 ]
+  %72 = add i32 %.086133, %.088132
   %73 = lshr i32 %72, 1
   %74 = load ptr, ptr %58, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 48
@@ -316,10 +316,10 @@ define range(i32 -1, 1) i32 @H5F_mount(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread150
 
 .thread150:                                       ; preds = %88, %.thread146
-  %91 = phi i32 [ %.085132, %.thread146 ], [ %73, %88 ]
+  %91 = phi i32 [ %90, %.thread146 ], [ %.088132, %88 ]
   %92 = phi i32 [ 1, %.thread146 ], [ 0, %88 ]
-  %93 = phi i32 [ %90, %.thread146 ], [ %.083133, %88 ]
-  %94 = icmp ult i32 %93, %91
+  %93 = phi i32 [ %.086133, %.thread146 ], [ %73, %88 ]
+  %94 = icmp ult i32 %91, %93
   br i1 %94, label %.lr.ph135, label %._crit_edge136
 
 ._crit_edge136:                                   ; preds = %.thread150

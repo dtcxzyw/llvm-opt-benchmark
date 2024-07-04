@@ -251,8 +251,8 @@ define internal i32 @dissect_gearman(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .preheader.i:                                     ; preds = %52, %.preheader.lr.ph.i
   %25 = phi i32 [ %22, %.preheader.lr.ph.i ], [ %54, %52 ]
-  %.03745.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %.2.i, %52 ]
-  %.03844.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %53, %52 ]
+  %.03745.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %53, %52 ]
+  %.03844.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %.2.i, %52 ]
   br label %26
 
 26:                                               ; preds = %41, %.preheader.i
@@ -266,14 +266,14 @@ define internal i32 @dissect_gearman(ptr noundef %0, ptr noundef %1, ptr noundef
 
 32:                                               ; preds = %26
   %33 = and i64 %29, 4294967295
-  %34 = call i32 @tvb_strneql(ptr noundef %0, i32 noundef %.03844.i, ptr noundef %28, i64 noundef %33) #4
+  %34 = call i32 @tvb_strneql(ptr noundef %0, i32 noundef %.03745.i, ptr noundef %28, i64 noundef %33) #4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.thread.i, label %41
 
 .thread.i:                                        ; preds = %32
   %36 = load i32, ptr @hf_gearman_mgr_cmd, align 4
   %37 = load ptr, ptr %24, align 8
-  %38 = call ptr @proto_tree_add_item_ret_string(ptr noundef %21, i32 noundef %36, ptr noundef %0, i32 noundef %.03844.i, i32 noundef %25, i32 noundef 0, ptr noundef %37, ptr noundef nonnull %6) #4
+  %38 = call ptr @proto_tree_add_item_ret_string(ptr noundef %21, i32 noundef %36, ptr noundef %0, i32 noundef %.03745.i, i32 noundef %25, i32 noundef 0, ptr noundef %37, ptr noundef nonnull %6) #4
   %39 = load ptr, ptr %15, align 8
   %40 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %39, i32 noundef 25, ptr noundef nonnull @.str.115, ptr noundef %40) #4
@@ -286,12 +286,12 @@ define internal i32 @dissect_gearman(ptr noundef %0, ptr noundef %1, ptr noundef
 
 42:                                               ; preds = %41
   %43 = load i32, ptr %5, align 4
-  %44 = sub i32 %43, %.03844.i
-  %45 = call ptr @proto_tree_add_format_text(ptr noundef %21, ptr noundef %0, i32 noundef %.03844.i, i32 noundef %44) #4
-  %46 = icmp eq i32 %.03745.i, 0
+  %44 = sub i32 %43, %.03745.i
+  %45 = call ptr @proto_tree_add_format_text(ptr noundef %21, ptr noundef %0, i32 noundef %.03745.i, i32 noundef %44) #4
+  %46 = icmp eq i32 %.03844.i, 0
   %47 = load ptr, ptr %15, align 8
   %48 = load ptr, ptr %24, align 8
-  %49 = call ptr @tvb_get_string_enc(ptr noundef %48, ptr noundef %0, i32 noundef %.03844.i, i32 noundef %25, i32 noundef 0) #4
+  %49 = call ptr @tvb_get_string_enc(ptr noundef %48, ptr noundef %0, i32 noundef %.03745.i, i32 noundef %25, i32 noundef 0) #4
   br i1 %46, label %50, label %51
 
 50:                                               ; preds = %42
@@ -303,7 +303,7 @@ define internal i32 @dissect_gearman(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %52
 
 52:                                               ; preds = %51, %50, %.thread.i
-  %.2.i = phi i32 [ -1, %50 ], [ %.03745.i, %51 ], [ 1, %.thread.i ]
+  %.2.i = phi i32 [ -1, %50 ], [ %.03844.i, %51 ], [ 1, %.thread.i ]
   %53 = load i32, ptr %5, align 4
   %54 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %53, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #4
   %55 = icmp sgt i32 %54, 0
@@ -391,8 +391,8 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
   br label %39
 
 39:                                               ; preds = %33, %4
-  %.0476 = phi ptr [ %38, %33 ], [ null, %4 ]
-  %.0 = phi ptr [ %36, %33 ], [ null, %4 ]
+  %.0476 = phi ptr [ %36, %33 ], [ null, %4 ]
+  %.0 = phi ptr [ %38, %33 ], [ null, %4 ]
   switch i32 %11, label %285 [
     i32 16, label %40
     i32 17, label %40
@@ -434,7 +434,7 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 41:                                               ; preds = %40
   %42 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef 12, i32 noundef -1) #4
   %43 = load i32, ptr @hf_gearman_echo_text, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %43, ptr noundef %0, i32 noundef 12, i32 noundef %42, i32 noundef 0) #4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %43, ptr noundef %0, i32 noundef 12, i32 noundef %42, i32 noundef 0) #4
   br label %288
 
 45:                                               ; preds = %39, %39
@@ -443,7 +443,7 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 46:                                               ; preds = %45
   %47 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef 12, i32 noundef -1) #4
   %48 = load i32, ptr @hf_gearman_job_handle, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %48, ptr noundef %0, i32 noundef 12, i32 noundef %47, i32 noundef 0) #4
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %48, ptr noundef %0, i32 noundef 12, i32 noundef %47, i32 noundef 0) #4
   br label %288
 
 50:                                               ; preds = %39, %39
@@ -452,7 +452,7 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 51:                                               ; preds = %50
   %52 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef 12, i32 noundef -1) #4
   %53 = load i32, ptr @hf_gearman_option_name, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %53, ptr noundef %0, i32 noundef 12, i32 noundef %52, i32 noundef 0) #4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %53, ptr noundef %0, i32 noundef 12, i32 noundef %52, i32 noundef 0) #4
   br label %288
 
 55:                                               ; preds = %39
@@ -461,7 +461,7 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 56:                                               ; preds = %55
   %57 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef 12, i32 noundef -1) #4
   %58 = load i32, ptr @hf_gearman_client_id, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %58, ptr noundef %0, i32 noundef 12, i32 noundef %57, i32 noundef 0) #4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %58, ptr noundef %0, i32 noundef 12, i32 noundef %57, i32 noundef 0) #4
   br label %288
 
 60:                                               ; preds = %39
@@ -470,7 +470,7 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 61:                                               ; preds = %60
   %62 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef 12, i32 noundef -1) #4
   %63 = load i32, ptr @hf_gearman_uniq_id, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %63, ptr noundef %0, i32 noundef 12, i32 noundef %62, i32 noundef 0) #4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %63, ptr noundef %0, i32 noundef 12, i32 noundef %62, i32 noundef 0) #4
   br label %288
 
 65:                                               ; preds = %39, %39
@@ -479,7 +479,7 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 66:                                               ; preds = %65
   %67 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef 12, i32 noundef -1) #4
   %68 = load i32, ptr @hf_gearman_func_name, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %68, ptr noundef %0, i32 noundef 12, i32 noundef %67, i32 noundef 0) #4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %68, ptr noundef %0, i32 noundef 12, i32 noundef %67, i32 noundef 0) #4
   br label %288
 
 70:                                               ; preds = %39
@@ -488,11 +488,11 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 71:                                               ; preds = %70
   %72 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 12) #4
   %73 = load i32, ptr @hf_gearman_err_code, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %73, ptr noundef %0, i32 noundef 12, i32 noundef %72, i32 noundef 0) #4
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %73, ptr noundef %0, i32 noundef 12, i32 noundef %72, i32 noundef 0) #4
   %75 = add i32 %72, 12
   %76 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %75, i32 noundef -1) #4
   %77 = load i32, ptr @hf_gearman_err_text, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %77, ptr noundef %0, i32 noundef %75, i32 noundef %76, i32 noundef 0) #4
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %77, ptr noundef %0, i32 noundef %75, i32 noundef %76, i32 noundef 0) #4
   br label %288
 
 79:                                               ; preds = %39, %39, %39, %39
@@ -501,11 +501,11 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 80:                                               ; preds = %79
   %81 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 12) #4
   %82 = load i32, ptr @hf_gearman_job_handlez, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %82, ptr noundef %0, i32 noundef 12, i32 noundef %81, i32 noundef 0) #4
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %82, ptr noundef %0, i32 noundef 12, i32 noundef %81, i32 noundef 0) #4
   %84 = add i32 %81, 12
   %85 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %84, i32 noundef -1) #4
   %86 = load i32, ptr @hf_gearman_result, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %86, ptr noundef %0, i32 noundef %84, i32 noundef %85, i32 noundef 0) #4
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %86, ptr noundef %0, i32 noundef %84, i32 noundef %85, i32 noundef 0) #4
   br label %288
 
 88:                                               ; preds = %39
@@ -514,23 +514,23 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 89:                                               ; preds = %88
   %90 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 12) #4
   %91 = load i32, ptr @hf_gearman_job_handlez, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %91, ptr noundef %0, i32 noundef 12, i32 noundef %90, i32 noundef 0) #4
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %91, ptr noundef %0, i32 noundef 12, i32 noundef %90, i32 noundef 0) #4
   %93 = add i32 %90, 12
   %94 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %93) #4
   %95 = load i32, ptr @hf_gearman_known_status, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %95, ptr noundef %0, i32 noundef %93, i32 noundef %94, i32 noundef 0) #4
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %95, ptr noundef %0, i32 noundef %93, i32 noundef %94, i32 noundef 0) #4
   %97 = add i32 %94, %93
   %98 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %97) #4
   %99 = load i32, ptr @hf_gearman_running_status, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %99, ptr noundef %0, i32 noundef %97, i32 noundef %98, i32 noundef 0) #4
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %99, ptr noundef %0, i32 noundef %97, i32 noundef %98, i32 noundef 0) #4
   %101 = add i32 %98, %97
   %102 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %101) #4
   %103 = load i32, ptr @hf_gearman_complete_numerator, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %103, ptr noundef %0, i32 noundef %101, i32 noundef %102, i32 noundef 0) #4
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %103, ptr noundef %0, i32 noundef %101, i32 noundef %102, i32 noundef 0) #4
   %105 = add i32 %102, %101
   %106 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %105, i32 noundef -1) #4
   %107 = load i32, ptr @hf_gearman_complete_denominator, align 4
-  %108 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %107, ptr noundef %0, i32 noundef %105, i32 noundef %106, i32 noundef 0) #4
+  %108 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %107, ptr noundef %0, i32 noundef %105, i32 noundef %106, i32 noundef 0) #4
   br label %288
 
 109:                                              ; preds = %39, %39, %39, %39, %39, %39
@@ -539,15 +539,15 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 110:                                              ; preds = %109
   %111 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 12) #4
   %112 = load i32, ptr @hf_gearman_func_namez, align 4
-  %113 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %112, ptr noundef %0, i32 noundef 12, i32 noundef %111, i32 noundef 0) #4
+  %113 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %112, ptr noundef %0, i32 noundef 12, i32 noundef %111, i32 noundef 0) #4
   %114 = add i32 %111, 12
   %115 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %114) #4
   %116 = load i32, ptr @hf_gearman_uniq_idz, align 4
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %116, ptr noundef %0, i32 noundef %114, i32 noundef %115, i32 noundef 0) #4
+  %117 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %116, ptr noundef %0, i32 noundef %114, i32 noundef %115, i32 noundef 0) #4
   %118 = add i32 %115, %114
   %119 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %118, i32 noundef -1) #4
   %120 = load i32, ptr @hf_gearman_argument, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %120, ptr noundef %0, i32 noundef %118, i32 noundef %119, i32 noundef 0) #4
+  %121 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %120, ptr noundef %0, i32 noundef %118, i32 noundef %119, i32 noundef 0) #4
   br label %288
 
 122:                                              ; preds = %39, %39
@@ -556,19 +556,19 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 123:                                              ; preds = %122
   %124 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 12) #4
   %125 = load i32, ptr @hf_gearman_func_namez, align 4
-  %126 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %125, ptr noundef %0, i32 noundef 12, i32 noundef %124, i32 noundef 0) #4
+  %126 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %125, ptr noundef %0, i32 noundef 12, i32 noundef %124, i32 noundef 0) #4
   %127 = add i32 %124, 12
   %128 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %127) #4
   %129 = load i32, ptr @hf_gearman_uniq_idz, align 4
-  %130 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %129, ptr noundef %0, i32 noundef %127, i32 noundef %128, i32 noundef 0) #4
+  %130 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %129, ptr noundef %0, i32 noundef %127, i32 noundef %128, i32 noundef 0) #4
   %131 = add i32 %128, %127
   %132 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %131) #4
   %133 = load i32, ptr @hf_gearman_reducer, align 4
-  %134 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %133, ptr noundef %0, i32 noundef %131, i32 noundef %132, i32 noundef 0) #4
+  %134 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %133, ptr noundef %0, i32 noundef %131, i32 noundef %132, i32 noundef 0) #4
   %135 = add i32 %132, %131
   %136 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %135, i32 noundef -1) #4
   %137 = load i32, ptr @hf_gearman_argument, align 4
-  %138 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %137, ptr noundef %0, i32 noundef %135, i32 noundef %136, i32 noundef 0) #4
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %137, ptr noundef %0, i32 noundef %135, i32 noundef %136, i32 noundef 0) #4
   br label %288
 
 139:                                              ; preds = %39
@@ -577,35 +577,35 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 140:                                              ; preds = %139
   %141 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 12) #4
   %142 = load i32, ptr @hf_gearman_func_namez, align 4
-  %143 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %142, ptr noundef %0, i32 noundef 12, i32 noundef %141, i32 noundef 0) #4
+  %143 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %142, ptr noundef %0, i32 noundef 12, i32 noundef %141, i32 noundef 0) #4
   %144 = add i32 %141, 12
   %145 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %144) #4
   %146 = load i32, ptr @hf_gearman_uniq_idz, align 4
-  %147 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %146, ptr noundef %0, i32 noundef %144, i32 noundef %145, i32 noundef 0) #4
+  %147 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %146, ptr noundef %0, i32 noundef %144, i32 noundef %145, i32 noundef 0) #4
   %148 = add i32 %145, %144
   %149 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %148) #4
   %150 = load i32, ptr @hf_gearman_submit_job_sched_minute, align 4
-  %151 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %150, ptr noundef %0, i32 noundef %148, i32 noundef %149, i32 noundef 0) #4
+  %151 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %150, ptr noundef %0, i32 noundef %148, i32 noundef %149, i32 noundef 0) #4
   %152 = add i32 %149, %148
   %153 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %152) #4
   %154 = load i32, ptr @hf_gearman_submit_job_sched_hour, align 4
-  %155 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %154, ptr noundef %0, i32 noundef %152, i32 noundef %153, i32 noundef 0) #4
+  %155 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %154, ptr noundef %0, i32 noundef %152, i32 noundef %153, i32 noundef 0) #4
   %156 = add i32 %153, %152
   %157 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %156) #4
   %158 = load i32, ptr @hf_gearman_submit_job_sched_day_of_month, align 4
-  %159 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %158, ptr noundef %0, i32 noundef %156, i32 noundef %157, i32 noundef 0) #4
+  %159 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %158, ptr noundef %0, i32 noundef %156, i32 noundef %157, i32 noundef 0) #4
   %160 = add i32 %157, %156
   %161 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %160) #4
   %162 = load i32, ptr @hf_gearman_submit_job_sched_month, align 4
-  %163 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %162, ptr noundef %0, i32 noundef %160, i32 noundef %161, i32 noundef 0) #4
+  %163 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %162, ptr noundef %0, i32 noundef %160, i32 noundef %161, i32 noundef 0) #4
   %164 = add i32 %161, %160
   %165 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %164) #4
   %166 = load i32, ptr @hf_gearman_submit_job_sched_day_of_week, align 4
-  %167 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %166, ptr noundef %0, i32 noundef %164, i32 noundef %165, i32 noundef 0) #4
+  %167 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %166, ptr noundef %0, i32 noundef %164, i32 noundef %165, i32 noundef 0) #4
   %168 = add i32 %165, %164
   %169 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %168, i32 noundef -1) #4
   %170 = load i32, ptr @hf_gearman_argument, align 4
-  %171 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %170, ptr noundef %0, i32 noundef %168, i32 noundef %169, i32 noundef 0) #4
+  %171 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %170, ptr noundef %0, i32 noundef %168, i32 noundef %169, i32 noundef 0) #4
   br label %288
 
 172:                                              ; preds = %39
@@ -614,51 +614,51 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 173:                                              ; preds = %172
   %174 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 12) #4
   %175 = load i32, ptr @hf_gearman_func_namez, align 4
-  %176 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %175, ptr noundef %0, i32 noundef 12, i32 noundef %174, i32 noundef 0) #4
+  %176 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %175, ptr noundef %0, i32 noundef 12, i32 noundef %174, i32 noundef 0) #4
   %177 = add i32 %174, 12
   %178 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %177) #4
   %179 = load i32, ptr @hf_gearman_uniq_idz, align 4
-  %180 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %179, ptr noundef %0, i32 noundef %177, i32 noundef %178, i32 noundef 0) #4
+  %180 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %179, ptr noundef %0, i32 noundef %177, i32 noundef %178, i32 noundef 0) #4
   %181 = add i32 %178, %177
   %182 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %181) #4
   %183 = load i32, ptr @hf_gearman_submit_job_epoch_time, align 4
-  %184 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %183, ptr noundef %0, i32 noundef %181, i32 noundef %182, i32 noundef 0) #4
+  %184 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %183, ptr noundef %0, i32 noundef %181, i32 noundef %182, i32 noundef 0) #4
   %185 = add i32 %182, %181
   %186 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %185, i32 noundef -1) #4
   %187 = load i32, ptr @hf_gearman_argument, align 4
-  %188 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %187, ptr noundef %0, i32 noundef %185, i32 noundef %186, i32 noundef 0) #4
+  %188 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %187, ptr noundef %0, i32 noundef %185, i32 noundef %186, i32 noundef 0) #4
   br label %288
 
 189:                                              ; preds = %39
   %190 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 12) #4
   %191 = load i32, ptr @hf_gearman_job_handlez, align 4
-  %192 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %191, ptr noundef %0, i32 noundef 12, i32 noundef %190, i32 noundef 0) #4
+  %192 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %191, ptr noundef %0, i32 noundef 12, i32 noundef %190, i32 noundef 0) #4
   %193 = add i32 %190, 12
   %194 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %193) #4
   %195 = load i32, ptr @hf_gearman_func_namez, align 4
-  %196 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %195, ptr noundef %0, i32 noundef %193, i32 noundef %194, i32 noundef 0) #4
+  %196 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %195, ptr noundef %0, i32 noundef %193, i32 noundef %194, i32 noundef 0) #4
   %197 = add i32 %194, %193
   %198 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %197, i32 noundef -1) #4
   %199 = load i32, ptr @hf_gearman_argument, align 4
-  %200 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %199, ptr noundef %0, i32 noundef %197, i32 noundef %198, i32 noundef 0) #4
+  %200 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %199, ptr noundef %0, i32 noundef %197, i32 noundef %198, i32 noundef 0) #4
   br label %288
 
 201:                                              ; preds = %39
   %202 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 12) #4
   %203 = load i32, ptr @hf_gearman_job_handlez, align 4
-  %204 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %203, ptr noundef %0, i32 noundef 12, i32 noundef %202, i32 noundef 0) #4
+  %204 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %203, ptr noundef %0, i32 noundef 12, i32 noundef %202, i32 noundef 0) #4
   %205 = add i32 %202, 12
   %206 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %205) #4
   %207 = load i32, ptr @hf_gearman_func_namez, align 4
-  %208 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %207, ptr noundef %0, i32 noundef %205, i32 noundef %206, i32 noundef 0) #4
+  %208 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %207, ptr noundef %0, i32 noundef %205, i32 noundef %206, i32 noundef 0) #4
   %209 = add i32 %206, %205
   %210 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %209) #4
   %211 = load i32, ptr @hf_gearman_uniq_idz, align 4
-  %212 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %211, ptr noundef %0, i32 noundef %209, i32 noundef %210, i32 noundef 0) #4
+  %212 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %211, ptr noundef %0, i32 noundef %209, i32 noundef %210, i32 noundef 0) #4
   %213 = add i32 %210, %209
   %214 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %213, i32 noundef -1) #4
   %215 = load i32, ptr @hf_gearman_argument, align 4
-  %216 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %215, ptr noundef %0, i32 noundef %213, i32 noundef %214, i32 noundef 0) #4
+  %216 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %215, ptr noundef %0, i32 noundef %213, i32 noundef %214, i32 noundef 0) #4
   br label %288
 
 217:                                              ; preds = %39
@@ -667,23 +667,23 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 218:                                              ; preds = %217
   %219 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 12) #4
   %220 = load i32, ptr @hf_gearman_job_handlez, align 4
-  %221 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %220, ptr noundef %0, i32 noundef 12, i32 noundef %219, i32 noundef 0) #4
+  %221 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %220, ptr noundef %0, i32 noundef 12, i32 noundef %219, i32 noundef 0) #4
   %222 = add i32 %219, 12
   %223 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %222) #4
   %224 = load i32, ptr @hf_gearman_func_namez, align 4
-  %225 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %224, ptr noundef %0, i32 noundef %222, i32 noundef %223, i32 noundef 0) #4
+  %225 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %224, ptr noundef %0, i32 noundef %222, i32 noundef %223, i32 noundef 0) #4
   %226 = add i32 %223, %222
   %227 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %226) #4
   %228 = load i32, ptr @hf_gearman_uniq_idz, align 4
-  %229 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %228, ptr noundef %0, i32 noundef %226, i32 noundef %227, i32 noundef 0) #4
+  %229 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %228, ptr noundef %0, i32 noundef %226, i32 noundef %227, i32 noundef 0) #4
   %230 = add i32 %227, %226
   %231 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %230) #4
   %232 = load i32, ptr @hf_gearman_reducer, align 4
-  %233 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %232, ptr noundef %0, i32 noundef %230, i32 noundef %231, i32 noundef 0) #4
+  %233 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %232, ptr noundef %0, i32 noundef %230, i32 noundef %231, i32 noundef 0) #4
   %234 = add i32 %231, %230
   %235 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %234, i32 noundef -1) #4
   %236 = load i32, ptr @hf_gearman_argument, align 4
-  %237 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %236, ptr noundef %0, i32 noundef %234, i32 noundef %235, i32 noundef 0) #4
+  %237 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %236, ptr noundef %0, i32 noundef %234, i32 noundef %235, i32 noundef 0) #4
   br label %288
 
 238:                                              ; preds = %39
@@ -692,15 +692,15 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 239:                                              ; preds = %238
   %240 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 12) #4
   %241 = load i32, ptr @hf_gearman_job_handlez, align 4
-  %242 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %241, ptr noundef %0, i32 noundef 12, i32 noundef %240, i32 noundef 0) #4
+  %242 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %241, ptr noundef %0, i32 noundef 12, i32 noundef %240, i32 noundef 0) #4
   %243 = add i32 %240, 12
   %244 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %243) #4
   %245 = load i32, ptr @hf_gearman_complete_numerator, align 4
-  %246 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %245, ptr noundef %0, i32 noundef %243, i32 noundef %244, i32 noundef 0) #4
+  %246 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %245, ptr noundef %0, i32 noundef %243, i32 noundef %244, i32 noundef 0) #4
   %247 = add i32 %244, %243
   %248 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %247, i32 noundef -1) #4
   %249 = load i32, ptr @hf_gearman_complete_denominator, align 4
-  %250 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %249, ptr noundef %0, i32 noundef %247, i32 noundef %248, i32 noundef 0) #4
+  %250 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %249, ptr noundef %0, i32 noundef %247, i32 noundef %248, i32 noundef 0) #4
   br label %288
 
 251:                                              ; preds = %39
@@ -709,11 +709,11 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 252:                                              ; preds = %251
   %253 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 12) #4
   %254 = load i32, ptr @hf_gearman_func_namez, align 4
-  %255 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %254, ptr noundef %0, i32 noundef 12, i32 noundef %253, i32 noundef 0) #4
+  %255 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %254, ptr noundef %0, i32 noundef 12, i32 noundef %253, i32 noundef 0) #4
   %256 = add i32 %253, 12
   %257 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %256, i32 noundef -1) #4
   %258 = load i32, ptr @hf_gearman_timeout_value, align 4
-  %259 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %258, ptr noundef %0, i32 noundef %256, i32 noundef %257, i32 noundef 0) #4
+  %259 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %258, ptr noundef %0, i32 noundef %256, i32 noundef %257, i32 noundef 0) #4
   br label %288
 
 260:                                              ; preds = %39
@@ -722,27 +722,27 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
 261:                                              ; preds = %260
   %262 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 12) #4
   %263 = load i32, ptr @hf_gearman_job_handlez, align 4
-  %264 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %263, ptr noundef %0, i32 noundef 12, i32 noundef %262, i32 noundef 0) #4
+  %264 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %263, ptr noundef %0, i32 noundef 12, i32 noundef %262, i32 noundef 0) #4
   %265 = add i32 %262, 12
   %266 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %265) #4
   %267 = load i32, ptr @hf_gearman_known_status, align 4
-  %268 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %267, ptr noundef %0, i32 noundef %265, i32 noundef %266, i32 noundef 0) #4
+  %268 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %267, ptr noundef %0, i32 noundef %265, i32 noundef %266, i32 noundef 0) #4
   %269 = add i32 %266, %265
   %270 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %269) #4
   %271 = load i32, ptr @hf_gearman_running_status, align 4
-  %272 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %271, ptr noundef %0, i32 noundef %269, i32 noundef %270, i32 noundef 0) #4
+  %272 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %271, ptr noundef %0, i32 noundef %269, i32 noundef %270, i32 noundef 0) #4
   %273 = add i32 %270, %269
   %274 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %273) #4
   %275 = load i32, ptr @hf_gearman_complete_numerator, align 4
-  %276 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %275, ptr noundef %0, i32 noundef %273, i32 noundef %274, i32 noundef 0) #4
+  %276 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %275, ptr noundef %0, i32 noundef %273, i32 noundef %274, i32 noundef 0) #4
   %277 = add i32 %274, %273
   %278 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %277) #4
   %279 = load i32, ptr @hf_gearman_complete_denominator, align 4
-  %280 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %279, ptr noundef %0, i32 noundef %277, i32 noundef %278, i32 noundef 0) #4
+  %280 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %279, ptr noundef %0, i32 noundef %277, i32 noundef %278, i32 noundef 0) #4
   %281 = add i32 %278, %277
   %282 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %281, i32 noundef -1) #4
   %283 = load i32, ptr @hf_gearman_client_count, align 4
-  %284 = tail call ptr @proto_tree_add_item(ptr noundef %.0476, i32 noundef %283, ptr noundef %0, i32 noundef %281, i32 noundef %282, i32 noundef 0) #4
+  %284 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %283, ptr noundef %0, i32 noundef %281, i32 noundef %282, i32 noundef 0) #4
   br label %288
 
 285:                                              ; preds = %39
@@ -750,7 +750,7 @@ define internal i32 @dissect_binary_packet(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not479, label %288, label %286
 
 286:                                              ; preds = %285
-  %287 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0, ptr noundef nonnull @ei_gearman_pkt_type_unknown) #4
+  %287 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0476, ptr noundef nonnull @ei_gearman_pkt_type_unknown) #4
   br label %288
 
 288:                                              ; preds = %285, %286, %260, %251, %238, %217, %172, %139, %122, %109, %88, %79, %70, %65, %60, %55, %50, %45, %40, %261, %252, %239, %218, %201, %189, %173, %140, %123, %110, %89, %80, %71, %66, %61, %56, %51, %46, %41

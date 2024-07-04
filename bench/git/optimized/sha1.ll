@@ -1344,40 +1344,40 @@ if.then4:                                         ; preds = %land.lhs.true
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then4, %if.end
-  %len.addr.0 = phi i64 [ %sub13, %if.then4 ], [ %len, %if.end ]
   %buf.addr.0 = phi ptr [ %add.ptr11, %if.then4 ], [ %buf, %if.end ]
+  %len.addr.0 = phi i64 [ %sub13, %if.then4 ], [ %len, %if.end ]
   %cmp1527 = icmp ugt i64 %len.addr.0, 63
   br i1 %cmp1527, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end14, %while.body
-  %buf.addr.129 = phi ptr [ %add.ptr19, %while.body ], [ %buf.addr.0, %if.end14 ]
-  %len.addr.128 = phi i64 [ %sub20, %while.body ], [ %len.addr.0, %if.end14 ]
+  %len.addr.129 = phi i64 [ %sub20, %while.body ], [ %len.addr.0, %if.end14 ]
+  %buf.addr.128 = phi ptr [ %add.ptr19, %while.body ], [ %buf.addr.0, %if.end14 ]
   %2 = load i64, ptr %ctx, align 8
   %add18 = add i64 %2, 64
   store i64 %add18, ptr %ctx, align 8
-  tail call fastcc void @sha1_process(ptr noundef nonnull %ctx, ptr noundef %buf.addr.129)
-  %add.ptr19 = getelementptr inbounds i8, ptr %buf.addr.129, i64 64
-  %sub20 = add i64 %len.addr.128, -64
+  tail call fastcc void @sha1_process(ptr noundef nonnull %ctx, ptr noundef %buf.addr.128)
+  %add.ptr19 = getelementptr inbounds i8, ptr %buf.addr.128, i64 64
+  %sub20 = add i64 %len.addr.129, -64
   %cmp15 = icmp ugt i64 %sub20, 63
   br i1 %cmp15, label %while.body, label %while.end, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %if.end14
-  %len.addr.1.lcssa = phi i64 [ %len.addr.0, %if.end14 ], [ %sub20, %while.body ]
   %buf.addr.1.lcssa = phi ptr [ %buf.addr.0, %if.end14 ], [ %add.ptr19, %while.body ]
+  %len.addr.1.lcssa = phi i64 [ %len.addr.0, %if.end14 ], [ %sub20, %while.body ]
   %cmp21.not = icmp eq i64 %len.addr.1.lcssa, 0
   br i1 %cmp21.not, label %if.end30, label %if.then23
 
 if.then23:                                        ; preds = %land.lhs.true, %while.end
-  %buf.addr.1.lcssa42 = phi ptr [ %buf.addr.1.lcssa, %while.end ], [ %buf, %land.lhs.true ]
-  %len.addr.1.lcssa41 = phi i64 [ %len.addr.1.lcssa, %while.end ], [ %len, %land.lhs.true ]
+  %len.addr.1.lcssa42 = phi i64 [ %len.addr.1.lcssa, %while.end ], [ %len, %land.lhs.true ]
+  %buf.addr.1.lcssa41 = phi ptr [ %buf.addr.1.lcssa, %while.end ], [ %buf, %land.lhs.true ]
   %left.03540 = phi i32 [ 0, %while.end ], [ %conv, %land.lhs.true ]
   %3 = load i64, ptr %ctx, align 8
-  %add25 = add i64 %3, %len.addr.1.lcssa41
+  %add25 = add i64 %3, %len.addr.1.lcssa42
   store i64 %add25, ptr %ctx, align 8
   %buffer26 = getelementptr inbounds i8, ptr %ctx, i64 28
   %idx.ext28 = zext nneg i32 %left.03540 to i64
   %add.ptr29 = getelementptr inbounds i8, ptr %buffer26, i64 %idx.ext28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr29, ptr align 1 %buf.addr.1.lcssa42, i64 %len.addr.1.lcssa41, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr29, ptr align 1 %buf.addr.1.lcssa41, i64 %len.addr.1.lcssa42, i1 false)
   br label %if.end30
 
 if.end30:                                         ; preds = %entry, %if.then23, %while.end
@@ -3270,20 +3270,20 @@ if.then4.i:                                       ; preds = %land.lhs.true.i
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then4.i, %entry
-  %len.addr.0.i = phi i64 [ %sub13.i, %if.then4.i ], [ %conv4, %entry ]
   %buf.addr.0.i = phi ptr [ %add.ptr11.i, %if.then4.i ], [ @sha1_padding, %entry ]
+  %len.addr.0.i = phi i64 [ %sub13.i, %if.then4.i ], [ %conv4, %entry ]
   %cmp1527.i = icmp ugt i64 %len.addr.0.i, 63
   br i1 %cmp1527.i, label %while.body.i, label %if.then23.i
 
 while.body.i:                                     ; preds = %if.end14.i, %while.body.i
-  %buf.addr.129.i = phi ptr [ %add.ptr19.i, %while.body.i ], [ %buf.addr.0.i, %if.end14.i ]
-  %len.addr.128.i = phi i64 [ %sub20.i, %while.body.i ], [ %len.addr.0.i, %if.end14.i ]
+  %len.addr.129.i = phi i64 [ %sub20.i, %while.body.i ], [ %len.addr.0.i, %if.end14.i ]
+  %buf.addr.128.i = phi ptr [ %add.ptr19.i, %while.body.i ], [ %buf.addr.0.i, %if.end14.i ]
   %2 = load i64, ptr %ctx, align 8
   %add18.i = add i64 %2, 64
   store i64 %add18.i, ptr %ctx, align 8
-  tail call fastcc void @sha1_process(ptr noundef nonnull %ctx, ptr noundef %buf.addr.129.i)
-  %add.ptr19.i = getelementptr inbounds i8, ptr %buf.addr.129.i, i64 64
-  %sub20.i = add i64 %len.addr.128.i, -64
+  tail call fastcc void @sha1_process(ptr noundef nonnull %ctx, ptr noundef %buf.addr.128.i)
+  %add.ptr19.i = getelementptr inbounds i8, ptr %buf.addr.128.i, i64 64
+  %sub20.i = add i64 %len.addr.129.i, -64
   %cmp15.i = icmp ugt i64 %sub20.i, 63
   br i1 %cmp15.i, label %while.body.i, label %while.end.i, !llvm.loop !5
 
@@ -3292,16 +3292,16 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp21.not.i, label %SHA1DCUpdate.exit, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.end14.i, %while.end.i, %land.lhs.true.i
-  %buf.addr.1.lcssa42.i = phi ptr [ %add.ptr19.i, %while.end.i ], [ @sha1_padding, %land.lhs.true.i ], [ %buf.addr.0.i, %if.end14.i ]
-  %len.addr.1.lcssa41.i = phi i64 [ %sub20.i, %while.end.i ], [ %conv4, %land.lhs.true.i ], [ %len.addr.0.i, %if.end14.i ]
+  %len.addr.1.lcssa42.i = phi i64 [ %sub20.i, %while.end.i ], [ %conv4, %land.lhs.true.i ], [ %len.addr.0.i, %if.end14.i ]
+  %buf.addr.1.lcssa41.i = phi ptr [ %add.ptr19.i, %while.end.i ], [ @sha1_padding, %land.lhs.true.i ], [ %buf.addr.0.i, %if.end14.i ]
   %left.03540.i = phi i32 [ 0, %while.end.i ], [ %conv, %land.lhs.true.i ], [ 0, %if.end14.i ]
   %3 = load i64, ptr %ctx, align 8
-  %add25.i = add i64 %3, %len.addr.1.lcssa41.i
+  %add25.i = add i64 %3, %len.addr.1.lcssa42.i
   store i64 %add25.i, ptr %ctx, align 8
   %buffer26.i = getelementptr inbounds i8, ptr %ctx, i64 28
   %idx.ext28.i = zext nneg i32 %left.03540.i to i64
   %add.ptr29.i = getelementptr inbounds i8, ptr %buffer26.i, i64 %idx.ext28.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr29.i, ptr align 1 %buf.addr.1.lcssa42.i, i64 %len.addr.1.lcssa41.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr29.i, ptr align 1 %buf.addr.1.lcssa41.i, i64 %len.addr.1.lcssa42.i, i1 false)
   br label %SHA1DCUpdate.exit
 
 SHA1DCUpdate.exit:                                ; preds = %while.end.i, %if.then23.i

@@ -211,13 +211,13 @@ lpad.loopexit:                                    ; preds = %cond.true.i.i.i98
   br label %ehcleanup
 
 lpad.loopexit.split-lp:                           ; preds = %for.end, %cond.true.i.i.i, %if.then.i.i.i112, %if.then.i.i.i144, %cond.true.i.i.i137, %if.then.i152
-  %origins.sroa.0.1.ph = phi ptr [ null, %cond.true.i.i.i ], [ %origins.sroa.0.3.lcssa, %for.end ], [ null, %cond.true.i.i.i137 ], [ null, %if.then.i152 ], [ null, %if.then.i.i.i144 ], [ %origins.sroa.0.3196, %if.then.i.i.i112 ]
+  %origins.sroa.0.1.ph = phi ptr [ null, %cond.true.i.i.i ], [ %origins.sroa.0.3.lcssa, %for.end ], [ null, %cond.true.i.i.i137 ], [ null, %if.then.i152 ], [ null, %if.then.i.i.i144 ], [ %origins.sroa.0.3195, %if.then.i.i.i112 ]
   %lpad.loopexit.split-lp185 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end16:                                         ; preds = %if.then, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE12emplace_backIJRS8_EEESC_DpOT_.exit, %invoke.cont, %cond.end
-  %origins.sroa.18.1 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE12emplace_backIJRS8_EEESC_DpOT_.exit ], [ null, %invoke.cont ], [ null, %cond.end ], [ null, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ null, %if.then ]
+  %origins.sroa.9.1 = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE12emplace_backIJRS8_EEESC_DpOT_.exit ], [ null, %invoke.cont ], [ null, %cond.end ], [ null, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ null, %if.then ]
   %origins.sroa.0.2 = phi ptr [ %call5.i.i.i.i.i46, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE12emplace_backIJRS8_EEESC_DpOT_.exit ], [ null, %invoke.cont ], [ null, %cond.end ], [ null, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ null, %if.then ]
   %5 = load ptr, ptr %originVariables, align 8
   %_M_finish.i47 = getelementptr inbounds i8, ptr %originVariables, i64 8
@@ -238,15 +238,15 @@ for.bodythread-pre-split:                         ; preds = %for.inc
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.bodythread-pre-split
   %9 = phi ptr [ %.pr, %for.bodythread-pre-split ], [ %7, %for.body.lr.ph ]
-  %origins.sroa.0.3196 = phi ptr [ %origins.sroa.0.5, %for.bodythread-pre-split ], [ %origins.sroa.0.2, %for.body.lr.ph ]
-  %origins.sroa.9.2195 = phi ptr [ %origins.sroa.9.4, %for.bodythread-pre-split ], [ %origins.sroa.18.1, %for.body.lr.ph ]
-  %__begin4.sroa.0.0194 = phi ptr [ %incdec.ptr.i117, %for.bodythread-pre-split ], [ %5, %for.body.lr.ph ]
-  %origins.sroa.18.2193 = phi ptr [ %origins.sroa.18.4, %for.bodythread-pre-split ], [ %origins.sroa.18.1, %for.body.lr.ph ]
+  %__begin4.sroa.0.0196 = phi ptr [ %incdec.ptr.i117, %for.bodythread-pre-split ], [ %5, %for.body.lr.ph ]
+  %origins.sroa.0.3195 = phi ptr [ %origins.sroa.0.5, %for.bodythread-pre-split ], [ %origins.sroa.0.2, %for.body.lr.ph ]
+  %origins.sroa.18.2194 = phi ptr [ %origins.sroa.18.4, %for.bodythread-pre-split ], [ %origins.sroa.9.1, %for.body.lr.ph ]
+  %origins.sroa.9.2193 = phi ptr [ %origins.sroa.9.4, %for.bodythread-pre-split ], [ %origins.sroa.9.1, %for.body.lr.ph ]
   %cmp.not5.i.i.i51 = icmp eq ptr %9, null
   br i1 %cmp.not5.i.i.i51, label %for.inc, label %while.body.lr.ph.i.i.i52
 
 while.body.lr.ph.i.i.i52:                         ; preds = %for.body
-  %10 = load ptr, ptr %__begin4.sroa.0.0194, align 8
+  %10 = load ptr, ptr %__begin4.sroa.0.0196, align 8
   %bf.load3.i.i.i.i.i53 = load i64, ptr %10, align 8
   %bf.clear4.i.i.i.i.i54 = and i64 %bf.load3.i.i.i.i.i53, 1099511627775
   br label %while.body.i.i.i55
@@ -280,18 +280,18 @@ invoke.cont25:                                    ; preds = %_ZNSt8_Rb_treeIN4cv
 
 if.then33:                                        ; preds = %invoke.cont25
   %second35 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i62, i64 40
-  %cmp.not.i82 = icmp eq ptr %origins.sroa.9.2195, %origins.sroa.18.2193
+  %cmp.not.i82 = icmp eq ptr %origins.sroa.9.2193, %origins.sroa.18.2194
   br i1 %cmp.not.i82, label %if.else.i86, label %if.then.i83
 
 if.then.i83:                                      ; preds = %if.then33
   %13 = load ptr, ptr %second35, align 8
-  store ptr %13, ptr %origins.sroa.9.2195, align 8
-  %incdec.ptr.i84 = getelementptr inbounds i8, ptr %origins.sroa.9.2195, i64 8
+  store ptr %13, ptr %origins.sroa.9.2193, align 8
+  %incdec.ptr.i84 = getelementptr inbounds i8, ptr %origins.sroa.9.2193, i64 8
   br label %for.inc
 
 if.else.i86:                                      ; preds = %if.then33
-  %sub.ptr.lhs.cast.i.i.i.i87 = ptrtoint ptr %origins.sroa.9.2195 to i64
-  %sub.ptr.rhs.cast.i.i.i.i88 = ptrtoint ptr %origins.sroa.0.3196 to i64
+  %sub.ptr.lhs.cast.i.i.i.i87 = ptrtoint ptr %origins.sroa.18.2194 to i64
+  %sub.ptr.rhs.cast.i.i.i.i88 = ptrtoint ptr %origins.sroa.0.3195 to i64
   %sub.ptr.sub.i.i.i.i89 = sub i64 %sub.ptr.lhs.cast.i.i.i.i87, %sub.ptr.rhs.cast.i.i.i.i88
   %cmp.i.i.i90 = icmp eq i64 %sub.ptr.sub.i.i.i.i89, 9223372036854775800
   br i1 %cmp.i.i.i90, label %if.then.i.i.i112, label %_ZNKSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE12_M_check_lenEmPKc.exit.i.i91
@@ -327,17 +327,17 @@ _ZNSt12_Vector_baseIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManag
   br i1 %cmp.i.i.i.i.i103, label %if.then.i.i.i.i.i111, label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i104
 
 if.then.i.i.i.i.i111:                             ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_M_allocateEm.exit.i.i100
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i101, ptr align 8 %origins.sroa.0.3196, i64 %sub.ptr.sub.i.i.i.i89, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i101, ptr align 8 %origins.sroa.0.3195, i64 %sub.ptr.sub.i.i.i.i89, i1 false)
   br label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i104
 
 _ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i104: ; preds = %if.then.i.i.i.i.i111, %_ZNSt12_Vector_baseIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_M_allocateEm.exit.i.i100
   %add.ptr.i.i.i.i.i105 = getelementptr inbounds i8, ptr %cond.i10.i.i101, i64 %sub.ptr.sub.i.i.i.i89
   %incdec.ptr.i.i106 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i105, i64 8
-  %tobool.not.i.i.i107 = icmp eq ptr %origins.sroa.0.3196, null
+  %tobool.not.i.i.i107 = icmp eq ptr %origins.sroa.0.3195, null
   br i1 %tobool.not.i.i.i107, label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i109, label %if.then.i18.i.i108
 
 if.then.i18.i.i108:                               ; preds = %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i104
-  tail call void @_ZdlPv(ptr noundef nonnull %origins.sroa.0.3196) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %origins.sroa.0.3195) #20
   br label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i109
 
 _ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i109: ; preds = %if.then.i18.i.i108, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit17.i.i104
@@ -345,16 +345,16 @@ _ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17Con
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i109, %if.then.i83, %invoke.cont25
-  %origins.sroa.18.4 = phi ptr [ %origins.sroa.18.2193, %invoke.cont25 ], [ %add.ptr19.i.i110, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i109 ], [ %origins.sroa.18.2193, %if.then.i83 ], [ %origins.sroa.18.2193, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67 ], [ %origins.sroa.18.2193, %for.body ]
-  %origins.sroa.9.4 = phi ptr [ %origins.sroa.9.2195, %invoke.cont25 ], [ %incdec.ptr.i.i106, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i109 ], [ %incdec.ptr.i84, %if.then.i83 ], [ %origins.sroa.9.2195, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67 ], [ %origins.sroa.9.2195, %for.body ]
-  %origins.sroa.0.5 = phi ptr [ %origins.sroa.0.3196, %invoke.cont25 ], [ %cond.i10.i.i101, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i109 ], [ %origins.sroa.0.3196, %if.then.i83 ], [ %origins.sroa.0.3196, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67 ], [ %origins.sroa.0.3196, %for.body ]
-  %incdec.ptr.i117 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0194, i64 8
+  %origins.sroa.9.4 = phi ptr [ %origins.sroa.9.2193, %invoke.cont25 ], [ %incdec.ptr.i.i106, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i109 ], [ %incdec.ptr.i84, %if.then.i83 ], [ %origins.sroa.9.2193, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67 ], [ %origins.sroa.9.2193, %for.body ]
+  %origins.sroa.18.4 = phi ptr [ %origins.sroa.18.2194, %invoke.cont25 ], [ %add.ptr19.i.i110, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i109 ], [ %origins.sroa.18.2194, %if.then.i83 ], [ %origins.sroa.18.2194, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67 ], [ %origins.sroa.18.2194, %for.body ]
+  %origins.sroa.0.5 = phi ptr [ %origins.sroa.0.3195, %invoke.cont25 ], [ %cond.i10.i.i101, %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EE17_M_realloc_insertIJRS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i109 ], [ %origins.sroa.0.3195, %if.then.i83 ], [ %origins.sroa.0.3195, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE14_M_lower_boundEPSt13_Rb_tree_nodeISD_EPSt18_Rb_tree_node_baseRS5_.exit.i.i67 ], [ %origins.sroa.0.3195, %for.body ]
+  %incdec.ptr.i117 = getelementptr inbounds i8, ptr %__begin4.sroa.0.0196, i64 8
   %cmp.i48.not = icmp eq ptr %incdec.ptr.i117, %6
   br i1 %cmp.i48.not, label %for.end, label %for.bodythread-pre-split, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %for.body.lr.ph, %if.end16
-  %origins.sroa.18.2.lcssa = phi ptr [ %origins.sroa.18.1, %if.end16 ], [ %origins.sroa.18.1, %for.body.lr.ph ], [ %origins.sroa.18.4, %for.inc ]
-  %origins.sroa.9.2.lcssa = phi ptr [ %origins.sroa.18.1, %if.end16 ], [ %origins.sroa.18.1, %for.body.lr.ph ], [ %origins.sroa.9.4, %for.inc ]
+  %origins.sroa.9.2.lcssa = phi ptr [ %origins.sroa.9.1, %if.end16 ], [ %origins.sroa.9.1, %for.body.lr.ph ], [ %origins.sroa.9.4, %for.inc ]
+  %origins.sroa.18.2.lcssa = phi ptr [ %origins.sroa.9.1, %if.end16 ], [ %origins.sroa.9.1, %for.body.lr.ph ], [ %origins.sroa.18.4, %for.inc ]
   %origins.sroa.0.3.lcssa = phi ptr [ %origins.sroa.0.2, %if.end16 ], [ %origins.sroa.0.2, %for.body.lr.ph ], [ %origins.sroa.0.5, %for.inc ]
   %d_allocations = getelementptr inbounds i8, ptr %this, i64 48
   %call42 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
@@ -541,7 +541,7 @@ lpad44:                                           ; preds = %if.then13.i.i
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad44
-  %origins.sroa.0.6 = phi ptr [ %origins.sroa.0.3.lcssa, %lpad44 ], [ %origins.sroa.0.3196, %lpad.loopexit ], [ %origins.sroa.0.1.ph, %lpad.loopexit.split-lp ]
+  %origins.sroa.0.6 = phi ptr [ %origins.sroa.0.3.lcssa, %lpad44 ], [ %origins.sroa.0.3195, %lpad.loopexit ], [ %origins.sroa.0.1.ph, %lpad.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %30, %lpad44 ], [ %lpad.loopexit184, %lpad.loopexit ], [ %lpad.loopexit.split-lp185, %lpad.loopexit.split-lp ]
   %tobool.not.i.i.i156 = icmp eq ptr %origins.sroa.0.6, null
   br i1 %tobool.not.i.i.i156, label %_ZNSt6vectorIPN4cvc58internal6theory5arith2nl3icp24ContractionOriginManager17ContractionOriginESaIS8_EED2Ev.exit158, label %if.then.i.i.i157

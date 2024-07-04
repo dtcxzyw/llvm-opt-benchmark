@@ -1633,16 +1633,16 @@ _ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFuncti
 
 invoke.cont:                                      ; preds = %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit, %invoke.cont11
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont11 ], [ 0, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ]
-  %assumps.sroa.0.040 = phi ptr [ %assumps.sroa.0.2, %invoke.cont11 ], [ null, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ]
-  %__begin2.sroa.0.038 = phi ptr [ %incdec.ptr.i, %invoke.cont11 ], [ %5, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ]
-  %assumps.sroa.17.037 = phi i32 [ %assumps.sroa.17.1, %invoke.cont11 ], [ 0, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ]
-  %agg.tmp.sroa.0.0.copyload = load i64, ptr %__begin2.sroa.0.038, align 8
+  %__begin2.sroa.0.040 = phi ptr [ %incdec.ptr.i, %invoke.cont11 ], [ %5, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ]
+  %assumps.sroa.17.039 = phi i32 [ %assumps.sroa.17.1, %invoke.cont11 ], [ 0, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ]
+  %assumps.sroa.0.037 = phi ptr [ %assumps.sroa.0.2, %invoke.cont11 ], [ null, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ]
+  %agg.tmp.sroa.0.0.copyload = load i64, ptr %__begin2.sroa.0.040, align 8
   %.b = load i1, ptr @_ZN4cvc58internal4propL15undefSatLiteralE.0, align 8
   %7 = select i1 %.b, i64 -2, i64 0
   %cmp.i.i = icmp eq i64 %7, %agg.tmp.sroa.0.0.copyload
   %tr.sh.diff.i = trunc i64 %agg.tmp.sroa.0.0.copyload to i32
   %retval.sroa.0.0.i = select i1 %cmp.i.i, i32 -2, i32 %tr.sh.diff.i
-  %8 = zext i32 %assumps.sroa.17.037 to i64
+  %8 = zext i32 %assumps.sroa.17.039 to i64
   %cmp.i3 = icmp eq i64 %indvars.iv, %8
   br i1 %cmp.i3, label %if.end.i.i, label %invoke.cont9
 
@@ -1659,7 +1659,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %add11.i.i = add nuw nsw i32 %add.i.i.i, %9
   %conv.i.i = zext nneg i32 %add11.i.i to i64
   %mul.i.i4 = shl nuw nsw i64 %conv.i.i, 2
-  %call12.i.i = tail call ptr @realloc(ptr noundef %assumps.sroa.0.040, i64 noundef %mul.i.i4) #29
+  %call12.i.i = tail call ptr @realloc(ptr noundef %assumps.sroa.0.037, i64 noundef %mul.i.i4) #29
   %cmp14.i.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp14.i.i, label %land.lhs.true.i.i, label %invoke.cont9
 
@@ -1671,7 +1671,7 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   br label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i, %land.lhs.true.i.i
-  %assumps.sroa.0.1 = phi ptr [ null, %land.lhs.true.i.i ], [ %assumps.sroa.0.040, %if.end.i.i ]
+  %assumps.sroa.0.1 = phi ptr [ null, %land.lhs.true.i.i ], [ %assumps.sroa.0.037, %if.end.i.i ]
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #26
   invoke void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #31
           to label %.noexc unwind label %lpad
@@ -1680,16 +1680,16 @@ if.then17.i.i:                                    ; preds = %if.end.i.i, %land.l
   unreachable
 
 invoke.cont9:                                     ; preds = %lor.lhs.false.i.i, %invoke.cont
-  %assumps.sroa.17.1 = phi i32 [ %add11.i.i, %lor.lhs.false.i.i ], [ %assumps.sroa.17.037, %invoke.cont ]
-  %assumps.sroa.0.2 = phi ptr [ %call12.i.i, %lor.lhs.false.i.i ], [ %assumps.sroa.0.040, %invoke.cont ]
+  %assumps.sroa.0.2 = phi ptr [ %call12.i.i, %lor.lhs.false.i.i ], [ %assumps.sroa.0.037, %invoke.cont ]
+  %assumps.sroa.17.1 = phi i32 [ %add11.i.i, %lor.lhs.false.i.i ], [ %assumps.sroa.17.039, %invoke.cont ]
   %arrayidx.i = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %assumps.sroa.0.2, i64 %indvars.iv
   store i32 %retval.sroa.0.0.i, ptr %arrayidx.i, align 4
-  %call.i.i5 = invoke { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal4prop10SatLiteralES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_22SatLiteralHashFunctionENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE10_M_emplaceIJRKS3_EEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %d_assumptions, ptr noundef nonnull align 8 dereferenceable(8) %__begin2.sroa.0.038)
+  %call.i.i5 = invoke { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal4prop10SatLiteralES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_22SatLiteralHashFunctionENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE10_M_emplaceIJRKS3_EEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %d_assumptions, ptr noundef nonnull align 8 dereferenceable(8) %__begin2.sroa.0.040)
           to label %invoke.cont11 unwind label %lpad.thread
 
 invoke.cont11:                                    ; preds = %invoke.cont9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.038, i64 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.040, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %6
   br i1 %cmp.i.not, label %for.end.loopexit, label %invoke.cont
 
@@ -1720,8 +1720,8 @@ for.end.loopexit:                                 ; preds = %invoke.cont11
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit
-  %assumps.sroa.9.0.lcssa = phi i32 [ 0, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ], [ %12, %for.end.loopexit ]
   %assumps.sroa.0.0.lcssa = phi ptr [ null, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ], [ %assumps.sroa.0.2, %for.end.loopexit ]
+  %assumps.sroa.9.0.lcssa = phi i32 [ 0, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ], [ %12, %for.end.loopexit ]
   %13 = load ptr, ptr %d_minisat, align 8
   %conflict_budget.i.i = getelementptr inbounds i8, ptr %13, i64 832
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %conflict_budget.i.i, i8 -1, i64 16, i1 false)

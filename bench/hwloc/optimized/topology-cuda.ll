@@ -255,8 +255,8 @@ hwloc_cuda_cores_per_MP.exit.thread60:            ; preds = %switch.hole_check, 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %96, %27, %30, %14, %2
-  %.0 = phi i32 [ 0, %2 ], [ -1, %14 ], [ -1, %30 ], [ -1, %27 ], [ 0, %96 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
-  ret i32 %.0
+  %.039 = phi i32 [ 0, %2 ], [ -1, %14 ], [ -1, %30 ], [ -1, %27 ], [ 0, %96 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
+  ret i32 %.039
 }
 
 declare i32 @hwloc_topology_get_type_filter(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2

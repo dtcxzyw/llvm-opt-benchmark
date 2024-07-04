@@ -346,53 +346,53 @@ define noundef i64 @_ZN5faiss15IndexBinaryFlat10remove_idsERKNS_10IDSelectorE(pt
   br label %8
 
 8:                                                ; preds = %.lr.ph, %24
-  %.018 = phi i64 [ 0, %.lr.ph ], [ %.1, %24 ]
-  %.01316 = phi i64 [ 0, %.lr.ph ], [ %25, %24 ]
+  %.017 = phi i64 [ 0, %.lr.ph ], [ %25, %24 ]
+  %.01316 = phi i64 [ 0, %.lr.ph ], [ %.1, %24 ]
   %9 = load ptr, ptr %1, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.01316)
+  %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   br i1 %11, label %24, label %12
 
 12:                                               ; preds = %8
-  %13 = icmp sgt i64 %.01316, %.018
+  %13 = icmp sgt i64 %.017, %.01316
   br i1 %13, label %14, label %22
 
 14:                                               ; preds = %12
   %15 = load i32, ptr %7, align 4
   %16 = sext i32 %15 to i64
-  %17 = mul nsw i64 %.018, %16
+  %17 = mul nsw i64 %.01316, %16
   %18 = load ptr, ptr %6, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 %17
-  %20 = mul nsw i64 %.01316, %16
+  %20 = mul nsw i64 %.017, %16
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %21, i64 %16, i1 false)
   br label %22
 
 22:                                               ; preds = %14, %12
-  %23 = add nsw i64 %.018, 1
+  %23 = add nsw i64 %.01316, 1
   br label %24
 
 24:                                               ; preds = %22, %8
-  %.1 = phi i64 [ %.018, %8 ], [ %23, %22 ]
-  %25 = add nuw nsw i64 %.01316, 1
+  %.1 = phi i64 [ %.01316, %8 ], [ %23, %22 ]
+  %25 = add nuw nsw i64 %.017, 1
   %26 = load i64, ptr %3, align 8
   %27 = icmp slt i64 %25, %26
   br i1 %27, label %8, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %24, %2
-  %.0.lcssa = phi i64 [ 0, %2 ], [ %.1, %24 ]
+  %.013.lcssa = phi i64 [ 0, %2 ], [ %.1, %24 ]
   %.lcssa = phi i64 [ %4, %2 ], [ %26, %24 ]
-  %28 = sub nsw i64 %.lcssa, %.0.lcssa
+  %28 = sub nsw i64 %.lcssa, %.013.lcssa
   %29 = icmp sgt i64 %28, 0
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %._crit_edge
-  store i64 %.0.lcssa, ptr %3, align 8
+  store i64 %.013.lcssa, ptr %3, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 32
   %32 = getelementptr inbounds i8, ptr %0, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
-  %35 = mul nsw i64 %.0.lcssa, %34
+  %35 = mul nsw i64 %.013.lcssa, %34
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %35)
   br label %36
 

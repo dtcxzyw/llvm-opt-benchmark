@@ -787,7 +787,7 @@ dissect_someip_sd_pdu_option_unknown.exit.i:      ; preds = %264, %261, %248
   br i1 %.not67.i, label %dissect_someip_sd_pdu_options.exit, label %94, !llvm.loop !6
 
 dissect_someip_sd_pdu_options.exit:               ; preds = %268, %.preheader.i, %92, %107
-  %.095 = phi i32 [ 0, %92 ], [ 0, %107 ], [ 0, %.preheader.i ], [ %269, %268 ]
+  %.0 = phi i32 [ 0, %92 ], [ 0, %107 ], [ 0, %.preheader.i ], [ %269, %268 ]
   %272 = load i32, ptr %24, align 4
   %273 = add i32 %272, %68
   br label %thread-pre-split
@@ -797,15 +797,15 @@ dissect_someip_sd_pdu_options.exit:               ; preds = %268, %.preheader.i,
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %65, %274, %dissect_someip_sd_pdu_options.exit, %63
-  %.1.ph = phi i32 [ %.095, %dissect_someip_sd_pdu_options.exit ], [ 0, %274 ], [ 0, %65 ], [ 0, %63 ]
-  %.079.ph = phi i32 [ %273, %dissect_someip_sd_pdu_options.exit ], [ %68, %274 ], [ %68, %65 ], [ %62, %63 ]
+  %.1.ph = phi i32 [ %.0, %dissect_someip_sd_pdu_options.exit ], [ 0, %274 ], [ 0, %65 ], [ 0, %63 ]
+  %.078.ph = phi i32 [ %273, %dissect_someip_sd_pdu_options.exit ], [ %68, %274 ], [ %68, %65 ], [ %62, %63 ]
   %.pr = load i32, ptr %23, align 4
   br label %276
 
 276:                                              ; preds = %thread-pre-split, %55
   %277 = phi i32 [ %.pr, %thread-pre-split ], [ %61, %55 ]
   %.1 = phi i32 [ %.1.ph, %thread-pre-split ], [ 0, %55 ]
-  %.079 = phi i32 [ %.079.ph, %thread-pre-split ], [ %62, %55 ]
+  %.078 = phi i32 [ %.078.ph, %thread-pre-split ], [ %62, %55 ]
   %278 = icmp ugt i32 %277, 15
   br i1 %278, label %.lr.ph.i92, label %581
 
@@ -1440,7 +1440,7 @@ dissect_someip_sd_pdu_entry.exit.i:               ; preds = %513, %someip_sd_reg
   br label %dissect_someip_sd_pdu_entries.exit
 
 dissect_someip_sd_pdu_entries.exit:               ; preds = %.thread77.i, %578
-  %580 = add i32 %544, %.079
+  %580 = add i32 %544, %.078
   br label %583
 
 581:                                              ; preds = %276
@@ -1448,8 +1448,8 @@ dissect_someip_sd_pdu_entries.exit:               ; preds = %.thread77.i, %578
   br label %583
 
 583:                                              ; preds = %dissect_someip_sd_pdu_entries.exit, %581, %46, %33
-  %.0 = phi i32 [ %48, %46 ], [ %35, %33 ], [ %580, %dissect_someip_sd_pdu_entries.exit ], [ %.079, %581 ]
-  ret i32 %.0
+  %.079 = phi i32 [ %48, %46 ], [ %35, %33 ], [ %580, %dissect_someip_sd_pdu_entries.exit ], [ %.078, %581 ]
+  ret i32 %.079
 }
 
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1

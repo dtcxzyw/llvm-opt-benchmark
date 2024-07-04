@@ -250,7 +250,7 @@ define i32 @job_submit_g_fini(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %9 = phi i32 [ %7, %.lr.ph.preheader ], [ %16, %15 ]
   %10 = phi ptr [ %.pre24, %.lr.ph.preheader ], [ %17, %15 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %.01321 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %15 ]
+  %.022 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %15 ]
   %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %.not18 = icmp eq ptr %12, null
@@ -259,7 +259,7 @@ define i32 @job_submit_g_fini(i1 noundef zeroext %0) local_unnamed_addr #0 {
 13:                                               ; preds = %.lr.ph
   %14 = tail call i32 @plugin_context_destroy(ptr noundef nonnull %12) #8
   %.not19 = icmp eq i32 %14, 0
-  %spec.select = select i1 %.not19, i32 %.01321, i32 %14
+  %spec.select = select i1 %.not19, i32 %.022, i32 %14
   %.pre = load ptr, ptr @g_context, align 8
   %.pre25 = load i32, ptr @g_context_cnt, align 4
   br label %15
@@ -267,21 +267,21 @@ define i32 @job_submit_g_fini(i1 noundef zeroext %0) local_unnamed_addr #0 {
 15:                                               ; preds = %13, %.lr.ph
   %16 = phi i32 [ %9, %.lr.ph ], [ %.pre25, %13 ]
   %17 = phi ptr [ %10, %.lr.ph ], [ %.pre, %13 ]
-  %.1 = phi i32 [ %.01321, %.lr.ph ], [ %spec.select, %13 ]
+  %.1 = phi i32 [ %.022, %.lr.ph ], [ %spec.select, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = sext i32 %16 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %15, %.preheader
-  %.013.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %15 ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %15 ]
   tail call void @slurm_xfree(ptr noundef nonnull @ops) #8
   tail call void @slurm_xfree(ptr noundef nonnull @g_context) #8
   store i32 -1, ptr @g_context_cnt, align 4
   br label %20
 
 20:                                               ; preds = %6, %._crit_edge
-  %.2 = phi i32 [ 0, %6 ], [ %.013.lcssa, %._crit_edge ]
+  %.2 = phi i32 [ 0, %6 ], [ %.0.lcssa, %._crit_edge ]
   br i1 %0, label %25, label %21
 
 21:                                               ; preds = %20
@@ -344,7 +344,7 @@ define i32 @job_submit_g_submit(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.012.lcssa = phi i32 [ 0, %.preheader ], [ %18, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %18, %.lr.ph ]
   %24 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #8
   %.not15 = icmp eq i32 %24, 0
   br i1 %.not15, label %27, label %25
@@ -358,7 +358,7 @@ define i32 @job_submit_g_submit(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
 27:                                               ; preds = %._crit_edge
   %28 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 20, ptr noundef nonnull @__func__.job_submit_g_submit, i64 noundef 0, ptr noundef nonnull %7) #8
-  ret i32 %.012.lcssa
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -412,7 +412,7 @@ define i32 @job_submit_g_modify(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.013.lcssa = phi i32 [ 0, %.preheader ], [ %19, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %19, %.lr.ph ]
   %25 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #8
   %.not16 = icmp eq i32 %25, 0
   br i1 %.not16, label %28, label %26
@@ -426,7 +426,7 @@ define i32 @job_submit_g_modify(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
 28:                                               ; preds = %._crit_edge
   %29 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #8
   call void @slurm_diff_tv_str(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 20, ptr noundef nonnull @__func__.job_submit_g_modify, i64 noundef 0, ptr noundef nonnull %8) #8
-  ret i32 %.013.lcssa
+  ret i32 %.0.lcssa
 }
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -592,7 +592,7 @@ define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef %0) unnamed_ad
   br label %11
 
 11:                                               ; preds = %52, %1
-  %.027 = phi ptr [ null, %1 ], [ %.248, %52 ]
+  %.0 = phi ptr [ null, %1 ], [ %.248, %52 ]
   %12 = call i32 @recvln(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #11
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %.loopexit, label %14
@@ -630,11 +630,11 @@ define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef %0) unnamed_ad
   br i1 %26, label %.thread45.loopexit, label %.lr.ph65
 
 27:                                               ; preds = %15
-  %.not36 = icmp eq ptr %.027, null
+  %.not36 = icmp eq ptr %.0, null
   br i1 %.not36, label %.thread, label %..thread45_crit_edge
 
 ..thread45_crit_edge:                             ; preds = %27
-  %.pre = load ptr, ptr %.027, align 8
+  %.pre = load ptr, ptr %.0, align 8
   br label %.thread45
 
 .thread:                                          ; preds = %27, %18, %.lr.ph65
@@ -647,7 +647,7 @@ define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef %0) unnamed_ad
 
 .thread45:                                        ; preds = %.thread45.loopexit, %.lr.ph.preheader, %..thread45_crit_edge
   %30 = phi ptr [ %.pre, %..thread45_crit_edge ], [ %19, %.lr.ph.preheader ], [ %24, %.thread45.loopexit ]
-  %.248 = phi ptr [ %.027, %..thread45_crit_edge ], [ %7, %.lr.ph.preheader ], [ %29, %.thread45.loopexit ]
+  %.248 = phi ptr [ %.0, %..thread45_crit_edge ], [ %7, %.lr.ph.preheader ], [ %29, %.thread45.loopexit ]
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp sgt i32 %12, 7
@@ -711,8 +711,8 @@ define internal fastcc range(i32 0, 3) i32 @dspresult(ptr noundef %0) unnamed_ad
   br i1 %.not42, label %.loopexit, label %11
 
 .loopexit:                                        ; preds = %52, %14, %11, %36, %.thread
-  %.0 = phi i32 [ 1, %36 ], [ 1, %.thread ], [ 0, %52 ], [ 2, %14 ], [ 1, %11 ]
-  ret i32 %.0
+  %.027 = phi i32 [ 1, %36 ], [ 1, %.thread ], [ 0, %52 ], [ 2, %14 ], [ 1, %11 ]
+  ret i32 %.027
 }
 
 declare i32 @cli_realpath(ptr noundef, ptr noundef) local_unnamed_addr #1

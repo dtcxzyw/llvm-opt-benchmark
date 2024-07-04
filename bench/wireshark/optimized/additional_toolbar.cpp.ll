@@ -156,8 +156,8 @@ define noundef ptr @_ZN17AdditionalToolBar6createEP7QWidgetP14_ext_toolbar_t(ptr
   %15 = getelementptr inbounds i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(28) %13, i32 noundef 4)
-  %.03761 = load ptr, ptr %5, align 8
-  %.not62 = icmp eq ptr %.03761, null
+  %.03561 = load ptr, ptr %5, align 8
+  %.not62 = icmp eq ptr %.03561, null
   br i1 %.not62, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
@@ -166,9 +166,9 @@ define noundef ptr @_ZN17AdditionalToolBar6createEP7QWidgetP14_ext_toolbar_t(ptr
   br label %19
 
 19:                                               ; preds = %.lr.ph, %_ZN5QListIP7QActionED2Ev.exit47
-  %.03764 = phi ptr [ %.03761, %.lr.ph ], [ %.037, %_ZN5QListIP7QActionED2Ev.exit47 ]
-  %.03563 = phi i1 [ true, %.lr.ph ], [ %.2, %_ZN5QListIP7QActionED2Ev.exit47 ]
-  %20 = load ptr, ptr %.03764, align 8
+  %.03564 = phi ptr [ %.03561, %.lr.ph ], [ %.035, %_ZN5QListIP7QActionED2Ev.exit47 ]
+  %.03363 = phi i1 [ true, %.lr.ph ], [ %.2, %_ZN5QListIP7QActionED2Ev.exit47 ]
+  %20 = load ptr, ptr %.03564, align 8
   %.not39 = icmp eq ptr %20, null
   br i1 %.not39, label %.critedge, label %21
 
@@ -181,7 +181,7 @@ define noundef ptr @_ZN17AdditionalToolBar6createEP7QWidgetP14_ext_toolbar_t(ptr
   %25 = getelementptr inbounds i8, ptr %20, i64 64
   %26 = load i32, ptr %25, align 8
   %27 = icmp ne i32 %26, 2
-  %spec.select = select i1 %27, i1 %.03563, i1 false
+  %spec.select = select i1 %27, i1 %.03363, i1 false
   %28 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
   invoke void @_ZN29AdditionalToolbarWidgetActionC1EP14_ext_toolbar_tP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull %20, ptr noundef nonnull %10)
           to label %31 unwind label %56
@@ -314,20 +314,20 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i53: ; preds = %_ZN5QListIP7QAc
   br label %_ZN5QListIP7QActionED2Ev.exit55
 
 _ZN5QListIP7QActionED2Ev.exit47:                  ; preds = %54, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i45, %_ZN5QListIP7QActionED2Ev.exit, %21
-  %.2 = phi i1 [ %.03563, %21 ], [ %spec.select, %_ZN5QListIP7QActionED2Ev.exit ], [ %spec.select, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i45 ], [ %spec.select, %54 ]
-  %70 = getelementptr inbounds i8, ptr %.03764, i64 8
-  %.037 = load ptr, ptr %70, align 8
-  %.not = icmp eq ptr %.037, null
+  %.2 = phi i1 [ %.03363, %21 ], [ %spec.select, %_ZN5QListIP7QActionED2Ev.exit ], [ %spec.select, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i45 ], [ %spec.select, %54 ]
+  %70 = getelementptr inbounds i8, ptr %.03564, i64 8
+  %.035 = load ptr, ptr %70, align 8
+  %.not = icmp eq ptr %.035, null
   br i1 %.not, label %.critedge, label %19, !llvm.loop !4
 
 .critedge:                                        ; preds = %19, %_ZN5QListIP7QActionED2Ev.exit47, %11
-  %.035.lcssa = phi i1 [ true, %11 ], [ %.2, %_ZN5QListIP7QActionED2Ev.exit47 ], [ %.03563, %19 ]
+  %.033.lcssa = phi i1 [ true, %11 ], [ %.2, %_ZN5QListIP7QActionED2Ev.exit47 ], [ %.03363, %19 ]
   %71 = getelementptr inbounds i8, ptr %10, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 40
   %74 = load i64, ptr %73, align 8
   %75 = icmp ne i64 %74, 0
-  %brmerge.not = select i1 %75, i1 %.035.lcssa, i1 false
+  %brmerge.not = select i1 %75, i1 %.033.lcssa, i1 false
   %.mux = select i1 %75, ptr %10, ptr null
   br i1 %brmerge.not, label %76, label %82
 
@@ -1504,8 +1504,8 @@ define noundef ptr @_ZN29AdditionalToolbarWidgetAction14createSelectorEP14_ext_t
           to label %.preheader unwind label %81
 
 .preheader:                                       ; preds = %26
-  %.04171 = load ptr, ptr %19, align 8
-  %.not4872 = icmp eq ptr %.04171, null
+  %.04371 = load ptr, ptr %19, align 8
+  %.not4872 = icmp eq ptr %.04371, null
   br i1 %.not4872, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -1518,9 +1518,9 @@ define noundef ptr @_ZN29AdditionalToolbarWidgetAction14createSelectorEP14_ext_t
   br label %34
 
 34:                                               ; preds = %.lr.ph, %93
-  %.04174 = phi ptr [ %.04171, %.lr.ph ], [ %.041, %93 ]
-  %.04273 = phi i32 [ 0, %.lr.ph ], [ %.143, %93 ]
-  %35 = load ptr, ptr %.04174, align 8
+  %.04374 = phi ptr [ %.04371, %.lr.ph ], [ %.043, %93 ]
+  %.04173 = phi i32 [ 0, %.lr.ph ], [ %.142, %93 ]
+  %35 = load ptr, ptr %.04374, align 8
   %.not49 = icmp eq ptr %35, null
   br i1 %.not49, label %.critedge, label %36
 
@@ -1702,19 +1702,19 @@ _ZN7QStringD2Ev.exit59:                           ; preds = %89, %_ZN17QArrayDat
   br label %common.resume
 
 93:                                               ; preds = %74, %_ZN18QStandardItemModel9appendRowEP13QStandardItem.exit
-  %.143 = phi i32 [ %78, %74 ], [ %.04273, %_ZN18QStandardItemModel9appendRowEP13QStandardItem.exit ]
-  %94 = getelementptr inbounds i8, ptr %.04174, i64 8
-  %.041 = load ptr, ptr %94, align 8
-  %.not48 = icmp eq ptr %.041, null
+  %.142 = phi i32 [ %78, %74 ], [ %.04173, %_ZN18QStandardItemModel9appendRowEP13QStandardItem.exit ]
+  %94 = getelementptr inbounds i8, ptr %.04374, i64 8
+  %.043 = load ptr, ptr %94, align 8
+  %.not48 = icmp eq ptr %.043, null
   br i1 %.not48, label %.critedge, label %34, !llvm.loop !27
 
 .critedge:                                        ; preds = %34, %93, %.preheader
-  %.042.lcssa = phi i32 [ 0, %.preheader ], [ %.143, %93 ], [ %.04273, %34 ]
+  %.041.lcssa = phi i32 [ 0, %.preheader ], [ %.142, %93 ], [ %.04173, %34 ]
   %95 = load ptr, ptr %25, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 416
   %97 = load ptr, ptr %96, align 8
   call void %97(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull %27)
-  call void @_ZN9QComboBox15setCurrentIndexEi(ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef %.042.lcssa)
+  call void @_ZN9QComboBox15setCurrentIndexEi(ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef %.041.lcssa)
   %98 = call noundef ptr @_ZNK7QWidget6layoutEv(ptr noundef nonnull align 8 dereferenceable(40) %24)
   call void @_ZN7QLayout9addWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(28) %98, ptr noundef nonnull %25)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -2827,8 +2827,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i137:   ; preds = %101
   br label %116
 
 116:                                              ; preds = %.lr.ph274, %_ZN18QStandardItemModel9appendRowEP13QStandardItem.exit
-  %.0100272 = phi ptr [ %108, %.lr.ph274 ], [ %155, %_ZN18QStandardItemModel9appendRowEP13QStandardItem.exit ]
-  %117 = load ptr, ptr %.0100272, align 8
+  %.0101272 = phi ptr [ %108, %.lr.ph274 ], [ %155, %_ZN18QStandardItemModel9appendRowEP13QStandardItem.exit ]
+  %117 = load ptr, ptr %.0101272, align 8
   %.not119 = icmp eq ptr %117, null
   br i1 %.not119, label %.critedge, label %118
 
@@ -2949,7 +2949,7 @@ common.resume:                                    ; preds = %164, %201, %203, %2
 
 _ZN18QStandardItemModel9appendRowEP13QStandardItem.exit: ; preds = %143, %_ZN17QArrayDataPointerIP13QStandardItemE5derefEv.exit.i.i.i, %146
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %154 = getelementptr inbounds i8, ptr %.0100272, i64 8
+  %154 = getelementptr inbounds i8, ptr %.0101272, i64 8
   %155 = load ptr, ptr %154, align 8
   %.not118 = icmp eq ptr %155, null
   br i1 %.not118, label %.critedge, label %116, !llvm.loop !38
@@ -3017,8 +3017,8 @@ _ZN7QStringD2Ev.exit153:                          ; preds = %162, %_ZN17QArrayDa
   br i1 %178, label %.lr.ph270, label %.critedge
 
 .lr.ph270:                                        ; preds = %.preheader, %211
-  %.0101269 = phi i32 [ %212, %211 ], [ 0, %.preheader ]
-  %179 = call noundef ptr @_ZNK18QStandardItemModel4itemEii(ptr noundef nonnull align 8 dereferenceable(16) %41, i32 noundef %.0101269, i32 noundef 0)
+  %.0100269 = phi i32 [ %212, %211 ], [ 0, %.preheader ]
+  %179 = call noundef ptr @_ZNK18QStandardItemModel4itemEii(ptr noundef nonnull align 8 dereferenceable(16) %41, i32 noundef %.0100269, i32 noundef 0)
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds i8, ptr %180, i64 16
   %182 = load ptr, ptr %181, align 8
@@ -3104,7 +3104,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i160:   ; preds = %205
   br label %common.resume
 
 211:                                              ; preds = %_ZN14VariantPointerI20_ext_toolbar_value_tE5asPtrE8QVariant.exit154, %184
-  %212 = add nuw nsw i32 %.0101269, 1
+  %212 = add nuw nsw i32 %.0100269, 1
   store i32 -1, ptr %20, align 8
   store i32 -1, ptr %172, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %173, i8 0, i64 16, i1 false)
@@ -3645,7 +3645,7 @@ _ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit: ; preds = %41
   br label %45
 
 .thread18:                                        ; preds = %21, %39, %29, %_ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit
-  %.0 = phi ptr [ %42, %_ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit ], [ null, %29 ], [ null, %39 ], [ null, %21 ]
+  %.09 = phi ptr [ %42, %_ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit ], [ null, %29 ], [ null, %39 ], [ null, %21 ]
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
   br label %.thread
 
@@ -3655,7 +3655,7 @@ _ZN14VariantPointerI14_ext_toolbar_tE5asPtrE8QVariant.exit: ; preds = %41
   resume { ptr, i32 } %.pn
 
 .thread:                                          ; preds = %2, %11, %.thread18
-  %.1 = phi ptr [ %.0, %.thread18 ], [ null, %11 ], [ null, %2 ]
+  %.1 = phi ptr [ %.09, %.thread18 ], [ null, %11 ], [ null, %2 ]
   ret ptr %.1
 }
 

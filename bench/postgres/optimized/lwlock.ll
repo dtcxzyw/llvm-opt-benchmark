@@ -212,18 +212,18 @@ NumLWLocksForNamedTranches.exit.i:                ; preds = %NumLWLocksForNamedT
   br label %22
 
 22:                                               ; preds = %22, %NumLWLocksForNamedTranches.exit.i
-  %.043.i = phi i32 [ 0, %NumLWLocksForNamedTranches.exit.i ], [ %27, %22 ]
-  %.03842.i = phi ptr [ %21, %NumLWLocksForNamedTranches.exit.i ], [ %28, %22 ]
-  %23 = getelementptr inbounds i8, ptr %.03842.i, i64 4
+  %.03543.i = phi ptr [ %21, %NumLWLocksForNamedTranches.exit.i ], [ %28, %22 ]
+  %.03842.i = phi i32 [ 0, %NumLWLocksForNamedTranches.exit.i ], [ %27, %22 ]
+  %23 = getelementptr inbounds i8, ptr %.03543.i, i64 4
   store volatile i32 536870912, ptr %23, align 4
-  %24 = trunc nuw i32 %.043.i to i16
-  store i16 %24, ptr %.03842.i, align 4
-  %25 = getelementptr inbounds i8, ptr %.03842.i, i64 8
-  %26 = getelementptr inbounds i8, ptr %.03842.i, i64 12
+  %24 = trunc nuw i32 %.03842.i to i16
+  store i16 %24, ptr %.03543.i, align 4
+  %25 = getelementptr inbounds i8, ptr %.03543.i, i64 8
+  %26 = getelementptr inbounds i8, ptr %.03543.i, i64 12
   store i32 -1, ptr %26, align 4
   store i32 -1, ptr %25, align 4
-  %27 = add nuw nsw i32 %.043.i, 1
-  %28 = getelementptr i8, ptr %.03842.i, i64 128
+  %27 = add nuw nsw i32 %.03842.i, 1
+  %28 = getelementptr i8, ptr %.03543.i, i64 128
   %exitcond.not.i = icmp eq i32 %27, 53
   br i1 %exitcond.not.i, label %29, label %22, !llvm.loop !8
 
@@ -233,17 +233,17 @@ NumLWLocksForNamedTranches.exit.i:                ; preds = %NumLWLocksForNamedT
   br label %32
 
 32:                                               ; preds = %32, %29
-  %.145.i = phi i32 [ 0, %29 ], [ %36, %32 ]
-  %.13944.i = phi ptr [ %31, %29 ], [ %37, %32 ]
-  %33 = getelementptr inbounds i8, ptr %.13944.i, i64 4
+  %.145.i = phi ptr [ %31, %29 ], [ %37, %32 ]
+  %.13944.i = phi i32 [ 0, %29 ], [ %36, %32 ]
+  %33 = getelementptr inbounds i8, ptr %.145.i, i64 4
   store volatile i32 536870912, ptr %33, align 4
-  store i16 65, ptr %.13944.i, align 4
-  %34 = getelementptr inbounds i8, ptr %.13944.i, i64 8
-  %35 = getelementptr inbounds i8, ptr %.13944.i, i64 12
+  store i16 65, ptr %.145.i, align 4
+  %34 = getelementptr inbounds i8, ptr %.145.i, i64 8
+  %35 = getelementptr inbounds i8, ptr %.145.i, i64 12
   store i32 -1, ptr %35, align 4
   store i32 -1, ptr %34, align 4
-  %36 = add nuw nsw i32 %.145.i, 1
-  %37 = getelementptr i8, ptr %.13944.i, i64 128
+  %36 = add nuw nsw i32 %.13944.i, 1
+  %37 = getelementptr i8, ptr %.145.i, i64 128
   %exitcond58.not.i = icmp eq i32 %36, 128
   br i1 %exitcond58.not.i, label %38, label %32, !llvm.loop !9
 
@@ -253,17 +253,17 @@ NumLWLocksForNamedTranches.exit.i:                ; preds = %NumLWLocksForNamedT
   br label %41
 
 41:                                               ; preds = %41, %38
-  %.247.i = phi i32 [ 0, %38 ], [ %45, %41 ]
-  %.24046.i = phi ptr [ %40, %38 ], [ %46, %41 ]
-  %42 = getelementptr inbounds i8, ptr %.24046.i, i64 4
+  %.247.i = phi ptr [ %40, %38 ], [ %46, %41 ]
+  %.24046.i = phi i32 [ 0, %38 ], [ %45, %41 ]
+  %42 = getelementptr inbounds i8, ptr %.247.i, i64 4
   store volatile i32 536870912, ptr %42, align 4
-  store i16 66, ptr %.24046.i, align 4
-  %43 = getelementptr inbounds i8, ptr %.24046.i, i64 8
-  %44 = getelementptr inbounds i8, ptr %.24046.i, i64 12
+  store i16 66, ptr %.247.i, align 4
+  %43 = getelementptr inbounds i8, ptr %.247.i, i64 8
+  %44 = getelementptr inbounds i8, ptr %.247.i, i64 12
   store i32 -1, ptr %44, align 4
   store i32 -1, ptr %43, align 4
-  %45 = add nuw nsw i32 %.247.i, 1
-  %46 = getelementptr i8, ptr %.24046.i, i64 128
+  %45 = add nuw nsw i32 %.24046.i, 1
+  %46 = getelementptr i8, ptr %.247.i, i64 128
   %exitcond59.not.i = icmp eq i32 %45, 16
   br i1 %exitcond59.not.i, label %47, label %41, !llvm.loop !10
 
@@ -273,17 +273,17 @@ NumLWLocksForNamedTranches.exit.i:                ; preds = %NumLWLocksForNamedT
   br label %50
 
 50:                                               ; preds = %50, %47
-  %.349.i = phi i32 [ 0, %47 ], [ %54, %50 ]
-  %.34148.i = phi ptr [ %49, %47 ], [ %55, %50 ]
-  %51 = getelementptr inbounds i8, ptr %.34148.i, i64 4
+  %.349.i = phi ptr [ %49, %47 ], [ %55, %50 ]
+  %.34148.i = phi i32 [ 0, %47 ], [ %54, %50 ]
+  %51 = getelementptr inbounds i8, ptr %.349.i, i64 4
   store volatile i32 536870912, ptr %51, align 4
-  store i16 67, ptr %.34148.i, align 4
-  %52 = getelementptr inbounds i8, ptr %.34148.i, i64 8
-  %53 = getelementptr inbounds i8, ptr %.34148.i, i64 12
+  store i16 67, ptr %.349.i, align 4
+  %52 = getelementptr inbounds i8, ptr %.349.i, i64 8
+  %53 = getelementptr inbounds i8, ptr %.349.i, i64 12
   store i32 -1, ptr %53, align 4
   store i32 -1, ptr %52, align 4
-  %54 = add nuw nsw i32 %.349.i, 1
-  %55 = getelementptr i8, ptr %.34148.i, i64 128
+  %54 = add nuw nsw i32 %.34148.i, 1
+  %55 = getelementptr i8, ptr %.349.i, i64 128
   %exitcond60.not.i = icmp eq i32 %54, 16
   br i1 %exitcond60.not.i, label %56, label %50, !llvm.loop !11
 
@@ -304,16 +304,16 @@ NumLWLocksForNamedTranches.exit.i:                ; preds = %NumLWLocksForNamedT
 
 .lr.ph56.i:                                       ; preds = %._crit_edge.i, %.lr.ph56.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph56.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %.03753.i = phi ptr [ %64, %.lr.ph56.preheader.i ], [ %71, %._crit_edge.i ]
-  %.452.i = phi ptr [ %61, %.lr.ph56.preheader.i ], [ %.5.lcssa.i, %._crit_edge.i ]
+  %.054.i = phi ptr [ %64, %.lr.ph56.preheader.i ], [ %71, %._crit_edge.i ]
+  %.453.i = phi ptr [ %61, %.lr.ph56.preheader.i ], [ %.5.lcssa.i, %._crit_edge.i ]
   %65 = load ptr, ptr @NamedLWLockTrancheRequestArray, align 8
   %66 = getelementptr %struct.NamedLWLockTrancheRequest, ptr %65, i64 %indvars.iv.i
   %67 = load ptr, ptr @NamedLWLockTrancheArray, align 8
   %68 = getelementptr %struct.NamedLWLockTranche, ptr %67, i64 %indvars.iv.i
   %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #16
   %70 = add i64 %69, 1
-  %71 = getelementptr i8, ptr %.03753.i, i64 %70
-  %72 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.03753.i, ptr noundef nonnull dereferenceable(1) %66) #15
+  %71 = getelementptr i8, ptr %.054.i, i64 %70
+  %72 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.054.i, ptr noundef nonnull dereferenceable(1) %66) #15
   %73 = load ptr, ptr @MainLWLockArray, align 8
   %74 = load ptr, ptr @ShmemLock, align 8
   %75 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %74, i8 1, ptr elementtype(i8) %74) #15, !srcloc !12
@@ -335,32 +335,32 @@ LWLockNewTrancheId.exit.i:                        ; preds = %76, %.lr.ph56.i
   store i8 0, ptr %82, align 1
   store i32 %80, ptr %68, align 8
   %83 = getelementptr inbounds i8, ptr %68, i64 8
-  store ptr %.03753.i, ptr %83, align 8
+  store ptr %.054.i, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %66, i64 64
   %85 = load i32, ptr %84, align 4
   %86 = icmp sgt i32 %85, 0
   br i1 %86, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %LWLockNewTrancheId.exit.i, %.lr.ph.i
-  %.03651.i = phi i32 [ %92, %.lr.ph.i ], [ 0, %LWLockNewTrancheId.exit.i ]
-  %.550.i = phi ptr [ %93, %.lr.ph.i ], [ %.452.i, %LWLockNewTrancheId.exit.i ]
+  %.551.i = phi ptr [ %93, %.lr.ph.i ], [ %.453.i, %LWLockNewTrancheId.exit.i ]
+  %.03650.i = phi i32 [ %92, %.lr.ph.i ], [ 0, %LWLockNewTrancheId.exit.i ]
   %87 = load i32, ptr %68, align 8
-  %88 = getelementptr inbounds i8, ptr %.550.i, i64 4
+  %88 = getelementptr inbounds i8, ptr %.551.i, i64 4
   store volatile i32 536870912, ptr %88, align 4
   %89 = trunc i32 %87 to i16
-  store i16 %89, ptr %.550.i, align 4
-  %90 = getelementptr inbounds i8, ptr %.550.i, i64 8
-  %91 = getelementptr inbounds i8, ptr %.550.i, i64 12
+  store i16 %89, ptr %.551.i, align 4
+  %90 = getelementptr inbounds i8, ptr %.551.i, i64 8
+  %91 = getelementptr inbounds i8, ptr %.551.i, i64 12
   store i32 -1, ptr %91, align 4
   store i32 -1, ptr %90, align 4
-  %92 = add nuw nsw i32 %.03651.i, 1
-  %93 = getelementptr i8, ptr %.550.i, i64 128
+  %92 = add nuw nsw i32 %.03650.i, 1
+  %93 = getelementptr i8, ptr %.551.i, i64 128
   %94 = load i32, ptr %84, align 4
   %95 = icmp slt i32 %92, %94
   br i1 %95, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %LWLockNewTrancheId.exit.i
-  %.5.lcssa.i = phi ptr [ %.452.i, %LWLockNewTrancheId.exit.i ], [ %93, %.lr.ph.i ]
+  %.5.lcssa.i = phi ptr [ %.453.i, %LWLockNewTrancheId.exit.i ], [ %93, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %96 = load i32, ptr @NamedLWLockTrancheRequests, align 4
   %97 = sext i32 %96 to i64

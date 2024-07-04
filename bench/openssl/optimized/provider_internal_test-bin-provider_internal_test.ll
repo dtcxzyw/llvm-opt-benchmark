@@ -169,9 +169,9 @@ if.else:                                          ; preds = %if.then24
   br label %err
 
 err:                                              ; preds = %if.end20, %if.else, %if.then29, %if.end, %entry, %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false9
+  %prov.0 = phi ptr [ null, %if.end ], [ %call2, %lor.lhs.false9 ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false ], [ null, %entry ], [ null, %if.then29 ], [ null, %if.else ], [ null, %if.end20 ]
   %md.0 = phi ptr [ null, %if.end ], [ %call10, %lor.lhs.false9 ], [ null, %lor.lhs.false5 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call21, %if.then29 ], [ %call21, %if.else ], [ %call21, %if.end20 ]
   %ret.0 = phi i32 [ 0, %if.end ], [ 0, %lor.lhs.false9 ], [ 0, %lor.lhs.false5 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.then29 ], [ 1, %if.else ], [ 1, %if.end20 ]
-  %prov.0 = phi ptr [ null, %if.end ], [ %call2, %lor.lhs.false9 ], [ %call2, %lor.lhs.false5 ], [ %call2, %lor.lhs.false ], [ null, %entry ], [ null, %if.then29 ], [ null, %if.else ], [ null, %if.end20 ]
   %call32 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %prov.0) #2
   tail call void @EVP_MD_free(ptr noundef %md.0) #2
   tail call void @OSSL_LIB_CTX_free(ptr noundef %call) #2

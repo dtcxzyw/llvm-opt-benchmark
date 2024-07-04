@@ -737,8 +737,8 @@ if.then19:                                        ; preds = %land.lhs.true
   br label %do.body24
 
 do.body24:                                        ; preds = %if.then10, %land.lhs.true, %if.then19, %do.body
-  %i.1 = phi i32 [ %inc20, %if.then19 ], [ %inc, %land.lhs.true ], [ %inc, %if.then10 ], [ %inc, %do.body ]
   %c.0 = phi i32 [ %sub, %if.then19 ], [ %conv7, %land.lhs.true ], [ %conv7, %if.then10 ], [ %conv7, %do.body ]
+  %i.1 = phi i32 [ %inc20, %if.then19 ], [ %inc, %land.lhs.true ], [ %inc, %if.then10 ], [ %inc, %do.body ]
   %tobool.not = icmp eq i8 %4, 0
   br i1 %tobool.not, label %cond.end, label %cond.end.thread
 

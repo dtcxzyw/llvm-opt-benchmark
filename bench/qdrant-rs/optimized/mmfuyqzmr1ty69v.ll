@@ -1696,8 +1696,8 @@ define void @_ZN6sparse5index14search_context13SearchContext42promote_longest_po
 
 13:                                               ; preds = %13, %10
   %.022.i.i.i = phi i64 [ 1, %10 ], [ %25, %13 ]
-  %.sroa.05.0.i.i.i = phi i64 [ 0, %10 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %13 ]
   %.sroa.6.0.i.i.i = phi ptr [ %3, %10 ], [ %.sroa.3.0.i.i.i.i.i.i, %13 ]
+  %.sroa.05.0.i.i.i = phi i64 [ 0, %10 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %13 ]
   %.0.i.i.i = phi i64 [ 0, %10 ], [ %26, %13 ]
   %14 = getelementptr inbounds { { { ptr, i64 }, i64 }, i32, float }, ptr %8, i64 %.0.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)

@@ -15642,10 +15642,10 @@ common.resume:                                    ; preds = %.body, %97, %65, %2
   ret void
 
 52:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit.thread", %89
-  %.sroa.4.080 = phi i64 [ %2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit.thread" ], [ %88, %89 ]
-  %.sroa.08.079 = phi ptr [ %1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit.thread" ], [ %87, %89 ]
+  %.sroa.08.080 = phi ptr [ %1, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit.thread" ], [ %87, %89 ]
+  %.sroa.4.079 = phi i64 [ %2, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit.thread" ], [ %88, %89 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  call void @_ZN5paths7AbsPath4join17h62f22586c9ead319E(ptr noalias nocapture noundef nonnull sret({ { { { { { { i64, ptr, {} }, i64 } } } } } }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 %.sroa.08.079, i64 noundef %.sroa.4.080, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
+  call void @_ZN5paths7AbsPath4join17h62f22586c9ead319E(ptr noalias nocapture noundef nonnull sret({ { { { { { { i64, ptr, {} }, i64 } } } } } }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 %.sroa.08.080, i64 noundef %.sroa.4.079, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4)
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %9), !noalias !4109
   %53 = invoke { ptr, i64 } @"_ZN81_$LT$paths..AbsPathBuf$u20$as$u20$core..convert..AsRef$LT$std..path..Path$GT$$GT$6as_ref17h7aa2480c1d3799acE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)
           to label %.noexc unwind label %.body.thread60
@@ -15758,7 +15758,7 @@ common.resume:                                    ; preds = %.body, %97, %65, %2
   br label %83
 
 83:                                               ; preds = %85, %82
-  %84 = invoke { ptr, i64 } @_ZN5paths7AbsPath6parent17h5842bfadb7de1e41E(ptr noalias noundef nonnull readonly align 1 %.sroa.08.079, i64 noundef %.sroa.4.080)
+  %84 = invoke { ptr, i64 } @_ZN5paths7AbsPath6parent17h5842bfadb7de1e41E(ptr noalias noundef nonnull readonly align 1 %.sroa.08.080, i64 noundef %.sroa.4.079)
           to label %86 unwind label %.body
 
 85:                                               ; preds = %62, %.noexc35

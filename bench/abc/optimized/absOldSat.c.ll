@@ -553,7 +553,7 @@ Vec_IntStartFull.exit123:                         ; preds = %Vec_IntAlloc.exit.t
 38:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
   %39 = phi ptr [ %33, %.lr.ph ], [ %86, %79 ]
-  %.080130 = phi i32 [ 0, %.lr.ph ], [ %.181, %79 ]
+  %.0131 = phi i32 [ 0, %.lr.ph ], [ %.1, %79 ]
   %40 = getelementptr i8, ptr %39, i64 8
   %.val101 = load ptr, ptr %40, align 8
   %41 = getelementptr inbounds ptr, ptr %.val101, i64 %indvars.iv
@@ -597,12 +597,12 @@ Vec_IntStartFull.exit123:                         ; preds = %Vec_IntAlloc.exit.t
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %38
-  %78 = add nsw i32 %.080130, 1
-  store i32 %.080130, ptr %74, align 4
+  %78 = add nsw i32 %.0131, 1
+  store i32 %.0131, ptr %74, align 4
   br label %79
 
 79:                                               ; preds = %77, %38
-  %.181 = phi i32 [ %78, %77 ], [ %.080130, %38 ]
+  %.1 = phi i32 [ %78, %77 ], [ %.0131, %38 ]
   %80 = getelementptr i8, ptr %42, i64 36
   %.val109 = load i32, ptr %80, align 4
   %81 = sext i32 %.val109 to i64
@@ -3245,8 +3245,8 @@ Vec_VecFreeP.exit:                                ; preds = %Vec_IntFree.exit182
   br label %362
 
 362:                                              ; preds = %359, %361, %Vec_IntFree.exit164, %21, %13, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %13 ], [ %26, %21 ], [ null, %Vec_IntFree.exit164 ], [ %293, %361 ], [ %293, %359 ]
-  ret ptr %.0
+  %.0109 = phi ptr [ null, %9 ], [ null, %13 ], [ %26, %21 ], [ null, %Vec_IntFree.exit164 ], [ %293, %361 ], [ %293, %359 ]
+  ret ptr %.0109
 }
 
 declare ptr @Cnf_DeriveSimple(ptr noundef, i32 noundef) local_unnamed_addr #1

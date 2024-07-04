@@ -1023,19 +1023,19 @@ _ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit: ; preds = %if.then18, %if.
 
 if.end19:                                         ; preds = %if.end15
   %cmp20 = icmp ule i64 %length.1.i, %send_window.0
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %length.1.i, i64 %send_window.0)
-  %spec.select10 = and i1 %cmp20, %fin
+  %spec.select = and i1 %cmp20, %fin
+  %spec.select10 = tail call i64 @llvm.umin.i64(i64 %length.1.i, i64 %send_window.0)
   store ptr %iov, ptr %agg.tmp, align 8
   %iov_count3.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i32 %iov_count, ptr %iov_count3.i, align 8
   %total_length4.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
-  store i64 %spec.select, ptr %total_length4.i, align 8
+  store i64 %spec.select10, ptr %total_length4.i, align 8
   %stream_bytes_written_ = getelementptr inbounds i8, ptr %this, i64 240
   %14 = load i64, ptr %stream_bytes_written_, align 8
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
   %15 = load ptr, ptr %vfn, align 8
-  %call24 = tail call { i64, i8 } %15(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr noundef nonnull byval(%"struct.net::QuicIOVector") align 8 %agg.tmp, i64 noundef %14, i1 noundef zeroext %spec.select10, ptr noundef %ack_listener)
+  %call24 = tail call { i64, i8 } %15(ptr noundef nonnull align 8 dereferenceable(377) %this, ptr noundef nonnull byval(%"struct.net::QuicIOVector") align 8 %agg.tmp, i64 noundef %14, i1 noundef zeroext %spec.select, ptr noundef %ack_listener)
   %16 = extractvalue { i64, i8 } %call24, 0
   store i64 %16, ptr %retval, align 8
   %17 = getelementptr inbounds i8, ptr %retval, i64 8
@@ -1061,7 +1061,7 @@ _ZN3net18ReliableQuicStream12AddBytesSentEm.exit: ; preds = %if.end19, %if.then.
   br i1 %tobool28, label %return, label %if.end30
 
 if.end30:                                         ; preds = %_ZN3net18ReliableQuicStream12AddBytesSentEm.exit
-  %cmp32 = icmp eq i64 %16, %spec.select
+  %cmp32 = icmp eq i64 %16, %spec.select10
   br i1 %cmp32, label %if.then33, label %if.else58
 
 if.then33:                                        ; preds = %if.end30
@@ -1072,7 +1072,7 @@ if.then35:                                        ; preds = %if.then33
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then35, %if.then33
-  br i1 %spec.select10, label %land.lhs.true38, label %return
+  br i1 %spec.select, label %land.lhs.true38, label %return
 
 land.lhs.true38:                                  ; preds = %if.end36
   %tobool39 = trunc i8 %18 to i1

@@ -5416,8 +5416,8 @@ cond.true:                                        ; preds = %_ZNK6hermes2vm16JST
   br label %return
 
 return:                                           ; preds = %cond.true, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit, %if.end, %entry
-  %retval.sroa.0.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ 1, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit ], [ 1, %cond.true ]
-  %retval.sroa.3.0 = phi i64 [ undef, %entry ], [ 0, %if.end ], [ 0, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit ], [ %10, %cond.true ]
+  %retval.sroa.3.0 = phi i64 [ undef, %entry ], [ %10, %cond.true ], [ 0, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit ], [ 0, %if.end ]
+  %retval.sroa.0.0 = phi i32 [ 0, %entry ], [ 1, %cond.true ], [ 1, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit ], [ 1, %if.end ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -5465,8 +5465,8 @@ cond.true:                                        ; preds = %land.lhs.true
   br label %return
 
 return:                                           ; preds = %cond.true, %land.lhs.true, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit, %if.end, %entry
-  %retval.sroa.0.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ 1, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit ], [ 1, %land.lhs.true ], [ 1, %cond.true ]
-  %retval.sroa.3.0 = phi i64 [ undef, %entry ], [ 0, %if.end ], [ 0, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit ], [ 0, %land.lhs.true ], [ %11, %cond.true ]
+  %retval.sroa.3.0 = phi i64 [ undef, %entry ], [ %11, %cond.true ], [ 0, %land.lhs.true ], [ 0, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit ], [ 0, %if.end ]
+  %retval.sroa.0.0 = phi i32 [ 0, %entry ], [ 1, %cond.true ], [ 1, %land.lhs.true ], [ 1, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit ], [ 1, %if.end ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
   ret { i32, i64 } %.fca.1.insert
@@ -9238,8 +9238,8 @@ cond.true:                                        ; preds = %_ZNK6hermes2vm16JST
   br label %return
 
 return:                                           ; preds = %cond.true, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit, %if.end, %entry
-  %retval.sroa.0.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ 1, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit ], [ 1, %cond.true ]
-  %retval.sroa.3.0 = phi i64 [ undef, %entry ], [ 0, %if.end ], [ 0, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit ], [ %10, %cond.true ]
+  %retval.sroa.3.0 = phi i64 [ undef, %entry ], [ %10, %cond.true ], [ 0, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit ], [ 0, %if.end ]
+  %retval.sroa.0.0 = phi i32 [ 0, %entry ], [ 1, %cond.true ], [ 1, %_ZNK6hermes2vm16JSTypedArrayBase8attachedERNS0_7RuntimeE.exit ], [ 1, %if.end ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
   ret { i32, i64 } %.fca.1.insert

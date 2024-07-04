@@ -4789,8 +4789,8 @@ define ptr @slurmdb_get_acct_hierarchical_rec_list(ptr noundef %0) local_unnamed
 
 .lr.ph:                                           ; preds = %1, %.outer
   %8 = phi ptr [ %73, %.outer ], [ %7, %1 ]
-  %.045.ph76 = phi ptr [ %.2, %.outer ], [ null, %1 ]
-  %.046.ph75 = phi ptr [ %.248, %.outer ], [ null, %1 ]
+  %.0.ph76 = phi ptr [ %.2, %.outer ], [ null, %1 ]
+  %.045.ph75 = phi ptr [ %.247, %.outer ], [ null, %1 ]
   br label %9
 
 9:                                                ; preds = %.lr.ph, %16
@@ -4832,12 +4832,12 @@ define ptr @slurmdb_get_acct_hierarchical_rec_list(ptr noundef %0) local_unnamed
   %.sink = phi ptr [ %28, %26 ], [ %25, %22 ]
   %30 = getelementptr inbounds i8, ptr %11, i64 16
   store ptr %.sink, ptr %30, align 8
-  %.not55 = icmp eq ptr %.046.ph75, null
+  %.not55 = icmp eq ptr %.0.ph76, null
   br i1 %.not55, label %43, label %31
 
 31:                                               ; preds = %29
   %32 = load i32, ptr %23, align 8
-  %33 = load ptr, ptr %.046.ph75, align 8
+  %33 = load ptr, ptr %.0.ph76, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 132
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %32, %35
@@ -4853,12 +4853,12 @@ define ptr @slurmdb_get_acct_hierarchical_rec_list(ptr noundef %0) local_unnamed
   br i1 %.not56, label %66, label %43
 
 43:                                               ; preds = %37, %31, %29
-  %.not57 = icmp eq ptr %.045.ph76, null
+  %.not57 = icmp eq ptr %.045.ph75, null
   br i1 %.not57, label %56, label %44
 
 44:                                               ; preds = %43
   %45 = load i32, ptr %23, align 8
-  %46 = load ptr, ptr %.045.ph76, align 8
+  %46 = load ptr, ptr %.045.ph75, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 132
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %45, %48
@@ -4889,20 +4889,20 @@ define ptr @slurmdb_get_acct_hierarchical_rec_list(ptr noundef %0) local_unnamed
 64:                                               ; preds = %56
   %65 = load ptr, ptr %24, align 8
   %.not60 = icmp eq ptr %65, null
-  %spec.select = select i1 %.not60, ptr %63, ptr %.045.ph76
+  %spec.select = select i1 %.not60, ptr %63, ptr %.045.ph75
   br label %66
 
 66:                                               ; preds = %37, %50, %64
-  %.147.ph = phi ptr [ %63, %64 ], [ %.046.ph75, %50 ], [ %.046.ph75, %37 ]
-  %.1.ph = phi ptr [ %spec.select, %64 ], [ %.045.ph76, %50 ], [ %.045.ph76, %37 ]
-  %.0.ph = phi ptr [ %63, %64 ], [ %.045.ph76, %50 ], [ %.046.ph75, %37 ]
-  %67 = getelementptr inbounds i8, ptr %.0.ph, i64 24
+  %.048.ph = phi ptr [ %63, %64 ], [ %.045.ph75, %50 ], [ %.0.ph76, %37 ]
+  %.146.ph = phi ptr [ %spec.select, %64 ], [ %.045.ph75, %50 ], [ %.045.ph75, %37 ]
+  %.1.ph = phi ptr [ %63, %64 ], [ %.0.ph76, %50 ], [ %.0.ph76, %37 ]
+  %67 = getelementptr inbounds i8, ptr %.048.ph, i64 24
   %68 = load ptr, ptr %67, align 8
   br label %69
 
 69:                                               ; preds = %56, %66
   %.sink88 = phi ptr [ %68, %66 ], [ %5, %56 ]
-  %.248 = phi ptr [ %.147.ph, %66 ], [ %11, %56 ]
+  %.247 = phi ptr [ %.146.ph, %66 ], [ %11, %56 ]
   %.2 = phi ptr [ %.1.ph, %66 ], [ %11, %56 ]
   call void @list_append(ptr noundef %.sink88, ptr noundef nonnull %11) #20
   %70 = load ptr, ptr %24, align 8
@@ -5439,9 +5439,9 @@ define ptr @get_qos_name_list(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br label %19
 
 19:                                               ; preds = %16, %.lr.ph
-  %.023 = phi ptr [ %18, %16 ], [ %14, %.lr.ph ]
+  %.022 = phi ptr [ %18, %16 ], [ %14, %.lr.ph ]
   %.0 = phi i32 [ %17, %16 ], [ 0, %.lr.ph ]
-  %20 = call i32 @atoi(ptr nocapture noundef nonnull %.023) #21
+  %20 = call i32 @atoi(ptr nocapture noundef nonnull %.022) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %20, ptr %3, align 4
   %.not7.i = icmp eq i32 %20, 0
@@ -5501,8 +5501,8 @@ slurmdb_qos_str.exit:                             ; preds = %25
   br label %36
 
 36:                                               ; preds = %2, %4, %8, %._crit_edge
-  %.022 = phi ptr [ %11, %._crit_edge ], [ null, %8 ], [ null, %4 ], [ null, %2 ]
-  ret ptr %.022
+  %.023 = phi ptr [ %11, %._crit_edge ], [ null, %8 ], [ null, %4 ], [ null, %2 ]
+  ret ptr %.023
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6521,9 +6521,9 @@ define range(i32 65536, 0) i32 @slurmdb_parse_purge(ptr noundef %0) local_unname
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %4 = phi i8 [ %11, %.lr.ph ], [ %2, %1 ]
-  %.03345 = phi i32 [ %9, %.lr.ph ], [ -2, %1 ]
-  %5 = icmp eq i32 %.03345, -2
-  %6 = mul i32 %.03345, 10
+  %.046 = phi i32 [ %9, %.lr.ph ], [ -2, %1 ]
+  %5 = icmp eq i32 %.046, -2
+  %6 = mul i32 %.046, 10
   %7 = select i1 %5, i32 0, i32 %6
   %narrow = add nsw i8 %4, -48
   %8 = zext nneg i8 %narrow to i32
@@ -9086,7 +9086,7 @@ define ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1 noundef z
   br label %38
 
 38:                                               ; preds = %22, %37
-  %.045 = phi ptr [ %23, %22 ], [ %33, %37 ]
+  %.044 = phi ptr [ %23, %22 ], [ %33, %37 ]
   %39 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 61) #21
   %.not66 = icmp eq ptr %39, null
   br i1 %.not66, label %40, label %42
@@ -9110,7 +9110,7 @@ define ptr @slurmdb_format_tres_str(ptr noundef %0, ptr noundef %1, i1 noundef z
   ]
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %.045, i64 40
+  %49 = getelementptr inbounds i8, ptr %.044, i64 40
   %50 = load ptr, ptr %49, align 8
   %.not70 = icmp eq ptr %50, null
   br i1 %.not70, label %62, label %51
@@ -9141,7 +9141,7 @@ slurmdb_get_tres_base_unit.exit:                  ; preds = %53, %55
   br label %62
 
 62:                                               ; preds = %46, %46, %slurmdb_get_tres_base_unit.exit, %59, %48, %42
-  %.046 = phi i64 [ %61, %59 ], [ %44, %slurmdb_get_tres_base_unit.exit ], [ %44, %48 ], [ %44, %46 ], [ %44, %42 ], [ %44, %46 ]
+  %.045 = phi i64 [ %61, %59 ], [ %44, %slurmdb_get_tres_base_unit.exit ], [ %44, %48 ], [ %44, %46 ], [ %44, %42 ], [ %44, %46 ]
   %63 = load ptr, ptr %4, align 8
   %.not71 = icmp eq ptr %63, null
   br i1 %.not71, label %65, label %64
@@ -9154,24 +9154,24 @@ slurmdb_get_tres_base_unit.exit:                  ; preds = %53, %55
   br i1 %2, label %69, label %66
 
 66:                                               ; preds = %65
-  %67 = getelementptr inbounds i8, ptr %.045, i64 40
+  %67 = getelementptr inbounds i8, ptr %.044, i64 40
   %68 = load ptr, ptr %67, align 8
   %.not72 = icmp eq ptr %68, null
   br i1 %.not72, label %69, label %72
 
 69:                                               ; preds = %66, %65
-  %70 = getelementptr inbounds i8, ptr %.045, i64 24
+  %70 = getelementptr inbounds i8, ptr %.044, i64 24
   %71 = load i32, ptr %70, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.151, i32 noundef %71, i64 noundef %.046) #20
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.151, i32 noundef %71, i64 noundef %.045) #20
   br label %76
 
 72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %.045, i64 32
+  %73 = getelementptr inbounds i8, ptr %.044, i64 32
   %74 = load ptr, ptr %73, align 8
   %.not73 = icmp eq ptr %74, null
   %75 = select i1 %.not73, ptr @.str.11, ptr @.str.154
   %spec.select = select i1 %.not73, ptr @.str.11, ptr %74
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.170, ptr noundef nonnull %68, ptr noundef nonnull %75, ptr noundef nonnull %spec.select, i64 noundef %.046) #20
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.170, ptr noundef nonnull %68, ptr noundef nonnull %75, ptr noundef nonnull %spec.select, i64 noundef %.045) #20
   br label %76
 
 76:                                               ; preds = %72, %69

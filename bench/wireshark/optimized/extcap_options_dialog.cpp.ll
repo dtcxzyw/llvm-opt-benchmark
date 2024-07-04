@@ -6662,7 +6662,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i61:    ; preds = %160
 
 _ZN7QStringD2Ev.exit35:                           ; preds = %164, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i61, %160, %154, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57, %150, %141, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i53, %137, %128, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49, %124, %115, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i45, %111, %102, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41, %98, %89, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i37, %85, %76, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33, %72, %62
   %.sroa.43.1 = phi i64 [ %53, %62 ], [ %74, %72 ], [ %74, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33 ], [ %74, %76 ], [ %87, %85 ], [ %87, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i37 ], [ %87, %89 ], [ %100, %98 ], [ %100, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41 ], [ %100, %102 ], [ %113, %111 ], [ %113, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i45 ], [ %113, %115 ], [ %126, %124 ], [ %126, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49 ], [ %126, %128 ], [ %139, %137 ], [ %139, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i53 ], [ %139, %141 ], [ %152, %150 ], [ %152, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57 ], [ %152, %154 ], [ %162, %160 ], [ %162, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i61 ], [ %162, %164 ]
-  %.011 = phi i1 [ %.not29, %62 ], [ false, %72 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33 ], [ false, %76 ], [ false, %85 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i37 ], [ false, %89 ], [ false, %98 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41 ], [ false, %102 ], [ false, %111 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i45 ], [ false, %115 ], [ false, %124 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49 ], [ false, %128 ], [ false, %137 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i53 ], [ false, %141 ], [ false, %150 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57 ], [ false, %154 ], [ false, %160 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i61 ], [ false, %164 ]
+  %.0 = phi i1 [ %.not29, %62 ], [ false, %72 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33 ], [ false, %76 ], [ false, %85 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i37 ], [ false, %89 ], [ false, %98 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41 ], [ false, %102 ], [ false, %111 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i45 ], [ false, %115 ], [ false, %124 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49 ], [ false, %128 ], [ false, %137 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i53 ], [ false, %141 ], [ false, %150 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57 ], [ false, %154 ], [ false, %160 ], [ false, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i61 ], [ false, %164 ]
   %166 = phi <2 x ptr> [ %52, %62 ], [ %73, %72 ], [ %73, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i33 ], [ %73, %76 ], [ %86, %85 ], [ %86, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i37 ], [ %86, %89 ], [ %99, %98 ], [ %99, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i41 ], [ %99, %102 ], [ %112, %111 ], [ %112, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i45 ], [ %112, %115 ], [ %125, %124 ], [ %125, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49 ], [ %125, %128 ], [ %138, %137 ], [ %138, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i53 ], [ %138, %141 ], [ %151, %150 ], [ %151, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57 ], [ %151, %154 ], [ %161, %160 ], [ %161, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i61 ], [ %161, %164 ]
   %167 = extractelement <2 x ptr> %166, i64 0
   invoke void @_ZN14ExtcapArgument7prefKeyERK7QString(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %13, ptr noundef nonnull align 8 dereferenceable(88) %41, ptr noundef nonnull align 8 dereferenceable(24) %31)
@@ -6717,7 +6717,7 @@ _ZN7QStringD2Ev.exit67:                           ; preds = %_ZN7QStringD2Ev.exi
   br i1 %185, label %186, label %_ZN7QStringD2Ev.exit78
 
 186:                                              ; preds = %_ZN7QStringD2Ev.exit67
-  %brmerge = or i1 %.011, %2
+  %brmerge = or i1 %.0, %2
   %187 = icmp sgt i64 %.sroa.43.1, 0
   %or.cond = select i1 %brmerge, i1 true, i1 %187
   br i1 %or.cond, label %188, label %_ZN7QStringD2Ev.exit78
@@ -11628,14 +11628,14 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %2, %7, %8
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE8freeDataEv.exit
-  %.02234 = phi i64 [ 0, %.lr.ph ], [ %147, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE8freeDataEv.exit ]
-  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02234
+  %.02334 = phi i64 [ 0, %.lr.ph ], [ %147, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE8freeDataEv.exit ]
+  %41 = getelementptr %"struct.QHashPrivate::Span", ptr %15, i64 %.02334
   %42 = getelementptr inbounds i8, ptr %41, i64 128
   br label %43
 
 43:                                               ; preds = %40, %128
-  %.02333 = phi i64 [ 0, %40 ], [ %129, %128 ]
-  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02333
+  %.02233 = phi i64 [ 0, %40 ], [ %129, %128 ]
+  %44 = getelementptr [128 x i8], ptr %41, i64 0, i64 %.02233
   %45 = load i8, ptr %44, align 1
   %.not = icmp eq i8 %45, -1
   br i1 %.not, label %128, label %46
@@ -11790,7 +11790,7 @@ _ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE6insertEm.exit: ; preds = %.
   br label %128
 
 128:                                              ; preds = %43, %_ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE6insertEm.exit
-  %129 = add nuw nsw i64 %.02333, 1
+  %129 = add nuw nsw i64 %.02233, 1
   %exitcond.not = icmp eq i64 %129, 128
   br i1 %exitcond.not, label %130, label %43, !llvm.loop !105
 
@@ -11842,7 +11842,7 @@ _ZN12QHashPrivate4NodeI7QStringP7QWidgetED2Ev.exit.i: ; preds = %139, %_ZN17QArr
   br label %_ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE8freeDataEv.exit
 
 _ZN12QHashPrivate4SpanINS_4NodeI7QStringP7QWidgetEEE8freeDataEv.exit: ; preds = %130, %146
-  %147 = add nuw nsw i64 %.02234, 1
+  %147 = add nuw nsw i64 %.02334, 1
   %exitcond36.not = icmp eq i64 %147, %38
   br i1 %exitcond36.not, label %._crit_edge.thread, label %40, !llvm.loop !106
 
@@ -12207,16 +12207,16 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br label %49
 
 49:                                               ; preds = %.lr.ph, %149
-  %.033 = phi i64 [ 0, %.lr.ph ], [ %150, %149 ]
+  %.02333 = phi i64 [ 0, %.lr.ph ], [ %150, %149 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.033
+  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.02333
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  %53 = shl nuw i64 %.033, 7
+  %53 = shl nuw i64 %.02333, 7
   br label %54
 
 54:                                               ; preds = %49, %147
-  %.02331 = phi i64 [ 0, %49 ], [ %148, %147 ]
-  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.02331
+  %.031 = phi i64 [ 0, %49 ], [ %148, %147 ]
+  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.031
   %56 = load i8, ptr %55, align 1
   %.not30 = icmp eq i8 %56, -1
   br i1 %.not30, label %147, label %57
@@ -12279,7 +12279,7 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QS
   br i1 %98, label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringP7QWidgetEEE4findERKS2_.exit, label %.lr.ph.i, !llvm.loop !103
 
 99:                                               ; preds = %57
-  %100 = add nuw nsw i64 %.02331, %53
+  %100 = add nuw nsw i64 %.031, %53
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringP7QWidgetEEE4findERKS2_.exit
 
@@ -12380,12 +12380,12 @@ _ZN12QHashPrivate4NodeI7QStringP7QWidgetEC2ERKS4_.exit: ; preds = %_ZN12QHashPri
   br label %147
 
 147:                                              ; preds = %54, %_ZN12QHashPrivate4NodeI7QStringP7QWidgetEC2ERKS4_.exit
-  %148 = add nuw nsw i64 %.02331, 1
+  %148 = add nuw nsw i64 %.031, 1
   %exitcond.not = icmp eq i64 %148, 128
   br i1 %exitcond.not, label %149, label %54, !llvm.loop !107
 
 149:                                              ; preds = %147
-  %150 = add nuw nsw i64 %.033, 1
+  %150 = add nuw nsw i64 %.02333, 1
   %exitcond35.not = icmp eq i64 %150, %47
   br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !108
 

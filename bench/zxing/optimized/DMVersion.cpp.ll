@@ -24,27 +24,27 @@ define noundef ptr @_ZN5ZXing10DataMatrix20VersionForDimensionsEii(i32 noundef %
   br i1 %or.cond3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %4, %16
-  %.016.idx19 = phi i64 [ %.016.add, %16 ], [ 0, %4 ]
-  %.016.ptr20 = getelementptr inbounds i8, ptr @_ZZN5ZXing10DataMatrix20VersionForDimensionsEiiE11allVersions, i64 %.016.idx19
-  %9 = getelementptr inbounds i8, ptr %.016.ptr20, i64 4
+  %.0.idx19 = phi i64 [ %.0.add, %16 ], [ 0, %4 ]
+  %.0.ptr20 = getelementptr inbounds i8, ptr @_ZZN5ZXing10DataMatrix20VersionForDimensionsEiiE11allVersions, i64 %.0.idx19
+  %9 = getelementptr inbounds i8, ptr %.0.ptr20, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %0
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %.016.ptr20, i64 8
+  %13 = getelementptr inbounds i8, ptr %.0.ptr20, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %1
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %.preheader, %12
-  %.016.add = add nuw nsw i64 %.016.idx19, 40
-  %.not18 = icmp eq i64 %.016.add, 1920
+  %.0.add = add nuw nsw i64 %.0.idx19, 40
+  %.not18 = icmp eq i64 %.0.add, 1920
   br i1 %.not18, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %16, %12, %2, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %16 ], [ %.016.ptr20, %12 ]
-  ret ptr %.0
+  %.016 = phi ptr [ null, %4 ], [ null, %2 ], [ null, %16 ], [ %.0.ptr20, %12 ]
+  ret ptr %.016
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

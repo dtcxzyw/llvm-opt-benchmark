@@ -186,20 +186,20 @@ gv_calloc.exit95:                                 ; preds = %67
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.032.i = phi double [ %.1.i, %.lr.ph.i ], [ -1.000000e+00, %.lr.ph.preheader.i ]
   %.02331.i = phi i32 [ %.124.i, %.lr.ph.i ], [ -1, %.lr.ph.preheader.i ]
-  %.02630.i = phi i32 [ %95, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.02530.i = phi i32 [ %95, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %92 = call i32 @irand(i32 noundef 100000) #15
   call fastcc void @node_distinct_coloring_internal2(i32 noundef %.078, ptr noundef %.080, i1 noundef zeroext %2, ptr noundef readonly %91, i32 noundef %.079, double noundef %.077, i32 noundef %92, ptr noundef %68, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %93 = load double, ptr %9, align 8
   %94 = fcmp olt double %.032.i, %93
   %.124.i = select i1 %94, i32 %92, i32 %.02331.i
   %.1.i = select i1 %94, double %93, double %.032.i
-  %95 = add nuw nsw i32 %.02630.i, 1
+  %95 = add nuw nsw i32 %.02530.i, 1
   %exitcond.not.i = icmp eq i32 %95, %smax.i
   br i1 %exitcond.not.i, label %node_distinct_coloring_internal.exit, label %.lr.ph.i
 
 node_distinct_coloring_internal.exit:             ; preds = %.lr.ph.i, %82
-  %.025.i = phi i32 [ %5, %82 ], [ %.124.i, %.lr.ph.i ]
-  call fastcc void @node_distinct_coloring_internal2(i32 noundef %.078, ptr noundef %.080, i1 noundef zeroext %2, ptr noundef readonly %91, i32 noundef %.079, double noundef %.077, i32 noundef %.025.i, ptr noundef %68, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %.026.i = phi i32 [ %5, %82 ], [ %.124.i, %.lr.ph.i ]
+  call fastcc void @node_distinct_coloring_internal2(i32 noundef %.078, ptr noundef %.080, i1 noundef zeroext %2, ptr noundef readonly %91, i32 noundef %.079, double noundef %.077, i32 noundef %.026.i, ptr noundef %68, ptr noundef nonnull %9, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %96 = load i32, ptr %85, align 4
@@ -534,13 +534,13 @@ gv_calloc.exit193:                                ; preds = %91, %gv_calloc.exit
   %.0173232 = phi double [ 0.000000e+00, %gv_calloc.exit193 ], [ %.1174.lcssa, %194 ]
   %.0176231 = phi double [ -1.000000e+00, %gv_calloc.exit193 ], [ %.0173232, %194 ]
   %.0177230 = phi double [ 0.000000e+00, %gv_calloc.exit193 ], [ %.1178.lcssa, %194 ]
-  %.0180229 = phi double [ -1.000000e+00, %gv_calloc.exit193 ], [ %.0177230, %194 ]
+  %.0181229 = phi double [ -1.000000e+00, %gv_calloc.exit193 ], [ %.0177230, %194 ]
   %109 = fcmp ogt double %.0173232, %.0176231
   br i1 %109, label %.critedge2, label %110
 
 110:                                              ; preds = %107
   %111 = fcmp oeq double %.0173232, %.0176231
-  %112 = fcmp ogt double %.0177230, %.0180229
+  %112 = fcmp ogt double %.0177230, %.0181229
   %113 = select i1 %111, i1 %112, i1 false
   br i1 %113, label %.critedge2, label %.critedge
 

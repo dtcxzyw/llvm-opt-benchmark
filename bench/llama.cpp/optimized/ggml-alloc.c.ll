@@ -76,18 +76,18 @@ for.body.lr.ph:                                   ; preds = %do.end8
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %max_avail.064 = phi i64 [ 0, %for.body.lr.ph ], [ %max_avail.0., %for.body ]
-  %best_fit_block.063 = phi i32 [ -1, %for.body.lr.ph ], [ %best_fit_block.1, %for.body ]
-  %best_fit_size.062 = phi i64 [ -1, %for.body.lr.ph ], [ %best_fit_size.1, %for.body ]
+  %best_fit_size.063 = phi i64 [ -1, %for.body.lr.ph ], [ %best_fit_size.1, %for.body ]
+  %best_fit_block.062 = phi i32 [ -1, %for.body.lr.ph ], [ %best_fit_block.1, %for.body ]
+  %max_avail.061 = phi i64 [ 0, %for.body.lr.ph ], [ %max_avail.0., %for.body ]
   %size12 = getelementptr inbounds [256 x %struct.free_block], ptr %free_blocks, i64 0, i64 %indvars.iv, i32 1
   %9 = load i64, ptr %size12, align 8
-  %max_avail.0. = tail call i64 @llvm.umax.i64(i64 %max_avail.064, i64 %9)
+  %max_avail.0. = tail call i64 @llvm.umax.i64(i64 %max_avail.061, i64 %9)
   %cmp16.not = icmp ult i64 %9, %add2.i
-  %cmp18.not = icmp ugt i64 %9, %best_fit_size.062
+  %cmp18.not = icmp ugt i64 %9, %best_fit_size.063
   %or.cond = select i1 %cmp16.not, i1 true, i1 %cmp18.not
-  %best_fit_size.1 = select i1 %or.cond, i64 %best_fit_size.062, i64 %9
   %10 = trunc nuw nsw i64 %indvars.iv to i32
-  %best_fit_block.1 = select i1 %or.cond, i32 %best_fit_block.063, i32 %10
+  %best_fit_block.1 = select i1 %or.cond, i32 %best_fit_block.062, i32 %10
+  %best_fit_size.1 = select i1 %or.cond, i64 %best_fit_size.063, i64 %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
@@ -760,7 +760,7 @@ for.body35.lr.ph:                                 ; preds = %for.end30
 
 for.body35:                                       ; preds = %for.body35.lr.ph, %for.inc169
   %indvars.iv123 = phi i64 [ 0, %for.body35.lr.ph ], [ %indvars.iv.next124.pre-phi, %for.inc169 ]
-  %last_barrier_pos.0102 = phi i32 [ 0, %for.body35.lr.ph ], [ %last_barrier_pos.1, %for.inc169 ]
+  %last_barrier_pos.0101 = phi i32 [ 0, %for.body35.lr.ph ], [ %last_barrier_pos.1, %for.inc169 ]
   %indvars126 = trunc i64 %indvars.iv123 to i32
   br i1 %tobool.not, label %cond.end47, label %lor.lhs.false
 
@@ -807,7 +807,7 @@ lor.lhs.false92.for.inc169_crit_edge:             ; preds = %lor.lhs.false92
   br label %for.inc169
 
 if.then96:                                        ; preds = %lor.lhs.false, %lor.lhs.false92, %for.end66
-  %cond101 = select i1 %tobool.not, i32 %indvars126, i32 %last_barrier_pos.0102
+  %cond101 = select i1 %tobool.not, i32 %indvars126, i32 %last_barrier_pos.0101
   %28 = add nuw nsw i64 %indvars.iv123, 1
   %cond107 = add nuw nsw i32 %indvars126, %add105
   %cmp11098 = icmp slt i32 %cond101, %cond107
@@ -903,12 +903,12 @@ for.inc161:                                       ; preds = %for.inc158, %for.bo
 
 for.end163:                                       ; preds = %for.inc161, %if.then96
   %46 = trunc nuw nsw i64 %28 to i32
-  %spec.select = select i1 %tobool.not, i32 %last_barrier_pos.0102, i32 %46
+  %spec.select = select i1 %tobool.not, i32 %last_barrier_pos.0101, i32 %46
   br label %for.inc169
 
 for.inc169:                                       ; preds = %lor.lhs.false92.for.inc169_crit_edge, %for.end163
   %indvars.iv.next124.pre-phi = phi i64 [ %.pre128, %lor.lhs.false92.for.inc169_crit_edge ], [ %28, %for.end163 ]
-  %last_barrier_pos.1 = phi i32 [ %last_barrier_pos.0102, %lor.lhs.false92.for.inc169_crit_edge ], [ %spec.select, %for.end163 ]
+  %last_barrier_pos.1 = phi i32 [ %last_barrier_pos.0101, %lor.lhs.false92.for.inc169_crit_edge ], [ %spec.select, %for.end163 ]
   %exitcond127.not = icmp eq i64 %indvars.iv.next124.pre-phi, %wide.trip.count
   br i1 %exitcond127.not, label %for.end171, label %for.body35, !llvm.loop !13
 
@@ -1441,29 +1441,29 @@ for.body.lr.ph:                                   ; preds = %do.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %nbytes.024 = phi i64 [ 0, %for.body.lr.ph ], [ %nbytes.1, %for.inc ]
-  %t.023 = phi ptr [ %call5, %for.body.lr.ph ], [ %call17, %for.inc ]
-  %data = getelementptr inbounds i8, ptr %t.023, i64 280
+  %t.024 = phi ptr [ %call5, %for.body.lr.ph ], [ %call17, %for.inc ]
+  %nbytes.023 = phi i64 [ 0, %for.body.lr.ph ], [ %nbytes.1, %for.inc ]
+  %data = getelementptr inbounds i8, ptr %t.024, i64 280
   %2 = load ptr, ptr %data, align 8
   %cmp8 = icmp eq ptr %2, null
   br i1 %cmp8, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %for.body
-  %view_src = getelementptr inbounds i8, ptr %t.023, i64 264
+  %view_src = getelementptr inbounds i8, ptr %t.024, i64 264
   %3 = load ptr, ptr %view_src, align 8
   %cmp10 = icmp eq ptr %3, null
   br i1 %cmp10, label %if.then12, label %for.inc
 
 if.then12:                                        ; preds = %land.lhs.true
-  %call13 = tail call i64 @ggml_backend_buft_get_alloc_size(ptr noundef %buft, ptr noundef nonnull %t.023) #15
+  %call13 = tail call i64 @ggml_backend_buft_get_alloc_size(ptr noundef %buft, ptr noundef nonnull %t.024) #15
   %sub = add i64 %add, %call13
   %and = and i64 %sub, %not
-  %add15 = add i64 %and, %nbytes.024
+  %add15 = add i64 %and, %nbytes.023
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %land.lhs.true, %if.then12
-  %nbytes.1 = phi i64 [ %add15, %if.then12 ], [ %nbytes.024, %land.lhs.true ], [ %nbytes.024, %for.body ]
-  %call17 = tail call ptr @ggml_get_next_tensor(ptr noundef %ctx, ptr noundef nonnull %t.023) #15
+  %nbytes.1 = phi i64 [ %add15, %if.then12 ], [ %nbytes.023, %land.lhs.true ], [ %nbytes.023, %for.body ]
+  %call17 = tail call ptr @ggml_get_next_tensor(ptr noundef %ctx, ptr noundef nonnull %t.024) #15
   %cmp6.not = icmp eq ptr %call17, null
   br i1 %cmp6.not, label %for.end, label %for.body, !llvm.loop !14
 

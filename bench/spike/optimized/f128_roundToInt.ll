@@ -55,7 +55,7 @@ define { i64, i64 } @f128_roundToInt(i64 %0, i64 %1, i8 noundef zeroext %2, i1 n
   %30 = icmp eq i64 %0, -9223372036854775808
   %or.cond5 = select i1 %23, i1 %30, i1 false
   %31 = and i64 %29, -2
-  %spec.select108 = select i1 %or.cond5, i64 %31, i64 %29
+  %spec.select = select i1 %or.cond5, i64 %31, i64 %29
   br label %51
 
 32:                                               ; preds = %24
@@ -89,8 +89,8 @@ define { i64, i64 } @f128_roundToInt(i64 %0, i64 %1, i8 noundef zeroext %2, i1 n
   br label %51
 
 51:                                               ; preds = %28, %42, %46, %26, %39, %32
+  %.sroa.17.0 = phi i64 [ %1, %26 ], [ %37, %39 ], [ %37, %32 ], [ %50, %46 ], [ %1, %42 ], [ %spec.select, %28 ]
   %.sroa.028.0 = phi i64 [ %0, %26 ], [ %41, %39 ], [ %34, %32 ], [ %47, %46 ], [ %0, %42 ], [ %0, %28 ]
-  %.sroa.17.0 = phi i64 [ %1, %26 ], [ %37, %39 ], [ %37, %32 ], [ %50, %46 ], [ %1, %42 ], [ %spec.select108, %28 ]
   %52 = sub i64 0, %21
   %53 = and i64 %.sroa.028.0, %52
   br label %102
@@ -197,8 +197,8 @@ define { i64, i64 } @f128_roundToInt(i64 %0, i64 %1, i8 noundef zeroext %2, i1 n
   br label %102
 
 102:                                              ; preds = %99, %51
-  %.sroa.028.1 = phi i64 [ %53, %51 ], [ 0, %99 ]
   %.sroa.17.2 = phi i64 [ %.sroa.17.0, %51 ], [ %101, %99 ]
+  %.sroa.028.1 = phi i64 [ %53, %51 ], [ 0, %99 ]
   br i1 %3, label %103, label %107
 
 103:                                              ; preds = %102

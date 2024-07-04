@@ -2011,28 +2011,28 @@ if.end67.i:                                       ; preds = %if.end58.i
   br i1 %tobool72.not118.i, label %if.end94.i, label %land.rhs73.i
 
 land.rhs73.i:                                     ; preds = %if.end67.i, %for.inc88.i
-  %count.0120.i = phi i32 [ %count.1.i, %for.inc88.i ], [ 0, %if.end67.i ]
-  %r.1119.i = phi ptr [ %32, %for.inc88.i ], [ %31, %if.end67.i ]
-  %next74.i = getelementptr inbounds i8, ptr %r.1119.i, i64 392
+  %r.1120.i = phi ptr [ %32, %for.inc88.i ], [ %31, %if.end67.i ]
+  %count.0119.i = phi i32 [ %count.1.i, %for.inc88.i ], [ 0, %if.end67.i ]
+  %next74.i = getelementptr inbounds i8, ptr %r.1120.i, i64 392
   %32 = load ptr, ptr %next74.i, align 8
-  %hba_private77.i = getelementptr inbounds i8, ptr %r.1119.i, i64 40
+  %hba_private77.i = getelementptr inbounds i8, ptr %r.1120.i, i64 40
   %33 = load ptr, ptr %hba_private77.i, align 8
   %tobool78.not.i = icmp eq ptr %33, null
   br i1 %tobool78.not.i, label %for.inc88.i, label %if.then79.i
 
 if.then79.i:                                      ; preds = %land.rhs73.i
-  %inc.i = add i32 %count.0120.i, 1
+  %inc.i = add i32 %count.0119.i, 1
   %call81.i = call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #13
   %s82.i = getelementptr inbounds i8, ptr %call81.i, i64 24
   store ptr %s, ptr %s82.i, align 8
   %reply83.i = getelementptr inbounds i8, ptr %call81.i, i64 32
   store ptr %call68.i, ptr %reply83.i, align 8
   store ptr @mptsas_cancel_notify, ptr %call81.i, align 8
-  call void @scsi_req_cancel_async(ptr noundef nonnull %r.1119.i, ptr noundef nonnull %call81.i) #11
+  call void @scsi_req_cancel_async(ptr noundef nonnull %r.1120.i, ptr noundef nonnull %call81.i) #11
   br label %for.inc88.i
 
 for.inc88.i:                                      ; preds = %if.then79.i, %land.rhs73.i
-  %count.1.i = phi i32 [ %inc.i, %if.then79.i ], [ %count.0120.i, %land.rhs73.i ]
+  %count.1.i = phi i32 [ %inc.i, %if.then79.i ], [ %count.0119.i, %land.rhs73.i ]
   %tobool72.not.i = icmp eq ptr %32, null
   br i1 %tobool72.not.i, label %reply_maybe_async.i, label %land.rhs73.i, !llvm.loop !9
 

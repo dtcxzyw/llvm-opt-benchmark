@@ -6401,29 +6401,29 @@ entry:
   br i1 %cmp.i.not17, label %for.end19, label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc17
-  %min_epoch_number.019 = phi i64 [ %min_epoch_number.1.lcssa, %for.inc17 ], [ -1, %entry ]
-  %__begin1.sroa.0.018 = phi ptr [ %incdec.ptr.i6, %for.inc17 ], [ %0, %entry ]
-  %files = getelementptr inbounds i8, ptr %__begin1.sroa.0.018, i64 8
+  %__begin1.sroa.0.019 = phi ptr [ %incdec.ptr.i6, %for.inc17 ], [ %0, %entry ]
+  %min_epoch_number.018 = phi i64 [ %min_epoch_number.1.lcssa, %for.inc17 ], [ -1, %entry ]
+  %files = getelementptr inbounds i8, ptr %__begin1.sroa.0.019, i64 8
   %2 = load ptr, ptr %files, align 8
-  %_M_finish.i3 = getelementptr inbounds i8, ptr %__begin1.sroa.0.018, i64 16
+  %_M_finish.i3 = getelementptr inbounds i8, ptr %__begin1.sroa.0.019, i64 16
   %3 = load ptr, ptr %_M_finish.i3, align 8
   %cmp.i4.not14 = icmp eq ptr %2, %3
   br i1 %cmp.i4.not14, label %for.inc17, label %for.body13
 
 for.body13:                                       ; preds = %for.body, %for.body13
-  %min_epoch_number.116 = phi i64 [ %.sroa.speculated, %for.body13 ], [ %min_epoch_number.019, %for.body ]
-  %__begin2.sroa.0.015 = phi ptr [ %incdec.ptr.i, %for.body13 ], [ %2, %for.body ]
-  %4 = load ptr, ptr %__begin2.sroa.0.015, align 8
+  %__begin2.sroa.0.016 = phi ptr [ %incdec.ptr.i, %for.body13 ], [ %2, %for.body ]
+  %min_epoch_number.115 = phi i64 [ %.sroa.speculated, %for.body13 ], [ %min_epoch_number.018, %for.body ]
+  %4 = load ptr, ptr %__begin2.sroa.0.016, align 8
   %epoch_number = getelementptr inbounds i8, ptr %4, i64 208
   %5 = load i64, ptr %epoch_number, align 8
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %5, i64 %min_epoch_number.116)
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.015, i64 8
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %5, i64 %min_epoch_number.115)
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.016, i64 8
   %cmp.i4.not = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.i4.not, label %for.inc17, label %for.body13
 
 for.inc17:                                        ; preds = %for.body13, %for.body
-  %min_epoch_number.1.lcssa = phi i64 [ %min_epoch_number.019, %for.body ], [ %.sroa.speculated, %for.body13 ]
-  %incdec.ptr.i6 = getelementptr inbounds i8, ptr %__begin1.sroa.0.018, i64 56
+  %min_epoch_number.1.lcssa = phi i64 [ %min_epoch_number.018, %for.body ], [ %.sroa.speculated, %for.body13 ]
+  %incdec.ptr.i6 = getelementptr inbounds i8, ptr %__begin1.sroa.0.019, i64 56
   %cmp.i.not = icmp eq ptr %incdec.ptr.i6, %1
   br i1 %cmp.i.not, label %for.end19, label %for.body
 

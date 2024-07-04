@@ -1828,16 +1828,16 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %14, %16, 
   br label %49
 
 49:                                               ; preds = %.lr.ph, %156
-  %.033 = phi i64 [ 0, %.lr.ph ], [ %157, %156 ]
+  %.02333 = phi i64 [ 0, %.lr.ph ], [ %157, %156 ]
   %50 = load ptr, ptr %48, align 8
-  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.033
+  %51 = getelementptr %"struct.QHashPrivate::Span", ptr %50, i64 %.02333
   %52 = getelementptr inbounds i8, ptr %51, i64 128
-  %53 = shl nuw i64 %.033, 7
+  %53 = shl nuw i64 %.02333, 7
   br label %54
 
 54:                                               ; preds = %49, %_ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit
-  %.02331 = phi i64 [ 0, %49 ], [ %155, %_ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit ]
-  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.02331
+  %.031 = phi i64 [ 0, %49 ], [ %155, %_ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit ]
+  %55 = getelementptr [128 x i8], ptr %51, i64 0, i64 %.031
   %56 = load i8, ptr %55, align 1
   %.not30 = icmp eq i8 %56, -1
   br i1 %.not30, label %_ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit, label %57
@@ -1900,7 +1900,7 @@ _Z11qHashEqualsI7QStringEbRKT_S3_.exit.thread.i:  ; preds = %_Z11qHashEqualsI7QS
   br i1 %98, label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit, label %.lr.ph.i, !llvm.loop !18
 
 99:                                               ; preds = %57
-  %100 = add nuw nsw i64 %.02331, %53
+  %100 = add nuw nsw i64 %.031, %53
   %.pre = load ptr, ptr %13, align 8
   br label %_ZNK12QHashPrivate4DataINS_4NodeI7QStringS2_EEE4findERKS2_.exit
 
@@ -2014,12 +2014,12 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %142, %_ZN12QHashPri
   br label %_ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit
 
 _ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit: ; preds = %153, %_ZN7QStringC2ERKS_.exit.i, %54
-  %155 = add nuw nsw i64 %.02331, 1
+  %155 = add nuw nsw i64 %.031, 1
   %exitcond.not = icmp eq i64 %155, 128
   br i1 %exitcond.not, label %156, label %54, !llvm.loop !21
 
 156:                                              ; preds = %_ZN12QHashPrivate4NodeI7QStringS1_EC2ERKS2_.exit
-  %157 = add nuw nsw i64 %.033, 1
+  %157 = add nuw nsw i64 %.02333, 1
   %exitcond35.not = icmp eq i64 %157, %47
   br i1 %exitcond35.not, label %._crit_edge, label %49, !llvm.loop !22
 

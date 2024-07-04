@@ -547,9 +547,9 @@ if.end8:                                          ; preds = %if.end
 
 if.end13:                                         ; preds = %lor.lhs.false, %if.end8
   %cmp14 = icmp eq i32 %which, 71
-  %spec.select = select i1 %cmp14, i32 70, i32 %which
-  %spec.select15 = select i1 %cmp14, i32 65, i32 %which
-  %cmp17.not19 = icmp ugt i32 %spec.select15, %spec.select
+  %spec.select = select i1 %cmp14, i32 65, i32 %which
+  %spec.select15 = select i1 %cmp14, i32 70, i32 %which
+  %cmp17.not19 = icmp ugt i32 %spec.select, %spec.select15
   br i1 %cmp17.not19, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end13
@@ -557,7 +557,7 @@ for.body.lr.ph:                                   ; preds = %if.end13
   %uchars_.i = getelementptr inbounds i8, ptr %trie, i64 8
   %pos_.i = getelementptr inbounds i8, ptr %trie, i64 16
   %remainingMatchLength_.i = getelementptr inbounds i8, ptr %trie, i64 24
-  %2 = zext nneg i32 %spec.select15 to i64
+  %2 = zext nneg i32 %spec.select to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -597,7 +597,7 @@ lpad23:                                           ; preds = %invoke.cont
 
 for.inc:                                          ; preds = %invoke.cont24, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp17.not.not = icmp sgt i32 %spec.select, %3
+  %cmp17.not.not = icmp sgt i32 %spec.select15, %3
   br i1 %cmp17.not.not, label %for.body, label %return, !llvm.loop !8
 
 return:                                           ; preds = %for.inc, %invoke.cont24, %if.end13, %if.end8, %land.lhs.true4, %lor.lhs.false, %entry

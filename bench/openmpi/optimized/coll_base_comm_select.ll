@@ -746,8 +746,8 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i1348, %27
   br label %298
 
 298:                                              ; preds = %opal_list_remove_first.exit2055, %.lr.ph
-  %.011312068 = phi ptr [ %290, %.lr.ph ], [ %3777, %opal_list_remove_first.exit2055 ]
-  %299 = getelementptr inbounds i8, ptr %.011312068, i64 48
+  %.011302068 = phi ptr [ %290, %.lr.ph ], [ %3777, %opal_list_remove_first.exit2055 ]
+  %299 = getelementptr inbounds i8, ptr %.011302068, i64 48
   %300 = load ptr, ptr %299, align 8
   %301 = getelementptr inbounds i8, ptr %300, i64 16
   %302 = load ptr, ptr %301, align 8
@@ -758,9 +758,9 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i1348, %27
 
 306:                                              ; preds = %298
   %307 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_coll_base_framework, i64 76), align 4
-  %308 = getelementptr inbounds i8, ptr %.011312068, i64 56
+  %308 = getelementptr inbounds i8, ptr %.011302068, i64 56
   %309 = load ptr, ptr %308, align 8
-  %310 = getelementptr inbounds i8, ptr %.011312068, i64 40
+  %310 = getelementptr inbounds i8, ptr %.011302068, i64 40
   %311 = load i32, ptr %310, align 8
   %312 = icmp eq i32 %303, 0
   %313 = select i1 %312, ptr @.str.7, ptr @.str.8
@@ -778,14 +778,14 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i1348, %27
   %320 = getelementptr inbounds i8, ptr %319, i64 16
   %321 = getelementptr inbounds i8, ptr %319, i64 40
   %322 = load volatile ptr, ptr %321, align 8
-  %323 = getelementptr inbounds i8, ptr %.011312068, i64 24
+  %323 = getelementptr inbounds i8, ptr %.011302068, i64 24
   store volatile ptr %322, ptr %323, align 8
   %324 = load volatile ptr, ptr %321, align 8
   %325 = getelementptr inbounds i8, ptr %324, i64 16
-  store volatile ptr %.011312068, ptr %325, align 8
-  %326 = getelementptr inbounds i8, ptr %.011312068, i64 16
+  store volatile ptr %.011302068, ptr %325, align 8
+  %326 = getelementptr inbounds i8, ptr %.011302068, i64 16
   store volatile ptr %320, ptr %326, align 8
-  store volatile ptr %.011312068, ptr %321, align 8
+  store volatile ptr %.011302068, ptr %321, align 8
   %327 = getelementptr inbounds i8, ptr %319, i64 56
   %328 = load volatile i64, ptr %327, align 8
   %329 = add i64 %328, 1
@@ -7723,7 +7723,7 @@ opal_obj_run_destructors.exit2045:                ; preds = %opal_obj_run_destru
 
 3753:                                             ; preds = %opal_obj_run_destructors.exit2045, %opal_thread_add_fetch_32.exit2039
   %3754 = phi i8 [ %.pre2071, %opal_obj_run_destructors.exit2045 ], [ %3733, %opal_thread_add_fetch_32.exit2039 ]
-  %3755 = getelementptr inbounds i8, ptr %.011312068, i64 8
+  %3755 = getelementptr inbounds i8, ptr %.011302068, i64 8
   %3756 = trunc i8 %3754 to i1
   br i1 %3756, label %3757, label %3760
 
@@ -7745,7 +7745,7 @@ opal_thread_add_fetch_32.exit2047:                ; preds = %3757, %3760
   br i1 %3764, label %3765, label %opal_thread_add_fetch_32.exit2037
 
 3765:                                             ; preds = %opal_thread_add_fetch_32.exit2047
-  %3766 = load ptr, ptr %.011312068, align 8
+  %3766 = load ptr, ptr %.011302068, align 8
   %3767 = getelementptr inbounds i8, ptr %3766, i64 48
   %3768 = load ptr, ptr %3767, align 8
   %3769 = load ptr, ptr %3768, align 8
@@ -7755,14 +7755,14 @@ opal_thread_add_fetch_32.exit2047:                ; preds = %3757, %3760
 .lr.ph.i2049:                                     ; preds = %3765, %.lr.ph.i2049
   %3770 = phi ptr [ %3772, %.lr.ph.i2049 ], [ %3769, %3765 ]
   %.07.i2050 = phi ptr [ %3771, %.lr.ph.i2049 ], [ %3768, %3765 ]
-  call void %3770(ptr noundef nonnull %.011312068) #9
+  call void %3770(ptr noundef nonnull %.011302068) #9
   %3771 = getelementptr inbounds i8, ptr %.07.i2050, i64 8
   %3772 = load ptr, ptr %3771, align 8
   %.not.i2051 = icmp eq ptr %3772, null
   br i1 %.not.i2051, label %opal_obj_run_destructors.exit2053, label %.lr.ph.i2049, !llvm.loop !4
 
 opal_obj_run_destructors.exit2053:                ; preds = %.lr.ph.i2049, %3765
-  call void @free(ptr noundef %.011312068) #9
+  call void @free(ptr noundef %.011302068) #9
   br label %opal_thread_add_fetch_32.exit2037
 
 opal_thread_add_fetch_32.exit2037:                ; preds = %3726, %3724, %opal_thread_add_fetch_32.exit2027, %opal_thread_add_fetch_32.exit2047, %opal_obj_run_destructors.exit2053
@@ -8164,15 +8164,15 @@ opal_obj_run_destructors.exit2063:                ; preds = %.lr.ph.i2059, %3795
   br i1 %4019, label %4020, label %4024
 
 4020:                                             ; preds = %4016, %4012, %4008, %4004, %3999, %3995, %3991, %3987, %3983, %3979, %3974, %3970, %3966, %3962, %3958, %3954, %3950, %3946, %3942, %3938, %3934, %3929, %3925, %3921, %3917, %3913, %3909, %3904, %3900, %3896, %3892, %3888, %3884, %3880, %3876, %3872, %3868, %3864, %3859, %3855, %3851, %3847, %3843, %3839, %3831, %3827, %3823, %3819, %3815, %3811, %3807, %3803
-  %.01130 = phi ptr [ @.str.9, %3803 ], [ @.str.10, %3807 ], [ @.str.11, %3811 ], [ @.str.12, %3815 ], [ @.str.13, %3819 ], [ @.str.14, %3823 ], [ @.str.15, %3827 ], [ @.str.16, %3831 ], [ @.str.18, %3843 ], [ @.str.19, %3847 ], [ @.str.20, %3851 ], [ @.str.21, %3855 ], [ @.str.22, %3859 ], [ @.str.24, %3868 ], [ @.str.25, %3872 ], [ @.str.26, %3876 ], [ @.str.27, %3880 ], [ @.str.28, %3884 ], [ @.str.29, %3888 ], [ @.str.30, %3892 ], [ @.str.31, %3896 ], [ @.str.32, %3900 ], [ @.str.33, %3904 ], [ @.str.35, %3913 ], [ @.str.36, %3917 ], [ @.str.37, %3921 ], [ @.str.38, %3925 ], [ @.str.39, %3929 ], [ @.str.41, %3938 ], [ @.str.42, %3942 ], [ @.str.43, %3946 ], [ @.str.44, %3950 ], [ @.str.45, %3954 ], [ @.str.46, %3958 ], [ @.str.47, %3962 ], [ @.str.48, %3966 ], [ @.str.49, %3970 ], [ @.str.50, %3974 ], [ @.str.52, %3983 ], [ @.str.53, %3987 ], [ @.str.54, %3991 ], [ @.str.55, %3995 ], [ @.str.56, %3999 ], [ @.str.58, %4008 ], [ @.str.59, %4012 ], [ @.str.60, %4016 ], [ @.str.57, %4004 ], [ @.str.51, %3979 ], [ @.str.40, %3934 ], [ @.str.34, %3909 ], [ @.str.23, %3864 ], [ @.str.17, %3839 ]
+  %.0 = phi ptr [ @.str.9, %3803 ], [ @.str.10, %3807 ], [ @.str.11, %3811 ], [ @.str.12, %3815 ], [ @.str.13, %3819 ], [ @.str.14, %3823 ], [ @.str.15, %3827 ], [ @.str.16, %3831 ], [ @.str.18, %3843 ], [ @.str.19, %3847 ], [ @.str.20, %3851 ], [ @.str.21, %3855 ], [ @.str.22, %3859 ], [ @.str.24, %3868 ], [ @.str.25, %3872 ], [ @.str.26, %3876 ], [ @.str.27, %3880 ], [ @.str.28, %3884 ], [ @.str.29, %3888 ], [ @.str.30, %3892 ], [ @.str.31, %3896 ], [ @.str.32, %3900 ], [ @.str.33, %3904 ], [ @.str.35, %3913 ], [ @.str.36, %3917 ], [ @.str.37, %3921 ], [ @.str.38, %3925 ], [ @.str.39, %3929 ], [ @.str.41, %3938 ], [ @.str.42, %3942 ], [ @.str.43, %3946 ], [ @.str.44, %3950 ], [ @.str.45, %3954 ], [ @.str.46, %3958 ], [ @.str.47, %3962 ], [ @.str.48, %3966 ], [ @.str.49, %3970 ], [ @.str.50, %3974 ], [ @.str.52, %3983 ], [ @.str.53, %3987 ], [ @.str.54, %3991 ], [ @.str.55, %3995 ], [ @.str.56, %3999 ], [ @.str.58, %4008 ], [ @.str.59, %4012 ], [ @.str.60, %4016 ], [ @.str.57, %4004 ], [ @.str.51, %3979 ], [ @.str.40, %3934 ], [ @.str.34, %3909 ], [ @.str.23, %3864 ], [ @.str.17, %3839 ]
   %4021 = load ptr, ptr @opal_show_help, align 8
-  %4022 = call i32 (ptr, ptr, i32, ...) %4021(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.61, i32 noundef 1, ptr noundef nonnull %.01130) #9
+  %4022 = call i32 (ptr, ptr, i32, ...) %4021(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.61, i32 noundef 1, ptr noundef nonnull %.0) #9
   %4023 = call i32 @mca_coll_base_comm_unselect(ptr noundef %0) #9
   br label %4024
 
 4024:                                             ; preds = %4016, %4020, %265
-  %.0 = phi i32 [ -1, %265 ], [ -13, %4020 ], [ 0, %4016 ]
-  ret i32 %.0
+  %.01131 = phi i32 [ -1, %265 ], [ -13, %4020 ], [ 0, %4016 ]
+  ret i32 %.01131
 }
 
 declare zeroext i1 @opal_output_check_verbosity(i32 noundef, i32 noundef) local_unnamed_addr #1

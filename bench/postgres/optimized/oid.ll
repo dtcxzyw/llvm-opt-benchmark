@@ -316,17 +316,17 @@ define dso_local i64 @oidvectorout(ptr nocapture noundef readonly %0) local_unna
 
 13:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %.01315 = phi ptr [ %10, %.lr.ph ], [ %21, %23 ]
+  %.016 = phi ptr [ %10, %.lr.ph ], [ %21, %23 ]
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr i8, ptr %.01315, i64 1
-  store i8 32, ptr %.01315, align 1
+  %15 = getelementptr i8, ptr %.016, i64 1
+  store i8 32, ptr %.016, align 1
   br label %16
 
 16:                                               ; preds = %14, %13
-  %.1 = phi ptr [ %15, %14 ], [ %.01315, %13 ]
+  %.1 = phi ptr [ %15, %14 ], [ %.016, %13 ]
   %17 = getelementptr [0 x i32], ptr %12, i64 0, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.1, ptr noundef nonnull @.str.1, i32 noundef %18) #11
@@ -345,8 +345,8 @@ define dso_local i64 @oidvectorout(ptr nocapture noundef readonly %0) local_unna
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %23, %1
-  %.013.lcssa = phi ptr [ %10, %1 ], [ %21, %23 ]
-  store i8 0, ptr %.013.lcssa, align 1
+  %.0.lcssa = phi ptr [ %10, %1 ], [ %21, %23 ]
+  store i8 0, ptr %.0.lcssa, align 1
   %24 = ptrtoint ptr %10 to i64
   ret i64 %24
 }

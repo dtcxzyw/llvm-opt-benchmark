@@ -605,20 +605,20 @@ define internal i32 @dissect_kdsp_message(ptr noundef %0, ptr noundef %1, ptr no
   %160 = and i32 %157, 8
   %.not454 = icmp eq i32 %160, 0
   %narrow = add nuw nsw i16 %spec.select, 2
-  %.1443 = select i1 %.not454, i16 %spec.select, i16 %narrow
+  %.1440 = select i1 %.not454, i16 %spec.select, i16 %narrow
   %161 = and i32 %157, 4
   %.not455 = icmp eq i32 %161, 0
-  %162 = add nuw nsw i16 %.1443, 8
-  %.2444 = select i1 %.not455, i16 %.1443, i16 %162
+  %162 = add nuw nsw i16 %.1440, 8
+  %.2441 = select i1 %.not455, i16 %.1440, i16 %162
   %163 = and i32 %157, 2
   %.not456 = icmp eq i32 %163, 0
-  %164 = add nuw nsw i16 %.2444, 8
-  %.3445 = select i1 %.not456, i16 %.2444, i16 %164
+  %164 = add nuw nsw i16 %.2441, 8
+  %.3442 = select i1 %.not456, i16 %.2441, i16 %164
   %165 = and i32 %157, 1
   %.not457 = icmp eq i32 %165, 0
-  %166 = add nuw nsw i16 %.3445, 4
-  %.4446 = select i1 %.not457, i16 %.3445, i16 %166
-  %.not458 = icmp eq i16 %.4446, %141
+  %166 = add nuw nsw i16 %.3442, 4
+  %.4443 = select i1 %.not457, i16 %.3442, i16 %166
+  %.not458 = icmp eq i16 %.4443, %141
   br i1 %.not458, label %169, label %167
 
 167:                                              ; preds = %134
@@ -647,7 +647,7 @@ define internal i32 @dissect_kdsp_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %181
 
 181:                                              ; preds = %175, %174
-  %.0441 = phi i32 [ %180, %175 ], [ 0, %174 ]
+  %.0444 = phi i32 [ %180, %175 ], [ 0, %174 ]
   %.4 = phi i32 [ %179, %175 ], [ %.3, %174 ]
   br i1 %.not455, label %186, label %182
 
@@ -686,7 +686,7 @@ define internal i32 @dissect_kdsp_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not454, label %210, label %201
 
 201:                                              ; preds = %.thread
-  %202 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %198, i32 noundef %200, i32 noundef %.0441) #2
+  %202 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %198, i32 noundef %200, i32 noundef %.0444) #2
   %203 = load ptr, ptr @subdissector_dlt_table, align 8
   %204 = tail call i32 @dissector_try_uint(ptr noundef %203, i32 noundef %197, ptr noundef %202, ptr noundef nonnull %1, ptr noundef %2) #2
   %205 = load ptr, ptr %5, align 8
@@ -694,7 +694,7 @@ define internal i32 @dissect_kdsp_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %322
 
 206:                                              ; preds = %192
-  %207 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.6, i32 noundef %194, i32 noundef %.0441) #2
+  %207 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.6, i32 noundef %194, i32 noundef %.0444) #2
   %.not460 = icmp eq i32 %193, %.6
   br i1 %.not460, label %322, label %208
 
@@ -759,7 +759,7 @@ define internal i32 @dissect_kdsp_message(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph:                                           ; preds = %215, %270
   %.8471 = phi i32 [ %.9, %270 ], [ 42, %215 ]
-  %.0439470 = phi i32 [ %273, %270 ], [ 0, %215 ]
+  %.0446470 = phi i32 [ %273, %270 ], [ 0, %215 ]
   %256 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.8471) #2
   %.not = icmp sgt i16 %256, -1
   %257 = add nuw nsw i32 %.8471, 2
@@ -787,7 +787,7 @@ define internal i32 @dissect_kdsp_message(ptr noundef %0, ptr noundef %1, ptr no
   %271 = load i32, ptr %hf_kdsp_ch_dwell.sink, align 4
   %272 = tail call ptr @proto_tree_add_item(ptr noundef %255, i32 noundef %271, ptr noundef %0, i32 noundef %.sink473, i32 noundef 2, i32 noundef 0) #2
   %.9 = add nuw nsw i32 %.8471, 8
-  %273 = add nuw nsw i32 %.0439470, 1
+  %273 = add nuw nsw i32 %.0446470, 1
   %exitcond.not = icmp eq i32 %273, %251
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
